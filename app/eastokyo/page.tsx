@@ -48,8 +48,8 @@ function PicassoPicture({ desktop, mobile, alt }: { desktop: string; mobile: str
   return <picture className="picasso-picture"><source media="(max-width: 640px)" srcSet={mobile} /><img src={desktop} alt={alt} loading="lazy" /></picture>;
 }
 
-function ImageSlot({ label }: { label: string }) {
-  return <div className="mag-media" style={{ display: "grid", placeItems: "center", minHeight: "22rem", border: "1px solid currentColor", background: "transparent" }}><span className="mag-kicker">{label}</span></div>;
+function ImageSlot({ number, title }: { number: string; title: string }) {
+  return <figure className="cubism-slot"><div className="cubism-slot-box"><span>IMAGE {number}</span></div><figcaption><strong>{number} · {title}</strong><span>PAINTING SLOT</span></figcaption></figure>;
 }
 
 export default function EastokyoHome() {
@@ -145,27 +145,27 @@ export default function EastokyoHome() {
 
       <section className="mag-passion-strip" aria-label="Editorial interlude"><p>Look. Turn. Return. <em>See it again.</em></p></section>
 
-      <section className="mag-section mag-night" aria-labelledby="cubism-title">
-        <div className="mag-night-sideword" aria-hidden="true">CUBISM</div>
-        <div className="mag-night-grid">
-          <header className="mag-night-heading"><p className="mag-kicker">CUBISM · PAINTING · P. 42</p><h2 id="cubism-title">The moment the picture broke open.</h2><p>Around 1907, Picasso began dismantling the assumptions that had governed painting for centuries. Perspective fractured. Bodies and objects became planes. In close exchange with Georges Braque, he developed a new visual language that moved between painting, sculpture and papiers collés—and changed what a picture could be.</p></header>
-          <figure className="mag-night-image-main mag-media"><EditorialImage src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=2000&q=94" alt="Temporary image placeholder for Picasso Cubist paintings" sizes="(max-width: 640px) 100vw, (max-width: 899px) 58vw, 58vw" /><figcaption className="mag-credit">PICASSO · CUBISM / P. 42</figcaption></figure>
-          <figure className="mag-night-image-small mag-media"><EditorialImage src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1500&q=92" alt="Temporary image placeholder for Picasso Cubist paintings" sizes="(max-width: 640px) 84vw, 36vw" /><figcaption className="mag-credit">PAINTING · PLANES · MULTIPLE VIEWPOINTS</figcaption></figure>
+      <section className="cubism-intro" aria-labelledby="cubism-title">
+        <div className="cubism-intro-word" aria-hidden="true">CUBISM</div>
+        <div className="cubism-intro-copy">
+          <p className="mag-kicker">CUBISM · PAINTING · P. 42</p>
+          <h2 id="cubism-title">The moment the picture broke open.</h2>
+          <p>Around 1907, Picasso began dismantling the assumptions that had governed painting for centuries. Perspective fractured. Bodies and objects became planes. In close exchange with Georges Braque, he developed a new visual language that moved between painting, sculpture and papiers collés—and changed what a picture could be.</p>
         </div>
+        <div className="cubism-intro-note"><span>1907 →</span><p>Perspective breaks.<br />The picture becomes construction.</p></div>
       </section>
 
-      <section className="mag-section mag-front picasso-feature" aria-labelledby="cubism-spread-title">
-        <div className="mag-rule-heading"><h2>CUBISM · P. 48</h2></div>
-        <div className="picasso-feature-intro">
-          <div className="picasso-feature-title"><p className="mag-kicker">PAINTING · FORM · SPACE</p><h3 id="cubism-spread-title">Breaking the picture apart.</h3><p className="mag-deck">Cubism begins with a refusal: the refusal to let painting remain a single, stable view of the world.</p></div>
-          <aside className="picasso-feature-note"><strong>THREE WORKS</strong><p>Three paintings will carry this section. The layout is reserved now; the actual works come later.</p></aside>
+      <section className="cubism-spread" aria-labelledby="cubism-spread-title">
+        <div className="cubism-spread-head">
+          <div><p className="mag-kicker">CUBISM · P. 48</p><h2 id="cubism-spread-title">Breaking the picture apart.</h2></div>
+          <p>Cubism begins with a refusal: the refusal to let painting remain a single, stable view of the world. Three works will carry this section.</p>
         </div>
-        <div className="picasso-gallery">
-          <figure className="picasso-shot picasso-shot-1"><ImageSlot label="IMAGE 01" /><figcaption><span>01 · THE BROKEN SURFACE</span><span>PAINTING SLOT</span></figcaption></figure>
-          <figure className="picasso-shot picasso-shot-2"><ImageSlot label="IMAGE 02" /><figcaption><span>02 · MULTIPLE VIEWPOINTS</span><span>PAINTING SLOT</span></figcaption></figure>
-          <figure className="picasso-shot picasso-shot-3"><ImageSlot label="IMAGE 03" /><figcaption><span>03 · FORM IN FRAGMENTS</span><span>PAINTING / DETAIL SLOT</span></figcaption></figure>
+        <div className="cubism-slot-grid">
+          <ImageSlot number="01" title="THE BROKEN SURFACE" />
+          <ImageSlot number="02" title="MULTIPLE VIEWPOINTS" />
+          <ImageSlot number="03" title="FORM IN FRAGMENTS" />
         </div>
-        <div className="picasso-feature-outro"><div className="picasso-meta">PICASSO · CUBISM<br />PAINTING · SCULPTURE · PAPIERS COLLÉS<br />EASTOKYO · P. 48</div><p>Objects and bodies no longer sit obediently inside perspective. Picasso breaks them into planes, turns them through space and rebuilds them across the surface. The painting stops behaving like a window and becomes a construction.</p></div>
+        <div className="cubism-spread-foot"><p>Objects and bodies no longer sit obediently inside perspective. Picasso breaks them into planes, turns them through space and rebuilds them across the surface.</p><div>PICASSO · CUBISM<br />PAINTING · SCULPTURE · PAPIERS COLLÉS<br />EASTOKYO · P. 48</div></div>
       </section>
 
       <section className="mag-section mag-index" id="from-the-show" aria-labelledby="show-title">
@@ -193,5 +193,107 @@ export default function EastokyoHome() {
       <a className="mag-footer-wordmark" href="#top" aria-label="Back to top">EASTOKYO</a>
       <div className="mag-footer-bottom"><p>© 2026 EASTOKYO</p><p>MADE IN TOKYO · LOOKING OUTWARD</p><a href="#top">BACK TO TOP ↑</a></div>
     </footer>
+
+    <style jsx>{`
+      .cubism-intro {
+        background: #0d0d0d;
+        color: #f4f1e9;
+        padding: clamp(3rem, 6vw, 6rem) clamp(1.25rem, 4vw, 4rem);
+        display: grid;
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr) minmax(12rem, .55fr);
+        gap: clamp(1.5rem, 3vw, 4rem);
+        align-items: end;
+        border-bottom: 1px solid rgba(255,255,255,.22);
+      }
+      .cubism-intro-word {
+        font-size: clamp(5rem, 13vw, 13rem);
+        line-height: .72;
+        letter-spacing: -.07em;
+        font-weight: 900;
+      }
+      .cubism-intro-copy h2 {
+        font-size: clamp(2.4rem, 5vw, 5.5rem);
+        line-height: .92;
+        margin: .75rem 0 1.25rem;
+        max-width: 9ch;
+      }
+      .cubism-intro-copy > p:last-child {
+        max-width: 44rem;
+        font-size: clamp(1rem, 1.35vw, 1.25rem);
+        line-height: 1.55;
+      }
+      .cubism-intro-note {
+        border-top: 1px solid currentColor;
+        padding-top: 1rem;
+        align-self: end;
+      }
+      .cubism-intro-note span { font-size: 1.8rem; font-weight: 800; }
+      .cubism-intro-note p { margin-top: .65rem; line-height: 1.35; }
+      .cubism-spread {
+        padding: clamp(3.5rem, 7vw, 7rem) clamp(1.25rem, 4vw, 4rem);
+        background: #f4f1e9;
+        color: #111;
+      }
+      .cubism-spread-head {
+        display: grid;
+        grid-template-columns: minmax(0, 1.25fr) minmax(18rem, .75fr);
+        gap: clamp(2rem, 5vw, 6rem);
+        align-items: end;
+        padding-bottom: clamp(2rem, 4vw, 4rem);
+        border-bottom: 1px solid currentColor;
+      }
+      .cubism-spread-head h2 {
+        margin-top: .65rem;
+        font-size: clamp(3rem, 7vw, 7rem);
+        line-height: .9;
+        max-width: 10ch;
+      }
+      .cubism-spread-head > p { max-width: 34rem; font-size: 1.05rem; line-height: 1.55; }
+      .cubism-slot-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: clamp(1rem, 2vw, 2rem);
+        padding: clamp(2.5rem, 5vw, 5rem) 0;
+      }
+      .cubism-slot { margin: 0; min-width: 0; }
+      .cubism-slot-box {
+        aspect-ratio: 4 / 5;
+        border: 1px solid currentColor;
+        display: grid;
+        place-items: center;
+        background: transparent;
+      }
+      .cubism-slot-box span { font-size: .78rem; letter-spacing: .16em; font-weight: 700; }
+      .cubism-slot figcaption {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        padding-top: .8rem;
+        font-size: .72rem;
+        letter-spacing: .08em;
+      }
+      .cubism-slot figcaption span { opacity: .55; white-space: nowrap; }
+      .cubism-spread-foot {
+        border-top: 1px solid currentColor;
+        padding-top: 1.4rem;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 2rem;
+        align-items: start;
+      }
+      .cubism-spread-foot > p { max-width: 50rem; font-size: 1.05rem; line-height: 1.55; }
+      .cubism-spread-foot > div { font-size: .72rem; line-height: 1.55; letter-spacing: .07em; text-align: right; }
+      @media (max-width: 899px) {
+        .cubism-intro { grid-template-columns: 1fr; align-items: start; }
+        .cubism-intro-word { margin-bottom: 1rem; }
+        .cubism-intro-copy h2 { max-width: 12ch; }
+        .cubism-intro-note { max-width: 22rem; }
+        .cubism-spread-head { grid-template-columns: 1fr; }
+        .cubism-slot-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+        .cubism-slot-box { aspect-ratio: 4 / 3; }
+        .cubism-spread-foot { grid-template-columns: 1fr; }
+        .cubism-spread-foot > div { text-align: left; }
+      }
+    `}</style>
   </div>;
 }
