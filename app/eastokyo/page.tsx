@@ -48,6 +48,10 @@ function PicassoPicture({ desktop, mobile, alt }: { desktop: string; mobile: str
   return <picture className="picasso-picture"><source media="(max-width: 640px)" srcSet={mobile} /><img src={desktop} alt={alt} loading="lazy" /></picture>;
 }
 
+function ImageSlot({ label }: { label: string }) {
+  return <div className="mag-media" style={{ display: "grid", placeItems: "center", minHeight: "22rem", border: "1px solid currentColor", background: "transparent" }}><span className="mag-kicker">{label}</span></div>;
+}
+
 export default function EastokyoHome() {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
@@ -154,12 +158,12 @@ export default function EastokyoHome() {
         <div className="mag-rule-heading"><h2>CUBISM · P. 48</h2></div>
         <div className="picasso-feature-intro">
           <div className="picasso-feature-title"><p className="mag-kicker">PAINTING · FORM · SPACE</p><h3 id="cubism-spread-title">Breaking the picture apart.</h3><p className="mag-deck">Cubism begins with a refusal: the refusal to let painting remain a single, stable view of the world.</p></div>
-          <aside className="picasso-feature-note"><strong>THREE VIEWS</strong><p>Three image slots for three works: a main painting, a second Cubist painting and a detail or installation view from the exhibition.</p></aside>
+          <aside className="picasso-feature-note"><strong>THREE WORKS</strong><p>Three paintings will carry this section. The layout is reserved now; the actual works come later.</p></aside>
         </div>
         <div className="picasso-gallery">
-          <figure className="picasso-shot picasso-shot-1"><div className="mag-media"><EditorialImage src="https://images.unsplash.com/photo-1577083552431-6e5fd01aa342?auto=format&fit=crop&w=1600&q=90" alt="Temporary image slot for a Picasso Cubist painting" sizes="(max-width: 640px) 100vw, 46vw" /></div><figcaption><span>01 · THE BROKEN SURFACE</span><span>IMAGE SLOT</span></figcaption></figure>
-          <figure className="picasso-shot picasso-shot-2"><div className="mag-media"><EditorialImage src="https://images.unsplash.com/photo-1549490349-8643362247b5?auto=format&fit=crop&w=1400&q=90" alt="Temporary image slot for a second Picasso Cubist painting" sizes="(max-width: 640px) 100vw, 30vw" /></div><figcaption><span>02 · MULTIPLE VIEWPOINTS</span><span>IMAGE SLOT</span></figcaption></figure>
-          <figure className="picasso-shot picasso-shot-3"><div className="mag-media"><EditorialImage src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&w=1400&q=90" alt="Temporary image slot for a Cubist detail or installation view" sizes="(max-width: 640px) 100vw, 30vw" /></div><figcaption><span>03 · FORM IN FRAGMENTS</span><span>IMAGE SLOT</span></figcaption></figure>
+          <figure className="picasso-shot picasso-shot-1"><ImageSlot label="IMAGE 01" /><figcaption><span>01 · THE BROKEN SURFACE</span><span>PAINTING SLOT</span></figcaption></figure>
+          <figure className="picasso-shot picasso-shot-2"><ImageSlot label="IMAGE 02" /><figcaption><span>02 · MULTIPLE VIEWPOINTS</span><span>PAINTING SLOT</span></figcaption></figure>
+          <figure className="picasso-shot picasso-shot-3"><ImageSlot label="IMAGE 03" /><figcaption><span>03 · FORM IN FRAGMENTS</span><span>PAINTING / DETAIL SLOT</span></figcaption></figure>
         </div>
         <div className="picasso-feature-outro"><div className="picasso-meta">PICASSO · CUBISM<br />PAINTING · SCULPTURE · PAPIERS COLLÉS<br />EASTOKYO · P. 48</div><p>Objects and bodies no longer sit obediently inside perspective. Picasso breaks them into planes, turns them through space and rebuilds them across the surface. The painting stops behaving like a window and becomes a construction.</p></div>
       </section>
