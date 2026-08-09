@@ -15,7 +15,7 @@ const contents = [
   { page: "08", section: "LEAD", title: "The bull never left him", copy: "Picasso, bullfighting and the image that followed him for a lifetime." },
   { page: "18", section: "EXHIBITION", title: "Picasso, through the Eyes of Paul Smith", copy: "A review of the exhibition at The National Art Center, Tokyo." },
   { page: "30", section: "FROM THE SHOW", title: "Picasso in stripes", copy: "Colour, pattern and the exhibition design surrounding the work." },
-  { page: "42", section: "PERFORMANCE", title: "Light, bodies, after dark", copy: "A visual study of performance, movement and the stage." },
+  { page: "42", section: "CUBISM", title: "The moment the picture broke open", copy: "Picasso, Braque and the radical new language that changed painting." },
   { page: "56", section: "PHOTO", title: "Tokyo is not grey", copy: "Colour found when the city thinks nobody is looking." },
 ];
 
@@ -140,12 +140,12 @@ export default function EastokyoHome() {
 
       <section className="mag-passion-strip" aria-label="Editorial interlude"><p>Look. Turn. Return. <em>See it again.</em></p></section>
 
-      <section className="mag-section mag-night" aria-labelledby="performance-title">
-        <div className="mag-night-sideword" aria-hidden="true">LIGHT</div>
+      <section className="mag-section mag-night" aria-labelledby="cubism-title">
+        <div className="mag-night-sideword" aria-hidden="true">CUBISM</div>
         <div className="mag-night-grid">
-          <header className="mag-night-heading"><p className="mag-kicker">PERFORMANCE · IMAGE · P. 42</p><h2 id="performance-title">When the room becomes part of the work.</h2><p>Performance, projection, sound, bodies and light can push art beyond the object. This section stays open to work that only makes sense once it occupies a space.</p></header>
-          <figure className="mag-night-image-main mag-media"><EditorialImage src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=2000&q=94" alt="Performer under dramatic lights" sizes="(max-width: 640px) 100vw, (max-width: 899px) 58vw, 58vw" /><figcaption className="mag-credit">PERFORMANCE · LIGHT / P. 42</figcaption></figure>
-          <figure className="mag-night-image-small mag-media"><EditorialImage src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1500&q=92" alt="Crowd and light in a dark performance space" sizes="(max-width: 640px) 84vw, 36vw" /><figcaption className="mag-credit">SPACE · BODY · LIGHT</figcaption></figure>
+          <header className="mag-night-heading"><p className="mag-kicker">CUBISM · PAINTING · P. 42</p><h2 id="cubism-title">The moment the picture broke open.</h2><p>Around 1907, Picasso began dismantling the assumptions that had governed painting for centuries. Perspective fractured. Bodies and objects became planes. In close exchange with Georges Braque, he developed a new visual language that moved between painting, sculpture and papiers collés—and changed what a picture could be.</p></header>
+          <figure className="mag-night-image-main mag-media"><EditorialImage src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=2000&q=94" alt="Temporary image placeholder for Picasso Cubist paintings" sizes="(max-width: 640px) 100vw, (max-width: 899px) 58vw, 58vw" /><figcaption className="mag-credit">PICASSO · CUBISM / P. 42</figcaption></figure>
+          <figure className="mag-night-image-small mag-media"><EditorialImage src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1500&q=92" alt="Temporary image placeholder for Picasso Cubist paintings" sizes="(max-width: 640px) 84vw, 36vw" /><figcaption className="mag-credit">PAINTING · PLANES · MULTIPLE VIEWPOINTS</figcaption></figure>
         </div>
       </section>
 
