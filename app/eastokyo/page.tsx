@@ -128,13 +128,13 @@ export default function EastokyoHome() {
         </div>
       </section>
 
-      <section className="mag-section mag-feature" aria-labelledby="objects-title">
+      <section className="mag-section mag-feature" aria-labelledby="bullfighting-title">
         <div className="mag-feature-grid">
-          <header className="mag-feature-heading"><p className="mag-kicker">OBJECTS · FORM · P. 26</p><h2 id="objects-title">The ordinary object, looked at twice</h2><span className="mag-page-number">26</span></header>
-          <figure className="mag-feature-image-primary mag-media"><EditorialImage src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=2200&q=95" alt="Objects arranged across a table" sizes="(max-width: 640px) 100vw, (max-width: 899px) 58vw, 50vw" /><figcaption className="mag-credit">OBJECTS · FORM / P. 26</figcaption></figure>
-          <figure className="mag-feature-image-detail mag-media"><EditorialImage src={detailImage} alt="Colourful forms arranged together" sizes="(max-width: 640px) 100vw, (max-width: 899px) 42vw, 28vw" /><figcaption className="mag-credit">DETAIL · COLOUR · SURFACE</figcaption></figure>
-          <div className="mag-feature-copy"><p className="mag-deck">Picasso’s eye repeatedly turned ordinary things into something unstable: bicycle parts into a bull, clay into faces, fragments of reality into collage.</p><p className="mag-feature-columns">That appetite for transformation runs through the exhibition. Objects are rarely allowed to remain only what they were. A handlebar can become horns. A plate can become a face. A scrap of material can break the boundary between representation and the world itself.</p></div>
-          <blockquote className="mag-feature-pullquote">“The first surprise is seeing the object. The second is no longer being able to see it the same way.”<span>EASTOKYO · OBJECTS</span></blockquote>
+          <header className="mag-feature-heading"><p className="mag-kicker">PICASSO · BULLFIGHTING · P. 26</p><h2 id="bullfighting-title">The arena never left him</h2><span className="mag-page-number">26</span></header>
+          <figure className="mag-feature-image-primary mag-media"><EditorialImage src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=2200&q=95" alt="Temporary image placeholder for the bullfighting feature" sizes="(max-width: 640px) 100vw, (max-width: 899px) 58vw, 50vw" /><figcaption className="mag-credit">PICASSO · BULLFIGHTING / P. 26</figcaption></figure>
+          <figure className="mag-feature-image-detail mag-media"><EditorialImage src={detailImage} alt="Temporary image placeholder for the bullfighting feature" sizes="(max-width: 640px) 100vw, (max-width: 899px) 42vw, 28vw" /><figcaption className="mag-credit">THE BULL · THE HORSE · THE TORERO</figcaption></figure>
+          <div className="mag-feature-copy"><p className="mag-deck">From childhood onward, bullfighting returned again and again in Picasso’s work—not as folklore, but as image, ritual and obsession.</p><p className="mag-feature-columns">The exhibition gives the bullring its own charged space. Picasso was drawn to the instant when spectacle becomes violence: the charging bull, the wounded horse, the fallen torero. Across decades, the arena becomes something larger than a subject. It is a theatre in which death, sexuality, sacrifice and the sacred collide.</p></div>
+          <blockquote className="mag-feature-pullquote">“The bullring becomes a theatre where spectacle, violence and myth are impossible to separate.”<span>EASTOKYO · PICASSO</span></blockquote>
         </div>
       </section>
 
