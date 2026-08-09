@@ -65,7 +65,7 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
     "@type": "Organization",
     name: isEastokyo ? "EASTOKYO" : "Bien Vivos",
     url: isEastokyo ? "https://www.eastokyo.com" : "https://www.bienvivos.com",
-    description: isEastokyo ? "Independent magazine about Tokyo culture and city life." : "Revista independiente de Tokio para el mundo hispanohablante.",
+    description: isEastokyo ? "Independent art magazine based in Tokyo, covering art from around the world." : "Revista independiente de Tokio para el mundo hispanohablante.",
   };
 
   return (
