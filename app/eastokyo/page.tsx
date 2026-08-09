@@ -16,6 +16,7 @@ const contents = [
   { page: "18", section: "EXHIBITION", title: "Picasso, through the Eyes of Paul Smith", copy: "A review of the exhibition at The National Art Center, Tokyo." },
   { page: "30", section: "FROM THE SHOW", title: "Picasso in stripes", copy: "Colour, pattern and the exhibition design surrounding the work." },
   { page: "42", section: "CUBISM", title: "The moment the picture broke open", copy: "Picasso, Braque and the radical new language that changed painting." },
+  { page: "48", section: "CUBISM", title: "Breaking the picture apart", copy: "Three views into Picasso’s Cubist experiments in form, space and perspective." },
   { page: "56", section: "PHOTO", title: "Tokyo is not grey", copy: "Colour found when the city thinks nobody is looking." },
 ];
 
@@ -147,6 +148,20 @@ export default function EastokyoHome() {
           <figure className="mag-night-image-main mag-media"><EditorialImage src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=2000&q=94" alt="Temporary image placeholder for Picasso Cubist paintings" sizes="(max-width: 640px) 100vw, (max-width: 899px) 58vw, 58vw" /><figcaption className="mag-credit">PICASSO · CUBISM / P. 42</figcaption></figure>
           <figure className="mag-night-image-small mag-media"><EditorialImage src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1500&q=92" alt="Temporary image placeholder for Picasso Cubist paintings" sizes="(max-width: 640px) 84vw, 36vw" /><figcaption className="mag-credit">PAINTING · PLANES · MULTIPLE VIEWPOINTS</figcaption></figure>
         </div>
+      </section>
+
+      <section className="mag-section mag-front picasso-feature" aria-labelledby="cubism-spread-title">
+        <div className="mag-rule-heading"><h2>CUBISM · P. 48</h2></div>
+        <div className="picasso-feature-intro">
+          <div className="picasso-feature-title"><p className="mag-kicker">PAINTING · FORM · SPACE</p><h3 id="cubism-spread-title">Breaking the picture apart.</h3><p className="mag-deck">Cubism begins with a refusal: the refusal to let painting remain a single, stable view of the world.</p></div>
+          <aside className="picasso-feature-note"><strong>THREE VIEWS</strong><p>Three image slots for three works: a main painting, a second Cubist painting and a detail or installation view from the exhibition.</p></aside>
+        </div>
+        <div className="picasso-gallery">
+          <figure className="picasso-shot picasso-shot-1"><div className="mag-media"><EditorialImage src="https://images.unsplash.com/photo-1577083552431-6e5fd01aa342?auto=format&fit=crop&w=1600&q=90" alt="Temporary image slot for a Picasso Cubist painting" sizes="(max-width: 640px) 100vw, 46vw" /></div><figcaption><span>01 · THE BROKEN SURFACE</span><span>IMAGE SLOT</span></figcaption></figure>
+          <figure className="picasso-shot picasso-shot-2"><div className="mag-media"><EditorialImage src="https://images.unsplash.com/photo-1549490349-8643362247b5?auto=format&fit=crop&w=1400&q=90" alt="Temporary image slot for a second Picasso Cubist painting" sizes="(max-width: 640px) 100vw, 30vw" /></div><figcaption><span>02 · MULTIPLE VIEWPOINTS</span><span>IMAGE SLOT</span></figcaption></figure>
+          <figure className="picasso-shot picasso-shot-3"><div className="mag-media"><EditorialImage src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&w=1400&q=90" alt="Temporary image slot for a Cubist detail or installation view" sizes="(max-width: 640px) 100vw, 30vw" /></div><figcaption><span>03 · FORM IN FRAGMENTS</span><span>IMAGE SLOT</span></figcaption></figure>
+        </div>
+        <div className="picasso-feature-outro"><div className="picasso-meta">PICASSO · CUBISM<br />PAINTING · SCULPTURE · PAPIERS COLLÉS<br />EASTOKYO · P. 48</div><p>Objects and bodies no longer sit obediently inside perspective. Picasso breaks them into planes, turns them through space and rebuilds them across the surface. The painting stops behaving like a window and becomes a construction.</p></div>
       </section>
 
       <section className="mag-section mag-index" id="from-the-show" aria-labelledby="show-title">
