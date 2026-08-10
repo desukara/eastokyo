@@ -1,0 +1,231 @@
+/* EASTOKYO Nº 01 — consolidated issue styling.
+   This file replaces the former art-direction, contrast-QA, and rendered-art-director layers.
+   Rule order intentionally preserves the approved visual cascade. */
+
+/* ===== ISSUE PALETTE + ART DIRECTION ===== */
+.mag-page{
+  --et-ink:#121416;
+  --et-bone:#F3EBDD;
+  --et-paper:#FFF8EC;
+  --et-cobalt:#214F78;
+  --et-sky:#86B9D3;
+  --et-orange:#DD762A;
+  --et-green:#39764B;
+  --et-yellow:#F1C61B;
+  --et-rust:#A94A2B;
+}
+.mag-page .mag-rule-heading{border-color:currentColor!important}
+.mag-page .mag-rule-heading::before,.mag-page .mag-rule-heading::after{height:2px!important}
+.mag-page .mag-kicker{font-weight:900!important}
+.mag-page a{transition:color .2s ease,background-color .2s ease,border-color .2s ease,transform .2s ease}
+.mag-page .mag-header-rail{color:var(--et-paper)!important;background:var(--et-cobalt)!important;border-color:rgba(255,248,236,.35)!important}
+.mag-page .mag-header-rail p:nth-child(2){color:var(--et-yellow)!important}
+.mag-page .mag-nav{color:var(--et-ink)!important;background:rgba(243,235,221,.97)!important;border-bottom:3px solid var(--et-orange)!important}
+.mag-page .mag-nav a::after{background:var(--et-cobalt)!important;height:.22rem!important}
+.mag-page .mag-nav a:hover,.mag-page .mag-nav a:focus-visible{color:var(--et-rust)!important}
+.mag-page .mag-mobile-bar{background:var(--et-bone)!important;border-bottom:3px solid var(--et-orange)!important}
+.mag-page .mag-mobile-logo{color:var(--et-cobalt)!important}
+.mag-page .mag-mobile-menu{background:var(--et-cobalt)!important;color:var(--et-paper)!important}
+.mag-page .mag-mobile-menu a{border-color:rgba(255,248,236,.28)!important}
+.mag-page .mag-mobile-menu a span{color:var(--et-yellow)!important}
+.mag-page .mag-cover{background:var(--et-ink)!important}
+.mag-page .mag-cover-shade{background:linear-gradient(90deg,rgba(8,12,16,.72) 0%,rgba(8,12,16,.27) 48%,rgba(8,12,16,.45) 100%)!important}
+.mag-page .mag-cover-masthead{color:#FFF8EC!important;text-shadow:0 .08em 0 rgba(20,79,120,.35)!important}
+.mag-page .mag-cover-story .mag-kicker{color:var(--et-yellow)!important}
+.mag-page .mag-cover-story h1 em{color:#F18A43!important}
+.mag-page .mag-cover-story>a{padding:.72rem .9rem .62rem!important;color:var(--et-ink)!important;background:var(--et-yellow)!important;border:2px solid var(--et-yellow)!important;font-weight:900!important}
+.mag-page .mag-cover-story>a:hover,.mag-page .mag-cover-story>a:focus-visible{background:var(--et-orange)!important;border-color:var(--et-orange)!important}
+.mag-page .mag-cover-line{border-color:rgba(255,248,236,.55)!important}
+.mag-page .mag-cover-line small{color:var(--et-yellow)!important}
+.mag-page #contents{color:var(--et-ink)!important;background:var(--et-yellow)!important}
+.mag-page #contents .mag-rule-heading h2,.mag-page #contents .mag-kicker{color:var(--et-green)!important}
+.mag-page #contents .mag-contents-title h2{color:var(--et-cobalt)!important}
+.mag-page #contents .mag-contents-image{outline:3px solid var(--et-ink)!important;outline-offset:-3px!important}
+.mag-page #contents .mag-contents-image::after{background:var(--et-cobalt)!important;color:var(--et-paper)!important}
+.mag-page #contents .mag-credit{right:.65rem!important;bottom:.65rem!important;left:.65rem!important;width:max-content!important;padding:.55rem .65rem!important;color:var(--et-paper)!important;background:var(--et-cobalt)!important}
+.mag-page #contents .mag-contents-entry{border-color:var(--et-ink)!important}
+.mag-page #contents .mag-contents-entry small{color:var(--et-green)!important}
+.mag-page #contents .mag-contents-entry h3{color:var(--et-ink)!important}
+.mag-page #contents .mag-contents-entry a:hover h3,.mag-page #contents .mag-contents-entry a:focus-visible h3{color:var(--et-cobalt)!important}
+.mag-page #exhibition.picasso-feature{--picasso-paper:var(--et-cobalt)!important;--picasso-ink:var(--et-paper)!important;--picasso-blue:var(--et-yellow)!important;background:var(--et-cobalt)!important;color:var(--et-paper)!important;border-top:0!important;border-bottom:0!important}
+.mag-page #exhibition .mag-rule-heading{color:var(--et-sky)!important}
+.mag-page #exhibition .picasso-feature-title h3{color:var(--et-paper)!important}
+.mag-page #exhibition .picasso-feature-title .mag-deck{color:#E8DCCB!important}
+.mag-page #exhibition .picasso-feature-note{padding:1.25rem!important;color:var(--et-ink)!important;background:var(--et-orange)!important;border-top:0!important}
+.mag-page #exhibition .picasso-feature-note strong{color:var(--et-ink)!important}
+.mag-page #exhibition .picasso-shot{background:var(--et-paper)!important}
+.mag-page #exhibition .picasso-shot figcaption{padding:.82rem .7rem .72rem!important;color:var(--et-paper)!important;background:var(--et-ink)!important}
+.mag-page #exhibition .picasso-shot figcaption span:last-child{color:var(--et-sky)!important;opacity:1!important}
+.mag-page #exhibition .picasso-gallery-secondary .picasso-shot{background:transparent!important}
+.mag-page #exhibition .picasso-feature-outro{border-color:var(--et-sky)!important}
+.mag-page #exhibition .picasso-feature-outro .picasso-meta{color:var(--et-yellow)!important}
+.mag-page #exhibition .picasso-feature-outro p{color:var(--et-paper)!important}
+.mag-page #exhibition .picasso-feature-outro p::before{color:var(--et-orange)!important}
+.mag-page #cubism.cubism-intro{color:var(--et-paper)!important;background:var(--et-ink)!important;border-bottom:8px solid var(--et-orange)!important}
+.mag-page #cubism .cubism-intro-word{color:var(--et-orange)!important}
+.mag-page #cubism .mag-kicker{color:var(--et-sky)!important}
+.mag-page #cubism .cubism-intro-copy h2{color:var(--et-paper)!important}
+.mag-page #cubism .cubism-intro-note{color:var(--et-yellow)!important;border-color:var(--et-sky)!important}
+.mag-page #cubism .cubism-intro-note p{color:var(--et-paper)!important}
+.mag-page #cubism-works.cubism-spread{color:var(--et-ink)!important;background:var(--et-bone)!important;border-bottom:8px solid var(--et-cobalt)!important}
+.mag-page #cubism-works .mag-kicker{color:var(--et-green)!important}
+.mag-page #cubism-works .cubism-spread-head{border-color:var(--et-orange)!important}
+.mag-page #cubism-works .cubism-spread-head h2{color:var(--et-cobalt)!important}
+.mag-page #cubism-works .cubism-slot figcaption{padding:.82rem .65rem .72rem!important;color:var(--et-paper)!important;background:var(--et-cobalt)!important}
+.mag-page #cubism-works .cubism-slot:nth-child(2) figcaption{background:var(--et-ink)!important}
+.mag-page #cubism-works .cubism-slot:nth-child(3) figcaption{background:var(--et-orange)!important;color:var(--et-ink)!important}
+.mag-page #cubism-works .cubism-slot:nth-child(4) figcaption{background:var(--et-green)!important}
+.mag-page #cubism-works .cubism-slot figcaption span{color:inherit!important;opacity:.78!important}
+.mag-page #cubism-works .cubism-spread-foot{border-color:var(--et-cobalt)!important}
+.mag-page #cubism-works .cubism-spread-foot>div{color:var(--et-green)!important;font-weight:850!important}
+.mag-page #asagaya.mag-photo{color:var(--et-ink)!important;background:var(--et-yellow)!important;border-bottom:8px solid var(--et-green)!important}
+.mag-page #asagaya .mag-kicker{color:var(--et-rust)!important}
+.mag-page #asagaya .mag-photo-head h2{color:var(--et-green)!important;text-shadow:.035em .035em 0 rgba(255,248,236,.85)!important}
+.mag-page #asagaya .mag-photo-head p:last-child{color:var(--et-ink)!important;font-weight:650!important}
+.mag-page #asagaya .mag-photo-item{background:var(--et-paper)!important}
+.mag-page #asagaya .mag-photo-item figcaption{padding:.82rem .7rem .7rem!important;color:var(--et-paper)!important;background:var(--et-green)!important}
+.mag-page #asagaya .mag-photo-item:nth-child(2n) figcaption{background:var(--et-cobalt)!important}
+.mag-page #asagaya .mag-photo-item:nth-child(3n) figcaption{background:var(--et-orange)!important;color:var(--et-ink)!important}
+.mag-page #asagaya .mag-photo-item figcaption span:first-child{font-size:1.15em!important;color:inherit!important}
+.mag-page #picasso-index{color:var(--et-paper)!important;background:var(--et-cobalt)!important;border-bottom:8px solid var(--et-orange)!important}
+.mag-page #picasso-index .mag-kicker{color:var(--et-yellow)!important}
+.mag-page #picasso-index .mag-index-head h2{color:var(--et-paper)!important}
+.mag-page #picasso-index .mag-index-head>p{color:#E8DCCB!important}
+.mag-page #picasso-index .mag-index-feature{outline:3px solid var(--et-paper)!important;outline-offset:-3px!important}
+.mag-page #picasso-index .mag-index-feature figcaption{color:var(--et-ink)!important;background:var(--et-orange)!important;border:0!important}
+.mag-page #picasso-index .mag-index-feature figcaption .mag-kicker{color:var(--et-ink)!important}
+.mag-page #picasso-index .mag-index-list{border-color:var(--et-sky)!important}
+.mag-page #picasso-index .mag-index-row{border-color:rgba(255,248,236,.46)!important}
+.mag-page #picasso-index .mag-index-row small{color:var(--et-yellow)!important}
+.mag-page #picasso-index .mag-index-row h3{color:var(--et-paper)!important}
+.mag-page #picasso-index .mag-index-row p{color:#E8DCCB!important}
+.mag-page #about.mag-back-cover{color:var(--et-paper)!important;background:linear-gradient(120deg,rgba(18,20,22,.1),rgba(18,20,22,.48)),linear-gradient(135deg,var(--et-ink) 0 46%,var(--et-cobalt) 46% 76%,var(--et-orange) 76% 100%)!important}
+.mag-page #about .mag-back-copy .mag-kicker{color:var(--et-yellow)!important}
+.mag-page #about .mag-back-copy h2{color:var(--et-paper)!important}
+.mag-page #about .mag-back-date{color:var(--et-yellow)!important}
+.mag-page #about .mag-mini-cover{border-color:var(--et-yellow)!important;box-shadow:1.1rem 1.3rem 0 var(--et-orange),2rem 2.3rem 4rem rgba(0,0,0,.5)!important}
+.mag-page .mag-footer{color:var(--et-paper)!important;background:var(--et-ink)!important;border-top:8px solid var(--et-yellow)!important}
+.mag-page .mag-footer .mag-kicker,.mag-page .mag-footer-bottom a{color:var(--et-yellow)!important}
+.mag-page .mag-footer-top h2{color:var(--et-orange)!important}
+.mag-page .mag-footer-wordmark{color:var(--et-sky)!important}
+.mag-page .mag-footer-links,.mag-page .mag-footer-bottom{border-color:rgba(255,248,236,.3)!important}
+.mag-page .mag-footer a:hover,.mag-page .mag-footer a:focus-visible{color:var(--et-orange)!important}
+@media(max-width:640px){
+  .mag-page .mag-cover-shade{background:linear-gradient(180deg,rgba(8,12,16,.25),rgba(8,12,16,.68) 64%,rgba(8,12,16,.82))!important}
+  .mag-page #contents{background:var(--et-yellow)!important}
+  .mag-page #exhibition.picasso-feature{background:var(--et-cobalt)!important}
+  .mag-page #exhibition .picasso-feature-note{margin-inline:-.15rem!important}
+  .mag-page #exhibition .picasso-shot figcaption,.mag-page #cubism-works .cubism-slot figcaption,.mag-page #asagaya .mag-photo-item figcaption{padding:.72rem .65rem .68rem!important}
+  .mag-page #cubism .cubism-intro-word{color:var(--et-orange)!important}
+  .mag-page #asagaya .mag-photo-head h2{text-shadow:.025em .025em 0 rgba(255,248,236,.85)!important}
+  .mag-page #picasso-index .mag-index-feature{outline-width:2px!important}
+}
+
+/* ===== CONTRAST + ACCESSIBILITY QA ===== */
+.mag-page{--et-green:#245733}
+.mag-page .mag-nav,.mag-page .mag-nav a,.mag-page .mag-nav span{color:var(--et-ink)!important}
+.mag-page .mag-nav a:hover,.mag-page .mag-nav a:focus-visible{color:var(--et-cobalt)!important}
+.mag-page .mag-nav a:focus-visible,.mag-page .mag-mobile-menu a:focus-visible,.mag-page .mag-mobile-menu-close:focus-visible,.mag-page .mag-menu-button:focus-visible,.mag-page .mag-cover-story>a:focus-visible,.mag-page .mag-footer a:focus-visible{outline:3px solid var(--et-yellow)!important;outline-offset:3px!important}
+.mag-page .mag-mobile-menu,.mag-page .mag-mobile-menu a,.mag-page .mag-mobile-menu-close{color:var(--et-paper)!important}
+.mag-page .mag-mobile-menu a span{color:var(--et-yellow)!important}
+.mag-page .mag-menu-button span{background:var(--et-ink)!important}
+.mag-page #contents .mag-rule-heading h2,.mag-page #contents .mag-kicker,.mag-page #contents .mag-contents-entry small{color:var(--et-green)!important}
+.mag-page #asagaya .mag-kicker{color:var(--et-cobalt)!important}
+.mag-page #asagaya .mag-photo-head h2{color:var(--et-green)!important}
+.mag-page #exhibition .mag-rule-heading{color:var(--et-yellow)!important}
+.mag-page #exhibition .picasso-shot figcaption span:last-child{color:var(--et-paper)!important;opacity:.82!important}
+.mag-page #cubism-works .cubism-slot:nth-child(3) figcaption,.mag-page #asagaya .mag-photo-item:nth-child(3n) figcaption{color:var(--et-ink)!important}
+.mag-page #cubism-works .cubism-slot:nth-child(4) figcaption,.mag-page #asagaya .mag-photo-item figcaption{color:var(--et-paper)!important}
+.mag-page #asagaya .mag-photo-item:nth-child(3n) figcaption{color:var(--et-ink)!important}
+.mag-page #cubism-works,.mag-page #cubism-works .cubism-spread-head,.mag-page #cubism-works .cubism-spread-head>p,.mag-page #cubism-works .cubism-spread-foot,.mag-page #cubism-works .cubism-spread-foot>p{color:var(--et-ink)!important}
+.mag-page #cubism-works .cubism-spread-head>p,.mag-page #cubism-works .cubism-spread-foot>p{opacity:1!important;font-weight:560!important}
+.mag-page #asagaya .mag-photo-item{position:relative!important}
+.mag-page #asagaya .mag-photo-item figcaption{position:absolute!important;left:0!important;right:0!important;bottom:0!important;z-index:4!important;margin:0!important;min-height:3rem!important;display:flex!important;align-items:center!important;justify-content:space-between!important;gap:1rem!important;box-sizing:border-box!important;box-shadow:0 -1px 0 rgba(255,255,255,.18)!important}
+.mag-page .mag-newsletter::before,.mag-page .mag-newsletter::after,.mag-page .mag-newsletter strong::before,.mag-page .mag-newsletter strong::after,.mag-page .mag-newsletter p::before,.mag-page .mag-newsletter p::after{content:none!important;display:none!important}
+.mag-page .mag-newsletter p,.mag-page .mag-newsletter strong{color:var(--et-paper)!important}
+.mag-page #picasso-index .mag-index-row small,.mag-page #picasso-index .mag-kicker,.mag-page .mag-footer .mag-kicker,.mag-page .mag-footer-bottom a{color:var(--et-yellow)!important}
+.mag-page #picasso-index .mag-index-row p,.mag-page #picasso-index .mag-index-head>p{color:var(--et-bone)!important}
+.mag-page #about .mag-back-date{display:inline-block!important;width:max-content!important;max-width:100%!important;padding:.5rem .65rem!important;color:var(--et-ink)!important;background:var(--et-yellow)!important;border:2px solid var(--et-ink)!important;font-weight:900!important}
+.mag-page #contents .mag-contents-entry a:focus-visible,.mag-page #picasso-index .mag-index-row:focus-within{outline:2px solid var(--et-cobalt)!important;outline-offset:4px!important}
+@media(max-width:640px){
+  .mag-page .mag-mobile-logo{color:var(--et-cobalt)!important}
+  .mag-page .mag-mobile-menu-close{background:transparent!important}
+  .mag-page #about .mag-back-date{width:fit-content!important;line-height:1.35!important}
+  .mag-page #asagaya .mag-photo-item figcaption{min-height:2.7rem!important}
+}
+
+/* ===== RENDERED ART-DIRECTOR QA ===== */
+.mag-page .mag-nav a{font-size:.64rem!important;letter-spacing:.1em!important}
+.mag-page .mag-header-rail p,.mag-page .mag-rule-heading h2,.mag-page .mag-kicker{font-size:clamp(.66rem,.72vw,.78rem)!important}
+.mag-page .mag-credit,.mag-page .picasso-shot figcaption,.mag-page .cubism-slot figcaption,.mag-page .mag-photo-item figcaption{font-size:clamp(.76rem,.78vw,.86rem)!important;line-height:1.32!important}
+.mag-page .picasso-shot figcaption,.mag-page .cubism-slot figcaption,.mag-page .mag-photo-item figcaption{padding:.9rem .78rem .82rem!important}
+@media(min-width:900px){
+ .mag-page #contents{padding-top:clamp(3.4rem,5vw,5rem)!important;padding-bottom:clamp(3.8rem,5.5vw,5.5rem)!important}
+ .mag-page #contents .mag-contents-grid{row-gap:clamp(1.5rem,2.3vw,2.4rem)!important}
+ .mag-page #contents .mag-contents-entry h3{font-size:clamp(1.35rem,1.7vw,1.8rem)!important;line-height:1!important}
+ .mag-page #contents .mag-contents-entry p{font-size:.92rem!important;line-height:1.42!important;max-width:35rem!important}
+}
+.mag-page #exhibition .picasso-feature-note p,.mag-page #exhibition .picasso-feature-outro p{font-size:clamp(.98rem,1.1vw,1.15rem)!important;line-height:1.5!important}
+.mag-page #exhibition .picasso-meta{font-size:.78rem!important;line-height:1.45!important}
+@media(min-width:900px){
+ .mag-page #exhibition{padding-top:clamp(3.5rem,5vw,5rem)!important;padding-bottom:clamp(4rem,5vw,5.5rem)!important}
+ .mag-page #exhibition .picasso-feature-intro{margin-bottom:clamp(2rem,3vw,3rem)!important}
+}
+.mag-page .mag-feature[aria-labelledby="bullfighting-title"] .mag-kicker{font-size:.78rem!important}
+.mag-page .mag-feature[aria-labelledby="bullfighting-title"] .mag-deck{font-size:clamp(1.15rem,1.4vw,1.45rem)!important;line-height:1.42!important}
+.mag-page .mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-columns{font-size:clamp(1rem,1.08vw,1.12rem)!important;line-height:1.58!important}
+.mag-page .mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-pullquote{font-size:clamp(1.5rem,2.2vw,2.45rem)!important;line-height:1.12!important}
+@media(min-width:900px){
+ .mag-page .mag-feature[aria-labelledby="bullfighting-title"]{padding-top:clamp(3.5rem,5vw,5rem)!important;padding-bottom:clamp(3.8rem,5vw,5.2rem)!important}
+ .mag-page .mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-grid{row-gap:clamp(1.5rem,2.4vw,2.6rem)!important}
+ .mag-page .mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-heading{padding-bottom:clamp(1rem,1.8vw,1.8rem)!important}
+ .mag-page #cubism.cubism-intro{padding-top:clamp(3rem,4vw,4.2rem)!important;padding-bottom:clamp(3rem,4vw,4.2rem)!important;gap:clamp(1.5rem,2.4vw,3rem)!important}
+ .mag-page #cubism .cubism-intro-copy>p:last-child{font-size:clamp(1.08rem,1.22vw,1.28rem)!important;line-height:1.48!important}
+ .mag-page #cubism .cubism-intro-note p{font-size:.96rem!important;line-height:1.38!important}
+}
+.mag-page #cubism-works .cubism-spread-head>p{color:var(--et-ink)!important;opacity:1!important;font-size:clamp(1.06rem,1.25vw,1.3rem)!important;line-height:1.5!important;font-weight:560!important}
+.mag-page #cubism-works .cubism-spread-foot p{font-size:clamp(1rem,1.15vw,1.2rem)!important;line-height:1.5!important}
+@media(min-width:900px){
+ .mag-page #cubism-works.cubism-spread{padding-top:clamp(3rem,4.5vw,4.5rem)!important;padding-bottom:clamp(3.5rem,4.8vw,5rem)!important}
+ .mag-page #cubism-works .cubism-spread-head{grid-template-columns:minmax(0,1.45fr) minmax(21rem,.8fr)!important;gap:clamp(2rem,3.8vw,4rem)!important;padding-bottom:clamp(1.7rem,2.7vw,2.8rem)!important}
+ .mag-page #cubism-works .cubism-slot-grid{padding:clamp(2rem,3vw,3.2rem) 0!important}
+}
+.mag-page #asagaya .mag-photo-item figcaption span:first-child{font-size:1rem!important;min-width:2.25rem!important}
+.mag-page #asagaya .mag-photo-item figcaption span:last-child{font-size:.82rem!important;line-height:1.25!important}
+@media(min-width:900px){
+ .mag-page #asagaya.mag-photo{padding-top:clamp(3.5rem,4.5vw,4.8rem)!important;padding-bottom:clamp(3.5rem,4.5vw,4.8rem)!important}
+ .mag-page #asagaya .mag-photo-head{margin-bottom:clamp(2rem,3vw,3rem)!important}
+ .mag-page #asagaya .mag-photo-grid{row-gap:clamp(1.4rem,2vw,2rem)!important;column-gap:clamp(1.2rem,1.8vw,1.8rem)!important}
+}
+.mag-page #picasso-index .mag-index-row small{font-size:.72rem!important;letter-spacing:.13em!important}
+.mag-page #picasso-index .mag-index-row p{font-size:clamp(.96rem,1.05vw,1.08rem)!important;line-height:1.42!important}
+@media(min-width:900px){
+ .mag-page #picasso-index{padding-top:clamp(3.5rem,4.8vw,5rem)!important;padding-bottom:clamp(3.5rem,4.8vw,5rem)!important}
+ .mag-page #picasso-index .mag-index-head{margin-bottom:clamp(2rem,3vw,3rem)!important}
+ .mag-page #picasso-index .mag-index-row{min-height:0!important;padding:1.05rem 0!important;grid-template-columns:minmax(15rem,.9fr) minmax(0,1.7fr)!important;align-items:center!important}
+ .mag-page #picasso-index .mag-index-row h3{font-size:clamp(1.65rem,2vw,2.15rem)!important;line-height:.95!important}
+}
+.mag-page #picasso-index .mag-index-feature{width:100%!important;max-width:none!important;margin-left:0!important;margin-right:0!important;padding:0!important;aspect-ratio:103/60!important;height:auto!important;min-height:0!important;overflow:hidden!important;background:transparent!important}
+.mag-page #picasso-index .mag-index-picture{position:absolute;inset:0;display:block;width:100%;height:100%}
+.mag-page #picasso-index .mag-index-picture img{display:block!important;width:100%!important;height:100%!important;object-fit:cover!important;object-position:center center!important;opacity:1!important;visibility:visible!important}
+.mag-page #about .mag-back-copy>p:not(.mag-kicker){font-size:clamp(1.12rem,1.4vw,1.45rem)!important;line-height:1.4!important;max-width:31rem!important}
+@media(min-width:900px){
+ .mag-page #about .mag-back-inner{align-items:center!important;gap:clamp(3rem,5vw,6rem)!important}
+ .mag-page #about .mag-back-copy h2{font-size:clamp(4.2rem,6vw,6.6rem)!important;line-height:.83!important;max-width:8ch!important}
+ .mag-page #about .mag-back-copy{padding-block:clamp(2rem,3vw,3.5rem)!important}
+}
+.mag-page .mag-footer-links nav a,.mag-page .social-placeholder span,.mag-page .mag-footer-bottom{font-size:.72rem!important;letter-spacing:.11em!important}
+.mag-page .mag-newsletter p{font-size:.76rem!important}.mag-page .mag-newsletter strong{font-size:clamp(1.45rem,2vw,2rem)!important}
+@media(min-width:900px){
+ .mag-page .mag-footer{padding-top:clamp(3rem,4vw,4rem)!important;padding-bottom:clamp(1.8rem,2.8vw,2.8rem)!important}
+ .mag-page .mag-footer-top{padding-bottom:clamp(2rem,3vw,3rem)!important}
+ .mag-page .mag-footer-links{padding:clamp(1.5rem,2.2vw,2.2rem) 0!important}
+ .mag-page .mag-footer-wordmark{margin:clamp(1.5rem,2.4vw,2.5rem) 0 .8rem!important;font-size:clamp(7rem,15vw,13rem)!important;line-height:.72!important}
+}
+@media(max-width:640px){
+ .mag-page .mag-nav a{font-size:.68rem!important}
+ .mag-page .mag-credit,.mag-page .picasso-shot figcaption,.mag-page .cubism-slot figcaption,.mag-page .mag-photo-item figcaption{font-size:.72rem!important}
+ .mag-page #picasso-index .mag-index-row p{font-size:.92rem!important}
+ .mag-page .mag-footer-wordmark{margin-top:1.5rem!important}
+ .mag-page #picasso-index .mag-index-feature{aspect-ratio:1024/1365!important}
+}
