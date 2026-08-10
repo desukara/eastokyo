@@ -1,6 +1,6 @@
 /* EASTOKYO lower-page restoration. The JSX now matches the proven Bien Vivos magazine component structure; these small overrides keep the English edition visually coherent without altering the Picasso feature or cover. */
-.mag-page .mag-night-image-main,.mag-page .mag-night-image-small,.mag-page .mag-index-feature,.mag-page .mag-index-thumb,.mag-page .mag-photo-item .mag-media,.mag-page .mag-mini-cover{position:relative;overflow:hidden}
-.mag-page .mag-night-image-main img,.mag-page .mag-night-image-small img,.mag-page .mag-index-feature img,.mag-page .mag-index-thumb img,.mag-page .mag-photo-item .mag-media img,.mag-page .mag-mini-cover img{opacity:1!important;visibility:visible!important}
+.mag-page .mag-night-image-main,.mag-page .mag-night-image-small,.mag-page .mag-index-feature,.mag-page .mag-photo-item .mag-media,.mag-page .mag-mini-cover{position:relative;overflow:hidden}
+.mag-page .mag-night-image-main img,.mag-page .mag-night-image-small img,.mag-page .mag-index-feature img,.mag-page .mag-photo-item .mag-media img,.mag-page .mag-mini-cover img{opacity:1!important;visibility:visible!important}
 .mag-page .mag-footer-wordmark{white-space:nowrap}
 
 /* P.26 bullfighting feature: use the approved artwork pair committed on main while this issue remains on the preview branch. */
