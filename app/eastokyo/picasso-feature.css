@@ -107,3 +107,11 @@
 .cubism-slot:nth-child(2) .cubism-slot-box{background-image:url("https://raw.githubusercontent.com/desukara/bienvivos/main/public/images/editorial/cubism-02-owl-desktop.png")!important;background-size:contain!important;background-position:center center!important;background-repeat:no-repeat!important;background-color:#f4f1e9!important;border:0!important;box-shadow:none!important}
 .cubism-slot:nth-child(2) .cubism-slot-box>span{display:none!important}
 @media(max-width:640px){.cubism-slot:nth-child(2) .cubism-slot-box{background-image:url("https://raw.githubusercontent.com/desukara/bienvivos/main/public/images/editorial/cubism-02-owl-mobile.png")!important;background-size:contain!important;background-position:center center!important;background-repeat:no-repeat!important}}
+
+/* Cubism desktop: let the artwork ratios determine the frame, not fixed shallow rows. */
+@media(min-width:900px){
+.cubism-slot-grid{grid-template-columns:minmax(0,1.06fr) minmax(0,.5fr) minmax(0,.5fr)!important;grid-template-rows:auto auto!important;align-items:start!important;gap:clamp(1rem,1.6vw,1.6rem)!important;padding:clamp(2rem,3vw,3rem) 0!important}
+.cubism-slot:nth-child(1) .cubism-slot-box{height:auto!important;aspect-ratio:3/4!important;background-size:100% 100%!important}
+.cubism-slot:nth-child(2) .cubism-slot-box{height:auto!important;aspect-ratio:4/3!important;background-size:100% 100%!important}
+.cubism-slot:nth-child(3) .cubism-slot-box,.cubism-slot:nth-child(4) .cubism-slot-box{height:auto!important;aspect-ratio:3/4!important}
+}
