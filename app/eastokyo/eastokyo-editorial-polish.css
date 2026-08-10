@@ -2,10 +2,7 @@
    Keeps the approved layout geometry and image sizing intact while strengthening
    headline presence, caption readability, and the Picasso index typography. */
 
-/* The Picasso index reads better as a typographic index than a card list. */
-.mag-page #picasso-index .mag-index-thumb{
-  display:none!important
-}
+/* The Picasso index reads as a typographic index rather than a card list. */
 @media(min-width:900px){
   .mag-page #picasso-index .mag-index-row{
     grid-template-columns:minmax(0,1.15fr) minmax(0,2.25fr)!important;
