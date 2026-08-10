@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import "./eastokyo-cubism-base.css";
 import "./picasso-feature.css";
 import "./eastokyo-lower-restore.css";
 import "./eastokyo-layout-audit.css";
