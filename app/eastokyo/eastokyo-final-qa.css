@@ -8,52 +8,126 @@
   justify-content:flex-start!important;
 }
 
-/* Exhibition: reduce blue-field dead space while preserving all image geometry. */
+/* Asagaya source images contain their old Spanish caption bands. Keep the photos intact,
+   but let the approved English caption panel fully cover those legacy bands. */
+.mag-page #asagaya .mag-photo-item{
+  overflow:hidden!important;
+}
+.mag-page #asagaya .mag-photo-item figcaption{
+  min-height:clamp(4.9rem,6vw,5.7rem)!important;
+  padding:.95rem .85rem .9rem!important;
+  align-items:center!important;
+}
+.mag-page #asagaya .mag-photo-item figcaption span:last-child{
+  max-width:calc(100% - 3rem)!important;
+}
+
+/* Exhibition: reduce blue-field dead space while preserving artwork. */
 @media(min-width:900px){
   .mag-page #exhibition.picasso-feature{
-    padding-top:clamp(2.6rem,3.6vw,3.6rem)!important;
-    padding-bottom:clamp(2.8rem,4vw,4rem)!important;
+    padding-top:clamp(2.35rem,3vw,3rem)!important;
+    padding-bottom:clamp(2.2rem,3vw,3rem)!important;
   }
   .mag-page #exhibition .picasso-feature-intro{
-    margin:clamp(1.4rem,2vw,2rem) 0 clamp(1.8rem,2.6vw,2.6rem)!important;
+    margin:clamp(1.15rem,1.6vw,1.6rem) 0 clamp(1.45rem,2vw,2rem)!important;
   }
   .mag-page #exhibition .picasso-gallery-secondary{
-    margin-top:clamp(2rem,3vw,3rem)!important;
-    gap:clamp(1.6rem,2.6vw,3rem)!important;
+    margin-top:clamp(1.5rem,2vw,2rem)!important;
+    gap:clamp(1.35rem,2vw,2.25rem)!important;
+    align-items:start!important;
+  }
+  .mag-page #exhibition .picasso-gallery-secondary .picasso-shot{
+    min-height:0!important;
+    height:auto!important;
+    aspect-ratio:4/3!important;
+  }
+  .mag-page #exhibition .picasso-gallery-secondary .picasso-shot .picasso-picture{
+    inset:0!important;
+  }
+  .mag-page #exhibition .picasso-feature-outro{
+    align-self:start!important;
   }
   .mag-page #exhibition .picasso-feature-outro p{
-    margin-top:clamp(1.1rem,1.8vw,1.8rem)!important;
+    margin-top:clamp(.85rem,1.2vw,1.2rem)!important;
   }
 
-  /* Picasso Index: same treatment for the second cobalt section. */
+  /* Bullfighting: the approved art stays put; remove the oversized red pause around it. */
+  .mag-page .mag-feature[aria-labelledby="bullfighting-title"]{
+    padding-top:clamp(2.7rem,3.6vw,3.6rem)!important;
+    padding-bottom:clamp(3rem,3.8vw,3.8rem)!important;
+  }
+  .mag-page .mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-grid{
+    row-gap:clamp(.7rem,1.2vw,1.25rem)!important;
+  }
+  .mag-page .mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-heading h2{
+    max-width:14ch!important;
+    font-size:clamp(3.9rem,4.9vw,5.25rem)!important;
+    line-height:.84!important;
+  }
+
+  /* Picasso Index: compress the oversized typographic header and bring the artwork up. */
   .mag-page #picasso-index{
-    padding-top:clamp(2.6rem,3.5vw,3.6rem)!important;
-    padding-bottom:clamp(2.8rem,3.8vw,3.8rem)!important;
+    padding-top:clamp(2.25rem,2.9vw,3rem)!important;
+    padding-bottom:clamp(2.35rem,3vw,3.1rem)!important;
   }
   .mag-page #picasso-index .mag-index-head{
-    margin-bottom:clamp(1.5rem,2.2vw,2.2rem)!important;
+    grid-template-columns:minmax(0,1.05fr) minmax(22rem,.95fr)!important;
+    gap:clamp(1.5rem,2.4vw,2.5rem)!important;
+    align-items:end!important;
+    min-height:0!important;
+    margin-bottom:clamp(1.15rem,1.7vw,1.7rem)!important;
+  }
+  .mag-page #picasso-index .mag-index-head h2{
+    max-width:12ch!important;
+    font-size:clamp(3.15rem,4vw,4.25rem)!important;
+    line-height:.84!important;
+  }
+  .mag-page #picasso-index .mag-index-head>p{
+    align-self:end!important;
+    max-width:32rem!important;
+    margin:0 0 .25rem!important;
   }
   .mag-page #picasso-index .mag-index-row{
-    padding:.82rem 0!important;
+    padding:.72rem 0!important;
+  }
+
+  /* Footer wordmark should read as a full masthead, not disappear off the right edge. */
+  .mag-page .mag-footer-wordmark{
+    display:block!important;
+    width:100%!important;
+    margin:clamp(1.25rem,1.8vw,1.8rem) 0 .8rem!important;
+    font-size:clamp(4.75rem,9vw,8.75rem)!important;
+    line-height:.76!important;
+    letter-spacing:-.045em!important;
+    white-space:nowrap!important;
   }
 }
 
 @media(max-width:640px){
+  .mag-page #asagaya .mag-photo-item figcaption{
+    min-height:4.6rem!important;
+    padding:.8rem .7rem .76rem!important;
+  }
   .mag-page #exhibition.picasso-feature{
-    padding-top:2.6rem!important;
-    padding-bottom:3rem!important;
+    padding-top:2.35rem!important;
+    padding-bottom:2.6rem!important;
   }
   .mag-page #exhibition .picasso-feature-intro{
-    margin:1.35rem 0 2rem!important;
+    margin:1.2rem 0 1.7rem!important;
   }
   .mag-page #exhibition .picasso-gallery-secondary{
-    margin-top:.5rem!important;
+    margin-top:.35rem!important;
   }
   .mag-page #picasso-index{
-    padding-top:2.7rem!important;
-    padding-bottom:2.8rem!important;
+    padding-top:2.35rem!important;
+    padding-bottom:2.45rem!important;
   }
   .mag-page #picasso-index .mag-index-head{
-    margin-bottom:1.5rem!important;
+    margin-bottom:1.2rem!important;
+  }
+  .mag-page .mag-footer-wordmark{
+    font-size:clamp(3.8rem,18vw,5.8rem)!important;
+    letter-spacing:-.045em!important;
+    white-space:nowrap!important;
   }
 }
