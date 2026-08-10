@@ -33,6 +33,16 @@ import "./styles/tokio-no-es-gris-image.css";
 import "./styles/todo-vivos-image.css";
 import "./styles/bienvivos-picasso-mirror.css";
 
+/* Shared issue art direction: Bien Vivos now mirrors EASTOKYO exactly. */
+import "./eastokyo/eastokyo-cubism-base.css";
+import "./eastokyo/picasso-feature.css";
+import "./eastokyo/eastokyo-lower-restore.css";
+import "./eastokyo/eastokyo-layout-audit.css";
+import "./eastokyo/eastokyo-editorial-architecture.css";
+import "./eastokyo/eastokyo-editorial-polish.css";
+import "./eastokyo/eastokyo-issue-01.css";
+import "./eastokyo/eastokyo-final-qa.css";
+
 const sans = Montserrat({ variable: "--font-bienvivos-sans", subsets: ["latin"], display: "swap" });
 const display = Cormorant_Garamond({ variable: "--font-bienvivos-display", subsets: ["latin"], weight: ["400", "500", "600", "700"], style: ["normal", "italic"], display: "swap" });
 
@@ -43,18 +53,18 @@ export const metadata: Metadata = {
   manifest: "/manifest.webmanifest",
   appleWebApp: { capable: true, title: "Bien Vivos", statusBarStyle: "black-translucent" },
   alternates: { canonical: "/", languages: { es: "https://www.bienvivos.com/", en: "https://www.eastokyo.com/" } },
-  title: { default: "Bien Vivos — Tokio se vive mejor en español", template: "%s | Bien Vivos" },
-  description: "Bien Vivos es la revista de Tokio para el mundo hispanohablante. Arte, comida, música, cultura, fotografía y mucha vida.",
+  title: { default: "Bien Vivos — Revista independiente de arte", template: "%s | Bien Vivos" },
+  description: "Bien Vivos es una revista independiente de arte hecha en Tokio para el mundo hispanohablante: exposiciones, artistas, festivales, fotografía, objetos e ideas de Japón y más allá.",
   openGraph: {
-    title: "Bien Vivos — Tokio se vive mejor en español",
-    description: "La revista de Tokio para el mundo hispanohablante.",
+    title: "Bien Vivos — Revista independiente de arte",
+    description: "Arte desde Tokio, mirando a todas partes.",
     url: "/",
     siteName: "Bien Vivos",
     locale: "es_ES",
     type: "website",
-    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Bien Vivos — Tokio se vive mejor en español" }],
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Bien Vivos — Revista independiente de arte" }],
   },
-  twitter: { card: "summary_large_image", title: "Bien Vivos — Tokio se vive mejor en español", description: "La revista de Tokio para el mundo hispanohablante.", images: ["/opengraph-image"] },
+  twitter: { card: "summary_large_image", title: "Bien Vivos — Revista independiente de arte", description: "Arte desde Tokio, mirando a todas partes.", images: ["/opengraph-image"] },
 };
 
 export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
@@ -65,7 +75,7 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
     "@type": "Organization",
     name: isEastokyo ? "EASTOKYO" : "Bien Vivos",
     url: isEastokyo ? "https://www.eastokyo.com" : "https://www.bienvivos.com",
-    description: isEastokyo ? "Independent art magazine based in Tokyo, covering art from around the world." : "Revista independiente de Tokio para el mundo hispanohablante.",
+    description: isEastokyo ? "Independent art magazine based in Tokyo, covering art from around the world." : "Revista independiente de arte hecha en Tokio para el mundo hispanohablante.",
   };
 
   return (
