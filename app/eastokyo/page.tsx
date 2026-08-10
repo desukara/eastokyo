@@ -16,7 +16,7 @@ const contents = [
   { page: "18", section: "EXHIBITION", title: "Picasso, through the Eyes of Paul Smith", copy: "A review of the exhibition at The National Art Center, Tokyo." },
   { page: "30", section: "FROM THE SHOW", title: "Picasso in stripes", copy: "Colour, pattern and the exhibition design surrounding the work." },
   { page: "42", section: "CUBISM", title: "The moment the picture broke open", copy: "Picasso, Braque and the radical new language that changed painting." },
-  { page: "48", section: "CUBISM", title: "Breaking the picture apart", copy: "Three views into Picasso’s Cubist experiments in form, space and perspective." },
+  { page: "48", section: "CUBISM", title: "Breaking the picture apart", copy: "Four views into Picasso’s Cubist experiments in form, space and perspective." },
   { page: "56", section: "PHOTO", title: "Tokyo is not grey", copy: "Colour found when the city thinks nobody is looking." },
 ];
 
@@ -49,7 +49,7 @@ function PicassoPicture({ desktop, mobile, alt }: { desktop: string; mobile: str
 }
 
 function ImageSlot({ number, title }: { number: string; title: string }) {
-  return <figure className="cubism-slot"><div className="cubism-slot-box"><span>IMAGE {number}</span></div><figcaption><strong>{number} · {title}</strong><span>PAINTING SLOT</span></figcaption></figure>;
+  return <figure className="cubism-slot"><div className="cubism-slot-box"><span>IMAGE {number}</span></div><figcaption><strong>{number} · {title}</strong><span>ARTWORK SLOT</span></figcaption></figure>;
 }
 
 export default function EastokyoHome() {
@@ -158,12 +158,13 @@ export default function EastokyoHome() {
       <section className="cubism-spread" aria-labelledby="cubism-spread-title">
         <div className="cubism-spread-head">
           <div><p className="mag-kicker">CUBISM · P. 48</p><h2 id="cubism-spread-title">Breaking the picture apart.</h2></div>
-          <p>Cubism begins with a refusal: the refusal to let painting remain a single, stable view of the world. Three works will carry this section.</p>
+          <p>Cubism begins with a refusal: the refusal to let painting remain a single, stable view of the world. Four works carry this section, each with its own scale and shape.</p>
         </div>
         <div className="cubism-slot-grid">
-          <ImageSlot number="01" title="THE BROKEN SURFACE" />
-          <ImageSlot number="02" title="MULTIPLE VIEWPOINTS" />
-          <ImageSlot number="03" title="FORM IN FRAGMENTS" />
+          <ImageSlot number="01" title="LE CUBISME · 1907–1914" />
+          <ImageSlot number="02" title="OWL · GEOMETRIC COMPOSITION" />
+          <ImageSlot number="03" title="SEATED FIGURE" />
+          <ImageSlot number="04" title="MULTI-FIGURE COMPOSITION" />
         </div>
         <div className="cubism-spread-foot"><p>Objects and bodies no longer sit obediently inside perspective. Picasso breaks them into planes, turns them through space and rebuilds them across the surface.</p><div>PICASSO · CUBISM<br />PAINTING · SCULPTURE · PAPIERS COLLÉS<br />EASTOKYO · P. 48</div></div>
       </section>
@@ -251,13 +252,20 @@ export default function EastokyoHome() {
       .cubism-spread-head > p { max-width: 34rem; font-size: 1.05rem; line-height: 1.55; }
       .cubism-slot-grid {
         display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-columns: minmax(20rem, 1.05fr) minmax(0, .82fr) minmax(0, .82fr);
+        grid-template-rows: minmax(16rem, 22vw) minmax(18rem, 27vw);
         gap: clamp(1rem, 2vw, 2rem);
         padding: clamp(2.5rem, 5vw, 5rem) 0;
       }
-      .cubism-slot { margin: 0; min-width: 0; }
+      .cubism-slot { margin: 0; min-width: 0; display: flex; flex-direction: column; }
+      .cubism-slot:nth-child(1) { grid-column: 1; grid-row: 1 / 3; }
+      .cubism-slot:nth-child(2) { grid-column: 2 / 4; grid-row: 1; }
+      .cubism-slot:nth-child(3) { grid-column: 2; grid-row: 2; }
+      .cubism-slot:nth-child(4) { grid-column: 3; grid-row: 2; }
       .cubism-slot-box {
-        aspect-ratio: 4 / 5;
+        width: 100%;
+        height: 100%;
+        min-height: 0;
         border: 1px solid currentColor;
         display: grid;
         place-items: center;
@@ -289,8 +297,11 @@ export default function EastokyoHome() {
         .cubism-intro-copy h2 { max-width: 12ch; }
         .cubism-intro-note { max-width: 22rem; }
         .cubism-spread-head { grid-template-columns: 1fr; }
-        .cubism-slot-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-        .cubism-slot-box { aspect-ratio: 4 / 3; }
+        .cubism-slot-grid { grid-template-columns: 1fr; grid-template-rows: none; gap: 2.5rem; }
+        .cubism-slot:nth-child(1), .cubism-slot:nth-child(2), .cubism-slot:nth-child(3), .cubism-slot:nth-child(4) { grid-column: auto; grid-row: auto; }
+        .cubism-slot:nth-child(1) .cubism-slot-box { aspect-ratio: 3 / 4; height: auto; }
+        .cubism-slot:nth-child(2) .cubism-slot-box { aspect-ratio: 4 / 3; height: auto; }
+        .cubism-slot:nth-child(3) .cubism-slot-box, .cubism-slot:nth-child(4) .cubism-slot-box { aspect-ratio: 3 / 4; height: auto; }
         .cubism-spread-foot { grid-template-columns: 1fr; }
         .cubism-spread-foot > div { text-align: left; }
       }
