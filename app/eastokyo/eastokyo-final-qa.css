@@ -1,0 +1,59 @@
+/* Final pre-review QA: remove stale secondary captions and tighten the two cobalt sections without touching artwork. */
+
+/* Cubism captions: keep only the approved new wording under each artwork. */
+.mag-page #cubism-works .cubism-slot figcaption > span{
+  display:none!important;
+}
+.mag-page #cubism-works .cubism-slot figcaption{
+  justify-content:flex-start!important;
+}
+
+/* Exhibition: reduce blue-field dead space while preserving all image geometry. */
+@media(min-width:900px){
+  .mag-page #exhibition.picasso-feature{
+    padding-top:clamp(2.6rem,3.6vw,3.6rem)!important;
+    padding-bottom:clamp(2.8rem,4vw,4rem)!important;
+  }
+  .mag-page #exhibition .picasso-feature-intro{
+    margin:clamp(1.4rem,2vw,2rem) 0 clamp(1.8rem,2.6vw,2.6rem)!important;
+  }
+  .mag-page #exhibition .picasso-gallery-secondary{
+    margin-top:clamp(2rem,3vw,3rem)!important;
+    gap:clamp(1.6rem,2.6vw,3rem)!important;
+  }
+  .mag-page #exhibition .picasso-feature-outro p{
+    margin-top:clamp(1.1rem,1.8vw,1.8rem)!important;
+  }
+
+  /* Picasso Index: same treatment for the second cobalt section. */
+  .mag-page #picasso-index{
+    padding-top:clamp(2.6rem,3.5vw,3.6rem)!important;
+    padding-bottom:clamp(2.8rem,3.8vw,3.8rem)!important;
+  }
+  .mag-page #picasso-index .mag-index-head{
+    margin-bottom:clamp(1.5rem,2.2vw,2.2rem)!important;
+  }
+  .mag-page #picasso-index .mag-index-row{
+    padding:.82rem 0!important;
+  }
+}
+
+@media(max-width:640px){
+  .mag-page #exhibition.picasso-feature{
+    padding-top:2.6rem!important;
+    padding-bottom:3rem!important;
+  }
+  .mag-page #exhibition .picasso-feature-intro{
+    margin:1.35rem 0 2rem!important;
+  }
+  .mag-page #exhibition .picasso-gallery-secondary{
+    margin-top:.5rem!important;
+  }
+  .mag-page #picasso-index{
+    padding-top:2.7rem!important;
+    padding-bottom:2.8rem!important;
+  }
+  .mag-page #picasso-index .mag-index-head{
+    margin-bottom:1.5rem!important;
+  }
+}
