@@ -68,8 +68,8 @@
  .mag-page #picasso-index .mag-index-row h3{font-size:clamp(1.65rem,2vw,2.15rem)!important;line-height:.95!important}
 }
 
-/* Picasso Index hero: the frame follows the approved image itself.
-   No dark mat, no contain gutters, no inset slot. */
+/* Picasso Index hero: the approved artwork is now the actual responsive image,
+   not a hidden image plus a CSS background replacement. */
 .mag-page #picasso-index .mag-index-feature{
   width:100%!important;
   max-width:none!important;
@@ -80,14 +80,23 @@
   height:auto!important;
   min-height:0!important;
   overflow:hidden!important;
-  background-image:url("https://raw.githubusercontent.com/desukara/bienvivos/main/public/images/editorial/picasso-index-hero-desktop.png")!important;
-  background-size:cover!important;
-  background-position:center center!important;
-  background-repeat:no-repeat!important;
-  background-color:transparent!important;
+  background:transparent!important;
 }
-.mag-page #picasso-index .mag-index-feature>img{
-  display:none!important;
+.mag-page #picasso-index .mag-index-picture{
+  position:absolute;
+  inset:0;
+  display:block;
+  width:100%;
+  height:100%;
+}
+.mag-page #picasso-index .mag-index-picture img{
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+  object-position:center center!important;
+  opacity:1!important;
+  visibility:visible!important;
 }
 
 /* Back cover: fill the composition with editorial presence, not empty geometry. */
@@ -113,9 +122,5 @@
  .mag-page .mag-credit,.mag-page .picasso-shot figcaption,.mag-page .cubism-slot figcaption,.mag-page .mag-photo-item figcaption{font-size:.72rem!important}
  .mag-page #picasso-index .mag-index-row p{font-size:.92rem!important}
  .mag-page .mag-footer-wordmark{margin-top:1.5rem!important}
- .mag-page #picasso-index .mag-index-feature{
-   aspect-ratio:1024/1365!important;
-   background-image:url("https://raw.githubusercontent.com/desukara/bienvivos/main/public/images/editorial/picasso-index-hero-mobile.png")!important;
-   background-size:cover!important;
- }
+ .mag-page #picasso-index .mag-index-feature{aspect-ratio:1024/1365!important}
 }
