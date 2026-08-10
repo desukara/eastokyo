@@ -2,4 +2,31 @@
 .mag-page .mag-night-image-main,.mag-page .mag-night-image-small,.mag-page .mag-index-feature,.mag-page .mag-index-thumb,.mag-page .mag-photo-item .mag-media,.mag-page .mag-mini-cover{position:relative;overflow:hidden}
 .mag-page .mag-night-image-main img,.mag-page .mag-night-image-small img,.mag-page .mag-index-feature img,.mag-page .mag-index-thumb img,.mag-page .mag-photo-item .mag-media img,.mag-page .mag-mini-cover img{opacity:1!important;visibility:visible!important}
 .mag-page .mag-footer-wordmark{white-space:nowrap}
-@media(max-width:640px){.mag-page .mag-footer-wordmark{font-size:clamp(3.6rem,18vw,6rem)}.mag-page .mag-back-inner,.mag-page .mag-footer-top{min-width:0}.mag-page .mag-index-row{min-width:0}}
+
+/* P.26 bullfighting feature: use the approved artwork pair committed on main while this issue remains on the preview branch. */
+.mag-page .mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-image-primary{
+  background-image:url("https://raw.githubusercontent.com/desukara/bienvivos/main/public/images/editorial/bullfight-feature-desktop.png")!important;
+  background-size:cover!important;
+  background-position:center center!important;
+  background-repeat:no-repeat!important;
+  border-radius:0!important;
+  overflow:hidden!important;
+}
+.mag-page .mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-image-primary>img{
+  display:none!important;
+}
+.mag-page .mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-image-primary::before,
+.mag-page .mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-image-primary::after{
+  border-radius:0!important;
+}
+
+@media(max-width:640px){
+  .mag-page .mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-image-primary{
+    background-image:url("https://raw.githubusercontent.com/desukara/bienvivos/main/public/images/editorial/bullfight-feature-mobile.png")!important;
+    background-position:center center!important;
+    border-radius:0!important;
+  }
+  .mag-page .mag-footer-wordmark{font-size:clamp(3.6rem,18vw,6rem)}
+  .mag-page .mag-back-inner,.mag-page .mag-footer-top{min-width:0}
+  .mag-page .mag-index-row{min-width:0}
+}
