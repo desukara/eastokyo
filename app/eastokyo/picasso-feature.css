@@ -120,3 +120,8 @@
 .cubism-slot:nth-child(3) .cubism-slot-box{background-image:url("https://raw.githubusercontent.com/desukara/bienvivos/main/public/images/editorial/cubism-03-seated-desktop.png")!important;background-size:contain!important;background-position:center center!important;background-repeat:no-repeat!important;background-color:#f4f1e9!important;border:0!important;box-shadow:none!important}
 .cubism-slot:nth-child(3) .cubism-slot-box>span{display:none!important}
 @media(max-width:640px){.cubism-slot:nth-child(3) .cubism-slot-box{background-image:url("https://raw.githubusercontent.com/desukara/bienvivos/main/public/images/editorial/cubism-03-seated-mobile.png")!important;background-size:contain!important;background-position:center center!important;background-repeat:no-repeat!important}}
+
+/* Cubism image 04: radiant portrait, portrait artwork preserved without cropping. */
+.cubism-slot:nth-child(4) .cubism-slot-box{background-image:url("https://raw.githubusercontent.com/desukara/bienvivos/main/public/images/editorial/cubism-04-radiant-portrait-desktop.png")!important;background-size:contain!important;background-position:center center!important;background-repeat:no-repeat!important;background-color:#f4f1e9!important;border:0!important;box-shadow:none!important}
+.cubism-slot:nth-child(4) .cubism-slot-box>span{display:none!important}
+@media(max-width:640px){.cubism-slot:nth-child(4) .cubism-slot-box{background-image:url("https://raw.githubusercontent.com/desukara/bienvivos/main/public/images/editorial/cubism-04-radiant-portrait-mobile.png")!important;background-size:contain!important;background-position:center center!important;background-repeat:no-repeat!important}}
