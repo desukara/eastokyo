@@ -1,5 +1,5 @@
 /* Bien Vivos mobile hard fix — final cascade winner for phone and narrow tablet widths. */
-@media (max-width: 899px) {
+@media (max-width: 899px), (max-width: 1200px) and (hover: none) and (pointer: coarse) {
   .mag-page.bienvivos-page { overflow-x:hidden!important; }
 
   /* Cover */
