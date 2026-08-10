@@ -3,6 +3,7 @@ import "./picasso-feature.css";
 import "./eastokyo-lower-restore.css";
 import "./eastokyo-layout-audit.css";
 import "./eastokyo-editorial-architecture.css";
+import "./eastokyo-editorial-polish.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.eastokyo.com"),
