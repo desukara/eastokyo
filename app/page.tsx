@@ -3,22 +3,205 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
-const navItems=[{label:"PORTADA",href:"#revista"},{label:"SUMARIO",href:"#sumario"},{label:"COMER",href:"#comer"},{label:"MÚSICA",href:"#musica"},{label:"CULTURA",href:"#cultura"},{label:"FOTO",href:"#foto"}];
-const contents=[{page:"08",section:"COMER",title:"Una mesa española que hace latir Tokio",copy:"Memoria, conversación y platos sin ninguna prisa por desaparecer."},{page:"18",section:"ARTE",title:"Picasso, a través de otra mirada",copy:"Cuatro momentos de Picasso — Un rebelde en la historia del arte."},{page:"30",section:"MÚSICA",title:"La noche también tiene acento",copy:"Clubes, listas y canciones para una ciudad incapaz de quedarse quieta."},{page:"42",section:"CULTURA",title:"Después de cenar empieza la vida",copy:"Una defensa afectuosa y radical de la sobremesa."},{page:"56",section:"FOTO",title:"Tokio no es gris",copy:"Color encontrado cuando la ciudad cree que nadie la está mirando."}];
-const indexStories=[{page:"64",section:"BARRIOS",title:"Koenji después de las seis",copy:"Tiendas pequeñas, barras largas y una noche que todavía pertenece a sus vecinos.",image:"/images/editorial/index-koenji-thumb.jpg"},{page:"68",section:"OBJETOS",title:"El detalle como forma de respeto",copy:"Cinco gestos japoneses que convierten lo cotidiano en algo memorable.",image:"https://images.unsplash.com/photo-1524413840807-0c3cb6fa808d?auto=format&fit=crop&w=1000&q=88"},{page:"72",section:"SONIDO",title:"Qué está escuchando Tokio ahora",copy:"Una mezcla sin complejos: pop, electrónica, guitarras y volumen.",image:"https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=1000&q=88"},{page:"76",section:"AGENDA",title:"Ocho razones para salir esta semana",copy:"Arte, comida y música para impedir que Tokio se convierta en rutina.",image:"https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1000&q=88"}];
-const photoEssayImages=[{src:"https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=1800&q=92",label:"Dos personas, una ciudad en movimiento"},{src:"/images/editorial/tokio-no-es-gris-mona-lisa-tanabata.png",label:"Mona Lisa de Tanabata"},{src:"https://images.unsplash.com/photo-1528360983277-13d401cdc186?auto=format&fit=crop&w=1400&q=90",label:"La ciudad despierta"},{src:"https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=1400&q=90",label:"Ritmo urbano"},{src:"https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=1400&q=90",label:"Un cerdo de papel vigila la calle"},{src:"https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?auto=format&fit=crop&w=1800&q=90",label:"Tokio en flor"}];
-const contentsImage="https://images.unsplash.com/photo-1528360983277-13d401cdc186?auto=format&fit=crop&w=2000&q=94";const foodDetailImage="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1600&q=92";const indexFeatureImage="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=2200&q=94";
-function EditorialImage({src,alt,sizes,priority=false}:{src:string;alt:string;sizes:string;priority?:boolean}){return <Image src={src} alt={alt} fill sizes={sizes} priority={priority} quality={88}/>}
-function PicassoPicture({desktop,mobile,alt}:{desktop:string;mobile:string;alt:string}){return <picture className="picasso-picture"><source media="(max-width: 640px)" srcSet={mobile}/><img src={desktop} alt={alt} loading="lazy"/></picture>}
-export default function Home(){const[menuOpen,setMenuOpen]=useState(false);const menuButtonRef=useRef<HTMLButtonElement>(null);const menuCloseRef=useRef<HTMLButtonElement>(null);useEffect(()=>{if(!menuOpen)return;const previousOverflow=document.body.style.overflow;const menuButton=menuButtonRef.current;const main=document.querySelector<HTMLElement>("main");const footer=document.querySelector<HTMLElement>("footer");document.body.style.overflow="hidden";main?.setAttribute("inert","");footer?.setAttribute("inert","");menuCloseRef.current?.focus();const handleKeyDown=(event:KeyboardEvent)=>{if(event.key==="Escape")setMenuOpen(false)};window.addEventListener("keydown",handleKeyDown);return()=>{document.body.style.overflow=previousOverflow;main?.removeAttribute("inert");footer?.removeAttribute("inert");window.removeEventListener("keydown",handleKeyDown);menuButton?.focus()}},[menuOpen]);const closeMenu=()=>setMenuOpen(false);return <div className="mag-page" id="top">
-<a className="mag-skip-link" href="#contenido">Saltar al contenido</a><header className="mag-header"><div className="mag-header-rail"><p>REVISTA INDEPENDIENTE · TOKIO</p><p>EDICIÓN INAUGURAL · Nº 01</p><p>01 SEPTIEMBRE 2026</p></div><nav className="mag-nav" aria-label="Navegación principal"><div className="mag-nav-links">{navItems.map(i=><a key={i.label} href={i.href}>{i.label}</a>)}</div><span>LEER COMO REVISTA · MOVERSE COMO TOKIO</span></nav><div className="mag-mobile-bar"><a className="mag-mobile-logo" href="#top" onClick={closeMenu}>BIEN VIVOS</a><button ref={menuButtonRef} type="button" className={`mag-menu-button ${menuOpen?"is-open":""}`} aria-label={menuOpen?"Cerrar menú":"Abrir menú"} aria-expanded={menuOpen} aria-controls="mag-mobile-menu" onClick={()=>setMenuOpen(o=>!o)}><span/><span/></button></div></header><div id="mag-mobile-menu" className={`mag-mobile-menu ${menuOpen?"is-open":""}`} role="dialog" aria-modal="true" aria-label="Menú principal" aria-hidden={!menuOpen}><button ref={menuCloseRef} type="button" className="mag-mobile-menu-close" onClick={closeMenu} tabIndex={menuOpen?0:-1}>CERRAR <span aria-hidden="true">×</span></button><nav aria-label="Navegación móvil">{navItems.map((i,n)=><a key={i.label} href={i.href} onClick={closeMenu} tabIndex={menuOpen?0:-1}><span>0{n+1}</span>{i.label}</a>)}</nav><p>Tokio se vive mejor en español.</p></div>
-<main id="contenido">
-<section className="mag-cover" id="revista" aria-labelledby="cover-title"><picture className="mag-cover-media mag-media" aria-hidden="true"><source media="(max-width: 640px)" srcSet="/images/editorial/picasso-bullfight-01-mobile.png"/><img src="/images/editorial/picasso-bullfight-01-desktop.png" alt="" fetchPriority="high"/></picture><div className="mag-cover-shade" aria-hidden="true"/><div className="mag-cover-grid"><div className="mag-cover-topline"><p>BIEN VIVOS · TOKIO, BIEN VIVO</p><p>ARTE · COMIDA · MÚSICA · CULTURA · FOTO</p></div><div className="mag-cover-masthead" aria-hidden="true">BIEN VIVOS</div><div className="mag-cover-story"><p className="mag-kicker">ARTE · TOKIO / PICASSO · P. 18</p><h1 id="cover-title">El toro <em>nunca lo abandonó</em></h1><p><strong>Picasso, a través de los ojos de Paul Smith · The National Art Center, Tokyo.</strong> Picasso volvió una y otra vez a la plaza de toros durante toda su vida. En Tokio, la exposición sigue esa obsesión hasta su obra: el toro como espectáculo, violencia, mito y algo mucho más íntimo.</p><a href="#cultura">ENTRAR EN LA EXPOSICIÓN ↓</a></div><div className="mag-cover-lines" aria-label="Historias destacadas"><article className="mag-cover-line"><b>18</b><div><small>ARTE · PICASSO</small><p>El toro, la arena y una obsesión de toda una vida.</p></div></article><article className="mag-cover-line"><b>30</b><div><small>MÚSICA</small><p>La noche también tiene acento.</p></div></article><article className="mag-cover-line"><b>56</b><div><small>FOTO</small><p>Tokio no es gris. Nunca lo fue.</p></div></article></div></div><p className="mag-cover-vertical">Nº 01 · SEPTIEMBRE 2026 · ¥1,200</p><div className="mag-cover-barcode" aria-hidden="true"/></section>
-<section className="mag-section mag-contents" id="sumario" aria-labelledby="contents-title"><div className="mag-rule-heading"><h2>EDICIÓN Nº 01 · SUMARIO</h2></div><div className="mag-contents-grid"><div className="mag-contents-title"><p className="mag-kicker">EN ESTE NÚMERO</p><h2 id="contents-title">Todo lo que nos hace sentir vivos.</h2></div><figure className="mag-contents-image mag-media"><EditorialImage src={contentsImage} alt="Tokio en movimiento, lleno de color, calle y vida cotidiana" sizes="(max-width: 640px) 100vw, (max-width: 899px) 58vw, 34vw"/><figcaption className="mag-credit">CALLE · BIEN VIVOS / TOKIO</figcaption></figure><div className="mag-contents-list">{contents.map(s=><article className="mag-contents-entry" key={s.page}><strong>{s.page}</strong><div><small>{s.section}</small><h3>{s.title}</h3><p>{s.copy}</p></div></article>)}</div></div></section>
-<section className="mag-section mag-front picasso-feature" id="cultura" aria-labelledby="front-title"><div className="mag-rule-heading"><h2>PRIMERAS PÁGINAS · TOKIO AHORA</h2></div><div className="picasso-feature-intro"><div className="picasso-feature-title"><p className="mag-kicker">ARTE · PICASSO EN TOKIO · P. 18</p><h3 id="front-title">Picasso, a través de otra mirada.</h3><p className="mag-deck">En The National Art Center, Tokyo, Picasso se encuentra con el instinto de Paul Smith para el color, los patrones y la sorpresa.</p></div><aside className="picasso-feature-note"><strong>UNA GALERÍA · DOS EXPOSICIONES</strong><p>En lugar de explicar a Picasso desde la distancia, la exposición pone su obra en conversación con un diseñador contemporáneo que lleva toda una carrera mirando de otra manera.</p></aside></div><div className="picasso-gallery"><figure className="picasso-shot picasso-shot-1"><PicassoPicture desktop="/images/editorial/picasso-paul-smith-desktop.png" mobile="/images/editorial/picasso-paul-smith-mobile.png" alt="Visitante observando cerámicas de Picasso en la exposición de Paul Smith en The National Art Center, Tokyo"/><figcaption><span>01 · PICASSO × PAUL SMITH</span><span>THE NATIONAL ART CENTER, TOKYO</span></figcaption></figure><figure className="picasso-shot picasso-shot-2"><PicassoPicture desktop="/images/editorial/picasso-paying-attention-desktop.png" mobile="/images/editorial/picasso-paying-attention-mobile.jpg" alt="Visitante mirando de cerca una obra de Picasso en Tokio"/><figcaption><span>02 · EL ARTE DE PRESTAR ATENCIÓN</span><span>BIEN VIVOS / P.18</span></figcaption></figure><figure className="picasso-shot picasso-shot-3"><PicassoPicture desktop="/images/editorial/picasso-striped-installation-desktop.jpg" mobile="/images/editorial/picasso-striped-installation-mobile.jpg" alt="Instalación de rayas azules y blancas en la exposición de Picasso"/><figcaption><span>03 · PICASSO ENTRE RAYAS</span><span>VISTA DE LA EXPOSICIÓN</span></figcaption></figure></div><div className="picasso-gallery-secondary"><figure className="picasso-shot picasso-shot-4"><PicassoPicture desktop="/images/editorial/picasso-portrait-desktop.png" mobile="/images/editorial/picasso-portrait-mobile.png" alt="Retrato de Picasso expuesto en Tokio"/><figcaption><span>04 · RETRATO</span><span>PICASSO / TOKIO</span></figcaption></figure><div className="picasso-feature-outro"><div className="picasso-meta">PICASSO × PAUL SMITH<br/>THE NATIONAL ART CENTER, TOKYO<br/>BIEN VIVOS · ARTE · P.18</div><p>El resultado se parece menos a una lección que a una invitación: bajar el ritmo, fijarse en los encuentros inesperados y volver a mirar una obra conocida con ojos nuevos. Cuatro momentos de una exposición construida alrededor del placer de mirar otra vez.</p></div></div></section>
-<section className="mag-section mag-feature" id="comer" aria-labelledby="food-title"><div className="mag-feature-grid"><header className="mag-feature-heading"><p className="mag-kicker">HISTORIA DE PORTADA · COMER</p><h2 id="food-title">Una mesa española que hace latir Tokio</h2><span className="mag-page-number">08</span></header><figure className="mag-feature-image-primary mag-media"><EditorialImage src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=2200&q=95" alt="Mesa de restaurante con platos y copas" sizes="(max-width: 640px) 100vw, (max-width: 899px) 58vw, 50vw"/><figcaption className="mag-credit">FOTOGRAFÍA · BIEN VIVOS / P. 08</figcaption></figure><figure className="mag-feature-image-detail mag-media"><EditorialImage src={foodDetailImage} alt="Mesa compartida con platos de colores y conversación" sizes="(max-width: 640px) 100vw, (max-width: 899px) 42vw, 28vw"/><figcaption className="mag-credit">SOBREMESA · DETALLE / P. 11</figcaption></figure><div className="mag-feature-copy"><p className="mag-deck">Un restaurante, una conversación larga y platos llenos de memoria y carácter.</p><p className="mag-feature-columns">Aquí no venimos solamente a cenar. Venimos a recordar que una buena mesa también puede ser una forma de volver a casa. En Tokio, donde terminar de comer suele significar liberar la mesa, este lugar defiende otra idea del tiempo: quedarse, escuchar, pedir una copa más y dejar que la noche encuentre su propio ritmo. La comida importa, por supuesto. Pero también las historias que aparecen entre un plato y el siguiente.</p></div><blockquote className="mag-feature-pullquote">“Una mesa no es un mueble. Es el lugar donde una ciudad aprende a hablar con otro acento.”<span>BIEN VIVOS · HISTORIA DE PORTADA</span></blockquote></div></section><section className="mag-passion-strip" aria-label="Declaración editorial"><p>Comer. Bailar. Conversar. <em>Quedarse un poco más.</em></p></section>
-<section className="mag-section mag-night" id="musica" aria-labelledby="night-title"><div className="mag-night-sideword" aria-hidden="true">NOCHE</div><div className="mag-night-grid"><header className="mag-night-heading"><p className="mag-kicker">MÚSICA · P. 30</p><h2 id="night-title">Tokio no sabe estar en silencio.</h2><p>Aunque a veces lo parezca. Seguimos las listas, los clubes y las obsesiones que marcan el pulso de la ciudad.</p></header><figure className="mag-night-image-main mag-media"><EditorialImage src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=2000&q=94" alt="Cantante actuando bajo luces de concierto" sizes="(max-width: 640px) 100vw, (max-width: 899px) 58vw, 58vw"/><figcaption className="mag-credit">DIRECTO · TOKIO / P. 30</figcaption></figure><figure className="mag-night-image-small mag-media"><EditorialImage src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1500&q=92" alt="Pista de baile llena de luz y movimiento" sizes="(max-width: 640px) 84vw, 36vw"/><figcaption className="mag-credit">03:17 · LA NOCHE SIGUE</figcaption></figure></div></section>
-<section className="mag-section mag-index" id="guia" aria-labelledby="index-title"><div className="mag-index-head"><div><p className="mag-kicker">GUÍA BIEN VIVOS</p><h2 id="index-title">Más Tokio. Menos rutina.</h2></div><p>Cuatro historias breves para el trayecto entre una estación y la siguiente. Rápidas, visuales y con ganas de sacarte de casa.</p></div><figure className="mag-index-feature mag-media"><EditorialImage src={indexFeatureImage} alt="Tokio iluminado, lleno de cruces, carteles y movimiento nocturno" sizes="(max-width: 640px) 100vw, 92vw"/><figcaption><span className="mag-kicker">TOKIO AHORA · P. 64–76</span><strong>Una ciudad para mirar de cerca, no desde la rutina.</strong></figcaption></figure><div className="mag-index-list">{indexStories.map(s=><article className="mag-index-row" key={s.page}><strong>{s.page}</strong><div><small>{s.section}</small><h3>{s.title}</h3></div><p>{s.copy}</p><div className="mag-index-thumb mag-media" aria-hidden="true"><EditorialImage src={s.image} alt="" sizes="112px"/></div></article>)}</div></section>
-<section className="mag-section mag-photo" id="foto" aria-labelledby="photo-title"><div className="mag-photo-head"><p className="mag-kicker">ENSAYO FOTOGRÁFICO · P. 56</p><h2 id="photo-title">Tokio no es gris</h2><p>Color encontrado, color inventado, color que aparece cuando la ciudad cree que nadie la está mirando.</p></div><div className="mag-photo-grid" aria-label="Ensayo fotográfico de Tokio">{photoEssayImages.map((image,index)=><figure className="mag-photo-item" key={image.src}><div className="mag-media"><EditorialImage src={image.src} alt={image.label} sizes={index===0||index===5?"(max-width: 640px) 86vw, 70vw":"(max-width: 640px) 86vw, 28vw"}/></div><figcaption><span>0{index+1}</span><span>{image.label}</span></figcaption></figure>)}</div></section>
-<section className="mag-back-cover" aria-labelledby="launch-title"><div className="mag-back-inner"><div className="mag-mini-cover" aria-label="Vista previa de la edición inaugural de Bien Vivos"><img src="/images/editorial/picasso-bullfight-01-desktop.png" alt=""/><strong>BIEN VIVOS</strong><h3>El toro nunca lo abandonó</h3><p>Nº 01 · SEPTIEMBRE 2026</p></div><div className="mag-back-copy"><p className="mag-kicker">LA REVISTA EMPIEZA AQUÍ</p><h2 id="launch-title">Tokio, completamente despierto.</h2><p>Una revista hecha con criterio, color, calle y ganas de vivir. Japón es lo que miramos. El mundo hispanohablante es nuestra mirada.</p><span className="mag-back-date">01 · 09 · 2026 · EDICIÓN INAUGURAL</span></div></div></section>
-</main><footer className="mag-footer"><div className="mag-footer-top"><div><p className="mag-kicker">TOKIO SE VIVE MEJOR EN ESPAÑOL</p><h2>Nos vemos donde pasa la vida.</h2></div><div className="mag-newsletter"><p>LA CARTA DE BIEN VIVOS</p><strong>Muy pronto, historias para abrir despacio.</strong></div></div><div className="mag-footer-links"><nav aria-label="Navegación del pie">{navItems.map(i=><a key={i.label} href={i.href}>{i.label}</a>)}</nav><div className="social-placeholder" aria-label="Redes sociales próximamente"><span>INSTAGRAM</span><span>TIKTOK</span><span>PINTEREST</span></div></div><a className="mag-footer-wordmark" href="#top" aria-label="Volver arriba">BIEN VIVOS</a><div className="mag-footer-bottom"><p>© 2026 BIEN VIVOS</p><p>HECHO EN TOKIO · CONTADO EN ESPAÑOL</p><a href="#top">VOLVER ARRIBA ↑</a></div></footer></div>}
+const navItems = [
+  { label: "PORTADA", href: "#latest" },
+  { label: "SUMARIO", href: "#contents" },
+  { label: "EXPOSICIÓN", href: "#exhibition" },
+  { label: "TAUROMAQUIA", href: "#bullfighting" },
+  { label: "CUBISMO", href: "#cubism" },
+  { label: "ASAGAYA", href: "#asagaya" },
+  { label: "ÍNDICE", href: "#picasso-index" },
+];
+
+const footerItems = [
+  { label: "ACERCA", href: "#about" },
+  { label: "SUMARIO", href: "#contents" },
+  { label: "ARRIBA", href: "#top" },
+];
+
+const contents = [
+  { href: "#exhibition", section: "EXPOSICIÓN", title: "PICASSO, CON OJOS NUEVOS.", copy: "Paul Smith cambia la sala y de pronto Picasso vuelve a sentirse vivo." },
+  { href: "#bullfighting", section: "TAUROMAQUIA", title: "LA ARENA SE LE METIÓ BAJO LA PIEL.", copy: "Picasso sabía exactamente dónde mirar." },
+  { href: "#cubism", section: "CUBISMO", title: "CUANDO EL CUADRO PERDIÓ LA CABEZA.", copy: "¿Un solo ángulo? Por favor. Picasso y Braque tenían otros planes." },
+  { href: "#cubism-works", section: "CUBISMO · OBRAS", title: "ESTO PASA CUANDO LA PERSPECTIVA SE ABURRE.", copy: "La realidad no tuvo ninguna oportunidad." },
+  { href: "#asagaya", section: "ASAGAYA TANABATA", title: "LA CIUDAD SE DISFRAZA.", copy: "Criaturas de papel se balancean arriba y de pronto toda la ciudad se convierte en fiesta." },
+  { href: "#picasso-index", section: "ÍNDICE PICASSO", title: "NO HAY SALIDA FÁCIL.", copy: "De piezas de bicicleta a cerámica, Picasso seguía encontrando nuevas maneras de dejar clara la idea." },
+];
+
+const indexStories = [
+  { section: "OBJETO", title: "NADA ES SOLO LO QUE PARECE.", copy: "Dos piezas de bicicleta entran al estudio de Picasso. De alguna manera, sale un toro." },
+  { section: "RETRATO", title: "LA SIMETRÍA NUNCA FUE EL PUNTO.", copy: "Picasso no corrige la cara. La vuelve más interesante." },
+  { section: "RAYAS", title: "PAUL SMITH DEJA SU MARCA.", copy: "Paul Smith convierte una raya normal en parte de la personalidad de la exposición." },
+  { section: "CERÁMICA", title: "PICASSO NO DEJÓ EL PLATO LIMPIO.", copy: "Picasso convirtió la mesa en otro estudio." },
+];
+
+const asagayaImages = [
+  { src: "/images/editorial/la-ciudad-despierta-desktop.png", label: "LA CALLE YA ESTÁ DESPIERTA" },
+  { src: "/images/editorial/tokio-no-es-gris-mona-lisa-tanabata.png", label: "HASTA LA MONA LISA APARECIÓ" },
+  { src: "/images/editorial/ritmo-urbano-giraffe-desktop.png", label: "MIRA ARRIBA. MUY ARRIBA." },
+  { src: "/images/editorial/todo-vivos-desktop.jpg", label: "TODO EL MUNDO ANDA POR AQUÍ" },
+  { src: "/images/editorial/tokio-no-es-gris-asagaya-lanterns.png", label: "FAROLILLOS POR DONDE MIRES" },
+  { src: "/images/editorial/tokio-en-flor-tanabata-desktop.png", label: "ASAGAYA, LISTA PARA LA FIESTA" },
+];
+
+const contentsImage = "/images/editorial/tokio-no-es-gris-asagaya-lanterns.png";
+const detailImage = "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1600&q=92";
+
+function EditorialImage({ src, alt, sizes, priority = false }: { src: string; alt: string; sizes: string; priority?: boolean }) {
+  return <Image src={src} alt={alt} fill sizes={sizes} priority={priority} quality={88} />;
+}
+
+function PicassoPicture({ desktop, mobile, alt }: { desktop: string; mobile: string; alt: string }) {
+  return <picture className="picasso-picture"><source media="(max-width: 640px)" srcSet={mobile} /><img src={desktop} alt={alt} loading="lazy" /></picture>;
+}
+
+function ImageSlot({ number, title }: { number: string; title: string }) {
+  return <figure className="cubism-slot"><div className="cubism-slot-box"><span>IMAGEN {number}</span></div><figcaption><strong>{number} · {title}</strong></figcaption></figure>;
+}
+
+export default function Home() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const menuCloseRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+    const previousOverflow = document.body.style.overflow;
+    const menuButton = menuButtonRef.current;
+    const main = document.querySelector<HTMLElement>("main");
+    const footer = document.querySelector<HTMLElement>("footer");
+    document.body.style.overflow = "hidden";
+    main?.setAttribute("inert", "");
+    footer?.setAttribute("inert", "");
+    menuCloseRef.current?.focus();
+    const handleKeyDown = (event: KeyboardEvent) => { if (event.key === "Escape") setMenuOpen(false); };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      main?.removeAttribute("inert");
+      footer?.removeAttribute("inert");
+      window.removeEventListener("keydown", handleKeyDown);
+      menuButton?.focus();
+    };
+  }, [menuOpen]);
+
+  const closeMenu = () => setMenuOpen(false);
+
+  return <div className="mag-page" id="top">
+    <a className="mag-skip-link" href="#contenido">Saltar al contenido</a>
+    <header className="mag-header">
+      <div className="mag-header-rail"><p>ARTE, PASIÓN Y LÍO · TOKIO</p><p>PRIMER NÚMERO · Nº 01 · ALLÁ VAMOS</p><p>01 SEPTIEMBRE 2026 · VAMOS A ARMARLA</p></div>
+      <nav className="mag-nav" aria-label="Navegación de la edición"><div className="mag-nav-links">{navItems.map(i => <a key={i.label} href={i.href}>{i.label}</a>)}</div><span>ARTE · TOKIO Y MÁS ALLÁ</span></nav>
+      <div className="mag-mobile-bar"><a className="mag-mobile-logo" href="#top" onClick={closeMenu}>BIEN VIVOS</a><button ref={menuButtonRef} type="button" className={`mag-menu-button ${menuOpen ? "is-open" : ""}`} aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"} aria-expanded={menuOpen} aria-controls="mag-mobile-menu" onClick={() => setMenuOpen(o => !o)}><span /><span /></button></div>
+    </header>
+
+    <div id="mag-mobile-menu" className={`mag-mobile-menu ${menuOpen ? "is-open" : ""}`} role="dialog" aria-modal="true" aria-label="Menú de la edición" aria-hidden={!menuOpen}>
+      <button ref={menuCloseRef} type="button" className="mag-mobile-menu-close" onClick={closeMenu} tabIndex={menuOpen ? 0 : -1}>CERRAR <span aria-hidden="true">×</span></button>
+      <nav aria-label="Navegación móvil">{navItems.map((i, n) => <a key={i.label} href={i.href} onClick={closeMenu} tabIndex={menuOpen ? 0 : -1}><span>0{n + 1}</span>{i.label}</a>)}</nav>
+      <p>BIEN VIVOS · Nº 01 · HECHO EN TOKIO.</p>
+    </div>
+
+    <main id="contenido">
+      <section className="mag-cover" id="latest" aria-labelledby="cover-title">
+        <picture className="mag-cover-media mag-media"><source media="(max-width: 640px)" srcSet="/images/editorial/picasso-bullfight-01-mobile.png" /><img src="/images/editorial/picasso-bullfight-01-desktop.png" alt="" fetchPriority="high" /></picture>
+        <div className="mag-cover-shade" aria-hidden="true" />
+        <div className="mag-cover-grid">
+          <div className="mag-cover-topline"><p>BIEN VIVOS · BELLEZA, CAOS Y BUEN GUSTO</p><p>PICASSO · TOKIO · NADA TRANQUILO</p></div>
+          <div className="mag-cover-masthead" aria-hidden="true">BIEN VIVOS</div>
+          <div className="mag-cover-story"><p className="mag-kicker">PICASSO · LA ARENA DENTRO DE SU CABEZA</p><h1 id="cover-title">NUNCA SALIÓ DEL TODO DE LA ARENA</h1><p><strong>PICASSO, PAUL SMITH Y UNA IDEA MUY BUENA · TOKIO</strong> La arena le dio a Picasso todo lo que un artista podía pedir: peligro, color y absolutamente ninguna posibilidad de aburrirse.</p><a href="#bullfighting">ENTRA EN LA ARENA ↓</a></div>
+          <div className="mag-cover-lines" aria-label="Historias destacadas de esta edición">
+            <article className="mag-cover-line"><div><small>EXPOSICIÓN</small><p>PAUL SMITH SUBE EL COLOR.</p></div></article>
+            <article className="mag-cover-line"><div><small>CUBISMO</small><p>ROMPIENDO EL ARTE EN PEDAZOS.</p></div></article>
+            <article className="mag-cover-line"><div><small>ASAGAYA TANABATA</small><p>TOKIO, A TODO VOLUMEN.</p></div></article>
+          </div>
+        </div>
+        <p className="mag-cover-vertical">TOKIO · Nº 01 · SEPTIEMBRE 2026 · ¥1,200</p><div className="mag-cover-barcode" aria-hidden="true" />
+      </section>
+
+      <section className="mag-section mag-contents" id="contents" aria-labelledby="contents-title">
+        <div className="mag-rule-heading"><h2>BIEN VIVOS Nº 01 · SUMARIO</h2></div>
+        <div className="mag-contents-grid">
+          <div className="mag-contents-title"><p className="mag-kicker">AQUÍ EMPIEZA LO BUENO</p><h2 id="contents-title">TOKIO RECIBE A PICASSO. ASAGAYA SUBE EL VOLUMEN.</h2></div>
+          <figure className="mag-contents-image mag-media"><EditorialImage src={contentsImage} alt="Decoraciones del festival de Asagaya" sizes="(max-width: 640px) 100vw, (max-width: 899px) 58vw, 34vw" /><figcaption className="mag-credit">ASAGAYA · BIEN VIVOS</figcaption></figure>
+          <div className="mag-contents-list">{contents.map(s => <article className="mag-contents-entry" key={s.href}><a href={s.href}><small>{s.section}</small><h3>{s.title}</h3><p>{s.copy}</p></a></article>)}</div>
+        </div>
+      </section>
+
+      <section className="mag-section mag-front picasso-feature" id="exhibition" aria-labelledby="front-title">
+        <div className="mag-rule-heading"><h2>EXPOSICIÓN · THE NATIONAL ART CENTER, TOKIO</h2></div>
+        <div className="picasso-feature-intro">
+          <div className="picasso-feature-title"><p className="mag-kicker">RESEÑA · TOKIO SE ENCUENTRA CON PICASSO</p><h3 id="front-title">PAUL SMITH LE DA A PICASSO UN ESCENARIO NUEVO.</h3><p className="mag-deck">Por fin, Picasso tiene dónde volverse loco.</p></div>
+          <aside className="picasso-feature-note"><strong>PICASSO, SIN CORREA</strong><p>Picasso recorre las salas. Pero las salas siguen cambiando las reglas.</p></aside>
+        </div>
+        <div className="picasso-gallery">
+          <figure className="picasso-shot picasso-shot-1"><PicassoPicture desktop="/images/editorial/picasso-paul-smith-desktop.png" mobile="/images/editorial/picasso-paul-smith-mobile.png" alt="Visitante observando cerámicas de Picasso en la exposición de Paul Smith en The National Art Center, Tokio" /><figcaption><span>01 · PICASSO, REMEZCLADO</span><span>TOKIO, JAPÓN · THE NATIONAL ART CENTER</span></figcaption></figure>
+          <figure className="picasso-shot picasso-shot-2"><PicassoPicture desktop="/images/editorial/picasso-paying-attention-desktop.png" mobile="/images/editorial/picasso-paying-attention-mobile.jpg" alt="Visitante mirando de cerca una obra de Picasso en Tokio" /><figcaption><span>02 · ATENCIÓN. ALGO SE TRAE ENTRE MANOS.</span><span>BIEN VIVOS · PICASSO EN TOKIO</span></figcaption></figure>
+          <figure className="picasso-shot picasso-shot-3"><PicassoPicture desktop="/images/editorial/picasso-striped-installation-desktop.jpg" mobile="/images/editorial/picasso-striped-installation-mobile.jpg" alt="Instalación de rayas azules y blancas en la exposición de Picasso" /><figcaption><span>03 · PAUL SMITH TRAZA LAS LÍNEAS</span><span>LAS PAREDES TAMBIÉN TRABAJAN</span></figcaption></figure>
+        </div>
+        <div className="picasso-gallery-secondary">
+          <figure className="picasso-shot picasso-shot-4"><PicassoPicture desktop="/images/editorial/picasso-portrait-desktop.png" mobile="/images/editorial/picasso-portrait-mobile.png" alt="Retrato de Picasso expuesto en Tokio" /><figcaption><span>04 · PICASSO JUEGA CON LA CARA</span><span>PICASSO · CARA A CARA</span></figcaption></figure>
+          <div className="picasso-feature-outro"><div className="picasso-meta">PICASSO × PAUL SMITH<br />THE NATIONAL ART CENTER · TOKIO, JAPÓN<br />VERANO 2026</div><p>Olvida las paredes educadas. Las mejores salas aquí tienen mucho que decir y Picasso busca opiniones.</p></div>
+        </div>
+      </section>
+
+      <section className="mag-section mag-feature" id="bullfighting" aria-labelledby="bullfighting-title">
+        <div className="mag-feature-grid">
+          <header className="mag-feature-heading"><p className="mag-kicker">PICASSO · DENTRO DE LA ARENA</p><h2 id="bullfighting-title">VOLVÍA UNA Y OTRA VEZ POR EL PELIGRO.</h2></header>
+          <figure className="mag-feature-image-primary mag-media"><EditorialImage src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=2200&q=95" alt="Obra de Picasso sobre tauromaquia" sizes="(max-width: 640px) 100vw, (max-width: 899px) 58vw, 50vw" /><figcaption className="mag-credit">PICASSO · TAUROMAQUIA</figcaption></figure>
+          <figure className="mag-feature-image-detail mag-media"><EditorialImage src={detailImage} alt="Detalle de una escena taurina de Picasso" sizes="(max-width: 640px) 100vw, (max-width: 899px) 42vw, 28vw" /><figcaption className="mag-credit">EL TORO · EL CABALLO · EL TORERO</figcaption></figure>
+          <div className="mag-feature-copy"><p className="mag-deck">Picasso volvió a la tauromaquia una y otra vez. Porque la arena todavía tenía algo que decir.</p><p className="mag-feature-columns">En la plaza, Picasso encontró todo el lío humano. Más o menos.</p></div>
+          <blockquote className="mag-feature-pullquote">“La arena es drama sin ningún lugar donde esconderse.”<span>BIEN VIVOS · SIN DISTANCIA SEGURA</span></blockquote>
+        </div>
+      </section>
+
+      <section className="cubism-intro" id="cubism" aria-labelledby="cubism-title">
+        <div className="cubism-intro-word" aria-hidden="true">CUBISMO</div>
+        <div className="cubism-intro-copy">
+          <p className="mag-kicker">CUBISMO · ARTE DESARMADO</p>
+          <h2 id="cubism-title">CUANDO LO IRREAL ES MÁS REAL</h2>
+          <p>Tomaron una sola visión de la realidad, la hicieron pedazos y volvieron con más perspectiva. Picasso y Braque renunciaron a un único punto de vista perfecto. La realidad siempre ha sido más interesante que eso. La imagen se volvió menos obvia y, de alguna manera, más viva. El cubismo te obliga a ganarte la imagen. ¿Loco? Puede ser. ¿Aburrido? Ni de lejos.</p>
+        </div>
+        <div className="cubism-intro-note"><span>1907 →</span><p>La perspectiva se rompe.<br />La imagen se convierte en construcción.</p></div>
+      </section>
+
+      <section className="cubism-spread" id="cubism-works" aria-labelledby="cubism-spread-title">
+        <div className="cubism-spread-head">
+          <div><p className="mag-kicker">CUBISMO · CUATRO OBRAS</p><h2 id="cubism-spread-title">Misma revolución, otros ángulos.</h2></div>
+          <p>El cubismo empieza con una negativa: negarse a dejar que la pintura siga siendo una única visión estable del mundo. Cuatro obras sostienen esta sección, cada una con su propia escala y forma.</p>
+        </div>
+        <div className="cubism-slot-grid">
+          <ImageSlot number="01" title="LE CUBISME · ¿UN SOLO PUNTO DE VISTA? YA NO." />
+          <ImageSlot number="02" title="BÚHO · PICASSO · VISIÓN NOCTURNA" />
+          <ImageSlot number="03" title="PICASSO · QUIETO, MÁS O MENOS" />
+          <ImageSlot number="04" title="RETRATO · PICASSO · A PRIMERA VISTA" />
+        </div>
+        <div className="cubism-spread-foot"><p>Los objetos y los cuerpos ya no se quedan obedientemente dentro de la perspectiva. Picasso los rompe en planos, los gira en el espacio y los reconstruye sobre la superficie.</p><div>PICASSO · REALIDAD, REARMADA<br />PINTURA · ESCULTURA · PAPEL · SIN LÍMITES<br />BIEN VIVOS · Nº 01 · NADA SE QUEDA SIMPLE</div></div>
+      </section>
+
+      <section className="mag-section mag-photo" id="asagaya" aria-labelledby="photo-title">
+        <div className="mag-photo-head"><p className="mag-kicker">ASAGAYA TANABATA · LAS CALLES COBRAN VIDA</p><h2 id="photo-title">LA CIUDAD LO DA TODO.</h2><p>Criaturas de papel haciendo lo que les da la gana.</p></div>
+        <div className="mag-photo-grid" aria-label="Historia visual del Tanabata de Asagaya">{asagayaImages.map((image, index) => <figure className="mag-photo-item" key={image.src}><div className="mag-media"><EditorialImage src={image.src} alt={image.label} sizes={index === 0 || index === 5 ? "(max-width: 640px) 86vw, 70vw" : "(max-width: 640px) 86vw, 28vw"} /></div><figcaption><span>0{index + 1}</span><span>{image.label}</span></figcaption></figure>)}</div>
+      </section>
+
+      <section className="mag-section mag-index" id="picasso-index" aria-labelledby="show-title">
+        <div className="mag-index-head"><div><p className="mag-kicker">ÍNDICE PICASSO · EMPIEZA DONDE QUIERAS</p><h2 id="show-title">EMPIEZA CON UNA COSA. TERMINA EN OTRO SITIO.</h2></div><p>Picasso podía empezar con casi cualquier cosa. La gracia era ver dónde terminaba.</p></div>
+        <figure className="mag-index-feature mag-media"><picture className="mag-index-picture"><source media="(max-width: 640px)" srcSet="https://raw.githubusercontent.com/desukara/bienvivos/main/public/images/editorial/picasso-index-hero-mobile.png" /><img src="https://raw.githubusercontent.com/desukara/bienvivos/main/public/images/editorial/picasso-index-hero-desktop.png" alt="Vista de la exposición de Picasso en Tokio" loading="lazy" /></picture><figcaption><span className="mag-kicker">PICASSO · TOKIO · A VER DÓNDE LLEGA</span><strong>UNA SALA LLEVA A OTRA.</strong></figcaption></figure>
+        <div className="mag-index-list">{indexStories.map(s => <article className="mag-index-row" key={s.section}><div><small>{s.section}</small><h3>{s.title}</h3></div><p>{s.copy}</p></article>)}</div>
+      </section>
+
+      <section className="mag-back-cover" id="about" aria-labelledby="about-title">
+        <div className="mag-back-inner">
+          <div className="mag-mini-cover" aria-label="Vista previa del número inaugural de Bien Vivos"><EditorialImage src="/images/editorial/picasso-bullfight-01-desktop.png" alt="" sizes="(max-width: 640px) 70vw, 20rem" /><strong>BIEN VIVOS</strong><h3>NUNCA SALIÓ DEL TODO DE LA ARENA.</h3><p>Nº 01 · TOKIO · SEPTIEMBRE 2026</p></div>
+          <div className="mag-back-copy"><p className="mag-kicker">BIEN VIVOS · Nº 01 · HECHO EN TOKIO</p><h2 id="about-title">ARTE DESDE TOKIO, MIRANDO A TODAS PARTES.</h2><p>BIEN VIVOS es una revista independiente de arte para gente a la que le gusta el arte vivo.</p><span className="mag-back-date">01 · 09 · 2026 · Nº 01 · ESTO ACABA DE EMPEZAR</span></div>
+        </div>
+      </section>
+    </main>
+
+    <footer className="mag-footer">
+      <div className="mag-footer-top"><div><p className="mag-kicker">BIEN VIVOS · Nº 01</p><h2>MIRA OTRA VEZ.</h2></div><div className="mag-newsletter"><p>LA CARTA DE BIEN VIVOS · NO TE PIERDAS LA PRÓXIMA</p><strong>TODAVÍA NO. PERO PRONTO.</strong></div></div>
+      <div className="mag-footer-links"><nav aria-label="Navegación del pie">{footerItems.map(i => <a key={i.label} href={i.href}>{i.label}</a>)}</nav><div className="social-placeholder" aria-label="Redes sociales próximamente"><span>INSTAGRAM</span><span>TIKTOK</span><span>PINTEREST</span></div></div>
+      <a className="mag-footer-wordmark" href="#top" aria-label="Volver arriba">BIEN VIVOS</a>
+      <div className="mag-footer-bottom"><p>© 2026 BIEN VIVOS · TOKIO, JAPÓN</p><p>HECHO EN TOKIO · LISTOS PARA MÁS</p><a href="#top">UNA MIRADA MÁS ↑</a></div>
+    </footer>
+  </div>;
+}
