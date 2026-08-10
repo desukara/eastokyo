@@ -74,6 +74,66 @@
   color:var(--et-ink)!important;
 }
 
+/* Cubism works intro: the rendered copy was washing out on the bone field. */
+.mag-page #cubism-works,
+.mag-page #cubism-works .cubism-spread-head,
+.mag-page #cubism-works .cubism-spread-head>p,
+.mag-page #cubism-works .cubism-spread-foot,
+.mag-page #cubism-works .cubism-spread-foot>p{
+  color:var(--et-ink)!important;
+}
+.mag-page #cubism-works .cubism-spread-head>p,
+.mag-page #cubism-works .cubism-spread-foot>p{
+  opacity:1!important;
+  font-weight:560!important;
+}
+
+/* Asagaya source assets contain old Spanish caption strips. Overlay the English
+   EASTOKYO caption on the same strip area so the art is not cropped or altered. */
+.mag-page #asagaya .mag-photo-item{
+  position:relative!important;
+}
+.mag-page #asagaya .mag-photo-item figcaption{
+  position:absolute!important;
+  left:0!important;
+  right:0!important;
+  bottom:0!important;
+  z-index:4!important;
+  margin:0!important;
+  min-height:3rem!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  gap:1rem!important;
+  box-sizing:border-box!important;
+  box-shadow:0 -1px 0 rgba(255,255,255,.18)!important;
+}
+
+/* Picasso Index hero: replace the unrelated street image with an actual
+   exhibition view already used in this issue. Fit, never crop. */
+.mag-page #picasso-index .mag-index-feature{
+  background:var(--et-ink) url('/images/editorial/picasso-paul-smith-desktop.png') center center/contain no-repeat!important;
+}
+.mag-page #picasso-index .mag-index-feature>img{
+  opacity:0!important;
+  visibility:hidden!important;
+}
+
+/* Remove old Spanish newsletter residue inherited from the original template. */
+.mag-page .mag-newsletter::before,
+.mag-page .mag-newsletter::after,
+.mag-page .mag-newsletter strong::before,
+.mag-page .mag-newsletter strong::after,
+.mag-page .mag-newsletter p::before,
+.mag-page .mag-newsletter p::after{
+  content:none!important;
+  display:none!important;
+}
+.mag-page .mag-newsletter p,
+.mag-page .mag-newsletter strong{
+  color:var(--et-paper)!important;
+}
+
 /* Index and footer metadata stay clear even at the smallest sizes. */
 .mag-page #picasso-index .mag-index-row small,
 .mag-page #picasso-index .mag-kicker,
@@ -111,5 +171,11 @@
   .mag-page #about .mag-back-date{
     width:fit-content!important;
     line-height:1.35!important;
+  }
+  .mag-page #picasso-index .mag-index-feature{
+    background-image:url('/images/editorial/picasso-paul-smith-mobile.png')!important;
+  }
+  .mag-page #asagaya .mag-photo-item figcaption{
+    min-height:2.7rem!important;
   }
 }
