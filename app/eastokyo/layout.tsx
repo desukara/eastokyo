@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./picasso-feature.css";
 import "./eastokyo-lower-restore.css";
 import "./eastokyo-layout-audit.css";
+import "./eastokyo-editorial-architecture.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.eastokyo.com"),
