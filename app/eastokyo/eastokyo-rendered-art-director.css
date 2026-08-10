@@ -1,0 +1,94 @@
+/* Rendered art-director pass based on desktop screenshots. No image sources or crops are changed. */
+
+/* Small editorial text must read as intentional, not incidental. */
+.mag-page .mag-nav a{font-size:.64rem!important;letter-spacing:.1em!important}
+.mag-page .mag-header-rail p,.mag-page .mag-rule-heading h2,.mag-page .mag-kicker{font-size:clamp(.66rem,.72vw,.78rem)!important}
+.mag-page .mag-credit,.mag-page .picasso-shot figcaption,.mag-page .cubism-slot figcaption,.mag-page .mag-photo-item figcaption{font-size:clamp(.76rem,.78vw,.86rem)!important;line-height:1.32!important}
+.mag-page .picasso-shot figcaption,.mag-page .cubism-slot figcaption,.mag-page .mag-photo-item figcaption{padding:.9rem .78rem .82rem!important}
+
+/* Contents: reduce dead field and make index copy carry more visual weight. */
+@media(min-width:900px){
+ .mag-page #contents{padding-top:clamp(3.4rem,5vw,5rem)!important;padding-bottom:clamp(3.8rem,5.5vw,5.5rem)!important}
+ .mag-page #contents .mag-contents-grid{row-gap:clamp(1.5rem,2.3vw,2.4rem)!important}
+ .mag-page #contents .mag-contents-entry h3{font-size:clamp(1.35rem,1.7vw,1.8rem)!important;line-height:1!important}
+ .mag-page #contents .mag-contents-entry p{font-size:.92rem!important;line-height:1.42!important;max-width:35rem!important}
+}
+
+/* Exhibition: stronger labels and denser text/image rhythm. */
+.mag-page #exhibition .picasso-feature-note p,.mag-page #exhibition .picasso-feature-outro p{font-size:clamp(.98rem,1.1vw,1.15rem)!important;line-height:1.5!important}
+.mag-page #exhibition .picasso-meta{font-size:.78rem!important;line-height:1.45!important}
+@media(min-width:900px){
+ .mag-page #exhibition{padding-top:clamp(3.5rem,5vw,5rem)!important;padding-bottom:clamp(4rem,5vw,5.5rem)!important}
+ .mag-page #exhibition .picasso-feature-intro{margin-bottom:clamp(2rem,3vw,3rem)!important}
+}
+
+/* Bullfighting: preserve artwork/colors/banner, but stop leaving a vacant red auditorium around them. */
+.mag-page .mag-feature[aria-labelledby="bullfighting-title"] .mag-kicker{font-size:.78rem!important}
+.mag-page .mag-feature[aria-labelledby="bullfighting-title"] .mag-deck{font-size:clamp(1.15rem,1.4vw,1.45rem)!important;line-height:1.42!important}
+.mag-page .mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-columns{font-size:clamp(1rem,1.08vw,1.12rem)!important;line-height:1.58!important}
+.mag-page .mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-pullquote{font-size:clamp(1.5rem,2.2vw,2.45rem)!important;line-height:1.12!important}
+@media(min-width:900px){
+ .mag-page .mag-feature[aria-labelledby="bullfighting-title"]{padding-top:clamp(3.5rem,5vw,5rem)!important;padding-bottom:clamp(3.8rem,5vw,5.2rem)!important}
+ .mag-page .mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-grid{row-gap:clamp(1.5rem,2.4vw,2.6rem)!important}
+ .mag-page .mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-heading{padding-bottom:clamp(1rem,1.8vw,1.8rem)!important}
+}
+
+/* Cubism opener: keep the dramatic black field but tighten the outer air. */
+@media(min-width:900px){
+ .mag-page #cubism.cubism-intro{padding-top:clamp(3rem,4vw,4.2rem)!important;padding-bottom:clamp(3rem,4vw,4.2rem)!important;gap:clamp(1.5rem,2.4vw,3rem)!important}
+ .mag-page #cubism .cubism-intro-copy>p:last-child{font-size:clamp(1.08rem,1.22vw,1.28rem)!important;line-height:1.48!important}
+ .mag-page #cubism .cubism-intro-note p{font-size:.96rem!important;line-height:1.38!important}
+}
+
+/* Cubism works: this is the most obvious dead-space problem in the screenshots. */
+.mag-page #cubism-works .cubism-spread-head>p{color:var(--et-ink)!important;opacity:1!important;font-size:clamp(1.06rem,1.25vw,1.3rem)!important;line-height:1.5!important;font-weight:560!important}
+.mag-page #cubism-works .cubism-spread-foot p{font-size:clamp(1rem,1.15vw,1.2rem)!important;line-height:1.5!important}
+@media(min-width:900px){
+ .mag-page #cubism-works.cubism-spread{padding-top:clamp(3rem,4.5vw,4.5rem)!important;padding-bottom:clamp(3.5rem,4.8vw,5rem)!important}
+ .mag-page #cubism-works .cubism-spread-head{grid-template-columns:minmax(0,1.45fr) minmax(21rem,.8fr)!important;gap:clamp(2rem,3.8vw,4rem)!important;padding-bottom:clamp(1.7rem,2.7vw,2.8rem)!important}
+ .mag-page #cubism-works .cubism-slot-grid{padding:clamp(2rem,3vw,3.2rem) 0!important}
+}
+
+/* Asagaya: keep every photo, but tighten the masonry so yellow reads as energy, not vacancy. */
+.mag-page #asagaya .mag-photo-item figcaption span:first-child{font-size:1rem!important;min-width:2.25rem!important}
+.mag-page #asagaya .mag-photo-item figcaption span:last-child{font-size:.82rem!important;line-height:1.25!important}
+@media(min-width:900px){
+ .mag-page #asagaya.mag-photo{padding-top:clamp(3.5rem,4.5vw,4.8rem)!important;padding-bottom:clamp(3.5rem,4.5vw,4.8rem)!important}
+ .mag-page #asagaya .mag-photo-head{margin-bottom:clamp(2rem,3vw,3rem)!important}
+ .mag-page #asagaya .mag-photo-grid{row-gap:clamp(1.4rem,2vw,2rem)!important;column-gap:clamp(1.2rem,1.8vw,1.8rem)!important}
+}
+
+/* Index: currently looks like tiny database rows on a large blue field. Make it editorial. */
+.mag-page #picasso-index .mag-index-row small{font-size:.72rem!important;letter-spacing:.13em!important}
+.mag-page #picasso-index .mag-index-row p{font-size:clamp(.96rem,1.05vw,1.08rem)!important;line-height:1.42!important}
+@media(min-width:900px){
+ .mag-page #picasso-index{padding-top:clamp(3.5rem,4.8vw,5rem)!important;padding-bottom:clamp(3.5rem,4.8vw,5rem)!important}
+ .mag-page #picasso-index .mag-index-head{margin-bottom:clamp(2rem,3vw,3rem)!important}
+ .mag-page #picasso-index .mag-index-row{min-height:0!important;padding:1.05rem 0!important;grid-template-columns:minmax(15rem,.9fr) minmax(0,1.7fr)!important;align-items:center!important}
+ .mag-page #picasso-index .mag-index-row h3{font-size:clamp(1.65rem,2vw,2.15rem)!important;line-height:.95!important}
+}
+
+/* Back cover: fill the composition with editorial presence, not empty geometry. */
+.mag-page #about .mag-back-copy>p:not(.mag-kicker){font-size:clamp(1.12rem,1.4vw,1.45rem)!important;line-height:1.4!important;max-width:31rem!important}
+@media(min-width:900px){
+ .mag-page #about .mag-back-inner{align-items:center!important;gap:clamp(3rem,5vw,6rem)!important}
+ .mag-page #about .mag-back-copy h2{font-size:clamp(4.2rem,6vw,6.6rem)!important;line-height:.83!important;max-width:8ch!important}
+ .mag-page #about .mag-back-copy{padding-block:clamp(2rem,3vw,3.5rem)!important}
+}
+
+/* Footer: reduce the large empty middle and make supporting information readable. */
+.mag-page .mag-footer-links nav a,.mag-page .social-placeholder span,.mag-page .mag-footer-bottom{font-size:.72rem!important;letter-spacing:.11em!important}
+.mag-page .mag-newsletter p{font-size:.76rem!important}.mag-page .mag-newsletter strong{font-size:clamp(1.45rem,2vw,2rem)!important}
+@media(min-width:900px){
+ .mag-page .mag-footer{padding-top:clamp(3rem,4vw,4rem)!important;padding-bottom:clamp(1.8rem,2.8vw,2.8rem)!important}
+ .mag-page .mag-footer-top{padding-bottom:clamp(2rem,3vw,3rem)!important}
+ .mag-page .mag-footer-links{padding:clamp(1.5rem,2.2vw,2.2rem) 0!important}
+ .mag-page .mag-footer-wordmark{margin:clamp(1.5rem,2.4vw,2.5rem) 0 .8rem!important;font-size:clamp(7rem,15vw,13rem)!important;line-height:.72!important}
+}
+
+@media(max-width:640px){
+ .mag-page .mag-nav a{font-size:.68rem!important}
+ .mag-page .mag-credit,.mag-page .picasso-shot figcaption,.mag-page .cubism-slot figcaption,.mag-page .mag-photo-item figcaption{font-size:.72rem!important}
+ .mag-page #picasso-index .mag-index-row p{font-size:.92rem!important}
+ .mag-page .mag-footer-wordmark{margin-top:1.5rem!important}
+}
