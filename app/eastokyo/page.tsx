@@ -56,7 +56,7 @@ function PicassoPicture({ desktop, mobile, alt }: { desktop: string; mobile: str
 }
 
 function ImageSlot({ number, title }: { number: string; title: string }) {
-  return <figure className="cubism-slot"><div className="cubism-slot-box"><span>IMAGE {number}</span></div><figcaption><strong>{number} · {title}</strong><span>PICASSO · CUBISM</span></figcaption></figure>;
+  return <figure className="cubism-slot"><div className="cubism-slot-box"><span>IMAGE {number}</span></div><figcaption><strong>{number} · {title}</strong></figcaption></figure>;
 }
 
 export default function EastokyoHome() {
