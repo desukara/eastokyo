@@ -56,8 +56,8 @@
 .mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-heading,
 .mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-copy{border-color:rgba(244,237,226,.32)!important}
 
-/* P26 primary art: preserve the entire painting. Cover was cropping the bull's horns. */
-.mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-image-primary{background-image:url("https://raw.githubusercontent.com/desukara/bienvivos/main/public/images/editorial/bullfight-feature-desktop.png")!important;background-size:contain!important;background-position:center center!important;background-repeat:no-repeat!important;background-color:#972126!important;border-radius:0!important;overflow:hidden!important}
+/* P26 primary art: preserve the entire 4:3 painting and make the frame match it. */
+.mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-image-primary{width:100%!important;height:auto!important;min-height:0!important;aspect-ratio:4/3!important;background-image:url("https://raw.githubusercontent.com/desukara/bienvivos/main/public/images/editorial/bullfight-feature-desktop.png")!important;background-size:contain!important;background-position:center center!important;background-repeat:no-repeat!important;background-color:#972126!important;border-radius:0!important;overflow:hidden!important}
 .mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-image-primary>img{opacity:0!important;visibility:hidden!important}
 
 /* P26 supporting art: responsive bullfight detail reproduction. */
