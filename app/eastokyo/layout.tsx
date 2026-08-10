@@ -5,9 +5,7 @@ import "./eastokyo-lower-restore.css";
 import "./eastokyo-layout-audit.css";
 import "./eastokyo-editorial-architecture.css";
 import "./eastokyo-editorial-polish.css";
-import "./eastokyo-art-direction.css";
-import "./eastokyo-contrast-qa.css";
-import "./eastokyo-rendered-art-director.css";
+import "./eastokyo-issue-01.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.eastokyo.com"),
