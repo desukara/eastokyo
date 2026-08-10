@@ -29,10 +29,10 @@ const contents = [
 ];
 
 const indexStories = [
-  { section: "OBJECT", title: "A trick of the mind", copy: "A bicycle saddle and handlebar become a bull: Picasso turns a found object into an act of recognition and invention.", image: "/images/editorial/index-objects-thumb.png" },
-  { section: "PORTRAIT", title: "The face, rearranged", copy: "Portraiture becomes a place for compression, distortion and visual surprise.", image: "/images/editorial/picasso-portrait-desktop.png" },
-  { section: "STRIPES", title: "Picasso in stripes", copy: "Pattern moves from portraits and clothing into Paul Smith’s exhibition design.", image: "/images/editorial/picasso-striped-installation-desktop.jpg" },
-  { section: "CERAMICS", title: "One-off pieces", copy: "Plates, pitchers, tiles and clay reveal another side of Picasso’s appetite for making.", image: "/images/editorial/picasso-paul-smith-desktop.png" },
+  { section: "OBJECT", title: "A trick of the mind", copy: "A bicycle saddle and handlebar become a bull: Picasso turns a found object into an act of recognition and invention." },
+  { section: "PORTRAIT", title: "The face, rearranged", copy: "Portraiture becomes a place for compression, distortion and visual surprise." },
+  { section: "STRIPES", title: "Picasso in stripes", copy: "Pattern moves from portraits and clothing into Paul Smith’s exhibition design." },
+  { section: "CERAMICS", title: "One-off pieces", copy: "Plates, pitchers, tiles and clay reveal another side of Picasso’s appetite for making." },
 ];
 
 const asagayaImages = [
@@ -46,7 +46,6 @@ const asagayaImages = [
 
 const contentsImage = "/images/editorial/tokio-no-es-gris-asagaya-lanterns.png";
 const detailImage = "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1600&q=92";
-const indexFeatureImage = "/images/editorial/picasso-paying-attention-desktop.png";
 
 function EditorialImage({ src, alt, sizes, priority = false }: { src: string; alt: string; sizes: string; priority?: boolean }) {
   return <Image src={src} alt={alt} fill sizes={sizes} priority={priority} quality={88} />;
@@ -104,7 +103,7 @@ export default function EastokyoHome() {
 
     <main id="contenido">
       <section className="mag-cover" id="latest" aria-labelledby="cover-title">
-        <picture className="mag-cover-media mag-media" aria-hidden="true"><source media="(max-width: 640px)" srcSet="/images/editorial/picasso-bullfight-01-mobile.png" /><img src="/images/editorial/picasso-bullfight-01-desktop.png" alt="" fetchPriority="high" /></picture>
+        <picture className="mag-cover-media mag-media"><source media="(max-width: 640px)" srcSet="/images/editorial/picasso-bullfight-01-mobile.png" /><img src="/images/editorial/picasso-bullfight-01-desktop.png" alt="" fetchPriority="high" /></picture>
         <div className="mag-cover-shade" aria-hidden="true" />
         <div className="mag-cover-grid">
           <div className="mag-cover-topline"><p>EASTOKYO · INDEPENDENT ART MAGAZINE</p><p>PICASSO · TOKYO · Nº 01</p></div>
@@ -186,8 +185,8 @@ export default function EastokyoHome() {
 
       <section className="mag-section mag-index" id="picasso-index" aria-labelledby="show-title">
         <div className="mag-index-head"><div><p className="mag-kicker">PICASSO INDEX</p><h2 id="show-title">Four ways into Picasso.</h2></div><p>Objects, portraits, pattern and clay—four details that open onto different parts of Picasso’s work and the Tokyo exhibition.</p></div>
-        <figure className="mag-index-feature mag-media"><EditorialImage src={indexFeatureImage} alt="Visitor looking closely at a Picasso work in Tokyo" sizes="(max-width: 640px) 100vw, 92vw" /><figcaption><span className="mag-kicker">PICASSO · TOKYO</span><strong>One exhibition, many entrances.</strong></figcaption></figure>
-        <div className="mag-index-list">{indexStories.map(s => <article className="mag-index-row" key={s.section}><div><small>{s.section}</small><h3>{s.title}</h3></div><p>{s.copy}</p><div className="mag-index-thumb mag-media" aria-hidden="true"><EditorialImage src={s.image} alt="" sizes="112px" /></div></article>)}</div>
+        <figure className="mag-index-feature mag-media"><picture className="mag-index-picture"><source media="(max-width: 640px)" srcSet="https://raw.githubusercontent.com/desukara/bienvivos/main/public/images/editorial/picasso-index-hero-mobile.png" /><img src="https://raw.githubusercontent.com/desukara/bienvivos/main/public/images/editorial/picasso-index-hero-desktop.png" alt="Picasso exhibition view in Tokyo" loading="lazy" /></picture><figcaption><span className="mag-kicker">PICASSO · TOKYO</span><strong>One exhibition, many entrances.</strong></figcaption></figure>
+        <div className="mag-index-list">{indexStories.map(s => <article className="mag-index-row" key={s.section}><div><small>{s.section}</small><h3>{s.title}</h3></div><p>{s.copy}</p></article>)}</div>
       </section>
 
       <section className="mag-back-cover" id="about" aria-labelledby="about-title">
