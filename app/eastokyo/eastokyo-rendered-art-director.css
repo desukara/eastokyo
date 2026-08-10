@@ -68,6 +68,22 @@
  .mag-page #picasso-index .mag-index-row h3{font-size:clamp(1.65rem,2vw,2.15rem)!important;line-height:.95!important}
 }
 
+/* Picasso Index hero: use the approved dedicated desktop/mobile files from main.
+   Frame follows each artwork ratio so neither version is cropped or stretched. */
+.mag-page #picasso-index .mag-index-feature{
+  aspect-ratio:103/60!important;
+  height:auto!important;
+  min-height:0!important;
+  background-image:url("https://raw.githubusercontent.com/desukara/bienvivos/main/public/images/editorial/picasso-index-hero-desktop.png")!important;
+  background-size:contain!important;
+  background-position:center center!important;
+  background-repeat:no-repeat!important;
+  background-color:var(--et-ink)!important;
+}
+.mag-page #picasso-index .mag-index-feature>img{
+  display:none!important;
+}
+
 /* Back cover: fill the composition with editorial presence, not empty geometry. */
 .mag-page #about .mag-back-copy>p:not(.mag-kicker){font-size:clamp(1.12rem,1.4vw,1.45rem)!important;line-height:1.4!important;max-width:31rem!important}
 @media(min-width:900px){
@@ -91,4 +107,8 @@
  .mag-page .mag-credit,.mag-page .picasso-shot figcaption,.mag-page .cubism-slot figcaption,.mag-page .mag-photo-item figcaption{font-size:.72rem!important}
  .mag-page #picasso-index .mag-index-row p{font-size:.92rem!important}
  .mag-page .mag-footer-wordmark{margin-top:1.5rem!important}
+ .mag-page #picasso-index .mag-index-feature{
+   aspect-ratio:1024/1365!important;
+   background-image:url("https://raw.githubusercontent.com/desukara/bienvivos/main/public/images/editorial/picasso-index-hero-mobile.png")!important;
+ }
 }
