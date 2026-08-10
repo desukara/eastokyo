@@ -41,8 +41,8 @@
 .cubism-slot figcaption{display:flex;justify-content:space-between;gap:1rem;padding-top:.7rem;color:#111;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase}
 .cubism-slot figcaption span{opacity:.6;white-space:nowrap}
 
-/* Bullfighting: an oxblood arena field rather than a bright signal red. */
-.mag-feature[aria-labelledby="bullfighting-title"]{background:#741f24!important;color:#f4ede2!important}
+/* Bullfighting: warmer corrida red with enough depth for an editorial field. */
+.mag-feature[aria-labelledby="bullfighting-title"]{background:#972126!important;color:#f4ede2!important}
 .mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-grid{color:#f4ede2!important}
 .mag-feature[aria-labelledby="bullfighting-title"] .mag-kicker,
 .mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-heading h2,
@@ -56,8 +56,8 @@
 .mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-heading,
 .mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-copy{border-color:rgba(244,237,226,.32)!important}
 
-/* P26 primary art: use the new bullfight reproduction, not the old food placeholder. */
-.mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-image-primary{background-image:url("https://raw.githubusercontent.com/desukara/bienvivos/main/public/images/editorial/bullfight-feature-desktop.png")!important;background-size:cover!important;background-position:center center!important;background-repeat:no-repeat!important;border-radius:0!important;overflow:hidden!important}
+/* P26 primary art: preserve the entire painting. Cover was cropping the bull's horns. */
+.mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-image-primary{background-image:url("https://raw.githubusercontent.com/desukara/bienvivos/main/public/images/editorial/bullfight-feature-desktop.png")!important;background-size:contain!important;background-position:center center!important;background-repeat:no-repeat!important;background-color:#972126!important;border-radius:0!important;overflow:hidden!important}
 .mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-image-primary>img{opacity:0!important;visibility:hidden!important}
 
 /* P26 supporting art: responsive bullfight detail reproduction. */
@@ -71,7 +71,7 @@
 .cubism-slot:nth-child(1),.cubism-slot:nth-child(2),.cubism-slot:nth-child(3){grid-column:auto;grid-row:auto}
 .cubism-slot:nth-child(1) .cubism-slot-box{aspect-ratio:4/5;height:auto;min-height:0}
 .cubism-slot:nth-child(2) .cubism-slot-box,.cubism-slot:nth-child(3) .cubism-slot-box{aspect-ratio:4/3;height:auto;min-height:0}
-.mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-image-primary{background-image:url("https://raw.githubusercontent.com/desukara/bienvivos/main/public/images/editorial/bullfight-feature-mobile.png")!important;background-position:center center!important}
+.mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-image-primary{background-image:url("https://raw.githubusercontent.com/desukara/bienvivos/main/public/images/editorial/bullfight-feature-mobile.png")!important;background-size:contain!important;background-position:center center!important}
 .mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-image-detail{background-image:url("https://raw.githubusercontent.com/desukara/bienvivos/main/public/images/editorial/bullfight-detail-mobile.png")!important;background-position:center center!important}
 /* Mobile cover containment: keep every editorial layer inside the viewport and remove decorative collisions. */
 .mag-page .mag-cover{overflow:hidden!important}
