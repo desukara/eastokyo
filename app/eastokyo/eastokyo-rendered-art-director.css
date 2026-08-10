@@ -68,17 +68,23 @@
  .mag-page #picasso-index .mag-index-row h3{font-size:clamp(1.65rem,2vw,2.15rem)!important;line-height:.95!important}
 }
 
-/* Picasso Index hero: use the approved dedicated desktop/mobile files from main.
-   Frame follows each artwork ratio so neither version is cropped or stretched. */
+/* Picasso Index hero: the frame follows the approved image itself.
+   No dark mat, no contain gutters, no inset slot. */
 .mag-page #picasso-index .mag-index-feature{
+  width:100%!important;
+  max-width:none!important;
+  margin-left:0!important;
+  margin-right:0!important;
+  padding:0!important;
   aspect-ratio:103/60!important;
   height:auto!important;
   min-height:0!important;
+  overflow:hidden!important;
   background-image:url("https://raw.githubusercontent.com/desukara/bienvivos/main/public/images/editorial/picasso-index-hero-desktop.png")!important;
-  background-size:contain!important;
+  background-size:cover!important;
   background-position:center center!important;
   background-repeat:no-repeat!important;
-  background-color:var(--et-ink)!important;
+  background-color:transparent!important;
 }
 .mag-page #picasso-index .mag-index-feature>img{
   display:none!important;
@@ -110,5 +116,6 @@
  .mag-page #picasso-index .mag-index-feature{
    aspect-ratio:1024/1365!important;
    background-image:url("https://raw.githubusercontent.com/desukara/bienvivos/main/public/images/editorial/picasso-index-hero-mobile.png")!important;
+   background-size:cover!important;
  }
 }
