@@ -41,9 +41,9 @@
 .cubism-slot figcaption{display:flex;justify-content:space-between;gap:1rem;padding-top:.7rem;color:#111;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase}
 .cubism-slot figcaption span{opacity:.6;white-space:nowrap}
 
-/* Bullfighting: warmer corrida red with enough depth for an editorial field. */
-.mag-feature[aria-labelledby="bullfighting-title"]{background:#972126!important;color:#f4ede2!important}
-.mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-grid{color:#f4ede2!important}
+/* Bullfighting: vivid ceremonial corrida red with warm ivory contrast. */
+.mag-feature[aria-labelledby="bullfighting-title"]{background:#A61E25!important;color:#F6EEDF!important}
+.mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-grid{color:#F6EEDF!important}
 .mag-feature[aria-labelledby="bullfighting-title"] .mag-kicker,
 .mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-heading h2,
 .mag-feature[aria-labelledby="bullfighting-title"] .mag-page-number,
@@ -51,13 +51,13 @@
 .mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-columns,
 .mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-pullquote,
 .mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-pullquote span,
-.mag-feature[aria-labelledby="bullfighting-title"] .mag-credit{color:#f4ede2!important}
-.mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-pullquote{border-color:rgba(244,237,226,.55)!important}
+.mag-feature[aria-labelledby="bullfighting-title"] .mag-credit{color:#F6EEDF!important}
+.mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-pullquote{border-color:rgba(246,238,223,.55)!important}
 .mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-heading,
-.mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-copy{border-color:rgba(244,237,226,.32)!important}
+.mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-copy{border-color:rgba(246,238,223,.32)!important}
 
 /* P26 primary art: preserve the entire 4:3 painting and make the frame match it. */
-.mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-image-primary{width:100%!important;height:auto!important;min-height:0!important;aspect-ratio:4/3!important;background-image:url("https://raw.githubusercontent.com/desukara/bienvivos/main/public/images/editorial/bullfight-feature-desktop.png")!important;background-size:contain!important;background-position:center center!important;background-repeat:no-repeat!important;background-color:#972126!important;border-radius:0!important;overflow:hidden!important}
+.mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-image-primary{width:100%!important;height:auto!important;min-height:0!important;aspect-ratio:4/3!important;background-image:url("https://raw.githubusercontent.com/desukara/bienvivos/main/public/images/editorial/bullfight-feature-desktop.png")!important;background-size:contain!important;background-position:center center!important;background-repeat:no-repeat!important;background-color:#A61E25!important;border-radius:0!important;overflow:hidden!important}
 .mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-image-primary>img{opacity:0!important;visibility:hidden!important}
 
 /* P26 supporting art: responsive bullfight detail reproduction. */
