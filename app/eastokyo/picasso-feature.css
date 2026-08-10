@@ -41,8 +41,8 @@
 .cubism-slot figcaption{display:flex;justify-content:space-between;gap:1rem;padding-top:.7rem;color:#111;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase}
 .cubism-slot figcaption span{opacity:.6;white-space:nowrap}
 
-/* Bullfighting: scarlet corrida field with ivory and matador-gold hierarchy. */
-.mag-feature[aria-labelledby="bullfighting-title"]{background:#981B24!important;color:#FFF4E6!important}
+/* Bullfighting: deep oxblood field behind the brighter quote banner. */
+.mag-feature[aria-labelledby="bullfighting-title"]{background:#6F151D!important;color:#FFF4E6!important}
 .mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-grid{color:#FFF4E6!important}
 .mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-heading h2,
 .mag-feature[aria-labelledby="bullfighting-title"] .mag-deck,
@@ -56,7 +56,7 @@
 .mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-copy{border-color:rgba(228,185,95,.42)!important}
 
 /* P26 primary art: preserve the entire 4:3 painting and make the frame match it. */
-.mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-image-primary{width:100%!important;height:auto!important;min-height:0!important;aspect-ratio:4/3!important;background-image:url("https://raw.githubusercontent.com/desukara/bienvivos/main/public/images/editorial/bullfight-feature-desktop.png")!important;background-size:contain!important;background-position:center center!important;background-repeat:no-repeat!important;background-color:#981B24!important;border-radius:0!important;overflow:hidden!important}
+.mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-image-primary{width:100%!important;height:auto!important;min-height:0!important;aspect-ratio:4/3!important;background-image:url("https://raw.githubusercontent.com/desukara/bienvivos/main/public/images/editorial/bullfight-feature-desktop.png")!important;background-size:contain!important;background-position:center center!important;background-repeat:no-repeat!important;background-color:#6F151D!important;border-radius:0!important;overflow:hidden!important}
 .mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-image-primary>img{opacity:0!important;visibility:hidden!important}
 
 /* P26 supporting art: responsive bullfight detail reproduction. */
