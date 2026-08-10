@@ -97,3 +97,8 @@
 .mag-page .mag-cover-line p{max-width:100%!important;overflow-wrap:anywhere!important}
 .mag-page .mag-cover .mag-cover-media>img{object-position:center center!important}
 }
+
+/* Cubism image 01: finished poster artwork, preserved without cropping. */
+.cubism-slot:nth-child(1) .cubism-slot-box{background-image:url("https://raw.githubusercontent.com/desukara/bienvivos/main/public/images/editorial/cubism-01-poster-desktop.png")!important;background-size:contain!important;background-position:center center!important;background-repeat:no-repeat!important;background-color:#f4f1e9!important;border:0!important;box-shadow:none!important}
+.cubism-slot:nth-child(1) .cubism-slot-box>span{display:none!important}
+@media(max-width:640px){.cubism-slot:nth-child(1) .cubism-slot-box{background-image:url("https://raw.githubusercontent.com/desukara/bienvivos/main/public/images/editorial/cubism-01-poster-mobile.png")!important;background-size:contain!important;background-position:center center!important;background-repeat:no-repeat!important}}
