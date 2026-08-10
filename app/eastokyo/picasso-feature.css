@@ -27,8 +27,59 @@
 .mag-page .mag-cover .mag-cover-media{background:#171b20!important}
 .mag-page .mag-cover .mag-cover-media>img{display:block!important;width:100%!important;height:100%!important;object-fit:cover!important;object-position:center center!important;opacity:1!important;visibility:visible!important}
 
+/* Cubism: four-work composition sized to the chosen artwork shapes. */
+.cubism-intro{padding-top:clamp(2.5rem,4vw,4rem)!important;padding-bottom:clamp(2.5rem,4vw,4rem)!important;align-items:center!important}
+.cubism-intro-word{font-size:clamp(4.5rem,10vw,10rem)!important}
+.cubism-slot-grid{display:grid!important;grid-template-columns:minmax(20rem,1.05fr) minmax(0,.82fr) minmax(0,.82fr)!important;grid-template-rows:minmax(16rem,22vw) minmax(18rem,27vw)!important;gap:clamp(1.1rem,2vw,2rem)!important;padding:clamp(2.5rem,4vw,4rem) 0!important}
+.cubism-slot{margin:0;min-width:0;display:flex;flex-direction:column}
+.cubism-slot:nth-child(1){grid-column:1;grid-row:1/3}
+.cubism-slot:nth-child(2){grid-column:2/4;grid-row:1}
+.cubism-slot:nth-child(3){grid-column:2;grid-row:2}
+.cubism-slot:nth-child(4){grid-column:3;grid-row:2}
+.cubism-slot-box{width:100%;height:100%;min-height:0;aspect-ratio:auto;border:2px dashed #666;display:grid;place-items:center;background:#dedbd2;color:#111;box-shadow:inset 0 0 0 1px rgba(255,255,255,.55)}
+.cubism-slot:nth-child(1) .cubism-slot-box{background:#d4d0c6}
+.cubism-slot-box span{font-size:.8rem;letter-spacing:.18em;font-weight:800;text-transform:uppercase}
+.cubism-slot figcaption{display:flex;justify-content:space-between;gap:1rem;padding-top:.7rem;color:#111;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase}
+.cubism-slot figcaption span{opacity:.6;white-space:nowrap}
+
+/* Bullfighting: true deep blood-red field; quote banner color remains untouched. */
+.mag-feature[aria-labelledby="bullfighting-title"]{background:#4A0A0A!important;color:#FFF4E6!important}
+.mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-grid{color:#FFF4E6!important}
+.mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-heading h2,
+.mag-feature[aria-labelledby="bullfighting-title"] .mag-deck,
+.mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-columns,
+.mag-feature[aria-labelledby="bullfighting-title"] .mag-credit{color:#FFF4E6!important}
+.mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-pullquote{color:#FFF8EE!important;border-color:rgba(228,185,95,.72)!important}
+.mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-pullquote span,
+.mag-feature[aria-labelledby="bullfighting-title"] .mag-kicker,
+.mag-feature[aria-labelledby="bullfighting-title"] .mag-page-number{color:#E4B95F!important}
+.mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-heading,
+.mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-copy{border-color:rgba(228,185,95,.42)!important}
+
+/* P26 primary art: preserve the entire 4:3 painting and make the frame match it. */
+.mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-image-primary{width:100%!important;height:auto!important;min-height:0!important;aspect-ratio:4/3!important;background-image:url("https://raw.githubusercontent.com/desukara/bienvivos/main/public/images/editorial/bullfight-feature-desktop.png")!important;background-size:contain!important;background-position:center center!important;background-repeat:no-repeat!important;background-color:#4A0A0A!important;border-radius:0!important;overflow:hidden!important}
+.mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-image-primary>img{opacity:0!important;visibility:hidden!important}
+
+/* P26 supporting art: responsive bullfight detail reproduction. */
+.mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-image-detail{background-image:url("https://raw.githubusercontent.com/desukara/bienvivos/main/public/images/editorial/bullfight-detail-desktop.png")!important;background-size:cover!important;background-position:center center!important;background-repeat:no-repeat!important;border-radius:0!important;overflow:hidden!important}
+.mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-image-detail>img{opacity:0!important;visibility:hidden!important}
+
+/* P26 desktop hierarchy: make the supporting artwork substantial without competing with the hero. */
+@media(min-width:900px){
+.mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-heading{grid-column:1/8!important;padding-right:clamp(.5rem,1vw,1rem)!important}
+.mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-image-detail{grid-column:8/13!important;grid-row:1!important;width:100%!important;height:auto!important;min-height:0!important;aspect-ratio:4/3!important;background-size:cover!important}
+}
+
 @media(max-width:640px){
-.picasso-feature{margin-inline:calc(50% - 50vw);padding:2.75rem 5vw 5rem;background:#f7f4ec}.picasso-feature-intro{display:block;margin:2.5rem 0 4rem}.picasso-feature-title h3{max-width:9.5ch;margin-top:.65rem;font-size:clamp(3rem,12.4vw,4.25rem);letter-spacing:-.045em;line-height:.9}.picasso-feature-title .mag-deck{max-width:31rem;font-size:1.08rem;line-height:1.45}.picasso-feature-note{margin-top:2.75rem;padding-top:1rem}.picasso-feature-note p{font-size:1.08rem;line-height:1.48}.picasso-gallery{display:block}.picasso-shot{margin:0 0 4.5rem;aspect-ratio:auto!important}.picasso-shot .picasso-picture{position:relative;inset:auto;width:100%;height:auto;overflow:visible;background:transparent}.picasso-shot img{display:block;width:100%;height:auto;object-fit:contain!important;object-position:center top}.picasso-shot figcaption{position:relative;top:auto;padding:.7rem 0 0;font-size:.56rem;line-height:1.4}.picasso-shot figcaption span:last-child{display:block;text-align:right}.picasso-shot-3{margin-inline:-5vw}.picasso-shot-3 figcaption{margin-inline:5vw}.picasso-gallery-secondary{display:block;margin-top:1rem}.picasso-gallery-secondary .picasso-shot{min-height:0;margin-bottom:3.75rem}.picasso-gallery-secondary .picasso-shot img{object-fit:contain!important;object-position:center top}.picasso-feature-outro{display:block!important;width:100%;margin:0;padding-top:1.1rem}.picasso-feature-outro .picasso-meta{font-size:.61rem;line-height:1.75}.picasso-feature-outro p{max-width:30rem;margin:2.25rem 0 0;font-size:1.12rem;line-height:1.55}.picasso-feature-outro p::before{margin-bottom:.85rem}
+.picasso-feature{margin-inline:calc(50% - 50vw);padding:2.75rem 5vw 5rem;background:#f7f4ec}.picasso-feature-intro{display:block;margin:2.5rem 0 4rem}.picasso-feature-title h3{max-width:9.5ch;margin-top:.65rem;font-size:clamp(3rem,12.4vw,4.25rem);letter-spacing:-.045em;line-height:.9}.picasso-feature-title .mag-deck{max-width:31rem;font-size:1.08rem;line-height:1.45}.picasso-feature-note{margin-top:2.75rem;padding-top:1rem}.picasso-feature-note p{font-size:1.08rem;line-height:1.48}.picasso-shot figcaption{position:relative;top:auto;padding:.7rem 0 0;font-size:.56rem;line-height:1.4}.picasso-shot figcaption span:last-child{display:block;text-align:right}.picasso-shot-3{margin-inline:-5vw}.picasso-shot-3 figcaption{margin-inline:5vw}.picasso-gallery-secondary{display:block;margin-top:1rem}.picasso-gallery-secondary .picasso-shot{min-height:0;margin-bottom:3.75rem}.picasso-gallery-secondary .picasso-shot img{object-fit:contain!important;object-position:center top}.picasso-feature-outro{display:block!important;width:100%;margin:0;padding-top:1.1rem}.picasso-feature-outro .picasso-meta{font-size:.61rem;line-height:1.75}.picasso-feature-outro p{max-width:30rem;margin:2.25rem 0 0;font-size:1.12rem;line-height:1.55}.picasso-feature-outro p::before{margin-bottom:.85rem}
+.cubism-intro{padding:2.5rem 5vw!important}
+.cubism-slot-grid{grid-template-columns:1fr!important;grid-template-rows:none!important;gap:2.25rem!important}
+.cubism-slot:nth-child(1),.cubism-slot:nth-child(2),.cubism-slot:nth-child(3),.cubism-slot:nth-child(4){grid-column:auto!important;grid-row:auto!important}
+.cubism-slot:nth-child(1) .cubism-slot-box{aspect-ratio:3/4!important;height:auto!important;min-height:0}
+.cubism-slot:nth-child(2) .cubism-slot-box{aspect-ratio:4/3!important;height:auto!important;min-height:0}
+.cubism-slot:nth-child(3) .cubism-slot-box,.cubism-slot:nth-child(4) .cubism-slot-box{aspect-ratio:3/4!important;height:auto!important;min-height:0}
+.mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-image-primary{background-image:url("https://raw.githubusercontent.com/desukara/bienvivos/main/public/images/editorial/bullfight-feature-mobile.png")!important;background-size:contain!important;background-position:center center!important}
+.mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-image-detail{background-image:url("https://raw.githubusercontent.com/desukara/bienvivos/main/public/images/editorial/bullfight-detail-mobile.png")!important;background-position:center center!important}
 /* Mobile cover containment: keep every editorial layer inside the viewport and remove decorative collisions. */
 .mag-page .mag-cover{overflow:hidden!important}
 .mag-page .mag-cover::before,.mag-page .mag-cover::after{display:none!important;content:none!important}
@@ -46,3 +97,31 @@
 .mag-page .mag-cover-line p{max-width:100%!important;overflow-wrap:anywhere!important}
 .mag-page .mag-cover .mag-cover-media>img{object-position:center center!important}
 }
+
+/* Cubism image 01: finished poster artwork, preserved without cropping. */
+.cubism-slot:nth-child(1) .cubism-slot-box{background-image:url("https://raw.githubusercontent.com/desukara/bienvivos/main/public/images/editorial/cubism-01-poster-desktop.png")!important;background-size:contain!important;background-position:center center!important;background-repeat:no-repeat!important;background-color:#f4f1e9!important;border:0!important;box-shadow:none!important}
+.cubism-slot:nth-child(1) .cubism-slot-box>span{display:none!important}
+@media(max-width:640px){.cubism-slot:nth-child(1) .cubism-slot-box{background-image:url("https://raw.githubusercontent.com/desukara/bienvivos/main/public/images/editorial/cubism-01-poster-mobile.png")!important;background-size:contain!important;background-position:center center!important;background-repeat:no-repeat!important}}
+
+/* Cubism image 02: finished owl artwork, full 4:3 composition with no crop. */
+.cubism-slot:nth-child(2) .cubism-slot-box{background-image:url("https://raw.githubusercontent.com/desukara/bienvivos/main/public/images/editorial/cubism-02-owl-desktop.png")!important;background-size:contain!important;background-position:center center!important;background-repeat:no-repeat!important;background-color:#f4f1e9!important;border:0!important;box-shadow:none!important}
+.cubism-slot:nth-child(2) .cubism-slot-box>span{display:none!important}
+@media(max-width:640px){.cubism-slot:nth-child(2) .cubism-slot-box{background-image:url("https://raw.githubusercontent.com/desukara/bienvivos/main/public/images/editorial/cubism-02-owl-mobile.png")!important;background-size:contain!important;background-position:center center!important;background-repeat:no-repeat!important}}
+
+/* Cubism desktop: let the artwork ratios determine the frame, not fixed shallow rows. */
+@media(min-width:900px){
+.cubism-slot-grid{grid-template-columns:minmax(0,1.06fr) minmax(0,.5fr) minmax(0,.5fr)!important;grid-template-rows:auto auto!important;align-items:start!important;gap:clamp(1rem,1.6vw,1.6rem)!important;padding:clamp(2rem,3vw,3rem) 0!important}
+.cubism-slot:nth-child(1) .cubism-slot-box{height:auto!important;aspect-ratio:3/4!important;background-size:100% 100%!important}
+.cubism-slot:nth-child(2) .cubism-slot-box{height:auto!important;aspect-ratio:4/3!important;background-size:100% 100%!important}
+.cubism-slot:nth-child(3) .cubism-slot-box,.cubism-slot:nth-child(4) .cubism-slot-box{height:auto!important;aspect-ratio:3/4!important}
+}
+
+/* Cubism image 03: seated figure, portrait artwork preserved without cropping. */
+.cubism-slot:nth-child(3) .cubism-slot-box{background-image:url("https://raw.githubusercontent.com/desukara/bienvivos/main/public/images/editorial/cubism-03-seated-desktop.png")!important;background-size:contain!important;background-position:center center!important;background-repeat:no-repeat!important;background-color:#f4f1e9!important;border:0!important;box-shadow:none!important}
+.cubism-slot:nth-child(3) .cubism-slot-box>span{display:none!important}
+@media(max-width:640px){.cubism-slot:nth-child(3) .cubism-slot-box{background-image:url("https://raw.githubusercontent.com/desukara/bienvivos/main/public/images/editorial/cubism-03-seated-mobile.png")!important;background-size:contain!important;background-position:center center!important;background-repeat:no-repeat!important}}
+
+/* Cubism image 04: radiant portrait, portrait artwork preserved without cropping. */
+.cubism-slot:nth-child(4) .cubism-slot-box{background-image:url("https://raw.githubusercontent.com/desukara/bienvivos/main/public/images/editorial/cubism-04-radiant-portrait-desktop.png")!important;background-size:contain!important;background-position:center center!important;background-repeat:no-repeat!important;background-color:#f4f1e9!important;border:0!important;box-shadow:none!important}
+.cubism-slot:nth-child(4) .cubism-slot-box>span{display:none!important}
+@media(max-width:640px){.cubism-slot:nth-child(4) .cubism-slot-box{background-image:url("https://raw.githubusercontent.com/desukara/bienvivos/main/public/images/editorial/cubism-04-radiant-portrait-mobile.png")!important;background-size:contain!important;background-position:center center!important;background-repeat:no-repeat!important}}

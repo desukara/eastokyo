@@ -1,0 +1,427 @@
+/* EASTOKYO homepage layout audit.
+   Final edition-owned rhythm pass: smaller editorial type, tighter vertical pacing,
+   stronger image presence, and fewer inherited Bien Vivos dead zones. */
+
+/* Global rhythm */
+.mag-page .mag-section{
+  padding:clamp(3.75rem,5.2vw,5.75rem) clamp(1.25rem,3.6vw,4rem)!important
+}
+.mag-page .mag-rule-heading{
+  margin-bottom:clamp(1.8rem,2.8vw,3rem)!important
+}
+.mag-page .mag-rule-heading h2{
+  font-size:.62rem!important;
+  letter-spacing:.15em!important
+}
+.mag-page .mag-kicker,
+.mag-page .mag-credit,
+.mag-page .mag-cover-line small,
+.mag-page .mag-index-row small,
+.mag-page .mag-contents-entry small{
+  font-size:.59rem!important;
+  letter-spacing:.13em!important
+}
+
+/* Cover: keep the magazine drama, but show more artwork and less billboard type. */
+@media(min-width:900px){
+  .mag-page .mag-cover{
+    min-height:clamp(40rem,78svh,50rem)!important
+  }
+  .mag-page .mag-cover-grid{
+    grid-template-rows:auto auto minmax(12rem,1fr) auto!important;
+    row-gap:clamp(.45rem,.8vw,.85rem)!important;
+    padding-top:clamp(.9rem,1.4vw,1.4rem)!important;
+    padding-bottom:clamp(1.2rem,2vw,2rem)!important
+  }
+  .mag-page .mag-cover-masthead{
+    margin-top:clamp(.65rem,1.3vw,1.15rem)!important;
+    font-size:clamp(6.2rem,10.2vw,9.6rem)!important;
+    line-height:.74!important
+  }
+  .mag-page .mag-cover-story{
+    grid-column:1/8!important;
+    padding-top:1.4rem!important
+  }
+  .mag-page .mag-cover-story h1{
+    max-width:8.4ch!important;
+    margin:.45rem 0 .8rem!important;
+    font-size:clamp(3.8rem,5.9vw,6.25rem)!important;
+    line-height:.82!important
+  }
+  .mag-page .mag-cover-story>p{
+    max-width:32rem!important;
+    font-size:clamp(.93rem,1.18vw,1.15rem)!important;
+    line-height:1.42!important
+  }
+  .mag-page .mag-cover-story>a{
+    display:inline-block;
+    margin-top:1rem!important
+  }
+  .mag-page .mag-cover-lines{
+    grid-column:9/13!important;
+    gap:.8rem!important;
+    padding-left:clamp(.9rem,1.4vw,1.35rem)!important
+  }
+  .mag-page .mag-cover-line{
+    gap:.6rem!important;
+    padding-top:.55rem!important
+  }
+  .mag-page .mag-cover-line b{font-size:1.45rem!important}
+  .mag-page .mag-cover-line p{
+    font-size:clamp(1rem,1.25vw,1.28rem)!important;
+    line-height:1.05!important
+  }
+}
+
+/* Contents: compact three-column issue map. */
+@media(min-width:900px){
+  .mag-page .mag-contents-grid{
+    grid-template-columns:repeat(12,minmax(0,1fr))!important;
+    align-items:start!important;
+    gap:clamp(1rem,1.55vw,1.55rem)!important
+  }
+  .mag-page .mag-contents-title{
+    grid-column:1/5!important;
+    padding-right:clamp(.6rem,1.2vw,1.2rem)!important
+  }
+  .mag-page .mag-contents-title h2{
+    max-width:8ch!important;
+    font-size:clamp(3.4rem,4.7vw,4.85rem)!important;
+    line-height:.86!important;
+    letter-spacing:-.05em!important
+  }
+  .mag-page .mag-contents-image{
+    grid-column:5/9!important;
+    width:100%!important;
+    height:clamp(24rem,31vw,30rem)!important;
+    min-height:0!important;
+    margin:0!important
+  }
+  .mag-page .mag-contents-list{
+    grid-column:9/13!important;
+    padding:0!important
+  }
+  .mag-page .mag-contents-entry{
+    grid-template-columns:2.7rem minmax(0,1fr)!important;
+    gap:.7rem!important;
+    padding:.62rem 0!important
+  }
+  .mag-page .mag-contents-entry strong{font-size:1.85rem!important}
+  .mag-page .mag-contents-entry h3{
+    margin:.12rem 0 .2rem!important;
+    font-size:clamp(1.05rem,1.3vw,1.35rem)!important;
+    line-height:1!important
+  }
+  .mag-page .mag-contents-entry p{
+    font-size:.67rem!important;
+    line-height:1.4!important
+  }
+}
+
+/* Paul Smith exhibition: treat as two editorial spreads, not one giant vertical stack. */
+@media(min-width:900px){
+  .mag-page .picasso-feature{
+    padding-top:clamp(3.75rem,5vw,5rem)!important;
+    padding-bottom:clamp(4rem,5.5vw,5.5rem)!important
+  }
+  .mag-page .picasso-feature-intro{
+    grid-template-columns:minmax(0,1.35fr) minmax(16rem,.65fr)!important;
+    gap:clamp(2rem,4vw,4.5rem)!important;
+    margin:clamp(2rem,3vw,3rem) 0 clamp(2.75rem,4vw,4rem)!important
+  }
+  .mag-page .picasso-feature-title h3{
+    max-width:12ch!important;
+    margin:.4rem 0 1rem!important;
+    font-size:clamp(3rem,4.6vw,5rem)!important;
+    line-height:.9!important
+  }
+  .mag-page .picasso-feature-title .mag-deck{
+    max-width:34rem!important;
+    font-size:clamp(1rem,1.2vw,1.2rem)!important;
+    line-height:1.45!important
+  }
+  .mag-page .picasso-feature-note p{
+    font-size:clamp(.95rem,1.08vw,1.08rem)!important;
+    line-height:1.48!important
+  }
+  .mag-page .picasso-gallery{
+    grid-template-columns:1.32fr .68fr!important;
+    grid-template-rows:minmax(15rem,21vw) minmax(15rem,21vw)!important;
+    gap:clamp(1rem,1.5vw,1.5rem)!important
+  }
+  .mag-page .picasso-gallery-secondary{
+    grid-template-columns:minmax(0,.9fr) minmax(18rem,1.1fr)!important;
+    gap:clamp(2rem,4vw,4.5rem)!important;
+    margin-top:clamp(3.25rem,4.8vw,4.75rem)!important
+  }
+  .mag-page .picasso-gallery-secondary .picasso-shot{
+    min-height:clamp(25rem,34vw,36rem)!important
+  }
+  .mag-page .picasso-feature-outro p{
+    margin-top:clamp(1.7rem,2.5vw,2.5rem)!important;
+    font-size:clamp(1.05rem,1.25vw,1.25rem)!important;
+    line-height:1.5!important
+  }
+}
+
+/* P.26: keep approved artwork, red field and banner untouched; only fix scale and rhythm. */
+@media(min-width:900px){
+  .mag-page .mag-feature[aria-labelledby="bullfighting-title"]{
+    padding-top:clamp(3.5rem,4.5vw,4.75rem)!important;
+    padding-bottom:clamp(3.75rem,5vw,5.25rem)!important
+  }
+  .mag-page .mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-heading{
+    margin-bottom:clamp(1.3rem,1.9vw,1.9rem)!important;
+    grid-template-columns:1.2fr 9fr 1.8fr!important
+  }
+  .mag-page .mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-heading h2{
+    max-width:10ch!important;
+    font-size:clamp(3.8rem,5.2vw,5.55rem)!important;
+    line-height:.83!important
+  }
+  .mag-page .mag-feature[aria-labelledby="bullfighting-title"] .mag-page-number{
+    font-size:clamp(4rem,5.4vw,5.8rem)!important
+  }
+  .mag-page .mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-copy .mag-deck{
+    font-size:clamp(1.35rem,1.7vw,1.8rem)!important;
+    line-height:1.12!important
+  }
+  .mag-page .mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-pullquote{
+    margin-top:1.3rem!important;
+    font-size:clamp(1.7rem,2.35vw,2.5rem)!important;
+    line-height:1!important
+  }
+}
+
+/* Interlude should punctuate the issue, not create another near-page of emptiness. */
+.mag-page .mag-passion-strip{
+  min-height:clamp(12rem,18vw,17rem)!important;
+  padding:2rem 1rem!important
+}
+.mag-page .mag-passion-strip p{
+  max-width:16ch!important;
+  font-size:clamp(2.7rem,5vw,5.2rem)!important;
+  line-height:.86!important
+}
+
+/* Cubism chapter: keep artwork ratios, reduce oversized chapter lettering and dead air. */
+.mag-page .cubism-intro{
+  padding-top:clamp(2.2rem,3vw,3.25rem)!important;
+  padding-bottom:clamp(2.2rem,3vw,3.25rem)!important
+}
+.mag-page .cubism-intro-word{
+  font-size:clamp(3.8rem,7.5vw,7.5rem)!important;
+  line-height:.78!important
+}
+.mag-page .cubism-intro-copy h2{
+  font-size:clamp(2.8rem,4.4vw,4.8rem)!important;
+  line-height:.88!important
+}
+.mag-page .cubism-spread-head{
+  margin-bottom:clamp(1.5rem,2.5vw,2.5rem)!important
+}
+.mag-page .cubism-spread-head h2{
+  font-size:clamp(3rem,4.6vw,5rem)!important;
+  line-height:.88!important
+}
+.mag-page .cubism-slot-grid{
+  padding-top:clamp(1.5rem,2vw,2rem)!important;
+  padding-bottom:clamp(1.8rem,2.4vw,2.4rem)!important
+}
+.mag-page .cubism-spread-foot{
+  margin-top:clamp(1.6rem,2.4vw,2.4rem)!important
+}
+
+/* From the exhibition: deliberately faster and denser after Cubism. */
+@media(min-width:900px){
+  .mag-page .mag-index-head{
+    grid-template-columns:5fr 7fr!important;
+    gap:clamp(1.75rem,3vw,3.25rem)!important;
+    margin-bottom:clamp(1.8rem,2.8vw,2.8rem)!important
+  }
+  .mag-page .mag-index-head h2{
+    max-width:8ch!important;
+    font-size:clamp(3.35rem,4.7vw,4.9rem)!important;
+    line-height:.86!important
+  }
+  .mag-page .mag-index-head p{
+    max-width:28rem!important;
+    margin-left:0!important;
+    font-size:clamp(1rem,1.2vw,1.2rem)!important;
+    line-height:1.35!important
+  }
+  .mag-page .mag-index-feature{
+    max-height:clamp(22rem,30vw,30rem)!important
+  }
+  .mag-page .mag-index-row{
+    grid-template-columns:3.2rem 1.35fr 1.9fr 5.5rem!important;
+    min-height:5.6rem!important;
+    gap:.85rem!important;
+    padding:.65rem 0!important
+  }
+  .mag-page .mag-index-row strong{font-size:2.35rem!important}
+  .mag-page .mag-index-row h3{font-size:clamp(1.2rem,1.55vw,1.6rem)!important}
+  .mag-page .mag-index-row p{font-size:.75rem!important;line-height:1.45!important}
+  .mag-page .mag-index-thumb{height:3.9rem!important}
+}
+
+/* Photo essay: let pictures carry the scale. */
+@media(min-width:900px){
+  .mag-page .mag-photo-head{
+    grid-template-columns:1.35fr 7.5fr 3.15fr!important;
+    gap:1.3rem!important;
+    margin-bottom:clamp(2rem,3vw,3rem)!important
+  }
+  .mag-page .mag-photo-head h2{
+    font-size:clamp(3.8rem,5.7vw,6rem)!important;
+    line-height:.8!important
+  }
+  .mag-page .mag-photo-head p:last-child{
+    font-size:clamp(1rem,1.2vw,1.25rem)!important;
+    line-height:1.35!important
+  }
+  .mag-page .mag-photo-grid{
+    grid-auto-rows:6.6vw!important
+  }
+}
+
+/* Back cover + footer: editorial ending, not another full-screen void. */
+.mag-page .mag-back-cover{
+  min-height:0!important;
+  padding:clamp(4rem,6vw,6rem) 1rem!important
+}
+.mag-page .mag-back-inner{
+  gap:clamp(2.5rem,5vw,5.5rem)!important
+}
+.mag-page .mag-back-copy h2{
+  font-size:clamp(3rem,5vw,5.2rem)!important;
+  line-height:.86!important
+}
+.mag-page .mag-footer{
+  padding-top:clamp(3.25rem,4.5vw,4.5rem)!important
+}
+.mag-page .mag-footer-top{
+  margin-bottom:clamp(2.5rem,4vw,4rem)!important
+}
+.mag-page .mag-footer-top h2{
+  font-size:clamp(3rem,5vw,5rem)!important
+}
+.mag-page .mag-footer-wordmark{
+  font-size:clamp(5rem,11vw,11rem)!important;
+  line-height:.72!important
+}
+
+/* Mobile: a real reading sequence rather than stacked desktop posters. */
+@media(max-width:640px){
+  .mag-page .mag-section{
+    padding:3.1rem 1rem!important
+  }
+  .mag-page .mag-rule-heading{
+    margin-bottom:1.7rem!important
+  }
+  .mag-page .mag-cover{
+    min-height:42rem!important
+  }
+  .mag-page .mag-cover-grid{
+    padding:1rem 1rem 1.25rem!important
+  }
+  .mag-page .mag-cover-masthead{
+    margin-top:.9rem!important;
+    font-size:clamp(2.8rem,13.6vw,4rem)!important;
+    line-height:.8!important
+  }
+  .mag-page .mag-cover-story{
+    padding-top:2.2rem!important
+  }
+  .mag-page .mag-cover-story h1{
+    max-width:7.6ch!important;
+    font-size:clamp(2.9rem,12.8vw,3.85rem)!important;
+    line-height:.86!important
+  }
+  .mag-page .mag-cover-story>p{
+    font-size:.95rem!important;
+    line-height:1.45!important
+  }
+  .mag-page .mag-contents-title h2{
+    font-size:clamp(2.8rem,12vw,3.8rem)!important;
+    line-height:.88!important
+  }
+  .mag-page .mag-contents-image{
+    min-height:0!important;
+    height:72vw!important;
+    margin-top:1.5rem!important
+  }
+  .mag-page .mag-contents-entry{
+    grid-template-columns:2.7rem 1fr!important;
+    padding:.8rem 0!important
+  }
+  .mag-page .mag-contents-entry strong{font-size:1.9rem!important}
+  .mag-page .mag-contents-entry h3{font-size:1.35rem!important}
+  .mag-page .picasso-feature{
+    padding:3.1rem 1rem 3.5rem!important
+  }
+  .mag-page .picasso-feature-intro{
+    margin:1.8rem 0 2.75rem!important
+  }
+  .mag-page .picasso-feature-title h3{
+    font-size:clamp(2.7rem,11vw,3.65rem)!important;
+    line-height:.92!important
+  }
+  .mag-page .picasso-feature-note{
+    margin-top:2rem!important
+  }
+  .mag-page .picasso-gallery-secondary .picasso-shot{
+    margin-bottom:2.75rem!important
+  }
+  .mag-page .mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-heading h2{
+    font-size:clamp(2.9rem,11.5vw,3.9rem)!important;
+    line-height:.88!important
+  }
+  .mag-page .mag-feature[aria-labelledby="bullfighting-title"] .mag-page-number{
+    font-size:3.4rem!important
+  }
+  .mag-page .mag-passion-strip{
+    min-height:10rem!important
+  }
+  .mag-page .mag-passion-strip p{
+    font-size:clamp(2.35rem,10vw,3.35rem)!important
+  }
+  .mag-page .cubism-intro-word{
+    font-size:clamp(3.2rem,15vw,4.6rem)!important
+  }
+  .mag-page .cubism-intro-copy h2,
+  .mag-page .cubism-spread-head h2{
+    font-size:clamp(2.55rem,10.8vw,3.5rem)!important;
+    line-height:.9!important
+  }
+  .mag-page .cubism-slot-grid{
+    gap:1.8rem!important;
+    padding:1.25rem 0 1.5rem!important
+  }
+  .mag-page .mag-index-head{
+    margin-bottom:1.8rem!important
+  }
+  .mag-page .mag-index-head h2{
+    font-size:clamp(2.7rem,11vw,3.6rem)!important;
+    line-height:.9!important
+  }
+  .mag-page .mag-index-row{
+    padding:.8rem 0!important
+  }
+  .mag-page .mag-photo-head{
+    margin-bottom:2rem!important
+  }
+  .mag-page .mag-photo-head h2{
+    font-size:clamp(3rem,12vw,4rem)!important;
+    line-height:.84!important
+  }
+  .mag-page .mag-back-cover{
+    padding:3.5rem 1rem!important
+  }
+  .mag-page .mag-back-copy h2{
+    font-size:clamp(2.7rem,11vw,3.8rem)!important
+  }
+  .mag-page .mag-footer-wordmark{
+    font-size:clamp(3.3rem,16vw,5.4rem)!important
+  }
+}

@@ -1,0 +1,38 @@
+/* EASTOKYO editorial architecture pass.
+   Keeps the approved visual system while making the digital issue read as one coherent publication. */
+
+.mag-page section[id]{scroll-margin-top:4.25rem}
+
+/* Seven-item issue navigation: compact enough for desktop, identical vocabulary everywhere. */
+.mag-page .mag-nav-links{gap:clamp(.55rem,1.05vw,1.15rem)!important}
+.mag-page .mag-nav a{font-size:.56rem!important;letter-spacing:.11em!important}
+@media(min-width:900px) and (max-width:1180px){.mag-page .mag-nav>span{display:none!important}}
+
+/* Cover side stories are story labels, not faux page numbers. */
+.mag-page .mag-cover-line{grid-template-columns:1fr!important;gap:.15rem!important}
+.mag-page .mag-cover-line small{display:block;margin-bottom:.15rem}
+
+/* Digital contents: no print pagination. */
+.mag-page .mag-contents-entry{grid-template-columns:1fr!important}
+.mag-page .mag-contents-entry>a{color:inherit;text-decoration:none}
+.mag-page .mag-contents-entry>a:hover h3,.mag-page .mag-contents-entry>a:focus-visible h3{text-decoration:underline;text-underline-offset:.14em}
+
+/* P.26 remains visually locked; only remove the obsolete print folio from the heading structure. */
+.mag-page .mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-heading{
+  grid-template-columns:1fr!important;
+  align-items:start!important
+}
+.mag-page .mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-heading .mag-kicker,
+.mag-page .mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-heading h2{grid-column:1!important}
+.mag-page .mag-feature[aria-labelledby="bullfighting-title"] .mag-page-number{display:none!important}
+
+/* Asagaya is a full story, not a generic photo interlude. */
+.mag-page #asagaya .mag-photo-head{align-items:end}
+.mag-page #asagaya .mag-photo-head .mag-kicker{align-self:start}
+
+/* Footer is institutional rather than a duplicate issue menu. */
+.mag-page .mag-footer-links nav{gap:clamp(1rem,2vw,2rem)!important}
+
+@media(max-width:640px){
+  .mag-page .mag-contents-entry{grid-template-columns:1fr!important}
+}
