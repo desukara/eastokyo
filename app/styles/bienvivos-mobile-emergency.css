@@ -1,0 +1,52 @@
+/* Emergency mobile guarantee: do not depend on hover/pointer media features. */
+@media (max-width: 1200px) {
+  .mag-page.bienvivos-page { overflow-x:hidden!important; }
+  .mag-page.bienvivos-page #latest.mag-cover { height:auto!important; min-height:0!important; overflow:hidden!important; }
+  .mag-page.bienvivos-page #latest .mag-cover-grid { position:relative!important; z-index:2!important; display:flex!important; flex-direction:column!important; width:100%!important; min-height:0!important; padding:1.15rem 1rem 1.35rem!important; }
+  .mag-page.bienvivos-page #latest .mag-cover-topline,
+  .mag-page.bienvivos-page #latest .mag-cover-masthead,
+  .mag-page.bienvivos-page #latest .mag-cover-story,
+  .mag-page.bienvivos-page #latest .mag-cover-lines { position:static!important; width:100%!important; max-width:none!important; }
+  .mag-page.bienvivos-page #latest .mag-cover-masthead { margin:.85rem 0 2.2rem!important; font-size:clamp(2.8rem,13vw,4rem)!important; line-height:.82!important; white-space:nowrap!important; }
+  .mag-page.bienvivos-page #latest .mag-cover-story { padding:0!important; overflow:visible!important; }
+  .mag-page.bienvivos-page #latest .mag-cover-story h1 { max-width:9ch!important; margin:.65rem 0 .9rem!important; font-size:clamp(2.55rem,11.5vw,3.55rem)!important; line-height:.88!important; }
+  .mag-page.bienvivos-page #latest .mag-cover-lines { display:grid!important; grid-template-columns:1fr!important; margin-top:1.7rem!important; }
+  .mag-page.bienvivos-page #latest .mag-cover-vertical,
+  .mag-page.bienvivos-page #latest .mag-cover-barcode { display:none!important; }
+
+  .mag-page.bienvivos-page #exhibition .picasso-gallery,
+  .mag-page.bienvivos-page #exhibition .picasso-gallery-secondary { display:flex!important; flex-direction:column!important; grid-template-columns:none!important; grid-template-rows:none!important; gap:0!important; width:100%!important; }
+  .mag-page.bienvivos-page #exhibition .picasso-shot,
+  .mag-page.bienvivos-page #exhibition .picasso-shot:nth-child(n) { position:relative!important; display:block!important; width:100%!important; height:auto!important; min-height:0!important; aspect-ratio:auto!important; margin:0 0 2.25rem!important; grid-column:auto!important; grid-row:auto!important; }
+  .mag-page.bienvivos-page #exhibition .picasso-shot .picasso-picture { position:relative!important; inset:auto!important; display:block!important; width:100%!important; height:auto!important; min-height:0!important; background:transparent!important; }
+  .mag-page.bienvivos-page #exhibition .picasso-shot img { display:block!important; width:100%!important; height:auto!important; object-fit:contain!important; object-position:center top!important; }
+  .mag-page.bienvivos-page #exhibition .picasso-shot figcaption { position:static!important; display:grid!important; grid-template-columns:1fr!important; padding:.72rem .65rem .68rem!important; }
+  .mag-page.bienvivos-page #exhibition .picasso-feature-outro p::before { content:none!important; display:none!important; }
+
+  .mag-page.bienvivos-page #bullfighting .mag-feature-grid { display:grid!important; grid-template-columns:1fr!important; }
+  .mag-page.bienvivos-page #bullfighting .mag-feature-heading,
+  .mag-page.bienvivos-page #bullfighting .mag-feature-image-primary,
+  .mag-page.bienvivos-page #bullfighting .mag-feature-image-detail,
+  .mag-page.bienvivos-page #bullfighting .mag-feature-copy,
+  .mag-page.bienvivos-page #bullfighting .mag-feature-pullquote { grid-column:1!important; grid-row:auto!important; }
+  .mag-page.bienvivos-page #bullfighting .mag-feature-image-primary,
+  .mag-page.bienvivos-page #bullfighting .mag-feature-image-detail { position:relative!important; width:100%!important; height:auto!important; min-height:0!important; aspect-ratio:4/3!important; background-color:#4a0a0a!important; background-repeat:no-repeat!important; background-position:center!important; background-size:contain!important; overflow:hidden!important; }
+  .mag-page.bienvivos-page #bullfighting .mag-feature-image-primary { background-image:url('/images/editorial/bullfight-feature-mobile.png')!important; }
+  .mag-page.bienvivos-page #bullfighting .mag-feature-image-detail { background-image:url('/images/editorial/bullfight-detail-mobile.png')!important; }
+  .mag-page.bienvivos-page #bullfighting .mag-feature-image-primary img,
+  .mag-page.bienvivos-page #bullfighting .mag-feature-image-detail img { opacity:0!important; visibility:hidden!important; }
+
+  .mag-page.bienvivos-page #asagaya { overflow:hidden!important; }
+  .mag-page.bienvivos-page #asagaya .mag-photo-grid { display:grid!important; grid-template-columns:1fr!important; grid-auto-flow:row!important; gap:2rem!important; width:100%!important; overflow:visible!important; transform:none!important; }
+  .mag-page.bienvivos-page #asagaya .mag-photo-item,
+  .mag-page.bienvivos-page #asagaya .mag-photo-item:nth-child(n) { display:block!important; width:100%!important; min-width:0!important; height:auto!important; min-height:0!important; aspect-ratio:auto!important; margin:0!important; transform:none!important; }
+  .mag-page.bienvivos-page #asagaya .mag-photo-item .mag-media { position:relative!important; width:100%!important; height:auto!important; aspect-ratio:4/5!important; overflow:hidden!important; }
+  .mag-page.bienvivos-page #asagaya .mag-photo-item .mag-media::before { content:none!important; display:none!important; background:none!important; }
+  .mag-page.bienvivos-page #asagaya .mag-photo-item .mag-media img { opacity:1!important; visibility:visible!important; object-fit:cover!important; object-position:center top!important; }
+  .mag-page.bienvivos-page #asagaya .mag-photo-item figcaption { position:static!important; display:grid!important; grid-template-columns:auto minmax(0,1fr)!important; width:100%!important; min-height:0!important; padding:.75rem .65rem .7rem!important; }
+  .mag-page.bienvivos-page #asagaya .mag-photo-item figcaption span::after { content:none!important; display:none!important; }
+
+  .mag-page.bienvivos-page #picasso-index .mag-index-head { display:block!important; min-height:0!important; }
+  .mag-page.bienvivos-page #picasso-index .mag-index-head h2 { max-width:11ch!important; font-size:clamp(2.55rem,10.5vw,3.45rem)!important; line-height:.89!important; }
+  .mag-page.bienvivos-page #picasso-index .mag-index-row { grid-template-columns:1fr!important; }
+}
