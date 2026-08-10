@@ -1,0 +1,303 @@
+/* Bien Vivos final mobile repair.
+   Loaded after both the legacy Bien Vivos styles and the shared EASTOKYO issue styles.
+   Scope everything to .bienvivos-page so EASTOKYO and the approved desktop remain untouched. */
+
+@media (max-width: 640px) {
+  .bienvivos-page {
+    overflow-x: hidden !important;
+  }
+
+  /* COVER — let Spanish copy flow instead of forcing it into desktop geometry. */
+  .bienvivos-page .mag-cover {
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: hidden !important;
+    position: relative !important;
+  }
+  .bienvivos-page .mag-cover-media {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+  .bienvivos-page .mag-cover-grid {
+    position: relative !important;
+    z-index: 2 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    max-width: none !important;
+    min-height: 0 !important;
+    padding: 1.25rem 1.25rem 1.5rem !important;
+    gap: 0 !important;
+  }
+  .bienvivos-page .mag-cover-topline {
+    order: 1 !important;
+    position: static !important;
+    display: block !important;
+    width: 100% !important;
+    padding-bottom: 1rem !important;
+  }
+  .bienvivos-page .mag-cover-topline p + p {
+    margin-top: .35rem !important;
+  }
+  .bienvivos-page .mag-cover-masthead {
+    order: 2 !important;
+    position: static !important;
+    margin: 1rem 0 4rem !important;
+    font-size: clamp(3.2rem, 15vw, 4.45rem) !important;
+    line-height: .84 !important;
+    white-space: nowrap !important;
+  }
+  .bienvivos-page .mag-cover-story {
+    order: 3 !important;
+    position: static !important;
+    width: 100% !important;
+    max-width: none !important;
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+  .bienvivos-page .mag-cover-story h1 {
+    max-width: 8.2ch !important;
+    margin: .7rem 0 1rem !important;
+    font-size: clamp(2.8rem, 12.5vw, 3.8rem) !important;
+    line-height: .86 !important;
+    letter-spacing: -.045em !important;
+  }
+  .bienvivos-page .mag-cover-story > p {
+    position: static !important;
+    margin: 0 !important;
+    max-width: 34rem !important;
+    font-size: 1rem !important;
+    line-height: 1.5 !important;
+  }
+  .bienvivos-page .mag-cover-story > a {
+    position: static !important;
+    display: inline-block !important;
+    width: auto !important;
+    margin-top: 1.25rem !important;
+  }
+  .bienvivos-page .mag-cover-lines {
+    order: 4 !important;
+    position: static !important;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    width: 100% !important;
+    margin-top: 2.25rem !important;
+    overflow: visible !important;
+  }
+  .bienvivos-page .mag-cover-line {
+    position: static !important;
+    width: 100% !important;
+    min-height: 0 !important;
+  }
+  .bienvivos-page .mag-cover-vertical,
+  .bienvivos-page .mag-cover-barcode {
+    display: none !important;
+  }
+
+  /* PICASSO EXHIBITION — one readable column, no inherited desktop grid heights. */
+  .bienvivos-page .picasso-gallery,
+  .bienvivos-page .picasso-gallery-secondary {
+    display: flex !important;
+    flex-direction: column !important;
+    grid-template-columns: none !important;
+    grid-template-rows: none !important;
+    gap: 0 !important;
+    width: 100% !important;
+  }
+  .bienvivos-page .picasso-gallery-secondary {
+    margin-top: .5rem !important;
+  }
+  .bienvivos-page .picasso-shot,
+  .bienvivos-page .picasso-shot-1,
+  .bienvivos-page .picasso-shot-2,
+  .bienvivos-page .picasso-shot-3,
+  .bienvivos-page .picasso-shot-4,
+  .bienvivos-page .picasso-gallery-secondary .picasso-shot {
+    display: block !important;
+    width: 100% !important;
+    min-height: 0 !important;
+    height: auto !important;
+    margin: 0 0 3rem !important;
+    grid-column: auto !important;
+    grid-row: auto !important;
+  }
+  .bienvivos-page .picasso-shot-3 {
+    margin-inline: 0 !important;
+  }
+  .bienvivos-page .picasso-shot .picasso-picture {
+    position: relative !important;
+    inset: auto !important;
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: hidden !important;
+    background: transparent !important;
+  }
+  .bienvivos-page .picasso-shot img,
+  .bienvivos-page .picasso-gallery-secondary .picasso-shot img {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
+    object-position: center top !important;
+  }
+  .bienvivos-page .picasso-shot figcaption {
+    position: static !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: .35rem !important;
+    width: 100% !important;
+    padding: .8rem 0 0 !important;
+    font-size: .66rem !important;
+    line-height: 1.35 !important;
+  }
+  .bienvivos-page .picasso-shot figcaption span:last-child {
+    display: block !important;
+    text-align: left !important;
+  }
+  .bienvivos-page .picasso-feature-outro p::before {
+    content: none !important;
+    display: none !important;
+  }
+
+  /* TAUROMAQUIA — use local artwork directly; never leave an empty placeholder. */
+  .bienvivos-page .mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-heading h2 {
+    max-width: 9ch !important;
+    font-size: clamp(2.75rem, 12vw, 3.75rem) !important;
+    line-height: .87 !important;
+  }
+  .bienvivos-page .mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-image-primary,
+  .bienvivos-page .mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-image-detail {
+    position: relative !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    aspect-ratio: 4 / 3 !important;
+    background-color: #4A0A0A !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: contain !important;
+  }
+  .bienvivos-page .mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-image-primary {
+    background-image: url("/images/editorial/bullfight-feature-mobile.png") !important;
+  }
+  .bienvivos-page .mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-image-detail {
+    background-image: url("/images/editorial/bullfight-detail-mobile.png") !important;
+  }
+  .bienvivos-page .mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-image-primary > img,
+  .bienvivos-page .mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-image-detail > img {
+    opacity: 0 !important;
+    visibility: hidden !important;
+  }
+  .bienvivos-page .mag-feature[aria-labelledby="bullfighting-title"] .mag-credit {
+    z-index: 3 !important;
+  }
+
+  /* ASAGAYA — actual page content, not the old horizontal mobile carousel. */
+  .bienvivos-page #asagaya {
+    overflow: hidden !important;
+  }
+  .bienvivos-page #asagaya .mag-photo-head h2 {
+    max-width: 9ch !important;
+    font-size: clamp(3rem, 12.2vw, 4rem) !important;
+    line-height: .85 !important;
+  }
+  .bienvivos-page #asagaya .mag-photo-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    grid-auto-flow: row !important;
+    gap: 2.25rem !important;
+    width: 100% !important;
+    overflow: visible !important;
+    transform: none !important;
+  }
+  .bienvivos-page #asagaya .mag-photo-item,
+  .bienvivos-page #asagaya .mag-photo-item:nth-child(n) {
+    display: block !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    height: auto !important;
+    min-height: 0 !important;
+    aspect-ratio: auto !important;
+    margin: 0 !important;
+    transform: none !important;
+  }
+  .bienvivos-page #asagaya .mag-photo-item .mag-media {
+    position: relative !important;
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 4 / 5 !important;
+    overflow: hidden !important;
+    background: none !important;
+  }
+  .bienvivos-page #asagaya .mag-photo-item .mag-media::before {
+    content: none !important;
+    display: none !important;
+    background-image: none !important;
+  }
+  .bienvivos-page #asagaya .mag-photo-item .mag-media > img {
+    opacity: 1 !important;
+    visibility: visible !important;
+    object-fit: cover !important;
+    object-position: center !important;
+  }
+  .bienvivos-page #asagaya .mag-photo-item figcaption {
+    display: grid !important;
+    grid-template-columns: auto minmax(0,1fr) !important;
+    gap: 1rem !important;
+    width: 100% !important;
+    min-height: 0 !important;
+    padding: .85rem 0 0 !important;
+  }
+  .bienvivos-page #asagaya .mag-photo-item figcaption > span:last-child {
+    font-size: .72rem !important;
+    line-height: 1.35 !important;
+  }
+  .bienvivos-page #asagaya .mag-photo-item figcaption > span:last-child::after {
+    content: none !important;
+    display: none !important;
+  }
+
+  /* PICASSO INDEX — keep the headline and feature caption inside the viewport. */
+  .bienvivos-page #picasso-index .mag-index-head {
+    display: block !important;
+  }
+  .bienvivos-page #picasso-index .mag-index-head h2 {
+    max-width: 10ch !important;
+    margin-top: .65rem !important;
+    font-size: clamp(2.8rem, 11.5vw, 3.8rem) !important;
+    line-height: .86 !important;
+    letter-spacing: -.04em !important;
+    overflow-wrap: normal !important;
+  }
+  .bienvivos-page #picasso-index .mag-index-head > p {
+    margin-top: 1.25rem !important;
+  }
+  .bienvivos-page #picasso-index .mag-index-feature figcaption {
+    left: 1rem !important;
+    right: 1rem !important;
+    bottom: 1rem !important;
+    width: auto !important;
+    max-width: none !important;
+    padding: .9rem 1rem !important;
+  }
+  .bienvivos-page #picasso-index .mag-index-feature figcaption strong {
+    display: block !important;
+    font-size: clamp(1.15rem, 5.5vw, 1.7rem) !important;
+    line-height: 1 !important;
+  }
+  .bienvivos-page #picasso-index .mag-index-row h3 {
+    max-width: 13ch !important;
+    font-size: clamp(1.65rem, 7vw, 2.1rem) !important;
+    line-height: .98 !important;
+  }
+
+  /* No legacy injected English or duplicate pseudo-caption copy anywhere in the Spanish page. */
+  .bienvivos-page .picasso-feature-outro p::before,
+  .bienvivos-page .mag-photo-item figcaption span::after {
+    content: none !important;
+  }
+}
