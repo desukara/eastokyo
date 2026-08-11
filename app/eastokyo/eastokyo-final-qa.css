@@ -152,6 +152,57 @@
     letter-spacing:-.035em!important;
   }
 
+  /* Cubism intro: make the three elements read as one spread instead of three isolated columns. */
+  .mag-page #cubism.cubism-intro{
+    grid-template-columns:minmax(15rem,.78fr) minmax(31rem,1.32fr) minmax(12.5rem,.48fr)!important;
+    gap:clamp(1.25rem,2vw,2.25rem)!important;
+    align-items:center!important;
+    padding-top:clamp(2.45rem,3.2vw,3.25rem)!important;
+    padding-bottom:clamp(2.8rem,3.6vw,3.65rem)!important;
+  }
+  .mag-page #cubism .cubism-intro-word{
+    align-self:center!important;
+    justify-self:start!important;
+    margin-left:clamp(1.6rem,2.8vw,3.2rem)!important;
+    transform:translateY(clamp(-2.6rem,-2.3vw,-1.6rem))!important;
+    font-size:clamp(4.6rem,7.6vw,7.8rem)!important;
+    line-height:.76!important;
+  }
+  .mag-page #cubism .cubism-intro-copy{
+    align-self:center!important;
+    min-width:0!important;
+  }
+  .mag-page #cubism .cubism-intro-copy h2{
+    max-width:13.4ch!important;
+    margin:.55rem 0 .9rem!important;
+    font-size:clamp(3.25rem,4.55vw,4.95rem)!important;
+    line-height:.86!important;
+    letter-spacing:-.035em!important;
+    text-wrap:balance!important;
+  }
+  .mag-page #cubism .cubism-intro-copy>p:not(.mag-kicker){
+    max-width:39rem!important;
+    font-size:clamp(.92rem,1.05vw,1.05rem)!important;
+    line-height:1.48!important;
+  }
+  .mag-page #cubism .cubism-intro-copy .story-cta{
+    margin-top:clamp(.9rem,1.25vw,1.25rem)!important;
+    margin-bottom:.2rem!important;
+  }
+  .mag-page #cubism .cubism-intro-note{
+    align-self:center!important;
+    margin-top:clamp(4rem,6vw,6.25rem)!important;
+    padding-top:.85rem!important;
+  }
+  .mag-page #cubism .cubism-intro-note span{
+    font-size:clamp(1.6rem,2vw,2rem)!important;
+  }
+  .mag-page #cubism .cubism-intro-note p{
+    margin-top:.5rem!important;
+    font-size:.88rem!important;
+    line-height:1.35!important;
+  }
+
   /* Picasso Index: compress the oversized typographic header and bring the artwork up. */
   .mag-page #picasso-index{
     padding-top:clamp(2.25rem,2.9vw,3rem)!important;
