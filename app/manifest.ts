@@ -2,13 +2,13 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Bien Vivos",
-    short_name: "Bien Vivos",
-    description: "Tokio se vive mejor en español.",
+    name: "EASTOKYO",
+    short_name: "EASTOKYO",
+    description: "Independent art magazine based in Tokyo, looking outward.",
     start_url: "/",
     display: "standalone",
-    background_color: "#180b0b",
-    theme_color: "#4b0d1d",
+    background_color: "#121416",
+    theme_color: "#214F78",
     icons: [
       {
         src: "/icon",
