@@ -82,7 +82,6 @@ export default function EastokyoHome() {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const menuCloseRef = useRef<HTMLButtonElement>(null);
-
   useEffect(() => {
     if (!menuOpen) return;
     const previousOverflow = document.body.style.overflow;
@@ -195,7 +194,7 @@ export default function EastokyoHome() {
           <ImageSlot number="03" title="PICASSO · SITTING STILL, SORT OF" />
           <ImageSlot number="04" title="PORTRAIT · PICASSO · FACE VALUE" />
         </div>
-        <div className="cubism-spread-foot"><p>Objects and bodies no longer sit obediently inside perspective. Picasso breaks them into planes, turns them through space and rebuilds them across the surface.</p><div>PICASSO · REALITY, REASSEMBLED<br />PAINT · SCULPTURE · PAPER · NO LIMITS<br />EASTOKYO · Nº 01 · NOTHING STAYS SIMPLE</div></div>
+        <div className="cubism-spread-foot"><p>Objects and bodies no longer sit obediently inside perspective. Picasso breaks them into planes, turns them through space and rebuilds them across the surface.</p><div>THE POINT WASN’T TO MAKE REALITY HARDER TO SEE. IT WAS TO ADMIT THAT ONE VIEW COULD NEVER HOLD ALL OF IT.</div></div>
       </section>
 
       <section className="mag-section mag-photo" id="asagaya" aria-labelledby="photo-title">
