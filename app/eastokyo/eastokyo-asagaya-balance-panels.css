@@ -125,4 +125,8 @@
   .mag-page #asagaya+.mag-index{
     margin-top:0!important;
   }
+
+  .mag-page #picasso-index .mag-index-feature figcaption{
+    display:none!important;
+  }
 }
