@@ -18,22 +18,26 @@ export const metadata: Metadata = {
     title: "EASTOKYO",
     statusBarStyle: "black-translucent",
   },
-  alternates: {
-    canonical: "/",
-    languages: {
-      en: "https://www.eastokyo.com/",
-      es: "https://www.bienvivos.com/",
-    },
-  },
+  alternates: { canonical: "/" },
   title: { absolute: "EASTOKYO — Independent Art Magazine" },
   description: "EASTOKYO is an independent art magazine based in Tokyo, covering exhibitions, galleries, fairs, festivals, books, archives, photography, installations and ideas from around the world.",
   openGraph: {
     title: "EASTOKYO — Independent Art Magazine",
     description: "An independent art magazine based in Tokyo, looking outward.",
-    url: "/", siteName: "EASTOKYO", locale: "en_US", type: "website",
+    url: "/",
+    siteName: "EASTOKYO",
+    locale: "en_US",
+    type: "website",
     images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "EASTOKYO — Independent Art Magazine" }],
   },
-  twitter: { card: "summary_large_image", title: "EASTOKYO — Independent Art Magazine", description: "An independent art magazine based in Tokyo, looking outward.", images: ["/opengraph-image"] },
+  twitter: {
+    card: "summary_large_image",
+    title: "EASTOKYO — Independent Art Magazine",
+    description: "An independent art magazine based in Tokyo, looking outward.",
+    images: ["/opengraph-image"],
+  },
 };
 
-export default function EastokyoLayout({ children }: Readonly<{ children: React.ReactNode }>) { return children; }
+export default function EastokyoLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  return children;
+}

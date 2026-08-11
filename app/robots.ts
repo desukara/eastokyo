@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://www.bienvivos.com/sitemap.xml",
-    host: "https://www.bienvivos.com",
+    sitemap: "https://www.eastokyo.com/sitemap.xml",
+    host: "https://www.eastokyo.com",
   };
 }
