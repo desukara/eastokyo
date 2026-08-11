@@ -22,8 +22,13 @@
   max-width:calc(100% - 3rem)!important;
 }
 
-/* Exhibition: reduce blue-field dead space while preserving artwork. */
 @media(min-width:900px){
+  /* Contents: keep the approved three-column layout and image geometry; only trim the dead yellow floor. */
+  .mag-page #contents{
+    padding-bottom:clamp(1.5rem,2vw,2rem)!important;
+  }
+
+  /* Exhibition: reduce blue-field dead space while preserving artwork. */
   .mag-page #exhibition.picasso-feature{
     padding-top:clamp(2.35rem,3vw,3rem)!important;
     padding-bottom:clamp(2.2rem,3vw,3rem)!important;
