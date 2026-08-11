@@ -121,6 +121,13 @@
     margin-top:0!important;
     margin-bottom:0!important;
   }
+  .mag-page #asagaya .mag-photo-grid::after{
+    grid-column:1/7!important;
+    grid-row:6/8!important;
+    display:block!important;
+    background:var(--et-cobalt)!important;
+    content:""!important;
+  }
   .mag-page #asagaya+.mag-index{
     margin-top:0!important;
   }
