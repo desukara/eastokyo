@@ -1,0 +1,17 @@
+/* EASTOKYO Nº01 — Index balance spacing.
+   Keep the Index word box visually separated from the hero image. */
+
+.mag-page #picasso-index .mag-index-head{
+  margin-bottom:clamp(3rem,5vw,5.5rem)!important;
+}
+
+.mag-page #picasso-index .mag-index-head>p{
+  margin-bottom:0!important;
+  align-self:start!important;
+}
+
+@media(max-width:640px){
+  .mag-page #picasso-index .mag-index-head{
+    margin-bottom:2.4rem!important;
+  }
+}
