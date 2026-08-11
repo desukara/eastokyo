@@ -90,11 +90,13 @@
 .mag-page #cubism .cubism-intro-word{color:var(--issue-cobalt)!important}
 .mag-page #cubism .mag-kicker{color:var(--issue-ochre)!important}
 .mag-page #cubism .cubism-intro-copy h2{color:var(--issue-paper)!important}
-.mag-page #cubism .cubism-intro-note{color:var(--issue-ochre)!important;border-color:var(--issue-cobalt)!important}
+.mag-page #cubism .cubism-intro-note{color:var(--issue-ink)!important;background:var(--issue-ochre)!important;border:2px solid var(--issue-cobalt)!important;padding:1.1rem 1.2rem!important;box-shadow:.7rem .7rem 0 var(--issue-cobalt)!important}
+.mag-page #cubism .cubism-intro-note p{font-size:clamp(1.05rem,1.5vw,1.55rem)!important;line-height:1.12!important;font-weight:700!important;max-width:20ch!important}
 .mag-page #cubism-works.cubism-spread{background:var(--issue-bone)!important;color:var(--issue-ink)!important;border-bottom:8px solid var(--issue-cobalt)!important}
 .mag-page #cubism-works .mag-kicker{color:var(--issue-cobalt)!important}
 .mag-page #cubism-works .cubism-spread-head{border-color:var(--issue-ink)!important}
 .mag-page #cubism-works .cubism-spread-head h2{color:var(--issue-ink)!important}
+.mag-page #cubism-works .cubism-spread-head>p{background:var(--issue-cobalt)!important;color:var(--issue-paper)!important;padding:1.2rem 1.35rem!important;font-size:clamp(1.15rem,1.7vw,1.65rem)!important;line-height:1.12!important;font-weight:700!important;box-shadow:.8rem .8rem 0 var(--issue-ochre)!important}
 .mag-page #cubism-works .cubism-slot figcaption{background:var(--issue-cobalt)!important;color:var(--issue-paper)!important}
 .mag-page #cubism-works .cubism-slot:nth-child(2) figcaption{background:var(--issue-ink)!important}
 .mag-page #cubism-works .cubism-slot:nth-child(3) figcaption{background:var(--issue-red)!important;color:var(--issue-paper)!important}
@@ -116,9 +118,10 @@
 .mag-page #picasso-index{background:var(--issue-cobalt)!important;color:var(--issue-paper)!important;border-bottom:8px solid var(--issue-red)!important}
 .mag-page #picasso-index .mag-kicker,.mag-page #picasso-index .mag-index-row small{color:var(--issue-ochre)!important}
 .mag-page #picasso-index .mag-index-head h2,.mag-page #picasso-index .mag-index-row h3{color:var(--issue-paper)!important}
-.mag-page #picasso-index .mag-index-head>p,.mag-page #picasso-index .mag-index-row p{color:var(--issue-bone)!important}
+.mag-page #picasso-index .mag-index-head>p{color:var(--issue-ink)!important;background:var(--issue-bone)!important;padding:1.25rem 1.4rem!important;font-size:clamp(1.2rem,1.8vw,1.8rem)!important;line-height:1.1!important;font-weight:750!important;box-shadow:.8rem .8rem 0 var(--issue-ochre)!important}
+.mag-page #picasso-index .mag-index-row p{color:var(--issue-bone)!important}
 .mag-page #picasso-index .mag-index-feature{outline:2px solid var(--issue-bone)!important;outline-offset:-2px!important}
-/* The Index hero is intentionally image-only. Do not restore the old text box/overlay. */
+/* The Index hero remains image-only. Balance text belongs beside the section header, never over the image. */
 .mag-page #picasso-index .mag-index-feature figcaption{display:none!important}
 .mag-page #picasso-index .mag-index-list{border-color:rgba(243,235,221,.72)!important}
 .mag-page #picasso-index .mag-index-row{border-color:rgba(243,235,221,.32)!important}
@@ -151,5 +154,6 @@
   .mag-page #contents{background:var(--issue-bone)!important}
   .mag-page .mag-feature[aria-labelledby="bullfighting-title"]{border-width:6px!important}
   .mag-page #exhibition.picasso-feature::before{height:7px!important;background:repeating-linear-gradient(90deg,var(--issue-red) 0 14px,var(--issue-ochre) 14px 28px,var(--issue-bone) 28px 42px,var(--issue-cobalt) 42px 56px,var(--issue-orange) 56px 70px)!important}
+  .mag-page #cubism-works .cubism-spread-head>p,.mag-page #picasso-index .mag-index-head>p{box-shadow:.45rem .45rem 0 var(--issue-ochre)!important}
   .mag-page #asagaya.mag-photo{background:var(--issue-terracotta)!important}
 }

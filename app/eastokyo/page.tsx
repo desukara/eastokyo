@@ -20,7 +20,7 @@ const footerItems = [
 
 const contents = [
   { href: "#bullfighting", section: "1. COVER STORY", title: "HE KEPT WALKING BACK IN.", copy: "Picasso returned to the bullring so many times because the arena always gave him something new to look at." },
-  { href: "#exhibition", section: "2. EXHIBITION", title: "PICASSO, LOOKED AT AGAIN. THIS TIME PROPERLY.", copy: "Paul Smith moves the walls around and Picasso wakes up in the room." },
+  { href: "#exhibition", section: "2. EXHIBITION", title: "PICASSO, LOOKED AT AGAIN. WITHOUT THE WHITE-GLOVE HUSH.", copy: "Paul Smith moves the walls around and Picasso wakes up in the room." },
   { href: "#cubism", section: "3. IDEAS", title: "WHEN ONE ANGLE STOPPED BEING ENOUGH.", copy: "Picasso and Braque decided a picture did not have to sit still and behave. Neither did they." },
   { href: "#asagaya", section: "4. TOKYO", title: "THE CITY PUTS ON ITS COSTUME.", copy: "Paper creatures sway overhead and the street tips into celebration." },
   { href: "#picasso-index", section: "5. INDEX", title: "NOTHING IS EVER JUST WHAT IT LOOKS LIKE.", copy: "Faces. Ceramics. Bicycle parts. Things Picasso could not leave alone." },
@@ -128,7 +128,7 @@ export default function EastokyoHome() {
           <div className="mag-cover-masthead" aria-hidden="true">EASTOKYO</div>
           <div className="mag-cover-story"><p className="mag-kicker">PICASSO. THE ARENA HE COULD NEVER QUIT</p><h1 id="cover-title">HE KEPT WALKING BACK IN.</h1><p><strong>PICASSO. INTO THE ARENA</strong> The arena gave Picasso what every painter secretly wants. Danger. Color. A crowd that never lets you look away.</p><StoryCta story="cover" /></div>
           <div className="mag-cover-lines" aria-label="Featured stories in this issue">
-            <article className="mag-cover-line"><div><small>EXHIBITION</small><p>PICASSO, LOOKED AT AGAIN. THIS TIME PROPERLY.</p></div></article>
+            <article className="mag-cover-line"><div><small>EXHIBITION</small><p>PICASSO, LOOKED AT AGAIN. WITHOUT THE WHITE-GLOVE HUSH.</p></div></article>
             <article className="mag-cover-line"><div><small>IDEAS</small><p>WHEN ONE ANGLE STOPPED BEING ENOUGH.</p></div></article>
             <article className="mag-cover-line"><div><small>TOKYO</small><p>THE CITY PUTS ON ITS COSTUME.</p></div></article>
           </div>
@@ -151,19 +151,19 @@ export default function EastokyoHome() {
           <figure className="mag-feature-image-primary mag-media"><EditorialImage src="/images/editorial/bullfight-feature-desktop.png" alt="Picasso bullfighting artwork" sizes="(max-width: 640px) 100vw, (max-width: 899px) 58vw, 50vw" /><figcaption className="mag-credit">PICASSO. BULLFIGHTING</figcaption></figure>
           <figure className="mag-feature-image-detail mag-media"><EditorialImage src="/images/editorial/bullfight-detail-desktop.png" alt="Picasso bullfighting detail" sizes="(max-width: 640px) 100vw, (max-width: 899px) 42vw, 28vw" /><figcaption className="mag-credit">THE BULL. THE HORSE. THE MAN WHO WON'T FLINCH</figcaption></figure>
           <div className="mag-feature-copy"><p className="mag-deck">The arena got under his skin early and stayed there. Every time Picasso returned to bullfighting he found something the arena hadn't shown him yet.</p><p className="mag-feature-columns">In that ring Picasso watched the whole human animal come loose. Fear included.</p></div>
-          <aside className="mag-feature-pullquote" aria-label="EASTOKYO editorial line">The arena is drama with no wings to hide in.<span>EASTOKYO. EDITORIAL LINE</span></aside>
+          <aside className="mag-feature-pullquote" aria-label="EASTOKYO editorial line">The arena is drama with nowhere to look away.<span>EASTOKYO. EDITORIAL LINE</span></aside>
         </div>
       </section>
 
       <section className="mag-section mag-front picasso-feature" id="exhibition" aria-labelledby="front-title">
         <div className="mag-rule-heading"><h2>EXHIBITION. THE NATIONAL ART CENTER, TOKYO</h2></div>
         <div className="picasso-feature-intro">
-          <div className="picasso-feature-title"><p className="mag-kicker">REVIEW. TOKYO MEETS PICASSO</p><h3 id="front-title">PICASSO, LOOKED AT AGAIN. THIS TIME PROPERLY.</h3><p className="mag-deck">Paul Smith moves the walls around and Picasso wakes up in the room.</p><StoryCta story="exhibition" /></div>
-          <aside className="picasso-feature-note"><strong>PICASSO OFF THE LEASH</strong><p>Picasso walks room to room. The rooms keep changing their story on him.</p></aside>
+          <div className="picasso-feature-title"><p className="mag-kicker">REVIEW. TOKYO MEETS PICASSO</p><h3 id="front-title">PICASSO, LOOKED AT AGAIN. WITHOUT THE WHITE-GLOVE HUSH.</h3><p className="mag-deck">Paul Smith moves the walls around and Picasso wakes up in the room.</p><StoryCta story="exhibition" /></div>
+          <aside className="picasso-feature-note"><strong>PICASSO, ROOM BY ROOM</strong><p>Picasso moves from room to room as each one changes the way the next work hits you.</p></aside>
         </div>
         <div className="picasso-gallery">
           <figure className="picasso-shot picasso-shot-1"><PicassoPicture desktop="/images/editorial/picasso-paul-smith-desktop.png" mobile="/images/editorial/picasso-paul-smith-mobile.png" alt="Visitor studying Picasso ceramics in the Paul Smith exhibition at The National Art Center, Tokyo" /><figcaption><span>PICASSO, REMIXED</span><span>TOKYO, JAPAN. THE NATIONAL ART CENTER</span></figcaption></figure>
-          <figure className="picasso-shot picasso-shot-2"><PicassoPicture desktop="/images/editorial/picasso-paying-attention-desktop.png" mobile="/images/editorial/picasso-paying-attention-mobile.jpg" alt="Visitor looking closely at a Picasso work in Tokyo" /><figcaption><span>WATCH HIM CLOSELY. HE'S PLOTTING SOMETHING.</span><span>EASTOKYO. PICASSO IN TOKYO</span></figcaption></figure>
+          <figure className="picasso-shot picasso-shot-2"><PicassoPicture desktop="/images/editorial/picasso-paying-attention-desktop.png" mobile="/images/editorial/picasso-paying-attention-mobile.jpg" alt="Visitor looking closely at a Picasso work in Tokyo" /><figcaption><span>A STRIPED SHIRT STOPS FOR PICASSO.</span><span>EASTOKYO. PICASSO IN TOKYO</span></figcaption></figure>
           <figure className="picasso-shot picasso-shot-3"><PicassoPicture desktop="/images/editorial/picasso-striped-installation-desktop.jpg" mobile="/images/editorial/picasso-striped-installation-mobile.jpg" alt="Blue and white striped installation in the Picasso exhibition" /><figcaption><span>PAUL SMITH DRAWS THE LINES</span><span>THE WALLS TALK BACK TOO</span></figcaption></figure>
         </div>
         <div className="picasso-gallery-secondary">
@@ -180,13 +180,13 @@ export default function EastokyoHome() {
           <p>Picasso and Braque took a single view of the world and cracked it open. They wanted more life in the picture than one calm angle could hold. What came back was harder to read at first. Then it got under your skin. Cubism will not just hand you the image. You have to go find it yourself.</p>
           <StoryCta story="ideas" />
         </div>
-        <div className="cubism-intro-note"><span>1907 →</span><p>Perspective breaks apart.<br />The picture stops being a window. It becomes something built.</p></div>
+        <div className="cubism-intro-note"><span>1907 →</span><p>Perspective breaks apart, and the picture stops being a window and becomes something built.</p></div>
       </section>
 
       <section className="cubism-spread" id="cubism-works" aria-labelledby="cubism-spread-title">
         <div className="cubism-spread-head">
           <div><p className="mag-kicker">IDEAS. CUBISM. FOUR WORKS</p><h2 id="cubism-spread-title">Same rebellion. Four different angles of attack.</h2></div>
-          <p>Cubism starts with a refusal. Painting no longer has to sit still inside a single obedient view. Four works carry this section. Each one runs at its own temperature.</p>
+          <p>Cubism starts with a refusal to let painting behave like one fixed view of the world, and these four works show how far that refusal could go.</p>
         </div>
         <div className="cubism-slot-grid">
           <ImageSlot number="01" title="LE CUBISME. ONE VIEW? NOT ANYMORE." />
