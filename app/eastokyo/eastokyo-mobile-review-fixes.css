@@ -18,9 +18,15 @@
     margin-top: 1.25rem !important;
   }
 
-  /* Contents: the girl/frog photograph is supplied by an older ::before layer.
-     Preserve the whole top of that photograph instead of center-cropping the frog's eyes away. */
+  /* Contents: the girl/frog mobile photograph is 2:3. Match the frame to the art
+     instead of letterboxing a portrait image inside the old wider slot. */
   .mag-page #contents .mag-contents-image {
+    position: relative !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    aspect-ratio: 2 / 3 !important;
+    overflow: hidden !important;
     background-image: none !important;
   }
   .mag-page #contents .mag-contents-image::before {
@@ -32,7 +38,7 @@
     background-image: url('/images/editorial/todo-vivos-mobile.jpg') !important;
     background-repeat: no-repeat !important;
     background-position: center top !important;
-    background-size: contain !important;
+    background-size: cover !important;
   }
   .mag-page #contents .mag-contents-image > img {
     opacity: 0 !important;
@@ -110,8 +116,17 @@
     background-image: url('/images/editorial/tokio-en-flor-tanabata-mobile.png') !important;
   }
 
-  /* Index: remove every legacy mobile/taxi layer. The approved desktop museum/two-room scene is the only hero. */
+  /* Index: give the CTA/deck real vertical rhythm, keep the approved museum image,
+     and move the orange caption below the photograph instead of covering it. */
+  .mag-page #picasso-index .mag-index-head > div {
+    margin-bottom: 1.6rem !important;
+  }
+  .mag-page #picasso-index .mag-index-head > p {
+    margin: 0 0 1.5rem !important;
+    padding: 0 !important;
+  }
   .mag-page #picasso-index .mag-index-feature {
+    display: block !important;
     height: auto !important;
     min-height: 0 !important;
     aspect-ratio: auto !important;
@@ -136,6 +151,15 @@
   }
   .mag-page #picasso-index .mag-index-picture img {
     display: none !important;
+  }
+  .mag-page #picasso-index .mag-index-feature figcaption {
+    position: static !important;
+    inset: auto !important;
+    display: block !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
   }
 
   /* Footer: retire the off-palette wine panel and tie the newsletter back to Issue 01 cobalt/yellow. */
