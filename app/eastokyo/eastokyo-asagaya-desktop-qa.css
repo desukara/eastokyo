@@ -1,5 +1,6 @@
-/* Asagaya desktop editorial re-layout.
-   Desktop only: protect the photography first, then build the magazine composition around it. */
+/* Asagaya desktop editorial QA.
+   HARD RULE: do not alter photo sizing, crop, fit, aspect ratio, or grid placement.
+   This file only adjusts the intro composition and caption typography/spacing. */
 
 @media(min-width:900px){
   .mag-page #asagaya.mag-photo{
@@ -7,8 +8,7 @@
     padding-bottom:clamp(2.65rem,3.4vw,3.45rem)!important;
   }
 
-  /* The headline is the central event. The kicker/CTA support it; the deck becomes
-     a real editorial panel instead of a small paragraph floating in yellow space. */
+  /* Intro: centered headline with a real editorial counterweight on the right. */
   .mag-page #asagaya .mag-photo-head{
     display:grid!important;
     grid-template-columns:repeat(12,minmax(0,1fr))!important;
@@ -18,6 +18,7 @@
     align-items:start!important;
     margin-bottom:clamp(1.65rem,2.2vw,2.25rem)!important;
   }
+
   .mag-page #asagaya .mag-photo-head>.mag-kicker{
     grid-column:1/4!important;
     grid-row:1!important;
@@ -27,19 +28,21 @@
     line-height:1.2!important;
     letter-spacing:.14em!important;
   }
+
   .mag-page #asagaya .mag-photo-head>h2{
     grid-column:3/10!important;
     grid-row:2!important;
     justify-self:center!important;
     width:100%!important;
-    max-width:12.5ch!important;
+    max-width:13ch!important;
     margin:0!important;
-    font-size:clamp(3.75rem,4.7vw,5rem)!important;
-    line-height:.84!important;
-    letter-spacing:-.045em!important;
+    font-size:clamp(3.55rem,4.45vw,4.8rem)!important;
+    line-height:.86!important;
+    letter-spacing:-.042em!important;
     text-align:left!important;
     text-wrap:balance!important;
   }
+
   .mag-page #asagaya .mag-photo-head>p:not(.mag-kicker){
     grid-column:10/13!important;
     grid-row:2!important;
@@ -58,6 +61,7 @@
     letter-spacing:-.02em!important;
     text-wrap:balance!important;
   }
+
   .mag-page #asagaya .mag-photo-head>.story-cta{
     grid-column:3/6!important;
     grid-row:3!important;
@@ -66,81 +70,25 @@
     margin-bottom:0!important;
   }
 
-  /* Keep the asymmetric magazine rhythm, but never sacrifice a photograph to a box.
-     Mona Lisa gets extra presence; 06 remains the smaller closing tile. */
-  .mag-page #asagaya .mag-photo-grid{
-    display:grid!important;
-    grid-template-columns:repeat(12,minmax(0,1fr))!important;
-    grid-template-rows:minmax(15rem,20vw) minmax(13rem,16vw) auto auto!important;
-    grid-auto-rows:auto!important;
-    gap:clamp(.9rem,1.2vw,1.25rem)!important;
-    margin:0!important;
-    padding:0!important;
-    overflow:visible!important;
-  }
-  .mag-page #asagaya .mag-photo-item,
-  .mag-page #asagaya .mag-photo-item:nth-child(n){
-    display:grid!important;
-    grid-template-rows:minmax(0,1fr) auto!important;
-    min-width:0!important;
-    height:auto!important;
-    min-height:0!important;
-    margin:0!important;
-    overflow:hidden!important;
-    background:transparent!important;
-  }
-  .mag-page #asagaya .mag-photo-item:nth-child(1){grid-column:1/7!important;grid-row:1/3!important;}
-  .mag-page #asagaya .mag-photo-item:nth-child(2){grid-column:7/13!important;grid-row:1!important;}
-  .mag-page #asagaya .mag-photo-item:nth-child(3){grid-column:8/13!important;grid-row:2!important;}
-  .mag-page #asagaya .mag-photo-item:nth-child(4){grid-column:1/7!important;grid-row:3!important;}
-  .mag-page #asagaya .mag-photo-item:nth-child(5){grid-column:7/13!important;grid-row:3!important;}
-  .mag-page #asagaya .mag-photo-item:nth-child(6){grid-column:3/10!important;grid-row:4!important;margin-top:clamp(.2rem,.45vw,.45rem)!important;}
-
-  .mag-page #asagaya .mag-photo-item>.mag-media{
-    position:relative!important;
-    grid-row:1!important;
-    width:100%!important;
-    height:100%!important;
-    min-height:0!important;
-    overflow:hidden!important;
-    background:var(--et-yellow)!important;
-  }
-  .mag-page #asagaya .mag-photo-item>.mag-media img{
-    width:100%!important;
-    height:100%!important;
-    object-fit:contain!important;
-    object-position:center!important;
-  }
-
-  /* The lower pair is allowed to size from its photographic shape rather than a forced crop. */
-  .mag-page #asagaya .mag-photo-item:nth-child(4)>.mag-media,
-  .mag-page #asagaya .mag-photo-item:nth-child(5)>.mag-media{
-    aspect-ratio:3/2!important;
-    height:auto!important;
-  }
-  .mag-page #asagaya .mag-photo-item:nth-child(6)>.mag-media{
-    aspect-ratio:16/9!important;
-    height:auto!important;
-  }
-
-  /* Compact caption panels, but with type large enough to actually occupy them. */
+  /* Captions only: tighter containers with type large enough to occupy them. */
   .mag-page #asagaya .mag-photo-item figcaption{
-    grid-row:2!important;
     display:grid!important;
     grid-template-columns:2.5rem minmax(0,1fr)!important;
     align-items:center!important;
     gap:.75rem!important;
-    min-height:3.2rem!important;
+    min-height:3.15rem!important;
     height:auto!important;
-    padding:.58rem .8rem .56rem!important;
+    padding:.56rem .8rem .54rem!important;
     line-height:1.12!important;
   }
+
   .mag-page #asagaya .mag-photo-item figcaption span:first-child{
     min-width:0!important;
     font-size:clamp(.82rem,.86vw,.9rem)!important;
     line-height:1!important;
     font-weight:900!important;
   }
+
   .mag-page #asagaya .mag-photo-item figcaption span:last-child{
     max-width:none!important;
     min-width:0!important;
@@ -150,9 +98,10 @@
     text-align:right!important;
     text-wrap:balance!important;
   }
+
   .mag-page #asagaya .mag-photo-item:nth-child(6) figcaption{
     min-height:3rem!important;
-    padding:.52rem .8rem .5rem!important;
+    padding:.5rem .8rem .48rem!important;
   }
 
   .mag-page #asagaya+.mag-index{
