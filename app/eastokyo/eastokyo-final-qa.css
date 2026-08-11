@@ -28,18 +28,87 @@
     padding-bottom:clamp(1.5rem,2vw,2rem)!important;
   }
 
-  /* Exhibition: reduce blue-field dead space while preserving artwork. */
+  /* Exhibition: remove the duplicate intro label and make the opening read as one composition. */
   .mag-page #exhibition.picasso-feature{
     padding-top:clamp(2.35rem,3vw,3rem)!important;
-    padding-bottom:clamp(2.2rem,3vw,3rem)!important;
+    padding-bottom:clamp(1.65rem,2.2vw,2.35rem)!important;
+  }
+  .mag-page #exhibition .picasso-feature-title .mag-kicker{
+    display:none!important;
   }
   .mag-page #exhibition .picasso-feature-intro{
-    margin:clamp(1.15rem,1.6vw,1.6rem) 0 clamp(1.45rem,2vw,2rem)!important;
-  }
-  .mag-page #exhibition .picasso-gallery-secondary{
-    margin-top:clamp(1.5rem,2vw,2rem)!important;
-    gap:clamp(1.35rem,2vw,2.25rem)!important;
+    grid-template-columns:minmax(0,1.35fr) minmax(18rem,.65fr)!important;
     align-items:start!important;
+    gap:clamp(1.75rem,3vw,3.25rem)!important;
+    margin:clamp(.45rem,.8vw,.8rem) 0 clamp(1.35rem,1.9vw,1.9rem)!important;
+  }
+  .mag-page #exhibition .picasso-feature-title h3{
+    margin-top:0!important;
+  }
+  .mag-page #exhibition .picasso-feature-note{
+    align-self:start!important;
+    margin-top:clamp(.2rem,.45vw,.45rem)!important;
+  }
+
+  /* Exhibition gallery: captions are part of each figure, never floating beneath it where the next image can cover them. */
+  .mag-page #exhibition .picasso-shot{
+    display:grid!important;
+    grid-template-rows:minmax(0,1fr) auto!important;
+    min-width:0!important;
+    overflow:hidden!important;
+  }
+  .mag-page #exhibition .picasso-shot .picasso-picture{
+    position:relative!important;
+    inset:auto!important;
+    grid-row:1!important;
+    display:block!important;
+    width:100%!important;
+    height:100%!important;
+    min-height:0!important;
+    overflow:hidden!important;
+  }
+  .mag-page #exhibition .picasso-shot .picasso-picture img{
+    display:block!important;
+    width:100%!important;
+    height:100%!important;
+  }
+  .mag-page #exhibition .picasso-shot figcaption{
+    position:relative!important;
+    top:auto!important;
+    right:auto!important;
+    left:auto!important;
+    z-index:2!important;
+    grid-row:2!important;
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;
+    align-items:center!important;
+    gap:clamp(.7rem,1.15vw,1.2rem)!important;
+    min-height:3.35rem!important;
+    padding:.72rem .8rem .68rem!important;
+    line-height:1.28!important;
+  }
+  .mag-page #exhibition .picasso-shot figcaption span{
+    min-width:0!important;
+    overflow-wrap:normal!important;
+    word-break:normal!important;
+  }
+  .mag-page #exhibition .picasso-shot figcaption span:last-child{
+    text-align:right!important;
+  }
+  .mag-page #exhibition .picasso-shot-4 figcaption{
+    color:var(--et-ink)!important;
+    background:var(--et-orange)!important;
+  }
+  .mag-page #exhibition .picasso-shot-4 figcaption span:last-child{
+    color:var(--et-ink)!important;
+    opacity:.8!important;
+  }
+
+  /* Keep the approved image arrangement, but make the second spread use its height instead of leaving an empty cobalt floor. */
+  .mag-page #exhibition .picasso-gallery-secondary{
+    margin-top:clamp(1.25rem,1.8vw,1.8rem)!important;
+    gap:clamp(1.35rem,2vw,2.25rem)!important;
+    align-items:stretch!important;
   }
   .mag-page #exhibition .picasso-gallery-secondary .picasso-shot{
     min-height:0!important;
@@ -47,13 +116,19 @@
     aspect-ratio:4/3!important;
   }
   .mag-page #exhibition .picasso-gallery-secondary .picasso-shot .picasso-picture{
-    inset:0!important;
+    inset:auto!important;
   }
   .mag-page #exhibition .picasso-feature-outro{
-    align-self:start!important;
+    align-self:stretch!important;
+    display:flex!important;
+    flex-direction:column!important;
+    justify-content:space-between!important;
+    min-height:100%!important;
+    padding-bottom:.35rem!important;
   }
   .mag-page #exhibition .picasso-feature-outro p{
-    margin-top:clamp(.85rem,1.2vw,1.2rem)!important;
+    margin-top:clamp(1rem,1.4vw,1.4rem)!important;
+    margin-bottom:0!important;
   }
 
   /* Bullfighting: the approved art stays put; make the editorial headline carry the red field. */
