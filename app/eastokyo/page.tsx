@@ -127,14 +127,14 @@ export default function EastokyoHome() {
         <div className="mag-cover-grid">
           <div className="mag-cover-topline"><p>EASTOKYO · BEAUTY, CHAOS & GOOD TASTE</p><p>PICASSO · TOKYO · NOT EXACTLY QUIET</p></div>
           <div className="mag-cover-masthead" aria-hidden="true">EASTOKYO</div>
-          <div className="mag-cover-story"><p className="mag-kicker">PICASSO · THE ARENA INSIDE HIS HEAD</p><h1 id="cover-title">HE NEVER REALLY LEFT THE ARENA</h1><p><strong>PICASSO, PAUL SMITH & A VERY GOOD IDEA · TOKYO</strong> The arena gave Picasso everything an artist could want: danger, color and absolutely no chance of boredom.</p><StoryCta story="cover" /></div>
+          <div className="mag-cover-story"><p className="mag-kicker">PICASSO · THE ARENA INSIDE HIS HEAD</p><h1 id="cover-title">HE NEVER REALLY LEFT THE ARENA</h1><p><strong>PICASSO · INTO THE ARENA</strong> The arena gave Picasso everything an artist could want: danger, color and absolutely no chance of boredom.</p><StoryCta story="cover" /></div>
           <div className="mag-cover-lines" aria-label="Featured stories in this issue">
             <article className="mag-cover-line"><div><small>EXHIBITION</small><p>PICASSO, SEEN WITH FRESH EYES.</p></div></article>
             <article className="mag-cover-line"><div><small>IDEAS</small><p>WHEN ONE POINT OF VIEW WASN’T ENOUGH.</p></div></article>
             <article className="mag-cover-line"><div><small>TOKYO</small><p>THE CITY PUTS ON A COSTUME.</p></div></article>
           </div>
         </div>
-        <p className="mag-cover-vertical">TOKYO · Nº 01 · SEPTEMBER 2026 · ¥1,200</p><div className="mag-cover-barcode" aria-hidden="true" />
+        <p className="mag-cover-vertical">TOKYO · Nº 01 · SEPTEMBER 2026</p><div className="mag-cover-barcode" aria-hidden="true" />
       </section>
 
       <section className="mag-section mag-contents" id="contents" aria-labelledby="contents-title">
@@ -152,7 +152,7 @@ export default function EastokyoHome() {
           <figure className="mag-feature-image-primary mag-media"><EditorialImage src="/images/editorial/bullfight-feature-desktop.png" alt="Picasso bullfighting artwork" sizes="(max-width: 640px) 100vw, (max-width: 899px) 58vw, 50vw" /><figcaption className="mag-credit">PICASSO · BULLFIGHTING</figcaption></figure>
           <figure className="mag-feature-image-detail mag-media"><EditorialImage src="/images/editorial/bullfight-detail-desktop.png" alt="Picasso bullfighting detail" sizes="(max-width: 640px) 100vw, (max-width: 899px) 42vw, 28vw" /><figcaption className="mag-credit">THE BULL · THE HORSE · THE TORERO</figcaption></figure>
           <div className="mag-feature-copy"><p className="mag-deck">The arena got under his skin. Picasso came back to bullfighting again and again because it never stopped giving him something to see.</p><p className="mag-feature-columns">In the bullring, Picasso found the whole human mess. More or less.</p></div>
-          <blockquote className="mag-feature-pullquote">“The arena is drama with nowhere to hide.”<span>EASTOKYO · NO SAFE DISTANCE</span></blockquote>
+          <aside className="mag-feature-pullquote" aria-label="EASTOKYO editorial line">The arena is drama with nowhere to hide.<span>EASTOKYO · EDITORIAL LINE</span></aside>
         </div>
       </section>
 
