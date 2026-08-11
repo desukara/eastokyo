@@ -1,0 +1,84 @@
+/* Mobile review fixes — load last.
+   These rules address issues found in real-device review without disturbing desktop art direction. */
+@media (max-width: 899px), ((hover: none) and (pointer: coarse) and (max-width: 1200px)) {
+  /* Cover/header: keep one written EASTOKYO masthead in the opening cluster.
+     The sticky/mobile header keeps only the emblem; the small cover topline is removed. */
+  .mag-page .mag-mobile-logo {
+    font-size: 0 !important;
+    gap: 0 !important;
+  }
+  .mag-page .mag-mobile-logo::before {
+    width: 2.35rem !important;
+    height: 2.35rem !important;
+  }
+  .mag-page #latest .mag-cover-topline {
+    display: none !important;
+  }
+  .mag-page #latest .mag-cover-masthead {
+    margin-top: 1.25rem !important;
+  }
+
+  /* Contents image: preserve the top of the Asagaya decoration so the frog's face is visible. */
+  .mag-page #contents .mag-contents-image img {
+    object-fit: cover !important;
+    object-position: center top !important;
+  }
+
+  /* Exhibition captions: remove the inherited white gutter on the full-width Paul Smith shot. */
+  .mag-page #exhibition .picasso-shot-3,
+  .mag-page #exhibition .picasso-shot-3 .picasso-picture,
+  .mag-page #exhibition .picasso-shot-3 figcaption {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    width: 100% !important;
+  }
+  .mag-page #exhibition .picasso-shot figcaption {
+    box-sizing: border-box !important;
+    background: var(--et-ink) !important;
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+  .mag-page #exhibition .picasso-shot figcaption::before,
+  .mag-page #exhibition .picasso-shot figcaption::after,
+  .mag-page #exhibition .picasso-shot figcaption span::before,
+  .mag-page #exhibition .picasso-shot figcaption span::after {
+    content: none !important;
+    display: none !important;
+  }
+  .mag-page #exhibition .picasso-shot figcaption span {
+    background: transparent !important;
+    border: 0 !important;
+  }
+
+  /* Cubism: the production-note metadata block reads like a control on mobile and adds no editorial value. */
+  .mag-page #cubism-works .cubism-spread-foot > div {
+    display: none !important;
+  }
+  .mag-page #cubism-works .cubism-spread-foot > p {
+    margin-bottom: 0 !important;
+  }
+
+  /* Index: use the correct museum two-room scene on mobile too. The old mobile asset is an unrelated taxi image. */
+  .mag-page #picasso-index .mag-index-picture img {
+    content: url('/images/editorial/picasso-index-hero-desktop.png') !important;
+    position: static !important;
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+  }
+
+  /* Footer: retire the off-palette wine panel and tie the newsletter back to Issue 01 cobalt/yellow. */
+  .mag-page .mag-newsletter {
+    color: var(--et-paper) !important;
+    background: var(--et-cobalt) !important;
+    border-color: var(--et-sky) !important;
+  }
+  .mag-page .mag-newsletter p {
+    color: var(--et-paper) !important;
+  }
+  .mag-page .mag-newsletter strong {
+    color: var(--et-yellow) !important;
+  }
+}
