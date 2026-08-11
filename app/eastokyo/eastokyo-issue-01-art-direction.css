@@ -118,7 +118,8 @@
 .mag-page #picasso-index .mag-index-head h2,.mag-page #picasso-index .mag-index-row h3{color:var(--issue-paper)!important}
 .mag-page #picasso-index .mag-index-head>p,.mag-page #picasso-index .mag-index-row p{color:var(--issue-bone)!important}
 .mag-page #picasso-index .mag-index-feature{outline:2px solid var(--issue-bone)!important;outline-offset:-2px!important}
-.mag-page #picasso-index .mag-index-feature figcaption{background:var(--issue-ochre)!important;color:var(--issue-ink)!important}
+/* The Index hero is intentionally image-only. Do not restore the old text box/overlay. */
+.mag-page #picasso-index .mag-index-feature figcaption{display:none!important}
 .mag-page #picasso-index .mag-index-list{border-color:rgba(243,235,221,.72)!important}
 .mag-page #picasso-index .mag-index-row{border-color:rgba(243,235,221,.32)!important}
 
