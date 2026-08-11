@@ -43,7 +43,6 @@ const asagayaImages = [
 ];
 
 const contentsImage = "/images/editorial/tokio-no-es-gris-asagaya-lanterns.png";
-const detailImage = "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1600&q=92";
 
 function EditorialImage({ src, alt, sizes, priority = false }: { src: string; alt: string; sizes: string; priority?: boolean }) {
   return <Image src={src} alt={alt} fill sizes={sizes} priority={priority} quality={88} />;
@@ -128,8 +127,8 @@ export default function EastokyoHome() {
       <section className="mag-section mag-feature" id="bullfighting" aria-labelledby="bullfighting-title">
         <div className="mag-feature-grid">
           <header className="mag-feature-heading"><p className="mag-kicker">01 · COVER STORY · PICASSO · INTO THE ARENA</p><h2 id="bullfighting-title">HE NEVER REALLY LEFT THE ARENA.</h2></header>
-          <figure className="mag-feature-image-primary mag-media"><EditorialImage src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=2200&q=95" alt="Picasso bullfighting artwork" sizes="(max-width: 640px) 100vw, (max-width: 899px) 58vw, 50vw" /><figcaption className="mag-credit">PICASSO · BULLFIGHTING</figcaption></figure>
-          <figure className="mag-feature-image-detail mag-media"><EditorialImage src={detailImage} alt="Picasso bullfighting detail" sizes="(max-width: 640px) 100vw, (max-width: 899px) 42vw, 28vw" /><figcaption className="mag-credit">THE BULL · THE HORSE · THE TORERO</figcaption></figure>
+          <figure className="mag-feature-image-primary mag-media"><EditorialImage src="/images/editorial/bullfight-feature-desktop.png" alt="Picasso bullfighting artwork" sizes="(max-width: 640px) 100vw, (max-width: 899px) 58vw, 50vw" /><figcaption className="mag-credit">PICASSO · BULLFIGHTING</figcaption></figure>
+          <figure className="mag-feature-image-detail mag-media"><EditorialImage src="/images/editorial/bullfight-detail-desktop.png" alt="Picasso bullfighting detail" sizes="(max-width: 640px) 100vw, (max-width: 899px) 42vw, 28vw" /><figcaption className="mag-credit">THE BULL · THE HORSE · THE TORERO</figcaption></figure>
           <div className="mag-feature-copy"><p className="mag-deck">The arena got under his skin. Picasso came back to bullfighting again and again because it never stopped giving him something to see.</p><p className="mag-feature-columns">In the bullring, Picasso found the whole human mess. More or less.</p></div>
           <blockquote className="mag-feature-pullquote">“The arena is drama with nowhere to hide.”<span>EASTOKYO · NO SAFE DISTANCE</span></blockquote>
         </div>
@@ -183,7 +182,7 @@ export default function EastokyoHome() {
 
       <section className="mag-section mag-index" id="picasso-index" aria-labelledby="show-title">
         <div className="mag-index-head"><div><p className="mag-kicker">05 · INDEX · PICASSO · START ANYWHERE</p><h2 id="show-title">NOTHING IS JUST WHAT IT IS.</h2></div><p>Faces, ceramics, bicycle parts and other things Picasso refused to leave alone.</p></div>
-        <figure className="mag-index-feature mag-media"><picture className="mag-index-picture"><source media="(max-width: 640px)" srcSet="https://raw.githubusercontent.com/desukara/bienvivos/main/public/images/editorial/picasso-index-hero-mobile.png" /><img src="https://raw.githubusercontent.com/desukara/bienvivos/main/public/images/editorial/picasso-index-hero-desktop.png" alt="Picasso exhibition view in Tokyo" loading="lazy" /></picture><figcaption><span className="mag-kicker">PICASSO · TOKYO · SEE WHERE IT GOES</span><strong>ONE ROOM LEADS TO ANOTHER.</strong></figcaption></figure>
+        <figure className="mag-index-feature mag-media"><picture className="mag-index-picture"><source media="(max-width: 640px)" srcSet="/images/editorial/picasso-index-hero-mobile.png" /><img src="/images/editorial/picasso-index-hero-desktop.png" alt="Picasso exhibition view in Tokyo" loading="lazy" /></picture><figcaption><span className="mag-kicker">PICASSO · TOKYO · SEE WHERE IT GOES</span><strong>ONE ROOM LEADS TO ANOTHER.</strong></figcaption></figure>
         <div className="mag-index-list">{indexStories.map(s => <article className="mag-index-row" key={s.section}><div><small>{s.section}</small><h3>{s.title}</h3></div><p>{s.copy}</p></article>)}</div>
       </section>
 
