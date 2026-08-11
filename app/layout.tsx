@@ -43,6 +43,7 @@ import "./eastokyo/eastokyo-mobile-image-repair.css";
 import "./eastokyo/eastokyo-mobile-emergency.css";
 import "./styles/asagaya-mobile-final.css";
 import "./eastokyo/eastokyo-language-cleanup.css";
+import "./eastokyo/eastokyo-story-cta.css";
 
 const sans = Montserrat({ variable: "--font-bienvivos-sans", subsets: ["latin"], display: "swap" });
 const display = Cormorant_Garamond({ variable: "--font-bienvivos-display", subsets: ["latin"], weight: ["400", "500", "600", "700"], style: ["normal", "italic"], display: "swap" });
