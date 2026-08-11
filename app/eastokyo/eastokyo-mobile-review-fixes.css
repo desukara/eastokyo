@@ -117,7 +117,7 @@
   }
 
   /* Index: give the CTA/deck real vertical rhythm, keep the approved museum image,
-     and move the orange caption below the photograph instead of covering it. */
+     remove the leftover desktop frame, and make the caption a designed editorial card. */
   .mag-page #picasso-index .mag-index-head > div {
     margin-bottom: 1.6rem !important;
   }
@@ -130,8 +130,11 @@
     height: auto !important;
     min-height: 0 !important;
     aspect-ratio: auto !important;
-    background-image: none !important;
     background: none !important;
+    outline: none !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    overflow: visible !important;
   }
   .mag-page #picasso-index .mag-index-feature::before,
   .mag-page #picasso-index .mag-index-feature::after {
@@ -148,6 +151,9 @@
     background-repeat: no-repeat !important;
     background-position: center center !important;
     background-size: contain !important;
+    outline: none !important;
+    border: 0 !important;
+    box-shadow: none !important;
   }
   .mag-page #picasso-index .mag-index-picture img {
     display: none !important;
@@ -155,11 +161,47 @@
   .mag-page #picasso-index .mag-index-feature figcaption {
     position: static !important;
     inset: auto !important;
-    display: block !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: .55rem !important;
     box-sizing: border-box !important;
+    width: calc(100% - 2.2rem) !important;
+    max-width: none !important;
+    margin: 1.05rem 1.1rem 0 !important;
+    padding: 1rem 1.05rem 1.1rem !important;
+    transform: none !important;
+    background: var(--et-orange) !important;
+    color: var(--et-ink) !important;
+    border: 2px solid var(--et-ink) !important;
+    box-shadow: .48rem .48rem 0 var(--et-yellow) !important;
+  }
+  .mag-page #picasso-index .mag-index-feature figcaption .mag-kicker,
+  .mag-page #picasso-index .mag-index-feature figcaption strong {
+    position: static !important;
+    inset: auto !important;
+    display: block !important;
     width: 100% !important;
     max-width: none !important;
     margin: 0 !important;
+    padding: 0 !important;
+    transform: none !important;
+    white-space: normal !important;
+    text-align: left !important;
+    float: none !important;
+  }
+  .mag-page #picasso-index .mag-index-feature figcaption .mag-kicker {
+    font-size: .78rem !important;
+    line-height: 1.2 !important;
+    letter-spacing: .12em !important;
+    color: var(--et-ink) !important;
+  }
+  .mag-page #picasso-index .mag-index-feature figcaption strong {
+    clear: both !important;
+    font-size: clamp(1.75rem, 7vw, 2.35rem) !important;
+    line-height: .98 !important;
+    letter-spacing: -.02em !important;
+    color: var(--et-ink) !important;
   }
 
   /* Footer: retire the off-palette wine panel and tie the newsletter back to Issue 01 cobalt/yellow. */
