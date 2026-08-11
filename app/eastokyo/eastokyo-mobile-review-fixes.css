@@ -155,11 +155,35 @@
   .mag-page #picasso-index .mag-index-feature figcaption {
     position: static !important;
     inset: auto !important;
-    display: block !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: .55rem !important;
     box-sizing: border-box !important;
     width: 100% !important;
     max-width: none !important;
     margin: 0 !important;
+    padding: 1.1rem 1.1rem 1.2rem !important;
+    transform: none !important;
+  }
+  .mag-page #picasso-index .mag-index-feature figcaption .mag-kicker,
+  .mag-page #picasso-index .mag-index-feature figcaption strong {
+    position: static !important;
+    inset: auto !important;
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    transform: none !important;
+    white-space: normal !important;
+    text-align: left !important;
+  }
+  .mag-page #picasso-index .mag-index-feature figcaption .mag-kicker {
+    line-height: 1.25 !important;
+  }
+  .mag-page #picasso-index .mag-index-feature figcaption strong {
+    line-height: 1.05 !important;
   }
 
   /* Footer: retire the off-palette wine panel and tie the newsletter back to Issue 01 cobalt/yellow. */
