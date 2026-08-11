@@ -1,0 +1,155 @@
+/* EASTOKYO Nº01 — Picasso in Spanish heat, edited in Tokyo.
+   Final art-direction layer: palette hierarchy, chapter color roles, controlled stripes,
+   and a stronger red arena moment without changing the homepage structure. */
+
+.mag-page{
+  --issue-ink:#121416;
+  --issue-bone:#F3EBDD;
+  --issue-paper:#FFF8EC;
+  --issue-cobalt:#214F78;
+  --issue-red:#A52A24;
+  --issue-ochre:#D6A62D;
+  --issue-terracotta:#B85E3E;
+  --issue-orange:#DD762A;
+}
+
+/* COVER — suspense, not climax. Keep red rare until the arena. */
+.mag-page .mag-cover{background:var(--issue-ink)!important}
+.mag-page .mag-cover-shade{
+  background:
+    linear-gradient(90deg,rgba(10,11,12,.78) 0%,rgba(10,11,12,.30) 48%,rgba(10,11,12,.55) 100%),
+    linear-gradient(0deg,rgba(10,11,12,.82),transparent 54%,rgba(33,79,120,.18))!important
+}
+.mag-page .mag-cover-masthead{color:var(--issue-bone)!important;text-shadow:none!important}
+.mag-page .mag-cover-story .mag-kicker,.mag-page .mag-cover-line small{color:var(--issue-ochre)!important}
+.mag-page .mag-cover-story h1{color:var(--issue-paper)!important}
+.mag-page .mag-cover-story .story-cta{background:var(--issue-bone)!important;color:var(--issue-ink)!important;border-color:var(--issue-bone)!important}
+.mag-page .mag-cover-story .story-cta:hover,.mag-page .mag-cover-story .story-cta:focus-visible{background:var(--issue-red)!important;color:var(--issue-paper)!important;border-color:var(--issue-red)!important}
+.mag-page .mag-cover-barcode{opacity:.58!important}
+
+/* CONTENTS — a quiet printed spread before the red chapter. */
+.mag-page #contents{
+  color:var(--issue-ink)!important;
+  background:
+    linear-gradient(90deg,transparent calc(50% - .5px),rgba(18,20,22,.10) 50%,transparent calc(50% + .5px)),
+    var(--issue-bone)!important
+}
+.mag-page #contents .mag-rule-heading h2,.mag-page #contents .mag-kicker,.mag-page #contents .mag-contents-entry small{color:var(--issue-ochre)!important}
+.mag-page #contents .mag-contents-title h2{color:var(--issue-cobalt)!important}
+.mag-page #contents .mag-contents-entry{border-color:rgba(18,20,22,.78)!important}
+.mag-page #contents .mag-contents-entry h3{color:var(--issue-ink)!important}
+.mag-page #contents .mag-contents-entry a:hover h3,.mag-page #contents .mag-contents-entry a:focus-visible h3{color:var(--issue-red)!important}
+.mag-page #contents .mag-contents-image{outline:2px solid var(--issue-ink)!important;outline-offset:-2px!important}
+.mag-page #contents .mag-credit{background:var(--issue-cobalt)!important;color:var(--issue-paper)!important}
+.mag-page #contents .mag-contents-image::after{background:var(--issue-ochre)!important;color:var(--issue-ink)!important}
+
+/* 01 — THE ARENA. This is the chromatic climax of the issue. */
+.mag-page .mag-feature[aria-labelledby="bullfighting-title"]{
+  color:var(--issue-paper)!important;
+  background:var(--issue-red)!important;
+  border-top:10px solid var(--issue-ink)!important;
+  border-bottom:10px solid var(--issue-ink)!important
+}
+.mag-page .mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-heading .mag-kicker{color:var(--issue-ochre)!important}
+.mag-page .mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-heading h2,
+.mag-page .mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-copy,
+.mag-page .mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-columns{color:var(--issue-paper)!important}
+.mag-page .mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-image-primary,
+.mag-page .mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-image-detail{outline:2px solid rgba(255,248,236,.82)!important;outline-offset:-2px!important}
+.mag-page .mag-feature[aria-labelledby="bullfighting-title"] .mag-credit{background:var(--issue-ink)!important;color:var(--issue-paper)!important}
+.mag-page .mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-pullquote{
+  color:var(--issue-red)!important;
+  background:var(--issue-bone)!important;
+  border-left:.7rem solid var(--issue-ochre)!important;
+  box-shadow:1rem 1rem 0 rgba(18,20,22,.18)!important
+}
+.mag-page .mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-pullquote span{color:var(--issue-ink)!important}
+
+/* 02 — EXHIBITION. Cobalt intelligence; stripes appear only as a quotation. */
+.mag-page #exhibition.picasso-feature{background:var(--issue-cobalt)!important;color:var(--issue-paper)!important;position:relative!important}
+.mag-page #exhibition.picasso-feature::before{
+  content:""!important;
+  display:block!important;
+  position:absolute!important;
+  top:0!important;left:0!important;right:0!important;
+  height:10px!important;
+  background:repeating-linear-gradient(90deg,var(--issue-red) 0 22px,var(--issue-ochre) 22px 44px,var(--issue-bone) 44px 66px,var(--issue-cobalt) 66px 88px,var(--issue-orange) 88px 110px)!important
+}
+.mag-page #exhibition .mag-rule-heading{color:var(--issue-ochre)!important}
+.mag-page #exhibition .picasso-feature-title h3{color:var(--issue-paper)!important}
+.mag-page #exhibition .picasso-feature-title .mag-deck{color:var(--issue-bone)!important}
+.mag-page #exhibition .picasso-feature-note{background:var(--issue-ochre)!important;color:var(--issue-ink)!important;box-shadow:.65rem .65rem 0 var(--issue-red)!important}
+.mag-page #exhibition .picasso-feature-note strong{color:var(--issue-ink)!important}
+.mag-page #exhibition .picasso-shot figcaption{background:var(--issue-ink)!important;color:var(--issue-paper)!important}
+.mag-page #exhibition .picasso-shot-4 figcaption{background:var(--issue-orange)!important;color:var(--issue-ink)!important}
+.mag-page #exhibition .picasso-feature-outro{border-color:var(--issue-ochre)!important}
+.mag-page #exhibition .picasso-feature-outro .picasso-meta{color:var(--issue-ochre)!important}
+
+/* 03 — CUBISM. Cerebral, fractured and disciplined. */
+.mag-page #cubism.cubism-intro{background:var(--issue-ink)!important;color:var(--issue-bone)!important;border-bottom:8px solid var(--issue-cobalt)!important}
+.mag-page #cubism .cubism-intro-word{color:var(--issue-cobalt)!important}
+.mag-page #cubism .mag-kicker{color:var(--issue-ochre)!important}
+.mag-page #cubism .cubism-intro-copy h2{color:var(--issue-paper)!important}
+.mag-page #cubism .cubism-intro-note{color:var(--issue-ochre)!important;border-color:var(--issue-cobalt)!important}
+.mag-page #cubism-works.cubism-spread{background:var(--issue-bone)!important;color:var(--issue-ink)!important;border-bottom:8px solid var(--issue-cobalt)!important}
+.mag-page #cubism-works .mag-kicker{color:var(--issue-cobalt)!important}
+.mag-page #cubism-works .cubism-spread-head{border-color:var(--issue-ink)!important}
+.mag-page #cubism-works .cubism-spread-head h2{color:var(--issue-ink)!important}
+.mag-page #cubism-works .cubism-slot figcaption{background:var(--issue-cobalt)!important;color:var(--issue-paper)!important}
+.mag-page #cubism-works .cubism-slot:nth-child(2) figcaption{background:var(--issue-ink)!important}
+.mag-page #cubism-works .cubism-slot:nth-child(3) figcaption{background:var(--issue-red)!important;color:var(--issue-paper)!important}
+.mag-page #cubism-works .cubism-slot:nth-child(4) figcaption{background:var(--issue-ochre)!important;color:var(--issue-ink)!important}
+.mag-page #cubism-works .cubism-spread-foot{border-color:var(--issue-cobalt)!important}
+.mag-page #cubism-works .cubism-spread-foot>div{color:var(--issue-cobalt)!important}
+
+/* 04 — TOKYO. Let the photographs be the party; the layout stays in the issue family. */
+.mag-page #asagaya.mag-photo{background:var(--issue-terracotta)!important;color:var(--issue-paper)!important;border-bottom:8px solid var(--issue-ink)!important}
+.mag-page #asagaya .mag-kicker{color:var(--issue-ochre)!important}
+.mag-page #asagaya .mag-photo-head h2{color:var(--issue-paper)!important;text-shadow:none!important}
+.mag-page #asagaya .mag-photo-head p:last-child{color:var(--issue-bone)!important}
+.mag-page #asagaya .mag-photo-item{background:var(--issue-paper)!important}
+.mag-page #asagaya .mag-photo-item figcaption{background:var(--issue-cobalt)!important;color:var(--issue-paper)!important}
+.mag-page #asagaya .mag-photo-item:nth-child(3n) figcaption{background:var(--issue-ink)!important;color:var(--issue-paper)!important}
+.mag-page #asagaya .mag-photo-item:nth-child(5) figcaption{background:var(--issue-red)!important;color:var(--issue-paper)!important}
+
+/* 05 — PICASSO INDEX. A quieter catalogue version of cobalt. */
+.mag-page #picasso-index{background:var(--issue-cobalt)!important;color:var(--issue-paper)!important;border-bottom:8px solid var(--issue-red)!important}
+.mag-page #picasso-index .mag-kicker,.mag-page #picasso-index .mag-index-row small{color:var(--issue-ochre)!important}
+.mag-page #picasso-index .mag-index-head h2,.mag-page #picasso-index .mag-index-row h3{color:var(--issue-paper)!important}
+.mag-page #picasso-index .mag-index-head>p,.mag-page #picasso-index .mag-index-row p{color:var(--issue-bone)!important}
+.mag-page #picasso-index .mag-index-feature{outline:2px solid var(--issue-bone)!important;outline-offset:-2px!important}
+/* The Index hero is intentionally image-only. Do not restore the old text box/overlay. */
+.mag-page #picasso-index .mag-index-feature figcaption{display:none!important}
+.mag-page #picasso-index .mag-index-list{border-color:rgba(243,235,221,.72)!important}
+.mag-page #picasso-index .mag-index-row{border-color:rgba(243,235,221,.32)!important}
+
+/* BACK COVER — resolve the issue with the same four voices we opened with. */
+.mag-page #about.mag-back-cover{
+  color:var(--issue-paper)!important;
+  background:
+    linear-gradient(120deg,rgba(18,20,22,.05),rgba(18,20,22,.42)),
+    linear-gradient(135deg,var(--issue-ink) 0 48%,var(--issue-cobalt) 48% 76%,var(--issue-red) 76% 100%)!important
+}
+.mag-page #about .mag-back-copy .mag-kicker{color:var(--issue-ochre)!important}
+.mag-page #about .mag-back-copy h2{color:var(--issue-paper)!important}
+.mag-page #about .mag-back-date{background:var(--issue-ochre)!important;color:var(--issue-ink)!important;border-color:var(--issue-ink)!important}
+.mag-page #about .mag-mini-cover{border-color:var(--issue-bone)!important;box-shadow:1.1rem 1.3rem 0 var(--issue-red),2rem 2.3rem 4rem rgba(0,0,0,.48)!important}
+
+/* FOOTER — colophon, not another chapter. */
+.mag-page .mag-footer{background:var(--issue-ink)!important;color:var(--issue-bone)!important;border-top:6px solid var(--issue-red)!important}
+.mag-page .mag-footer .mag-kicker,.mag-page .mag-footer-bottom a{color:var(--issue-ochre)!important}
+.mag-page .mag-footer-top h2{color:var(--issue-paper)!important}
+.mag-page .mag-footer-wordmark{color:var(--issue-bone)!important}
+.mag-page .mag-footer-links,.mag-page .mag-footer-bottom{border-color:rgba(243,235,221,.28)!important}
+.mag-page .mag-footer a:hover,.mag-page .mag-footer a:focus-visible{color:var(--issue-ochre)!important}
+
+/* Shared print finish: crisp rules, no glossy UI feeling. */
+.mag-page .mag-rule-heading::before,.mag-page .mag-rule-heading::after{height:1px!important}
+.mag-page .mag-kicker{font-weight:850!important}
+
+@media(max-width:640px){
+  .mag-page #contents{background:var(--issue-bone)!important}
+  .mag-page .mag-feature[aria-labelledby="bullfighting-title"]{border-width:6px!important}
+  .mag-page #exhibition.picasso-feature::before{height:7px!important;background:repeating-linear-gradient(90deg,var(--issue-red) 0 14px,var(--issue-ochre) 14px 28px,var(--issue-bone) 28px 42px,var(--issue-cobalt) 42px 56px,var(--issue-orange) 56px 70px)!important}
+  .mag-page #asagaya.mag-photo{background:var(--issue-terracotta)!important}
+}
