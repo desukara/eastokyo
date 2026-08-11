@@ -6,11 +6,11 @@
 
 @media(min-width:900px){
   .mag-page #asagaya.mag-photo{
-    padding-top:clamp(2rem,2.5vw,2.6rem)!important;
-    padding-bottom:clamp(2.7rem,3.5vw,3.6rem)!important;
+    padding-top:clamp(1.75rem,2.2vw,2.25rem)!important;
+    padding-bottom:clamp(2.15rem,2.7vw,2.8rem)!important;
   }
 
-  /* One editorial composition: kicker, headline, supporting panel, CTA. */
+  /* Keep the intro as one compact editorial system. */
   .mag-page #asagaya .mag-photo-head{
     display:grid!important;
     grid-template-columns:repeat(12,minmax(0,1fr))!important;
@@ -18,13 +18,13 @@
     column-gap:clamp(1rem,1.5vw,1.5rem)!important;
     row-gap:0!important;
     align-items:start!important;
-    margin-bottom:clamp(1.8rem,2.35vw,2.45rem)!important;
+    margin-bottom:clamp(1.25rem,1.7vw,1.75rem)!important;
   }
 
   .mag-page #asagaya .mag-photo-head>.mag-kicker{
     grid-column:1/4!important;
     grid-row:1!important;
-    margin:0 0 clamp(.8rem,1vw,1rem)!important;
+    margin:0 0 clamp(.65rem,.8vw,.8rem)!important;
     max-width:15rem!important;
     font-size:clamp(.72rem,.78vw,.82rem)!important;
     line-height:1.2!important;
@@ -39,7 +39,7 @@
     width:100%!important;
     max-width:10.5ch!important;
     margin:0!important;
-    font-size:clamp(4rem,5.15vw,5.6rem)!important;
+    font-size:clamp(3.75rem,4.8vw,5.2rem)!important;
     line-height:.84!important;
     letter-spacing:-.047em!important;
     text-align:center!important;
@@ -52,14 +52,14 @@
     grid-row:2!important;
     align-self:center!important;
     justify-self:end!important;
-    max-width:21rem!important;
+    max-width:20rem!important;
     margin:0!important;
-    padding:clamp(1.05rem,1.35vw,1.4rem)!important;
+    padding:clamp(.9rem,1.15vw,1.2rem)!important;
     color:var(--et-ink)!important;
     background:var(--et-paper)!important;
-    border-top:5px solid var(--et-green)!important;
+    border-top:4px solid var(--et-green)!important;
     font-family:var(--font-bienvivos-display),Georgia,serif!important;
-    font-size:clamp(1.45rem,1.7vw,1.8rem)!important;
+    font-size:clamp(1.35rem,1.55vw,1.65rem)!important;
     line-height:1.08!important;
     font-weight:650!important;
     letter-spacing:-.02em!important;
@@ -70,16 +70,18 @@
     grid-column:2/5!important;
     grid-row:3!important;
     justify-self:start!important;
-    margin-top:clamp(.85rem,1vw,1.05rem)!important;
+    margin-top:clamp(.7rem,.85vw,.9rem)!important;
     margin-bottom:0!important;
   }
 
-  /* Desktop replaces the old mosaic with one gallery wall. */
+  /* Desktop gallery replaces the mosaic; mobile grid remains untouched. */
   .mag-page #asagaya .mag-photo-grid{display:none!important;}
 
   .mag-page #asagaya .asagaya-desktop-gallery{
     --gallery-direction:1;
+    --gallery-stage:clamp(26rem,38vw,34rem);
     display:block!important;
+    position:relative!important;
     width:100%!important;
     margin:0!important;
     outline:none!important;
@@ -90,27 +92,44 @@
     outline-offset:6px!important;
   }
 
+  /* A shorter gallery wall: the artwork, arrows and label stay in one viewport. */
   .mag-page #asagaya .asagaya-gallery-stage{
     position:relative!important;
     width:100%!important;
-    height:clamp(34rem,55vw,48rem)!important;
+    height:var(--gallery-stage)!important;
     overflow:hidden!important;
     background:transparent!important;
+    border-top:1px solid currentColor!important;
+    border-bottom:1px solid currentColor!important;
     isolation:isolate!important;
   }
+  .mag-page #asagaya .asagaya-gallery-stage::before,
+  .mag-page #asagaya .asagaya-gallery-stage::after{
+    content:""!important;
+    position:absolute!important;
+    top:1rem!important;
+    bottom:1rem!important;
+    width:1px!important;
+    background:currentColor!important;
+    opacity:.18!important;
+    z-index:4!important;
+    pointer-events:none!important;
+  }
+  .mag-page #asagaya .asagaya-gallery-stage::before{left:clamp(1.2rem,2.1vw,2.2rem)!important;}
+  .mag-page #asagaya .asagaya-gallery-stage::after{right:clamp(1.2rem,2.1vw,2.2rem)!important;}
 
   .mag-page #asagaya .asagaya-gallery-slide{
     position:absolute!important;
     inset:0!important;
     margin:0!important;
     opacity:0!important;
-    transform:translate3d(calc(var(--gallery-direction) * 1.35rem),0,0) scale(.982)!important;
-    filter:blur(2px)!important;
+    transform:translate3d(calc(var(--gallery-direction) * 1.1rem),0,0) scale(.987)!important;
+    filter:blur(1.5px)!important;
     pointer-events:none!important;
     transition:
-      opacity 620ms cubic-bezier(.22,1,.36,1),
-      transform 760ms cubic-bezier(.22,1,.36,1),
-      filter 520ms cubic-bezier(.22,1,.36,1)!important;
+      opacity 560ms cubic-bezier(.22,1,.36,1),
+      transform 680ms cubic-bezier(.22,1,.36,1),
+      filter 480ms cubic-bezier(.22,1,.36,1)!important;
     will-change:opacity,transform,filter!important;
   }
   .mag-page #asagaya .asagaya-gallery-slide.is-active{
@@ -123,7 +142,7 @@
 
   .mag-page #asagaya .asagaya-gallery-art{
     position:absolute!important;
-    inset:clamp(2.1rem,4.8vw,4.8rem) clamp(2.2rem,5.2vw,5.4rem)!important;
+    inset:clamp(1rem,1.7vw,1.6rem) clamp(3.4rem,6vw,6.25rem)!important;
     overflow:visible!important;
   }
   .mag-page #asagaya .asagaya-gallery-art img{
@@ -133,26 +152,26 @@
     object-position:center!important;
   }
 
+  /* The label becomes a narrow museum rail instead of another large block. */
   .mag-page #asagaya .asagaya-gallery-rail{
+    position:relative!important;
     display:grid!important;
-    grid-template-columns:minmax(0,1fr) auto!important;
+    grid-template-columns:minmax(0,1fr)!important;
     align-items:center!important;
-    gap:clamp(1.25rem,2vw,2rem)!important;
-    min-height:4.6rem!important;
-    padding:clamp(.8rem,1vw,1rem) 0 0!important;
-    border-top:1px solid currentColor!important;
+    min-height:3.9rem!important;
+    padding:.75rem clamp(3.4rem,6vw,6.25rem) 0!important;
   }
 
   .mag-page #asagaya .asagaya-gallery-caption{
     display:grid!important;
-    grid-template-columns:4.6rem minmax(0,1fr)!important;
+    grid-template-columns:4.5rem minmax(0,1fr)!important;
     align-items:baseline!important;
-    gap:clamp(.8rem,1.1vw,1.15rem)!important;
+    gap:clamp(.8rem,1vw,1rem)!important;
     min-width:0!important;
-    animation:asagayaCaptionIn 560ms 90ms cubic-bezier(.22,1,.36,1) both!important;
+    animation:asagayaCaptionIn 500ms 70ms cubic-bezier(.22,1,.36,1) both!important;
   }
   .mag-page #asagaya .asagaya-gallery-caption span{
-    font-size:clamp(.74rem,.8vw,.84rem)!important;
+    font-size:clamp(.72rem,.77vw,.81rem)!important;
     line-height:1!important;
     font-weight:900!important;
     letter-spacing:.12em!important;
@@ -161,36 +180,48 @@
   .mag-page #asagaya .asagaya-gallery-caption strong{
     min-width:0!important;
     font-family:var(--font-bienvivos-display),Georgia,serif!important;
-    font-size:clamp(1.25rem,1.6vw,1.7rem)!important;
+    font-size:clamp(1.2rem,1.45vw,1.55rem)!important;
     line-height:1!important;
     font-weight:700!important;
     letter-spacing:-.02em!important;
   }
 
+  /* Controls live beside the artwork, not below it. */
   .mag-page #asagaya .asagaya-gallery-controls{
+    position:absolute!important;
+    left:clamp(.4rem,.7vw,.75rem)!important;
+    right:clamp(.4rem,.7vw,.75rem)!important;
+    bottom:calc(100% + clamp(11.6rem,16.8vw,15rem))!important;
     display:flex!important;
     align-items:center!important;
-    gap:.35rem!important;
+    justify-content:space-between!important;
+    gap:1rem!important;
+    z-index:8!important;
+    pointer-events:none!important;
   }
   .mag-page #asagaya .asagaya-gallery-controls button{
     appearance:none!important;
-    border:0!important;
-    background:transparent!important;
+    border:1px solid currentColor!important;
+    background:var(--et-yellow)!important;
     color:inherit!important;
-    padding:.7rem .75rem!important;
+    min-width:7.25rem!important;
+    padding:.62rem .72rem!important;
     font:inherit!important;
-    font-size:clamp(.7rem,.76vw,.8rem)!important;
+    font-size:clamp(.66rem,.72vw,.76rem)!important;
     line-height:1!important;
     font-weight:900!important;
-    letter-spacing:.1em!important;
+    letter-spacing:.09em!important;
     cursor:pointer!important;
+    pointer-events:auto!important;
+    transition:transform 240ms cubic-bezier(.22,1,.36,1),background-color 240ms ease!important;
   }
+  .mag-page #asagaya .asagaya-gallery-controls button:hover{transform:translateY(-2px)!important;}
   .mag-page #asagaya .asagaya-gallery-controls button span{
     display:inline-block!important;
     transition:transform 260ms cubic-bezier(.22,1,.36,1)!important;
   }
-  .mag-page #asagaya .asagaya-gallery-controls button:first-child:hover span{transform:translateX(-.28rem)!important;}
-  .mag-page #asagaya .asagaya-gallery-controls button:last-child:hover span{transform:translateX(.28rem)!important;}
+  .mag-page #asagaya .asagaya-gallery-controls button:first-child:hover span{transform:translateX(-.24rem)!important;}
+  .mag-page #asagaya .asagaya-gallery-controls button:last-child:hover span{transform:translateX(.24rem)!important;}
   .mag-page #asagaya .asagaya-gallery-controls button:focus-visible{
     outline:2px solid currentColor!important;
     outline-offset:2px!important;
@@ -200,13 +231,14 @@
 }
 
 @keyframes asagayaCaptionIn{
-  from{opacity:0;transform:translateY(.45rem);}
+  from{opacity:0;transform:translateY(.35rem);}
   to{opacity:1;transform:translateY(0);}
 }
 
 @media(prefers-reduced-motion:reduce){
   .mag-page #asagaya .asagaya-gallery-slide,
   .mag-page #asagaya .asagaya-gallery-caption,
+  .mag-page #asagaya .asagaya-gallery-controls button,
   .mag-page #asagaya .asagaya-gallery-controls button span{
     animation:none!important;
     transition:none!important;
