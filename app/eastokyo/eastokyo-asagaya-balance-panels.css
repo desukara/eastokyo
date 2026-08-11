@@ -6,7 +6,7 @@
   .mag-page #asagaya.mag-photo{
     position:relative!important;
     padding-top:clamp(2.7rem,3.6vw,3.7rem)!important;
-    padding-bottom:clamp(1.4rem,2vw,2rem)!important;
+    padding-bottom:0!important;
   }
 
   /* Opening: one clear editorial hierarchy with real breathing room, not a yellow void. */
@@ -116,17 +116,10 @@
     letter-spacing:.09em!important;
   }
 
-  /* No artificial yellow floor: the grid ends where the composition ends. */
+  /* The composition ends directly at the grid edge. */
   .mag-page #asagaya .mag-photo-grid{
     margin-top:0!important;
     margin-bottom:0!important;
-  }
-  .mag-page #asagaya .mag-photo-grid::after{
-    grid-column:1/7!important;
-    grid-row:6/8!important;
-    display:block!important;
-    background:var(--et-cobalt)!important;
-    content:""!important;
   }
   .mag-page #asagaya+.mag-index{
     margin-top:0!important;
