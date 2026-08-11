@@ -56,7 +56,7 @@
     margin-top:clamp(.85rem,1.2vw,1.2rem)!important;
   }
 
-  /* Bullfighting: the approved art stays put; remove the oversized red pause around it. */
+  /* Bullfighting: the approved art stays put; make the editorial headline carry the red field. */
   .mag-page .mag-feature[aria-labelledby="bullfighting-title"]{
     padding-top:clamp(2.7rem,3.6vw,3.6rem)!important;
     padding-bottom:clamp(3rem,3.8vw,3.8rem)!important;
@@ -64,10 +64,17 @@
   .mag-page .mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-grid{
     row-gap:clamp(.7rem,1.2vw,1.25rem)!important;
   }
+  .mag-page .mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-heading .mag-kicker{
+    font-size:clamp(.78rem,.88vw,.98rem)!important;
+    line-height:1.05!important;
+    letter-spacing:.14em!important;
+    margin-bottom:clamp(.65rem,.85vw,.9rem)!important;
+  }
   .mag-page .mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-heading h2{
-    max-width:14ch!important;
-    font-size:clamp(3.9rem,4.9vw,5.25rem)!important;
-    line-height:.84!important;
+    max-width:12ch!important;
+    font-size:clamp(4.75rem,6.1vw,6.6rem)!important;
+    line-height:.82!important;
+    letter-spacing:-.035em!important;
   }
 
   /* Picasso Index: compress the oversized typographic header and bring the artwork up. */
