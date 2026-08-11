@@ -1,36 +1,8 @@
-/* Desktop-only Index balance pass.
-   Keep the hero image clean and use the empty intro space for one editorial word box. */
+/* Desktop-only Index cleanup.
+   Keep the hero image clean and remove the extra editorial word box. */
 
 @media(min-width:900px){
-  .mag-page #picasso-index .mag-index-head{
-    position:relative!important;
-  }
-
-  /* Move the editorial statement off the photograph entirely. */
   .mag-page #picasso-index .mag-index-feature figcaption{
     display:none!important;
-  }
-
-  /* Balance the open upper-right field without disturbing the existing intro copy. */
-  .mag-page #picasso-index .mag-index-head::after{
-    position:absolute!important;
-    top:0!important;
-    right:0!important;
-    display:flex!important;
-    align-items:flex-end!important;
-    width:clamp(18rem,27vw,27rem)!important;
-    min-height:clamp(7.25rem,9.2vw,9.6rem)!important;
-    padding:clamp(1rem,1.35vw,1.35rem)!important;
-    box-sizing:border-box!important;
-    color:var(--et-ink)!important;
-    background:var(--et-orange)!important;
-    border-top:4px solid var(--et-yellow)!important;
-    content:"ONE ROOM LEADS TO ANOTHER."!important;
-    font-family:var(--font-bienvivos-display),Georgia,serif!important;
-    font-size:clamp(2.15rem,3vw,3.25rem)!important;
-    font-weight:650!important;
-    line-height:.9!important;
-    letter-spacing:-.035em!important;
-    text-wrap:balance!important;
   }
 }
