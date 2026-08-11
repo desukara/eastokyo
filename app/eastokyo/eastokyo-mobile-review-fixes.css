@@ -18,15 +18,25 @@
     margin-top: 1.25rem !important;
   }
 
-  /* Contents image: preserve the top of the Asagaya decoration so the frog's face is visible. */
-  .mag-page #contents .mag-contents-image img {
-    object-fit: cover !important;
-    object-position: center top !important;
+  /* Contents: the girl/frog photograph is supplied by an older ::before layer.
+     Preserve the whole top of that photograph instead of center-cropping the frog's eyes away. */
+  .mag-page #contents .mag-contents-image {
+    background-image: none !important;
   }
-
-  /* Asagaya first photograph: override the generic center crop so the frog's eyes remain in frame. */
-  .mag-page #asagaya .mag-photo-item:first-child .mag-media img {
-    object-position: center top !important;
+  .mag-page #contents .mag-contents-image::before {
+    content: "" !important;
+    display: block !important;
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 1 !important;
+    background-image: url('/images/editorial/todo-vivos-mobile.jpg') !important;
+    background-repeat: no-repeat !important;
+    background-position: center top !important;
+    background-size: contain !important;
+  }
+  .mag-page #contents .mag-contents-image > img {
+    opacity: 0 !important;
+    visibility: hidden !important;
   }
 
   /* Exhibition captions: remove the inherited white gutter on the full-width Paul Smith shot. */
@@ -63,22 +73,69 @@
     margin-bottom: 0 !important;
   }
 
-  /* Index: the mobile <picture> source is the unrelated taxi image. Do not let that source render.
-     Paint the approved desktop museum/two-room composition on the frame itself instead. */
+  /* Asagaya: mobile must show the same six photographs as desktop.
+     Older mobile resets removed these art-directed overlays and exposed a different JSX image set underneath. */
+  .mag-page #asagaya .mag-photo-item .mag-media::before {
+    content: "" !important;
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 2 !important;
+    display: block !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+    background-size: cover !important;
+    pointer-events: none !important;
+  }
+  .mag-page #asagaya .mag-photo-item .mag-media > img {
+    opacity: 0 !important;
+    visibility: hidden !important;
+  }
+  .mag-page #asagaya .mag-photo-item:nth-child(1) .mag-media::before {
+    background-image: url('/images/editorial/tokio-no-es-gris-asagaya-lanterns.png') !important;
+    background-position: center top !important;
+  }
+  .mag-page #asagaya .mag-photo-item:nth-child(2) .mag-media::before {
+    background-image: url('/images/editorial/tokio-no-es-gris-mona-lisa-tanabata.png') !important;
+  }
+  .mag-page #asagaya .mag-photo-item:nth-child(3) .mag-media::before {
+    background-image: url('/images/editorial/la-ciudad-despierta-mobile.png') !important;
+  }
+  .mag-page #asagaya .mag-photo-item:nth-child(4) .mag-media::before {
+    background-image: url('/images/editorial/ritmo-urbano-giraffe-mobile.png') !important;
+  }
+  .mag-page #asagaya .mag-photo-item:nth-child(5) .mag-media::before {
+    background-image: url('/images/editorial/despues-del-anochecer-mobile.png') !important;
+  }
+  .mag-page #asagaya .mag-photo-item:nth-child(6) .mag-media::before {
+    background-image: url('/images/editorial/tokio-en-flor-tanabata-mobile.png') !important;
+  }
+
+  /* Index: remove every legacy mobile/taxi layer. The approved desktop museum/two-room scene is the only hero. */
+  .mag-page #picasso-index .mag-index-feature {
+    height: auto !important;
+    min-height: 0 !important;
+    aspect-ratio: auto !important;
+    background-image: none !important;
+    background: none !important;
+  }
+  .mag-page #picasso-index .mag-index-feature::before,
+  .mag-page #picasso-index .mag-index-feature::after {
+    content: none !important;
+    display: none !important;
+    background-image: none !important;
+  }
   .mag-page #picasso-index .mag-index-picture {
+    position: relative !important;
     display: block !important;
     width: 100% !important;
+    aspect-ratio: 16 / 10 !important;
     background-image: url('/images/editorial/picasso-index-hero-desktop.png') !important;
     background-repeat: no-repeat !important;
     background-position: center center !important;
     background-size: contain !important;
   }
   .mag-page #picasso-index .mag-index-picture img {
-    display: block !important;
-    width: 100% !important;
-    height: auto !important;
-    opacity: 0 !important;
-    visibility: hidden !important;
+    display: none !important;
   }
 
   /* Footer: retire the off-palette wine panel and tie the newsletter back to Issue 01 cobalt/yellow. */
