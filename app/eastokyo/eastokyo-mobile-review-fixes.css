@@ -24,6 +24,11 @@
     object-position: center top !important;
   }
 
+  /* Asagaya first photograph: override the generic center crop so the frog's eyes remain in frame. */
+  .mag-page #asagaya .mag-photo-item:first-child .mag-media img {
+    object-position: center top !important;
+  }
+
   /* Exhibition captions: remove the inherited white gutter on the full-width Paul Smith shot. */
   .mag-page #exhibition .picasso-shot-3,
   .mag-page #exhibition .picasso-shot-3 .picasso-picture,
@@ -58,15 +63,22 @@
     margin-bottom: 0 !important;
   }
 
-  /* Index: use the correct museum two-room scene on mobile too. The old mobile asset is an unrelated taxi image. */
+  /* Index: the mobile <picture> source is the unrelated taxi image. Do not let that source render.
+     Paint the approved desktop museum/two-room composition on the frame itself instead. */
+  .mag-page #picasso-index .mag-index-picture {
+    display: block !important;
+    width: 100% !important;
+    background-image: url('/images/editorial/picasso-index-hero-desktop.png') !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+    background-size: contain !important;
+  }
   .mag-page #picasso-index .mag-index-picture img {
-    content: url('/images/editorial/picasso-index-hero-desktop.png') !important;
-    position: static !important;
     display: block !important;
     width: 100% !important;
     height: auto !important;
-    object-fit: contain !important;
-    object-position: center center !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
   }
 
   /* Footer: retire the off-palette wine panel and tie the newsletter back to Issue 01 cobalt/yellow. */
