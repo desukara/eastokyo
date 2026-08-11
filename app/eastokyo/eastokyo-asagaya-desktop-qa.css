@@ -1,61 +1,65 @@
-/* Asagaya desktop editorial QA.
-   HARD RULE: do not alter photo sizing, crop, fit, aspect ratio, or grid placement.
-   This file only adjusts the intro composition and caption typography/spacing. */
+/* Asagaya desktop gallery.
+   Desktop only. Mobile keeps the established photo grid unchanged.
+   Gallery rule: photographs remain fully visible; no crop, stretch, or forced aspect ratio. */
+
+.asagaya-desktop-gallery{display:none;}
 
 @media(min-width:900px){
   .mag-page #asagaya.mag-photo{
-    padding-top:clamp(2.1rem,2.7vw,2.8rem)!important;
-    padding-bottom:clamp(2.65rem,3.4vw,3.45rem)!important;
+    padding-top:clamp(2rem,2.5vw,2.6rem)!important;
+    padding-bottom:clamp(2.7rem,3.5vw,3.6rem)!important;
   }
 
-  /* Intro: centered headline with a real editorial counterweight on the right. */
+  /* One editorial composition: kicker, headline, supporting panel, CTA. */
   .mag-page #asagaya .mag-photo-head{
     display:grid!important;
     grid-template-columns:repeat(12,minmax(0,1fr))!important;
     grid-template-rows:auto auto auto!important;
-    column-gap:clamp(1rem,1.5vw,1.55rem)!important;
+    column-gap:clamp(1rem,1.5vw,1.5rem)!important;
     row-gap:0!important;
     align-items:start!important;
-    margin-bottom:clamp(1.65rem,2.2vw,2.25rem)!important;
+    margin-bottom:clamp(1.8rem,2.35vw,2.45rem)!important;
   }
 
   .mag-page #asagaya .mag-photo-head>.mag-kicker{
     grid-column:1/4!important;
     grid-row:1!important;
-    margin:0 0 clamp(.75rem,.95vw,.95rem)!important;
+    margin:0 0 clamp(.8rem,1vw,1rem)!important;
     max-width:15rem!important;
-    font-size:clamp(.7rem,.76vw,.8rem)!important;
+    font-size:clamp(.72rem,.78vw,.82rem)!important;
     line-height:1.2!important;
     letter-spacing:.14em!important;
   }
 
   .mag-page #asagaya .mag-photo-head>h2{
-    grid-column:3/10!important;
+    grid-column:2/10!important;
     grid-row:2!important;
     justify-self:center!important;
+    align-self:center!important;
     width:100%!important;
-    max-width:13ch!important;
+    max-width:10.5ch!important;
     margin:0!important;
-    font-size:clamp(3.55rem,4.45vw,4.8rem)!important;
-    line-height:.86!important;
-    letter-spacing:-.042em!important;
-    text-align:left!important;
+    font-size:clamp(4rem,5.15vw,5.6rem)!important;
+    line-height:.84!important;
+    letter-spacing:-.047em!important;
+    text-align:center!important;
     text-wrap:balance!important;
   }
+  .mag-page #asagaya .mag-photo-head>h2 span{white-space:nowrap!important;}
 
   .mag-page #asagaya .mag-photo-head>p:not(.mag-kicker){
     grid-column:10/13!important;
     grid-row:2!important;
     align-self:center!important;
     justify-self:end!important;
-    max-width:22rem!important;
+    max-width:21rem!important;
     margin:0!important;
-    padding:clamp(1.05rem,1.4vw,1.45rem) clamp(1rem,1.25vw,1.3rem)!important;
+    padding:clamp(1.05rem,1.35vw,1.4rem)!important;
     color:var(--et-ink)!important;
     background:var(--et-paper)!important;
     border-top:5px solid var(--et-green)!important;
     font-family:var(--font-bienvivos-display),Georgia,serif!important;
-    font-size:clamp(1.55rem,1.85vw,1.95rem)!important;
+    font-size:clamp(1.45rem,1.7vw,1.8rem)!important;
     line-height:1.08!important;
     font-weight:650!important;
     letter-spacing:-.02em!important;
@@ -63,48 +67,148 @@
   }
 
   .mag-page #asagaya .mag-photo-head>.story-cta{
-    grid-column:3/6!important;
+    grid-column:2/5!important;
     grid-row:3!important;
     justify-self:start!important;
-    margin-top:clamp(.9rem,1.15vw,1.15rem)!important;
+    margin-top:clamp(.85rem,1vw,1.05rem)!important;
     margin-bottom:0!important;
   }
 
-  /* Captions only: tighter containers with type large enough to occupy them. */
-  .mag-page #asagaya .mag-photo-item figcaption{
-    display:grid!important;
-    grid-template-columns:2.5rem minmax(0,1fr)!important;
-    align-items:center!important;
-    gap:.75rem!important;
-    min-height:3.15rem!important;
-    height:auto!important;
-    padding:.56rem .8rem .54rem!important;
-    line-height:1.12!important;
+  /* Desktop replaces the old mosaic with one gallery wall. */
+  .mag-page #asagaya .mag-photo-grid{display:none!important;}
+
+  .mag-page #asagaya .asagaya-desktop-gallery{
+    --gallery-direction:1;
+    display:block!important;
+    width:100%!important;
+    margin:0!important;
+    outline:none!important;
+  }
+  .mag-page #asagaya .asagaya-desktop-gallery[data-direction="-1"]{--gallery-direction:-1;}
+  .mag-page #asagaya .asagaya-desktop-gallery:focus-visible{
+    outline:2px solid currentColor!important;
+    outline-offset:6px!important;
   }
 
-  .mag-page #asagaya .mag-photo-item figcaption span:first-child{
+  .mag-page #asagaya .asagaya-gallery-stage{
+    position:relative!important;
+    width:100%!important;
+    height:clamp(34rem,55vw,48rem)!important;
+    overflow:hidden!important;
+    background:transparent!important;
+    isolation:isolate!important;
+  }
+
+  .mag-page #asagaya .asagaya-gallery-slide{
+    position:absolute!important;
+    inset:0!important;
+    margin:0!important;
+    opacity:0!important;
+    transform:translate3d(calc(var(--gallery-direction) * 1.35rem),0,0) scale(.982)!important;
+    filter:blur(2px)!important;
+    pointer-events:none!important;
+    transition:
+      opacity 620ms cubic-bezier(.22,1,.36,1),
+      transform 760ms cubic-bezier(.22,1,.36,1),
+      filter 520ms cubic-bezier(.22,1,.36,1)!important;
+    will-change:opacity,transform,filter!important;
+  }
+  .mag-page #asagaya .asagaya-gallery-slide.is-active{
+    opacity:1!important;
+    transform:translate3d(0,0,0) scale(1)!important;
+    filter:blur(0)!important;
+    pointer-events:auto!important;
+    z-index:2!important;
+  }
+
+  .mag-page #asagaya .asagaya-gallery-art{
+    position:absolute!important;
+    inset:clamp(2.1rem,4.8vw,4.8rem) clamp(2.2rem,5.2vw,5.4rem)!important;
+    overflow:visible!important;
+  }
+  .mag-page #asagaya .asagaya-gallery-art img{
+    width:100%!important;
+    height:100%!important;
+    object-fit:contain!important;
+    object-position:center!important;
+  }
+
+  .mag-page #asagaya .asagaya-gallery-rail{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr) auto!important;
+    align-items:center!important;
+    gap:clamp(1.25rem,2vw,2rem)!important;
+    min-height:4.6rem!important;
+    padding:clamp(.8rem,1vw,1rem) 0 0!important;
+    border-top:1px solid currentColor!important;
+  }
+
+  .mag-page #asagaya .asagaya-gallery-caption{
+    display:grid!important;
+    grid-template-columns:4.6rem minmax(0,1fr)!important;
+    align-items:baseline!important;
+    gap:clamp(.8rem,1.1vw,1.15rem)!important;
     min-width:0!important;
-    font-size:clamp(.82rem,.86vw,.9rem)!important;
+    animation:asagayaCaptionIn 560ms 90ms cubic-bezier(.22,1,.36,1) both!important;
+  }
+  .mag-page #asagaya .asagaya-gallery-caption span{
+    font-size:clamp(.74rem,.8vw,.84rem)!important;
     line-height:1!important;
     font-weight:900!important;
+    letter-spacing:.12em!important;
+    white-space:nowrap!important;
   }
-
-  .mag-page #asagaya .mag-photo-item figcaption span:last-child{
-    max-width:none!important;
+  .mag-page #asagaya .asagaya-gallery-caption strong{
     min-width:0!important;
-    font-size:clamp(.82rem,.9vw,.94rem)!important;
-    line-height:1.12!important;
-    font-weight:800!important;
-    text-align:right!important;
-    text-wrap:balance!important;
+    font-family:var(--font-bienvivos-display),Georgia,serif!important;
+    font-size:clamp(1.25rem,1.6vw,1.7rem)!important;
+    line-height:1!important;
+    font-weight:700!important;
+    letter-spacing:-.02em!important;
   }
 
-  .mag-page #asagaya .mag-photo-item:nth-child(6) figcaption{
-    min-height:3rem!important;
-    padding:.5rem .8rem .48rem!important;
+  .mag-page #asagaya .asagaya-gallery-controls{
+    display:flex!important;
+    align-items:center!important;
+    gap:.35rem!important;
+  }
+  .mag-page #asagaya .asagaya-gallery-controls button{
+    appearance:none!important;
+    border:0!important;
+    background:transparent!important;
+    color:inherit!important;
+    padding:.7rem .75rem!important;
+    font:inherit!important;
+    font-size:clamp(.7rem,.76vw,.8rem)!important;
+    line-height:1!important;
+    font-weight:900!important;
+    letter-spacing:.1em!important;
+    cursor:pointer!important;
+  }
+  .mag-page #asagaya .asagaya-gallery-controls button span{
+    display:inline-block!important;
+    transition:transform 260ms cubic-bezier(.22,1,.36,1)!important;
+  }
+  .mag-page #asagaya .asagaya-gallery-controls button:first-child:hover span{transform:translateX(-.28rem)!important;}
+  .mag-page #asagaya .asagaya-gallery-controls button:last-child:hover span{transform:translateX(.28rem)!important;}
+  .mag-page #asagaya .asagaya-gallery-controls button:focus-visible{
+    outline:2px solid currentColor!important;
+    outline-offset:2px!important;
   }
 
-  .mag-page #asagaya+.mag-index{
-    margin-top:0!important;
+  .mag-page #asagaya+.mag-index{margin-top:0!important;}
+}
+
+@keyframes asagayaCaptionIn{
+  from{opacity:0;transform:translateY(.45rem);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .mag-page #asagaya .asagaya-gallery-slide,
+  .mag-page #asagaya .asagaya-gallery-caption,
+  .mag-page #asagaya .asagaya-gallery-controls button span{
+    animation:none!important;
+    transition:none!important;
   }
 }
