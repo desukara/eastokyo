@@ -38,7 +38,7 @@ const storyLinks: Record<StoryKey, StoryLink> = {
 };
 
 const indexStories = [
-  { section: "OBJECT", title: "A BICYCLE BECOMES A BULL.", copy: "Two bicycle parts wander into his studio, and somehow a bull walks back out. That isn't a trick of the light. That's just what happened." },
+  { section: "OBJECT", title: "A BICYCLE BECOMES A BULL.", copy: "Two bicycle parts wander into his studio, and somehow a bull walks back out." },
   { section: "PORTRAIT", title: "SYMMETRY WAS NEVER THE POINT.", copy: "Picasso doesn't fix the face. He makes it truer, even on the days when true isn't especially pretty to look at." },
   { section: "STRIPES", title: "PAUL SMITH LEAVES HIS MARK.", copy: "Paul Smith turns an ordinary stripe into part of this whole show's heartbeat, running quietly under everything else in the room." },
   { section: "CERAMICS", title: "PICASSO NEVER CLEANED HIS PLATE.", copy: "He turned the dinner table into one more studio, because a man like that never really knew how to stop working, and never much wanted to." },
@@ -48,8 +48,8 @@ const asagayaImages = [
   { src: "/images/editorial/la-ciudad-despierta-desktop.png", label: "THE STREET IS ALREADY AWAKE, AND IT ISN'T WAITING AROUND FOR YOU TO CATCH UP." },
   { src: "/images/editorial/tokio-no-es-gris-mona-lisa-tanabata.png", label: "EVEN THE MONA LISA SHOWED UP TO THIS ONE." },
   { src: "/images/editorial/ritmo-urbano-giraffe-desktop.png", label: "LOOK UP. NO, HIGHER THAN THAT. ALL THE WAY UP." },
-  { src: "/images/editorial/todo-vivos-desktop.jpg", label: "EVERYONE'S OUT, EVERYONE'S TALKING OVER EACH OTHER, AND SOMEHOW IT ALL STILL MAKES SENSE." },
-  { src: "/images/editorial/tokio-no-es-gris-asagaya-lanterns.png", label: "LANTERNS WHEREVER YOU TURN YOUR HEAD, LIKE THE WHOLE STREET DECIDED TO GLOW AT ONCE." },
+  { src: "/images/editorial/todo-vivos-desktop.jpg", label: "EVERYONE'S OUT." },
+  { src: "/images/editorial/tokio-no-es-gris-asagaya-lanterns.png", label: "LANTERNS WHEREVER YOU TURN YOUR HEAD." },
   { src: "/images/editorial/tokio-en-flor-tanabata-desktop.png", label: "ASAGAYA, DRESSED UP AND READY FOR THE FESTIVAL." },
 ];
 
@@ -139,7 +139,7 @@ export default function EastokyoHome() {
       <section className="mag-section mag-contents" id="contents" aria-labelledby="contents-title">
         <div className="mag-rule-heading"><h2>EASTOKYO. NUMBER ONE. CONTENTS.</h2></div>
         <div className="mag-contents-grid">
-          <div className="mag-contents-title"><p className="mag-kicker">THIS IS WHERE THE RHYTHM REALLY PICKS UP.</p><h2 id="contents-title">FIVE STORIES. ONE ISSUE. LOOK TWICE. YOU'LL FEEL IT EVEN MORE THE SECOND TIME.</h2></div>
+          <div className="mag-contents-title"><p className="mag-kicker">THIS IS WHERE THE RHYTHM REALLY PICKS UP.</p><h2 id="contents-title">FIVE STORIES. ONE ISSUE. LOOK TWICE.</h2></div>
           <figure className="mag-contents-image mag-media"><EditorialImage src={contentsImage} alt="Festival decorations in Asagaya" sizes="(max-width: 640px) 100vw, (max-width: 899px) 58vw, 34vw" /><figcaption className="mag-credit">ASAGAYA. EASTOKYO.</figcaption></figure>
           <div className="mag-contents-list">{contents.map(s => <article className="mag-contents-entry" key={s.href}><a href={s.href}><small>{s.section}</small><h3>{s.title}</h3><p>{s.copy}</p></a></article>)}</div>
         </div>
@@ -211,7 +211,7 @@ export default function EastokyoHome() {
       <section className="mag-back-cover" id="about" aria-labelledby="about-title">
         <div className="mag-back-inner">
           <div className="mag-mini-cover" aria-label="Preview of EASTOKYO inaugural issue"><EditorialImage src="/images/editorial/picasso-bullfight-01-desktop.png" alt="" sizes="(max-width: 640px) 70vw, 20rem" /><strong>EASTOKYO</strong><h3>HE KEPT WALKING BACK IN.</h3><p>NUMBER ONE. TOKYO. SEPTEMBER 2026.</p></div>
-          <div className="mag-back-copy"><p className="mag-kicker">EASTOKYO. NUMBER ONE. BORN IN TOKYO. RAISED WITH A LITTLE FIRE IN THE CHEST.</p><h2 id="about-title">ART FROM TOKYO, WITH ITS EYES WIDE OPEN TO EVERYWHERE ELSE TOO.</h2><p>EASTOKYO is an independent art magazine for people who need their art to actually have a heartbeat in it. Not decoration. Not something picked to match the couch. A heartbeat. Something you can feel moving when you hold the page.</p><span className="mag-back-date">NUMBER ONE. JUST GETTING STARTED, AND WE ARE NOT SLOWING DOWN FOR ANYONE.</span></div>
+          <div className="mag-back-copy"><p className="mag-kicker">EASTOKYO. NUMBER ONE. BORN IN TOKYO. RAISED WITH A LITTLE FIRE IN THE CHEST.</p><h2 id="about-title">TOKYO ART. EYES EVERYWHERE.</h2><p>EASTOKYO is an independent art magazine for people who need their art to actually have a heartbeat in it. Not decoration. Not something picked to match the couch. A heartbeat. Something you can feel moving when you hold the page.</p><span className="mag-back-date">NUMBER ONE. JUST GETTING STARTED, AND WE ARE NOT SLOWING DOWN FOR ANYONE.</span></div>
         </div>
       </section>
     </main>
