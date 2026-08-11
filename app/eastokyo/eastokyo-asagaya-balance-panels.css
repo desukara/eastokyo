@@ -5,6 +5,8 @@
 @media(min-width:900px){
   .mag-page #asagaya.mag-photo{
     position:relative!important;
+    height:auto!important;
+    min-height:0!important;
     padding-top:clamp(2.7rem,3.6vw,3.7rem)!important;
     padding-bottom:0!important;
     border-bottom:1px solid var(--et-ink)!important;
@@ -119,6 +121,8 @@
 
   /* The composition ends directly at the grid edge. */
   .mag-page #asagaya .mag-photo-grid{
+    height:auto!important;
+    min-height:0!important;
     margin-top:0!important;
     margin-bottom:0!important;
   }
