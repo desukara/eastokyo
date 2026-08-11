@@ -80,6 +80,8 @@ function StoryCta({ story }: { story: StoryKey }) {
 
 export default function EastokyoHome() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [asagayaSlide, setAsagayaSlide] = useState(0);
+  const [asagayaDirection, setAsagayaDirection] = useState<1 | -1>(1);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const menuCloseRef = useRef<HTMLButtonElement>(null);
   useEffect(() => {
@@ -104,6 +106,10 @@ export default function EastokyoHome() {
   }, [menuOpen]);
 
   const closeMenu = () => setMenuOpen(false);
+  const moveAsagaya = (direction: 1 | -1) => {
+    setAsagayaDirection(direction);
+    setAsagayaSlide(current => (current + direction + asagayaImages.length) % asagayaImages.length);
+  };
 
   return <div className="mag-page" id="top">
     <a className="mag-skip-link" href="#contenido">Skip to content</a>
@@ -198,7 +204,20 @@ export default function EastokyoHome() {
       </section>
 
       <section className="mag-section mag-photo" id="asagaya" aria-labelledby="photo-title">
-        <div className="mag-photo-head"><p className="mag-kicker">04 · TOKYO · ASAGAYA TANABATA</p><h2 id="photo-title">THE CITY PUTS ON A COSTUME.</h2><p>Paper creatures swing overhead and suddenly the whole city turns into a party.</p><StoryCta story="tokyo" /></div>
+        <div className="mag-photo-head"><p className="mag-kicker">04 · TOKYO · ASAGAYA TANABATA</p><h2 id="photo-title">THE CITY PUTS ON <span>A COSTUME.</span></h2><p>Paper creatures swing overhead and suddenly the whole city turns into a party.</p><StoryCta story="tokyo" /></div>
+
+        <div className="asagaya-desktop-gallery" data-direction={asagayaDirection} tabIndex={0} aria-label="Asagaya Tanabata photo gallery. Use the left and right arrow keys to change photographs." onKeyDown={event => { if (event.key === "ArrowLeft") moveAsagaya(-1); if (event.key === "ArrowRight") moveAsagaya(1); }}>
+          <div className="asagaya-gallery-stage">
+            {asagayaImages.map((image, index) => <figure className={`asagaya-gallery-slide ${index === asagayaSlide ? "is-active" : ""}`} aria-hidden={index !== asagayaSlide} key={image.src}>
+              <div className="asagaya-gallery-art"><EditorialImage src={image.src} alt={image.label} sizes="(min-width: 900px) 82vw, 1px" /></div>
+            </figure>)}
+          </div>
+          <div className="asagaya-gallery-rail">
+            <div className="asagaya-gallery-caption" key={asagayaSlide} aria-live="polite"><span>{String(asagayaSlide + 1).padStart(2, "0")} / {String(asagayaImages.length).padStart(2, "0")}</span><strong>{asagayaImages[asagayaSlide].label}</strong></div>
+            <div className="asagaya-gallery-controls"><button type="button" onClick={() => moveAsagaya(-1)} aria-label="Previous photograph"><span aria-hidden="true">←</span> PREVIOUS</button><button type="button" onClick={() => moveAsagaya(1)} aria-label="Next photograph">NEXT <span aria-hidden="true">→</span></button></div>
+          </div>
+        </div>
+
         <div className="mag-photo-grid" aria-label="Asagaya Tanabata visual story">{asagayaImages.map((image, index) => <figure className="mag-photo-item" key={image.src}><div className="mag-media"><EditorialImage src={image.src} alt={image.label} sizes={index === 0 || index === 5 ? "(max-width: 640px) 86vw, 70vw" : "(max-width: 640px) 86vw, 28vw"} /></div><figcaption><span>0{index + 1}</span><span>{image.label}</span></figcaption></figure>)}</div>
       </section>
 
