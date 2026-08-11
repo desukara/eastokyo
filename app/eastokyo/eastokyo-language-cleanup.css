@@ -1,0 +1,41 @@
+/* EASTOKYO language cleanup.
+   This final cascade removes generated Spanish copy left behind by the original Bien Vivos art direction
+   while preserving the approved visual layout, colors, spacing and imagery. */
+
+/* Restore the real English Asagaya captions from the EASTOKYO page data. */
+.mag-photo-item figcaption > span:last-child {
+  font-size: .6rem !important;
+}
+
+.mag-photo-item figcaption > span:last-child::before,
+.mag-photo-item figcaption > span:last-child::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* English-only generated interface copy. */
+.mag-cover::after {
+  content: "OPEN THE ISSUE ↓" !important;
+}
+
+.mag-front-card span::after {
+  content: "COMING SOON" !important;
+}
+
+.mag-newsletter::after {
+  content: "SUBSCRIPTIONS · COMING SOON" !important;
+}
+
+.social-placeholder span::after {
+  content: "· SOON" !important;
+}
+
+.picasso-feature-outro p::before {
+  content: "LOOK AGAIN" !important;
+}
+
+@media (max-width: 640px) {
+  .mag-cover::after {
+    content: "OPEN ↓" !important;
+  }
+}
