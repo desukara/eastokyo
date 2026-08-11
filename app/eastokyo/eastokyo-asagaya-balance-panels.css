@@ -7,6 +7,7 @@
     position:relative!important;
     padding-top:clamp(2.7rem,3.6vw,3.7rem)!important;
     padding-bottom:0!important;
+    border-bottom:1px solid var(--et-ink)!important;
   }
 
   /* Opening: one clear editorial hierarchy with real breathing room, not a yellow void. */
