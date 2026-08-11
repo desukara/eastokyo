@@ -7,9 +7,8 @@ const navItems = [
   { label: "COVER", href: "#latest" },
   { label: "CONTENTS", href: "#contents" },
   { label: "EXHIBITION", href: "#exhibition" },
-  { label: "BULLFIGHTING", href: "#bullfighting" },
-  { label: "CUBISM", href: "#cubism" },
-  { label: "ASAGAYA", href: "#asagaya" },
+  { label: "IDEAS", href: "#cubism" },
+  { label: "TOKYO", href: "#asagaya" },
   { label: "INDEX", href: "#picasso-index" },
 ];
 
@@ -20,16 +19,15 @@ const footerItems = [
 ];
 
 const contents = [
-  { href: "#exhibition", section: "EXHIBITION", title: "PICASSO, SEEN WITH FRESH EYES.", copy: "Paul Smith changes the room and suddenly Picasso feels alive again." },
-  { href: "#bullfighting", section: "BULLFIGHTING", title: "THE ARENA GOT UNDER HIS SKIN.", copy: "Picasso knew exactly where to look." },
-  { href: "#cubism", section: "CUBISM", title: "WHEN THE PICTURE LOST ITS MIND.", copy: "One angle? Please. Picasso and Braque had other plans." },
-  { href: "#cubism-works", section: "CUBISM · WORKS", title: "THIS IS WHAT HAPPENS WHEN PERSPECTIVE GETS BORED.", copy: "Reality never stood a chance." },
-  { href: "#asagaya", section: "ASAGAYA TANABATA", title: "THE CITY PUTS ON A COSTUME.", copy: "Paper creatures swing overhead and suddenly the whole city turns into a party." },
-  { href: "#picasso-index", section: "PICASSO INDEX", title: "NO EASY WAY OUT.", copy: "From bicycle parts to ceramics, Picasso kept finding new ways to make his point clear." },
+  { href: "#bullfighting", section: "01 · COVER STORY", title: "HE NEVER REALLY LEFT THE ARENA.", copy: "Picasso kept returning to the bullring because the arena never stopped giving him something to look at." },
+  { href: "#exhibition", section: "02 · EXHIBITION", title: "PICASSO, SEEN WITH FRESH EYES.", copy: "Paul Smith changes the room and suddenly Picasso feels alive again." },
+  { href: "#cubism", section: "03 · IDEAS", title: "WHEN ONE POINT OF VIEW WASN’T ENOUGH.", copy: "Picasso and Braque stopped asking a picture to behave like a single view of the world." },
+  { href: "#asagaya", section: "04 · TOKYO", title: "THE CITY PUTS ON A COSTUME.", copy: "Paper creatures swing overhead and suddenly the whole city turns into a party." },
+  { href: "#picasso-index", section: "05 · INDEX", title: "NOTHING IS JUST WHAT IT IS.", copy: "Faces, ceramics, bicycle parts and other things Picasso refused to leave alone." },
 ];
 
 const indexStories = [
-  { section: "OBJECT", title: "NOTHING IS JUST WHAT IT IS.", copy: "Two bicycle parts walk into Picasso’s studio. Somehow, a bull walks out." },
+  { section: "OBJECT", title: "A BICYCLE BECOMES A BULL.", copy: "Two bicycle parts walk into Picasso’s studio. Somehow, a bull walks out." },
   { section: "PORTRAIT", title: "SYMMETRY WAS NEVER THE POINT.", copy: "Picasso doesn’t fix the face. He makes it more interesting." },
   { section: "STRIPES", title: "PAUL SMITH LEAVES HIS MARK.", copy: "Paul Smith turns a regular stripe into part of the exhibition’s personality." },
   { section: "CERAMICS", title: "PICASSO DIDN’T CLEAN HIS PLATE.", copy: "Picasso turned the table into another studio." },
@@ -110,9 +108,9 @@ export default function EastokyoHome() {
           <div className="mag-cover-masthead" aria-hidden="true">EASTOKYO</div>
           <div className="mag-cover-story"><p className="mag-kicker">PICASSO · THE ARENA INSIDE HIS HEAD</p><h1 id="cover-title">HE NEVER REALLY LEFT THE ARENA</h1><p><strong>PICASSO, PAUL SMITH & A VERY GOOD IDEA · TOKYO</strong> The arena gave Picasso everything an artist could want: danger, color and absolutely no chance of boredom.</p><a href="#bullfighting">ENTER THE ARENA ↓</a></div>
           <div className="mag-cover-lines" aria-label="Featured stories in this issue">
-            <article className="mag-cover-line"><div><small>EXHIBITION</small><p>PAUL SMITH TURNS UP THE COLOR.</p></div></article>
-            <article className="mag-cover-line"><div><small>CUBISM</small><p>BREAKING THE ART APART.</p></div></article>
-            <article className="mag-cover-line"><div><small>ASAGAYA TANABATA</small><p>TOKYO, TURNED ALL THE WAY UP.</p></div></article>
+            <article className="mag-cover-line"><div><small>EXHIBITION</small><p>PICASSO, SEEN WITH FRESH EYES.</p></div></article>
+            <article className="mag-cover-line"><div><small>IDEAS</small><p>WHEN ONE POINT OF VIEW WASN’T ENOUGH.</p></div></article>
+            <article className="mag-cover-line"><div><small>TOKYO</small><p>THE CITY PUTS ON A COSTUME.</p></div></article>
           </div>
         </div>
         <p className="mag-cover-vertical">TOKYO · Nº 01 · SEPTEMBER 2026 · ¥1,200</p><div className="mag-cover-barcode" aria-hidden="true" />
@@ -121,16 +119,26 @@ export default function EastokyoHome() {
       <section className="mag-section mag-contents" id="contents" aria-labelledby="contents-title">
         <div className="mag-rule-heading"><h2>EASTOKYO Nº 01 · CONTENTS</h2></div>
         <div className="mag-contents-grid">
-          <div className="mag-contents-title"><p className="mag-kicker">THIS IS WHERE THE FUN STARTS</p><h2 id="contents-title">TOKYO GETS PICASSO. ASAGAYA GETS LOUD.</h2></div>
+          <div className="mag-contents-title"><p className="mag-kicker">THIS IS WHERE THE FUN STARTS</p><h2 id="contents-title">FIVE STORIES. ONE ISSUE. LOOK AGAIN.</h2></div>
           <figure className="mag-contents-image mag-media"><EditorialImage src={contentsImage} alt="Festival decorations in Asagaya" sizes="(max-width: 640px) 100vw, (max-width: 899px) 58vw, 34vw" /><figcaption className="mag-credit">ASAGAYA · EASTOKYO</figcaption></figure>
           <div className="mag-contents-list">{contents.map(s => <article className="mag-contents-entry" key={s.href}><a href={s.href}><small>{s.section}</small><h3>{s.title}</h3><p>{s.copy}</p></a></article>)}</div>
         </div>
       </section>
 
+      <section className="mag-section mag-feature" id="bullfighting" aria-labelledby="bullfighting-title">
+        <div className="mag-feature-grid">
+          <header className="mag-feature-heading"><p className="mag-kicker">01 · COVER STORY · PICASSO · INTO THE ARENA</p><h2 id="bullfighting-title">HE NEVER REALLY LEFT THE ARENA.</h2></header>
+          <figure className="mag-feature-image-primary mag-media"><EditorialImage src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=2200&q=95" alt="Picasso bullfighting artwork" sizes="(max-width: 640px) 100vw, (max-width: 899px) 58vw, 50vw" /><figcaption className="mag-credit">PICASSO · BULLFIGHTING</figcaption></figure>
+          <figure className="mag-feature-image-detail mag-media"><EditorialImage src={detailImage} alt="Picasso bullfighting detail" sizes="(max-width: 640px) 100vw, (max-width: 899px) 42vw, 28vw" /><figcaption className="mag-credit">THE BULL · THE HORSE · THE TORERO</figcaption></figure>
+          <div className="mag-feature-copy"><p className="mag-deck">The arena got under his skin. Picasso came back to bullfighting again and again because it never stopped giving him something to see.</p><p className="mag-feature-columns">In the bullring, Picasso found the whole human mess. More or less.</p></div>
+          <blockquote className="mag-feature-pullquote">“The arena is drama with nowhere to hide.”<span>EASTOKYO · NO SAFE DISTANCE</span></blockquote>
+        </div>
+      </section>
+
       <section className="mag-section mag-front picasso-feature" id="exhibition" aria-labelledby="front-title">
-        <div className="mag-rule-heading"><h2>EXHIBITION · THE NATIONAL ART CENTER, TOKYO</h2></div>
+        <div className="mag-rule-heading"><h2>02 · EXHIBITION · THE NATIONAL ART CENTER, TOKYO</h2></div>
         <div className="picasso-feature-intro">
-          <div className="picasso-feature-title"><p className="mag-kicker">REVIEW · TOKYO MEETS PICASSO</p><h3 id="front-title">PAUL SMITH GIVES PICASSO A NEW STAGE.</h3><p className="mag-deck">Finally, Picasso has somewhere to go loco.</p></div>
+          <div className="picasso-feature-title"><p className="mag-kicker">REVIEW · TOKYO MEETS PICASSO</p><h3 id="front-title">PICASSO, SEEN WITH FRESH EYES.</h3><p className="mag-deck">Paul Smith changes the room and suddenly Picasso feels alive again.</p></div>
           <aside className="picasso-feature-note"><strong>PICASSO, OFF THE LEASH</strong><p>Picasso moves through the rooms. But the rooms keep changing the rules.</p></aside>
         </div>
         <div className="picasso-gallery">
@@ -144,21 +152,11 @@ export default function EastokyoHome() {
         </div>
       </section>
 
-      <section className="mag-section mag-feature" id="bullfighting" aria-labelledby="bullfighting-title">
-        <div className="mag-feature-grid">
-          <header className="mag-feature-heading"><p className="mag-kicker">PICASSO · INTO THE ARENA</p><h2 id="bullfighting-title">HE KEPT COMING BACK FOR THE DANGER.</h2></header>
-          <figure className="mag-feature-image-primary mag-media"><EditorialImage src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=2200&q=95" alt="Picasso bullfighting artwork" sizes="(max-width: 640px) 100vw, (max-width: 899px) 58vw, 50vw" /><figcaption className="mag-credit">PICASSO · BULLFIGHTING</figcaption></figure>
-          <figure className="mag-feature-image-detail mag-media"><EditorialImage src={detailImage} alt="Picasso bullfighting detail" sizes="(max-width: 640px) 100vw, (max-width: 899px) 42vw, 28vw" /><figcaption className="mag-credit">THE BULL · THE HORSE · THE TORERO</figcaption></figure>
-          <div className="mag-feature-copy"><p className="mag-deck">Picasso came back to bullfighting again and again. Because the arena still had something to say.</p><p className="mag-feature-columns">In the bullring, Picasso found the whole human mess. More or less.</p></div>
-          <blockquote className="mag-feature-pullquote">“The arena is drama with nowhere to hide.”<span>EASTOKYO · NO SAFE DISTANCE</span></blockquote>
-        </div>
-      </section>
-
       <section className="cubism-intro" id="cubism" aria-labelledby="cubism-title">
-        <div className="cubism-intro-word" aria-hidden="true">CUBISM</div>
+        <div className="cubism-intro-word" aria-hidden="true">IDEAS</div>
         <div className="cubism-intro-copy">
-          <p className="mag-kicker">CUBISM · ART PULLED APART</p>
-          <h2 id="cubism-title">WHEN THE UNREAL IS REALER</h2>
+          <p className="mag-kicker">03 · IDEAS · CUBISM · ART PULLED APART</p>
+          <h2 id="cubism-title">WHEN ONE POINT OF VIEW WASN’T ENOUGH.</h2>
           <p>They took one view of reality, smashed it, and came back with more perspective. Picasso and Braque gave up on one perfect point of view. Reality has always been more interesting than that. The picture became less obvious and somehow more alive. Cubism makes you earn the picture. Loco? Maybe. Boring? Not even close.</p>
         </div>
         <div className="cubism-intro-note"><span>1907 →</span><p>Perspective breaks.<br />The picture becomes construction.</p></div>
@@ -166,7 +164,7 @@ export default function EastokyoHome() {
 
       <section className="cubism-spread" id="cubism-works" aria-labelledby="cubism-spread-title">
         <div className="cubism-spread-head">
-          <div><p className="mag-kicker">CUBISM · FOUR WORKS</p><h2 id="cubism-spread-title">Same revolution, different angles.</h2></div>
+          <div><p className="mag-kicker">IDEAS · CUBISM · FOUR WORKS</p><h2 id="cubism-spread-title">Same revolution, different angles.</h2></div>
           <p>Cubism begins with a refusal: the refusal to let painting remain a single, stable view of the world. Four works carry this section, each with its own scale and shape.</p>
         </div>
         <div className="cubism-slot-grid">
@@ -179,12 +177,12 @@ export default function EastokyoHome() {
       </section>
 
       <section className="mag-section mag-photo" id="asagaya" aria-labelledby="photo-title">
-        <div className="mag-photo-head"><p className="mag-kicker">ASAGAYA TANABATA · THE STREETS COME ALIVE</p><h2 id="photo-title">THE CITY GOES ALL OUT.</h2><p>Paper creatures doing whatever they want.</p></div>
+        <div className="mag-photo-head"><p className="mag-kicker">04 · TOKYO · ASAGAYA TANABATA</p><h2 id="photo-title">THE CITY PUTS ON A COSTUME.</h2><p>Paper creatures swing overhead and suddenly the whole city turns into a party.</p></div>
         <div className="mag-photo-grid" aria-label="Asagaya Tanabata visual story">{asagayaImages.map((image, index) => <figure className="mag-photo-item" key={image.src}><div className="mag-media"><EditorialImage src={image.src} alt={image.label} sizes={index === 0 || index === 5 ? "(max-width: 640px) 86vw, 70vw" : "(max-width: 640px) 86vw, 28vw"} /></div><figcaption><span>0{index + 1}</span><span>{image.label}</span></figcaption></figure>)}</div>
       </section>
 
       <section className="mag-section mag-index" id="picasso-index" aria-labelledby="show-title">
-        <div className="mag-index-head"><div><p className="mag-kicker">PICASSO INDEX · START ANYWHERE</p><h2 id="show-title">START WITH ONE THING. END UP SOMEWHERE ELSE.</h2></div><p>Picasso could start with almost anything. The fun was seeing where it ended up.</p></div>
+        <div className="mag-index-head"><div><p className="mag-kicker">05 · INDEX · PICASSO · START ANYWHERE</p><h2 id="show-title">NOTHING IS JUST WHAT IT IS.</h2></div><p>Faces, ceramics, bicycle parts and other things Picasso refused to leave alone.</p></div>
         <figure className="mag-index-feature mag-media"><picture className="mag-index-picture"><source media="(max-width: 640px)" srcSet="https://raw.githubusercontent.com/desukara/bienvivos/main/public/images/editorial/picasso-index-hero-mobile.png" /><img src="https://raw.githubusercontent.com/desukara/bienvivos/main/public/images/editorial/picasso-index-hero-desktop.png" alt="Picasso exhibition view in Tokyo" loading="lazy" /></picture><figcaption><span className="mag-kicker">PICASSO · TOKYO · SEE WHERE IT GOES</span><strong>ONE ROOM LEADS TO ANOTHER.</strong></figcaption></figure>
         <div className="mag-index-list">{indexStories.map(s => <article className="mag-index-row" key={s.section}><div><small>{s.section}</small><h3>{s.title}</h3></div><p>{s.copy}</p></article>)}</div>
       </section>
