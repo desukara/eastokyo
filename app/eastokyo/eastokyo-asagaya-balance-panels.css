@@ -1,63 +1,141 @@
-/* Desktop-only Asagaya balance pass.
-   Keep every established photo frame and grid position intact.
-   Replace photo 06 visually with an editorial text panel, and use the existing
-   dead space beneath photo 01 for a second text anchor. Mobile is untouched. */
+/* Desktop-only Asagaya final composition pass.
+   Intent: resolve the section as one editorial composition, not a stack of patches.
+   Mobile remains untouched. Existing photo geometry for images 01–05 is preserved. */
 
 @media(min-width:900px){
-  /* 06 keeps its exact grid footprint, but the photograph is removed from view. */
-  .mag-page #asagaya .mag-photo-item:nth-child(6){
+  .mag-page #asagaya.mag-photo{
     position:relative!important;
-    overflow:hidden!important;
-    background:var(--et-green)!important;
+    padding-top:clamp(2.7rem,3.6vw,3.7rem)!important;
+    padding-bottom:clamp(7rem,8.6vw,8.6rem)!important;
   }
-  .mag-page #asagaya .mag-photo-item:nth-child(6) .mag-media,
-  .mag-page #asagaya .mag-photo-item:nth-child(6) figcaption{
-    visibility:hidden!important;
-  }
-  .mag-page #asagaya .mag-photo-item:nth-child(6)::before{
-    position:absolute!important;
-    inset:0!important;
-    z-index:4!important;
-    display:flex!important;
+
+  /* Opening: one clear editorial hierarchy with real breathing room, not a yellow void. */
+  .mag-page #asagaya .mag-photo-head{
+    display:grid!important;
+    grid-template-columns:minmax(0,1.55fr) minmax(20rem,.7fr)!important;
+    grid-template-rows:auto auto!important;
+    column-gap:clamp(3rem,6vw,6.5rem)!important;
+    row-gap:clamp(.9rem,1.3vw,1.25rem)!important;
     align-items:center!important;
-    justify-content:center!important;
-    padding:clamp(1.4rem,2.4vw,2.8rem)!important;
-    color:var(--et-paper)!important;
-    background:var(--et-green)!important;
-    content:"ASAGAYA, READY FOR THE FESTIVAL"!important;
-    font-family:var(--font-bienvivos-display),Georgia,serif!important;
-    font-size:clamp(2.8rem,4.9vw,5.4rem)!important;
-    font-weight:700!important;
-    line-height:.86!important;
-    letter-spacing:-.045em!important;
-    text-align:center!important;
+    margin:0 0 clamp(2.2rem,3.1vw,3.1rem)!important;
+  }
+
+  .mag-page #asagaya .mag-photo-head>.mag-kicker{
+    grid-column:1/3!important;
+    grid-row:1!important;
+    align-self:start!important;
+    margin:0!important;
+    font-size:clamp(.72rem,.78vw,.82rem)!important;
+    line-height:1.15!important;
+    letter-spacing:.14em!important;
+  }
+
+  .mag-page #asagaya .mag-photo-head>h2{
+    grid-column:1!important;
+    grid-row:2!important;
+    align-self:center!important;
+    max-width:11.5ch!important;
+    margin:0!important;
+    font-size:clamp(4.6rem,6.2vw,6.75rem)!important;
+    line-height:.82!important;
+    letter-spacing:-.05em!important;
     text-wrap:balance!important;
   }
 
-  /* Use the empty field directly beneath 01 without moving or resizing any photo. */
+  .mag-page #asagaya .mag-photo-head>p:not(.mag-kicker){
+    grid-column:2!important;
+    grid-row:2!important;
+    align-self:center!important;
+    justify-self:end!important;
+    max-width:23rem!important;
+    margin:0!important;
+    padding:clamp(.9rem,1.2vw,1.15rem) 0 0!important;
+    border-top:4px solid var(--et-green)!important;
+    font-family:var(--font-bienvivos-display),Georgia,serif!important;
+    font-size:clamp(1.35rem,1.7vw,1.8rem)!important;
+    line-height:1.15!important;
+    font-weight:600!important;
+    letter-spacing:-.015em!important;
+    text-wrap:balance!important;
+  }
+
+  /* Move the existing CTA out of the intro and make it the quiet editorial exit. */
+  .mag-page #asagaya .mag-photo-head>.story-cta{
+    position:absolute!important;
+    right:clamp(1.25rem,3.6vw,4rem)!important;
+    bottom:clamp(2rem,2.6vw,2.8rem)!important;
+    z-index:8!important;
+    display:inline-grid!important;
+    grid-template-columns:auto auto!important;
+    align-items:center!important;
+    gap:1rem!important;
+    width:auto!important;
+    max-width:none!important;
+    margin:0!important;
+    padding:.78rem 1rem .72rem!important;
+    color:var(--et-ink)!important;
+    background:var(--et-paper)!important;
+    border:0!important;
+    border-top:4px solid var(--et-green)!important;
+    box-shadow:none!important;
+  }
+  .mag-page #asagaya .mag-photo-head>.story-cta .story-cta__action,
+  .mag-page #asagaya .mag-photo-head>.story-cta .story-cta__status{
+    display:block!important;
+    margin:0!important;
+    white-space:nowrap!important;
+  }
+  .mag-page #asagaya .mag-photo-head>.story-cta .story-cta__action{
+    font-size:clamp(.72rem,.8vw,.84rem)!important;
+    font-weight:900!important;
+    letter-spacing:.09em!important;
+  }
+  .mag-page #asagaya .mag-photo-head>.story-cta .story-cta__status{
+    padding-left:1rem!important;
+    border-left:1px solid currentColor!important;
+    font-size:clamp(.62rem,.68vw,.72rem)!important;
+    font-weight:800!important;
+    letter-spacing:.11em!important;
+    opacity:.68!important;
+  }
+
+  /* Photo 06 is removed on desktop. Do not replace it with another giant object. */
+  .mag-page #asagaya .mag-photo-item:nth-child(6){
+    display:none!important;
+  }
+
+  /* Keep one deliberate text interruption beneath image 01. */
   .mag-page #asagaya .mag-photo-item:first-child{
     overflow:visible!important;
     z-index:3!important;
   }
   .mag-page #asagaya .mag-photo-item:first-child::after{
     position:absolute!important;
-    top:calc(100% + clamp(1.4rem,2vw,2rem))!important;
+    top:calc(100% + clamp(1.25rem,1.8vw,1.8rem))!important;
     left:0!important;
     z-index:5!important;
-    width:min(100%,34rem)!important;
-    min-height:clamp(7.5rem,10vw,10.5rem)!important;
     display:flex!important;
     align-items:flex-end!important;
-    padding:clamp(1rem,1.55vw,1.6rem)!important;
+    width:min(100%,33rem)!important;
+    min-height:clamp(6.4rem,8.3vw,8.8rem)!important;
+    padding:clamp(.9rem,1.35vw,1.35rem)!important;
+    box-sizing:border-box!important;
     color:var(--et-paper)!important;
     background:var(--et-cobalt)!important;
     content:"THE STREET IS ALREADY AWAKE"!important;
     font-family:var(--font-bienvivos-display),Georgia,serif!important;
-    font-size:clamp(2.2rem,3.5vw,3.8rem)!important;
+    font-size:clamp(2.35rem,3.4vw,3.7rem)!important;
     font-weight:700!important;
     line-height:.88!important;
     letter-spacing:-.04em!important;
     text-wrap:balance!important;
-    box-sizing:border-box!important;
+  }
+
+  /* Let the photography start sooner and keep the bottom transition intentional. */
+  .mag-page #asagaya .mag-photo-grid{
+    margin-top:0!important;
+  }
+  .mag-page #asagaya+.mag-index{
+    margin-top:0!important;
   }
 }
