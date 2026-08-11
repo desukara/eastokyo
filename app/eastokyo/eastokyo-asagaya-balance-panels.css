@@ -8,7 +8,7 @@
     height:auto!important;
     min-height:0!important;
     padding-top:clamp(2.7rem,3.6vw,3.7rem)!important;
-    padding-bottom:0!important;
+    padding-bottom:clamp(.7rem,.9vw,.95rem)!important;
     border-bottom:1px solid var(--et-ink)!important;
   }
 
