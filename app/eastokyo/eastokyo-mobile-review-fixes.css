@@ -191,9 +191,10 @@
     float: none !important;
   }
   .mag-page #picasso-index .mag-index-feature figcaption .mag-kicker {
-    font-size: .78rem !important;
+    font-size: clamp(.64rem, 2.9vw, .72rem) !important;
     line-height: 1.2 !important;
-    letter-spacing: .12em !important;
+    letter-spacing: .07em !important;
+    white-space: nowrap !important;
     color: var(--et-ink) !important;
   }
   .mag-page #picasso-index .mag-index-feature figcaption strong {
