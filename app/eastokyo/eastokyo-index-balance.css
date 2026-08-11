@@ -1,8 +1,27 @@
 /* Desktop-only Index cleanup.
-   Keep the hero image clean and remove the extra editorial word box. */
+   Keep the hero image clean and use the existing intro sentence as the balancing word box. */
 
 @media(min-width:900px){
   .mag-page #picasso-index .mag-index-feature figcaption{
     display:none!important;
+  }
+
+  .mag-page #picasso-index .mag-index-head>p{
+    align-self:center!important;
+    justify-self:end!important;
+    width:min(100%,35rem)!important;
+    max-width:35rem!important;
+    margin:0!important;
+    padding:clamp(1.35rem,2vw,2rem) clamp(1.5rem,2.25vw,2.25rem)!important;
+    box-sizing:border-box!important;
+    color:var(--et-ink)!important;
+    background:var(--et-orange)!important;
+    border:2px solid var(--et-ink)!important;
+    font-family:var(--font-bienvivos-display),Georgia,serif!important;
+    font-size:clamp(1.65rem,2.25vw,2.35rem)!important;
+    font-weight:600!important;
+    line-height:1.03!important;
+    letter-spacing:-.025em!important;
+    text-wrap:balance!important;
   }
 }
