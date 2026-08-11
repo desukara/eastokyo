@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Bien Vivos — Tokio se vive mejor en español";
+export const alt = "EASTOKYO — Independent Art Magazine";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -14,8 +14,8 @@ export default function OpenGraphImage() {
           display: "flex",
           position: "relative",
           overflow: "hidden",
-          color: "#fff5e7",
-          background: "#180913",
+          color: "#FFF8EC",
+          background: "#121416",
           fontFamily: "serif",
         }}
       >
@@ -24,7 +24,7 @@ export default function OpenGraphImage() {
             position: "absolute",
             inset: 0,
             background:
-              "radial-gradient(circle at 84% 18%, #00b6d1 0, transparent 25%), radial-gradient(circle at 18% 86%, #ff624f 0, transparent 30%), radial-gradient(circle at 72% 85%, #ef2d83 0, transparent 27%), linear-gradient(125deg, #671b3a, #180913 58%)",
+              "radial-gradient(circle at 84% 18%, #86B9D3 0, transparent 25%), radial-gradient(circle at 18% 86%, #DD762A 0, transparent 30%), linear-gradient(125deg, #214F78, #121416 62%)",
           }}
         />
         <div
@@ -35,20 +35,8 @@ export default function OpenGraphImage() {
             width: 360,
             height: 360,
             borderRadius: "50%",
-            border: "44px solid #ffc31a",
+            border: "44px solid #F1C61B",
             opacity: 0.9,
-          }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            bottom: -120,
-            left: -80,
-            width: 420,
-            height: 420,
-            borderRadius: "50%",
-            background: "#d71844",
-            opacity: 0.92,
           }}
         />
         <div
@@ -68,25 +56,25 @@ export default function OpenGraphImage() {
               Nº 01 · 01.09.2026
             </div>
             <div style={{ fontFamily: "sans-serif", fontSize: 24, fontWeight: 800, letterSpacing: "0.08em" }}>
-              TOKIO EN ESPAÑOL
+              TOKYO · LOOKING OUTWARD
             </div>
           </div>
 
           <div style={{ display: "flex", flexDirection: "column" }}>
             <div style={{ fontFamily: "sans-serif", fontSize: 128, fontWeight: 900, letterSpacing: "-0.08em", lineHeight: 0.8 }}>
-              BIENVIVOS
+              EASTOKYO
             </div>
-            <div style={{ marginTop: 34, maxWidth: 900, fontSize: 74, fontWeight: 700, letterSpacing: "-0.045em", lineHeight: 0.9 }}>
-              Tokio se vive mejor en español.
+            <div style={{ marginTop: 34, maxWidth: 900, fontSize: 72, fontWeight: 700, letterSpacing: "-0.045em", lineHeight: 0.9 }}>
+              Art from Tokyo, looking everywhere.
             </div>
           </div>
 
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
             <div style={{ maxWidth: 720, fontFamily: "sans-serif", fontSize: 25, fontWeight: 700, lineHeight: 1.25 }}>
-              La revista de Tokio para el mundo hispanohablante.
+              Independent art magazine · Tokyo and beyond.
             </div>
-            <div style={{ padding: "14px 22px", color: "#180913", background: "#ffc31a", fontFamily: "sans-serif", fontSize: 23, fontWeight: 900 }}>
-              BIENVIVOS.COM
+            <div style={{ padding: "14px 22px", color: "#121416", background: "#F1C61B", fontFamily: "sans-serif", fontSize: 23, fontWeight: 900 }}>
+              EASTOKYO.COM
             </div>
           </div>
         </div>
