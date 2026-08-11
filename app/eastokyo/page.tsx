@@ -128,7 +128,7 @@ export default function EastokyoHome() {
           <div className="mag-cover-masthead" aria-hidden="true">EASTOKYO</div>
           <div className="mag-cover-story"><p className="mag-kicker">PICASSO AND THE ARENA HE COULD NEVER QUIT.</p><h1 id="cover-title">HE KEPT WALKING BACK IN.</h1><p>There's something about the bullring that gave Picasso exactly what every painter is secretly hungry for. Real danger. Real color. A crowd close enough that you feel them breathing, watching you, daring you not to look away. Once that kind of electricity gets into your blood, mi amor, you don't just walk away from it. You go looking for it again. He did, his whole life, and I think I understand why.</p><StoryCta story="cover" /></div>
           <div className="mag-cover-lines" aria-label="Featured stories in this issue">
-            <article className="mag-cover-line"><div><small>EXHIBITION</small><p>PICASSO, LOOKED AT AGAIN, WITH THE WHISPERING FINALLY TURNED OFF.</p></div></article>
+            <article className="mag-cover-line"><div><small>EXHIBITION</small><p>PICASSO, LOOKED AT AGAIN.</p></div></article>
             <article className="mag-cover-line"><div><small>IDEAS</small><p>THE MOMENT ONE ANGLE SIMPLY WASN'T ENOUGH TO HOLD EVERYTHING HE HAD TO SAY.</p></div></article>
             <article className="mag-cover-line"><div><small>TOKYO</small><p>THE CITY PUTS ON ITS COSTUME, AND IT NEVER ONCE APOLOGIZES FOR IT.</p></div></article>
           </div>
@@ -158,13 +158,13 @@ export default function EastokyoHome() {
       <section className="mag-section mag-front picasso-feature" id="exhibition" aria-labelledby="front-title">
         <div className="mag-rule-heading"><h2>EXHIBITION. THE NATIONAL ART CENTER, TOKYO.</h2></div>
         <div className="picasso-feature-intro">
-          <div className="picasso-feature-title"><p className="mag-kicker">REVIEW. TOKYO MEETS PICASSO.</p><h3 id="front-title">PICASSO, LOOKED AT AGAIN, WITH THE WHISPERING FINALLY TURNED OFF.</h3><p className="mag-deck">Paul Smith moves the walls around, and Picasso wakes back up in that room like he's been waiting years for somebody, anybody, to finally open the door for him.</p><StoryCta story="exhibition" /></div>
+          <div className="picasso-feature-title"><p className="mag-kicker">REVIEW. TOKYO MEETS PICASSO.</p><h3 id="front-title">PICASSO, LOOKED AT AGAIN.</h3><p className="mag-deck">Paul Smith moves the walls around, and Picasso wakes back up in that room like he's been waiting years for somebody, anybody, to finally open the door for him.</p><StoryCta story="exhibition" /></div>
           <aside className="picasso-feature-note"><strong>PICASSO, ROOM BY ROOM.</strong><p>Walk him room by room and you feel it happen. Every space quietly changes what the next work does to you, and by the time you reach the end you're standing in front of something that stops you cold and holds you there.</p></aside>
         </div>
         <div className="picasso-gallery">
           <figure className="picasso-shot picasso-shot-1"><PicassoPicture desktop="/images/editorial/picasso-paul-smith-desktop.png" mobile="/images/editorial/picasso-paul-smith-mobile.png" alt="Visitor studying Picasso ceramics in the Paul Smith exhibition at The National Art Center, Tokyo" /><figcaption><span>PICASSO, REMIXED.</span><span>TOKYO, JAPAN. THE NATIONAL ART CENTER.</span></figcaption></figure>
           <figure className="picasso-shot picasso-shot-2"><PicassoPicture desktop="/images/editorial/picasso-paying-attention-desktop.png" mobile="/images/editorial/picasso-paying-attention-mobile.jpg" alt="Visitor looking closely at a Picasso work in Tokyo" /><figcaption><span>A STRIPED SHIRT STOPS DEAD IN ITS TRACKS FOR PICASSO.</span><span>EASTOKYO. PICASSO IN TOKYO.</span></figcaption></figure>
-          <figure className="picasso-shot picasso-shot-3"><PicassoPicture desktop="/images/editorial/picasso-striped-installation-desktop.jpg" mobile="/images/editorial/picasso-striped-installation-mobile.jpg" alt="Blue and white striped installation in the Picasso exhibition" /><figcaption><span>PAUL SMITH DRAWS THE LINES, AND EVEN THE WALLS END UP WITH SOMETHING TO SAY.</span><span></span></figcaption></figure>
+          <figure className="picasso-shot picasso-shot-3"><PicassoPicture desktop="/images/editorial/picasso-striped-installation-desktop.jpg" mobile="/images/editorial/picasso-striped-installation-mobile.jpg" alt="Blue and white striped installation in the Picasso exhibition" /><figcaption><span>PAUL SMITH DRAWS THE LINES.</span><span></span></figcaption></figure>
         </div>
         <div className="picasso-gallery-secondary">
           <figure className="picasso-shot picasso-shot-4"><PicassoPicture desktop="/images/editorial/picasso-portrait-desktop.png" mobile="/images/editorial/picasso-portrait-mobile.png" alt="Picasso portrait work displayed at the Tokyo exhibition" /><figcaption><span>PICASSO TAKES THE FACE APART, PIECE BY HONEST PIECE.</span><span>FACE TO FACE.</span></figcaption></figure>
@@ -177,7 +177,7 @@ export default function EastokyoHome() {
         <div className="cubism-intro-copy">
           <p className="mag-kicker">IDEAS. CUBISM. ART TAKEN APART ON PURPOSE.</p>
           <h2 id="cubism-title">ONE ANGLE WASN'T ENOUGH.</h2>
-          <p>Picasso and Braque took a single obedient view of the world and cracked it wide open, because one calm angle could never hold the amount of life they wanted to pour into a picture. What came out of that wasn't easy to look at right away. The honest things almost never are. But it got under your skin and it stayed there long after you looked away. Cubism will not hand you the picture on a plate. You have to go find it yourself, piece by piece, and that's exactly as it should be.</p>
+          <p>Picasso and Braque took a single obedient view of the world and cracked it wide open, because one calm angle could never hold the amount of life they wanted to pour into a picture. What came out of that wasn't easy to look at right away. The honest things almost never are. But it got under your skin and it stayed there long after you looked away. Cubism makes you do some of the looking yourself. The picture opens up piece by piece, and that's exactly as it should be.</p>
           <StoryCta story="ideas" />
         </div>
         <div className="cubism-intro-note"><span>1907.</span><p>The year perspective splits wide open and a picture stops behaving like a window you look through. It becomes something built. Something with its own weight and its own heartbeat.</p></div>
@@ -194,7 +194,7 @@ export default function EastokyoHome() {
           <ImageSlot number="03" title="STILL LIFE, BUT ONLY JUST BARELY HOLDING STILL." />
           <ImageSlot number="04" title="PORTRAIT. THE TRUTH OF A FACE, WITH THE MASK FINALLY OFF." />
         </div>
-        <div className="cubism-spread-foot"><p>Objects and bodies stop obeying perspective here. Picasso breaks them into planes, turns them through space, and rebuilds them across the surface piece by piece, like he's daring the canvas itself to keep pace with him.</p><div>ONE VIEW COULD NEVER HOLD ALL OF IT. THAT WAS ALWAYS THE POINT, AND IT STILL IS.</div></div>
+        <div className="cubism-spread-foot"><p>Objects and bodies stop obeying perspective here. Picasso breaks them into planes, turns them through space, and rebuilds them across the surface piece by piece.</p><div>ONE VIEW COULD NEVER HOLD ALL OF IT. THAT WAS ALWAYS THE POINT, AND IT STILL IS.</div></div>
       </section>
 
       <section className="mag-section mag-photo" id="asagaya" aria-labelledby="photo-title">
