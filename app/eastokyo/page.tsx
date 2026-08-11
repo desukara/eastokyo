@@ -26,6 +26,17 @@ const contents = [
   { href: "#picasso-index", section: "05 · INDEX", title: "NOTHING IS JUST WHAT IT IS.", copy: "Faces, ceramics, bicycle parts and other things Picasso refused to leave alone." },
 ];
 
+type StoryKey = "cover" | "exhibition" | "ideas" | "tokyo" | "index";
+type StoryLink = { href: string; label: string; tone: StoryKey; published: boolean };
+
+const storyLinks: Record<StoryKey, StoryLink> = {
+  cover: { href: "/he-never-really-left-the-arena", label: "ENTER THE ARENA →", tone: "cover", published: false },
+  exhibition: { href: "/picasso-seen-with-fresh-eyes", label: "READ THE REVIEW →", tone: "exhibition", published: false },
+  ideas: { href: "/when-one-point-of-view-wasnt-enough", label: "BREAK IT APART →", tone: "ideas", published: false },
+  tokyo: { href: "/the-city-puts-on-a-costume", label: "GO TO ASAGAYA →", tone: "tokyo", published: false },
+  index: { href: "/nothing-is-just-what-it-is", label: "START ANYWHERE →", tone: "index", published: false },
+};
+
 const indexStories = [
   { section: "OBJECT", title: "A BICYCLE BECOMES A BULL.", copy: "Two bicycle parts walk into Picasso’s studio. Somehow, a bull walks out." },
   { section: "PORTRAIT", title: "SYMMETRY WAS NEVER THE POINT.", copy: "Picasso doesn’t fix the face. He makes it more interesting." },
@@ -54,6 +65,17 @@ function PicassoPicture({ desktop, mobile, alt }: { desktop: string; mobile: str
 
 function ImageSlot({ number, title }: { number: string; title: string }) {
   return <figure className="cubism-slot"><div className="cubism-slot-box"><span>IMAGE {number}</span></div><figcaption><strong>{number} · {title}</strong></figcaption></figure>;
+}
+
+function StoryCta({ story }: { story: StoryKey }) {
+  const item = storyLinks[story];
+  const content = <><span className="story-cta__action">{item.label}</span><span className="story-cta__status">{item.published ? "READ NOW" : "COMING SOON"}</span></>;
+
+  if (item.published) {
+    return <a className={`story-cta story-cta--${item.tone} is-live`} href={item.href}>{content}</a>;
+  }
+
+  return <span className={`story-cta story-cta--${item.tone} is-disabled`} aria-label={`${item.label.replace("→", "").trim()}. Coming soon.`}>{content}</span>;
 }
 
 export default function EastokyoHome() {
@@ -105,7 +127,7 @@ export default function EastokyoHome() {
         <div className="mag-cover-grid">
           <div className="mag-cover-topline"><p>EASTOKYO · BEAUTY, CHAOS & GOOD TASTE</p><p>PICASSO · TOKYO · NOT EXACTLY QUIET</p></div>
           <div className="mag-cover-masthead" aria-hidden="true">EASTOKYO</div>
-          <div className="mag-cover-story"><p className="mag-kicker">PICASSO · THE ARENA INSIDE HIS HEAD</p><h1 id="cover-title">HE NEVER REALLY LEFT THE ARENA</h1><p><strong>PICASSO, PAUL SMITH & A VERY GOOD IDEA · TOKYO</strong> The arena gave Picasso everything an artist could want: danger, color and absolutely no chance of boredom.</p><a href="#bullfighting">ENTER THE ARENA ↓</a></div>
+          <div className="mag-cover-story"><p className="mag-kicker">PICASSO · THE ARENA INSIDE HIS HEAD</p><h1 id="cover-title">HE NEVER REALLY LEFT THE ARENA</h1><p><strong>PICASSO, PAUL SMITH & A VERY GOOD IDEA · TOKYO</strong> The arena gave Picasso everything an artist could want: danger, color and absolutely no chance of boredom.</p><StoryCta story="cover" /></div>
           <div className="mag-cover-lines" aria-label="Featured stories in this issue">
             <article className="mag-cover-line"><div><small>EXHIBITION</small><p>PICASSO, SEEN WITH FRESH EYES.</p></div></article>
             <article className="mag-cover-line"><div><small>IDEAS</small><p>WHEN ONE POINT OF VIEW WASN’T ENOUGH.</p></div></article>
@@ -137,7 +159,7 @@ export default function EastokyoHome() {
       <section className="mag-section mag-front picasso-feature" id="exhibition" aria-labelledby="front-title">
         <div className="mag-rule-heading"><h2>02 · EXHIBITION · THE NATIONAL ART CENTER, TOKYO</h2></div>
         <div className="picasso-feature-intro">
-          <div className="picasso-feature-title"><p className="mag-kicker">REVIEW · TOKYO MEETS PICASSO</p><h3 id="front-title">PICASSO, SEEN WITH FRESH EYES.</h3><p className="mag-deck">Paul Smith changes the room and suddenly Picasso feels alive again.</p></div>
+          <div className="picasso-feature-title"><p className="mag-kicker">REVIEW · TOKYO MEETS PICASSO</p><h3 id="front-title">PICASSO, SEEN WITH FRESH EYES.</h3><p className="mag-deck">Paul Smith changes the room and suddenly Picasso feels alive again.</p><StoryCta story="exhibition" /></div>
           <aside className="picasso-feature-note"><strong>PICASSO, OFF THE LEASH</strong><p>Picasso moves through the rooms. But the rooms keep changing the rules.</p></aside>
         </div>
         <div className="picasso-gallery">
@@ -157,6 +179,7 @@ export default function EastokyoHome() {
           <p className="mag-kicker">03 · IDEAS · CUBISM · ART PULLED APART</p>
           <h2 id="cubism-title">WHEN ONE POINT OF VIEW WASN’T ENOUGH.</h2>
           <p>They took one view of reality, smashed it, and came back with more perspective. Picasso and Braque gave up on one perfect point of view. Reality has always been more interesting than that. The picture became less obvious and somehow more alive. Cubism makes you earn the picture. Loco? Maybe. Boring? Not even close.</p>
+          <StoryCta story="ideas" />
         </div>
         <div className="cubism-intro-note"><span>1907 →</span><p>Perspective breaks.<br />The picture becomes construction.</p></div>
       </section>
@@ -176,12 +199,12 @@ export default function EastokyoHome() {
       </section>
 
       <section className="mag-section mag-photo" id="asagaya" aria-labelledby="photo-title">
-        <div className="mag-photo-head"><p className="mag-kicker">04 · TOKYO · ASAGAYA TANABATA</p><h2 id="photo-title">THE CITY PUTS ON A COSTUME.</h2><p>Paper creatures swing overhead and suddenly the whole city turns into a party.</p></div>
+        <div className="mag-photo-head"><p className="mag-kicker">04 · TOKYO · ASAGAYA TANABATA</p><h2 id="photo-title">THE CITY PUTS ON A COSTUME.</h2><p>Paper creatures swing overhead and suddenly the whole city turns into a party.</p><StoryCta story="tokyo" /></div>
         <div className="mag-photo-grid" aria-label="Asagaya Tanabata visual story">{asagayaImages.map((image, index) => <figure className="mag-photo-item" key={image.src}><div className="mag-media"><EditorialImage src={image.src} alt={image.label} sizes={index === 0 || index === 5 ? "(max-width: 640px) 86vw, 70vw" : "(max-width: 640px) 86vw, 28vw"} /></div><figcaption><span>0{index + 1}</span><span>{image.label}</span></figcaption></figure>)}</div>
       </section>
 
       <section className="mag-section mag-index" id="picasso-index" aria-labelledby="show-title">
-        <div className="mag-index-head"><div><p className="mag-kicker">05 · INDEX · PICASSO · START ANYWHERE</p><h2 id="show-title">NOTHING IS JUST WHAT IT IS.</h2></div><p>Faces, ceramics, bicycle parts and other things Picasso refused to leave alone.</p></div>
+        <div className="mag-index-head"><div><p className="mag-kicker">05 · INDEX · PICASSO · START ANYWHERE</p><h2 id="show-title">NOTHING IS JUST WHAT IT IS.</h2><StoryCta story="index" /></div><p>Faces, ceramics, bicycle parts and other things Picasso refused to leave alone.</p></div>
         <figure className="mag-index-feature mag-media"><picture className="mag-index-picture"><source media="(max-width: 640px)" srcSet="/images/editorial/picasso-index-hero-mobile.png" /><img src="/images/editorial/picasso-index-hero-desktop.png" alt="Picasso exhibition view in Tokyo" loading="lazy" /></picture><figcaption><span className="mag-kicker">PICASSO · TOKYO · SEE WHERE IT GOES</span><strong>ONE ROOM LEADS TO ANOTHER.</strong></figcaption></figure>
         <div className="mag-index-list">{indexStories.map(s => <article className="mag-index-row" key={s.section}><div><small>{s.section}</small><h3>{s.title}</h3></div><p>{s.copy}</p></article>)}</div>
       </section>
