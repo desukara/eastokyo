@@ -108,7 +108,7 @@ export default function EastokyoHome() {
   return <div className="mag-page" id="top">
     <a className="mag-skip-link" href="#contenido">Skip to content</a>
     <header className="mag-header">
-      <div className="mag-header-rail"><p>ART, PASSION, AND A LITTLE BIT OF TROUBLE. TOKYO.</p><p>FIRST ISSUE. NUMBER ONE. AQUÍ VAMOS. HERE WE GO.</p><p>THE FIRST OF SEPTEMBER, 2026. TIME TO MAKE SOME NOISE TOGETHER.</p></div>
+      <div className="mag-header-rail"><p>ART, PASSION, AND A LITTLE BIT OF TROUBLE. TOKYO.</p><p>FIRST ISSUE. NUMBER ONE. AQUÍ VAMOS. HERE WE GO.</p><p>THE FIRST OF SEPTEMBER, 2026. TIME TO MAKE SOME NOISE.</p></div>
       <nav className="mag-nav" aria-label="Issue navigation"><div className="mag-nav-links">{navItems.map(i => <a key={i.label} href={i.href}>{i.label}</a>)}</div><span>ART FROM TOKYO, AND FROM EVERY OTHER PLACE MY HEART DECIDES TO WANDER.</span></nav>
       <div className="mag-mobile-bar"><a className="mag-mobile-logo" href="#top" onClick={closeMenu}>EASTOKYO</a><button ref={menuButtonRef} type="button" className={`mag-menu-button ${menuOpen ? "is-open" : ""}`} aria-label={menuOpen ? "Close menu" : "Open menu"} aria-expanded={menuOpen} aria-controls="mag-mobile-menu" onClick={() => setMenuOpen(o => !o)}><span /><span /></button></div>
     </header>
@@ -211,7 +211,7 @@ export default function EastokyoHome() {
       <section className="mag-back-cover" id="about" aria-labelledby="about-title">
         <div className="mag-back-inner">
           <div className="mag-mini-cover" aria-label="Preview of EASTOKYO inaugural issue"><EditorialImage src="/images/editorial/picasso-bullfight-01-desktop.png" alt="" sizes="(max-width: 640px) 70vw, 20rem" /><strong>EASTOKYO</strong><h3>HE KEPT WALKING BACK IN.</h3><p>NUMBER ONE. TOKYO. SEPTEMBER 2026.</p></div>
-          <div className="mag-back-copy"><p className="mag-kicker">EASTOKYO. NUMBER ONE.</p><h2 id="about-title">TOKYO ART. EYES EVERYWHERE.</h2><p>EASTOKYO is an independent art magazine for people who need their art to actually have a heartbeat in it, not something picked to match the couch but something you can feel moving when you hold the page.</p><span className="mag-back-date">NUMBER ONE. JUST GETTING STARTED, AND WE ARE NOT SLOWING DOWN FOR ANYONE.</span></div>
+          <div className="mag-back-copy"><p className="mag-kicker">EASTOKYO. NUMBER ONE.</p><h2 id="about-title">TOKYO ART. EYES OPEN.</h2><p>EASTOKYO is an independent art magazine for people who need their art to actually have a heartbeat in it, not something picked to match the couch but something you can feel moving when you hold the page.</p><span className="mag-back-date">NUMBER ONE. JUST GETTING STARTED, AND WE ARE NOT SLOWING DOWN FOR ANYONE.</span></div>
         </div>
       </section>
     </main>
