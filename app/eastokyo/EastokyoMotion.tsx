@@ -7,10 +7,60 @@ export default function EastokyoMotion() {
     const root = document.querySelector<HTMLElement>(".mag-page");
     if (!root) return;
 
+    const navSections = [
+      { selector: "#latest", href: "#latest" },
+      { selector: "#contents", href: "#contents" },
+      { selector: "#bullfighting", href: "#latest" },
+      { selector: "#exhibition", href: "#exhibition" },
+      { selector: "#cubism", href: "#cubism" },
+      { selector: "#cubism-works", href: "#cubism" },
+      { selector: "#asagaya", href: "#asagaya" },
+      { selector: "#picasso-index", href: "#picasso-index" },
+    ]
+      .map(item => ({ ...item, element: document.querySelector<HTMLElement>(item.selector) }))
+      .filter((item): item is { selector: string; href: string; element: HTMLElement } => Boolean(item.element));
+
+    const navLinks = Array.from(document.querySelectorAll<HTMLAnchorElement>(".mag-nav-links a, .mag-mobile-menu nav a"));
+    let activeHref = "";
+
+    const setActiveNav = (href: string) => {
+      if (!href || href === activeHref) return;
+      activeHref = href;
+      navLinks.forEach(link => {
+        const active = link.getAttribute("href") === href;
+        link.classList.toggle("is-active", active);
+        if (active) link.setAttribute("aria-current", "location");
+        else link.removeAttribute("aria-current");
+      });
+    };
+
+    const updateActiveNav = () => {
+      const readingLine = window.innerHeight * 0.38;
+      let current = navSections[0];
+
+      navSections.forEach(item => {
+        const rect = item.element.getBoundingClientRect();
+        if (rect.top <= readingLine && rect.bottom > readingLine) current = item;
+      });
+
+      if (!current) {
+        const passed = navSections.filter(item => item.element.getBoundingClientRect().top <= readingLine);
+        current = passed[passed.length - 1] ?? navSections[0];
+      }
+
+      if (current) setActiveNav(current.href);
+    };
+
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduced) {
       root.classList.add("ek-motion-reduced");
-      return;
+      updateActiveNav();
+      window.addEventListener("scroll", updateActiveNav, { passive: true });
+      window.addEventListener("resize", updateActiveNav);
+      return () => {
+        window.removeEventListener("scroll", updateActiveNav);
+        window.removeEventListener("resize", updateActiveNav);
+      };
     }
 
     const revealGroups: Array<{ selector: string; stagger?: number }> = [
@@ -72,6 +122,8 @@ export default function EastokyoMotion() {
         const progress = Math.max(0, Math.min(1, (vh - rect.top) / (vh + rect.height)));
         cubism.style.setProperty("--ek-ideas-x", `${5 - progress * 9}vw`);
       }
+
+      updateActiveNav();
     };
 
     const onScroll = () => {
