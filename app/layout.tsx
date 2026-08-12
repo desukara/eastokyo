@@ -54,18 +54,11 @@ import "./eastokyo/eastokyo-mobile-authority.css";
 const sans = Montserrat({ variable: "--font-bienvivos-sans", subsets: ["latin"], display: "swap" });
 const display = Cormorant_Garamond({ variable: "--font-bienvivos-display", subsets: ["latin"], weight: ["400", "500", "600", "700"], style: ["normal", "italic"], display: "swap" });
 
-const eyeIcon = "/eastokyo-eye-icon-master-1024.png?v=eye-20260812";
-
 export const viewport: Viewport = { themeColor: "#214F78" };
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.eastokyo.com"),
-  manifest: "/manifest.webmanifest?v=eye-20260812",
-  icons: {
-    icon: [{ url: eyeIcon, type: "image/png", sizes: "1024x1024" }],
-    shortcut: [eyeIcon],
-    apple: [{ url: eyeIcon, type: "image/png", sizes: "1024x1024" }],
-  },
+  manifest: "/manifest.webmanifest",
   appleWebApp: { capable: true, title: "EASTOKYO", statusBarStyle: "black-translucent" },
   alternates: { canonical: "/" },
   title: { default: "EASTOKYO — Independent Art Magazine", template: "%s | EASTOKYO" },
