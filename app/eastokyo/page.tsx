@@ -180,7 +180,7 @@ export default function EastokyoHome() {
           <p>Picasso and Braque took a single obedient view of the world and cracked it wide open, because one calm angle could never hold the amount of life they wanted to pour into a picture. What came out of that wasn't easy to look at right away. The honest things almost never are. But it got under your skin and it stayed there long after you looked away. Cubism makes you do some of the looking yourself. The picture opens up piece by piece, and that's exactly as it should be.</p>
           <StoryCta story="ideas" />
         </div>
-        <div className="cubism-intro-note"><span>1907.</span><p>The year perspective splits wide open and a picture stops pretending to be a window you look through. It becomes something built. Something with its own weight and its own heartbeat.</p></div>
+        <div className="cubism-intro-note"><span>1907.</span><p>The year perspective splits wide open and a picture stops pretending to be a window you look through. It becomes something built, with its own weight and its own heartbeat.</p></div>
       </section>
 
       <section className="cubism-spread" id="cubism-works" aria-labelledby="cubism-spread-title">
@@ -192,7 +192,7 @@ export default function EastokyoHome() {
           <ImageSlot number="01" title="LE CUBISME. ONE VIEW? NEVER AGAIN." />
           <ImageSlot number="02" title="OWL. EYES WIDE OPEN IN THE DARK, WATCHING EVERYTHING." />
           <ImageSlot number="03" title="STILL LIFE, BUT ONLY JUST BARELY HOLDING STILL." />
-          <ImageSlot number="04" title="PORTRAIT. THE TRUTH OF A FACE, WITH THE MASK FINALLY OFF." />
+          <ImageSlot number="04" title="PORTRAIT. THE TRUTH OF A FACE." />
         </div>
         <div className="cubism-spread-foot"><p>Objects and bodies stop obeying perspective here. Picasso breaks them into planes, turns them through space, and rebuilds them across the surface piece by piece.</p><div>ONE VIEW COULD NEVER HOLD ALL OF IT. THAT WAS ALWAYS THE POINT, AND IT STILL IS.</div></div>
       </section>
@@ -211,7 +211,7 @@ export default function EastokyoHome() {
       <section className="mag-back-cover" id="about" aria-labelledby="about-title">
         <div className="mag-back-inner">
           <div className="mag-mini-cover" aria-label="Preview of EASTOKYO inaugural issue"><EditorialImage src="/images/editorial/picasso-bullfight-01-desktop.png" alt="" sizes="(max-width: 640px) 70vw, 20rem" /><strong>EASTOKYO</strong><h3>HE KEPT WALKING BACK IN.</h3><p>NUMBER ONE. TOKYO. SEPTEMBER 2026.</p></div>
-          <div className="mag-back-copy"><p className="mag-kicker">EASTOKYO. NUMBER ONE. BORN IN TOKYO. RAISED WITH A LITTLE FIRE IN THE CHEST.</p><h2 id="about-title">TOKYO ART. EYES EVERYWHERE.</h2><p>EASTOKYO is an independent art magazine for people who need their art to actually have a heartbeat in it. Not decoration. Not something picked to match the couch. A heartbeat. Something you can feel moving when you hold the page.</p><span className="mag-back-date">NUMBER ONE. JUST GETTING STARTED, AND WE ARE NOT SLOWING DOWN FOR ANYONE.</span></div>
+          <div className="mag-back-copy"><p className="mag-kicker">EASTOKYO. NUMBER ONE.</p><h2 id="about-title">TOKYO ART. EYES EVERYWHERE.</h2><p>EASTOKYO is an independent art magazine for people who need their art to actually have a heartbeat in it, not something picked to match the couch but something you can feel moving when you hold the page.</p><span className="mag-back-date">NUMBER ONE. JUST GETTING STARTED, AND WE ARE NOT SLOWING DOWN FOR ANYONE.</span></div>
         </div>
       </section>
     </main>
@@ -220,7 +220,7 @@ export default function EastokyoHome() {
       <div className="mag-footer-top"><div><p className="mag-kicker">EASTOKYO. NUMBER ONE.</p><h2>LOOK TWICE.</h2></div><div className="mag-newsletter"><p>THE EASTOKYO LETTER. DON'T MISS THE NEXT ONE.</p><strong>NOT YET. BUT SOON. WE PROMISE YOU THAT, AND WE MEAN IT.</strong></div></div>
       <div className="mag-footer-links"><nav aria-label="Footer navigation">{footerItems.map(i => <a key={i.label} href={i.href}>{i.label}</a>)}</nav><div className="social-placeholder" aria-label="Social media coming soon"><span>INSTAGRAM</span><span>TIKTOK</span><span>PINTEREST</span></div></div>
       <a className="mag-footer-wordmark" href="#top" aria-label="Back to top">EASTOKYO</a>
-      <div className="mag-footer-bottom"><p>© 2026 EASTOKYO. TOKYO, JAPAN.</p><p>BORN IN TOKYO. RAISED WITH A LITTLE FIRE IN THE CHEST. READY FOR MORE.</p><a href="#top">ONE MORE LOOK, UP TOP.</a></div>
+      <div className="mag-footer-bottom"><p>© 2026 EASTOKYO. TOKYO, JAPAN.</p><p>BORN IN TOKYO. RAISED WITH A LITTLE FIRE IN THE CHEST.</p><a href="#top">ONE MORE LOOK, UP TOP.</a></div>
     </footer>
   </div>;
 }
