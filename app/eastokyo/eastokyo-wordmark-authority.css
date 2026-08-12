@@ -1,6 +1,6 @@
 /* EASTOKYO wordmark authority — loaded last so no legacy wordmark styles can reappear. */
 
-/* Mobile header: keep the painted eye, hide the legacy text, and give the approved wordmark real presence. */
+/* Mobile header: keep the painted eye only. The hero directly below already carries the wordmark. */
 .mag-page .mag-mobile-logo {
   color: transparent !important;
   -webkit-text-fill-color: transparent !important;
@@ -10,17 +10,13 @@
 }
 
 .mag-page .mag-mobile-logo::after {
-  display: block !important;
-  flex: 0 0 auto !important;
-  width: clamp(9.25rem, 38vw, 11.5rem) !important;
-  aspect-ratio: 1536 / 650 !important;
-  content: "" !important;
-  background: transparent url("/eastokyo-wordmark-white.png") center / contain no-repeat !important;
+  display: none !important;
+  content: none !important;
 }
 
-/* Cover masthead: size to the artwork's actual visible lettering, not its transparent canvas. */
+/* Hero masthead: restrained editorial scale so the artwork supports the image instead of covering it. */
 .mag-page #latest .mag-cover-masthead {
-  width: min(72%, 58rem) !important;
+  width: min(46%, 36rem) !important;
   aspect-ratio: 4.35 / 1 !important;
   justify-self: center !important;
   align-self: start !important;
@@ -33,11 +29,11 @@
   overflow: hidden !important;
   background-image: url("/eastokyo-wordmark-white.png") !important;
   background-repeat: no-repeat !important;
-  background-position: center 49.5% !important;
-  background-size: 104.8% auto !important;
+  background-position: center !important;
+  background-size: contain !important;
 }
 
-/* Footer: same approved artwork, deliberately restrained. */
+/* Footer: approved. Leave exactly as-is. */
 .mag-page .mag-footer-wordmark {
   color: transparent !important;
   -webkit-text-fill-color: transparent !important;
@@ -52,11 +48,11 @@
 
 @media (max-width: 899px) {
   .mag-page #latest .mag-cover-masthead {
-    width: 96% !important;
+    width: min(78%, 20rem) !important;
     aspect-ratio: 4.35 / 1 !important;
-    margin-top: 1rem !important;
-    background-position: center 49.5% !important;
-    background-size: 104.8% auto !important;
+    margin-top: .7rem !important;
+    background-position: center !important;
+    background-size: contain !important;
   }
 
   .mag-page .mag-footer-wordmark {
@@ -65,12 +61,9 @@
 }
 
 @media (max-width: 420px) {
-  .mag-page .mag-mobile-logo::after {
-    width: 9.5rem !important;
-  }
-
   .mag-page #latest .mag-cover-masthead {
-    width: 100% !important;
+    width: 76% !important;
+    max-width: 17rem !important;
   }
 
   .mag-page .mag-footer-wordmark {
