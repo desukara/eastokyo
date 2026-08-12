@@ -1,0 +1,104 @@
+/* EASTOKYO mobile authority — phone art direction only.
+   Desktop is approved and intentionally untouched. */
+@media (max-width: 899px) {
+  /* Editorial wrapping: preserve the approved copy, but compose it for a narrow measure. */
+  .mag-page h1,
+  .mag-page h2,
+  .mag-page h3,
+  .mag-page .mag-kicker,
+  .mag-page figcaption,
+  .mag-page .picasso-outro-wordbox {
+    text-wrap: balance;
+  }
+
+  .mag-page .mag-deck,
+  .mag-page .mag-feature-columns,
+  .mag-page .picasso-feature-note p,
+  .mag-page .picasso-feature-outro p,
+  .mag-page .cubism-intro-copy > p,
+  .mag-page .cubism-spread-head > p,
+  .mag-page .mag-index-head > p,
+  .mag-page .mag-index-row > p {
+    text-wrap: pretty;
+  }
+
+  /* COVER — mobile has its own composition, but it must carry the approved editorial thought. */
+  .mag-page #latest .mag-cover-topline {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 0 .9rem !important;
+    overflow: visible !important;
+  }
+  .mag-page #latest .mag-cover-topline > p:first-child {
+    display: none !important;
+  }
+  .mag-page #latest .mag-cover-topline > p:last-child {
+    display: block !important;
+    max-width: 31rem !important;
+    margin: 0 !important;
+    color: var(--issue-ochre) !important;
+    font-size: clamp(.66rem, 2.8vw, .78rem) !important;
+    font-weight: 800 !important;
+    line-height: 1.32 !important;
+    letter-spacing: .09em !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    text-wrap: balance !important;
+  }
+  .mag-page #latest .mag-cover-masthead {
+    margin-top: .55rem !important;
+  }
+  .mag-page #latest .mag-cover-story .mag-kicker {
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+    text-wrap: balance !important;
+  }
+  .mag-page #latest .mag-cover-story h1 {
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+    text-wrap: balance !important;
+  }
+
+  /* EXHIBITION — retain current HTML captions and avoid accidental one-word endings. */
+  .mag-page #exhibition .picasso-shot figcaption span {
+    max-width: 100% !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+    text-wrap: balance !important;
+  }
+  .mag-page #exhibition .picasso-shot-3 figcaption span:first-child {
+    font-size: clamp(.58rem, 2.55vw, .68rem) !important;
+    letter-spacing: .09em !important;
+  }
+  .mag-page #exhibition .picasso-outro-wordbox {
+    max-width: 100% !important;
+    line-height: .96 !important;
+    text-wrap: balance !important;
+  }
+  .mag-page #exhibition .picasso-outro-aside {
+    display: block !important;
+    margin-top: .8rem !important;
+    font-family: var(--font-bienvivos-sans), Arial, sans-serif !important;
+    font-size: .72rem !important;
+    font-weight: 850 !important;
+    line-height: 1.1 !important;
+    letter-spacing: .15em !important;
+    white-space: nowrap !important;
+  }
+
+  /* CUBISM — let the same approved prose breathe on a phone instead of forcing desktop rhythm. */
+  .mag-page #cubism .cubism-intro-copy h2,
+  .mag-page #cubism-works .cubism-spread-head h2 {
+    max-width: 100% !important;
+    text-wrap: balance !important;
+  }
+  .mag-page #cubism .cubism-intro-copy > p,
+  .mag-page #cubism-works .cubism-spread-head > p {
+    max-width: 100% !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+    text-wrap: pretty !important;
+  }
+}
