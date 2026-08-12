@@ -87,15 +87,25 @@
 .mag-page #exhibition .picasso-outro-wordbox{
   margin-top:clamp(2.5rem,5vw,5rem)!important;
   padding:clamp(1.25rem,1.8vw,1.7rem)!important;
-  max-width:24rem!important;
+  max-width:26rem!important;
   color:var(--issue-ink)!important;
   background:var(--issue-ochre)!important;
   box-shadow:.7rem .7rem 0 var(--issue-red)!important;
   font-family:var(--font-bienvivos-display),Georgia,serif!important;
-  font-size:clamp(1.7rem,2.7vw,2.8rem)!important;
+  font-size:clamp(1.7rem,2.55vw,2.65rem)!important;
   font-weight:700!important;
   line-height:.95!important;
   letter-spacing:-.035em!important
+}
+.mag-page #exhibition .picasso-outro-aside{
+  display:block!important;
+  margin-top:.7rem!important;
+  font-family:var(--font-sans),Arial,sans-serif!important;
+  font-size:clamp(.68rem,.9vw,.84rem)!important;
+  font-weight:850!important;
+  line-height:1.1!important;
+  letter-spacing:.16em!important;
+  white-space:nowrap!important
 }
 
 /* 03 — CUBISM. Cerebral, fractured and disciplined. */
@@ -169,6 +179,7 @@
   .mag-page .mag-feature[aria-labelledby="bullfighting-title"]{border-width:6px!important}
   .mag-page #exhibition.picasso-feature::before{height:7px!important;background:repeating-linear-gradient(90deg,var(--issue-red) 0 14px,var(--issue-ochre) 14px 28px,var(--issue-bone) 28px 42px,var(--issue-cobalt) 42px 56px,var(--issue-orange) 56px 70px)!important}
   .mag-page #exhibition .picasso-outro-wordbox{margin-top:2rem!important;max-width:100%!important;padding:1rem 1.05rem!important;box-shadow:.4rem .4rem 0 var(--issue-red)!important;font-size:1.65rem!important}
+  .mag-page #exhibition .picasso-outro-aside{margin-top:.55rem!important;font-size:.66rem!important}
   .mag-page #cubism-works .cubism-spread-head>p,.mag-page #picasso-index .mag-index-head>p{box-shadow:.45rem .45rem 0 var(--issue-ochre)!important}
   .mag-page #picasso-index .mag-index-row h3{font-size:1.35rem!important;line-height:1!important}
   .mag-page #asagaya.mag-photo{background:var(--issue-terracotta)!important}
