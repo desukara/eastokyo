@@ -31,7 +31,7 @@
   background-size: 108% auto !important;
 }
 
-/* Footer: same approved artwork, no legacy text underneath. */
+/* Footer: same approved artwork, deliberately quieter than the cover masthead. */
 .mag-page .mag-footer-wordmark {
   color: transparent !important;
   -webkit-text-fill-color: transparent !important;
@@ -41,11 +41,15 @@
   background-image: url("/eastokyo-wordmark-white.png") !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
-  background-size: 100% auto !important;
+  background-size: 62% auto !important;
 }
 
 @media (max-width: 420px) {
   .mag-page .mag-mobile-logo::after {
     width: 9.5rem !important;
+  }
+
+  .mag-page .mag-footer-wordmark {
+    background-size: 72% auto !important;
   }
 }
