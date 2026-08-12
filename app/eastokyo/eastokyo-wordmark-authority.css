@@ -1,0 +1,51 @@
+/* EASTOKYO wordmark authority — loaded last so no legacy wordmark styles can reappear. */
+
+/* Mobile header: keep the painted eye, hide the legacy text, and give the approved wordmark real presence. */
+.mag-page .mag-mobile-logo {
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+  font-size: 0 !important;
+  line-height: 1 !important;
+  text-shadow: none !important;
+}
+
+.mag-page .mag-mobile-logo::after {
+  display: block !important;
+  flex: 0 0 auto !important;
+  width: clamp(9.25rem, 38vw, 11.5rem) !important;
+  aspect-ratio: 1536 / 650 !important;
+  content: "" !important;
+  background: transparent url("/eastokyo-wordmark-white.png") center / contain no-repeat !important;
+}
+
+/* Cover masthead: preserve its approved box, remove the old live lettering, and let the artwork fill it. */
+.mag-page #latest .mag-cover-masthead {
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+  text-indent: -9999px !important;
+  text-shadow: none !important;
+  overflow: hidden !important;
+  background-image: url("/eastokyo-wordmark-white.png") !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: 108% auto !important;
+}
+
+/* Footer: same approved artwork, no legacy text underneath. */
+.mag-page .mag-footer-wordmark {
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+  text-indent: -9999px !important;
+  text-shadow: none !important;
+  overflow: hidden !important;
+  background-image: url("/eastokyo-wordmark-white.png") !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: 100% auto !important;
+}
+
+@media (max-width: 420px) {
+  .mag-page .mag-mobile-logo::after {
+    width: 9.5rem !important;
+  }
+}
