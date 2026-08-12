@@ -149,7 +149,7 @@ export default function EastokyoHome() {
         <div className="mag-feature-grid">
           <header className="mag-feature-heading"><p className="mag-kicker">COVER STORY. PICASSO, INTO THE ARENA.</p><h2 id="bullfighting-title">HE KEPT WALKING BACK IN.</h2></header>
           <figure className="mag-feature-image-primary mag-media"><EditorialImage src="/images/editorial/bullfight-feature-desktop.png" alt="Picasso bullfighting artwork" sizes="(max-width: 640px) 100vw, (max-width: 899px) 58vw, 50vw" /><figcaption className="mag-credit">PICASSO AND THE BULLFIGHT.</figcaption></figure>
-          <figure className="mag-feature-image-detail mag-media"><EditorialImage src="/images/editorial/bullfight-detail-desktop.png" alt="Picasso bullfighting detail" sizes="(max-width: 640px) 100vw, (max-width: 899px) 42vw, 28vw" /><figcaption className="mag-credit">THE BULL, THE HORSE, AND THE MAN WHO REFUSES TO FLINCH.</figcaption></figure>
+          <figure className="mag-feature-image-detail mag-media"><EditorialImage src="/images/editorial/bullfight-detail-desktop.png" alt="Picasso bullfighting detail" sizes="(max-width: 640px) 100vw, (max-width: 899px) 42vw, 28vw" /><figcaption className="mag-credit">THE BULL, THE HORSE, THE MAN.</figcaption></figure>
           <div className="mag-feature-copy"><p className="mag-deck">That arena got its hooks into him early, and it never really let him go. Every time Picasso walked back in, the ring showed him something it hadn't shown him before, some new shade of fear or grace or violence, and he took every bit of it straight to the canvas before the feeling could cool.</p><p className="mag-feature-columns">In that ring you watch the whole animal in a person come loose, fear and all, nothing held back and nowhere to hide it. That's exactly why he loved it there. A place that honestly doesn't come around often. When it does, you don't waste it, and you certainly don't turn your back on it.</p></div>
           <aside className="mag-feature-pullquote" aria-label="EASTOKYO editorial line">The arena is drama with nowhere left to look away.<span>EASTOKYO EDITORIAL LINE.</span></aside>
         </div>
@@ -168,7 +168,7 @@ export default function EastokyoHome() {
         </div>
         <div className="picasso-gallery-secondary">
           <figure className="picasso-shot picasso-shot-4"><PicassoPicture desktop="/images/editorial/picasso-portrait-desktop.png" mobile="/images/editorial/picasso-portrait-mobile.png" alt="Picasso portrait work displayed at the Tokyo exhibition" /><figcaption><span>PICASSO TAKES THE FACE APART, PIECE BY HONEST PIECE.</span><span>FACE TO FACE.</span></figcaption></figure>
-          <div className="picasso-feature-outro"><div className="picasso-meta">PICASSO AND PAUL SMITH.<br />THE NATIONAL ART CENTER, TOKYO, JAPAN.<br />SUMMER 2026.</div><p>Forget polite walls, amigo. This show talks back to you, and Picasso is thrilled to argue right back. That's the whole reason to go and see it for yourself.</p></div>
+          <div className="picasso-feature-outro"><div className="picasso-meta">PICASSO AND PAUL SMITH.<br />THE NATIONAL ART CENTER, TOKYO, JAPAN.<br />SUMMER 2026.</div><p>Forget polite walls, amigo. This show talks back to you, and Picasso is thrilled to argue right back. That's the whole reason to go and see it for yourself.</p><div className="picasso-outro-wordbox">PICASSO STILL TAKES OVER THE ROOM.</div></div>
         </div>
       </section>
 
