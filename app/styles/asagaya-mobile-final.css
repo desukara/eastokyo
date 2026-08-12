@@ -1,5 +1,5 @@
-/* Final Asagaya mobile reset for both Bien Vivos and EASTOKYO. */
-@media (max-width: 1200px) {
+/* Final Asagaya mobile reset. Keep this below desktop breakpoints so it cannot override desktop caption work. */
+@media (max-width: 899px) {
   #asagaya,
   #asagaya * {
     box-sizing: border-box;
@@ -45,6 +45,7 @@
     inset: auto !important;
     grid-column: auto !important;
     grid-row: auto !important;
+    overflow: hidden !important;
   }
 
   #asagaya .mag-photo-item .mag-media {
@@ -84,18 +85,20 @@
 
   #asagaya .mag-photo-item figcaption {
     position: static !important;
-    display: flex !important;
+    display: grid !important;
+    grid-template-columns: 2rem minmax(0, 1fr) !important;
     align-items: center !important;
-    gap: 1rem !important;
+    gap: .7rem !important;
     width: 100% !important;
     max-width: 100% !important;
     min-width: 0 !important;
-    min-height: 0 !important;
+    min-height: 4.25rem !important;
     height: auto !important;
     margin: 0 !important;
-    padding: 0.85rem 1rem !important;
+    padding: .78rem .72rem !important;
     transform: none !important;
-    overflow: visible !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
   }
 
   #asagaya .mag-photo-item figcaption span {
@@ -103,16 +106,17 @@
     width: auto !important;
     max-width: 100% !important;
     white-space: normal !important;
-    overflow-wrap: anywhere !important;
+    overflow-wrap: break-word !important;
     word-break: normal !important;
+    line-height: 1.25 !important;
   }
 
   #asagaya .mag-photo-item figcaption span:first-child {
-    flex: 0 0 auto !important;
+    grid-column: 1 !important;
   }
 
   #asagaya .mag-photo-item figcaption span:last-child {
-    flex: 1 1 auto !important;
+    grid-column: 2 !important;
   }
 
   #asagaya .mag-photo-item figcaption span::before,
