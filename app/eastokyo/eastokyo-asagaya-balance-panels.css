@@ -1,128 +1,108 @@
-/* Desktop-only Asagaya final composition pass.
-   Intent: resolve the section as one editorial composition, not a stack of patches.
-   Mobile remains untouched. Existing photo geometry for images 01–05 is preserved. */
+/* EASTOKYO Asagaya final authority.
+   This file is loaded last and owns the desktop photo/caption relationship.
+   Earlier Asagaya caption patches may remain in legacy stylesheets, but they do not win here. */
 
-@media(min-width:900px){
-  .mag-page #asagaya.mag-photo{
-    position:relative!important;
-    height:auto!important;
-    min-height:0!important;
-    padding-top:clamp(2.7rem,3.6vw,3.7rem)!important;
-    padding-bottom:clamp(.7rem,.9vw,.95rem)!important;
-    border-bottom:1px solid var(--et-ink)!important;
+@media (min-width: 900px) {
+  .mag-page #asagaya.mag-photo {
+    position: relative !important;
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: hidden !important;
   }
 
-  .mag-page #asagaya .mag-photo-head{
-    display:grid!important;
-    grid-template-columns:minmax(0,1.55fr) minmax(20rem,.7fr)!important;
-    grid-template-rows:auto auto!important;
-    column-gap:clamp(3rem,6vw,6.5rem)!important;
-    row-gap:clamp(.9rem,1.3vw,1.25rem)!important;
-    align-items:center!important;
-    margin:0 0 clamp(2.2rem,3.1vw,3.1rem)!important;
+  .mag-page #asagaya .mag-photo-grid {
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important;
   }
 
-  .mag-page #asagaya .mag-photo-head>.mag-kicker{
-    grid-column:1/3!important;
-    grid-row:1!important;
-    align-self:start!important;
-    margin:0!important;
-    font-size:clamp(.72rem,.78vw,.82rem)!important;
-    line-height:1.15!important;
-    letter-spacing:.14em!important;
+  .mag-page #asagaya .mag-photo-item,
+  .mag-page #asagaya .mag-photo-item:nth-child(n) {
+    box-sizing: border-box !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+    background: var(--et-paper) !important;
   }
 
-  .mag-page #asagaya .mag-photo-head>h2{
-    grid-column:1!important;
-    grid-row:2!important;
-    align-self:center!important;
-    max-width:11.5ch!important;
-    margin:0!important;
-    font-size:clamp(4.6rem,6.2vw,6.75rem)!important;
-    line-height:.82!important;
-    letter-spacing:-.05em!important;
-    text-wrap:balance!important;
+  .mag-page #asagaya .mag-photo-item::before,
+  .mag-page #asagaya .mag-photo-item::after {
+    content: none !important;
+    display: none !important;
   }
 
-  .mag-page #asagaya .mag-photo-head>p:not(.mag-kicker){
-    grid-column:2!important;
-    grid-row:2!important;
-    align-self:center!important;
-    justify-self:end!important;
-    max-width:23rem!important;
-    margin:0!important;
-    padding:clamp(.9rem,1.2vw,1.15rem) 0 0!important;
-    border-top:4px solid var(--et-green)!important;
-    font-family:var(--font-bienvivos-display),Georgia,serif!important;
-    font-size:clamp(1.35rem,1.7vw,1.8rem)!important;
-    line-height:1.15!important;
-    font-weight:600!important;
-    letter-spacing:-.015em!important;
-    text-wrap:balance!important;
+  .mag-page #asagaya .mag-photo-item .mag-media {
+    position: relative !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
   }
 
-  .mag-page #asagaya .mag-photo-head>.story-cta{
-    display:none!important;
+  .mag-page #asagaya .mag-photo-item .mag-media::before,
+  .mag-page #asagaya .mag-photo-item .mag-media::after {
+    content: none !important;
+    display: none !important;
   }
 
-  .mag-page #asagaya .mag-photo-item:nth-child(6){
-    display:none!important;
+  .mag-page #asagaya .mag-photo-item .mag-media img {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
   }
 
-  .mag-page #asagaya .mag-photo-item:first-child{
-    overflow:visible!important;
-    z-index:3!important;
-  }
-  .mag-page #asagaya .mag-photo-item:first-child::after{
-    position:absolute!important;
-    top:calc(100% + clamp(1.25rem,1.8vw,1.8rem))!important;
-    left:0!important;
-    z-index:5!important;
-    display:flex!important;
-    align-items:flex-end!important;
-    width:min(100%,33rem)!important;
-    min-height:clamp(6.4rem,8.3vw,8.8rem)!important;
-    padding:clamp(.9rem,1.35vw,1.35rem)!important;
-    box-sizing:border-box!important;
-    color:var(--et-paper)!important;
-    background:var(--et-cobalt)!important;
-    content:"THE STREET IS ALREADY AWAKE"!important;
-    font-family:var(--font-bienvivos-display),Georgia,serif!important;
-    font-size:clamp(2.35rem,3.4vw,3.7rem)!important;
-    font-weight:700!important;
-    line-height:.88!important;
-    letter-spacing:-.04em!important;
-    text-wrap:balance!important;
-  }
-  .mag-page #asagaya .mag-photo-item:first-child::before{
-    position:absolute!important;
-    top:calc(100% + clamp(1.25rem,1.8vw,1.8rem) + clamp(6.4rem,8.3vw,8.8rem) + 1.15rem)!important;
-    left:0!important;
-    z-index:6!important;
-    display:flex!important;
-    align-items:center!important;
-    width:min(100%,21rem)!important;
-    min-height:3.7rem!important;
-    padding:.8rem 1rem .76rem!important;
-    box-sizing:border-box!important;
-    color:var(--et-ink)!important;
-    background:var(--et-orange)!important;
-    border-top:4px solid var(--et-green)!important;
-    content:"GO TO ASAGAYA →"!important;
-    font-size:clamp(.72rem,.8vw,.84rem)!important;
-    font-weight:900!important;
-    line-height:1!important;
-    letter-spacing:.09em!important;
+  /* One caption-box system for every Asagaya image. */
+  .mag-page #asagaya .mag-photo-item figcaption,
+  .mag-page #asagaya .mag-photo-item:nth-child(n) figcaption {
+    position: relative !important;
+    inset: auto !important;
+    z-index: 3 !important;
+    display: grid !important;
+    grid-template-columns: 2.2rem minmax(0, 1fr) !important;
+    align-items: center !important;
+    gap: .75rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    min-height: 4.5rem !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: .82rem .78rem !important;
+    box-sizing: border-box !important;
+    transform: none !important;
+    overflow: hidden !important;
+    line-height: 1.25 !important;
   }
 
-  .mag-page #asagaya .mag-photo-grid{
-    grid-template-rows:repeat(7,minmax(2.8rem,8vw))!important;
-    height:auto!important;
-    min-height:0!important;
-    margin-top:0!important;
-    margin-bottom:0!important;
+  .mag-page #asagaya .mag-photo-item figcaption span {
+    min-width: 0 !important;
+    width: auto !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    overflow-wrap: break-word !important;
+    word-break: normal !important;
+    text-overflow: clip !important;
   }
-  .mag-page #asagaya+.mag-index{
-    margin-top:0!important;
+
+  .mag-page #asagaya .mag-photo-item figcaption span:first-child {
+    grid-column: 1 !important;
+    align-self: center !important;
+    font-size: .72rem !important;
+    line-height: 1 !important;
+    letter-spacing: .08em !important;
+  }
+
+  .mag-page #asagaya .mag-photo-item figcaption span:last-child {
+    grid-column: 2 !important;
+    align-self: center !important;
+    max-width: none !important;
+    font-size: clamp(.72rem, .82vw, .88rem) !important;
+    line-height: 1.25 !important;
+    letter-spacing: .055em !important;
+  }
+
+  .mag-page #asagaya .mag-photo-item figcaption span::before,
+  .mag-page #asagaya .mag-photo-item figcaption span::after {
+    content: none !important;
+    display: none !important;
   }
 }
