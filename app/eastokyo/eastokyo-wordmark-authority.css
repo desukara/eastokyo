@@ -14,10 +14,10 @@
   content: none !important;
 }
 
-/* Hero masthead: restrained editorial scale so the artwork supports the image instead of covering it. */
+/* Hero masthead: use the artwork's real proportions so the wordmark does not shrink inside the box. */
 .mag-page #latest .mag-cover-masthead {
-  width: min(46%, 36rem) !important;
-  aspect-ratio: 4.35 / 1 !important;
+  width: min(58%, 46rem) !important;
+  aspect-ratio: 1536 / 650 !important;
   justify-self: center !important;
   align-self: start !important;
   color: transparent !important;
@@ -48,8 +48,8 @@
 
 @media (max-width: 899px) {
   .mag-page #latest .mag-cover-masthead {
-    width: min(78%, 20rem) !important;
-    aspect-ratio: 4.35 / 1 !important;
+    width: min(88%, 22rem) !important;
+    aspect-ratio: 1536 / 650 !important;
     margin-top: .7rem !important;
     background-position: center !important;
     background-size: contain !important;
@@ -62,8 +62,8 @@
 
 @media (max-width: 420px) {
   .mag-page #latest .mag-cover-masthead {
-    width: 76% !important;
-    max-width: 17rem !important;
+    width: 88% !important;
+    max-width: 19rem !important;
   }
 
   .mag-page .mag-footer-wordmark {
