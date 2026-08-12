@@ -124,7 +124,7 @@ export default function EastokyoHome() {
         <picture className="mag-cover-media mag-media"><source media="(max-width: 640px)" srcSet="/images/editorial/picasso-bullfight-01-mobile.png" /><img src="/images/editorial/picasso-bullfight-01-desktop.png" alt="" fetchPriority="high" /></picture>
         <div className="mag-cover-shade" aria-hidden="true" />
         <div className="mag-cover-grid">
-          <div className="mag-cover-topline"><p>EASTOKYO. BEAUTY, NOISE, AND GOOD TASTE.</p><p>PICASSO. TOKYO. NOBODY ASKED FOR QUIET, AND THANK GOD NOBODY LISTENED.</p></div>
+          <div className="mag-cover-topline"><p>EASTOKYO. BEAUTY, NOISE, AND GOOD TASTE.</p><p>PICASSO. TOKYO. THEY ASKED FOR QUIET. THANK GOD HE HAD TOO MUCH TO SAY.</p></div>
           <div className="mag-cover-masthead" aria-hidden="true">EASTOKYO</div>
           <div className="mag-cover-story"><p className="mag-kicker">PICASSO AND THE ARENA HE NEVER LEFT.</p><h1 id="cover-title">HE KEPT WALKING BACK IN.</h1><p>There's something about the bullring that gave Picasso exactly what every painter is secretly hungry for: real danger, color, and a crowd close enough that you feel them breathing, watching you, daring you not to look away. Once that kind of electricity gets into your blood, amigo, you don't just walk away from it. You go looking for it again. He did, his whole life, and I think I understand why.</p><StoryCta story="cover" /></div>
           <div className="mag-cover-lines" aria-label="Featured stories in this issue">
@@ -164,7 +164,7 @@ export default function EastokyoHome() {
         <div className="picasso-gallery">
           <figure className="picasso-shot picasso-shot-1"><PicassoPicture desktop="/images/editorial/picasso-paul-smith-desktop.png" mobile="/images/editorial/picasso-paul-smith-mobile.png" alt="Visitor studying Picasso ceramics in the Paul Smith exhibition at The National Art Center, Tokyo" /><figcaption><span>PICASSO, REMIXED.</span><span>TOKYO, JAPAN. THE NATIONAL ART CENTER.</span></figcaption></figure>
           <figure className="picasso-shot picasso-shot-2"><PicassoPicture desktop="/images/editorial/picasso-paying-attention-desktop.png" mobile="/images/editorial/picasso-paying-attention-mobile.jpg" alt="Visitor looking closely at a Picasso work in Tokyo" /><figcaption><span>A VISITOR STOPS TO STUDY PICASSO.</span><span>EASTOKYO. PICASSO IN TOKYO.</span></figcaption></figure>
-          <figure className="picasso-shot picasso-shot-3"><PicassoPicture desktop="/images/editorial/picasso-striped-installation-desktop.jpg" mobile="/images/editorial/picasso-striped-installation-mobile.jpg" alt="Blue and white striped installation in the Picasso exhibition" /><figcaption><span>PAUL SMITH DRAWS THE LINES.</span><span></span></figcaption></figure>
+          <figure className="picasso-shot picasso-shot-3"><PicassoPicture desktop="/images/editorial/picasso-striped-installation-desktop.jpg" mobile="/images/editorial/picasso-striped-installation-mobile.jpg" alt="Blue and white striped installation in the Picasso exhibition" /><figcaption><span>PAUL SMITH, IN STRIPES.</span><span></span></figcaption></figure>
         </div>
         <div className="picasso-gallery-secondary">
           <figure className="picasso-shot picasso-shot-4"><PicassoPicture desktop="/images/editorial/picasso-portrait-desktop.png" mobile="/images/editorial/picasso-portrait-mobile.png" alt="Picasso portrait work displayed at the Tokyo exhibition" /><figcaption><span>PICASSO TAKES THE FACE APART, PIECE BY HONEST PIECE.</span><span>FACE TO FACE.</span></figcaption></figure>
@@ -186,7 +186,7 @@ export default function EastokyoHome() {
       <section className="cubism-spread" id="cubism-works" aria-labelledby="cubism-spread-title">
         <div className="cubism-spread-head">
           <div><p className="mag-kicker">IDEAS. CUBISM. FOUR WORKS.</p><h2 id="cubism-spread-title">Same rebellion, four different angles of attack.</h2></div>
-          <p>Cubism begins with a flat refusal to let a painting sit still or stay trapped in one fixed view of the world, and these four works show exactly how far Picasso and Braque were willing to carry that refusal.</p>
+          <p>Cubism begins by refusing to let a painting sit still or stay trapped in one fixed view of the world, and these four works show how far Picasso and Braque were willing to push that idea.</p>
         </div>
         <div className="cubism-slot-grid">
           <ImageSlot number="01" title="LE CUBISME. ONE VIEW? NEVER AGAIN." />
