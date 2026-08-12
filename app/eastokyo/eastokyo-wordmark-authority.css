@@ -14,9 +14,9 @@
   content: none !important;
 }
 
-/* Hero masthead: use the artwork's real proportions so the wordmark does not shrink inside the box. */
+/* Hero masthead: balanced against the cover photograph using the artwork's real proportions. */
 .mag-page #latest .mag-cover-masthead {
-  width: min(58%, 46rem) !important;
+  width: min(47%, 37rem) !important;
   aspect-ratio: 1536 / 650 !important;
   justify-self: center !important;
   align-self: start !important;
@@ -48,7 +48,7 @@
 
 @media (max-width: 899px) {
   .mag-page #latest .mag-cover-masthead {
-    width: min(88%, 22rem) !important;
+    width: min(78%, 19rem) !important;
     aspect-ratio: 1536 / 650 !important;
     margin-top: .7rem !important;
     background-position: center !important;
@@ -62,8 +62,8 @@
 
 @media (max-width: 420px) {
   .mag-page #latest .mag-cover-masthead {
-    width: 88% !important;
-    max-width: 19rem !important;
+    width: 78% !important;
+    max-width: 17.5rem !important;
   }
 
   .mag-page .mag-footer-wordmark {
