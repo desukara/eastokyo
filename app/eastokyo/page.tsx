@@ -23,7 +23,7 @@ const contents = [
   { href: "#exhibition", section: "2. EXHIBITION", title: "PICASSO, LOOKED AT AGAIN.", copy: "Paul Smith moves the walls around, and suddenly Picasso is wide awake in the room again." },
   { href: "#cubism", section: "3. IDEAS", title: "WHEN ONE ANGLE WASN'T ENOUGH.", copy: "Picasso and Braque decided a picture didn't have to sit still and behave itself. Neither one of them ever did either, if we're being honest." },
   { href: "#asagaya", section: "4. TOKYO", title: "THE CITY PUTS ON ITS COSTUME.", copy: "Paper creatures sway high overhead, and the whole street tips into celebration without a bit of warning." },
-  { href: "#picasso-index", section: "5. INDEX", title: "NOTHING IS EVER JUST WHAT IT LOOKS LIKE.", copy: "Faces he reworked until they told the truth. Ceramics he treated like another canvas entirely. Bicycle parts that became something else completely once he got his hands on them. This was a man who simply could not leave a good idea alone, gracias a Dios." },
+  { href: "#picasso-index", section: "5. INDEX", title: "NOTHING IS EVER JUST WHAT IT SEEMS.", copy: "Faces he reworked until they told the truth. Ceramics became another canvas entirely. Bicycle parts became something else completely once he got his hands on them. This was a man who simply could not leave a good idea alone, gracias a Dios." },
 ];
 
 type StoryKey = "cover" | "exhibition" | "ideas" | "tokyo" | "index";
@@ -41,7 +41,7 @@ const indexStories = [
   { section: "OBJECT", title: "A BICYCLE BECOMES A BULL.", copy: "Two bicycle parts wander into his studio, and somehow a bull walks back out." },
   { section: "PORTRAIT", title: "SYMMETRY WAS NEVER THE POINT.", copy: "Picasso doesn't fix the face. He makes it truer, even on the days when true isn't especially pretty to look at." },
   { section: "STRIPES", title: "PAUL SMITH LEAVES HIS MARK.", copy: "Paul Smith turns an ordinary stripe into part of this whole show's heartbeat, running quietly under everything else in the room." },
-  { section: "CERAMICS", title: "PICASSO NEVER CLEANED HIS PLATE.", copy: "He turned the dinner table into one more studio, because a man like that never really knew how to stop working, and never much wanted to." },
+  { section: "CERAMICS", title: "PICASSO NEVER CLEANED HIS PLATE.", copy: "He turned the dinner table into one more studio because he never really knew how to stop working, and never much wanted to." },
 ];
 
 const asagayaImages = [
@@ -180,13 +180,13 @@ export default function EastokyoHome() {
           <p>Picasso and Braque took a single obedient view of the world and cracked it wide open, because one calm angle could never hold the amount of life they wanted to pour into a picture. What came out of that wasn't easy to look at right away. The honest things almost never are. But it got under your skin and it stayed there long after you looked away. Cubism makes you do some of the looking yourself. The picture opens up piece by piece, and that's exactly as it should be.</p>
           <StoryCta story="ideas" />
         </div>
-        <div className="cubism-intro-note"><span>1907.</span><p>The year perspective splits wide open and a picture stops behaving like a window you look through. It becomes something built. Something with its own weight and its own heartbeat.</p></div>
+        <div className="cubism-intro-note"><span>1907.</span><p>The year perspective splits wide open and a picture stops pretending to be a window you look through. It becomes something built. Something with its own weight and its own heartbeat.</p></div>
       </section>
 
       <section className="cubism-spread" id="cubism-works" aria-labelledby="cubism-spread-title">
         <div className="cubism-spread-head">
           <div><p className="mag-kicker">IDEAS. CUBISM. FOUR WORKS.</p><h2 id="cubism-spread-title">Same rebellion, four different angles of attack.</h2></div>
-          <p>Cubism begins with a flat refusal to let a painting sit still and behave like one fixed view of the world, and these four works show exactly how far Picasso and Braque were willing to carry that refusal.</p>
+          <p>Cubism begins with a flat refusal to let a painting sit still or stay trapped in one fixed view of the world, and these four works show exactly how far Picasso and Braque were willing to carry that refusal.</p>
         </div>
         <div className="cubism-slot-grid">
           <ImageSlot number="01" title="LE CUBISME. ONE VIEW? NEVER AGAIN." />
@@ -203,7 +203,7 @@ export default function EastokyoHome() {
       </section>
 
       <section className="mag-section mag-index" id="picasso-index" aria-labelledby="show-title">
-        <div className="mag-index-head"><div><p className="mag-kicker">INDEX. PICASSO. START ANYWHERE YOU LIKE.</p><h2 id="show-title">NOTHING IS EVER JUST WHAT IT LOOKS LIKE.</h2><StoryCta story="index" /></div><p>Faces he reworked until they told the truth. Ceramics he treated like another canvas. Bicycle parts that turned into something else entirely the moment he touched them. These were the things Picasso simply could not leave alone, and honestly, neither can we.</p></div>
+        <div className="mag-index-head"><div><p className="mag-kicker">INDEX. PICASSO. START ANYWHERE.</p><h2 id="show-title">NOTHING IS EVER JUST WHAT IT SEEMS.</h2><StoryCta story="index" /></div><p>Faces he reworked until they told the truth. Ceramics became another canvas. Bicycle parts turned into something else entirely the moment he touched them. These were the things Picasso simply could not leave alone, and honestly, neither can we.</p></div>
         <figure className="mag-index-feature mag-media"><picture className="mag-index-picture"><source media="(max-width: 640px)" srcSet="/images/editorial/picasso-index-hero-mobile.png" /><img src="/images/editorial/picasso-index-hero-desktop.png" alt="Picasso exhibition view in Tokyo" loading="lazy" /></picture></figure>
         <div className="mag-index-list">{indexStories.map(s => <article className="mag-index-row" key={s.section}><div><small>{s.section}</small><h3>{s.title}</h3></div><p>{s.copy}</p></article>)}</div>
       </section>
