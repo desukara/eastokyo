@@ -1,0 +1,102 @@
+/* EASTOKYO mini-cover authority — isolated to the ABOUT issue preview. */
+
+.mag-page #about .mag-mini-cover {
+  isolation: isolate;
+  animation: none !important;
+  overflow: hidden;
+}
+
+/* The actual cover photograph stays untouched; this only restores printed-cover legibility. */
+.mag-page #about .mag-mini-cover::after {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  content: "";
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(8, 8, 12, .08) 0%,
+    rgba(8, 8, 12, .02) 34%,
+    rgba(8, 8, 12, .16) 62%,
+    rgba(8, 8, 12, .76) 100%
+  );
+}
+
+/* Approved EASTOKYO artwork replaces the legacy typeset masthead without changing markup. */
+.mag-page #about .mag-mini-cover > strong {
+  position: absolute;
+  top: .82rem;
+  left: 50%;
+  z-index: 3;
+  display: block;
+  width: 72%;
+  aspect-ratio: 1536 / 650;
+  margin: 0;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+  font-size: 0 !important;
+  line-height: 0 !important;
+  text-indent: -9999px;
+  overflow: hidden;
+  background: transparent url("/eastokyo-wordmark-white.png") center / contain no-repeat;
+  transform: translateX(-50%);
+}
+
+/* Keep the cover hierarchy close to the full-size issue: masthead, story, folio. */
+.mag-page #about .mag-mini-cover > h3,
+.mag-page #about .mag-mini-cover > p {
+  z-index: 3;
+  text-shadow: 0 .08rem .28rem rgba(0, 0, 0, .52);
+}
+
+.mag-page #about .mag-mini-cover > h3 {
+  right: 1rem;
+  bottom: 3.35rem;
+  left: 1rem;
+  max-width: 9ch;
+  font-size: clamp(1.9rem, 3.1vw, 3.25rem);
+  line-height: .84;
+}
+
+.mag-page #about .mag-mini-cover > p {
+  right: 1rem;
+  bottom: 1rem;
+  left: 1rem;
+  padding-top: .55rem;
+  border-top: 1px solid rgba(255, 250, 243, .7);
+}
+
+@media (max-width: 899px) {
+  .mag-page #about .mag-mini-cover > strong {
+    top: .68rem;
+    width: 70%;
+  }
+
+  .mag-page #about .mag-mini-cover > h3 {
+    right: .85rem;
+    bottom: 2.85rem;
+    left: .85rem;
+    max-width: 8.5ch;
+    font-size: clamp(1.75rem, 8.4vw, 2.75rem);
+  }
+
+  .mag-page #about .mag-mini-cover > p {
+    right: .85rem;
+    bottom: .78rem;
+    left: .85rem;
+    font-size: .52rem;
+    letter-spacing: .11em;
+  }
+}
+
+@media (max-width: 420px) {
+  .mag-page #about .mag-mini-cover > strong {
+    top: .58rem;
+    width: 68%;
+  }
+
+  .mag-page #about .mag-mini-cover > h3 {
+    bottom: 2.65rem;
+    font-size: clamp(1.6rem, 8vw, 2.2rem);
+  }
+}
