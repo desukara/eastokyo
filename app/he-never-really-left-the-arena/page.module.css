@@ -1,0 +1,184 @@
+.page {
+  min-height: 100vh;
+  background: #f3efe6;
+  color: #111;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 1.1rem clamp(1.25rem, 4vw, 4rem);
+  border-bottom: 1px solid rgba(17, 17, 17, 0.35);
+  font-family: var(--font-bienvivos-sans), sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.brand {
+  color: inherit;
+  text-decoration: none;
+  font-size: clamp(1rem, 1.8vw, 1.35rem);
+  letter-spacing: -0.03em;
+}
+
+.issue {
+  text-align: right;
+}
+
+.hero {
+  position: relative;
+  min-height: min(82vh, 900px);
+  overflow: hidden;
+  background: #1b1b1b;
+}
+
+.heroImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.heroShade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.05) 20%, rgba(0,0,0,0.78) 100%);
+}
+
+.heroCopy {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  min-height: min(82vh, 900px);
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: clamp(2rem, 6vw, 6rem) clamp(1.25rem, 6vw, 6rem);
+  color: #fff;
+}
+
+.kicker {
+  margin: 0 0 1rem;
+  font-family: var(--font-bienvivos-sans), sans-serif;
+  font-size: clamp(0.7rem, 1vw, 0.9rem);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.title {
+  max-width: 11ch;
+  margin: 0;
+  font-family: var(--font-bienvivos-display), serif;
+  font-size: clamp(4rem, 11vw, 10rem);
+  font-weight: 600;
+  line-height: 0.78;
+  letter-spacing: -0.055em;
+  text-wrap: balance;
+}
+
+.intro {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.4fr);
+  gap: clamp(2rem, 8vw, 8rem);
+  padding: clamp(3rem, 8vw, 8rem) clamp(1.25rem, 8vw, 8rem);
+  border-bottom: 1px solid rgba(17, 17, 17, 0.3);
+}
+
+.meta {
+  font-family: var(--font-bienvivos-sans), sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1.8;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.deck {
+  margin: 0;
+  max-width: 30ch;
+  font-family: var(--font-bienvivos-display), serif;
+  font-size: clamp(1.8rem, 3.5vw, 3.6rem);
+  line-height: 1.05;
+}
+
+.body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  gap: clamp(2rem, 8vw, 8rem);
+  padding: clamp(3rem, 8vw, 8rem) clamp(1.25rem, 8vw, 8rem) clamp(5rem, 12vw, 12rem);
+}
+
+.bodyLabel {
+  margin: 0;
+  font-family: var(--font-bienvivos-sans), sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.bodyCopy {
+  max-width: 42rem;
+  font-family: var(--font-bienvivos-display), serif;
+  font-size: clamp(1.25rem, 2vw, 1.65rem);
+  line-height: 1.5;
+}
+
+.bodyCopy p {
+  margin: 0;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem clamp(1.25rem, 4vw, 4rem) 2rem;
+  border-top: 1px solid rgba(17, 17, 17, 0.35);
+  font-family: var(--font-bienvivos-sans), sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.footer a {
+  color: inherit;
+}
+
+@media (max-width: 700px) {
+  .header {
+    align-items: flex-start;
+  }
+
+  .issue {
+    max-width: 12rem;
+  }
+
+  .hero,
+  .heroCopy {
+    min-height: 72svh;
+  }
+
+  .title {
+    font-size: clamp(3.6rem, 19vw, 6.5rem);
+  }
+
+  .intro,
+  .body {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .deck {
+    max-width: none;
+  }
+
+  .footer {
+    flex-direction: column;
+  }
+}
