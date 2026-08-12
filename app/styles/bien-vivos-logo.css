@@ -7,16 +7,16 @@
   letter-spacing: -.055em !important;
 }
 
-/* Mobile header lockup: icon beside the wordmark, never sitting on top of it. */
+/* Mobile header lockup: eye + approved white EASTOKYO wordmark. */
 .mag-mobile-logo {
   display: inline-flex !important;
   align-items: center !important;
   gap: .62rem !important;
   padding: 0 !important;
-  color: #fff4df !important;
-  font-size: clamp(1.7rem, 7vw, 2.2rem) !important;
-  line-height: .88 !important;
-  text-shadow: 0 1px 12px rgba(0, 0, 0, .45);
+  color: transparent !important;
+  font-size: 0 !important;
+  line-height: 1 !important;
+  text-shadow: none !important;
 }
 
 .mag-mobile-logo::before {
@@ -29,18 +29,28 @@
 }
 
 .mag-mobile-logo::after {
-  display: none !important;
-  content: none !important;
+  display: block !important;
+  flex: 0 0 auto;
+  width: clamp(7.25rem, 30vw, 9.5rem);
+  aspect-ratio: 1536 / 650;
+  content: "" !important;
+  background: transparent url("/eastokyo-wordmark-white.png") center / contain no-repeat;
 }
 
-/* The cover masthead stays editorial and uncluttered. */
+/* Desktop cover masthead: keep the existing geometry, replace only the visible lettering. */
+.mag-cover-masthead {
+  color: transparent !important;
+  background: transparent url("/eastokyo-wordmark-white.png") center / contain no-repeat !important;
+  text-shadow: none !important;
+}
+
 .mag-cover-masthead::before,
 .mag-cover-masthead::after {
   display: none !important;
   content: none !important;
 }
 
-/* Desktop header: carry the same eye into the navigation without disturbing the approved cover. */
+/* Desktop header: retain the painted eye in the navigation. */
 @media (min-width: 900px) {
   .mag-nav-links::before {
     flex: 0 0 auto;
@@ -51,14 +61,30 @@
   }
 }
 
+/* Footer wordmark: replace the existing EASTOKYO lettering with the same approved artwork. */
+.mag-footer-wordmark {
+  color: transparent !important;
+  background: transparent url("/eastokyo-wordmark-white.png") center / contain no-repeat !important;
+  text-shadow: none !important;
+}
+
+.mag-footer-wordmark::before,
+.mag-footer-wordmark::after {
+  display: none !important;
+  content: none !important;
+}
+
 @media (max-width: 420px) {
   .mag-mobile-logo {
     gap: .48rem !important;
-    font-size: 1.72rem !important;
   }
 
   .mag-mobile-logo::before {
     width: 1.72rem;
     height: 1.72rem;
+  }
+
+  .mag-mobile-logo::after {
+    width: 7.35rem;
   }
 }
