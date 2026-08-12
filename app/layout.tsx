@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Montserrat } from "next/font/google";
+import EastokyoMotion from "./eastokyo/EastokyoMotion";
 import "./globals.css";
 import "./styles/header.css";
 import "./styles/features.css";
@@ -51,6 +52,7 @@ import "./eastokyo/eastokyo-index-balance-spacing.css";
 import "./eastokyo/eastokyo-mobile-footer-copy.css";
 import "./eastokyo/eastokyo-mobile-authority.css";
 import "./eastokyo/eastokyo-wordmark-authority.css";
+import "./eastokyo/eastokyo-motion-system.css";
 
 const sans = Montserrat({ variable: "--font-bienvivos-sans", subsets: ["latin"], display: "swap" });
 const display = Cormorant_Garamond({ variable: "--font-bienvivos-display", subsets: ["latin"], weight: ["400", "500", "600", "700"], style: ["normal", "italic"], display: "swap" });
@@ -82,5 +84,5 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en"><body className={`${sans.variable} ${display.variable}`}><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "Organization", name: "EASTOKYO", url: "https://www.eastokyo.com", description: "Independent art magazine based in Tokyo, covering art from around the world." }) }} />{children}</body></html>;
+  return <html lang="en"><body className={`${sans.variable} ${display.variable}`}><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "Organization", name: "EASTOKYO", url: "https://www.eastokyo.com", description: "Independent art magazine based in Tokyo, covering art from around the world." }) }} /><EastokyoMotion />{children}</body></html>;
 }
