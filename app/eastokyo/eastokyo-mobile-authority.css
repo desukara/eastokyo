@@ -63,6 +63,13 @@
   .mag-page #latest .story-cta {
     margin-top: 1.25rem !important;
   }
+  .mag-page #latest .story-cta__action {
+    font-size: 0 !important;
+  }
+  .mag-page #latest .story-cta__action::after {
+    content: "COME INTO THE ARENA.";
+    font-size: clamp(.88rem, 3.6vw, 1rem) !important;
+  }
   .mag-page #latest .mag-cover-lines {
     margin-top: 1.8rem !important;
   }
