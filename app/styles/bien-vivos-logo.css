@@ -24,13 +24,8 @@
   width: 2rem;
   height: 2rem;
   content: "";
-  border-radius: 50%;
-  background-color: #4b0d1d;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg fill='none' stroke-linecap='round'%3E%3Cpath d='M18 63h17c4-12 9-18 15-18s11 6 15 18h17' stroke='%23d95f35' stroke-width='6'/%3E%3Cpath d='M50 17v25M31 24l11 20M69 24L58 44M20 38l20 11M80 38L60 49M14 53l24 4M86 53l-24 4' stroke='%23f2ad00' stroke-width='5'/%3E%3Cpath d='M50 62l4 7 7 4-7 4-4 7-4-7-7-4 7-4z' fill='%23f07a3d' stroke='none'/%3E%3C/g%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 86%;
-  box-shadow: 0 0 0 1px rgba(242, 173, 0, .18), 0 3px 10px rgba(0, 0, 0, .22);
+  background: transparent url("/icon.png") center / contain no-repeat;
+  box-shadow: none;
 }
 
 .mag-mobile-logo::after {
