@@ -159,7 +159,7 @@ export default function EastokyoHome() {
         <div className="mag-rule-heading"><h2>EXHIBITION. THE NATIONAL ART CENTER, TOKYO.</h2></div>
         <div className="picasso-feature-intro">
           <div className="picasso-feature-title"><p className="mag-kicker">REVIEW. TOKYO MEETS PICASSO.</p><h3 id="front-title">PICASSO, LOOKED AT AGAIN.</h3><p className="mag-deck">Paul Smith moves the walls around, and Picasso wakes back up in that room like he's been waiting years for somebody, anybody, to finally open the door for him.</p><StoryCta story="exhibition" /></div>
-          <aside className="picasso-feature-note"><strong>PICASSO, ROOM BY ROOM.</strong><p>Move through the rooms and you feel it happen. Every space quietly changes what the next work does to you, and by the time you reach the end you're standing in front of something that stops you cold and holds you there.</p></aside>
+          <aside className="picasso-feature-note"><strong>PICASSO, ROOM BY ROOM.</strong><p>Walk with him room by room and you feel it happen. Every space quietly changes what the next work does to you, and by the time you reach the end you're standing in front of something that stops you cold and holds you there.</p></aside>
         </div>
         <div className="picasso-gallery">
           <figure className="picasso-shot picasso-shot-1"><PicassoPicture desktop="/images/editorial/picasso-paul-smith-desktop.png" mobile="/images/editorial/picasso-paul-smith-mobile.png" alt="Visitor studying Picasso ceramics in the Paul Smith exhibition at The National Art Center, Tokyo" /><figcaption><span>PICASSO, REMIXED.</span><span>TOKYO, JAPAN. THE NATIONAL ART CENTER.</span></figcaption></figure>
