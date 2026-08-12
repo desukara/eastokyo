@@ -51,17 +51,6 @@
   }
 }
 
-/* Footer signature: the eye travels with the EASTOKYO wordmark on every device. */
-.mag-footer-wordmark::before {
-  display: inline-block;
-  width: .16em;
-  height: .16em;
-  margin-right: .055em;
-  content: "";
-  vertical-align: .06em;
-  background: transparent url("/icon.png") center / contain no-repeat;
-}
-
 @media (max-width: 420px) {
   .mag-mobile-logo {
     gap: .48rem !important;
