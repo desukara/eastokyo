@@ -1,55 +1,16 @@
-/* EASTOKYO Asagaya final authority.
-   This file is loaded last and owns the desktop photo/caption relationship.
-   Earlier Asagaya caption patches may remain in legacy stylesheets, but they do not win here. */
+/* EASTOKYO final visual authority.
+   Loaded last. Keep Asagaya photo geometry owned by the established layout;
+   this file only normalizes caption boxes and protects the cover barcode area. */
 
 @media (min-width: 900px) {
-  .mag-page #asagaya.mag-photo {
-    position: relative !important;
-    height: auto !important;
-    min-height: 0 !important;
-    overflow: hidden !important;
-  }
-
-  .mag-page #asagaya .mag-photo-grid {
-    height: auto !important;
-    min-height: 0 !important;
-    overflow: visible !important;
-  }
-
-  .mag-page #asagaya .mag-photo-item,
-  .mag-page #asagaya .mag-photo-item:nth-child(n) {
-    box-sizing: border-box !important;
+  /* Leave the far-right cover column clear for the barcode. */
+  .mag-page .mag-cover-lines {
+    grid-column: 9 / 12 !important;
     min-width: 0 !important;
-    overflow: hidden !important;
-    background: var(--et-paper) !important;
   }
 
-  .mag-page #asagaya .mag-photo-item::before,
-  .mag-page #asagaya .mag-photo-item::after {
-    content: none !important;
-    display: none !important;
-  }
-
-  .mag-page #asagaya .mag-photo-item .mag-media {
-    position: relative !important;
-    min-width: 0 !important;
-    overflow: hidden !important;
-  }
-
-  .mag-page #asagaya .mag-photo-item .mag-media::before,
-  .mag-page #asagaya .mag-photo-item .mag-media::after {
-    content: none !important;
-    display: none !important;
-  }
-
-  .mag-page #asagaya .mag-photo-item .mag-media img {
-    display: block !important;
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-  }
-
-  /* One caption-box system for every Asagaya image. */
+  /* Asagaya: captions only. Do not touch grid height, figure position,
+     image sizing, or section overflow here. */
   .mag-page #asagaya .mag-photo-item figcaption,
   .mag-page #asagaya .mag-photo-item:nth-child(n) figcaption {
     position: relative !important;
