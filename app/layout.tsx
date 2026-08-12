@@ -48,6 +48,7 @@ import "./eastokyo/eastokyo-mobile-review-fixes.css";
 import "./eastokyo/eastokyo-asagaya-balance-panels.css";
 import "./eastokyo/eastokyo-issue-01-art-direction.css";
 import "./eastokyo/eastokyo-index-balance-spacing.css";
+import "./eastokyo/eastokyo-mobile-footer-copy.css";
 import "./eastokyo/eastokyo-mobile-authority.css";
 
 const sans = Montserrat({ variable: "--font-bienvivos-sans", subsets: ["latin"], display: "swap" });
