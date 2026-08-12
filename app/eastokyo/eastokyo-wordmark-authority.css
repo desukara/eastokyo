@@ -16,7 +16,7 @@
 
 /* Hero masthead: balanced against the cover photograph using the artwork's real proportions. */
 .mag-page #latest .mag-cover-masthead {
-  width: min(47%, 37rem) !important;
+  width: min(40%, 31rem) !important;
   aspect-ratio: 1536 / 650 !important;
   justify-self: center !important;
   align-self: start !important;
