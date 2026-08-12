@@ -23,7 +23,7 @@ const contents = [
   { href: "#exhibition", section: "2. EXHIBITION", title: "PICASSO, LOOKED AT AGAIN.", copy: "Paul Smith moves the walls around, and suddenly Picasso is wide awake in the room again." },
   { href: "#cubism", section: "3. IDEAS", title: "WHEN ONE ANGLE WASN'T ENOUGH.", copy: "Picasso and Braque decided a picture didn't have to sit still and behave itself. Neither one of them ever did either, if we're being honest." },
   { href: "#asagaya", section: "4. TOKYO", title: "THE CITY PUTS ON ITS COSTUME.", copy: "Paper creatures sway high overhead, and the whole street tips into celebration without a bit of warning." },
-  { href: "#picasso-index", section: "5. INDEX", title: "NOTHING IS EVER JUST WHAT IT SEEMS.", copy: "Faces he reworked until they told the truth. Ceramics became another canvas entirely. Bicycle parts became something else completely once he got his hands on them. This was a man who simply could not leave a good idea alone, gracias a Dios." },
+  { href: "#picasso-index", section: "5. INDEX", title: "NOTHING IS EVER JUST WHAT IT SEEMS.", copy: "Faces he reworked until they told the truth. Ceramics became another canvas, and bicycle parts became something else entirely once they passed through his hands. This was a man who simply could not leave a good idea alone, gracias a Dios." },
 ];
 
 type StoryKey = "cover" | "exhibition" | "ideas" | "tokyo" | "index";
@@ -203,7 +203,7 @@ export default function EastokyoHome() {
       </section>
 
       <section className="mag-section mag-index" id="picasso-index" aria-labelledby="show-title">
-        <div className="mag-index-head"><div><p className="mag-kicker">INDEX. PICASSO. START ANYWHERE.</p><h2 id="show-title">NOTHING IS EVER JUST WHAT IT SEEMS.</h2><StoryCta story="index" /></div><p>Faces he reworked until they told the truth. Ceramics became another canvas. Bicycle parts turned into something else entirely the moment he touched them. These were the things Picasso simply could not leave alone, and honestly, neither can we.</p></div>
+        <div className="mag-index-head"><div><p className="mag-kicker">INDEX. PICASSO. START ANYWHERE.</p><h2 id="show-title">NOTHING IS EVER JUST WHAT IT SEEMS.</h2><StoryCta story="index" /></div><p>Faces pulled apart and rebuilt. Ceramics carrying the same restless energy as the paintings. Bicycle parts suddenly looking less like machinery and more like sculpture. Picasso had a habit of making the ordinary feel newly invented, and that’s the part we keep coming back to.</p></div>
         <figure className="mag-index-feature mag-media"><picture className="mag-index-picture"><source media="(max-width: 640px)" srcSet="/images/editorial/picasso-index-hero-mobile.png" /><img src="/images/editorial/picasso-index-hero-desktop.png" alt="Picasso exhibition view in Tokyo" loading="lazy" /></picture></figure>
         <div className="mag-index-list">{indexStories.map(s => <article className="mag-index-row" key={s.section}><div><small>{s.section}</small><h3>{s.title}</h3></div><p>{s.copy}</p></article>)}</div>
       </section>
