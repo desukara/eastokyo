@@ -40,6 +40,28 @@
   content: none !important;
 }
 
+/* Desktop header: carry the same eye into the navigation without disturbing the approved cover. */
+@media (min-width: 900px) {
+  .mag-nav-links::before {
+    flex: 0 0 auto;
+    width: 1.55rem;
+    height: 1.55rem;
+    content: "";
+    background: transparent url("/icon.png") center / contain no-repeat;
+  }
+}
+
+/* Footer signature: the eye travels with the EASTOKYO wordmark on every device. */
+.mag-footer-wordmark::before {
+  display: inline-block;
+  width: .16em;
+  height: .16em;
+  margin-right: .055em;
+  content: "";
+  vertical-align: .06em;
+  background: transparent url("/icon.png") center / contain no-repeat;
+}
+
 @media (max-width: 420px) {
   .mag-mobile-logo {
     gap: .48rem !important;
