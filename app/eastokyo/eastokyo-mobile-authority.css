@@ -61,14 +61,31 @@
     line-height: 1.5 !important;
   }
   .mag-page #latest .story-cta {
+    width: 100% !important;
+    max-width: 100% !important;
     margin-top: 1.25rem !important;
   }
   .mag-page #latest .story-cta__action {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    padding-left: .62rem !important;
+    padding-right: .62rem !important;
     font-size: 0 !important;
+    white-space: nowrap !important;
   }
   .mag-page #latest .story-cta__action::after {
     content: "COME INTO THE ARENA.";
-    font-size: clamp(.88rem, 3.6vw, 1rem) !important;
+    display: block;
+    font-size: clamp(.72rem, 3vw, .86rem) !important;
+    letter-spacing: .075em !important;
+    white-space: nowrap !important;
+  }
+  .mag-page #latest .story-cta__status {
+    flex: 0 0 auto !important;
+    padding-left: .5rem !important;
+    padding-right: .5rem !important;
+    font-size: .5rem !important;
+    letter-spacing: .11em !important;
   }
   .mag-page #latest .mag-cover-lines {
     margin-top: 1.8rem !important;
