@@ -168,7 +168,7 @@ export default function EastokyoHome() {
         </div>
         <div className="picasso-gallery-secondary">
           <figure className="picasso-shot picasso-shot-4"><PicassoPicture desktop="/images/editorial/picasso-portrait-desktop.png" mobile="/images/editorial/picasso-portrait-mobile.png" alt="Picasso portrait work displayed at the Tokyo exhibition" /><figcaption><span>PICASSO TAKES THE FACE APART, PIECE BY HONEST PIECE.</span><span>FACE TO FACE.</span></figcaption></figure>
-          <div className="picasso-feature-outro"><div className="picasso-meta">PICASSO AND PAUL SMITH.<br />THE NATIONAL ART CENTER, TOKYO, JAPAN.<br />SUMMER 2026.</div><p>Forget polite walls, amigo. This show talks back to you, and Picasso is thrilled to argue right back. That's the whole reason to go and see it for yourself.</p><div className="picasso-outro-wordbox">PICASSO STILL TAKES OVER THE ROOM.</div></div>
+          <div className="picasso-feature-outro"><div className="picasso-meta">PICASSO AND PAUL SMITH.<br />THE NATIONAL ART CENTER, TOKYO, JAPAN.<br />SUMMER 2026.</div><p>Forget polite walls, amigo. This show talks back to you, and Picasso is thrilled to argue right back. That's the whole reason to go and see it for yourself.</p><div className="picasso-outro-wordbox">PICASSO OWNS THE ROOM.</div></div>
         </div>
       </section>
 
