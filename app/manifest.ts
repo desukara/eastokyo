@@ -11,7 +11,7 @@ export default function manifest(): MetadataRoute.Manifest {
     theme_color: "#214F78",
     icons: [
       {
-        src: "/eastokyo-eye-icon-master-1024.png",
+        src: "/eastokyo-eye-icon-master-1024.png?v=eye-20260812",
         sizes: "1024x1024",
         type: "image/png",
         purpose: "any",
