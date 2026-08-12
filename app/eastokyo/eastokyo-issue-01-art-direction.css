@@ -131,6 +131,7 @@
 .mag-page #picasso-index{background:var(--issue-cobalt)!important;color:var(--issue-paper)!important;border-bottom:8px solid var(--issue-red)!important}
 .mag-page #picasso-index .mag-kicker,.mag-page #picasso-index .mag-index-row small{color:var(--issue-ochre)!important}
 .mag-page #picasso-index .mag-index-head h2,.mag-page #picasso-index .mag-index-row h3{color:var(--issue-paper)!important}
+.mag-page #picasso-index .mag-index-row h3{font-size:clamp(2rem,2.45vw,2.6rem)!important;line-height:.94!important;font-weight:800!important;letter-spacing:-.025em!important}
 .mag-page #picasso-index .mag-index-head>p{color:var(--issue-ink)!important;background:var(--issue-bone)!important;padding:1.25rem 1.4rem!important;font-size:clamp(1.2rem,1.8vw,1.8rem)!important;line-height:1.1!important;font-weight:750!important;box-shadow:.8rem .8rem 0 var(--issue-ochre)!important}
 .mag-page #picasso-index .mag-index-row p{color:var(--issue-bone)!important}
 .mag-page #picasso-index .mag-index-feature{outline:2px solid var(--issue-bone)!important;outline-offset:-2px!important}
@@ -169,5 +170,6 @@
   .mag-page #exhibition.picasso-feature::before{height:7px!important;background:repeating-linear-gradient(90deg,var(--issue-red) 0 14px,var(--issue-ochre) 14px 28px,var(--issue-bone) 28px 42px,var(--issue-cobalt) 42px 56px,var(--issue-orange) 56px 70px)!important}
   .mag-page #exhibition .picasso-outro-wordbox{margin-top:2rem!important;max-width:100%!important;padding:1rem 1.05rem!important;box-shadow:.4rem .4rem 0 var(--issue-red)!important;font-size:1.65rem!important}
   .mag-page #cubism-works .cubism-spread-head>p,.mag-page #picasso-index .mag-index-head>p{box-shadow:.45rem .45rem 0 var(--issue-ochre)!important}
+  .mag-page #picasso-index .mag-index-row h3{font-size:1.35rem!important;line-height:1!important}
   .mag-page #asagaya.mag-photo{background:var(--issue-terracotta)!important}
 }
