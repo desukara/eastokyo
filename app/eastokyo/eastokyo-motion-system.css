@@ -1,0 +1,295 @@
+/* EASTOKYO motion system — isolated to the current magazine architecture. */
+
+.mag-page {
+  --ek-ease: cubic-bezier(.16, 1, .3, 1);
+  --ek-soft: cubic-bezier(.22, .61, .36, 1);
+}
+
+/* Cover: one opening moment, then restrained scroll depth inside the existing box. */
+.mag-page.ek-motion-ready #latest .mag-cover-media img {
+  transform: scale(1.025) translateY(var(--ek-cover-shift, 0%));
+  transform-origin: center center;
+  transition: transform 1400ms var(--ek-ease);
+  will-change: transform;
+}
+
+.mag-page.ek-cover-live #latest .mag-cover-media img {
+  transform: scale(1) translateY(var(--ek-cover-shift, 0%));
+}
+
+.mag-page.ek-motion-ready #latest .mag-cover-masthead {
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 820ms 120ms var(--ek-ease);
+}
+
+.mag-page.ek-cover-live #latest .mag-cover-masthead {
+  clip-path: inset(0 0 0 0);
+}
+
+.mag-page.ek-motion-ready #latest .mag-cover-story {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 720ms 260ms ease, transform 900ms 260ms var(--ek-ease);
+}
+
+.mag-page.ek-cover-live #latest .mag-cover-story {
+  opacity: 1;
+  transform: translateY(var(--ek-cover-copy-shift, 0px));
+}
+
+/* Header rail: a nearly imperceptible editorial drift, never a news ticker. */
+.mag-page .mag-header-rail p:first-child { animation: ek-rail-left 28s ease-in-out infinite alternate; }
+.mag-page .mag-header-rail p:last-child { animation: ek-rail-right 31s ease-in-out infinite alternate; }
+@keyframes ek-rail-left { to { transform: translateX(7px); } }
+@keyframes ek-rail-right { to { transform: translateX(-7px); } }
+
+/* Generic once-only entrance. JS adds .ek-in when each current-magazine element enters view. */
+.mag-page.ek-motion-ready .ek-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 620ms var(--ek-delay, 0ms) ease,
+    transform 820ms var(--ek-delay, 0ms) var(--ek-ease);
+}
+
+.mag-page.ek-motion-ready .ek-reveal.ek-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Contents: printed rules draw across after the section settles. */
+.mag-page.ek-motion-ready #contents .mag-rule-heading {
+  overflow: hidden;
+}
+
+.mag-page.ek-motion-ready #contents .mag-contents-entry {
+  position: relative;
+}
+
+.mag-page.ek-motion-ready #contents .mag-contents-entry::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  background: currentColor;
+  content: "";
+  opacity: .32;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 760ms calc(var(--ek-delay, 0ms) + 120ms) var(--ek-ease);
+}
+
+.mag-page.ek-motion-ready #contents .mag-contents-entry.ek-in::after {
+  transform: scaleX(1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .mag-page #contents .mag-contents-entry h3,
+  .mag-page #picasso-index .mag-index-row h3 {
+    transition: transform 240ms var(--ek-ease), opacity 240ms ease;
+  }
+
+  .mag-page #contents .mag-contents-entry:hover h3,
+  .mag-page #picasso-index .mag-index-row:hover h3 {
+    transform: translateX(6px);
+  }
+
+  .mag-page #picasso-index .mag-index-list:hover .mag-index-row:not(:hover) {
+    opacity: .68;
+  }
+
+  .mag-page #picasso-index .mag-index-row {
+    transition: opacity 220ms ease;
+  }
+}
+
+/* Bullfight: primary photo uncovers vertically; detail settles with a tiny physical rotation. */
+.mag-page.ek-motion-ready #bullfighting .mag-feature-image-primary {
+  clip-path: inset(16% 0 0 0);
+  transform: translateY(26px) scale(1.018);
+  transition:
+    clip-path 900ms var(--ek-delay, 0ms) var(--ek-ease),
+    opacity 620ms var(--ek-delay, 0ms) ease,
+    transform 900ms var(--ek-delay, 0ms) var(--ek-ease);
+}
+
+.mag-page.ek-motion-ready #bullfighting .mag-feature-image-primary.ek-in {
+  clip-path: inset(0 0 0 0);
+  transform: translateY(0) scale(1);
+}
+
+.mag-page.ek-motion-ready #bullfighting .mag-feature-image-detail {
+  transform: translateY(28px) rotate(1.4deg);
+}
+
+.mag-page.ek-motion-ready #bullfighting .mag-feature-image-detail.ek-in {
+  transform: translateY(0) rotate(0deg);
+}
+
+.mag-page.ek-motion-ready #bullfighting .mag-feature-pullquote {
+  clip-path: inset(0 0 100% 0);
+  transition:
+    clip-path 880ms var(--ek-delay, 0ms) var(--ek-ease),
+    opacity 620ms var(--ek-delay, 0ms) ease;
+}
+
+.mag-page.ek-motion-ready #bullfighting .mag-feature-pullquote.ek-in {
+  clip-path: inset(0 0 0 0);
+}
+
+/* Picasso gallery: curated reveal directions, then stillness. */
+.mag-page.ek-motion-ready #exhibition .picasso-shot {
+  overflow: hidden;
+}
+
+.mag-page.ek-motion-ready #exhibition .picasso-shot img {
+  transform: scale(1.035);
+  transition: transform 950ms calc(var(--ek-delay, 0ms) + 40ms) var(--ek-ease);
+}
+
+.mag-page.ek-motion-ready #exhibition .picasso-shot.ek-in img {
+  transform: scale(1);
+}
+
+.mag-page.ek-motion-ready #exhibition .picasso-shot:nth-of-type(odd) {
+  clip-path: inset(0 10% 0 0);
+  transition:
+    clip-path 820ms var(--ek-delay, 0ms) var(--ek-ease),
+    opacity 620ms var(--ek-delay, 0ms) ease,
+    transform 820ms var(--ek-delay, 0ms) var(--ek-ease);
+}
+
+.mag-page.ek-motion-ready #exhibition .picasso-shot:nth-of-type(even) {
+  clip-path: inset(10% 0 0 0);
+  transition:
+    clip-path 820ms var(--ek-delay, 0ms) var(--ek-ease),
+    opacity 620ms var(--ek-delay, 0ms) ease,
+    transform 820ms var(--ek-delay, 0ms) var(--ek-ease);
+}
+
+.mag-page.ek-motion-ready #exhibition .picasso-shot.ek-in {
+  clip-path: inset(0 0 0 0);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .mag-page #exhibition .picasso-shot img {
+    transition: transform 520ms var(--ek-ease);
+  }
+  .mag-page #exhibition .picasso-shot:hover img { transform: scale(1.014); }
+  .mag-page #exhibition .picasso-shot figcaption { transition: transform 260ms var(--ek-ease); }
+  .mag-page #exhibition .picasso-shot:hover figcaption { transform: translateY(-3px); }
+}
+
+/* Cubism: the single deliberately fractured scroll gesture. */
+.mag-page #cubism .cubism-intro-word {
+  transform: translateX(var(--ek-ideas-x, 5vw));
+  will-change: transform;
+}
+
+.mag-page.ek-motion-ready #cubism-works .cubism-slot:nth-child(4n + 1) { transform: translateX(12px); }
+.mag-page.ek-motion-ready #cubism-works .cubism-slot:nth-child(4n + 2) { transform: translateX(-12px); }
+.mag-page.ek-motion-ready #cubism-works .cubism-slot:nth-child(4n + 3) { transform: translateY(12px); }
+.mag-page.ek-motion-ready #cubism-works .cubism-slot:nth-child(4n + 4) { transform: translateY(-10px); }
+.mag-page.ek-motion-ready #cubism-works .cubism-slot.ek-in { transform: translate(0, 0); }
+
+/* Asagaya: contact-sheet assembly; no perpetual motion. */
+.mag-page.ek-motion-ready #asagaya .mag-photo-item:nth-child(odd) {
+  transform: translateY(22px) rotate(-.45deg);
+}
+
+.mag-page.ek-motion-ready #asagaya .mag-photo-item:nth-child(even) {
+  transform: translateY(22px) rotate(.4deg);
+}
+
+.mag-page.ek-motion-ready #asagaya .mag-photo-item.ek-in {
+  transform: translateY(0) rotate(0deg);
+}
+
+/* ABOUT: one physical-object moment, then stop. */
+.mag-page #about { perspective: 1300px; }
+.mag-page.ek-motion-ready #about .mag-mini-cover {
+  transform: translateY(30px) rotateY(-5deg) rotateZ(-1.2deg);
+  transform-origin: center center;
+  transition:
+    opacity 650ms var(--ek-delay, 0ms) ease,
+    transform 980ms var(--ek-delay, 0ms) var(--ek-ease);
+}
+
+.mag-page.ek-motion-ready #about .mag-mini-cover.ek-in {
+  transform: translateY(0) rotateY(-.7deg) rotateZ(-.2deg);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .mag-page #about .mag-mini-cover {
+    transition: transform 420ms var(--ek-ease);
+  }
+  .mag-page #about .mag-mini-cover:hover {
+    transform: rotateY(2deg) rotateZ(.15deg) translateY(-4px);
+  }
+}
+
+/* Footer: calm. It enters; the wordmark itself does not perform. */
+.mag-page.ek-motion-ready .mag-footer .mag-footer-wordmark {
+  transform: none !important;
+}
+
+/* Mobile: same language, less displacement and zero ornamental rotation. */
+@media (max-width: 899px) {
+  .mag-page.ek-motion-ready .ek-reveal {
+    transform: translateY(14px);
+  }
+
+  .mag-page.ek-motion-ready .ek-reveal.ek-in {
+    transform: translateY(0);
+  }
+
+  .mag-page.ek-motion-ready #bullfighting .mag-feature-image-primary,
+  .mag-page.ek-motion-ready #bullfighting .mag-feature-image-detail,
+  .mag-page.ek-motion-ready #asagaya .mag-photo-item:nth-child(odd),
+  .mag-page.ek-motion-ready #asagaya .mag-photo-item:nth-child(even) {
+    transform: translateY(16px) rotate(0deg);
+  }
+
+  .mag-page.ek-motion-ready #bullfighting .mag-feature-image-primary.ek-in,
+  .mag-page.ek-motion-ready #bullfighting .mag-feature-image-detail.ek-in,
+  .mag-page.ek-motion-ready #asagaya .mag-photo-item.ek-in {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  .mag-page #about { perspective: 900px; }
+  .mag-page.ek-motion-ready #about .mag-mini-cover {
+    transform: translateY(22px) rotateY(-3deg);
+  }
+  .mag-page.ek-motion-ready #about .mag-mini-cover.ek-in {
+    transform: translateY(0) rotateY(0deg);
+  }
+
+  .mag-page .mag-header-rail p:first-child,
+  .mag-page .mag-header-rail p:last-child {
+    animation-duration: 36s;
+  }
+}
+
+/* Accessibility and failure-safe: reduced motion becomes the static magazine immediately. */
+@media (prefers-reduced-motion: reduce) {
+  .mag-page *,
+  .mag-page *::before,
+  .mag-page *::after {
+    scroll-behavior: auto !important;
+  }
+
+  .mag-page .mag-header-rail p,
+  .mag-page #latest .mag-cover-media img,
+  .mag-page #latest .mag-cover-masthead,
+  .mag-page #latest .mag-cover-story,
+  .mag-page .ek-reveal,
+  .mag-page #cubism .cubism-intro-word,
+  .mag-page #about .mag-mini-cover {
+    animation: none !important;
+    clip-path: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
