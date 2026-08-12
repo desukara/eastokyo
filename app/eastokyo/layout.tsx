@@ -10,6 +10,7 @@ import "./eastokyo-final-qa.css";
 import "./eastokyo-mobile-image-repair.css";
 import "./eastokyo-mobile-emergency.css";
 import "../styles/asagaya-mobile-final.css";
+import "./eastokyo-asagaya-balance-panels.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.eastokyo.com"),
