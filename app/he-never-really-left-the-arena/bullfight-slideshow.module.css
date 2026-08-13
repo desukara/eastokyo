@@ -3,9 +3,9 @@
   padding: clamp(4rem, 9vw, 8rem) clamp(1rem, 4vw, 4rem);
   overflow: hidden;
   background:
-    radial-gradient(circle at 50% -12%, rgba(116, 39, 48, 0.34) 0%, rgba(116, 39, 48, 0.08) 34%, transparent 58%),
-    linear-gradient(180deg, #351217 0%, #260c11 48%, #17080b 100%);
-  color: #f3eadc;
+    radial-gradient(circle at 50% -14%, rgba(132, 22, 18, 0.34) 0%, rgba(92, 10, 8, 0.11) 36%, transparent 60%),
+    linear-gradient(180deg, #410909 0%, #2b0505 48%, #170202 100%);
+  color: #f4ead9;
 }
 
 .gallery::before {
@@ -14,9 +14,9 @@
   inset: 0;
   pointer-events: none;
   background:
-    radial-gradient(circle at 15% 30%, rgba(255, 255, 255, 0.025), transparent 28%),
-    radial-gradient(circle at 85% 72%, rgba(0, 0, 0, 0.16), transparent 34%);
-  opacity: 0.75;
+    radial-gradient(circle at 16% 28%, rgba(204, 101, 70, 0.05), transparent 29%),
+    radial-gradient(circle at 84% 74%, rgba(0, 0, 0, 0.2), transparent 36%);
+  opacity: 0.82;
 }
 
 .headingRow,
@@ -34,14 +34,11 @@
   max-width: 1320px;
   margin: 0 auto;
   font-family: var(--font-bienvivos-sans), sans-serif;
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
 .headingRow {
-  margin-bottom: 1.15rem;
+  margin-bottom: 1.2rem;
 }
 
 .eyebrow,
@@ -50,11 +47,34 @@
 }
 
 .eyebrow {
-  color: #f6eddf;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  color: #f6ead6;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(0.9rem, 1vw, 1.05rem);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0.095em;
+  text-shadow: 0 1px 18px rgba(255, 224, 194, 0.08);
+}
+
+.eyebrow::before {
+  content: "";
+  display: block;
+  width: 2.3rem;
+  height: 1px;
+  flex: 0 0 auto;
+  background: #bd9662;
+  box-shadow: 0 0 10px rgba(189, 150, 98, 0.15);
 }
 
 .hint {
-  opacity: 0.4;
+  color: #d8c4aa;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.19em;
+  opacity: 0.48;
   text-align: right;
 }
 
@@ -66,7 +86,7 @@
 }
 
 .viewer:focus-visible {
-  outline: 1px solid rgba(243, 234, 220, 0.52);
+  outline: 1px solid rgba(244, 234, 217, 0.48);
   outline-offset: 8px;
 }
 
@@ -75,7 +95,7 @@
   display: grid;
   grid-template-columns: 4.15rem minmax(0, 1fr) 4.15rem;
   align-items: center;
-  gap: clamp(0.8rem, 1.7vw, 1.5rem);
+  gap: clamp(0.7rem, 1.5vw, 1.35rem);
   width: 100%;
   background: transparent;
 }
@@ -86,12 +106,10 @@
   height: min(74vh, 840px);
   min-height: 520px;
   overflow: hidden;
-  border: 1px solid rgba(243, 234, 220, 0.09);
-  border-radius: 0.35rem;
-  background: rgba(12, 5, 7, 0.16);
-  box-shadow:
-    0 24px 56px rgba(6, 2, 3, 0.28),
-    inset 0 0 48px rgba(0, 0, 0, 0.08);
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
 }
 
 .artwork {
@@ -108,6 +126,7 @@
   will-change: opacity;
   backface-visibility: hidden;
   transform: translateZ(0);
+  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.2));
 }
 
 .artworkVisible {
@@ -119,26 +138,26 @@
   position: static;
   z-index: 2;
   display: grid;
-  width: 3.15rem;
-  height: 3.15rem;
+  width: 3.05rem;
+  height: 3.05rem;
   place-items: center;
   justify-self: center;
-  border: 1px solid rgba(243, 234, 220, 0.27);
+  border: 1px solid rgba(200, 164, 108, 0.42);
   border-radius: 999px;
-  background: rgba(243, 234, 220, 0.045);
-  color: #f3eadc;
+  background: rgba(19, 2, 2, 0.34);
+  color: #f3e6d1;
   font: inherit;
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   cursor: pointer;
   transition: background 150ms ease, border-color 150ms ease, transform 150ms ease, color 150ms ease;
 }
 
 .arrow:hover,
 .arrow:focus-visible {
-  background: rgba(243, 234, 220, 0.1);
-  border-color: rgba(243, 234, 220, 0.78);
-  color: #fff8ed;
-  transform: scale(1.035);
+  background: rgba(88, 10, 8, 0.7);
+  border-color: rgba(219, 184, 128, 0.82);
+  color: #fff2df;
+  transform: scale(1.04);
 }
 
 .mobileControls {
@@ -146,15 +165,26 @@
 }
 
 .captionRow {
-  margin-top: 0.85rem;
-  padding-top: 0.85rem;
-  border-top: 1px solid rgba(243, 234, 220, 0.13);
-  color: rgba(243, 234, 220, 0.82);
+  margin-top: 0.75rem;
+  padding-top: 0.1rem;
+  border: 0;
+  color: rgba(233, 216, 191, 0.74);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.17em;
+}
+
+.captionRow > span:first-child {
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0.105em;
 }
 
 .counter {
-  color: #f6eddf;
+  color: #e7cfa9;
   font-variant-numeric: tabular-nums;
+  letter-spacing: 0.2em;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -168,13 +198,23 @@
   .gallery {
     padding: 2.75rem 0.75rem 3.25rem;
     background:
-      radial-gradient(circle at 50% -8%, rgba(113, 36, 46, 0.28) 0%, rgba(113, 36, 46, 0.05) 38%, transparent 58%),
-      linear-gradient(180deg, #301015 0%, #220b0f 52%, #16070a 100%);
+      radial-gradient(circle at 50% -10%, rgba(134, 22, 17, 0.31) 0%, rgba(94, 9, 7, 0.08) 40%, transparent 61%),
+      linear-gradient(180deg, #3d0808 0%, #280404 53%, #150202 100%);
   }
 
   .headingRow {
     padding: 0 0.15rem;
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.9rem;
+  }
+
+  .eyebrow {
+    gap: 0.55rem;
+    font-size: 0.82rem;
+    letter-spacing: 0.075em;
+  }
+
+  .eyebrow::before {
+    width: 1.6rem;
   }
 
   .hint {
@@ -190,18 +230,17 @@
     width: 100%;
     height: calc(66svh - 4.35rem);
     min-height: 360px;
-    border-color: rgba(243, 234, 220, 0.085);
-    border-radius: 0.3rem;
-    background: rgba(12, 5, 7, 0.13);
-    box-shadow:
-      0 16px 34px rgba(5, 2, 3, 0.24),
-      inset 0 0 32px rgba(0, 0, 0, 0.06);
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
   }
 
   .artwork {
     width: 100%;
     height: 100%;
     object-fit: contain;
+    filter: drop-shadow(0 14px 22px rgba(0, 0, 0, 0.18));
   }
 
   .arrow {
@@ -220,13 +259,13 @@
     gap: 0.5rem;
     height: 3.35rem;
     padding: 0 0.75rem;
-    border-top: 1px solid rgba(243, 234, 220, 0.12);
-    background: rgba(17, 6, 9, 0.42);
-    color: #f3eadc;
+    border: 0;
+    background: rgba(18, 2, 2, 0.28);
+    color: #f2e4cf;
     font-family: var(--font-bienvivos-sans), sans-serif;
-    font-size: 0.64rem;
+    font-size: 0.61rem;
     font-weight: 700;
-    letter-spacing: 0.07em;
+    letter-spacing: 0.11em;
     text-transform: uppercase;
   }
 
@@ -251,7 +290,12 @@
 
   .mobileCount {
     white-space: nowrap;
-    color: #f6eddf;
+    color: #dfbf8c;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 0.72rem;
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: 0.14em;
     font-variant-numeric: tabular-nums;
   }
 
