@@ -47,9 +47,9 @@ export default function ExhibitionStoryPage() {
 
       <figure style={{ margin: 0, padding: "clamp(50px,7vw,90px) 0 0" }}>
         <picture style={{ display: "block", width: "min(88vw, 1440px)", margin: "0 auto" }}>
-          <source media="(max-width: 700px)" srcSet="/images/editorial/picasso-paying-attention-mobile.jpg" />
+          <source media="(max-width: 700px)" srcSet="/images/editorial/picasso-overview-headphones-mobile.png" />
           <img
-            src="/images/editorial/picasso-paying-attention-desktop.png"
+            src="/images/editorial/picasso-overview-headphones-desktop.png"
             alt="A visitor wearing headphones studies the exhibition installation"
             loading="lazy"
             style={{ display: "block", width: "100%", height: "auto" }}
