@@ -4,29 +4,55 @@
   color: #111;
 }
 
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
-  padding: 1.1rem clamp(1.25rem, 4vw, 4rem);
+.articleHeader {
+  background: #f3efe6;
   border-bottom: 1px solid rgba(17, 17, 17, 0.35);
   font-family: var(--font-bienvivos-sans), sans-serif;
-  font-size: 0.72rem;
+  text-transform: uppercase;
+}
+
+.headerRail {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 0.5rem clamp(1.25rem, 4vw, 4rem);
+  border-bottom: 1px solid rgba(17, 17, 17, 0.18);
+  font-size: 0.58rem;
   font-weight: 700;
   letter-spacing: 0.13em;
-  text-transform: uppercase;
+}
+
+.headerMain {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 0.65rem clamp(1.25rem, 4vw, 4rem) 0.75rem;
 }
 
 .brand {
   color: inherit;
   text-decoration: none;
-  font-size: clamp(1rem, 1.8vw, 1.35rem);
-  letter-spacing: -0.03em;
+  font-family: var(--font-bienvivos-sans), sans-serif;
+  font-size: clamp(2rem, 4.5vw, 4.25rem);
+  font-weight: 800;
+  line-height: 0.82;
+  letter-spacing: -0.07em;
 }
 
-.issue {
-  text-align: right;
+.headerNav {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 3vw, 3rem);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.headerNav a {
+  color: inherit;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
 }
 
 .hero {
@@ -244,6 +270,45 @@
   margin-top: 1.45em;
 }
 
+.pullQuote {
+  position: relative;
+  width: min(86vw, 1320px);
+  margin: clamp(1rem, 2vw, 2rem) auto;
+  padding: clamp(2.5rem, 5vw, 5rem) clamp(1.5rem, 5vw, 5rem);
+  border-top: 1px solid rgba(17, 17, 17, 0.38);
+  border-bottom: 1px solid rgba(17, 17, 17, 0.38);
+}
+
+.pullQuote p {
+  max-width: 13ch;
+  margin: 0;
+  font-family: var(--font-bienvivos-display), serif;
+  font-size: clamp(2.9rem, 7vw, 7rem);
+  font-weight: 600;
+  line-height: 0.88;
+  letter-spacing: -0.045em;
+}
+
+.pullQuoteMark {
+  position: absolute;
+  top: clamp(1.5rem, 3vw, 3rem);
+  right: clamp(1.5rem, 4vw, 4rem);
+  color: #8d1d18;
+  font-family: var(--font-bienvivos-display), serif;
+  font-size: clamp(5rem, 12vw, 12rem);
+  line-height: 0.7;
+}
+
+.pullQuoteCredit {
+  display: block;
+  margin-top: 1.5rem;
+  font-family: var(--font-bienvivos-sans), sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
 .slideshowBridge {
   padding-top: clamp(0.5rem, 1vw, 1rem);
   padding-bottom: clamp(0.5rem, 1.5vw, 1.5rem);
@@ -258,10 +323,15 @@
   background: #d71910;
 }
 
+.bullHeadFigure picture,
 .bullHeadFigure img {
   width: 100%;
-  max-height: 92vh;
-  object-fit: cover;
+}
+
+.bullHeadFigure img {
+  height: auto;
+  max-height: none;
+  object-fit: contain;
 }
 
 .finalStoryBeat {
@@ -273,30 +343,104 @@
   max-width: 46rem;
 }
 
-.footer {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 1.25rem clamp(1.25rem, 4vw, 4rem) 2rem;
-  border-top: 1px solid rgba(17, 17, 17, 0.35);
+.magazineFooter {
+  padding: clamp(2rem, 4vw, 4rem) clamp(1.25rem, 4vw, 4rem) 1.25rem;
+  background: #111;
+  color: #f3efe6;
   font-family: var(--font-bienvivos-sans), sans-serif;
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
-.footer a {
+.footerTop {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(15rem, 0.7fr);
+  gap: clamp(2rem, 8vw, 8rem);
+  align-items: end;
+  padding-bottom: clamp(2rem, 4vw, 4rem);
+  border-bottom: 1px solid rgba(243, 239, 230, 0.32);
+}
+
+.footerKicker,
+.footerNote {
+  margin: 0;
+  font-size: 0.67rem;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0.13em;
+}
+
+.footerTop h2 {
+  margin: 0.35rem 0 0;
+  font-family: var(--font-bienvivos-display), serif;
+  font-size: clamp(3rem, 8vw, 8rem);
+  line-height: 0.82;
+  letter-spacing: -0.05em;
+}
+
+.footerNote {
+  max-width: 34rem;
+}
+
+.footerLinks {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(243, 239, 230, 0.32);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.footerLinks a {
   color: inherit;
+  text-underline-offset: 0.2em;
+}
+
+.footerWordmark {
+  display: block;
+  margin-top: clamp(2rem, 5vw, 5rem);
+  color: inherit;
+  font-size: clamp(4.5rem, 15.5vw, 15rem);
+  font-weight: 800;
+  line-height: 0.72;
+  letter-spacing: -0.085em;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.footerBottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  padding-top: clamp(2rem, 4vw, 4rem);
+  font-size: 0.58rem;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0.12em;
 }
 
 @media (max-width: 700px) {
-  .header {
-    align-items: flex-start;
+  .headerRail {
+    display: none;
   }
 
-  .issue {
-    max-width: 12rem;
+  .headerMain {
+    align-items: center;
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
+  }
+
+  .brand {
+    font-size: 1.65rem;
+  }
+
+  .headerNav span {
+    display: none;
+  }
+
+  .headerNav {
+    font-size: 0.62rem;
   }
 
   .hero,
@@ -392,6 +536,23 @@
     margin-top: 1.25em;
   }
 
+  .pullQuote {
+    width: auto;
+    margin: 0 1.25rem;
+    padding: 2.25rem 0;
+  }
+
+  .pullQuote p {
+    max-width: 10ch;
+    font-size: clamp(2.8rem, 13vw, 4.6rem);
+  }
+
+  .pullQuoteMark {
+    top: 1.5rem;
+    right: 0;
+    font-size: 5.5rem;
+  }
+
   .bullHeadFigure img {
     max-height: none;
     object-fit: contain;
@@ -402,7 +563,37 @@
     margin: 0 1.25rem;
   }
 
-  .footer {
+  .magazineFooter {
+    padding-top: 2.25rem;
+  }
+
+  .footerTop {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .footerTop h2 {
+    font-size: clamp(3.6rem, 18vw, 6rem);
+  }
+
+  .footerLinks,
+  .footerBottom {
     flex-direction: column;
+  }
+
+  .footerLinks {
+    gap: 0.75rem;
+  }
+
+  .footerWordmark {
+    margin-top: 3.5rem;
+    font-size: clamp(4.2rem, 22vw, 7.5rem);
+    line-height: 0.8;
+    white-space: normal;
+  }
+
+  .footerBottom {
+    gap: 0.65rem;
+    padding-top: 2.5rem;
   }
 }
