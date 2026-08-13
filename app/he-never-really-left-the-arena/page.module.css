@@ -345,84 +345,25 @@
 
 .finalStoryBeat {
   width: min(82vw, 1140px);
-  padding: clamp(4rem, 6vw, 6rem) 0 clamp(4rem, 6vw, 6rem);
+  padding: clamp(4rem, 6vw, 6rem) 0 clamp(3.5rem, 5vw, 5rem);
 }
 
 .finalStoryBeat .storyBeatCopy { max-width: 46rem; }
 
-.magazineFooter {
-  padding: clamp(2rem, 4vw, 4rem) clamp(1.25rem, 4vw, 4rem) 1.25rem;
-  background: #111;
-  color: #f3efe6;
-  font-family: var(--font-bienvivos-sans), sans-serif;
-  text-transform: uppercase;
-}
-
-.footerTop {
-  display: grid;
-  grid-template-columns: minmax(0, 1.3fr) minmax(15rem, 0.7fr);
-  gap: clamp(2rem, 8vw, 8rem);
-  align-items: end;
-  padding-bottom: clamp(2rem, 4vw, 4rem);
-  border-bottom: 1px solid rgba(243, 239, 230, 0.32);
-}
-
-.footerKicker,
-.footerNote {
-  margin: 0;
-  font-size: 0.67rem;
-  font-weight: 700;
-  line-height: 1.5;
-  letter-spacing: 0.13em;
-}
-
-.footerTop h2 {
-  margin: 0.35rem 0 0;
-  font-family: var(--font-bienvivos-display), serif;
-  font-size: clamp(3rem, 8vw, 8rem);
-  line-height: 0.82;
-  letter-spacing: -0.05em;
-}
-
-.footerNote { max-width: 34rem; }
-
-.footerLinks {
+.endMark {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   gap: 1.5rem;
-  padding: 1rem 0;
-  border-bottom: 1px solid rgba(243, 239, 230, 0.32);
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-}
-
-.footerLinks a {
-  color: inherit;
-  text-underline-offset: 0.2em;
-}
-
-.footerWordmark {
-  display: block;
-  margin-top: clamp(2rem, 5vw, 5rem);
-  color: inherit;
-  font-size: clamp(4.5rem, 15.5vw, 15rem);
-  font-weight: 800;
-  line-height: 0.72;
-  letter-spacing: -0.085em;
-  text-decoration: none;
-  white-space: nowrap;
-}
-
-.footerBottom {
-  display: flex;
-  justify-content: space-between;
-  gap: 2rem;
-  padding-top: clamp(2rem, 4vw, 4rem);
+  margin: 0 clamp(1.25rem, 8vw, 8rem);
+  padding: 1rem 0 clamp(2.5rem, 4vw, 4rem);
+  border-top: 1px solid rgba(17, 17, 17, 0.28);
+  color: #8d1d18;
+  font-family: var(--font-bienvivos-sans), sans-serif;
   font-size: 0.58rem;
   font-weight: 700;
-  line-height: 1.5;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
 }
 
 @media (max-width: 700px) {
@@ -553,28 +494,14 @@
   }
 
   .finalStoryBeat {
-    padding: 4rem 0 4.5rem;
+    padding: 4rem 0 3.75rem;
     margin: 0 1.25rem;
   }
 
-  .magazineFooter { padding-top: 2.25rem; }
-  .footerTop { grid-template-columns: 1fr; gap: 1.5rem; }
-  .footerTop h2 { font-size: clamp(3.6rem, 18vw, 6rem); }
-
-  .footerLinks,
-  .footerBottom { flex-direction: column; }
-
-  .footerLinks { gap: 0.75rem; }
-
-  .footerWordmark {
-    margin-top: 3.5rem;
-    font-size: clamp(4.2rem, 22vw, 7.5rem);
-    line-height: 0.8;
-    white-space: normal;
-  }
-
-  .footerBottom {
-    gap: 0.65rem;
-    padding-top: 2.5rem;
+  .endMark {
+    margin: 0 1.25rem;
+    padding-bottom: 2.5rem;
+    font-size: 0.54rem;
+    letter-spacing: 0.13em;
   }
 }
