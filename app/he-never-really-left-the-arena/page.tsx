@@ -50,6 +50,45 @@ export default function CoverStoryPage() {
         </div>
       </section>
 
+      <section className={styles.visualSequence} aria-label="Picasso bullfight exhibition">
+        <figure className={`${styles.visualFigure} ${styles.hallwayFigure}`}>
+          <picture>
+            <source media="(max-width: 640px)" srcSet="/images/editorial/picasso-red-room-mobile.png" />
+            <img src="/images/editorial/picasso-red-room-desktop.png" alt="Red exhibition hallway displaying Picasso works" />
+          </picture>
+        </figure>
+
+        <figure className={`${styles.visualFigure} ${styles.viewerFigure}`}>
+          <picture>
+            <source media="(max-width: 640px)" srcSet="/images/editorial/picasso-bull-viewer-mobile.png" />
+            <img src="/images/editorial/picasso-bull-viewer-desktop.png" alt="A man looking closely at Picasso bullfight art" />
+          </picture>
+        </figure>
+
+        <div className={styles.bullfightPair}>
+          <figure className={styles.visualFigure}>
+            <picture>
+              <source media="(max-width: 640px)" srcSet="/images/editorial/bullfight-feature-mobile.png" />
+              <img src="/images/editorial/bullfight-feature-desktop.png" alt="Picasso bullfight exhibition image" />
+            </picture>
+          </figure>
+
+          <figure className={styles.visualFigure}>
+            <picture>
+              <source media="(max-width: 640px)" srcSet="/images/editorial/bullfight-detail-mobile.png" />
+              <img src="/images/editorial/bullfight-detail-desktop.png" alt="Detail from the Picasso bullfight exhibition" />
+            </picture>
+          </figure>
+        </div>
+
+        <figure className={`${styles.visualFigure} ${styles.galleryFigure}`}>
+          <picture>
+            <source media="(max-width: 640px)" srcSet="/images/editorial/picasso-bull-gallery-mobile.png" />
+            <img src="/images/editorial/picasso-bull-gallery-desktop.png" alt="Visitors looking at a group of Picasso bullfight works" />
+          </picture>
+        </figure>
+      </section>
+
       <BullfightSlideshow />
 
       <footer className={styles.footer}>
