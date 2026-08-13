@@ -4,6 +4,7 @@ import { ArticleFooter, ArticleHeader } from "./ArticleChrome";
 import EditorialReveal from "./EditorialReveal";
 import styles from "./page.module.css";
 import signature from "./signature.module.css";
+import heroPolish from "./hero-polish.module.css";
 
 export const metadata: Metadata = {
   title: "He Kept Walking Back In.",
@@ -26,10 +27,10 @@ export default function CoverStoryPage() {
           <source media="(max-width: 640px)" srcSet="/images/editorial/picasso-bullfight-01-mobile.png" />
           <img className={styles.heroImage} src="/images/editorial/picasso-bullfight-01-desktop.png" alt="Picasso bullfight artwork" />
         </picture>
-        <div className={styles.heroShade} aria-hidden="true" />
+        <div className={`${styles.heroShade} ${heroPolish.shade}`} aria-hidden="true" />
         <div className={styles.heroCopy}>
-          <p className={styles.kicker}>PICASSO AND THE ARENA HE NEVER LEFT.</p>
-          <h1 className={styles.title}>HE KEPT WALKING BACK IN.</h1>
+          <p className={`${styles.kicker} ${heroPolish.kicker}`}>PICASSO AND THE ARENA HE NEVER LEFT.</p>
+          <h1 className={`${styles.title} ${heroPolish.title}`}>HE KEPT WALKING BACK IN.</h1>
         </div>
       </section>
 
