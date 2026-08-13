@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import BullfightSlideshow from "./BullfightSlideshow";
+import { ArticleFooter, ArticleHeader } from "./ArticleChrome";
 import styles from "./page.module.css";
+import signature from "./signature.module.css";
 
 export const metadata: Metadata = {
   title: "He Kept Walking Back In.",
@@ -16,20 +17,8 @@ export const metadata: Metadata = {
 
 export default function CoverStoryPage() {
   return (
-    <main className={styles.page}>
-      <header className={styles.articleHeader}>
-        <div className={styles.headerRail}>
-          <span>ART, PASSION, AND A LITTLE BIT OF TROUBLE. TOKYO.</span>
-          <span>NUMBER ONE · SEPTEMBER 2026</span>
-        </div>
-        <div className={styles.headerMain}>
-          <Link className={styles.brand} href="/" aria-label="EASTOKYO home">EASTOKYO</Link>
-          <nav className={styles.headerNav} aria-label="Story navigation">
-            <span>01 · COVER STORY</span>
-            <Link href="/">ISSUE ONE</Link>
-          </nav>
-        </div>
-      </header>
+    <main className={styles.page} id="top">
+      <ArticleHeader />
 
       <section className={styles.hero}>
         <picture>
@@ -69,7 +58,8 @@ export default function CoverStoryPage() {
           </picture>
         </figure>
 
-        <section className={`${styles.storyBeat} ${styles.storyBeatRight}`}>
+        <section className={`${styles.storyBeat} ${styles.storyBeatRight} ${signature.numbered}`}>
+          <span className={signature.sectionNumber} aria-hidden="true">01</span>
           <p className={styles.storyBeatLabel}>LOOKING CLOSELY</p>
           <div className={styles.storyBeatCopy}>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus finibus felis vitae massa aliquet, sed viverra turpis vulputate. Cras mattis sem sed nibh commodo, a interdum mauris hendrerit. Nam auctor velit vel nunc aliquet, at feugiat nisi posuere. Suspendisse euismod, est sed tincidunt varius, neque augue volutpat ligula, vitae luctus lorem risus id erat.</p>
@@ -84,7 +74,8 @@ export default function CoverStoryPage() {
           </picture>
         </figure>
 
-        <section className={styles.storyBeat}>
+        <section className={`${styles.storyBeat} ${signature.numbered}`}>
+          <span className={signature.sectionNumber} aria-hidden="true">02</span>
           <p className={styles.storyBeatLabel}>THE ARENA</p>
           <div className={styles.storyBeatCopy}>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae tortor sit amet erat hendrerit luctus. Sed dignissim urna quis justo tincidunt, et vulputate mi elementum. Nullam tempor, felis sed malesuada tincidunt, lacus nibh tincidunt purus, sed porttitor velit nibh non magna. Duis sed ipsum ut turpis varius efficitur vel et risus.</p>
@@ -106,7 +97,6 @@ export default function CoverStoryPage() {
               <img src="/images/editorial/bullfight-feature-desktop.png" alt="Picasso bullfight exhibition image" />
             </picture>
           </figure>
-
           <figure className={styles.visualFigure}>
             <picture>
               <source media="(max-width: 640px)" srcSet="/images/editorial/bullfight-detail-mobile.png" />
@@ -115,7 +105,8 @@ export default function CoverStoryPage() {
           </figure>
         </div>
 
-        <section className={`${styles.storyBeat} ${styles.storyBeatRight}`}>
+        <section className={`${styles.storyBeat} ${styles.storyBeatRight} ${signature.numbered}`}>
+          <span className={signature.sectionNumber} aria-hidden="true">03</span>
           <p className={styles.storyBeatLabel}>WHAT SURVIVES</p>
           <div className={styles.storyBeatCopy}>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean a arcu vitae nisl porta varius. Etiam rhoncus, mauris ut interdum faucibus, neque nulla eleifend nulla, ut cursus orci nisl non risus. Pellentesque vel nibh at purus pretium dictum. Vivamus faucibus nisl ut orci malesuada, eget facilisis enim luctus.</p>
@@ -130,7 +121,8 @@ export default function CoverStoryPage() {
           </picture>
         </figure>
 
-        <section className={`${styles.storyBeat} ${styles.slideshowBridge}`}>
+        <section className={`${styles.storyBeat} ${styles.slideshowBridge} ${signature.numbered}`}>
+          <span className={signature.sectionNumber} aria-hidden="true">04</span>
           <p className={styles.storyBeatLabel}>AGAIN AND AGAIN</p>
           <div className={styles.storyBeatCopy}>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum venenatis, neque sed viverra pretium, nibh tortor dignissim risus, non fermentum tortor mauris eget orci. In hac habitasse platea dictumst. Cras lacinia erat at erat suscipit, non bibendum sapien aliquet.</p>
@@ -149,7 +141,8 @@ export default function CoverStoryPage() {
           </picture>
         </figure>
 
-        <section className={`${styles.storyBeat} ${styles.finalStoryBeat}`}>
+        <section className={`${styles.storyBeat} ${styles.finalStoryBeat} ${signature.numbered}`}>
+          <span className={signature.sectionNumber} aria-hidden="true">05</span>
           <p className={styles.storyBeatLabel}>THE BULL REMAINS</p>
           <div className={styles.storyBeatCopy}>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ultrices metus at arcu porta, at convallis libero tristique. Sed commodo justo a dolor tristique, at viverra lectus dictum. Proin non purus in sem consequat feugiat. Nam ac nisi vestibulum, placerat turpis sed, efficitur justo.</p>
@@ -159,25 +152,7 @@ export default function CoverStoryPage() {
         </section>
       </section>
 
-      <footer className={styles.magazineFooter}>
-        <div className={styles.footerTop}>
-          <div>
-            <p className={styles.footerKicker}>EASTOKYO · NUMBER ONE · COVER STORY</p>
-            <h2>LOOK TWICE.</h2>
-          </div>
-          <p className={styles.footerNote}>ART FROM TOKYO, AND FROM EVERY OTHER PLACE MY HEART DECIDES TO WANDER.</p>
-        </div>
-        <div className={styles.footerLinks}>
-          <Link href="/">BACK TO ISSUE ONE</Link>
-          <span>SEPTEMBER 2026</span>
-          <span>TOKYO, JAPAN</span>
-        </div>
-        <Link className={styles.footerWordmark} href="/" aria-label="EASTOKYO home">EASTOKYO</Link>
-        <div className={styles.footerBottom}>
-          <span>© 2026 EASTOKYO</span>
-          <span>BORN IN TOKYO. RAISED WITH A LITTLE FIRE IN THE CHEST.</span>
-        </div>
-      </footer>
+      <ArticleFooter />
     </main>
   );
 }
