@@ -3,12 +3,28 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import styles from "./bullfight-slideshow.module.css";
 
-const slides = Array.from({ length: 12 }, (_, index) => {
+const artworkMeta = [
+  { title: "Alaceando a un toro", year: "1957", detail: "Sugar-lift aquatint" },
+  { title: "Citando al toro con el rejón", year: "1957", detail: "Sugar-lift aquatint" },
+  { title: "El torero sale en hombros de los aficionados", year: "1957", detail: "Sugar-lift aquatint" },
+  { title: "El arrastre", year: "1957", detail: "Sugar-lift aquatint" },
+  { title: "Muerte del toro", year: "1957", detail: "Sugar-lift aquatint" },
+  { title: "La Tauromaquia", year: "1957", detail: "From La Tauromaquia" },
+  { title: "Suerte de varas", year: "1957", detail: "Sugar-lift aquatint" },
+  { title: "Salto con la garrocha", year: "1957", detail: "Sugar-lift aquatint" },
+  { title: "La Tauromaquia o arte de torear", year: "1959", detail: "Illustrated book / publication" },
+  { title: "Suerte llamada de don Tancredo", year: "1957", detail: "Sugar-lift aquatint" },
+  { title: "A los toros", year: "1957", detail: "Sugar-lift aquatint" },
+  { title: "Toros en el campo", year: "1957", detail: "Sugar-lift aquatint" },
+];
+
+const slides = artworkMeta.map((artwork, index) => {
   const number = String(index + 1).padStart(2, "0");
   return {
+    ...artwork,
     number,
     desktop: `/images/editorial/picasso-bullfight-series-${number}-desktop.png`,
-    alt: `Picasso bullfight series, image ${index + 1} of 12`,
+    alt: `${artwork.title}, Pablo Picasso, ${artwork.year}`,
   };
 });
 
@@ -106,9 +122,12 @@ export default function BullfightSlideshow() {
   const slide = slides[active];
 
   return (
-    <section className={styles.gallery} aria-label="Picasso bullfight series">
+    <section className={styles.gallery} aria-label="Picasso La Tauromaquia works">
       <div className={styles.headingRow}>
-        <p className={styles.eyebrow}>THE BULLRING, AGAIN AND AGAIN</p>
+        <div className={styles.headingCopy}>
+          <p className={styles.collectionLabel}>LA TAUROMAQUIA · 1957–1959</p>
+          <p className={styles.eyebrow}>THE BULLRING, AGAIN AND AGAIN</p>
+        </div>
         <p className={styles.hint}>ARROWS · KEYS · SWIPE</p>
       </div>
 
@@ -149,9 +168,17 @@ export default function BullfightSlideshow() {
           </div>
         </div>
 
-        <div className={styles.captionRow}>
-          <span>PICASSO · BULLFIGHT SERIES</span>
-          <span className={styles.counter} aria-live="polite">{slide.number} / {slides.length}</span>
+        <div className={styles.mobileCaption} aria-live="polite">
+          <span className={styles.mobileTitle}>{slide.title}</span>
+          <span>PICASSO · {slide.year}</span>
+        </div>
+
+        <div className={styles.captionRow} aria-live="polite">
+          <div className={styles.artworkMeta}>
+            <span className={styles.artworkTitle}>{slide.title}</span>
+            <span className={styles.artworkDetails}>PABLO PICASSO · {slide.year} · {slide.detail}</span>
+          </div>
+          <span className={styles.counter}>{slide.number} / {slides.length}</span>
         </div>
       </div>
     </section>
