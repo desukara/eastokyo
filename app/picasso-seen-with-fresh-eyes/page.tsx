@@ -20,25 +20,45 @@ export default function ExhibitionStoryPage() {
         <div style={{ fontSize: ".72rem", fontWeight: 800, letterSpacing: ".12em" }}>ISSUE 01 · EXHIBITION · 02</div>
       </header>
 
-      <section aria-labelledby="story-title" style={{ display: "grid", gridTemplateColumns: "minmax(0,1.5fr) minmax(300px,1fr)", minHeight: "78vh", borderBottom: "2px solid #111" }}>
-        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "30px", background: "#e2cf48", borderRight: "2px solid #111", textAlign: "center" }}>
-          <span style={{ fontSize: "clamp(2rem,5vw,5rem)", fontWeight: 900, letterSpacing: "-0.05em" }}>HERO IMAGE RESERVED</span>
-          <small style={{ fontWeight: 700, textTransform: "uppercase" }}>Picasso, through the Eyes of Paul Smith · entrance wall</small>
-        </div>
-        <div style={{ display: "flex", flexDirection: "column", justifyContent: "flex-end", padding: "clamp(28px,5vw,72px)" }}>
-          <p style={{ fontSize: ".72rem", fontWeight: 900, letterSpacing: ".12em", textTransform: "uppercase" }}>EXHIBITION · THE NATIONAL ART CENTER, TOKYO</p>
-          <h1 id="story-title" style={{ margin: 0, fontSize: "clamp(3rem,7vw,7rem)", lineHeight: .88, letterSpacing: "-0.07em" }}>PICASSO, LOOKED AT AGAIN.</h1>
-          <p style={{ fontSize: "clamp(1.2rem,2vw,2rem)", fontWeight: 700 }}>Paul Smith moves the walls around, and Picasso wakes back up in the room.</p>
+      <section aria-labelledby="story-title" style={{ position: "relative", minHeight: "min(82vh, 900px)", overflow: "hidden", background: "#111", borderBottom: "2px solid #111" }}>
+        <picture style={{ position: "absolute", inset: 0, display: "block", width: "100%", height: "100%" }}>
+          <source media="(max-width: 700px)" srcSet="/images/editorial/picasso-paul-smith-mobile.png" />
+          <img
+            src="/images/editorial/picasso-paul-smith-desktop.png"
+            alt="Entrance wall for Picasso, through the Eyes of Paul Smith at The National Art Center, Tokyo"
+            style={{ display: "block", width: "100%", height: "100%", objectFit: "cover" }}
+          />
+        </picture>
+        <div aria-hidden="true" style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(0,0,0,0.03) 32%, rgba(0,0,0,0.78) 100%)" }} />
+        <div style={{ position: "relative", zIndex: 1, display: "flex", minHeight: "min(82vh, 900px)", flexDirection: "column", justifyContent: "flex-end", padding: "clamp(28px,6vw,88px)", color: "#fff" }}>
+          <p style={{ margin: "0 0 14px", fontSize: ".72rem", fontWeight: 900, letterSpacing: ".12em", textTransform: "uppercase" }}>EXHIBITION · THE NATIONAL ART CENTER, TOKYO</p>
+          <h1 id="story-title" style={{ maxWidth: "11ch", margin: 0, fontFamily: "Georgia, Times New Roman, serif", fontSize: "clamp(3.6rem,9vw,9rem)", lineHeight: .82, letterSpacing: "-0.065em" }}>PICASSO, LOOKED AT AGAIN.</h1>
+          <p style={{ maxWidth: "34ch", margin: "22px 0 0", fontSize: "clamp(1.1rem,2vw,1.8rem)", fontWeight: 700, lineHeight: 1.2 }}>Paul Smith moves the walls around, and Picasso wakes back up in the room.</p>
         </div>
       </section>
 
-      <section style={{ display: "grid", gridTemplateColumns: "220px minmax(0,1fr)", gap: "60px", padding: "70px 8vw", borderBottom: "1px solid #111" }}>
+      <section style={{ display: "grid", gridTemplateColumns: "minmax(160px,220px) minmax(0,1fr)", gap: "clamp(30px,6vw,80px)", padding: "clamp(50px,7vw,90px) 8vw", borderBottom: "1px solid #111" }}>
         <div style={{ fontSize: ".75rem", lineHeight: 1.55, fontWeight: 900 }}>EASTOKYO<br />EXHIBITION<br />ISSUE 01<br /><br />BY JAMES SIMMONS (AKA JIMICHANGA)</div>
         <div style={{ maxWidth: "860px", fontFamily: "Georgia, Times New Roman, serif", fontSize: "clamp(1.5rem,2.7vw,3rem)", lineHeight: 1.18 }}>
           <p>This is the overview story for <em>Picasso, through the Eyes of Paul Smith</em>: the rooms, the color, the pacing, the people looking, and what happens when the exhibition design becomes part of the way you see Picasso.</p>
           <p style={{ fontFamily: "Arial, Helvetica, sans-serif", fontSize: ".7rem", fontWeight: 900, letterSpacing: ".14em" }}>DRAFT PAGE · NOT YET PUBLISHED</p>
         </div>
       </section>
+
+      <figure style={{ margin: 0, padding: "clamp(50px,7vw,90px) 0 0" }}>
+        <picture style={{ display: "block", width: "min(88vw, 1440px)", margin: "0 auto" }}>
+          <source media="(max-width: 700px)" srcSet="/images/editorial/picasso-paying-attention-mobile.png" />
+          <img
+            src="/images/editorial/picasso-paying-attention-desktop.png"
+            alt="A visitor wearing headphones studies the exhibition installation"
+            loading="lazy"
+            style={{ display: "block", width: "100%", height: "auto" }}
+          />
+        </picture>
+        <figcaption style={{ width: "min(88vw, 1440px)", margin: "10px auto 0", fontSize: ".58rem", fontWeight: 800, letterSpacing: ".12em", textTransform: "uppercase", opacity: .58 }}>
+          PICASSO, THROUGH THE EYES OF PAUL SMITH · THE NATIONAL ART CENTER, TOKYO · PHOTOGRAPHY BY JIMICHANGA
+        </figcaption>
+      </figure>
 
       <section style={{ padding: "80px 8vw", borderBottom: "1px solid #111" }}>
         <p style={{ fontSize: ".72rem", fontWeight: 900, letterSpacing: ".12em" }}>THE STORY</p>
@@ -50,9 +70,9 @@ export default function ExhibitionStoryPage() {
       <section style={{ padding: "80px 8vw", borderBottom: "1px solid #111" }}>
         <p style={{ fontSize: ".72rem", fontWeight: 900, letterSpacing: ".12em" }}>IMAGE PLAN · 5 IMAGES</p>
         <ol>
-          <li>Entrance / exhibition-title wall · HERO</li>
+          <li>Entrance / exhibition-title wall · HERO · ADDED</li>
+          <li>Visitor engaging with the exhibition · ADDED</li>
           <li>Wide room / installation view</li>
-          <li>Visitor engaging with the work</li>
           <li>Paul Smith color / stripe intervention</li>
           <li>Closing room / exit view</li>
         </ol>
