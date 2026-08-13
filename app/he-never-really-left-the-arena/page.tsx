@@ -149,6 +149,7 @@ export default function CoverStoryPage() {
         </EditorialReveal>
       </section>
 
+      <div className={styles.endMark} aria-label="End of cover story"><span>END</span><span>EASTOKYO Nº01</span></div>
       <ArticleFooter />
     </main>
   );
