@@ -93,12 +93,12 @@ export default function CoverStoryPage() {
 
         <div className={styles.bullfightPair}>
           <figure className={styles.visualFigure}>
-            <picture><source media="(max-width: 640px)" srcSet="/images/editorial/bullfight-feature-mobile.png" /><img src="/images/editorial/bullfight-feature-desktop.png" alt="Picasso bullfight exhibition image" /></picture>
-            <figcaption className={styles.imageCredit}>BULLFIGHT STUDY · IMAGE CREDIT TO BE CONFIRMED.</figcaption>
+            <picture><source media="(max-width: 640px)" srcSet="/images/editorial/bullfight-feature-mobile.png" /><img src="/images/editorial/bullfight-feature-desktop.png" alt="Corrida (Bullfight), Pablo Picasso, 1934" /></picture>
+            <figcaption className={styles.imageCredit}>CORRIDA (BULLFIGHT) · PABLO PICASSO · 1934</figcaption>
           </figure>
           <figure className={styles.visualFigure}>
-            <picture><source media="(max-width: 640px)" srcSet="/images/editorial/bullfight-detail-mobile.png" /><img src="/images/editorial/bullfight-detail-desktop.png" alt="Detail from the Picasso bullfight exhibition" /></picture>
-            <figcaption className={styles.imageCredit}>BULLFIGHT DETAIL · IMAGE CREDIT TO BE CONFIRMED.</figcaption>
+            <picture><source media="(max-width: 640px)" srcSet="/images/editorial/bullfight-detail-mobile.png" /><img src="/images/editorial/bullfight-detail-desktop.png" alt="Corrida: la mort du torero, Pablo Picasso, 1933" /></picture>
+            <figcaption className={styles.imageCredit}>CORRIDA: LA MORT DU TORERO · PABLO PICASSO · 1933</figcaption>
           </figure>
         </div>
 
@@ -134,8 +134,8 @@ export default function CoverStoryPage() {
 
       <section className={styles.finalAct}>
         <figure className={`${styles.visualFigure} ${styles.bullHeadFigure}`}>
-          <picture><source media="(max-width: 640px)" srcSet="/images/editorial/picasso-bull-head-mobile.png" /><img src="/images/editorial/picasso-bull-head-desktop.png" alt="Bull head sculpture against a vivid red background" /></picture>
-          <figcaption className={`${styles.imageCredit} ${styles.bullHeadCredit}`}>THE BULL REMAINS · IMAGE CREDIT TO BE CONFIRMED.</figcaption>
+          <picture><source media="(max-width: 640px)" srcSet="/images/editorial/picasso-bull-head-mobile.png" /><img src="/images/editorial/picasso-bull-head-desktop.png" alt="Tête de taureau (Bull's Head), Pablo Picasso, 1942" /></picture>
+          <figcaption className={`${styles.imageCredit} ${styles.bullHeadCredit}`}>TÊTE DE TAUREAU (BULL&apos;S HEAD) · PABLO PICASSO · 1942 · BICYCLE SADDLE AND HANDLEBARS</figcaption>
         </figure>
 
         <EditorialReveal>
