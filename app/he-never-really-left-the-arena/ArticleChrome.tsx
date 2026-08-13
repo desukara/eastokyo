@@ -32,7 +32,14 @@ export function ArticleHeader() {
     if (!menuOpen) return;
     const previous = document.body.style.overflow;
     document.body.style.overflow = "hidden";
-    return () => { document.body.style.overflow = previous; };
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setMenuOpen(false);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.body.style.overflow = previous;
+      window.removeEventListener("keydown", onKeyDown);
+    };
   }, [menuOpen]);
 
   return (
@@ -58,7 +65,7 @@ export function ArticleHeader() {
           </button>
         </div>
       </header>
-      <div id="story-menu" className={`${styles.mobileMenu} ${menuOpen ? styles.menuOpen : ""}`} aria-hidden={!menuOpen}>
+      <div id="story-menu" className={`${styles.mobileMenu} ${menuOpen ? styles.menuOpen : ""}`} role="dialog" aria-modal="true" aria-label="Issue menu" aria-hidden={!menuOpen}>
         <nav aria-label="Mobile issue navigation">
           {navItems.map((item, index) => (
             <Link key={item.label} href={item.href} onClick={() => setMenuOpen(false)} tabIndex={menuOpen ? 0 : -1}>
