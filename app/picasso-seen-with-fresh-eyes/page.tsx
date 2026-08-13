@@ -20,21 +20,21 @@ export default function ExhibitionStoryPage() {
         <div style={{ fontSize: ".72rem", fontWeight: 800, letterSpacing: ".12em" }}>ISSUE 01 · EXHIBITION · 02</div>
       </header>
 
-      <section aria-labelledby="story-title" style={{ position: "relative", minHeight: "min(82vh, 900px)", overflow: "hidden", background: "#111", borderBottom: "2px solid #111" }}>
-        <picture style={{ position: "absolute", inset: 0, display: "block", width: "100%", height: "100%" }}>
+      <section aria-label="Exhibition entrance" style={{ background: "#111", borderBottom: "2px solid #111" }}>
+        <picture style={{ display: "block", width: "100%" }}>
           <source media="(max-width: 700px)" srcSet="/images/editorial/picasso-paul-smith-mobile.png" />
           <img
             src="/images/editorial/picasso-paul-smith-desktop.png"
             alt="Entrance wall for Picasso, through the Eyes of Paul Smith at The National Art Center, Tokyo"
-            style={{ display: "block", width: "100%", height: "100%", objectFit: "cover" }}
+            style={{ display: "block", width: "100%", height: "auto" }}
           />
         </picture>
-        <div aria-hidden="true" style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(0,0,0,0.03) 32%, rgba(0,0,0,0.78) 100%)" }} />
-        <div style={{ position: "relative", zIndex: 1, display: "flex", minHeight: "min(82vh, 900px)", flexDirection: "column", justifyContent: "flex-end", padding: "clamp(28px,6vw,88px)", color: "#fff" }}>
-          <p style={{ margin: "0 0 14px", fontSize: ".72rem", fontWeight: 900, letterSpacing: ".12em", textTransform: "uppercase" }}>EXHIBITION · THE NATIONAL ART CENTER, TOKYO</p>
-          <h1 id="story-title" style={{ maxWidth: "11ch", margin: 0, fontFamily: "Georgia, Times New Roman, serif", fontSize: "clamp(3.6rem,9vw,9rem)", lineHeight: .82, letterSpacing: "-0.065em" }}>PICASSO, LOOKED AT AGAIN.</h1>
-          <p style={{ maxWidth: "34ch", margin: "22px 0 0", fontSize: "clamp(1.1rem,2vw,1.8rem)", fontWeight: 700, lineHeight: 1.2 }}>Paul Smith moves the walls around, and Picasso wakes back up in the room.</p>
-        </div>
+      </section>
+
+      <section aria-labelledby="story-title" style={{ padding: "clamp(44px,7vw,96px) 8vw clamp(48px,7vw,96px)", borderBottom: "1px solid #111" }}>
+        <p style={{ margin: "0 0 18px", fontSize: ".72rem", fontWeight: 900, letterSpacing: ".12em", textTransform: "uppercase" }}>EXHIBITION · THE NATIONAL ART CENTER, TOKYO</p>
+        <h1 id="story-title" style={{ maxWidth: "11ch", margin: 0, fontFamily: "Georgia, Times New Roman, serif", fontSize: "clamp(3.8rem,9vw,9rem)", lineHeight: .82, letterSpacing: "-0.065em" }}>PICASSO, LOOKED AT AGAIN.</h1>
+        <p style={{ maxWidth: "36ch", margin: "26px 0 0", fontFamily: "Georgia, Times New Roman, serif", fontSize: "clamp(1.25rem,2.3vw,2.2rem)", lineHeight: 1.18 }}>Paul Smith moves the walls around, and Picasso wakes back up in the room.</p>
       </section>
 
       <section style={{ display: "grid", gridTemplateColumns: "minmax(160px,220px) minmax(0,1fr)", gap: "clamp(30px,6vw,80px)", padding: "clamp(50px,7vw,90px) 8vw", borderBottom: "1px solid #111" }}>
