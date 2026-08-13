@@ -1,0 +1,72 @@
+.numbered {
+  position: relative;
+}
+
+.sectionNumber {
+  position: absolute;
+  top: -0.42em;
+  left: -0.04em;
+  z-index: 0;
+  color: rgba(183, 144, 84, 0.18);
+  font-family: var(--font-bienvivos-display), serif;
+  font-size: clamp(7rem, 16vw, 16rem);
+  font-weight: 600;
+  line-height: 0.7;
+  letter-spacing: -0.08em;
+  pointer-events: none;
+  user-select: none;
+}
+
+.numbered > *:not(.sectionNumber) {
+  position: relative;
+  z-index: 1;
+}
+
+.oxbloodBand {
+  width: min(92vw, 1420px);
+  margin: 0 auto;
+  padding: clamp(2.25rem, 4vw, 4rem) clamp(1.25rem, 4vw, 4rem);
+  background: #8d1d18;
+  color: #f3efe6;
+}
+
+.oxbloodBand p {
+  max-width: 22ch;
+  margin: 0;
+  font-family: var(--font-bienvivos-display), serif;
+  font-size: clamp(2rem, 4.4vw, 4.6rem);
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+}
+
+.oxbloodBand span {
+  display: block;
+  margin-top: 1.25rem;
+  color: #d4b47c;
+  font-family: var(--font-bienvivos-sans), sans-serif;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 700px) {
+  .sectionNumber {
+    position: static;
+    display: block;
+    margin: 0 0 -0.22em;
+    color: rgba(183, 144, 84, 0.32);
+    font-size: 5rem;
+    line-height: 0.75;
+  }
+
+  .oxbloodBand {
+    width: auto;
+    margin: 0 1.25rem;
+    padding: 2rem 1.25rem;
+  }
+
+  .oxbloodBand p {
+    font-size: clamp(2.1rem, 10vw, 3.4rem);
+  }
+}
