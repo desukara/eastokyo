@@ -25,38 +25,46 @@
   z-index: 1;
 }
 
-.headingRow,
-.captionRow {
+.headingRow {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
   gap: 1rem;
   max-width: 1320px;
-  margin: 0 auto;
+  margin: 0 auto 1.35rem;
   font-family: var(--font-bienvivos-sans), sans-serif;
   text-transform: uppercase;
 }
 
-.headingRow {
-  margin-bottom: 1.2rem;
+.headingCopy {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 0.48rem;
 }
 
+.collectionLabel,
 .eyebrow,
 .hint {
   margin: 0;
+}
+
+.collectionLabel {
+  color: #f4ead9;
+  font-size: clamp(0.72rem, 0.9vw, 0.86rem);
+  font-weight: 800;
+  letter-spacing: 0.18em;
 }
 
 .eyebrow {
   display: flex;
   align-items: center;
   gap: 0.7rem;
-  color: #f6ead6;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(0.9rem, 1vw, 1.05rem);
-  font-style: italic;
-  font-weight: 400;
-  letter-spacing: 0.095em;
-  text-shadow: 0 1px 18px rgba(255, 224, 194, 0.08);
+  color: #d8c4aa;
+  font-size: clamp(0.56rem, 0.68vw, 0.64rem);
+  font-weight: 700;
+  line-height: 1.45;
+  letter-spacing: 0.14em;
 }
 
 .eyebrow::before {
@@ -70,6 +78,7 @@
 }
 
 .hint {
+  flex: 0 0 auto;
   color: #d8c4aa;
   font-size: 0.6rem;
   font-weight: 700;
@@ -160,29 +169,57 @@
   transform: scale(1.04);
 }
 
-.mobileControls {
+.mobileControls,
+.mobileCaption {
   display: none;
 }
 
 .captionRow {
-  margin-top: 0.75rem;
-  padding-top: 0.1rem;
-  border: 0;
-  color: rgba(233, 216, 191, 0.74);
-  font-size: 0.62rem;
-  font-weight: 700;
-  letter-spacing: 0.17em;
+  display: flex;
+  max-width: 780px;
+  margin: 1.15rem auto 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  font-family: var(--font-bienvivos-sans), sans-serif;
+  text-align: center;
+  text-transform: uppercase;
 }
 
-.captionRow > span:first-child {
+.artworkMeta {
+  display: flex;
+  width: 100%;
+  min-width: 0;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.artworkTitle {
+  color: #f6ead6;
   font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.02rem, 1.45vw, 1.4rem);
   font-style: italic;
   font-weight: 400;
-  letter-spacing: 0.105em;
+  line-height: 1.18;
+  letter-spacing: 0.035em;
+  text-transform: none;
+}
+
+.artworkDetails {
+  display: block;
+  color: rgba(233, 216, 191, 0.74);
+  font-size: 0.59rem;
+  font-weight: 700;
+  line-height: 1.45;
+  letter-spacing: 0.15em;
 }
 
 .counter {
   color: #e7cfa9;
+  font-size: 0.6rem;
+  font-weight: 700;
   font-variant-numeric: tabular-nums;
   letter-spacing: 0.2em;
 }
@@ -203,20 +240,29 @@
   }
 
   .headingRow {
+    display: block;
     padding: 0 0.15rem;
-    margin-bottom: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  .headingCopy {
+    gap: 0.38rem;
+  }
+
+  .collectionLabel {
+    font-size: 0.67rem;
+    letter-spacing: 0.15em;
   }
 
   .eyebrow {
-    gap: 0.55rem;
-    font-size: 0.82rem;
-    letter-spacing: 0.075em;
+    display: block;
+    max-width: 30rem;
+    font-size: 0.52rem;
+    line-height: 1.5;
+    letter-spacing: 0.11em;
   }
 
-  .eyebrow::before {
-    width: 1.6rem;
-  }
-
+  .eyebrow::before,
   .hint {
     display: none;
   }
@@ -297,6 +343,40 @@
     font-weight: 400;
     letter-spacing: 0.14em;
     font-variant-numeric: tabular-nums;
+  }
+
+  .mobileCaption {
+    display: flex;
+    min-height: 3.7rem;
+    padding: 0.95rem 0.35rem 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.42rem;
+    font-family: var(--font-bienvivos-sans), sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  .mobileTitle {
+    max-width: 92%;
+    color: #f6ead6;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 0.92rem;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: 0.025em;
+    text-transform: none;
+  }
+
+  .mobileArtist {
+    display: block;
+    color: rgba(233, 216, 191, 0.7);
+    font-size: 0.54rem;
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: 0.14em;
   }
 
   .captionRow {
