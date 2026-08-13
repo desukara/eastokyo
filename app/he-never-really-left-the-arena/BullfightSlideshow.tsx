@@ -8,7 +8,6 @@ const slides = Array.from({ length: 12 }, (_, index) => {
   return {
     number,
     desktop: `/images/editorial/picasso-bullfight-series-${number}-desktop.png`,
-    mobile: `/images/editorial/picasso-bullfight-series-${number}-mobile.png`,
     alt: `Picasso bullfight series, image ${index + 1} of 12`,
   };
 });
@@ -32,10 +31,8 @@ export default function BullfightSlideshow() {
     ];
 
     candidates.forEach((candidate) => {
-      const desktop = new Image();
-      desktop.src = candidate.desktop;
-      const mobile = new Image();
-      mobile.src = candidate.mobile;
+      const image = new Image();
+      image.src = candidate.desktop;
     });
   }, [active]);
 
@@ -82,10 +79,7 @@ export default function BullfightSlideshow() {
         onTouchEnd={handleTouchEnd}
       >
         <div className={styles.stage}>
-          <picture key={slide.number} className={styles.picture}>
-            <source media="(max-width: 700px)" srcSet={slide.mobile} />
-            <img className={styles.artwork} src={slide.desktop} alt={slide.alt} draggable={false} />
-          </picture>
+          <img key={slide.number} className={styles.artwork} src={slide.desktop} alt={slide.alt} draggable={false} />
 
           <button className={`${styles.arrow} ${styles.arrowLeft}`} type="button" onClick={previous} aria-label="Previous artwork">
             <span aria-hidden="true">←</span>
