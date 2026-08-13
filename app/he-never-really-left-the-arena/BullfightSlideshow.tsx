@@ -12,17 +12,12 @@ const slides = Array.from({ length: 12 }, (_, index) => {
   };
 });
 
-type Layer = "a" | "b";
-
 export default function BullfightSlideshow() {
   const [active, setActive] = useState(0);
-  const [layerA, setLayerA] = useState(0);
-  const [layerB, setLayerB] = useState(0);
-  const [frontLayer, setFrontLayer] = useState<Layer>("a");
   const touchStartX = useRef<number | null>(null);
+  const activeRef = useRef(0);
   const decoded = useRef(new Map<number, Promise<void>>());
   const navigationToken = useRef(0);
-  const activeRef = useRef(0);
 
   const prepareSlide = useCallback((index: number) => {
     const normalized = (index + slides.length) % slides.length;
@@ -59,22 +54,13 @@ export default function BullfightSlideshow() {
       await prepareSlide(normalized);
       if (token !== navigationToken.current) return;
 
-      const nextFront: Layer = frontLayer === "a" ? "b" : "a";
-      if (nextFront === "a") setLayerA(normalized);
-      else setLayerB(normalized);
+      activeRef.current = normalized;
+      setActive(normalized);
 
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          if (token !== navigationToken.current) return;
-          activeRef.current = normalized;
-          setActive(normalized);
-          setFrontLayer(nextFront);
-          void prepareSlide(normalized + 1);
-          void prepareSlide(normalized - 1);
-        });
-      });
+      void prepareSlide(normalized + 1);
+      void prepareSlide(normalized - 1);
     },
-    [frontLayer, prepareSlide]
+    [prepareSlide]
   );
 
   const previous = useCallback(() => {
@@ -86,17 +72,9 @@ export default function BullfightSlideshow() {
   }, [showSlide]);
 
   useEffect(() => {
-    void prepareSlide(0);
-    void prepareSlide(1);
-    void prepareSlide(slides.length - 1);
-
-    const timeoutId = setTimeout(() => {
-      slides.forEach((_, index) => {
-        void prepareSlide(index);
-      });
-    }, 800);
-
-    return () => clearTimeout(timeoutId);
+    slides.forEach((_, index) => {
+      void prepareSlide(index);
+    });
   }, [prepareSlide]);
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLElement>) => {
@@ -126,8 +104,6 @@ export default function BullfightSlideshow() {
   };
 
   const slide = slides[active];
-  const slideA = slides[layerA];
-  const slideB = slides[layerB];
 
   return (
     <section className={styles.gallery} aria-label="Picasso bullfight series">
@@ -149,20 +125,17 @@ export default function BullfightSlideshow() {
           </button>
 
           <div className={styles.artworkFrame}>
-            <img
-              className={`${styles.artwork} ${frontLayer === "a" ? styles.artworkVisible : ""}`}
-              src={slideA.desktop}
-              alt={frontLayer === "a" ? slideA.alt : ""}
-              aria-hidden={frontLayer !== "a"}
-              draggable={false}
-            />
-            <img
-              className={`${styles.artwork} ${frontLayer === "b" ? styles.artworkVisible : ""}`}
-              src={slideB.desktop}
-              alt={frontLayer === "b" ? slideB.alt : ""}
-              aria-hidden={frontLayer !== "b"}
-              draggable={false}
-            />
+            {slides.map((item, index) => (
+              <img
+                key={item.number}
+                className={`${styles.artwork} ${index === active ? styles.artworkVisible : ""}`}
+                src={item.desktop}
+                alt={index === active ? item.alt : ""}
+                aria-hidden={index !== active}
+                draggable={false}
+                decoding="async"
+              />
+            ))}
           </div>
 
           <button className={`${styles.arrow} ${styles.arrowRight}`} type="button" onClick={next} aria-label="Next artwork">
