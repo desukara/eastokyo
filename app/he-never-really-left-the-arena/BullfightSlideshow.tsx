@@ -73,13 +73,8 @@ export default function BullfightSlideshow() {
       });
     };
 
-    if ("requestIdleCallback" in window) {
-      const idleId = window.requestIdleCallback(preloadRest, { timeout: 2500 });
-      return () => window.cancelIdleCallback(idleId);
-    }
-
-    const timeoutId = window.setTimeout(preloadRest, 500);
-    return () => window.clearTimeout(timeoutId);
+    const timeoutId = setTimeout(preloadRest, 500);
+    return () => clearTimeout(timeoutId);
   }, [active, prepareSlide]);
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLElement>) => {
