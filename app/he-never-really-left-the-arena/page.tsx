@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import BullfightSlideshow from "./BullfightSlideshow";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -48,6 +49,8 @@ export default function CoverStoryPage() {
           <p>Once that kind of electricity gets into your blood, amigo, you don’t just walk away from it. You go looking for it again. He did, his whole life, and I think I understand why.</p>
         </div>
       </section>
+
+      <BullfightSlideshow />
 
       <footer className={styles.footer}>
         <span>EASTOKYO · TOKYO, JAPAN</span>
