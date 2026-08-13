@@ -29,13 +29,12 @@ export default function CoverStoryPage() {
         </picture>
         <div className={`${styles.heroShade} ${heroPolish.shade}`} aria-hidden="true" />
         <div className={styles.heroCopy}>
-          <p className={`${styles.kicker} ${heroPolish.kicker}`}>PICASSO AND THE ARENA HE NEVER LEFT.</p>
           <h1 className={`${styles.title} ${heroPolish.title}`}>HE KEPT WALKING BACK IN.</h1>
         </div>
       </section>
 
       <section className={styles.intro}>
-        <div className={styles.meta}>EASTOKYO<br />COVER STORY<br />ISSUE 01</div>
+        <div className={styles.meta}>EASTOKYO<br />COVER STORY<br />ISSUE 01<br /><br />BY JAMES SIMMONS (AKA JIMICHANGA)</div>
         <p className={styles.deck}>Picasso spent his whole life going back to that ring. Maybe the real question was never about the bull. It was why some things won&apos;t let us go.</p>
       </section>
 
@@ -51,7 +50,7 @@ export default function CoverStoryPage() {
       <section className={styles.visualSequence} aria-label="Picasso bullfight exhibition">
         <figure className={`${styles.visualFigure} ${styles.hallwayFigure}`}>
           <picture><source media="(max-width: 640px)" srcSet="/images/editorial/picasso-red-room-mobile.png" /><img src="/images/editorial/picasso-red-room-desktop.png" alt="Red exhibition hallway displaying Picasso works" /></picture>
-          <figcaption className={styles.imageCredit}>EXHIBITION VIEW · IMAGE CREDIT TO BE CONFIRMED.</figcaption>
+          <figcaption className={styles.imageCredit}>EXHIBITION VIEW · PHOTOGRAPHY BY JIMICHANGA.</figcaption>
         </figure>
 
         <EditorialReveal>
@@ -68,7 +67,7 @@ export default function CoverStoryPage() {
 
         <figure className={`${styles.visualFigure} ${styles.viewerFigure}`}>
           <picture><source media="(max-width: 640px)" srcSet="/images/editorial/picasso-bull-viewer-mobile.png" /><img src="/images/editorial/picasso-bull-viewer-desktop.png" alt="A man looking closely at Picasso bullfight art" /></picture>
-          <figcaption className={styles.imageCredit}>LOOKING CLOSELY · EASTOKYO.</figcaption>
+          <figcaption className={styles.imageCredit}>LOOKING CLOSELY · PHOTOGRAPHY BY JIMICHANGA.</figcaption>
         </figure>
 
         <EditorialReveal delay="short">
@@ -115,7 +114,7 @@ export default function CoverStoryPage() {
 
         <figure className={`${styles.visualFigure} ${styles.galleryFigure}`}>
           <picture><source media="(max-width: 640px)" srcSet="/images/editorial/picasso-bull-gallery-mobile.png" /><img src="/images/editorial/picasso-bull-gallery-desktop.png" alt="Visitors looking at a group of Picasso bullfight works" /></picture>
-          <figcaption className={styles.imageCredit}>THE ROOM LOOKING BACK · EASTOKYO.</figcaption>
+          <figcaption className={styles.imageCredit}>THE ROOM LOOKING BACK · PHOTOGRAPHY BY JIMICHANGA.</figcaption>
         </figure>
 
         <EditorialReveal delay="short">
