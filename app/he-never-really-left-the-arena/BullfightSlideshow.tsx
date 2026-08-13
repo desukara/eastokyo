@@ -15,26 +15,72 @@ const slides = Array.from({ length: 12 }, (_, index) => {
 export default function BullfightSlideshow() {
   const [active, setActive] = useState(0);
   const touchStartX = useRef<number | null>(null);
+  const decoded = useRef(new Map<number, Promise<void>>());
+  const navigationToken = useRef(0);
+
+  const prepareSlide = useCallback((index: number) => {
+    const normalized = (index + slides.length) % slides.length;
+    const cached = decoded.current.get(normalized);
+    if (cached) return cached;
+
+    const promise = new Promise<void>((resolve) => {
+      const image = new Image();
+      image.decoding = "async";
+      image.src = slides[normalized].desktop;
+
+      const finish = () => resolve();
+
+      if (image.decode) {
+        image.decode().then(finish).catch(finish);
+      } else if (image.complete) {
+        finish();
+      } else {
+        image.onload = finish;
+        image.onerror = finish;
+      }
+    });
+
+    decoded.current.set(normalized, promise);
+    return promise;
+  }, []);
+
+  const showSlide = useCallback(
+    async (index: number) => {
+      const normalized = (index + slides.length) % slides.length;
+      const token = ++navigationToken.current;
+      await prepareSlide(normalized);
+      if (token === navigationToken.current) setActive(normalized);
+    },
+    [prepareSlide]
+  );
 
   const previous = useCallback(() => {
-    setActive((current) => (current - 1 + slides.length) % slides.length);
-  }, []);
+    void showSlide(active - 1);
+  }, [active, showSlide]);
 
   const next = useCallback(() => {
-    setActive((current) => (current + 1) % slides.length);
-  }, []);
+    void showSlide(active + 1);
+  }, [active, showSlide]);
 
   useEffect(() => {
-    const candidates = [
-      slides[(active + 1) % slides.length],
-      slides[(active - 1 + slides.length) % slides.length],
-    ];
+    void prepareSlide(active);
+    void prepareSlide(active + 1);
+    void prepareSlide(active - 1);
 
-    candidates.forEach((candidate) => {
-      const image = new Image();
-      image.src = candidate.desktop;
-    });
-  }, [active]);
+    const preloadRest = () => {
+      slides.forEach((_, index) => {
+        void prepareSlide(index);
+      });
+    };
+
+    if ("requestIdleCallback" in window) {
+      const idleId = window.requestIdleCallback(preloadRest, { timeout: 2500 });
+      return () => window.cancelIdleCallback(idleId);
+    }
+
+    const timeoutId = window.setTimeout(preloadRest, 500);
+    return () => window.clearTimeout(timeoutId);
+  }, [active, prepareSlide]);
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLElement>) => {
     if (event.key === "ArrowLeft") {
@@ -79,11 +125,14 @@ export default function BullfightSlideshow() {
         onTouchEnd={handleTouchEnd}
       >
         <div className={styles.stage}>
-          <img key={slide.number} className={styles.artwork} src={slide.desktop} alt={slide.alt} draggable={false} />
-
           <button className={`${styles.arrow} ${styles.arrowLeft}`} type="button" onClick={previous} aria-label="Previous artwork">
             <span aria-hidden="true">←</span>
           </button>
+
+          <div className={styles.artworkFrame}>
+            <img key={slide.number} className={styles.artwork} src={slide.desktop} alt={slide.alt} draggable={false} />
+          </div>
+
           <button className={`${styles.arrow} ${styles.arrowRight}`} type="button" onClick={next} aria-label="Next artwork">
             <span aria-hidden="true">→</span>
           </button>
