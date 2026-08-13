@@ -1,7 +1,28 @@
 .gallery {
+  position: relative;
   padding: clamp(4rem, 9vw, 8rem) clamp(1rem, 4vw, 4rem);
-  background: #181716;
-  color: #f5f0e6;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% -12%, rgba(116, 39, 48, 0.34) 0%, rgba(116, 39, 48, 0.08) 34%, transparent 58%),
+    linear-gradient(180deg, #351217 0%, #260c11 48%, #17080b 100%);
+  color: #f3eadc;
+}
+
+.gallery::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 15% 30%, rgba(255, 255, 255, 0.025), transparent 28%),
+    radial-gradient(circle at 85% 72%, rgba(0, 0, 0, 0.16), transparent 34%);
+  opacity: 0.75;
+}
+
+.headingRow,
+.viewer {
+  position: relative;
+  z-index: 1;
 }
 
 .headingRow,
@@ -20,7 +41,7 @@
 }
 
 .headingRow {
-  margin-bottom: 1rem;
+  margin-bottom: 1.15rem;
 }
 
 .eyebrow,
@@ -28,8 +49,12 @@
   margin: 0;
 }
 
+.eyebrow {
+  color: #f6eddf;
+}
+
 .hint {
-  opacity: 0.58;
+  opacity: 0.4;
   text-align: right;
 }
 
@@ -41,16 +66,16 @@
 }
 
 .viewer:focus-visible {
-  outline: 1px solid rgba(245, 240, 230, 0.65);
+  outline: 1px solid rgba(243, 234, 220, 0.52);
   outline-offset: 8px;
 }
 
 .stage {
   position: relative;
   display: grid;
-  grid-template-columns: 4.5rem minmax(0, 1fr) 4.5rem;
+  grid-template-columns: 4.15rem minmax(0, 1fr) 4.15rem;
   align-items: center;
-  gap: clamp(1rem, 2vw, 2rem);
+  gap: clamp(0.8rem, 1.7vw, 1.5rem);
   width: 100%;
   background: transparent;
 }
@@ -61,6 +86,12 @@
   height: min(74vh, 840px);
   min-height: 520px;
   overflow: hidden;
+  border: 1px solid rgba(243, 234, 220, 0.09);
+  border-radius: 0.35rem;
+  background: rgba(12, 5, 7, 0.16);
+  box-shadow:
+    0 24px 56px rgba(6, 2, 3, 0.28),
+    inset 0 0 48px rgba(0, 0, 0, 0.08);
 }
 
 .artwork {
@@ -88,25 +119,26 @@
   position: static;
   z-index: 2;
   display: grid;
-  width: 3.5rem;
-  height: 3.5rem;
+  width: 3.15rem;
+  height: 3.15rem;
   place-items: center;
   justify-self: center;
-  border: 1px solid rgba(245, 240, 230, 0.45);
+  border: 1px solid rgba(243, 234, 220, 0.27);
   border-radius: 999px;
-  background: rgba(245, 240, 230, 0.06);
-  color: #f5f0e6;
+  background: rgba(243, 234, 220, 0.045);
+  color: #f3eadc;
   font: inherit;
-  font-size: 1.45rem;
+  font-size: 1.25rem;
   cursor: pointer;
-  transition: background 150ms ease, border-color 150ms ease, transform 150ms ease;
+  transition: background 150ms ease, border-color 150ms ease, transform 150ms ease, color 150ms ease;
 }
 
 .arrow:hover,
 .arrow:focus-visible {
-  background: rgba(245, 240, 230, 0.12);
-  border-color: #f5f0e6;
-  transform: scale(1.04);
+  background: rgba(243, 234, 220, 0.1);
+  border-color: rgba(243, 234, 220, 0.78);
+  color: #fff8ed;
+  transform: scale(1.035);
 }
 
 .mobileControls {
@@ -114,10 +146,14 @@
 }
 
 .captionRow {
-  padding-top: 0.8rem;
+  margin-top: 0.85rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid rgba(243, 234, 220, 0.13);
+  color: rgba(243, 234, 220, 0.82);
 }
 
 .counter {
+  color: #f6eddf;
   font-variant-numeric: tabular-nums;
 }
 
@@ -131,11 +167,14 @@
 @media (max-width: 700px) {
   .gallery {
     padding: 2.75rem 0.75rem 3.25rem;
+    background:
+      radial-gradient(circle at 50% -8%, rgba(113, 36, 46, 0.28) 0%, rgba(113, 36, 46, 0.05) 38%, transparent 58%),
+      linear-gradient(180deg, #301015 0%, #220b0f 52%, #16070a 100%);
   }
 
   .headingRow {
     padding: 0 0.15rem;
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.8rem;
   }
 
   .hint {
@@ -151,6 +190,12 @@
     width: 100%;
     height: calc(66svh - 4.35rem);
     min-height: 360px;
+    border-color: rgba(243, 234, 220, 0.085);
+    border-radius: 0.3rem;
+    background: rgba(12, 5, 7, 0.13);
+    box-shadow:
+      0 16px 34px rgba(5, 2, 3, 0.24),
+      inset 0 0 32px rgba(0, 0, 0, 0.06);
   }
 
   .artwork {
@@ -175,8 +220,9 @@
     gap: 0.5rem;
     height: 3.35rem;
     padding: 0 0.75rem;
-    background: #181716;
-    color: #f5f0e6;
+    border-top: 1px solid rgba(243, 234, 220, 0.12);
+    background: rgba(17, 6, 9, 0.42);
+    color: #f3eadc;
     font-family: var(--font-bienvivos-sans), sans-serif;
     font-size: 0.64rem;
     font-weight: 700;
@@ -205,6 +251,7 @@
 
   .mobileCount {
     white-space: nowrap;
+    color: #f6eddf;
     font-variant-numeric: tabular-nums;
   }
 
