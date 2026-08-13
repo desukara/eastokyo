@@ -56,33 +56,32 @@
 }
 
 .artworkFrame {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 0;
+  position: relative;
+  width: 100%;
+  height: min(74vh, 840px);
+  min-height: 520px;
+  overflow: hidden;
 }
 
 .artwork {
+  position: absolute;
+  inset: 0;
   display: block;
-  width: auto;
-  height: auto;
-  max-width: 100%;
-  max-height: min(74vh, 840px);
+  width: 100%;
+  height: 100%;
   object-fit: contain;
+  opacity: 0;
+  transition: opacity 280ms ease;
   user-select: none;
   -webkit-user-drag: none;
-  animation: artworkIn 180ms ease-out both;
+  will-change: opacity;
+  backface-visibility: hidden;
+  transform: translateZ(0);
 }
 
-@keyframes artworkIn {
-  from {
-    opacity: 0;
-    transform: translateY(2px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.artworkVisible {
+  z-index: 2;
+  opacity: 1;
 }
 
 .arrow {
@@ -123,10 +122,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .artwork {
-    animation: none;
-  }
-
+  .artwork,
   .arrow {
     transition: none;
   }
@@ -153,13 +149,13 @@
 
   .artworkFrame {
     width: 100%;
+    height: calc(66svh - 4.35rem);
+    min-height: 360px;
   }
 
   .artwork {
-    width: auto;
-    height: auto;
-    max-width: 100%;
-    max-height: calc(66svh - 4.35rem);
+    width: 100%;
+    height: 100%;
     object-fit: contain;
   }
 
