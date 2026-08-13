@@ -58,12 +58,27 @@ export default function CoverStoryPage() {
           </picture>
         </figure>
 
+        <section className={`${styles.storyBeat} ${styles.storyBeatRight}`}>
+          <p className={styles.storyBeatLabel}>LOOKING CLOSELY</p>
+          <div className={styles.storyBeatCopy}>
+            <p>From a distance, some of these works look almost effortless: a few marks, a body, a horn, a horse suddenly in trouble. Move closer and the economy becomes the point. Picasso keeps only what the scene cannot live without.</p>
+          </div>
+        </section>
+
         <figure className={`${styles.visualFigure} ${styles.viewerFigure}`}>
           <picture>
             <source media="(max-width: 640px)" srcSet="/images/editorial/picasso-bull-viewer-mobile.png" />
             <img src="/images/editorial/picasso-bull-viewer-desktop.png" alt="A man looking closely at Picasso bullfight art" />
           </picture>
         </figure>
+
+        <section className={styles.storyBeat}>
+          <p className={styles.storyBeatLabel}>THE ARENA</p>
+          <div className={styles.storyBeatCopy}>
+            <p>The bullring gave him a complete theatre: entrance, costume, noise, choreography, panic, applause. Nothing stayed still for long. A beautiful line could become a wound in the next second.</p>
+            <p>That tension is what keeps these images alive. They are not polite records of an afternoon out. They feel closer to memory after the adrenaline has burned away — compressed, exaggerated, and impossible to leave alone.</p>
+          </div>
+        </section>
 
         <div className={styles.bullfightPair}>
           <figure className={styles.visualFigure}>
@@ -81,15 +96,46 @@ export default function CoverStoryPage() {
           </figure>
         </div>
 
+        <section className={`${styles.storyBeat} ${styles.storyBeatRight}`}>
+          <p className={styles.storyBeatLabel}>WHAT SURVIVES</p>
+          <div className={styles.storyBeatCopy}>
+            <p>Years later, the shouting is gone. The dust is gone. We stand in clean rooms and look. Yet the pictures still carry the nervous charge of something that could go wrong at any moment.</p>
+          </div>
+        </section>
+
         <figure className={`${styles.visualFigure} ${styles.galleryFigure}`}>
           <picture>
             <source media="(max-width: 640px)" srcSet="/images/editorial/picasso-bull-gallery-mobile.png" />
             <img src="/images/editorial/picasso-bull-gallery-desktop.png" alt="Visitors looking at a group of Picasso bullfight works" />
           </picture>
         </figure>
+
+        <section className={`${styles.storyBeat} ${styles.slideshowBridge}`}>
+          <p className={styles.storyBeatLabel}>AGAIN AND AGAIN</p>
+          <div className={styles.storyBeatCopy}>
+            <p>He never arrived at one definitive bullring and stopped. He kept returning to the same collision of bodies and signs, changing the speed, the pressure, the joke, the danger. Repetition was not repetition at all. It was another way back in.</p>
+          </div>
+        </section>
       </section>
 
       <BullfightSlideshow />
+
+      <section className={styles.finalAct}>
+        <figure className={`${styles.visualFigure} ${styles.bullHeadFigure}`}>
+          <picture>
+            <source media="(max-width: 640px)" srcSet="/images/editorial/picasso-bull-head-mobile.png" />
+            <img src="/images/editorial/picasso-bull-head-desktop.png" alt="Bull head sculpture against a vivid red background" />
+          </picture>
+        </figure>
+
+        <section className={`${styles.storyBeat} ${styles.finalStoryBeat}`}>
+          <p className={styles.storyBeatLabel}>THE BULL REMAINS</p>
+          <div className={styles.storyBeatCopy}>
+            <p>After the riders, the crowds, the paper, the ink and all those returns, there is still the bull. Solid now. Heavy. Almost absurdly present.</p>
+            <p>Maybe that is why Picasso never really left the arena. It gave him a form big enough to hold fear and bravado, beauty and cruelty, performance and death without asking any of them to behave. He could walk away from the ring. The ring kept following him.</p>
+          </div>
+        </section>
+      </section>
 
       <footer className={styles.footer}>
         <span>EASTOKYO · TOKYO, JAPAN</span>
