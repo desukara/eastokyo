@@ -161,7 +161,7 @@
 .footerLogoLink {
   display: block;
   width: min(66vw, 880px);
-  margin-top: clamp(2.75rem, 4.5vw, 4.5rem);
+  margin: clamp(2.75rem, 4.5vw, 4.5rem) auto 0;
   line-height: 0;
 }
 
@@ -259,9 +259,10 @@
   .footerLinks,
   .footerBottom { flex-direction: column; align-items: flex-start; }
   .footerLinks { gap: 0.8rem; }
+  .footerLinks > span:last-child { display: none; }
   .footerLogoLink {
     width: min(78vw, 22rem);
-    margin-top: 3rem;
+    margin: 3rem auto 0;
   }
   .footerBottom { gap: 0.65rem; padding-top: 2.25rem; }
 }
