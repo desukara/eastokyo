@@ -153,19 +153,7 @@
   }
 
   .arrow {
-    top: calc((100% - 3.35rem) / 2);
-    width: 2.9rem;
-    height: 2.9rem;
-    font-size: 1.2rem;
-    background: rgba(24, 23, 22, 0.76);
-  }
-
-  .arrowLeft {
-    left: 0.5rem;
-  }
-
-  .arrowRight {
-    right: 0.5rem;
+    display: none;
   }
 
   .mobileControls {
