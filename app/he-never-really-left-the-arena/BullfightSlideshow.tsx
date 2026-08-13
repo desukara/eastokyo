@@ -17,10 +17,6 @@ export default function BullfightSlideshow() {
   const [active, setActive] = useState(0);
   const touchStartX = useRef<number | null>(null);
 
-  const goTo = useCallback((nextIndex: number) => {
-    setActive((nextIndex + slides.length) % slides.length);
-  }, []);
-
   const previous = useCallback(() => {
     setActive((current) => (current - 1 + slides.length) % slides.length);
   }, []);
@@ -35,11 +31,11 @@ export default function BullfightSlideshow() {
       slides[(active - 1 + slides.length) % slides.length],
     ];
 
-    candidates.forEach((slide) => {
+    candidates.forEach((candidate) => {
       const desktop = new Image();
-      desktop.src = slide.desktop;
+      desktop.src = candidate.desktop;
       const mobile = new Image();
-      mobile.src = slide.mobile;
+      mobile.src = candidate.mobile;
     });
   }, [active]);
 
@@ -108,19 +104,6 @@ export default function BullfightSlideshow() {
         <div className={styles.captionRow}>
           <span>PICASSO · BULLFIGHT SERIES</span>
           <span className={styles.counter} aria-live="polite">{slide.number} / {slides.length}</span>
-        </div>
-
-        <div className={styles.progress} aria-label={`Artwork ${active + 1} of ${slides.length}`}>
-          {slides.map((item, index) => (
-            <button
-              key={item.number}
-              type="button"
-              className={index === active ? styles.progressActive : undefined}
-              onClick={() => goTo(index)}
-              aria-label={`Show artwork ${index + 1}`}
-              aria-current={index === active ? "true" : undefined}
-            />
-          ))}
         </div>
       </div>
     </section>
