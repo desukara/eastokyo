@@ -46,7 +46,9 @@ export default function CoverStoryPage() {
       <section className={styles.body}>
         <p className={styles.bodyLabel}>THE STORY</p>
         <div className={styles.bodyCopy}>
-          <p>Once that kind of electricity gets into your blood, amigo, you don’t just walk away from it. You go looking for it again. He did, his whole life, and I think I understand why.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vitae nisl sed enim luctus consequat. Sed feugiat, sem vel malesuada fermentum, justo velit tincidunt neque, at posuere arcu nibh vitae lorem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; suspendisse potenti. Donec luctus, augue at tristique facilisis, mauris lorem ultrices erat, quis commodo sem justo sed nunc.</p>
+          <p>Praesent non libero id erat feugiat luctus. Morbi sed velit vel tortor fermentum tristique. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean tempor, justo vitae interdum viverra, mauris augue commodo turpis, sed viverra neque lorem id massa. Curabitur vitae lorem sit amet arcu posuere finibus.</p>
+          <p>Aliquam erat volutpat. Quisque porta mauris sed risus ullamcorper, vel feugiat nisl luctus. Donec pretium lectus in dolor gravida, ut elementum elit luctus. Nunc suscipit, erat quis faucibus luctus, neque turpis luctus arcu, at volutpat mauris nulla vel sem.</p>
         </div>
       </section>
 
@@ -61,7 +63,8 @@ export default function CoverStoryPage() {
         <section className={`${styles.storyBeat} ${styles.storyBeatRight}`}>
           <p className={styles.storyBeatLabel}>LOOKING CLOSELY</p>
           <div className={styles.storyBeatCopy}>
-            <p>From a distance, some of these works look almost effortless: a few marks, a body, a horn, a horse suddenly in trouble. Move closer and the economy becomes the point. Picasso keeps only what the scene cannot live without.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus finibus felis vitae massa aliquet, sed viverra turpis vulputate. Cras mattis sem sed nibh commodo, a interdum mauris hendrerit. Nam auctor velit vel nunc aliquet, at feugiat nisi posuere. Suspendisse euismod, est sed tincidunt varius, neque augue volutpat ligula, vitae luctus lorem risus id erat.</p>
+            <p>Maecenas vulputate urna ut ex consequat, eget convallis velit tincidunt. Pellentesque sed ligula nec urna condimentum consequat. Duis ultricies, risus non feugiat tristique, magna lectus aliquet lectus, vitae pulvinar ipsum augue vel sapien.</p>
           </div>
         </section>
 
@@ -75,8 +78,9 @@ export default function CoverStoryPage() {
         <section className={styles.storyBeat}>
           <p className={styles.storyBeatLabel}>THE ARENA</p>
           <div className={styles.storyBeatCopy}>
-            <p>The bullring gave him a complete theatre: entrance, costume, noise, choreography, panic, applause. Nothing stayed still for long. A beautiful line could become a wound in the next second.</p>
-            <p>That tension is what keeps these images alive. They are not polite records of an afternoon out. They feel closer to memory after the adrenaline has burned away — compressed, exaggerated, and impossible to leave alone.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae tortor sit amet erat hendrerit luctus. Sed dignissim urna quis justo tincidunt, et vulputate mi elementum. Nullam tempor, felis sed malesuada tincidunt, lacus nibh tincidunt purus, sed porttitor velit nibh non magna. Duis sed ipsum ut turpis varius efficitur vel et risus.</p>
+            <p>Fusce tincidunt ligula quis urna volutpat, vel elementum mauris consequat. Integer quis pretium neque. Morbi posuere, lorem vitae ullamcorper luctus, erat arcu eleifend risus, vel posuere urna orci sit amet justo. Sed sit amet posuere sapien. Ut vestibulum mi id turpis cursus, at laoreet ipsum fermentum. Donec id eros id lectus viverra tincidunt.</p>
+            <p>Nam viverra ipsum vel eros commodo, in bibendum augue luctus. Nulla facilisi. Phasellus non ipsum vitae augue porttitor porttitor. Proin et neque vitae sem malesuada tincidunt. Curabitur sit amet turpis sed lectus molestie placerat. Integer tincidunt magna a tincidunt viverra. Vestibulum vel dui non justo tristique hendrerit.</p>
           </div>
         </section>
 
@@ -99,7 +103,8 @@ export default function CoverStoryPage() {
         <section className={`${styles.storyBeat} ${styles.storyBeatRight}`}>
           <p className={styles.storyBeatLabel}>WHAT SURVIVES</p>
           <div className={styles.storyBeatCopy}>
-            <p>Years later, the shouting is gone. The dust is gone. We stand in clean rooms and look. Yet the pictures still carry the nervous charge of something that could go wrong at any moment.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean a arcu vitae nisl porta varius. Etiam rhoncus, mauris ut interdum faucibus, neque nulla eleifend nulla, ut cursus orci nisl non risus. Pellentesque vel nibh at purus pretium dictum. Vivamus faucibus nisl ut orci malesuada, eget facilisis enim luctus.</p>
+            <p>Donec blandit enim at justo hendrerit, quis eleifend ligula luctus. Cras gravida aliquet dolor, sed posuere erat varius sit amet. Integer vitae malesuada lacus. Aliquam quis massa sed eros laoreet tristique. Etiam interdum metus sed metus commodo, at suscipit odio posuere.</p>
           </div>
         </section>
 
@@ -113,7 +118,8 @@ export default function CoverStoryPage() {
         <section className={`${styles.storyBeat} ${styles.slideshowBridge}`}>
           <p className={styles.storyBeatLabel}>AGAIN AND AGAIN</p>
           <div className={styles.storyBeatCopy}>
-            <p>He never arrived at one definitive bullring and stopped. He kept returning to the same collision of bodies and signs, changing the speed, the pressure, the joke, the danger. Repetition was not repetition at all. It was another way back in.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum venenatis, neque sed viverra pretium, nibh tortor dignissim risus, non fermentum tortor mauris eget orci. In hac habitasse platea dictumst. Cras lacinia erat at erat suscipit, non bibendum sapien aliquet.</p>
+            <p>Morbi vitae sem vel lorem molestie gravida. Sed sed commodo sapien. Quisque eleifend velit id justo sodales, a pellentesque ligula consequat. Nunc eget nibh sit amet est fermentum feugiat. Donec non eros vitae lacus pellentesque suscipit. Suspendisse quis sem ac tortor malesuada pellentesque.</p>
           </div>
         </section>
       </section>
@@ -131,8 +137,9 @@ export default function CoverStoryPage() {
         <section className={`${styles.storyBeat} ${styles.finalStoryBeat}`}>
           <p className={styles.storyBeatLabel}>THE BULL REMAINS</p>
           <div className={styles.storyBeatCopy}>
-            <p>After the riders, the crowds, the paper, the ink and all those returns, there is still the bull. Solid now. Heavy. Almost absurdly present.</p>
-            <p>Maybe that is why Picasso never really left the arena. It gave him a form big enough to hold fear and bravado, beauty and cruelty, performance and death without asking any of them to behave. He could walk away from the ring. The ring kept following him.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ultrices metus at arcu porta, at convallis libero tristique. Sed commodo justo a dolor tristique, at viverra lectus dictum. Proin non purus in sem consequat feugiat. Nam ac nisi vestibulum, placerat turpis sed, efficitur justo.</p>
+            <p>Integer dignissim suscipit odio, nec condimentum purus ullamcorper sed. Fusce at nibh et arcu maximus posuere. Vestibulum euismod dui vitae justo vulputate, sed bibendum ipsum ullamcorper. Aenean imperdiet, velit a gravida finibus, augue arcu semper lorem, vel molestie lectus erat vitae orci. Morbi fringilla ante at neque vehicula, vel egestas neque hendrerit.</p>
+            <p>Sed vitae urna eget velit eleifend fermentum. Mauris ullamcorper tortor ut arcu interdum, in feugiat lacus faucibus. Etiam eget neque ac arcu dictum feugiat. Nulla facilisi. Donec luctus, nulla ac faucibus pretium, lorem arcu ultricies elit, vitae cursus orci metus sit amet neque. Praesent id lorem vitae lectus gravida fermentum.</p>
           </div>
         </section>
       </section>
