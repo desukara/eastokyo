@@ -126,7 +126,7 @@ export default function BullfightSlideshow() {
       <div className={styles.headingRow}>
         <div className={styles.headingCopy}>
           <p className={styles.collectionLabel}>PICASSO · LA TAUROMAQUIA</p>
-          <p className={styles.eyebrow}>AQUATINTS MADE IN CANNES · MAY 1957 · EDITION PUBLISHED IN BARCELONA · 1959</p>
+          <p className={styles.eyebrow}>EDITION PUBLISHED IN BARCELONA · 1959</p>
         </div>
         <p className={styles.hint}>ARROWS · KEYS · SWIPE</p>
       </div>
