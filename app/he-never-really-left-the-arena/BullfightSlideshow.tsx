@@ -125,8 +125,8 @@ export default function BullfightSlideshow() {
     <section className={styles.gallery} aria-label="Picasso La Tauromaquia works">
       <div className={styles.headingRow}>
         <div className={styles.headingCopy}>
-          <p className={styles.collectionLabel}>LA TAUROMAQUIA · 1957–1959</p>
-          <p className={styles.eyebrow}>THE BULLRING, AGAIN AND AGAIN</p>
+          <p className={styles.collectionLabel}>PICASSO · LA TAUROMAQUIA</p>
+          <p className={styles.eyebrow}>AQUATINTS MADE IN CANNES · MAY 1957 · EDITION PUBLISHED IN BARCELONA · 1959</p>
         </div>
         <p className={styles.hint}>ARROWS · KEYS · SWIPE</p>
       </div>
@@ -170,7 +170,7 @@ export default function BullfightSlideshow() {
 
         <div className={styles.mobileCaption} aria-live="polite">
           <span className={styles.mobileTitle}>{slide.title}</span>
-          <span>PICASSO · {slide.year}</span>
+          <span className={styles.mobileArtist}>PICASSO · {slide.year}</span>
         </div>
 
         <div className={styles.captionRow} aria-live="polite">
