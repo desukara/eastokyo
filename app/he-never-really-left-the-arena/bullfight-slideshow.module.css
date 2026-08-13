@@ -10,7 +10,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  max-width: 1500px;
+  max-width: 1320px;
   margin: 0 auto;
   font-family: var(--font-bienvivos-sans), sans-serif;
   font-size: 0.7rem;
@@ -34,7 +34,7 @@
 }
 
 .viewer {
-  max-width: 1500px;
+  max-width: 1320px;
   margin: 0 auto;
   outline: none;
   touch-action: pan-y;
@@ -47,21 +47,19 @@
 
 .stage {
   position: relative;
-  display: flex;
+  display: grid;
+  grid-template-columns: 4.5rem minmax(0, 1fr) 4.5rem;
   align-items: center;
-  justify-content: center;
+  gap: clamp(1rem, 2vw, 2rem);
   width: 100%;
-  min-height: 0;
-  overflow: visible;
-  background: #eee7da;
-  padding: clamp(0.75rem, 2vw, 1.5rem);
+  background: transparent;
 }
 
-.picture {
+.artworkFrame {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  min-width: 0;
 }
 
 .artwork {
@@ -69,43 +67,47 @@
   width: auto;
   height: auto;
   max-width: 100%;
-  max-height: min(70vh, 780px);
+  max-height: min(74vh, 840px);
   object-fit: contain;
   user-select: none;
   -webkit-user-drag: none;
+  animation: artworkIn 180ms ease-out both;
+}
+
+@keyframes artworkIn {
+  from {
+    opacity: 0;
+    transform: translateY(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .arrow {
-  position: absolute;
-  top: 50%;
+  position: static;
   z-index: 2;
   display: grid;
-  width: 3.75rem;
-  height: 3.75rem;
+  width: 3.5rem;
+  height: 3.5rem;
   place-items: center;
-  border: 1px solid rgba(245, 240, 230, 0.55);
+  justify-self: center;
+  border: 1px solid rgba(245, 240, 230, 0.45);
   border-radius: 999px;
-  background: rgba(24, 23, 22, 0.82);
+  background: rgba(245, 240, 230, 0.06);
   color: #f5f0e6;
   font: inherit;
-  font-size: 1.6rem;
+  font-size: 1.45rem;
   cursor: pointer;
-  transform: translateY(-50%);
-  backdrop-filter: blur(5px);
+  transition: background 150ms ease, border-color 150ms ease, transform 150ms ease;
 }
 
 .arrow:hover,
 .arrow:focus-visible {
-  background: #181716;
+  background: rgba(245, 240, 230, 0.12);
   border-color: #f5f0e6;
-}
-
-.arrowLeft {
-  left: 1rem;
-}
-
-.arrowRight {
-  right: 1rem;
+  transform: scale(1.04);
 }
 
 .mobileControls {
@@ -113,11 +115,21 @@
 }
 
 .captionRow {
-  padding-top: 0.9rem;
+  padding-top: 0.8rem;
 }
 
 .counter {
   font-variant-numeric: tabular-nums;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .artwork {
+    animation: none;
+  }
+
+  .arrow {
+    transition: none;
+  }
 }
 
 @media (max-width: 700px) {
@@ -135,13 +147,12 @@
   }
 
   .stage {
-    min-height: 0;
-    padding: 0.5rem 0.5rem 3.85rem;
-    overflow: visible;
+    display: block;
+    padding-bottom: 3.85rem;
   }
 
-  .picture {
-    min-height: 0;
+  .artworkFrame {
+    width: 100%;
   }
 
   .artwork {
