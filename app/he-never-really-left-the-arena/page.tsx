@@ -17,9 +17,18 @@ export const metadata: Metadata = {
 export default function CoverStoryPage() {
   return (
     <main className={styles.page}>
-      <header className={styles.header}>
-        <Link className={styles.brand} href="/">EASTOKYO</Link>
-        <div className={styles.issue}>NUMBER ONE · COVER STORY · SEPTEMBER 2026</div>
+      <header className={styles.articleHeader}>
+        <div className={styles.headerRail}>
+          <span>ART, PASSION, AND A LITTLE BIT OF TROUBLE. TOKYO.</span>
+          <span>NUMBER ONE · SEPTEMBER 2026</span>
+        </div>
+        <div className={styles.headerMain}>
+          <Link className={styles.brand} href="/" aria-label="EASTOKYO home">EASTOKYO</Link>
+          <nav className={styles.headerNav} aria-label="Story navigation">
+            <span>01 · COVER STORY</span>
+            <Link href="/">ISSUE ONE</Link>
+          </nav>
+        </div>
       </header>
 
       <section className={styles.hero}>
@@ -84,6 +93,12 @@ export default function CoverStoryPage() {
           </div>
         </section>
 
+        <aside className={styles.pullQuote} aria-label="EASTOKYO editorial line">
+          <span className={styles.pullQuoteMark}>“</span>
+          <p>THE ARENA IS DRAMA WITH NOWHERE LEFT TO LOOK AWAY.</p>
+          <span className={styles.pullQuoteCredit}>EASTOKYO · COVER STORY 01</span>
+        </aside>
+
         <div className={styles.bullfightPair}>
           <figure className={styles.visualFigure}>
             <picture>
@@ -144,9 +159,24 @@ export default function CoverStoryPage() {
         </section>
       </section>
 
-      <footer className={styles.footer}>
-        <span>EASTOKYO · TOKYO, JAPAN</span>
-        <Link href="/">BACK TO ISSUE ONE</Link>
+      <footer className={styles.magazineFooter}>
+        <div className={styles.footerTop}>
+          <div>
+            <p className={styles.footerKicker}>EASTOKYO · NUMBER ONE · COVER STORY</p>
+            <h2>LOOK TWICE.</h2>
+          </div>
+          <p className={styles.footerNote}>ART FROM TOKYO, AND FROM EVERY OTHER PLACE MY HEART DECIDES TO WANDER.</p>
+        </div>
+        <div className={styles.footerLinks}>
+          <Link href="/">BACK TO ISSUE ONE</Link>
+          <span>SEPTEMBER 2026</span>
+          <span>TOKYO, JAPAN</span>
+        </div>
+        <Link className={styles.footerWordmark} href="/" aria-label="EASTOKYO home">EASTOKYO</Link>
+        <div className={styles.footerBottom}>
+          <span>© 2026 EASTOKYO</span>
+          <span>BORN IN TOKYO. RAISED WITH A LITTLE FIRE IN THE CHEST.</span>
+        </div>
       </footer>
     </main>
   );
