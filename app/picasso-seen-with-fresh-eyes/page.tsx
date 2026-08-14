@@ -20,12 +20,12 @@ export default function ExhibitionStoryPage() {
         <div style={{ fontSize: ".72rem", fontWeight: 800, letterSpacing: ".12em" }}>ISSUE 01 · EXHIBITION · 02</div>
       </header>
 
-      <section aria-label="Exhibition entrance" style={{ background: "#111", borderBottom: "2px solid #111" }}>
+      <section aria-label="Portrait of a Man by Pablo Picasso" style={{ background: "#111", borderBottom: "2px solid #111" }}>
         <picture style={{ display: "block", width: "100%" }}>
-          <source media="(max-width: 700px)" srcSet="/images/editorial/picasso-paul-smith-mobile.png" />
+          <source media="(max-width: 700px)" srcSet="/images/editorial/picasso-man-in-blue-hero-mobile.png" />
           <img
-            src="/images/editorial/picasso-paul-smith-desktop.png"
-            alt="Entrance wall for Picasso, through the Eyes of Paul Smith at The National Art Center, Tokyo"
+            src="/images/editorial/picasso-man-in-blue-hero-desktop.png"
+            alt="Portrait of a Man, also known as Man in Blue, painted by Pablo Picasso in 1902"
             style={{ display: "block", width: "100%", height: "auto" }}
           />
         </picture>
@@ -70,7 +70,7 @@ export default function ExhibitionStoryPage() {
       <section style={{ padding: "80px 8vw", borderBottom: "1px solid #111" }}>
         <p style={{ fontSize: ".72rem", fontWeight: 900, letterSpacing: ".12em" }}>IMAGE PLAN · 5 IMAGES</p>
         <ol>
-          <li>Entrance / exhibition-title wall · HERO · ADDED</li>
+          <li>Portrait of a Man / Man in Blue · HERO · ADDED</li>
           <li>Visitor engaging with the exhibition · ADDED</li>
           <li>Wide room / installation view</li>
           <li>Paul Smith color / stripe intervention</li>
