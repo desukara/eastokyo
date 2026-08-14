@@ -181,7 +181,7 @@ export default function CubismStoryPage() {
           .plan { grid-template-columns: repeat(6,minmax(0,1fr)); gap: .75rem; padding: 0 1rem 7rem; }
           .planTitle { grid-column: 1 / 7; }
           .mainA, .mainB, .mainC, .mainD { grid-column: 1 / 7; margin-top: 2.5rem; min-height: 72vw; }
-          .storyFigure.mainB { min-height: 0; }
+          .storyFigure.mainB, .storyFigure.mainC { min-height: 0; }
           .supportA { grid-column: 2 / 6; margin-top: 2.5rem; min-height: 48vw; }
           .supportB { grid-column: 1 / 5; margin-top: 2.5rem; min-height: 48vw; }
           .status { grid-template-columns: repeat(6,minmax(0,1fr)); padding: 4rem 1rem; }
@@ -231,7 +231,13 @@ export default function CubismStoryPage() {
           <figcaption><strong>MAIN 02</strong> · MULTIPLE VIEWPOINTS · PICASSO · EASTOKYO ISSUE 01</figcaption>
         </figure>
         <div className="slot supportA"><div><strong>SUPPORT 01</strong><span>Monochrome study</span></div></div>
-        <div className="slot mainC"><div><strong>MAIN 03</strong><span>Construction / collage</span></div></div>
+        <figure className="storyFigure mainC">
+          <picture>
+            <source media="(max-width: 720px)" srcSet="/images/editorial/cubism-collage-figure-main-mobile.png" />
+            <img src="/images/editorial/cubism-collage-figure-main-desktop.png" alt="Cubist collage figure built from layered geometric forms" loading="lazy" />
+          </picture>
+          <figcaption><strong>MAIN 03</strong> · CONSTRUCTION / COLLAGE · PICASSO · EASTOKYO ISSUE 01</figcaption>
+        </figure>
         <div className="slot supportB"><div><strong>SUPPORT 02</strong><span>Pencil head study</span></div></div>
         <div className="slot mainD"><div><strong>MAIN 04</strong><span>Closing · orange and blue figure</span></div></div>
       </section>
