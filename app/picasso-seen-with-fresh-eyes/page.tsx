@@ -90,6 +90,21 @@ export default function ExhibitionStoryPage() {
         </figcaption>
       </figure>
 
+      <figure style={{ margin: 0, padding: "clamp(50px,7vw,90px) 0 0" }}>
+        <picture style={{ display: "block", width: "min(88vw, 1440px)", margin: "0 auto" }}>
+          <source media="(max-width: 700px)" srcSet="/images/editorial/picasso-threshold-gallery-mobile.png" />
+          <img
+            src="/images/editorial/picasso-threshold-gallery-desktop.png"
+            alt="A yellow-framed threshold opens into a pale blue gallery as visitors move through the exhibition"
+            loading="lazy"
+            style={{ display: "block", width: "100%", height: "auto" }}
+          />
+        </picture>
+        <figcaption style={{ width: "min(88vw, 1440px)", margin: "10px auto 0", fontSize: ".58rem", fontWeight: 800, letterSpacing: ".12em", textTransform: "uppercase", opacity: .58 }}>
+          PICASSO, THROUGH THE EYES OF PAUL SMITH · THE NATIONAL ART CENTER, TOKYO · PHOTOGRAPHY BY JIMICHANGA
+        </figcaption>
+      </figure>
+
       <section style={{ padding: "80px 8vw", borderBottom: "1px solid #111" }}>
         <p style={{ fontSize: ".72rem", fontWeight: 900, letterSpacing: ".12em" }}>THE STORY</p>
         <div style={{ maxWidth: "760px", margin: "0 auto", fontFamily: "Georgia, Times New Roman, serif", fontSize: "1.35rem", lineHeight: 1.55 }}>
@@ -104,7 +119,7 @@ export default function ExhibitionStoryPage() {
           <li>Visitor engaging with the exhibition · ADDED</li>
           <li>Wide room / installation view · ADDED</li>
           <li>Paul Smith color / stripe intervention · ADDED</li>
-          <li>Closing room / exit view</li>
+          <li>Closing room / exit view · ADDED</li>
         </ol>
       </section>
 
