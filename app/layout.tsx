@@ -32,6 +32,7 @@ import "./styles/hero-image.css";
 import "./styles/tokio-no-es-gris-image.css";
 import "./styles/todo-vivos-image.css";
 import "./styles/bienvivos-picasso-mirror.css";
+import "./styles/picasso-story2-clean-hero.css";
 import "./eastokyo/eastokyo-cubism-base.css";
 import "./eastokyo/picasso-feature.css";
 import "./eastokyo/eastokyo-lower-restore.css";
