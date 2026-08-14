@@ -246,7 +246,13 @@ export default function CubismStoryPage() {
           </picture>
           <figcaption><strong>MAIN 03</strong> · CONSTRUCTION / COLLAGE · PICASSO · EASTOKYO ISSUE 01</figcaption>
         </figure>
-        <div className="pending supportB"><strong>SUPPORT 02</strong><span>Pencil head study · asset pending</span></div>
+        <figure className="storyFigure supportB">
+          <picture>
+            <source media="(max-width: 720px)" srcSet="/images/editorial/cubism-pencil-head-support-mobile.png" />
+            <img src="/images/editorial/cubism-pencil-head-support-desktop.png" alt="Cubist pencil head study on aged paper" loading="lazy" />
+          </picture>
+          <figcaption><strong>SUPPORT 02</strong> · PENCIL HEAD STUDY · PICASSO · EASTOKYO ISSUE 01</figcaption>
+        </figure>
         <div className="pending mainD"><strong>MAIN 04</strong><span>Closing · orange and blue figure · asset pending</span></div>
       </section>
 
