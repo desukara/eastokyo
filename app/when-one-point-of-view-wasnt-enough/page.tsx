@@ -226,7 +226,7 @@ export default function CubismStoryPage() {
       <section className="thesis">
         <div className="thesisLabel">THE IDEA</div>
         <p className="thesisText">A face could turn toward you and away from you at the same time. Space could flatten, split, overlap, and still somehow feel more true.</p>
-        <aside className="thesisAside">This page is now online for private editorial review. Final copy and the remaining prepared image assets come next.</aside>
+        <aside className="thesisAside">All six prepared images are now in place. This page remains unlisted while the final editorial pass is underway.</aside>
       </section>
 
       <section className="plan" aria-label="Cubism image plan">
