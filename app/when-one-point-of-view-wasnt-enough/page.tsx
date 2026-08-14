@@ -259,7 +259,13 @@ export default function CubismStoryPage() {
           </picture>
           <figcaption><strong>SUPPORT 02</strong> · PENCIL HEAD STUDY · PICASSO · EASTOKYO ISSUE 01</figcaption>
         </figure>
-        <div className="pending mainD"><strong>MAIN 04</strong><span>Closing · orange and blue figure · asset pending</span></div>
+        <figure className="storyFigure mainD">
+          <picture>
+            <source media="(max-width: 720px)" srcSet="/images/editorial/cubism-mother-child-main-mobile.png" />
+            <img src="/images/editorial/cubism-mother-child-main-desktop.png" alt="Cubist mother and child in vivid orange, blue, and green" loading="lazy" />
+          </picture>
+          <figcaption><strong>MAIN 04</strong> · HUMAN RESOLUTION · PICASSO · EASTOKYO ISSUE 01</figcaption>
+        </figure>
       </section>
 
       <section className="status">
