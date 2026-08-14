@@ -238,7 +238,13 @@ export default function CubismStoryPage() {
           </picture>
           <figcaption><strong>MAIN 02</strong> · MULTIPLE VIEWPOINTS · PICASSO · EASTOKYO ISSUE 01</figcaption>
         </figure>
-        <div className="pending supportA"><strong>SUPPORT 01</strong><span>Monochrome study · asset pending</span></div>
+        <figure className="storyFigure supportA">
+          <picture>
+            <source media="(max-width: 720px)" srcSet="/images/editorial/cubism-monochrome-study-support-mobile.png" />
+            <img src="/images/editorial/cubism-monochrome-study-support-desktop.png" alt="Monochrome Cubist ink and wash study" loading="lazy" />
+          </picture>
+          <figcaption><strong>SUPPORT 01</strong> · MONOCHROME STUDY · PICASSO · EASTOKYO ISSUE 01</figcaption>
+        </figure>
         <figure className="storyFigure mainC">
           <picture>
             <source media="(max-width: 720px)" srcSet="/images/editorial/cubism-collage-figure-main-mobile.png" />
