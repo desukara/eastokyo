@@ -121,23 +121,32 @@ export default function CubismStoryPage() {
           display: grid;
           grid-template-columns: repeat(12,minmax(0,1fr));
           gap: 1.25rem;
-          padding: 0 clamp(1rem,3.4vw,3.4rem) clamp(8rem,12vw,14rem);
+          padding: 0 clamp(1rem,3.4vw,3.4rem) clamp(7rem,10vw,11rem);
         }
         .planTitle { grid-column: 1 / 13; padding-top: .8rem; border-top: 1px solid var(--line); font-size: .58rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; }
-        .slot { display: flex; min-height: clamp(18rem,34vw,36rem); align-items: flex-end; padding: 1rem; border: 1px solid var(--line); background: rgba(255,255,255,.2); }
-        .slot strong { display: block; color: var(--orange); font-size: .6rem; letter-spacing: .15em; text-transform: uppercase; }
-        .slot span { display: block; margin-top: .3rem; font-family: var(--font-bienvivos-display), serif; font-size: clamp(1.4rem,2.3vw,2.6rem); line-height: 1; }
         .storyFigure { margin: 0; align-self: start; }
         .storyFigure picture, .storyFigure img { display: block; width: 100%; }
         .storyFigure img { height: auto; }
         .storyFigure figcaption { margin-top: .65rem; font-size: .52rem; font-weight: 700; line-height: 1.45; letter-spacing: .13em; text-transform: uppercase; opacity: .58; }
         .storyFigure figcaption strong { color: var(--orange); }
-        .mainA { grid-column: 1 / 7; }
-        .mainB { grid-column: 8 / 13; margin-top: 8rem; }
-        .supportA { grid-column: 2 / 5; min-height: 15rem; margin-top: 5rem; }
-        .mainC { grid-column: 6 / 13; margin-top: 9rem; }
-        .supportB { grid-column: 1 / 4; min-height: 15rem; margin-top: 6rem; }
-        .mainD { grid-column: 5 / 13; margin-top: 12rem; min-height: clamp(22rem,42vw,46rem); }
+        .pending {
+          align-self: start;
+          padding-top: .7rem;
+          border-top: 1px solid var(--line);
+          font-size: .54rem;
+          font-weight: 700;
+          line-height: 1.5;
+          letter-spacing: .13em;
+          text-transform: uppercase;
+          opacity: .62;
+        }
+        .pending strong { color: var(--orange); }
+        .pending span { display: block; margin-top: .25rem; font-weight: 600; }
+        .mainB { grid-column: 8 / 13; margin-top: 2.5rem; }
+        .supportA { grid-column: 2 / 5; margin-top: 3rem; }
+        .mainC { grid-column: 6 / 13; margin-top: 5rem; }
+        .supportB { grid-column: 1 / 4; margin-top: 3.5rem; }
+        .mainD { grid-column: 5 / 13; margin-top: 5rem; }
 
         .status {
           display: grid;
@@ -178,12 +187,12 @@ export default function CubismStoryPage() {
           .thesisLabel { grid-column: 1 / 3; }
           .thesisText { grid-column: 1 / 7; margin-top: 3rem; font-size: clamp(2.7rem,12vw,4.8rem); }
           .thesisAside { grid-column: 4 / 7; margin-top: 3rem; }
-          .plan { grid-template-columns: repeat(6,minmax(0,1fr)); gap: .75rem; padding: 0 1rem 7rem; }
+          .plan { grid-template-columns: repeat(6,minmax(0,1fr)); gap: .75rem; padding: 0 1rem 6rem; }
           .planTitle { grid-column: 1 / 7; }
-          .mainA, .mainB, .mainC, .mainD { grid-column: 1 / 7; margin-top: 2.5rem; min-height: 72vw; }
-          .storyFigure.mainB, .storyFigure.mainC { min-height: 0; }
-          .supportA { grid-column: 2 / 6; margin-top: 2.5rem; min-height: 48vw; }
-          .supportB { grid-column: 1 / 5; margin-top: 2.5rem; min-height: 48vw; }
+          .mainB, .mainC { grid-column: 1 / 7; margin-top: 2.5rem; }
+          .supportA { grid-column: 2 / 6; margin-top: 2rem; }
+          .supportB { grid-column: 1 / 5; margin-top: 2rem; }
+          .mainD { grid-column: 1 / 7; margin-top: 2.5rem; }
           .status { grid-template-columns: repeat(6,minmax(0,1fr)); padding: 4rem 1rem; }
           .status strong { grid-column: 1 / 4; }
           .status p { grid-column: 1 / 7; margin-top: 3rem; font-size: 2.5rem; }
@@ -222,7 +231,6 @@ export default function CubismStoryPage() {
 
       <section className="plan" aria-label="Cubism image plan">
         <div className="planTitle">IMAGE CHOREOGRAPHY · 4 MAIN + 2 SUPPORT</div>
-        <div className="slot mainA"><div><strong>MAIN 01</strong><span>Hero · orange Cubist portrait</span></div></div>
         <figure className="storyFigure mainB">
           <picture>
             <source media="(max-width: 720px)" srcSet="/images/editorial/cubism-split-face-main-mobile.png" />
@@ -230,7 +238,7 @@ export default function CubismStoryPage() {
           </picture>
           <figcaption><strong>MAIN 02</strong> · MULTIPLE VIEWPOINTS · PICASSO · EASTOKYO ISSUE 01</figcaption>
         </figure>
-        <div className="slot supportA"><div><strong>SUPPORT 01</strong><span>Monochrome study</span></div></div>
+        <div className="pending supportA"><strong>SUPPORT 01</strong><span>Monochrome study · asset pending</span></div>
         <figure className="storyFigure mainC">
           <picture>
             <source media="(max-width: 720px)" srcSet="/images/editorial/cubism-collage-figure-main-mobile.png" />
@@ -238,8 +246,8 @@ export default function CubismStoryPage() {
           </picture>
           <figcaption><strong>MAIN 03</strong> · CONSTRUCTION / COLLAGE · PICASSO · EASTOKYO ISSUE 01</figcaption>
         </figure>
-        <div className="slot supportB"><div><strong>SUPPORT 02</strong><span>Pencil head study</span></div></div>
-        <div className="slot mainD"><div><strong>MAIN 04</strong><span>Closing · orange and blue figure</span></div></div>
+        <div className="pending supportB"><strong>SUPPORT 02</strong><span>Pencil head study · asset pending</span></div>
+        <div className="pending mainD"><strong>MAIN 04</strong><span>Closing · orange and blue figure · asset pending</span></div>
       </section>
 
       <section className="status">
