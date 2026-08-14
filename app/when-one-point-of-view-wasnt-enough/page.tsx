@@ -14,376 +14,106 @@ export const metadata: Metadata = {
 
 export default function CubismStoryPage() {
   return (
-    <main className="cubismStory">
+    <main className="story">
       <style>{`
         :root {
-          --paper: #f3efe6;
-          --ink: #11110f;
-          --orange: #d94e16;
-          --blue: #214f78;
-          --line: rgba(17,17,15,.22);
-          --pad: clamp(1rem,3vw,3rem);
+          --paper:#f3efe6;
+          --ink:#11110f;
+          --orange:#d94e16;
+          --blue:#214f78;
+          --line:rgba(17,17,15,.18);
+          --shell:min(1180px,calc(100vw - 3rem));
+          --reading:min(720px,calc(100vw - 3rem));
         }
-        * { box-sizing: border-box; }
-        body { margin: 0; background: var(--paper); }
-        .cubismStory {
-          overflow: hidden;
-          background: var(--paper);
-          color: var(--ink);
-          font-family: var(--font-bienvivos-sans), sans-serif;
-        }
-        .folio {
-          display: grid;
-          grid-template-columns: 1fr auto 1fr;
-          align-items: center;
-          gap: 1rem;
-          padding: .72rem var(--pad);
-          border-bottom: 1px solid var(--line);
-          font-size: .55rem;
-          font-weight: 700;
-          letter-spacing: .15em;
-          text-transform: uppercase;
-        }
-        .folio a { color: inherit; text-decoration: none; }
-        .folioBrand {
-          font-size: clamp(1.55rem,3vw,2.7rem);
-          font-weight: 800;
-          line-height: .8;
-          letter-spacing: -.065em;
-        }
-        .folioCenter { text-align: center; }
-        .folioRight { text-align: right; }
+        *{box-sizing:border-box}
+        body{margin:0;background:var(--paper)}
+        .story{background:var(--paper);color:var(--ink);font-family:var(--font-bienvivos-sans),sans-serif;overflow:hidden}
+        .bar{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:1rem;padding:.82rem max(1rem,calc((100vw - 1180px)/2));border-bottom:1px solid var(--line);font-size:.66rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase}
+        .brand{color:inherit;text-decoration:none;font-size:clamp(1.7rem,2.6vw,2.7rem);font-weight:800;letter-spacing:-.06em;line-height:.85}
+        .barCenter{text-align:center}.barRight{text-align:right}
 
-        .hero picture, .hero img,
-        .figure picture, .figure img { display: block; width: 100%; }
-        .hero img, .figure img { height: auto; }
+        .hero{width:var(--shell);margin:clamp(2rem,4vw,4rem) auto 0}
+        .hero img,.figure img{display:block;width:100%;height:auto}
 
-        .opening {
-          display: grid;
-          grid-template-columns: repeat(12,minmax(0,1fr));
-          gap: 1.1rem;
-          padding: clamp(2.5rem,4.5vw,4.5rem) var(--pad) clamp(4rem,6vw,6rem);
-          border-bottom: 1px solid var(--line);
-        }
-        .number {
-          grid-column: 1 / 2;
-          color: var(--orange);
-          font-family: var(--font-bienvivos-display), serif;
-          font-size: clamp(3.8rem,7vw,7rem);
-          line-height: .72;
-          letter-spacing: -.07em;
-        }
-        .titleBlock { grid-column: 2 / 9; }
-        .kicker,
-        .marker,
-        .caption,
-        .marginalia,
-        .endMatter {
-          font-size: .54rem;
-          font-weight: 700;
-          line-height: 1.55;
-          letter-spacing: .14em;
-          text-transform: uppercase;
-        }
-        .kicker { margin: 0 0 .9rem; }
-        h1 {
-          margin: 0;
-          max-width: 8.3ch;
-          font-family: var(--font-bienvivos-display), serif;
-          font-size: clamp(3.8rem,7.8vw,8.2rem);
-          font-weight: 600;
-          line-height: .8;
-          letter-spacing: -.048em;
-          text-wrap: balance;
-        }
-        .deck {
-          grid-column: 9 / 13;
-          align-self: end;
-          margin: 0;
-          max-width: 24ch;
-          font-family: var(--font-bienvivos-display), serif;
-          font-size: clamp(1.25rem,1.9vw,2.05rem);
-          line-height: 1.12;
-          letter-spacing: -.018em;
-        }
+        .masthead{width:var(--shell);margin:0 auto;padding:clamp(3.2rem,5vw,5.2rem) 0 clamp(4rem,6vw,6rem);display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,.36fr);gap:clamp(2.5rem,6vw,6rem);align-items:end;border-bottom:1px solid var(--line)}
+        .kicker,.caption,.note,.footer{font-size:.66rem;font-weight:700;line-height:1.55;letter-spacing:.12em;text-transform:uppercase}
+        .kicker{margin:0 0 1rem;color:var(--orange)}
+        h1{margin:0;max-width:9ch;font-family:var(--font-bienvivos-display),serif;font-size:clamp(4.2rem,7.5vw,7.8rem);font-weight:600;line-height:.83;letter-spacing:-.046em;text-wrap:balance}
+        .deck{margin:0;font-family:var(--font-bienvivos-display),serif;font-size:clamp(1.5rem,2.15vw,2.15rem);line-height:1.18;max-width:27ch}
 
-        .spread {
-          padding-left: var(--pad);
-          padding-right: var(--pad);
-        }
-        .grid {
-          display: grid;
-          grid-template-columns: repeat(12,minmax(0,1fr));
-          gap: 1.1rem;
-          align-items: start;
-        }
-        .prose {
-          font-family: var(--font-bienvivos-display), serif;
-          font-size: clamp(1rem,1.15vw,1.13rem);
-          line-height: 1.64;
-        }
-        .prose p { margin: 0 0 1.32em; }
-        .caption {
-          margin-top: .6rem;
-          opacity: .58;
-        }
-        .caption strong { color: var(--orange); }
-        .figure { margin: 0; }
-        .marker {
-          padding-top: .7rem;
-          border-top: 1px solid var(--line);
-        }
-        .marginalia { color: var(--blue); }
+        .prose{font-family:var(--font-bienvivos-display),serif;font-size:clamp(1.22rem,1.5vw,1.38rem);line-height:1.68}
+        .prose p{margin:0 0 1.35em}
+        .figure{margin:0}
+        .caption{margin-top:.72rem;opacity:.62}
+        .caption strong{color:var(--orange)}
+        .note{color:var(--blue)}
 
-        /* 01 — OPENING ESSAY */
-        .essaySpread {
-          padding-top: clamp(4rem,6.5vw,6.5rem);
-          padding-bottom: clamp(4.5rem,7vw,7rem);
-        }
-        .essayMarker { grid-column: 1 / 3; }
-        .essayCopy {
-          grid-column: 4 / 9;
-          max-width: 64ch;
-        }
-        .essayCopy p:first-child::first-letter {
-          float: left;
-          margin: .06em .12em 0 0;
-          color: var(--orange);
-          font-size: 5em;
-          line-height: .7;
-        }
-        .essayAside {
-          grid-column: 10 / 13;
-          margin-top: 5.5rem;
-          max-width: 24ch;
-          font-family: var(--font-bienvivos-display), serif;
-          font-size: .98rem;
-          line-height: 1.5;
-        }
-        .essaySpanish {
-          grid-column: 10 / 13;
-          margin-top: 2rem;
-          padding-top: .65rem;
-          border-top: 3px solid var(--orange);
-        }
+        .intro{width:var(--reading);margin:0 auto;padding:clamp(4.5rem,7vw,7rem) 0 clamp(4rem,6vw,6rem)}
+        .intro p:first-child::first-letter{float:left;margin:.05em .12em 0 0;color:var(--orange);font-size:4.8em;line-height:.72}
+        .introNote{width:min(260px,55%);margin:2rem 0 0 auto;padding-top:.75rem;border-top:3px solid var(--orange)}
 
-        /* 02 — VIEWPOINT */
-        .viewpointSpread {
-          padding-top: clamp(2rem,3vw,3rem);
-          padding-bottom: clamp(5rem,8vw,8rem);
-        }
-        .viewpointMarker { grid-column: 1 / 3; }
-        .viewpointFigure {
-          grid-column: 6 / 13;
-          margin-top: 1.5rem;
-          margin-right: calc(-1 * var(--pad));
-        }
-        .viewpointCopy {
-          grid-column: 2 / 6;
-          grid-row: 2;
-          margin-top: clamp(5rem,8vw,8rem);
-          max-width: 58ch;
-        }
+        .viewpoint{width:var(--shell);margin:0 auto;padding:clamp(4rem,6vw,6rem) 0 clamp(6rem,9vw,9rem);border-top:1px solid var(--line);display:grid;grid-template-columns:minmax(300px,.4fr) minmax(0,.6fr);gap:clamp(3rem,6vw,6rem);align-items:center}
+        .viewpointCopy{max-width:580px}
+        .mainFigure{width:min(760px,100%);justify-self:end}
 
-        /* 03 — FRACTURE */
-        .fractureSpread {
-          padding-top: clamp(2rem,3vw,3rem);
-          padding-bottom: clamp(5rem,8vw,8rem);
-          border-top: 1px solid var(--line);
-        }
-        .monoFigure {
-          grid-column: 2 / 5;
-          width: 86%;
-          margin-top: 3.5rem;
-        }
-        .pullQuote {
-          grid-column: 6 / 12;
-          margin: 3rem 0 0;
-          font-family: var(--font-bienvivos-display), serif;
-          font-size: clamp(2.8rem,4.8vw,5.2rem);
-          font-weight: 500;
-          line-height: .92;
-          letter-spacing: -.038em;
-        }
-        .pullQuote em { color: var(--orange); font-style: normal; }
-        .fractureCopy {
-          grid-column: 7 / 11;
-          margin-top: 2.3rem;
-          max-width: 58ch;
-        }
+        .fracture{width:var(--shell);margin:0 auto;padding:clamp(5rem,8vw,8rem) 0;border-top:1px solid var(--line);display:grid;grid-template-columns:minmax(220px,.28fr) minmax(0,.72fr);gap:clamp(3rem,7vw,7rem);align-items:center}
+        .supportFigure{width:min(300px,100%);justify-self:center}
+        .quote{margin:0;max-width:820px;font-family:var(--font-bienvivos-display),serif;font-size:clamp(2.8rem,4.5vw,4.8rem);font-weight:500;line-height:.96;letter-spacing:-.035em}
+        .quote em{font-style:normal;color:var(--orange)}
+        .fractureCopy{max-width:600px;margin-top:2rem}
 
-        /* 04 — CONSTRUCTION */
-        .constructionSpread {
-          padding-top: clamp(3rem,4vw,4rem);
-          padding-bottom: clamp(6rem,9vw,9rem);
-        }
-        .constructionMarker { grid-column: 1 / 3; }
-        .constructionCopy {
-          grid-column: 4 / 9;
-          max-width: 64ch;
-        }
-        .constructionAside {
-          grid-column: 10 / 13;
-          margin-top: 2.2rem;
-          max-width: 24ch;
-          font-family: var(--font-bienvivos-display), serif;
-          font-size: .98rem;
-          line-height: 1.5;
-        }
-        .collageFigure {
-          grid-column: 3 / 13;
-          margin-top: clamp(3rem,5vw,5rem);
-          margin-right: calc(-1 * var(--pad));
-        }
-        .afterCollage {
-          grid-column: 8 / 12;
-          margin-top: 1.8rem;
-          max-width: 54ch;
-        }
-        .studyFigure {
-          grid-column: 1 / 4;
-          width: 82%;
-          margin-top: clamp(5rem,8vw,8rem);
-        }
-        .studyCopy {
-          grid-column: 5 / 9;
-          margin-top: clamp(6.5rem,10vw,10rem);
-          max-width: 56ch;
-        }
-        .studyNote {
-          grid-column: 10 / 12;
-          margin-top: clamp(8rem,12vw,12rem);
-          padding-top: .65rem;
-          border-top: 1px solid var(--line);
-        }
+        .construction{border-top:1px solid var(--line);padding:clamp(5rem,8vw,8rem) 0 clamp(6rem,9vw,9rem)}
+        .constructionCopy{width:var(--reading);margin:0 auto clamp(4rem,6vw,6rem)}
+        .aside{max-width:340px;margin:1.5rem 0 0 auto;font-family:var(--font-bienvivos-display),serif;font-size:1.05rem;line-height:1.5}
+        .climax{width:min(980px,calc(100vw - 3rem));margin:0 auto}
+        .afterClimax{width:min(620px,calc(100vw - 3rem));margin:2.2rem auto 0}
 
-        /* 05 — HUMAN */
-        .humanSpread {
-          padding-top: clamp(4rem,6vw,6rem);
-          padding-bottom: clamp(7rem,11vw,11rem);
-          border-top: 1px solid var(--line);
-        }
-        .humanCopy {
-          grid-column: 4 / 9;
-          max-width: 62ch;
-        }
-        .humanFigure {
-          grid-column: 4 / 12;
-          margin-top: clamp(4rem,6vw,6rem);
-        }
-        .humanWhisper {
-          grid-column: 9 / 12;
-          margin-top: 1.1rem;
-          text-align: right;
-          color: var(--blue);
-        }
+        .study{width:var(--shell);margin:clamp(5rem,8vw,8rem) auto 0;display:grid;grid-template-columns:minmax(210px,.3fr) minmax(0,.7fr);gap:clamp(3rem,6vw,6rem);align-items:start}
+        .studyFigure{width:min(280px,100%);justify-self:center}
+        .studyCopy{max-width:620px;padding-top:clamp(1rem,3vw,3rem)}
+        .studyNote{width:min(230px,60%);margin:1.4rem 0 0 auto;padding-top:.7rem;border-top:1px solid var(--line)}
 
-        .endMatter {
-          display: flex;
-          justify-content: space-between;
-          gap: 1rem;
-          padding: 1rem var(--pad) 1.3rem;
-          border-top: 1px solid var(--line);
-        }
-        .endMatter a { color: inherit; text-decoration: none; }
-        .endMatter span:last-child { text-align: right; opacity: .62; }
+        .human{border-top:1px solid var(--line);padding:clamp(5rem,8vw,8rem) 0 clamp(8rem,12vw,12rem)}
+        .humanCopy{width:var(--reading);margin:0 auto}
+        .finalFigure{width:min(720px,calc(100vw - 3rem));margin:clamp(5rem,8vw,8rem) auto 0}
+        .finalNote{width:min(720px,calc(100vw - 3rem));margin:.95rem auto 0;text-align:right}
 
-        @media (max-width: 720px) {
-          :root { --pad: 1rem; }
-          .folio { grid-template-columns: 1fr auto; padding: .6rem 1rem .7rem; }
-          .folioCenter { display: none; }
+        .footer{display:flex;justify-content:space-between;gap:1rem;padding:1rem max(1rem,calc((100vw - 1180px)/2)) 1.3rem;border-top:1px solid var(--line)}
+        .footer a{color:inherit;text-decoration:none}.footer span{text-align:right;opacity:.62}
 
-          .opening {
-            grid-template-columns: repeat(6,minmax(0,1fr));
-            gap: .7rem;
-            padding: 1.8rem 1rem 3.2rem;
-          }
-          .number { grid-column: 1 / 2; font-size: 3.7rem; }
-          .titleBlock { grid-column: 2 / 7; }
-          h1 { font-size: clamp(3rem,14vw,5rem); line-height: .82; }
-          .deck {
-            grid-column: 2 / 7;
-            margin-top: 1.25rem;
-            max-width: 26ch;
-            font-size: 1.32rem;
-          }
-
-          .grid {
-            grid-template-columns: repeat(6,minmax(0,1fr));
-            gap: .7rem;
-          }
-          .prose { font-size: 1.06rem; line-height: 1.62; }
-
-          .essaySpread { padding-top: 3.2rem; padding-bottom: 3.8rem; }
-          .essayMarker { grid-column: 1 / 3; }
-          .essayCopy { grid-column: 1 / 7; margin-top: 2rem; }
-          .essayAside { grid-column: 2 / 6; margin-top: 1.5rem; font-size: .96rem; }
-          .essaySpanish { grid-column: 4 / 7; margin-top: 1.3rem; }
-
-          .viewpointSpread { padding-top: 1rem; padding-bottom: 4rem; }
-          .viewpointMarker { grid-column: 1 / 3; }
-          .viewpointFigure {
-            grid-column: 1 / 7;
-            grid-row: auto;
-            width: calc(100% + 2rem);
-            margin: 1.3rem -1rem 0;
-          }
-          .viewpointFigure .caption { padding: 0 1rem; }
-          .viewpointCopy {
-            grid-column: 1 / 7;
-            grid-row: auto;
-            margin-top: 2.2rem;
-          }
-
-          .fractureSpread { padding-top: 1rem; padding-bottom: 4rem; }
-          .monoFigure {
-            grid-column: 2 / 6;
-            width: 72%;
-            margin: 2.5rem auto 0;
-          }
-          .pullQuote {
-            grid-column: 1 / 7;
-            margin-top: 3rem;
-            font-size: clamp(2.7rem,12vw,4.2rem);
-          }
-          .fractureCopy { grid-column: 1 / 7; margin-top: 2rem; }
-
-          .constructionSpread { padding-top: 2rem; padding-bottom: 4.8rem; }
-          .constructionMarker { grid-column: 1 / 3; }
-          .constructionCopy { grid-column: 1 / 7; margin-top: 2rem; }
-          .constructionAside { grid-column: 2 / 6; margin-top: 1.2rem; font-size: .96rem; }
-          .collageFigure {
-            grid-column: 1 / 7;
-            width: calc(100% + 2rem);
-            margin: 2.8rem -1rem 0;
-          }
-          .collageFigure .caption { padding: 0 1rem; }
-          .afterCollage { grid-column: 2 / 7; margin-top: 1.6rem; }
-          .studyFigure {
-            grid-column: 1 / 5;
-            width: 68%;
-            margin-top: 3.8rem;
-          }
-          .studyCopy { grid-column: 1 / 7; margin-top: 2.5rem; }
-          .studyNote { grid-column: 4 / 7; margin-top: 1.2rem; }
-
-          .humanSpread { padding-top: 3.5rem; padding-bottom: 5rem; }
-          .humanCopy { grid-column: 1 / 7; }
-          .humanFigure {
-            grid-column: 1 / 7;
-            margin-top: 3.5rem;
-          }
-          .humanWhisper { grid-column: 4 / 7; margin-top: .8rem; }
-
-          .endMatter { flex-direction: column; padding: 1rem; }
-          .endMatter span:last-child { text-align: left; }
+        @media(max-width:720px){
+          :root{--shell:calc(100vw - 2rem);--reading:calc(100vw - 2rem)}
+          .bar{grid-template-columns:1fr auto;padding:.7rem 1rem}.barCenter{display:none}.barRight{font-size:.55rem}
+          .hero{margin-top:1rem}
+          .masthead{grid-template-columns:1fr;gap:1.5rem;padding:2.4rem 0 3.4rem}
+          h1{font-size:clamp(3.2rem,14vw,4.9rem);line-height:.85}
+          .deck{font-size:1.4rem;max-width:29ch}
+          .prose{font-size:1.17rem;line-height:1.67}
+          .intro{padding:3.5rem 0 4rem}
+          .viewpoint,.fracture,.study{grid-template-columns:1fr;gap:2.4rem}
+          .viewpoint{padding:3.8rem 0 4.5rem}
+          .mainFigure{width:100%;justify-self:auto}
+          .fracture{padding:4rem 0 4.5rem}
+          .supportFigure{width:min(250px,72vw)}
+          .quote{font-size:clamp(2.55rem,11vw,3.9rem)}
+          .construction{padding:4rem 0 4.8rem}
+          .constructionCopy{margin-bottom:3rem}
+          .climax{width:calc(100vw - 2rem)}
+          .afterClimax{width:calc(100vw - 2rem)}
+          .study{margin-top:4rem}
+          .studyFigure{width:min(230px,68vw);justify-self:start}
+          .studyCopy{padding-top:0}
+          .human{padding:4.5rem 0 6rem}
+          .finalFigure{width:calc(100vw - 2rem);margin-top:4rem}
+          .finalNote{width:calc(100vw - 2rem)}
+          .footer{flex-direction:column;padding:1rem}.footer span{text-align:left}
         }
       `}</style>
 
-      <header className="folio">
-        <Link className="folioBrand" href="/eastokyo">EASTOKYO</Link>
-        <span className="folioCenter">ISSUE 01 · STORY 03 · IDEAS</span>
-        <span className="folioRight">TOKYO · 2026</span>
+      <header className="bar">
+        <Link className="brand" href="/eastokyo">EASTOKYO</Link>
+        <span className="barCenter">ISSUE 01 · STORY 03 · IDEAS</span>
+        <span className="barRight">TOKYO · 2026</span>
       </header>
 
       <section className="hero" aria-label="Cubism story hero">
@@ -393,82 +123,71 @@ export default function CubismStoryPage() {
         </picture>
       </section>
 
-      <section className="opening">
-        <div className="number">03</div>
-        <div className="titleBlock">
-          <p className="kicker">IDEAS · PICASSO · CUBISM</p>
+      <section className="masthead">
+        <div>
+          <p className="kicker">03 · IDEAS · PICASSO / CUBISM</p>
           <h1>WHEN ONE ANGLE WASN&apos;T ENOUGH.</h1>
         </div>
         <p className="deck">Picasso and Braque decided a picture didn&apos;t have to sit still and behave itself. One point of view was never going to hold everything they wanted to say.</p>
       </section>
 
       <article>
-        <section className="spread essaySpread">
-          <div className="grid">
-            <div className="marker essayMarker">01 / THE ARGUMENT</div>
-            <div className="prose essayCopy">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere, augue sed tempor dictum, massa justo feugiat nisl, vitae tristique arcu ligula vitae est. Integer vel dolor at sapien aliquet tincidunt. Suspendisse potenti. Curabitur finibus, augue vitae commodo posuere, sapien justo vulputate odio, et laoreet libero lectus sed neque.</p>
-              <p>Vivamus dictum sem ut nisl tristique, quis tincidunt arcu egestas. Praesent vitae ex sed lectus pellentesque tempor. Nulla facilisi. Maecenas sodales ligula at purus vulputate, in pretium erat fermentum. Duis convallis, turpis sit amet luctus sollicitudin, magna augue ultrices velit, non hendrerit lorem enim id massa.</p>
-            </div>
-            <aside className="essayAside">Cubism did not ask the eye to behave. It asked the eye to work.</aside>
-            <div className="marginalia essaySpanish">Mirar otra vez.</div>
-          </div>
+        <section className="intro prose">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere, augue sed tempor dictum, massa justo feugiat nisl, vitae tristique arcu ligula vitae est. Integer vel dolor at sapien aliquet tincidunt. Suspendisse potenti. Curabitur finibus, augue vitae commodo posuere, sapien justo vulputate odio, et laoreet libero lectus sed neque.</p>
+          <p>Vivamus dictum sem ut nisl tristique, quis tincidunt arcu egestas. Praesent vitae ex sed lectus pellentesque tempor. Nulla facilisi. Maecenas sodales ligula at purus vulputate, in pretium erat fermentum. Duis convallis, turpis sit amet luctus sollicitudin, magna augue ultrices velit, non hendrerit lorem enim id massa.</p>
+          <div className="note introNote">Mirar otra vez.</div>
         </section>
 
-        <section className="spread viewpointSpread">
-          <div className="grid">
-            <div className="marker viewpointMarker">02 / MULTIPLE VIEWPOINTS</div>
-            <figure className="figure viewpointFigure">
-              <picture>
-                <source media="(max-width: 720px)" srcSet="/images/editorial/cubism-split-face-main-mobile.png" />
-                <img src="/images/editorial/cubism-split-face-main-desktop.png" alt="Cubist seated figure shown through overlapping facial viewpoints" loading="lazy" />
-              </picture>
-              <figcaption className="caption"><strong>PABLO PICASSO</strong> · CUBIST FIGURE</figcaption>
-            </figure>
-            <div className="prose viewpointCopy">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tincidunt velit at posuere bibendum. Curabitur tincidunt, eros vitae luctus consequat, erat dui feugiat dui, at pellentesque sapien nisi sit amet lacus.</p>
-              <p>Nam interdum turpis non ante rhoncus, vitae dictum est consequat. Vestibulum feugiat orci nec semper sollicitudin. Nulla facilisi. Duis tristique neque vel sapien egestas, in volutpat massa dignissim.</p>
-            </div>
+        <section className="viewpoint">
+          <div className="prose viewpointCopy">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tincidunt velit at posuere bibendum. Curabitur tincidunt, eros vitae luctus consequat, erat dui feugiat dui, at pellentesque sapien nisi sit amet lacus.</p>
+            <p>Nam interdum turpis non ante rhoncus, vitae dictum est consequat. Vestibulum feugiat orci nec semper sollicitudin. Nulla facilisi. Duis tristique neque vel sapien egestas, in volutpat massa dignissim.</p>
           </div>
+          <figure className="figure mainFigure">
+            <picture>
+              <source media="(max-width: 720px)" srcSet="/images/editorial/cubism-split-face-main-mobile.png" />
+              <img src="/images/editorial/cubism-split-face-main-desktop.png" alt="Cubist seated figure shown through overlapping facial viewpoints" loading="lazy" />
+            </picture>
+            <figcaption className="caption"><strong>PABLO PICASSO</strong> · CUBIST FIGURE</figcaption>
+          </figure>
         </section>
 
-        <section className="spread fractureSpread">
-          <div className="grid">
-            <figure className="figure monoFigure">
-              <picture>
-                <source media="(max-width: 720px)" srcSet="/images/editorial/cubism-monochrome-study-support-mobile.png" />
-                <img src="/images/editorial/cubism-monochrome-study-support-desktop.png" alt="Monochrome Cubist ink and wash study" loading="lazy" />
-              </picture>
-              <figcaption className="caption"><strong>PABLO PICASSO</strong> · MONOCHROME STUDY</figcaption>
-            </figure>
-            <p className="pullQuote">A face could turn toward you and away from you <em>at the same time.</em></p>
+        <section className="fracture">
+          <figure className="figure supportFigure">
+            <picture>
+              <source media="(max-width: 720px)" srcSet="/images/editorial/cubism-monochrome-study-support-mobile.png" />
+              <img src="/images/editorial/cubism-monochrome-study-support-desktop.png" alt="Monochrome Cubist ink and wash study" loading="lazy" />
+            </picture>
+            <figcaption className="caption"><strong>PABLO PICASSO</strong> · MONOCHROME STUDY</figcaption>
+          </figure>
+          <div>
+            <p className="quote">A face could turn toward you and away from you <em>at the same time.</em></p>
             <div className="prose fractureCopy">
               <p>Aliquam erat volutpat. Morbi pellentesque augue nec tellus vestibulum, vitae consequat magna posuere. Fusce non justo quis nisl tincidunt posuere. Donec tristique, magna et faucibus dignissim, lectus justo vestibulum arcu, vitae placerat justo nunc ut nibh.</p>
             </div>
           </div>
         </section>
 
-        <section className="spread constructionSpread">
-          <div className="grid">
-            <div className="marker constructionMarker">03 / CONSTRUCTION</div>
-            <div className="prose constructionCopy">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer faucibus tortor vel massa accumsan, et efficitur massa fermentum. Sed sed cursus sapien. Morbi sodales lectus a orci feugiat, vel tempor elit imperdiet.</p>
-              <p>Etiam viverra, elit eget placerat finibus, risus ipsum dignissim urna, ut vulputate lectus tellus sit amet augue. Integer dignissim nibh non justo volutpat, vel pellentesque dolor ultrices.</p>
-            </div>
-            <aside className="constructionAside">The picture stops pretending to be a window. It starts behaving like an object.</aside>
+        <section className="construction">
+          <div className="constructionCopy prose">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer faucibus tortor vel massa accumsan, et efficitur massa fermentum. Sed sed cursus sapien. Morbi sodales lectus a orci feugiat, vel tempor elit imperdiet.</p>
+            <p>Etiam viverra, elit eget placerat finibus, risus ipsum dignissim urna, ut vulputate lectus tellus sit amet augue. Integer dignissim nibh non justo volutpat, vel pellentesque dolor ultrices.</p>
+            <aside className="aside">The picture stops pretending to be a window. It starts behaving like an object.</aside>
+          </div>
 
-            <figure className="figure collageFigure">
-              <picture>
-                <source media="(max-width: 720px)" srcSet="/images/editorial/cubism-collage-figure-main-mobile.png" />
-                <img src="/images/editorial/cubism-collage-figure-main-desktop.png" alt="Cubist collage figure built from layered geometric forms" loading="lazy" />
-              </picture>
-              <figcaption className="caption"><strong>PABLO PICASSO</strong> · CONSTRUCTION / COLLAGE</figcaption>
-            </figure>
+          <figure className="figure climax">
+            <picture>
+              <source media="(max-width: 720px)" srcSet="/images/editorial/cubism-collage-figure-main-mobile.png" />
+              <img src="/images/editorial/cubism-collage-figure-main-desktop.png" alt="Cubist collage figure built from layered geometric forms" loading="lazy" />
+            </picture>
+            <figcaption className="caption"><strong>PABLO PICASSO</strong> · CONSTRUCTION / COLLAGE</figcaption>
+          </figure>
 
-            <div className="prose afterCollage">
-              <p>Sed luctus sem in risus feugiat, ut malesuada nulla congue. Aenean volutpat tortor sit amet magna tincidunt, quis porttitor arcu pulvinar. Donec euismod quam vel lacus posuere, at dictum enim viverra.</p>
-            </div>
+          <div className="afterClimax prose">
+            <p>Sed luctus sem in risus feugiat, ut malesuada nulla congue. Aenean volutpat tortor sit amet magna tincidunt, quis porttitor arcu pulvinar. Donec euismod quam vel lacus posuere, at dictum enim viverra.</p>
+          </div>
 
+          <div className="study">
             <figure className="figure studyFigure">
               <picture>
                 <source media="(max-width: 720px)" srcSet="/images/editorial/cubism-pencil-head-support-mobile.png" />
@@ -476,35 +195,31 @@ export default function CubismStoryPage() {
               </picture>
               <figcaption className="caption"><strong>PABLO PICASSO</strong> · PENCIL HEAD STUDY</figcaption>
             </figure>
-
             <div className="prose studyCopy">
               <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer ac dolor sed erat tincidunt dictum. Quisque vitae viverra augue. Fusce aliquet tincidunt odio, quis interdum turpis porta eget.</p>
               <p>Praesent nec massa vitae justo feugiat pulvinar. In sit amet hendrerit urna. Curabitur vel elementum est, sed malesuada justo.</p>
+              <div className="note studyNote">Small marks. Big consequences.</div>
             </div>
-            <div className="marginalia studyNote">Small marks. Big consequences.</div>
           </div>
         </section>
 
-        <section className="spread humanSpread">
-          <div className="grid">
-            <div className="prose humanCopy">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer placerat dolor vel arcu feugiat, at ultricies odio tristique. Suspendisse sed quam quis lectus aliquam feugiat. Sed vulputate neque id metus pulvinar, et varius purus tincidunt.</p>
-              <p>Nulla facilisi. Cras commodo velit a purus consequat, vitae consequat neque elementum.</p>
-            </div>
-
-            <figure className="figure humanFigure">
-              <picture>
-                <source media="(max-width: 720px)" srcSet="/images/editorial/cubism-mother-child-main-mobile.png" />
-                <img src="/images/editorial/cubism-mother-child-main-desktop.png" alt="Cubist mother and child in vivid orange, blue, and green" loading="lazy" />
-              </picture>
-              <figcaption className="caption"><strong>PABLO PICASSO</strong> · FIGURE GROUP</figcaption>
-            </figure>
-            <div className="marginalia humanWhisper">Volver al cuerpo.</div>
+        <section className="human">
+          <div className="humanCopy prose">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer placerat dolor vel arcu feugiat, at ultricies odio tristique. Suspendisse sed quam quis lectus aliquam feugiat. Sed vulputate neque id metus pulvinar, et varius purus tincidunt.</p>
+            <p>Nulla facilisi. Cras commodo velit a purus consequat, vitae consequat neque elementum.</p>
           </div>
+          <figure className="figure finalFigure">
+            <picture>
+              <source media="(max-width: 720px)" srcSet="/images/editorial/cubism-mother-child-main-mobile.png" />
+              <img src="/images/editorial/cubism-mother-child-main-desktop.png" alt="Cubist mother and child in vivid orange, blue, and green" loading="lazy" />
+            </picture>
+            <figcaption className="caption"><strong>PABLO PICASSO</strong> · FIGURE GROUP</figcaption>
+          </figure>
+          <div className="note finalNote">Volver al cuerpo.</div>
         </section>
       </article>
 
-      <footer className="endMatter">
+      <footer className="footer">
         <Link href="/eastokyo">EASTOKYO · NUMBER ONE</Link>
         <span>PICASSO · CUBISM · EASTOKYO ISSUE 01<br />Unlisted editorial preview · noindex</span>
       </footer>
