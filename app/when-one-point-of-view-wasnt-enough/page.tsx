@@ -38,11 +38,10 @@ export default function CubismStoryPage() {
 
         .opening{width:var(--shell);margin:0 auto;padding-top:clamp(1.2rem,2vw,2rem)}
         .hero{width:100%;margin:0}
-        .masthead{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(320px,.75fr);gap:clamp(2.2rem,5vw,5.5rem);align-items:end;padding:clamp(2.1rem,3.6vw,3.8rem) 0 1.35rem}
+        .masthead{display:block;padding:clamp(2.1rem,3.6vw,3.8rem) 0 1.35rem}
         .kicker{margin:0 0 .72rem;color:var(--muted);font-size:.72rem;font-weight:650;letter-spacing:.08em;text-transform:uppercase}
         h1{margin:0;max-width:11ch;font-family:var(--font-bienvivos-display),serif;font-size:clamp(3.45rem,5.35vw,5.9rem);font-weight:600;line-height:.92;letter-spacing:-.04em}
         .titleLine{display:block}
-        .deck{margin:0 0 .32rem;font-family:var(--font-bienvivos-display),serif;font-size:clamp(1.28rem,1.65vw,1.68rem);line-height:1.28;max-width:29ch;color:#292621}
         .storyMeta{display:flex;justify-content:space-between;gap:2rem;padding:1rem 0 1.15rem;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:.76rem;line-height:1.45;color:var(--muted)}
         .storyMeta strong{color:var(--ink);font-weight:700}
 
@@ -90,8 +89,6 @@ export default function CubismStoryPage() {
         .footer a{color:inherit;text-decoration:none}.footer span{text-align:right}
 
         @media(max-width:900px){
-          .masthead{grid-template-columns:1fr;gap:1.35rem}
-          .deck{max-width:34ch}
           .viewpoint{grid-template-columns:1fr;gap:2.5rem}
           .viewpointCopy{max-width:var(--reading)}
           .mainFigure{width:min(78vw,620px);justify-self:center}
@@ -101,9 +98,8 @@ export default function CubismStoryPage() {
           :root{--shell:calc(100vw - 2rem);--reading:calc(100vw - 2.4rem)}
           .bar{grid-template-columns:1fr auto;padding:.52rem 0;font-size:.62rem}.barCenter{display:none}.barRight{font-size:.6rem}
           .opening{padding-top:.8rem}
-          .masthead{gap:1.15rem;padding:1.8rem 0 .9rem}
+          .masthead{padding:1.8rem 0 .9rem}
           h1{font-size:clamp(2.75rem,10.5vw,3.7rem);line-height:.95;max-width:10.5ch}
-          .deck{font-size:1.23rem;line-height:1.32;max-width:29ch}
           .storyMeta{flex-direction:column;gap:.35rem;padding:.85rem 0 1rem;font-size:.72rem}
           .prose{font-size:1.06rem;line-height:1.68}
           .intro{padding:3.2rem 0 3.8rem}
@@ -151,7 +147,6 @@ export default function CubismStoryPage() {
             <p className="kicker">03 · Ideas · Picasso / Cubism</p>
             <h1><span className="titleLine">WHEN ONE ANGLE</span><span className="titleLine">WASN&apos;T ENOUGH.</span></h1>
           </div>
-          <p className="deck">Picasso and Braque decided a picture didn&apos;t have to sit still and behave itself. One point of view was never going to hold everything they wanted to say.</p>
         </div>
 
         <div className="storyMeta">
