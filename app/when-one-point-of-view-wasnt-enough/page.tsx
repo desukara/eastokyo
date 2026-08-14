@@ -127,6 +127,11 @@ export default function CubismStoryPage() {
         .slot { display: flex; min-height: clamp(18rem,34vw,36rem); align-items: flex-end; padding: 1rem; border: 1px solid var(--line); background: rgba(255,255,255,.2); }
         .slot strong { display: block; color: var(--orange); font-size: .6rem; letter-spacing: .15em; text-transform: uppercase; }
         .slot span { display: block; margin-top: .3rem; font-family: var(--font-bienvivos-display), serif; font-size: clamp(1.4rem,2.3vw,2.6rem); line-height: 1; }
+        .storyFigure { margin: 0; align-self: start; }
+        .storyFigure picture, .storyFigure img { display: block; width: 100%; }
+        .storyFigure img { height: auto; }
+        .storyFigure figcaption { margin-top: .65rem; font-size: .52rem; font-weight: 700; line-height: 1.45; letter-spacing: .13em; text-transform: uppercase; opacity: .58; }
+        .storyFigure figcaption strong { color: var(--orange); }
         .mainA { grid-column: 1 / 7; }
         .mainB { grid-column: 8 / 13; margin-top: 8rem; }
         .supportA { grid-column: 2 / 5; min-height: 15rem; margin-top: 5rem; }
@@ -176,6 +181,7 @@ export default function CubismStoryPage() {
           .plan { grid-template-columns: repeat(6,minmax(0,1fr)); gap: .75rem; padding: 0 1rem 7rem; }
           .planTitle { grid-column: 1 / 7; }
           .mainA, .mainB, .mainC, .mainD { grid-column: 1 / 7; margin-top: 2.5rem; min-height: 72vw; }
+          .storyFigure.mainB { min-height: 0; }
           .supportA { grid-column: 2 / 6; margin-top: 2.5rem; min-height: 48vw; }
           .supportB { grid-column: 1 / 5; margin-top: 2.5rem; min-height: 48vw; }
           .status { grid-template-columns: repeat(6,minmax(0,1fr)); padding: 4rem 1rem; }
@@ -211,13 +217,19 @@ export default function CubismStoryPage() {
       <section className="thesis">
         <div className="thesisLabel">THE IDEA</div>
         <p className="thesisText">A face could turn toward you and away from you at the same time. Space could flatten, split, overlap, and still somehow feel more true.</p>
-        <aside className="thesisAside">This page is now online for private editorial review. Final copy and the remaining five prepared image assets come next.</aside>
+        <aside className="thesisAside">This page is now online for private editorial review. Final copy and the remaining prepared image assets come next.</aside>
       </section>
 
       <section className="plan" aria-label="Cubism image plan">
         <div className="planTitle">IMAGE CHOREOGRAPHY · 4 MAIN + 2 SUPPORT</div>
         <div className="slot mainA"><div><strong>MAIN 01</strong><span>Hero · orange Cubist portrait</span></div></div>
-        <div className="slot mainB"><div><strong>MAIN 02</strong><span>Multiple viewpoints · blue/green seated figure</span></div></div>
+        <figure className="storyFigure mainB">
+          <picture>
+            <source media="(max-width: 720px)" srcSet="/images/editorial/cubism-split-face-main-mobile.png" />
+            <img src="/images/editorial/cubism-split-face-main-desktop.png" alt="Cubist seated figure shown through overlapping facial viewpoints" loading="lazy" />
+          </picture>
+          <figcaption><strong>MAIN 02</strong> · MULTIPLE VIEWPOINTS · PICASSO · EASTOKYO ISSUE 01</figcaption>
+        </figure>
         <div className="slot supportA"><div><strong>SUPPORT 01</strong><span>Monochrome study</span></div></div>
         <div className="slot mainC"><div><strong>MAIN 03</strong><span>Construction / collage</span></div></div>
         <div className="slot supportB"><div><strong>SUPPORT 02</strong><span>Pencil head study</span></div></div>
