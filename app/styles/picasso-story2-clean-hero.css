@@ -1,0 +1,136 @@
+/* Story 02 — clean Man in Blue hero treatment.
+   Scoped to the Picasso overview story so the rest of EASTOKYO is untouched. */
+
+.story .opening {
+  min-height: auto;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.story .openingMedia {
+  position: relative;
+  inset: auto;
+  width: 100%;
+  background: #08213a;
+}
+
+.story .openingMedia picture,
+.story .openingMedia img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.story .openingMedia img {
+  object-fit: contain;
+  object-position: center;
+}
+
+.story .openingShade,
+.story .openingNo {
+  display: none;
+}
+
+.story .openingGrid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-template-rows: auto auto;
+  gap: 1.4rem;
+  min-height: auto;
+  padding: clamp(2.5rem, 6vw, 6.5rem) clamp(1rem, 3.4vw, 3.4rem) clamp(3.5rem, 7vw, 7rem);
+  border-bottom: 1px solid var(--line);
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.story .openingMeta {
+  grid-column: 1 / 4;
+  grid-row: 1;
+  justify-self: start;
+  align-self: start;
+  max-width: 28ch;
+  padding-top: 0;
+  color: var(--red);
+  font-size: .58rem;
+  line-height: 1.65;
+  letter-spacing: .15em;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.story .openingCopy {
+  grid-column: 1 / 9;
+  grid-row: 2;
+  align-self: end;
+}
+
+.story .eyebrow {
+  margin: 0 0 .95rem;
+  color: var(--red);
+}
+
+.story .title {
+  max-width: 8.9ch;
+  color: var(--ink);
+  font-size: clamp(4.8rem, 10.5vw, 11.5rem);
+  line-height: .73;
+}
+
+.story .openingDeck {
+  grid-column: 9 / 13;
+  grid-row: 2;
+  align-self: end;
+  margin: 0 0 .7rem;
+  max-width: 22ch;
+  color: var(--ink);
+  font-size: clamp(1.45rem, 2.5vw, 2.8rem);
+  line-height: 1.06;
+}
+
+@media (max-width: 760px) {
+  .story .openingMedia {
+    background: #071d31;
+  }
+
+  .story .openingMedia picture,
+  .story .openingMedia img {
+    width: 100%;
+    height: auto;
+  }
+
+  .story .openingGrid {
+    display: block;
+    padding: 2rem 1rem 2.8rem;
+  }
+
+  .story .openingMeta {
+    display: block;
+    margin: 0 0 2.4rem;
+    max-width: none;
+    padding-bottom: .8rem;
+    border-bottom: 1px solid var(--line);
+    font-size: .54rem;
+    text-align: left;
+  }
+
+  .story .eyebrow {
+    margin-bottom: .7rem;
+    font-size: .54rem;
+  }
+
+  .story .title {
+    max-width: 8.4ch;
+    font-size: clamp(3.7rem, 17vw, 5.6rem);
+    line-height: .76;
+    letter-spacing: -.058em;
+  }
+
+  .story .openingDeck {
+    margin: 1.8rem 0 0;
+    max-width: 27ch;
+    font-size: 1.38rem;
+    line-height: 1.08;
+  }
+}
