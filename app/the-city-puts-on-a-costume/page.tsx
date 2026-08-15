@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import styles from "./page.module.css";
 
@@ -14,25 +13,6 @@ export const metadata: Metadata = {
   },
 };
 
-const credit = "ASAGAYA TANABATA · TOKYO · PHOTOGRAPHY BY JIMICHANGA";
-
-function Photo({ src, alt, className = "", priority = false, sizes = "(max-width: 720px) 100vw, 88vw" }: {
-  src: string;
-  alt: string;
-  className?: string;
-  priority?: boolean;
-  sizes?: string;
-}) {
-  return (
-    <figure className={`${styles.photo} ${className}`}>
-      <div className={styles.photoFrame}>
-        <Image src={src} alt={alt} fill sizes={sizes} priority={priority} quality={90} />
-      </div>
-      <figcaption>{credit}</figcaption>
-    </figure>
-  );
-}
-
 export default function AsagayaStoryPage() {
   return (
     <main className={styles.page} id="top">
@@ -43,16 +23,6 @@ export default function AsagayaStoryPage() {
       </header>
 
       <section className={styles.hero}>
-        <Image
-          src="/images/editorial/la-ciudad-despierta-desktop.png"
-          alt="Asagaya Pearl Center filled with Tanabata decorations and festival visitors"
-          fill
-          sizes="100vw"
-          priority
-          quality={92}
-          className={styles.heroImage}
-        />
-        <div className={styles.heroShade} aria-hidden="true" />
         <div className={styles.heroType}>
           <p className={styles.kicker}>TOKYO · ASAGAYA TANABATA</p>
           <h1>THE CITY<br />PUTS ON ITS<br /><em>COSTUME.</em></h1>
@@ -81,8 +51,8 @@ export default function AsagayaStoryPage() {
         <span>IT STAYS A NEIGHBORHOOD. IT JUST GETS DRESSED.</span>
       </section>
 
-      <section className={styles.splitStory}>
-        <div className={styles.splitCopy}>
+      <section className={styles.readingSection}>
+        <div className={styles.readingCopy}>
           <p className={styles.sectionNo}>01</p>
           <p className={styles.sectionLabel}>THE STREET LOOKS UP</p>
           <h2>You notice the ceiling before anything else.</h2>
@@ -91,25 +61,6 @@ export default function AsagayaStoryPage() {
           <p>The festival started in 1954, partly as a way to bring energy back into the shopping street. The early organizers borrowed the language of larger Tanabata celebrations, but Asagaya developed its own grammar: handmade figures, jokes, characters, creatures, whatever somebody could dream up and somehow hang from the roof.</p>
           <p>That handmade part matters. You can feel the difference between something manufactured to impress you and something a neighborhood made because it wanted to see if it could pull the idea off.</p>
         </div>
-        <Photo
-          src="/images/editorial/ritmo-urbano-giraffe-desktop.png"
-          alt="A giant giraffe decoration hanging above the Asagaya Tanabata crowd"
-          className={styles.tallPhoto}
-          sizes="(max-width: 900px) 100vw, 48vw"
-        />
-      </section>
-
-      <section className={styles.fullBleedMoment}>
-        <Image
-          src="/images/editorial/tokio-no-es-gris-mona-lisa-tanabata.png"
-          alt="A playful Mona Lisa decoration hanging at Asagaya Tanabata"
-          fill
-          sizes="100vw"
-          quality={90}
-          className={styles.fullBleedImage}
-        />
-        <div className={styles.fullBleedShade} aria-hidden="true" />
-        <p>EVEN THE MONA LISA<br />SHOWED UP TO THIS ONE.</p>
       </section>
 
       <section className={styles.readingSection}>
@@ -124,20 +75,6 @@ export default function AsagayaStoryPage() {
         </div>
       </section>
 
-      <section className={styles.photoPair}>
-        <Photo
-          src="/images/editorial/todo-vivos-desktop.jpg"
-          alt="A dense festival crowd moving through Asagaya Pearl Center"
-          className={styles.pairWide}
-          sizes="(max-width: 760px) 100vw, 60vw"
-        />
-        <div className={styles.pairNote}>
-          <span>03</span>
-          <p>EVERYONE&apos;S OUT.</p>
-          <small>There are moments when the whole arcade seems to move as one body. Not efficiently. Not elegantly. Just together.</small>
-        </div>
-      </section>
-
       <section className={styles.blueSection}>
         <div className={styles.blueTitle}>
           <p className={styles.sectionNo}>03</p>
@@ -149,36 +86,6 @@ export default function AsagayaStoryPage() {
           <p>You look at the lanterns. You stop for food. You lose whoever you came with and then find them twenty minutes later under some enormous paper animal. You take the same photograph as everybody else because, yes, the thing overhead really does look that good.</p>
           <p>Tokyo gets called lonely almost as often as it gets called crowded. Both things can be true. Density is not the same thing as connection. But here, for a few days, the crowd has a shared reason to be there that is not work, commuting or consumption.</p>
           <p>Everybody is looking at the same ridiculous sky.</p>
-        </div>
-      </section>
-
-      <section className={styles.lanternSection}>
-        <Photo
-          src="/images/editorial/tokio-no-es-gris-asagaya-lanterns.png"
-          alt="Rows of colorful Tanabata lanterns hanging over Asagaya Pearl Center"
-          className={styles.lanternPhoto}
-          sizes="100vw"
-        />
-        <div className={styles.lanternCopy}>
-          <p className={styles.eyebrow}>AFTER DARK</p>
-          <h2>The street starts glowing from the inside.</h2>
-          <p>By evening the decorations stop looking like things somebody hung from an arcade and start feeling like part of the architecture. Lanterns pull color into every direction. Shop lights mix with festival light. Faces flash in and out underneath paper and plastic and bamboo.</p>
-          <p>Nothing monumental happens. That is the beauty of it. No grand reveal. No final performance. The street simply keeps being itself under increasingly impossible decoration.</p>
-        </div>
-      </section>
-
-      <section className={styles.finalPhoto}>
-        <Image
-          src="/images/editorial/tokio-en-flor-tanabata-desktop.png"
-          alt="Asagaya Tanabata decorations filling the shopping street with color"
-          fill
-          sizes="100vw"
-          quality={92}
-          className={styles.finalImage}
-        />
-        <div className={styles.finalShade} aria-hidden="true" />
-        <div className={styles.finalWords}>
-          <p>ASAGAYA, DRESSED UP<br />AND READY FOR THE FESTIVAL.</p>
         </div>
       </section>
 
