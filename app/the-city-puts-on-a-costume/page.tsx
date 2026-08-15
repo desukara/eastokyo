@@ -23,6 +23,16 @@ export default function AsagayaStoryPage() {
       </header>
 
       <section className={styles.hero}>
+        <picture style={{ position: "absolute", inset: 0, display: "block" }}>
+          <source media="(max-width: 700px)" srcSet="/images/editorial/asagaya-hero-01-mobile.jpg" />
+          <img
+            src="/images/editorial/asagaya-hero-01-desktop.jpg"
+            alt="Asagaya Pearl Center decorated for the Tanabata festival"
+            fetchPriority="high"
+            style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 43%" }}
+          />
+        </picture>
+        <div className={styles.heroShade} aria-hidden="true" />
         <div className={styles.heroType}>
           <p className={styles.kicker}>TOKYO · ASAGAYA TANABATA</p>
           <h1>THE CITY<br />PUTS ON ITS<br /><em>COSTUME.</em></h1>
