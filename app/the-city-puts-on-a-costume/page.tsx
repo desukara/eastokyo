@@ -16,29 +16,117 @@ export const metadata: Metadata = {
 export default function AsagayaStoryPage() {
   return (
     <main className={styles.page} id="top">
+      <style>{`
+        .asagayaHero {
+          aspect-ratio: 15 / 8;
+          min-height: 0 !important;
+          overflow: hidden;
+        }
+        .asagayaHeroMedia {
+          position: absolute;
+          inset: 0;
+          display: block;
+          width: 100%;
+          height: 100%;
+        }
+        .asagayaHeroImage {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center center;
+        }
+        .asagayaHeroShade {
+          background:
+            linear-gradient(90deg, rgba(5,7,7,.58) 0%, rgba(5,7,7,.28) 27%, rgba(5,7,7,.04) 58%, rgba(5,7,7,0) 74%),
+            linear-gradient(0deg, rgba(5,7,7,.52) 0%, rgba(5,7,7,.16) 33%, rgba(5,7,7,0) 56%) !important;
+        }
+        .asagayaHeroType {
+          left: clamp(1.25rem, 3.6vw, 4.25rem) !important;
+          bottom: clamp(1.5rem, 3.4vw, 3.5rem) !important;
+          max-width: min(620px, 43vw) !important;
+        }
+        .asagayaHeroType h1 {
+          font-size: clamp(3.35rem, 6.15vw, 7.8rem) !important;
+          line-height: .79 !important;
+          letter-spacing: -.055em !important;
+        }
+        .asagayaHeroType .asagayaDeck {
+          max-width: 500px !important;
+          margin-top: clamp(.8rem, 1.5vw, 1.25rem) !important;
+          font-size: clamp(.88rem, 1.08vw, 1.08rem) !important;
+          line-height: 1.42 !important;
+        }
+        .asagayaHeroType .asagayaKicker {
+          margin-bottom: .7rem !important;
+        }
+        .asagayaIssueMark {
+          right: 1.5vw !important;
+          bottom: -.08em !important;
+          font-size: clamp(6rem, 12vw, 13rem) !important;
+          color: rgba(255,255,255,.09) !important;
+        }
+        @media (max-width: 700px) {
+          .asagayaHero {
+            aspect-ratio: 4 / 5;
+            min-height: 0 !important;
+          }
+          .asagayaHeroImage {
+            object-position: center center;
+          }
+          .asagayaHeroShade {
+            background: linear-gradient(0deg, rgba(4,6,6,.78) 0%, rgba(4,6,6,.46) 27%, rgba(4,6,6,.08) 54%, rgba(4,6,6,0) 70%) !important;
+          }
+          .asagayaHeroType {
+            left: 1rem !important;
+            right: 1rem !important;
+            bottom: 1.15rem !important;
+            max-width: none !important;
+          }
+          .asagayaHeroType h1 {
+            font-size: clamp(2.75rem, 13.4vw, 4.15rem) !important;
+            line-height: .8 !important;
+            letter-spacing: -.052em !important;
+          }
+          .asagayaHeroType .asagayaDeck {
+            max-width: 94% !important;
+            margin-top: .75rem !important;
+            font-size: .82rem !important;
+            line-height: 1.35 !important;
+          }
+          .asagayaHeroType .asagayaKicker {
+            margin-bottom: .5rem !important;
+            font-size: .58rem !important;
+          }
+          .asagayaIssueMark {
+            display: none !important;
+          }
+        }
+      `}</style>
+
       <header className={styles.folio}>
         <Link className={styles.brand} href="/">EASTOKYO</Link>
         <span className={styles.folioCenter}>TOKYO · ISSUE 01</span>
         <span className={styles.folioRight}>SEPTEMBER 2026</span>
       </header>
 
-      <section className={styles.hero}>
-        <picture style={{ position: "absolute", inset: 0, display: "block" }}>
+      <section className={`${styles.hero} asagayaHero`}>
+        <picture className="asagayaHeroMedia">
           <source media="(max-width: 700px)" srcSet="/images/editorial/asagaya-hero-01-mobile.jpg" />
           <img
+            className="asagayaHeroImage"
             src="/images/editorial/asagaya-hero-01-desktop.jpg"
             alt="Asagaya Pearl Center decorated for the Tanabata festival"
             fetchPriority="high"
-            style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 43%" }}
           />
         </picture>
-        <div className={styles.heroShade} aria-hidden="true" />
-        <div className={styles.heroType}>
-          <p className={styles.kicker}>TOKYO · ASAGAYA TANABATA</p>
+        <div className={`${styles.heroShade} asagayaHeroShade`} aria-hidden="true" />
+        <div className={`${styles.heroType} asagayaHeroType`}>
+          <p className={`${styles.kicker} asagayaKicker`}>TOKYO · ASAGAYA TANABATA</p>
           <h1>THE CITY<br />PUTS ON ITS<br /><em>COSTUME.</em></h1>
-          <p className={styles.heroDeck}>For five summer days, a neighborhood shopping street looks up, gets weird, and remembers that a city can still make something just because it wants to delight itself.</p>
+          <p className={`${styles.heroDeck} asagayaDeck`}>For five summer days, a neighborhood shopping street looks up, gets weird, and remembers that a city can still make something just because it wants to delight itself.</p>
         </div>
-        <span className={styles.issueMark} aria-hidden="true">04</span>
+        <span className={`${styles.issueMark} asagayaIssueMark`} aria-hidden="true">04</span>
       </section>
 
       <section className={styles.intro}>
