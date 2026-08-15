@@ -44,6 +44,7 @@ import "./eastokyo/eastokyo-final-qa.css";
 import "./eastokyo/eastokyo-mobile-image-repair.css";
 import "./eastokyo/eastokyo-mobile-emergency.css";
 import "./styles/asagaya-mobile-final.css";
+import "./styles/asagaya-desktop-photo-preserve.css";
 import "./eastokyo/eastokyo-language-cleanup.css";
 import "./eastokyo/eastokyo-story-cta.css";
 import "./eastokyo/eastokyo-mobile-review-fixes.css";
