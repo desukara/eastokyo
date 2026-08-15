@@ -56,15 +56,27 @@
     font-size: 2.2rem !important;
   }
 
-  /* Three-image spread: varied scale, all images complete. */
+  /* Three-image spread: #5 ladder and #7 cat are supporting images, not page-sized events. */
   [class*="staggeredGallery"] {
     width: min(1100px, calc(100vw - 8rem)) !important;
     gap: clamp(1.5rem, 2.4vw, 2.5rem) !important;
     padding-bottom: clamp(6rem, 9vw, 9rem) !important;
   }
-  [class*="staggerA"] { grid-column: 1 / span 6 !important; }
-  [class*="staggerB"] { grid-column: 8 / span 4 !important; margin-top: 4rem !important; }
-  [class*="staggerC"] { grid-column: 3 / span 5 !important; margin-top: 1rem !important; }
+  [class*="staggerA"] {
+    grid-column: 1 / span 4 !important;
+    max-width: 390px !important;
+    justify-self: start !important;
+  }
+  [class*="staggerB"] {
+    grid-column: 8 / span 4 !important;
+    margin-top: 4rem !important;
+  }
+  [class*="staggerC"] {
+    grid-column: 4 / span 4 !important;
+    max-width: 390px !important;
+    margin-top: 1.5rem !important;
+    justify-self: center !important;
+  }
 
   /* Street sequence: landscape primary, portrait secondary. */
   [class*="streetSequence"] {
