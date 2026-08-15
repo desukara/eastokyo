@@ -1,106 +1,111 @@
 /* Asagaya story desktop sizing: preserve full photographs without full-screen dominance. */
 @media (min-width: 701px) {
-  /* Only the dedicated Asagaya story uses these CSS-module class fragments. */
-  [class*="page_openingDiptych"] [class*="page_storyPicture"],
-  [class*="page_fullBleedPhoto"] [class*="page_storyPicture"],
-  [class*="page_staggeredGallery"] [class*="page_storyPicture"],
-  [class*="page_streetSequence"] [class*="page_storyPicture"],
-  [class*="page_cinemaPhoto"] [class*="page_storyPicture"],
-  [class*="page_detailPair"] [class*="page_storyPicture"] {
+  /* CSS Modules hash these names; match the stable class-name fragment itself. */
+  [class*="openingDiptych"] [class*="storyPicture"],
+  [class*="fullBleedPhoto"] [class*="storyPicture"],
+  [class*="staggeredGallery"] [class*="storyPicture"],
+  [class*="streetSequence"] [class*="storyPicture"],
+  [class*="cinemaPhoto"] [class*="storyPicture"],
+  [class*="detailPair"] [class*="storyPicture"] {
     height: auto !important;
     min-height: 0 !important;
     aspect-ratio: auto !important;
   }
 
-  [class*="page_openingDiptych"] [class*="page_storyPicture"] img,
-  [class*="page_fullBleedPhoto"] [class*="page_storyPicture"] img,
-  [class*="page_staggeredGallery"] [class*="page_storyPicture"] img,
-  [class*="page_streetSequence"] [class*="page_storyPicture"] img,
-  [class*="page_cinemaPhoto"] [class*="page_storyPicture"] img,
-  [class*="page_detailPair"] [class*="page_storyPicture"] img {
+  [class*="openingDiptych"] [class*="storyPicture"] img,
+  [class*="fullBleedPhoto"] [class*="storyPicture"] img,
+  [class*="staggeredGallery"] [class*="storyPicture"] img,
+  [class*="streetSequence"] [class*="storyPicture"] img,
+  [class*="cinemaPhoto"] [class*="storyPicture"] img,
+  [class*="detailPair"] [class*="storyPicture"] img {
+    display: block !important;
     width: 100% !important;
     height: auto !important;
     object-fit: contain !important;
   }
 
-  /* Opening pair: strong, but clearly smaller than the viewport. */
-  [class*="page_openingDiptych"] {
-    width: min(1120px, calc(100vw - 6rem)) !important;
-    grid-template-columns: minmax(0, 1.28fr) minmax(240px, .72fr) !important;
+  /* Opening pair: magazine scale, not billboard scale. */
+  [class*="openingDiptych"] {
+    width: min(1040px, calc(100vw - 8rem)) !important;
+    grid-template-columns: minmax(0, 1.3fr) minmax(220px, .7fr) !important;
     gap: clamp(1.5rem, 2.5vw, 2.5rem) !important;
+    padding-bottom: clamp(5rem, 8vw, 8rem) !important;
   }
-  [class*="page_openingSmall"] {
-    transform: translateY(2.5rem) !important;
+  [class*="openingSmall"] {
+    transform: translateY(2rem) !important;
   }
 
-  /* Former full-bleed image becomes a centered magazine plate. */
-  [class*="page_fullBleedPhoto"] {
-    width: min(1120px, calc(100vw - 6rem)) !important;
-    margin: clamp(2rem, 4vw, 4rem) auto !important;
+  /* Former full-bleed frame becomes a centered editorial plate. */
+  [class*="fullBleedPhoto"] {
+    width: min(960px, calc(100vw - 10rem)) !important;
+    margin: clamp(2.5rem, 4vw, 4rem) auto !important;
     background: transparent !important;
   }
-  [class*="page_fullBleedPhoto"]::after {
+  [class*="fullBleedPhoto"]::after {
     display: none !important;
   }
-  [class*="page_fullBleedPhoto"] figcaption {
+  [class*="fullBleedPhoto"] figcaption {
     position: static !important;
     margin-top: .8rem !important;
     color: inherit !important;
     text-shadow: none !important;
   }
-  [class*="page_fullBleedPhoto"] figcaption span {
+  [class*="fullBleedPhoto"] figcaption span {
     display: inline !important;
     margin-right: .55rem !important;
-    font-size: 2.6rem !important;
+    font-size: 2.2rem !important;
   }
 
-  /* Three-image spread: editorial asymmetry, restrained scale. */
-  [class*="page_staggeredGallery"] {
-    width: min(1180px, calc(100vw - 6rem)) !important;
+  /* Three-image spread: varied scale, all images complete. */
+  [class*="staggeredGallery"] {
+    width: min(1100px, calc(100vw - 8rem)) !important;
     gap: clamp(1.5rem, 2.4vw, 2.5rem) !important;
+    padding-bottom: clamp(6rem, 9vw, 9rem) !important;
   }
-  [class*="page_staggerA"] { grid-column: 1 / span 6 !important; }
-  [class*="page_staggerB"] { grid-column: 8 / span 4 !important; margin-top: 5rem !important; }
-  [class*="page_staggerC"] { grid-column: 3 / span 5 !important; margin-top: 1rem !important; }
+  [class*="staggerA"] { grid-column: 1 / span 6 !important; }
+  [class*="staggerB"] { grid-column: 8 / span 4 !important; margin-top: 4rem !important; }
+  [class*="staggerC"] { grid-column: 3 / span 5 !important; margin-top: 1rem !important; }
 
-  /* Street sequence: keep the landscape image readable and portrait secondary. */
-  [class*="page_streetSequence"] {
-    width: min(1160px, calc(100vw - 6rem)) !important;
-    grid-template-columns: minmax(0, 1.45fr) minmax(250px, .55fr) !important;
+  /* Street sequence: landscape primary, portrait secondary. */
+  [class*="streetSequence"] {
+    width: min(1080px, calc(100vw - 8rem)) !important;
+    grid-template-columns: minmax(0, 1.5fr) minmax(230px, .5fr) !important;
     gap: clamp(1.75rem, 3vw, 3rem) !important;
+    padding: clamp(6rem, 9vw, 9rem) 0 !important;
   }
-  [class*="page_streetSide"] {
-    padding-top: 1.25rem !important;
+  [class*="streetSide"] {
+    padding-top: 1rem !important;
   }
 
-  /* #10: still the visual peak, but never a whole-screen wall. */
-  [class*="page_cinemaPhoto"] {
-    width: min(1080px, calc(100vw - 7rem)) !important;
+  /* #10 remains the strongest photograph, but never fills the viewport. */
+  [class*="cinemaPhoto"] {
+    width: min(940px, calc(100vw - 10rem)) !important;
     margin: clamp(3rem, 5vw, 5rem) auto !important;
     background: transparent !important;
   }
-  [class*="page_cinemaPhoto"]::after {
+  [class*="cinemaPhoto"]::after {
     display: none !important;
   }
-  [class*="page_cinemaCaption"] {
+  [class*="cinemaCaption"] {
     position: static !important;
     margin-top: 1rem !important;
     color: inherit !important;
   }
-  [class*="page_cinemaCaption"] span {
-    font-size: 3.5rem !important;
+  [class*="cinemaCaption"] span {
+    font-size: 3rem !important;
   }
-  [class*="page_cinemaCaption"] p {
-    max-width: 680px !important;
-    font-size: clamp(2rem, 3.2vw, 3.6rem) !important;
+  [class*="cinemaCaption"] p {
+    max-width: 640px !important;
+    font-size: clamp(1.9rem, 2.8vw, 3.1rem) !important;
   }
 
-  /* Closing pair: two complete photographs with breathing room. */
-  [class*="page_detailPair"] {
-    width: min(1080px, calc(100vw - 6rem)) !important;
+  /* Closing pair: balanced two-up magazine spread. */
+  [class*="detailPair"] {
+    width: min(1020px, calc(100vw - 8rem)) !important;
     gap: clamp(1.5rem, 2.6vw, 2.75rem) !important;
+    padding: clamp(6rem, 9vw, 9rem) 0 !important;
   }
-  [class*="page_detailPair"] figure:nth-child(2) {
-    margin-top: 3rem !important;
+  [class*="detailPair"] figure:nth-child(2) {
+    margin-top: 2.5rem !important;
   }
 }
