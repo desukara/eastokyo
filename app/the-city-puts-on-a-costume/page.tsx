@@ -64,7 +64,7 @@ export default function AsagayaStoryPage() {
         <div className={styles.heroType}>
           <p className={styles.kicker}>TOKYO · ASAGAYA TANABATA</p>
           <h1>THE CITY<br />PUTS ON ITS<br /><em>COSTUME.</em></h1>
-          <p className={styles.heroDeck}>For five summer days, a neighborhood shopping street looks up, gets weird, and remembers that a city can still make something just because it wants to delight itself.</p>
+          <p className={styles.heroDeck}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
         </div>
         <span className={styles.issueMark} aria-hidden="true">04</span>
       </section>
@@ -76,11 +76,11 @@ export default function AsagayaStoryPage() {
           <span>BY JAMES SIMMONS<br />(AKA JIMICHANGA)</span>
         </div>
         <div className={styles.introCopy}>
-          <p className={styles.drop}>Tokyo is very good at looking like it has everything under control.</p>
-          <p>Lines form where they are supposed to. Trains arrive with frightening precision. The convenience store shelf looks like somebody used a ruler on it. Even chaos here has a tendency to organize itself before you get a chance to complain.</p>
-          <p>And then you walk into Asagaya in August and there is a giraffe hanging over your head.</p>
-          <p>Not a tasteful little giraffe either. A full-on, ridiculous, handmade creature floating above a shopping street while children point, old ladies keep moving with their groceries, somebody is frying something ten meters away, and a paper Mona Lisa is apparently attending the same festival you are.</p>
-          <p>That is when Tokyo becomes interesting again.</p>
+          <p className={styles.drop}>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec ullamcorper nulla non metus auctor fringilla. Maecenas faucibus mollis interdum. Curabitur blandit tempus porttitor.</p>
+          <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod.</p>
+          <p>Cras mattis consectetur purus sit amet fermentum. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Sed posuere consectetur est at lobortis.</p>
+          <p>Donec sed odio dui. Vestibulum id ligula porta felis euismod semper.</p>
         </div>
       </section>
 
@@ -96,8 +96,8 @@ export default function AsagayaStoryPage() {
       </section>
 
       <section className={styles.statement}>
-        <p>THE BEST THING ABOUT ASAGAYA TANABATA IS THAT THE STREET DOESN&apos;T PRETEND TO BECOME A THEME PARK.</p>
-        <span>IT STAYS A NEIGHBORHOOD. IT JUST GETS DRESSED.</span>
+        <p>LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISCING ELIT. VIVAMUS SAGITTIS LACUS VEL AUGUE LAOREET.</p>
+        <span>CURABITUR BLANDIT TEMPUS PORTTITOR.</span>
       </section>
 
       <section className={styles.readingSection}>
@@ -105,10 +105,10 @@ export default function AsagayaStoryPage() {
           <p className={styles.sectionNo}>01</p>
           <p className={styles.sectionLabel}>THE STREET LOOKS UP</p>
           <h2>You notice the ceiling before anything else.</h2>
-          <p>Asagaya Pearl Center is normally a covered shotengai: shops, restaurants, pharmacies, bakeries, people cutting through on the way home. Useful Tokyo. Everyday Tokyo. The kind of place that exists because people actually live nearby.</p>
-          <p>During Tanabata, that ordinary ceiling becomes a second street suspended over the first one. Kusudama, streamers and handmade papier-mâché figures crowd the air above everybody&apos;s heads. You stop walking in a straight line because every few meters somebody has built another reason to look up.</p>
-          <p>The festival started in 1954, partly as a way to bring energy back into the shopping street. The early organizers borrowed the language of larger Tanabata celebrations, but Asagaya developed its own grammar: handmade figures, jokes, characters, creatures, whatever somebody could dream up and somehow hang from the roof.</p>
-          <p>That handmade part matters. You can feel the difference between something manufactured to impress you and something a neighborhood made because it wanted to see if it could pull the idea off.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed odio dui. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
+          <p>Maecenas sed diam eget risus varius blandit sit amet non magna. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vestibulum id ligula porta felis euismod semper. Donec ullamcorper nulla non metus auctor fringilla.</p>
+          <p>Nullam quis risus eget urna mollis ornare vel eu leo. Sed posuere consectetur est at lobortis. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
+          <p>Etiam porta sem malesuada magna mollis euismod. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Curabitur blandit tempus porttitor.</p>
         </div>
       </section>
 
@@ -122,10 +122,10 @@ export default function AsagayaStoryPage() {
           <p className={styles.sectionNo}>02</p>
           <p className={styles.sectionLabel}>A FESTIVAL MADE BY HAND</p>
           <h2>Polish would ruin it.</h2>
-          <p>The giant haribote are the stars, but perfection is not really the point. Some are beautiful. Some are funny. Some are bizarre enough that you stand underneath them trying to understand what chain of decisions brought everybody to this moment. Good. That is exactly what public life needs more of.</p>
-          <p>Cities are increasingly designed to remove surprise. Same storefront systems. Same luxury lobbies. Same neutral materials. Same careful promise that nothing unpredictable will happen while you are there. Asagaya goes the other direction for a few days. It lets people make the ceiling strange.</p>
-          <p>And everybody participates simply by being underneath it. The teenager checking her phone. The father carrying a kid on his shoulders. The shop owner leaning into the crowd to hand over food. The couple trying to take a photograph without stopping traffic. Nobody needs to understand the history of Tanabata to understand what the street is doing.</p>
-          <p>It is making room for delight.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus mollis interdum. Nulla vitae elit libero, a pharetra augue. Aenean lacinia bibendum nulla sed consectetur.</p>
+          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec id elit non mi porta gravida at eget metus. Vestibulum id ligula porta felis euismod semper. Cras mattis consectetur purus sit amet fermentum.</p>
+          <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Sed posuere consectetur est at lobortis. Donec ullamcorper nulla non metus auctor fringilla. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+          <p>Nullam id dolor id nibh ultricies vehicula ut id elit. Donec sed odio dui.</p>
         </div>
       </section>
 
@@ -151,10 +151,10 @@ export default function AsagayaStoryPage() {
           <h2>For a little while, nobody is in a hurry to get through.</h2>
         </div>
         <div className={styles.blueColumns}>
-          <p>That might be the real transformation. Not the decorations. The pace. A shopping street usually asks you to move through it with some purpose: pick something up, eat, get home, catch the train. Festival Asagaya keeps interrupting that logic.</p>
-          <p>You look at the lanterns. You stop for food. You lose whoever you came with and then find them twenty minutes later under some enormous paper animal. You take the same photograph as everybody else because, yes, the thing overhead really does look that good.</p>
-          <p>Tokyo gets called lonely almost as often as it gets called crowded. Both things can be true. Density is not the same thing as connection. But here, for a few days, the crowd has a shared reason to be there that is not work, commuting or consumption.</p>
-          <p>Everybody is looking at the same ridiculous sky.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere consectetur est at lobortis. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Donec ullamcorper nulla non metus auctor fringilla.</p>
+          <p>Nulla vitae elit libero, a pharetra augue. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Curabitur blandit tempus porttitor.</p>
+          <p>Maecenas faucibus mollis interdum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
+          <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Etiam porta sem malesuada magna mollis euismod.</p>
         </div>
       </section>
 
@@ -164,7 +164,7 @@ export default function AsagayaStoryPage() {
           <figcaption>08 · THE CROWD HAS ITS OWN WEATHER.</figcaption>
         </figure>
         <div className={styles.streetSide}>
-          <p className={styles.streetQuote}>EVERYBODY IS LOOKING AT THE SAME RIDICULOUS SKY.</p>
+          <p className={styles.streetQuote}>LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISCING ELIT.</p>
           <figure className={styles.photo}>
             <AsagayaPicture number={9} alt="Tanabata decorations hanging above shoppers in Asagaya" />
             <figcaption>09 · KEEP WALKING. KEEP LOOKING UP.</figcaption>
@@ -176,7 +176,7 @@ export default function AsagayaStoryPage() {
         <AsagayaPicture number={10} alt="Long view down Asagaya Pearl Center with a giant lucky cat suspended overhead" />
         <div className={styles.cinemaCaption}>
           <span>10</span>
-          <p>THE WHOLE STREET BECOMES THE PICTURE.</p>
+          <p>LOREM IPSUM DOLOR SIT AMET.</p>
         </div>
       </figure>
 
@@ -196,12 +196,12 @@ export default function AsagayaStoryPage() {
           <p className={styles.sectionNo}>04</p>
           <p className={styles.sectionLabel}>WHAT THE STREET REMEMBERS</p>
           <h2>Then everybody takes the costume down.</h2>
-          <p>A few days later, Pearl Center goes back to being Pearl Center. The same shops. The same route from the station. The same people buying dinner and getting on with their lives.</p>
-          <p>But that is why the festival works. The transformation has an ending. Nobody needs Asagaya to stay magical forever. Permanent magic is just branding.</p>
-          <p>The good stuff comes from knowing the ordinary street is still underneath all of it. The festival does not replace daily life. It reminds you daily life can contain this too: color for no practical reason, a joke suspended twenty feet in the air, strangers slowing down together, somebody spending weeks making a ridiculous creature because once a year the neighborhood gives them a ceiling big enough to hang it from.</p>
-          <p>Tokyo puts its costume on.</p>
-          <p>Then it goes back to work.</p>
-          <p className={styles.lastLine}>And somehow, after seeing it dressed up, you notice the city a little differently when it is wearing nothing special at all.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum id ligula porta felis euismod semper. Curabitur blandit tempus porttitor. Donec sed odio dui.</p>
+          <p>Maecenas faucibus mollis interdum. Sed posuere consectetur est at lobortis. Aenean lacinia bibendum nulla sed consectetur. Nullam quis risus eget urna mollis ornare vel eu leo.</p>
+          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Cras mattis consectetur purus sit amet fermentum. Donec ullamcorper nulla non metus auctor fringilla.</p>
+          <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+          <p>Etiam porta sem malesuada magna mollis euismod.</p>
+          <p className={styles.lastLine}>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
         </div>
       </section>
 
