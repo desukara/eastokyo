@@ -1,0 +1,25 @@
+/* Asagaya story: desktop-only composition protection.
+   Mobile is intentionally untouched. The exported desktop files already carry
+   the desired framing, so desktop should display the whole photograph rather
+   than crop it again inside arbitrary editorial boxes. */
+@media (min-width: 701px) {
+  main#top [class*="storyPicture"] {
+    height: auto !important;
+    min-height: 0 !important;
+    aspect-ratio: auto !important;
+  }
+
+  main#top [class*="storyPicture"] img {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+  }
+
+  main#top [class*="fullBleedPhoto"] [class*="storyPicture"],
+  main#top [class*="cinemaPhoto"] [class*="storyPicture"] {
+    min-height: 0 !important;
+    aspect-ratio: auto !important;
+  }
+}
