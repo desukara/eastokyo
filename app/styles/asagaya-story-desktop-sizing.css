@@ -1,6 +1,5 @@
-/* Asagaya story desktop sizing: preserve full photographs without full-screen dominance. */
+/* Asagaya desktop art direction. Mobile is intentionally untouched. */
 @media (min-width: 701px) {
-  /* CSS Modules hash these names; match the stable class-name fragment itself. */
   [class*="openingDiptych"] [class*="storyPicture"],
   [class*="fullBleedPhoto"] [class*="storyPicture"],
   [class*="staggeredGallery"] [class*="storyPicture"],
@@ -18,106 +17,111 @@
   [class*="streetSequence"] [class*="storyPicture"] img,
   [class*="cinemaPhoto"] [class*="storyPicture"] img,
   [class*="detailPair"] [class*="storyPicture"] img {
-    display: block !important;
-    width: 100% !important;
-    height: auto !important;
-    object-fit: contain !important;
+    display:block !important;
+    width:100% !important;
+    height:auto !important;
+    object-fit:contain !important;
   }
 
-  /* Opening pair: magazine scale, not billboard scale. */
+  /* Keep prose in a readable magazine measure and remove excessive vertical dead space. */
+  [class*="intro"] {
+    width:min(1040px, calc(100vw - 7rem)) !important;
+    gap:clamp(2.5rem,5vw,5rem) !important;
+    padding:clamp(4rem,6vw,6rem) 0 !important;
+  }
+  [class*="introCopy"] { max-width:680px !important; }
+  [class*="readingSection"] { padding:clamp(4.5rem,6vw,6.5rem) 1rem !important; }
+  [class*="readingCopy"], [class*="outroCopy"] { width:min(660px,calc(100vw - 4rem)) !important; }
+  [class*="outro"] { padding:clamp(5rem,7vw,7rem) 1rem !important; }
+
+  /* Opening spread: two photographs, clearly subordinate to the hero. */
   [class*="openingDiptych"] {
-    width: min(1040px, calc(100vw - 8rem)) !important;
-    grid-template-columns: minmax(0, 1.3fr) minmax(220px, .7fr) !important;
-    gap: clamp(1.5rem, 2.5vw, 2.5rem) !important;
-    padding-bottom: clamp(5rem, 8vw, 8rem) !important;
+    width:min(930px, calc(100vw - 9rem)) !important;
+    grid-template-columns:minmax(0,1.25fr) minmax(210px,.75fr) !important;
+    gap:clamp(1.5rem,2.4vw,2.25rem) !important;
+    padding-bottom:clamp(4rem,6vw,6rem) !important;
   }
-  [class*="openingSmall"] {
-    transform: translateY(2rem) !important;
-  }
+  [class*="openingSmall"] { transform:translateY(1.5rem) !important; }
 
-  /* Former full-bleed frame becomes a centered editorial plate. */
+  /* Image 04 is a plate, not a second hero. */
   [class*="fullBleedPhoto"] {
-    width: min(960px, calc(100vw - 10rem)) !important;
-    margin: clamp(2.5rem, 4vw, 4rem) auto !important;
-    background: transparent !important;
+    width:min(820px, calc(100vw - 12rem)) !important;
+    margin:clamp(2rem,3vw,3rem) auto !important;
+    background:transparent !important;
   }
-  [class*="fullBleedPhoto"]::after {
-    display: none !important;
-  }
+  [class*="fullBleedPhoto"]::after { display:none !important; }
   [class*="fullBleedPhoto"] figcaption {
-    position: static !important;
-    margin-top: .8rem !important;
-    color: inherit !important;
-    text-shadow: none !important;
+    position:static !important;
+    margin-top:.65rem !important;
+    color:inherit !important;
+    text-shadow:none !important;
   }
   [class*="fullBleedPhoto"] figcaption span {
-    display: inline !important;
-    margin-right: .55rem !important;
-    font-size: 2.2rem !important;
+    display:inline !important;
+    margin-right:.45rem !important;
+    font-size:1.8rem !important;
   }
 
-  /* Three-image spread: #5 ladder and #7 cat are supporting images, not page-sized events. */
+  /* Three-image spread. #5 ladder and #7 cat are small supporting notes. */
   [class*="staggeredGallery"] {
-    width: min(1100px, calc(100vw - 8rem)) !important;
-    gap: clamp(1.5rem, 2.4vw, 2.5rem) !important;
-    padding-bottom: clamp(6rem, 9vw, 9rem) !important;
+    width:min(960px, calc(100vw - 9rem)) !important;
+    gap:clamp(1.25rem,2vw,2rem) !important;
+    padding:clamp(2rem,3vw,3rem) 0 clamp(4.5rem,6vw,6rem) !important;
   }
   [class*="staggerA"] {
-    grid-column: 1 / span 4 !important;
-    max-width: 390px !important;
-    justify-self: start !important;
+    grid-column:1 / span 4 !important;
+    width:min(100%,320px) !important;
+    justify-self:start !important;
   }
   [class*="staggerB"] {
-    grid-column: 8 / span 4 !important;
-    margin-top: 4rem !important;
+    grid-column:8 / span 4 !important;
+    width:min(100%,350px) !important;
+    justify-self:end !important;
+    margin-top:2.5rem !important;
   }
   [class*="staggerC"] {
-    grid-column: 4 / span 4 !important;
-    max-width: 390px !important;
-    margin-top: 1.5rem !important;
-    justify-self: center !important;
+    grid-column:4 / span 4 !important;
+    width:min(100%,320px) !important;
+    justify-self:center !important;
+    margin-top:.75rem !important;
   }
 
-  /* Street sequence: landscape primary, portrait secondary. */
+  /* Blue text interlude: tighter and more publication-like. */
+  [class*="blueSection"] { padding:clamp(4.5rem,6vw,6rem) clamp(2rem,5vw,5rem) !important; }
+  [class*="blueTitle"] { max-width:820px !important; margin-bottom:3rem !important; }
+  [class*="blueColumns"] { max-width:860px !important; gap:1.5rem 3.5rem !important; }
+
+  /* Street spread: one medium landscape plus a compact sidebar. */
   [class*="streetSequence"] {
-    width: min(1080px, calc(100vw - 8rem)) !important;
-    grid-template-columns: minmax(0, 1.5fr) minmax(230px, .5fr) !important;
-    gap: clamp(1.75rem, 3vw, 3rem) !important;
-    padding: clamp(6rem, 9vw, 9rem) 0 !important;
+    width:min(960px, calc(100vw - 9rem)) !important;
+    grid-template-columns:minmax(0,1.55fr) minmax(220px,.55fr) !important;
+    gap:clamp(1.5rem,2.5vw,2.5rem) !important;
+    padding:clamp(4.5rem,6vw,6.5rem) 0 !important;
   }
-  [class*="streetSide"] {
-    padding-top: 1rem !important;
-  }
+  [class*="streetSide"] { padding-top:.5rem !important; gap:3rem !important; }
+  [class*="streetQuote"] { font-size:clamp(2rem,3vw,3.25rem) !important; }
 
-  /* #10 remains the strongest photograph, but never fills the viewport. */
+  /* #10 can lead, but should still leave the reader aware of the page around it. */
   [class*="cinemaPhoto"] {
-    width: min(940px, calc(100vw - 10rem)) !important;
-    margin: clamp(3rem, 5vw, 5rem) auto !important;
-    background: transparent !important;
+    width:min(820px, calc(100vw - 12rem)) !important;
+    margin:clamp(2.5rem,4vw,4rem) auto !important;
+    background:transparent !important;
   }
-  [class*="cinemaPhoto"]::after {
-    display: none !important;
-  }
+  [class*="cinemaPhoto"]::after { display:none !important; }
   [class*="cinemaCaption"] {
-    position: static !important;
-    margin-top: 1rem !important;
-    color: inherit !important;
+    position:static !important;
+    margin-top:.8rem !important;
+    color:inherit !important;
+    gap:.75rem !important;
   }
-  [class*="cinemaCaption"] span {
-    font-size: 3rem !important;
-  }
-  [class*="cinemaCaption"] p {
-    max-width: 640px !important;
-    font-size: clamp(1.9rem, 2.8vw, 3.1rem) !important;
-  }
+  [class*="cinemaCaption"] span { font-size:2.4rem !important; }
+  [class*="cinemaCaption"] p { max-width:540px !important; font-size:clamp(1.6rem,2.3vw,2.5rem) !important; }
 
-  /* Closing pair: balanced two-up magazine spread. */
+  /* Closing photographs stay compact and paired. */
   [class*="detailPair"] {
-    width: min(1020px, calc(100vw - 8rem)) !important;
-    gap: clamp(1.5rem, 2.6vw, 2.75rem) !important;
-    padding: clamp(6rem, 9vw, 9rem) 0 !important;
+    width:min(900px, calc(100vw - 10rem)) !important;
+    gap:clamp(1.5rem,2.4vw,2.4rem) !important;
+    padding:clamp(4.5rem,6vw,6rem) 0 !important;
   }
-  [class*="detailPair"] figure:nth-child(2) {
-    margin-top: 2.5rem !important;
-  }
+  [class*="detailPair"] figure:nth-child(2) { margin-top:2rem !important; }
 }
