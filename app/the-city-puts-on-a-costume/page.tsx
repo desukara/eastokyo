@@ -13,120 +13,60 @@ export const metadata: Metadata = {
   },
 };
 
+const feature = (number: number) => {
+  const id = String(number).padStart(2, "0");
+  return {
+    desktop: `/images/editorial/asagaya-feature-${id}-desktop.jpg`,
+    mobile: `/images/editorial/asagaya-feature-${id}-mobile.jpg`,
+  };
+};
+
+function AsagayaPicture({
+  number,
+  alt,
+  className = "",
+  eager = false,
+}: {
+  number: number;
+  alt: string;
+  className?: string;
+  eager?: boolean;
+}) {
+  const image = feature(number);
+  return (
+    <picture className={`${styles.storyPicture} ${className}`}>
+      <source media="(max-width: 700px)" srcSet={image.mobile} />
+      <img src={image.desktop} alt={alt} loading={eager ? "eager" : "lazy"} />
+    </picture>
+  );
+}
+
 export default function AsagayaStoryPage() {
   return (
     <main className={styles.page} id="top">
-      <style>{`
-        .asagayaHero {
-          aspect-ratio: 15 / 8;
-          min-height: 0 !important;
-          overflow: hidden;
-        }
-        .asagayaHeroMedia {
-          position: absolute;
-          inset: 0;
-          display: block;
-          width: 100%;
-          height: 100%;
-        }
-        .asagayaHeroImage {
-          display: block;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          object-position: center center;
-        }
-        .asagayaHeroShade {
-          background:
-            linear-gradient(90deg, rgba(5,7,7,.58) 0%, rgba(5,7,7,.28) 27%, rgba(5,7,7,.04) 58%, rgba(5,7,7,0) 74%),
-            linear-gradient(0deg, rgba(5,7,7,.52) 0%, rgba(5,7,7,.16) 33%, rgba(5,7,7,0) 56%) !important;
-        }
-        .asagayaHeroType {
-          left: clamp(1.25rem, 3.6vw, 4.25rem) !important;
-          bottom: clamp(1.5rem, 3.4vw, 3.5rem) !important;
-          max-width: min(620px, 43vw) !important;
-        }
-        .asagayaHeroType h1 {
-          font-size: clamp(3.35rem, 6.15vw, 7.8rem) !important;
-          line-height: .79 !important;
-          letter-spacing: -.055em !important;
-        }
-        .asagayaHeroType .asagayaDeck {
-          max-width: 500px !important;
-          margin-top: clamp(.8rem, 1.5vw, 1.25rem) !important;
-          font-size: clamp(.88rem, 1.08vw, 1.08rem) !important;
-          line-height: 1.42 !important;
-        }
-        .asagayaHeroType .asagayaKicker {
-          margin-bottom: .7rem !important;
-        }
-        .asagayaIssueMark {
-          right: 1.5vw !important;
-          bottom: -.08em !important;
-          font-size: clamp(6rem, 12vw, 13rem) !important;
-          color: rgba(255,255,255,.09) !important;
-        }
-        @media (max-width: 700px) {
-          .asagayaHero {
-            aspect-ratio: 4 / 5;
-            min-height: 0 !important;
-          }
-          .asagayaHeroImage {
-            object-position: center center;
-          }
-          .asagayaHeroShade {
-            background: linear-gradient(0deg, rgba(4,6,6,.78) 0%, rgba(4,6,6,.46) 27%, rgba(4,6,6,.08) 54%, rgba(4,6,6,0) 70%) !important;
-          }
-          .asagayaHeroType {
-            left: 1rem !important;
-            right: 1rem !important;
-            bottom: 1.15rem !important;
-            max-width: none !important;
-          }
-          .asagayaHeroType h1 {
-            font-size: clamp(2.75rem, 13.4vw, 4.15rem) !important;
-            line-height: .8 !important;
-            letter-spacing: -.052em !important;
-          }
-          .asagayaHeroType .asagayaDeck {
-            max-width: 94% !important;
-            margin-top: .75rem !important;
-            font-size: .82rem !important;
-            line-height: 1.35 !important;
-          }
-          .asagayaHeroType .asagayaKicker {
-            margin-bottom: .5rem !important;
-            font-size: .58rem !important;
-          }
-          .asagayaIssueMark {
-            display: none !important;
-          }
-        }
-      `}</style>
-
       <header className={styles.folio}>
         <Link className={styles.brand} href="/">EASTOKYO</Link>
         <span className={styles.folioCenter}>TOKYO · ISSUE 01</span>
         <span className={styles.folioRight}>SEPTEMBER 2026</span>
       </header>
 
-      <section className={`${styles.hero} asagayaHero`}>
-        <picture className="asagayaHeroMedia">
+      <section className={styles.hero}>
+        <picture className={styles.heroMedia}>
           <source media="(max-width: 700px)" srcSet="/images/editorial/asagaya-hero-01-mobile.jpg" />
           <img
-            className="asagayaHeroImage"
+            className={styles.heroImage}
             src="/images/editorial/asagaya-hero-01-desktop.jpg"
             alt="Asagaya Pearl Center decorated for the Tanabata festival"
             fetchPriority="high"
           />
         </picture>
-        <div className={`${styles.heroShade} asagayaHeroShade`} aria-hidden="true" />
-        <div className={`${styles.heroType} asagayaHeroType`}>
-          <p className={`${styles.kicker} asagayaKicker`}>TOKYO · ASAGAYA TANABATA</p>
+        <div className={styles.heroShade} aria-hidden="true" />
+        <div className={styles.heroType}>
+          <p className={styles.kicker}>TOKYO · ASAGAYA TANABATA</p>
           <h1>THE CITY<br />PUTS ON ITS<br /><em>COSTUME.</em></h1>
-          <p className={`${styles.heroDeck} asagayaDeck`}>For five summer days, a neighborhood shopping street looks up, gets weird, and remembers that a city can still make something just because it wants to delight itself.</p>
+          <p className={styles.heroDeck}>For five summer days, a neighborhood shopping street looks up, gets weird, and remembers that a city can still make something just because it wants to delight itself.</p>
         </div>
-        <span className={`${styles.issueMark} asagayaIssueMark`} aria-hidden="true">04</span>
+        <span className={styles.issueMark} aria-hidden="true">04</span>
       </section>
 
       <section className={styles.intro}>
@@ -142,6 +82,17 @@ export default function AsagayaStoryPage() {
           <p>Not a tasteful little giraffe either. A full-on, ridiculous, handmade creature floating above a shopping street while children point, old ladies keep moving with their groceries, somebody is frying something ten meters away, and a paper Mona Lisa is apparently attending the same festival you are.</p>
           <p>That is when Tokyo becomes interesting again.</p>
         </div>
+      </section>
+
+      <section className={styles.openingDiptych} aria-label="Asagaya festival photographs">
+        <figure className={`${styles.photo} ${styles.openingLarge}`}>
+          <AsagayaPicture number={2} alt="Handmade Tanabata decorations suspended over Asagaya Pearl Center" />
+          <figcaption>02 · THE STREET STARTS LOOKING UP.</figcaption>
+        </figure>
+        <figure className={`${styles.photo} ${styles.openingSmall}`}>
+          <AsagayaPicture number={3} alt="Festival decoration hanging above the Asagaya shopping street" />
+          <figcaption>03 · NOTHING UP THERE IS TRYING TO BE SENSIBLE.</figcaption>
+        </figure>
       </section>
 
       <section className={styles.statement}>
@@ -161,6 +112,11 @@ export default function AsagayaStoryPage() {
         </div>
       </section>
 
+      <figure className={`${styles.photo} ${styles.fullBleedPhoto}`}>
+        <AsagayaPicture number={4} alt="Crowds walking beneath oversized handmade Tanabata decorations in Asagaya" />
+        <figcaption><span>04</span> THE CEILING BECOMES ANOTHER STREET.</figcaption>
+      </figure>
+
       <section className={styles.readingSection}>
         <div className={styles.readingCopy}>
           <p className={styles.sectionNo}>02</p>
@@ -171,6 +127,21 @@ export default function AsagayaStoryPage() {
           <p>And everybody participates simply by being underneath it. The teenager checking her phone. The father carrying a kid on his shoulders. The shop owner leaning into the crowd to hand over food. The couple trying to take a photograph without stopping traffic. Nobody needs to understand the history of Tanabata to understand what the street is doing.</p>
           <p>It is making room for delight.</p>
         </div>
+      </section>
+
+      <section className={styles.staggeredGallery} aria-label="Handmade Asagaya Tanabata decorations">
+        <figure className={`${styles.photo} ${styles.staggerA}`}>
+          <AsagayaPicture number={5} alt="Colorful handmade festival figure suspended in Asagaya" />
+          <figcaption>05 · MADE BY HAND. HUNG WITH CONFIDENCE.</figcaption>
+        </figure>
+        <figure className={`${styles.photo} ${styles.staggerB}`}>
+          <AsagayaPicture number={6} alt="Festival decorations and streamers filling the Asagaya arcade" />
+          <figcaption>06 · COLOR WITH ABSOLUTELY NO PRACTICAL PURPOSE.</figcaption>
+        </figure>
+        <figure className={`${styles.photo} ${styles.staggerC}`}>
+          <AsagayaPicture number={7} alt="Black and white cat decoration hanging over the shopping street" />
+          <figcaption>07 · SOMEBODY MADE A CAT. OF COURSE THEY DID.</figcaption>
+        </figure>
       </section>
 
       <section className={styles.blueSection}>
@@ -185,6 +156,39 @@ export default function AsagayaStoryPage() {
           <p>Tokyo gets called lonely almost as often as it gets called crowded. Both things can be true. Density is not the same thing as connection. But here, for a few days, the crowd has a shared reason to be there that is not work, commuting or consumption.</p>
           <p>Everybody is looking at the same ridiculous sky.</p>
         </div>
+      </section>
+
+      <section className={styles.streetSequence} aria-label="The Asagaya festival street">
+        <figure className={`${styles.photo} ${styles.streetWide}`}>
+          <AsagayaPicture number={8} alt="Festival crowd moving beneath decorations in Asagaya Pearl Center" />
+          <figcaption>08 · THE CROWD HAS ITS OWN WEATHER.</figcaption>
+        </figure>
+        <div className={styles.streetSide}>
+          <p className={styles.streetQuote}>EVERYBODY IS LOOKING AT THE SAME RIDICULOUS SKY.</p>
+          <figure className={styles.photo}>
+            <AsagayaPicture number={9} alt="Tanabata decorations hanging above shoppers in Asagaya" />
+            <figcaption>09 · KEEP WALKING. KEEP LOOKING UP.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <figure className={`${styles.photo} ${styles.cinemaPhoto}`}>
+        <AsagayaPicture number={10} alt="Long view down Asagaya Pearl Center with a giant lucky cat suspended overhead" />
+        <div className={styles.cinemaCaption}>
+          <span>10</span>
+          <p>THE WHOLE STREET BECOMES THE PICTURE.</p>
+        </div>
+      </figure>
+
+      <section className={styles.detailPair} aria-label="Asagaya festival details">
+        <figure className={styles.photo}>
+          <AsagayaPicture number={11} alt="Large hanging festival figures above lanterns and storefronts in Asagaya" />
+          <figcaption>11 · EVEN THE STOREFRONTS HAVE COMPANY.</figcaption>
+        </figure>
+        <figure className={styles.photo}>
+          <AsagayaPicture number={12} alt="Restaurant window with lanterns and metallic Tanabata streamers" />
+          <figcaption>12 · THE FESTIVAL GETS ALL THE WAY INTO THE WINDOWS.</figcaption>
+        </figure>
       </section>
 
       <section className={styles.outro}>
