@@ -193,3 +193,29 @@ main section[id] { scroll-margin-top: 4rem; }
     animation-timeline: view();
   }
 }
+
+/* Facebook joins the existing footer social marks using the reserved ::before slot. */
+.social-placeholder::before {
+  content: "" !important;
+  display: block;
+  flex: 0 0 2.55rem;
+  width: 2.55rem;
+  height: 2.55rem;
+  overflow: hidden;
+  border-radius: 50%;
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0OCA0OCI+CjxjaXJjbGUgY3g9IjI0IiBjeT0iMjQiIHI9IjIyIiBmaWxsPSIjMTg3N0YyIi8+CjxwYXRoIGQ9Ik0yNi44IDM4VjI1LjRoNC4yNWwuNjQtNC45NEgyNi44VjE3LjNjMC0xLjQzLjQtMi40IDIuNDUtMi40aDIuNjJ2LTQuNDJjLS40NS0uMDYtMi0uMi0zLjgtLjItMy43NiAwLTYuMzQgMi4zLTYuMzQgNi41MnYzLjY2aC00LjI2djQuOTRoNC4yNlYzOGg1LjA3eiIgZmlsbD0iI2ZmZiIvPgo8L3N2Zz4=");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  box-shadow:
+    0 0 0 1px rgba(255, 233, 202, .18),
+    0 .35rem 1rem rgba(0, 0, 0, .2);
+}
+
+@media (max-width: 560px) {
+  .social-placeholder::before {
+    flex-basis: 2.3rem;
+    width: 2.3rem;
+    height: 2.3rem;
+  }
+}
