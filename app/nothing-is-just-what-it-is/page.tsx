@@ -110,6 +110,10 @@ export default function PicassoIndexStoryPage() {
       </section>
 
       <section className={styles.closing}>
+        <picture style={{ display: "block", width: "100%", marginBottom: "2.5rem" }}>
+          <source media="(max-width: 780px)" srcSet="/images/editorial/index-closing-mobile.jpg" />
+          <img src="/images/editorial/index-closing-desktop.jpg" alt="A museum visitor pauses in front of a gallery wall filled with ceramic plates." loading="lazy" decoding="async" style={{ display: "block", width: "100%", height: "auto" }} />
+        </picture>
         <div className={styles.closingRule}>PICASSO · REALITY, REARRANGED</div>
         <p className={styles.closingLead}>The point was never to make the world harder to recognize.</p>
         <p className={styles.closingCopy}>It was to keep looking after recognition had already done its job. One angle was never enough. One material was never enough. One answer was definitely never enough.</p>
