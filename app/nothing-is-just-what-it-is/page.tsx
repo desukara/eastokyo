@@ -98,6 +98,12 @@ export default function PicassoIndexStoryPage() {
                   <img src="/images/editorial/index-stripes-desktop.jpg" alt="A striped textile installation suspended overhead in layered waves of light and shadow." loading="lazy" decoding="async" style={{ display: "block", width: "100%", height: "auto" }} />
                 </picture>
               )}
+              {entry.number === "04" && (
+                <picture style={{ display: "block", width: "100%", marginTop: "2.5rem" }}>
+                  <source media="(max-width: 780px)" srcSet="/images/editorial/index-ceramics-mobile.jpg" />
+                  <img src="/images/editorial/index-ceramics-desktop.jpg" alt="A gallery wall of ceramic plates, with painted faces and motifs appearing among rows of white plates." loading="lazy" decoding="async" style={{ display: "block", width: "100%", height: "auto" }} />
+                </picture>
+              )}
             </div>
           </article>
         ))}
