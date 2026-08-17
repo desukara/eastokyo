@@ -93,6 +93,23 @@ export default function PicassoIndexStoryPage() {
             <div className={styles.entryBody}>
               <h2>{entry.title}</h2>
               <p>{entry.copy}</p>
+              {entry.number === "01" && (
+                <picture
+                  style={{ display: "block", width: "100%", marginTop: "2.5rem" }}
+                >
+                  <source
+                    media="(max-width: 780px)"
+                    srcSet="/images/editorial/index-object-mobile.jpg"
+                  />
+                  <img
+                    src="/images/editorial/index-object-desktop.jpg"
+                    alt="Picasso’s Bull’s Head, assembled from a bicycle seat and handlebars, casting a long shadow on the gallery wall."
+                    loading="lazy"
+                    decoding="async"
+                    style={{ display: "block", width: "100%", height: "auto" }}
+                  />
+                </picture>
+              )}
             </div>
           </article>
         ))}
