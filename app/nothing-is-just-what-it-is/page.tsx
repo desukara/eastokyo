@@ -50,6 +50,16 @@ export default function PicassoIndexStoryPage() {
       </header>
 
       <section className={styles.hero} aria-labelledby="index-title">
+        <picture className={styles.heroMedia} aria-hidden="true">
+          <source media="(max-width: 780px)" srcSet="/images/editorial/index-hero-mobile.jpg" />
+          <img
+            src="/images/editorial/index-hero-desktop.jpg"
+            alt=""
+            fetchPriority="high"
+            decoding="async"
+          />
+        </picture>
+        <div className={styles.heroShade} aria-hidden="true" />
         <div className={styles.heroNumber} aria-hidden="true">05</div>
         <div className={styles.heroCopy}>
           <p className={styles.kicker}>PICASSO INDEX · START ANYWHERE</p>
