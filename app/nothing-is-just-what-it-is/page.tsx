@@ -94,16 +94,23 @@ export default function PicassoIndexStoryPage() {
               <h2>{entry.title}</h2>
               <p>{entry.copy}</p>
               {entry.number === "01" && (
-                <picture
-                  style={{ display: "block", width: "100%", marginTop: "2.5rem" }}
-                >
-                  <source
-                    media="(max-width: 780px)"
-                    srcSet="/images/editorial/index-object-mobile.jpg"
-                  />
+                <picture style={{ display: "block", width: "100%", marginTop: "2.5rem" }}>
+                  <source media="(max-width: 780px)" srcSet="/images/editorial/index-object-mobile.jpg" />
                   <img
                     src="/images/editorial/index-object-desktop.jpg"
                     alt="Picasso’s Bull’s Head, assembled from a bicycle seat and handlebars, casting a long shadow on the gallery wall."
+                    loading="lazy"
+                    decoding="async"
+                    style={{ display: "block", width: "100%", height: "auto" }}
+                  />
+                </picture>
+              )}
+              {entry.number === "02" && (
+                <picture style={{ display: "block", width: "100%", marginTop: "2.5rem" }}>
+                  <source media="(max-width: 780px)" srcSet="/images/editorial/index-portrait-mobile.jpg" />
+                  <img
+                    src="/images/editorial/index-portrait-desktop.jpg"
+                    alt="A fragmented painted portrait with angular facial planes, bold outlines, and a sculptural headdress."
                     loading="lazy"
                     decoding="async"
                     style={{ display: "block", width: "100%", height: "auto" }}
