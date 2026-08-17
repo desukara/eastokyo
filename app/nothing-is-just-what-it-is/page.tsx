@@ -52,12 +52,7 @@ export default function PicassoIndexStoryPage() {
       <section className={styles.hero} aria-labelledby="index-title">
         <picture className={styles.heroMedia} aria-hidden="true">
           <source media="(max-width: 780px)" srcSet="/images/editorial/index-hero-mobile.jpg" />
-          <img
-            src="/images/editorial/index-hero-desktop.jpg"
-            alt=""
-            fetchPriority="high"
-            decoding="async"
-          />
+          <img src="/images/editorial/index-hero-desktop.jpg" alt="" fetchPriority="high" decoding="async" />
         </picture>
         <div className={styles.heroShade} aria-hidden="true" />
         <div className={styles.heroNumber} aria-hidden="true">05</div>
@@ -66,12 +61,7 @@ export default function PicassoIndexStoryPage() {
           <h1 id="index-title">NOTHING IS EVER<br />JUST WHAT IT<br /><em>SEEMS.</em></h1>
           <p className={styles.deck}>Start with one thing. End somewhere else. That was half the fun.</p>
         </div>
-        <div className={styles.heroNote}>
-          <span>OBJECT</span>
-          <span>PORTRAIT</span>
-          <span>STRIPES</span>
-          <span>CERAMICS</span>
-        </div>
+        <div className={styles.heroNote}><span>OBJECT</span><span>PORTRAIT</span><span>STRIPES</span><span>CERAMICS</span></div>
       </section>
 
       <section className={styles.intro}>
@@ -86,35 +76,26 @@ export default function PicassoIndexStoryPage() {
         {entries.map((entry) => (
           <article className={styles.entry} key={entry.number}>
             <div className={styles.entryNumber} aria-hidden="true">{entry.number}</div>
-            <div className={styles.entryMeta}>
-              <p>{entry.section}</p>
-              <span>EASTOKYO · INDEX 05</span>
-            </div>
+            <div className={styles.entryMeta}><p>{entry.section}</p><span>EASTOKYO · INDEX 05</span></div>
             <div className={styles.entryBody}>
               <h2>{entry.title}</h2>
               <p>{entry.copy}</p>
               {entry.number === "01" && (
                 <picture style={{ display: "block", width: "100%", marginTop: "2.5rem" }}>
                   <source media="(max-width: 780px)" srcSet="/images/editorial/index-object-mobile.jpg" />
-                  <img
-                    src="/images/editorial/index-object-desktop.jpg"
-                    alt="Picasso’s Bull’s Head, assembled from a bicycle seat and handlebars, casting a long shadow on the gallery wall."
-                    loading="lazy"
-                    decoding="async"
-                    style={{ display: "block", width: "100%", height: "auto" }}
-                  />
+                  <img src="/images/editorial/index-object-desktop.jpg" alt="Picasso’s Bull’s Head, assembled from a bicycle seat and handlebars, casting a long shadow on the gallery wall." loading="lazy" decoding="async" style={{ display: "block", width: "100%", height: "auto" }} />
                 </picture>
               )}
               {entry.number === "02" && (
                 <picture style={{ display: "block", width: "100%", marginTop: "2.5rem" }}>
                   <source media="(max-width: 780px)" srcSet="/images/editorial/index-portrait-mobile.jpg" />
-                  <img
-                    src="/images/editorial/index-portrait-desktop.jpg"
-                    alt="A fragmented painted portrait with angular facial planes, bold outlines, and a sculptural headdress."
-                    loading="lazy"
-                    decoding="async"
-                    style={{ display: "block", width: "100%", height: "auto" }}
-                  />
+                  <img src="/images/editorial/index-portrait-desktop.jpg" alt="A fragmented painted portrait with angular facial planes, bold outlines, and a sculptural headdress." loading="lazy" decoding="async" style={{ display: "block", width: "100%", height: "auto" }} />
+                </picture>
+              )}
+              {entry.number === "03" && (
+                <picture style={{ display: "block", width: "100%", marginTop: "2.5rem" }}>
+                  <source media="(max-width: 780px)" srcSet="/images/editorial/index-stripes-mobile.jpg" />
+                  <img src="/images/editorial/index-stripes-desktop.jpg" alt="A striped textile installation suspended overhead in layered waves of light and shadow." loading="lazy" decoding="async" style={{ display: "block", width: "100%", height: "auto" }} />
                 </picture>
               )}
             </div>
