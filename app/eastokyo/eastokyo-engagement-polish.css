@@ -1,0 +1,195 @@
+/* EASTOKYO engagement polish.
+   Refined as quiet editorial furniture: precise, restrained, section-aware.
+   Footer social marks remain intentionally non-interactive until profile URLs are supplied. */
+
+/* Footer social placeholders: visible, branded, and deliberately unclickable. */
+.social-placeholder,
+.social-placeholder * {
+  pointer-events: none !important;
+  cursor: default !important;
+  user-select: none !important;
+}
+
+/* Facebook joins Instagram, TikTok, Pinterest and X using the reserved slot. */
+.social-placeholder::before {
+  content: "" !important;
+  display: block !important;
+  flex: 0 0 2.55rem;
+  width: 2.55rem;
+  height: 2.55rem;
+  overflow: hidden;
+  border-radius: 50%;
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0OCA0OCI+CjxjaXJjbGUgY3g9IjI0IiBjeT0iMjQiIHI9IjIyIiBmaWxsPSIjMTg3N0YyIi8+CjxwYXRoIGQ9Ik0yNi44IDM4VjI1LjRoNC4yNWwuNjQtNC45NEgyNi44VjE3LjNjMC0xLjQzLjQtMi40IDIuNDUtMi40aDIuNjJ2LTQuNDJjLS40NS0uMDYtMi0uMi0zLjgtLjItMy43NiAwLTYuMzQgMi4zLTYuMzQgNi41NnYzLjY2aC00LjI2djQuOTRoNC4yNlYzOGg1LjA3eiIgZmlsbD0iI2ZmZiIvPgo8L3N2Zz4=");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  box-shadow: 0 0 0 1px rgba(255,233,202,.18), 0 .35rem 1rem rgba(0,0,0,.2);
+}
+
+.story-engagement-host {
+  width: fit-content;
+  margin-top: 1.05rem;
+}
+
+/* Quiet luxury: hairline frame, generous breathing room, no app-like pill or chunky shadow. */
+.story-engagement {
+  --eng-bg: var(--et-paper, #f3eee4);
+  --eng-fg: var(--et-ink, #101820);
+  --eng-accent: var(--et-orange, #e57a34);
+  --heart-red: #a8141d;
+  position: relative;
+  gap: .08rem !important;
+  min-height: 2.45rem !important;
+  padding: .15rem .2rem !important;
+  color: var(--eng-fg) !important;
+  background: color-mix(in srgb, var(--eng-bg) 94%, transparent) !important;
+  border: 1px solid color-mix(in srgb, var(--eng-fg) 58%, transparent) !important;
+  border-radius: 999px !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  overflow: hidden;
+}
+
+.story-engagement::after {
+  content: "";
+  position: absolute;
+  left: .78rem;
+  right: .78rem;
+  bottom: 0;
+  height: 2px;
+  background: var(--eng-accent);
+  opacity: .9;
+}
+
+.story-heart,
+.story-share {
+  min-height: 2.05rem !important;
+  padding: .34rem .66rem !important;
+  color: var(--eng-fg) !important;
+  border-radius: 999px !important;
+  transition: background-color .16s ease, transform .16s ease, opacity .16s ease !important;
+}
+
+.story-heart:hover,
+.story-share:hover {
+  background: color-mix(in srgb, var(--eng-fg) 6%, transparent) !important;
+}
+
+.story-heart:active,
+.story-share:active {
+  transform: translateY(1px);
+}
+
+.story-heart svg,
+.story-share svg {
+  width: 1rem !important;
+  height: 1rem !important;
+}
+
+/* The number is typography, not part of the heart. It always follows the section/interface color. */
+.story-heart-count,
+.story-share span {
+  color: var(--eng-fg) !important;
+  font-family: var(--font-bienvivos-sans), sans-serif !important;
+  font-size: .61rem !important;
+  font-weight: 800 !important;
+  letter-spacing: .13em !important;
+}
+
+/* Only the heart glyph turns red. Use a darker editorial red rather than pink/social-app red. */
+.story-heart.is-liked {
+  color: var(--eng-fg) !important;
+}
+
+.story-heart.is-liked svg {
+  color: var(--heart-red) !important;
+}
+
+.story-heart:not(.is-liked) svg {
+  color: color-mix(in srgb, var(--eng-fg) 82%, transparent) !important;
+}
+
+.story-engagement-rule {
+  width: 1px !important;
+  height: .95rem !important;
+  margin: 0 .03rem !important;
+  background: var(--eng-fg) !important;
+  opacity: .28 !important;
+}
+
+/* Section-specific palette: mostly neutral surfaces, with the section color used as a precise accent. */
+#bullfighting .story-engagement {
+  --eng-bg: var(--et-paper, #f3eee4);
+  --eng-fg: var(--et-ink, #101820);
+  --eng-accent: var(--et-yellow, #f3c431);
+}
+
+#exhibition .story-engagement {
+  --eng-bg: var(--et-paper, #f3eee4);
+  --eng-fg: var(--et-ink, #101820);
+  --eng-accent: var(--et-cobalt, #214f78);
+}
+
+#cubism .story-engagement {
+  --eng-bg: var(--et-paper, #f3eee4);
+  --eng-fg: var(--et-ink, #101820);
+  --eng-accent: var(--et-orange, #e57a34);
+}
+
+#asagaya .story-engagement {
+  --eng-bg: var(--et-green, #1f6b4f);
+  --eng-fg: var(--et-paper, #f3eee4);
+  --eng-accent: var(--et-yellow, #f3c431);
+}
+
+#picasso-index .story-engagement {
+  --eng-bg: var(--et-paper, #f3eee4);
+  --eng-fg: var(--et-ink, #101820);
+  --eng-accent: var(--et-cobalt, #214f78);
+}
+
+/* Image sharing stays compact and graphic, without altering artwork geometry. */
+.image-share-button {
+  min-height: 2rem !important;
+  padding: .42rem .58rem !important;
+  border: 1px solid currentColor !important;
+  border-radius: 999px !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  font-family: var(--font-bienvivos-sans), sans-serif !important;
+}
+
+.image-share-button span {
+  font-size: .57rem !important;
+  font-weight: 800 !important;
+  letter-spacing: .14em !important;
+}
+
+#bullfighting .image-share-button,
+#exhibition .image-share-button {
+  background: var(--et-paper, #f3eee4) !important;
+  color: var(--et-ink, #101820) !important;
+}
+
+#cubism .image-share-button,
+#picasso-index .image-share-button {
+  background: var(--et-paper, #f3eee4) !important;
+  color: var(--et-ink, #101820) !important;
+}
+
+@media (max-width: 560px) {
+  .social-placeholder::before {
+    flex-basis: 2.3rem;
+    width: 2.3rem;
+    height: 2.3rem;
+  }
+
+  .story-engagement {
+    min-height: 2.35rem !important;
+  }
+
+  .story-heart,
+  .story-share {
+    padding-inline: .55rem !important;
+  }
+}

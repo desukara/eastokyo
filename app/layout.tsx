@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Montserrat } from "next/font/google";
 import EastokyoMotion from "./eastokyo/EastokyoMotion";
+import HomepageEngagement from "./eastokyo/HomepageEngagement";
+import EngagementLockdown from "./eastokyo/EngagementLockdown";
 import "./globals.css";
 import "./styles/header.css";
 import "./styles/features.css";
@@ -15,6 +17,7 @@ import "./styles/launch-hard-reset.css";
 import "./styles/site-audit.css";
 import "./styles/masculine-palette.css";
 import "./styles/social-icons.css";
+import "./styles/homepage-engagement.css";
 import "./styles/magazine-home.css";
 import "./styles/magazine-qa.css";
 import "./styles/magazine-mobile-repair.css";
@@ -58,6 +61,8 @@ import "./eastokyo/eastokyo-wordmark-authority.css";
 import "./eastokyo/eastokyo-motion-system.css";
 import "./eastokyo/eastokyo-mini-cover-authority.css";
 import "./eastokyo/eastokyo-active-nav.css";
+import "./eastokyo/eastokyo-engagement-polish.css";
+import "./eastokyo/eastokyo-engagement-lockdown.css";
 
 const sans = Montserrat({ variable: "--font-bienvivos-sans", subsets: ["latin"], display: "swap" });
 const display = Cormorant_Garamond({ variable: "--font-bienvivos-display", subsets: ["latin"], weight: ["400", "500", "600", "700"], style: ["normal", "italic"], display: "swap" });
@@ -89,5 +94,5 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en"><body className={`${sans.variable} ${display.variable}`}><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "Organization", name: "EASTOKYO", url: "https://www.eastokyo.com", description: "Independent art magazine based in Tokyo, covering art from around the world." }) }} /><EastokyoMotion />{children}</body></html>;
+  return <html lang="en"><body className={`${sans.variable} ${display.variable}`}><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "Organization", name: "EASTOKYO", url: "https://www.eastokyo.com", description: "Independent art magazine based in Tokyo, covering art from around the world." }) }} /><EastokyoMotion /><HomepageEngagement /><EngagementLockdown />{children}</body></html>;
 }
