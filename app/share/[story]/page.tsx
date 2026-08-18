@@ -33,6 +33,7 @@ export async function generateMetadata({ params, searchParams }: PageProps): Pro
     title: `${story.title} | EASTOKYO`,
     description: story.description,
     alternates: { canonical: `/#${story.anchor}` },
+    robots: { index: false, follow: true },
     openGraph: {
       title: story.title,
       description: story.description,
