@@ -6,11 +6,11 @@ import { usePathname } from "next/navigation";
 import { homepageStoryList, type HomepageStory, type StoryId } from "./engagement-data";
 
 const VERDICTS = [
-  { id: "nailed", label: "BASTARD PULLED IT OFF" },
-  { id: "hate-like", label: "I HATE THAT I LIKE IT" },
-  { id: "what-happened", label: "THE F#¢K HAPPENED!?" },
-  { id: "one-job", label: "YOU HAD ONE JOB" },
-  { id: "brush-down", label: "PUT THE BRUSH DOWN" },
+  { id: "nailed", emoji: "🐐", label: "BASTARD PULLED IT OFF" },
+  { id: "hate-like", emoji: "🤢", label: "I HATE THAT I LIKE IT" },
+  { id: "what-happened", emoji: "🛸", label: "THE F#¢K HAPPENED!?" },
+  { id: "one-job", emoji: "🤦‍♂️", label: "YOU HAD ONE JOB" },
+  { id: "brush-down", emoji: "🛑", label: "PUT THE BRUSH DOWN" },
 ] as const;
 
 type VerdictId = (typeof VERDICTS)[number]["id"];
@@ -30,7 +30,9 @@ function visitorId() {
   return id;
 }
 function voteKey(story: StoryId) { return `${VOTE_PREFIX}${story}`; }
-function labelFor(id: VerdictId) { return VERDICTS.find((v) => v.id === id)?.label || id; }
+function verdictFor(id: VerdictId) { return VERDICTS.find((v) => v.id === id) || VERDICTS[0]; }
+function labelFor(id: VerdictId) { return verdictFor(id).label; }
+function displayFor(id: VerdictId) { const item = verdictFor(id); return `${item.emoji} ${item.label}`; }
 function winner(counts: Counts) {
   return VERDICTS.reduce((best, item) => counts[item.id] > counts[best.id] ? item : best, VERDICTS[0]);
 }
@@ -80,22 +82,23 @@ function VerdictPanel({ story }: { story: HomepageStory }) {
     <div className="verdict-heading"><span>EASTOKYO VERDICT</span><strong>{selected ? "THE MOB HAS SPOKEN." : "YOUR HONEST FIRST REACTION."}</strong></div>
     <div className="verdict-options">
       {VERDICTS.map((item) => <button key={item.id} type="button" disabled={busy} aria-pressed={selected === item.id} className={`verdict-option ${selected === item.id ? "is-selected" : ""} ${selected && top.id === item.id ? "is-winning" : ""}`} onClick={() => castVote(item.id)}>
-        <span>{item.label}</span>{selected && <b>{counts[item.id].toLocaleString("en-US")}</b>}
+        <span className="verdict-option-copy"><span className="verdict-emoji" aria-hidden="true">{item.emoji}</span><span className="verdict-label">{item.label}</span></span>{selected && <b>{counts[item.id].toLocaleString("en-US")}</b>}
       </button>)}
     </div>
-    {selected && <div className="verdict-result"><p>THE MOB’S VERDICT</p><strong>{top.label}</strong><span>{percent}% · {total.toLocaleString("en-US")} TOTAL VOTES</span><button type="button" onClick={() => setShareOpen(true)}>SHARE YOUR VERDICT ↗</button></div>}
+    {selected && <div className="verdict-result"><p>THE MOB’S VERDICT</p><strong><span className="verdict-result-emoji" aria-hidden="true">{top.emoji}</span>{top.label}</strong><span>{percent}% · {total.toLocaleString("en-US")} TOTAL VOTES</span><button type="button" onClick={() => setShareOpen(true)}>SHARE YOUR VERDICT ↗</button></div>}
     {shareOpen && <ShareVerdict target={{ story, verdict: selected! }} onClose={() => setShareOpen(false)} />}
   </section>;
 }
 
 function ShareVerdict({ target, onClose }: { target: ShareTarget; onClose: () => void }) {
   const url = typeof window === "undefined" ? "" : `${window.location.origin}/share/${target.story.shareSlug}?verdict=${encodeURIComponent(target.verdict)}`;
-  const text = `I voted “${labelFor(target.verdict)}” on ${target.story.title} — EASTOKYO`;
+  const text = `I voted “${displayFor(target.verdict)}” on ${target.story.title} — EASTOKYO`;
+  const item = verdictFor(target.verdict);
   const share = async () => {
     if (navigator.share) { try { await navigator.share({ title: "My EASTOKYO verdict", text, url }); onClose(); return; } catch {} }
     try { await navigator.clipboard.writeText(`${text}\n${url}`); } catch {}
   };
-  return <div className="verdict-share-backdrop" onMouseDown={(e) => { if (e.currentTarget === e.target) onClose(); }}><div className="verdict-share" role="dialog" aria-modal="true"><button className="verdict-share-close" onClick={onClose} aria-label="Close">×</button><small>YOUR VERDICT</small><h2>{labelFor(target.verdict)}</h2><p>{target.story.title}</p><button className="verdict-share-primary" onClick={share}>SHARE YOUR VERDICT</button><button className="verdict-share-copy" onClick={async () => { try { await navigator.clipboard.writeText(`${text}\n${url}`); } catch {} }}>COPY SHARE LINK</button></div></div>;
+  return <div className="verdict-share-backdrop" onMouseDown={(e) => { if (e.currentTarget === e.target) onClose(); }}><div className="verdict-share" role="dialog" aria-modal="true"><button className="verdict-share-close" onClick={onClose} aria-label="Close">×</button><small>YOUR VERDICT</small><div className="verdict-share-emoji" aria-hidden="true">{item.emoji}</div><h2>{labelFor(target.verdict)}</h2><p>{target.story.title}</p><button className="verdict-share-primary" onClick={share}>SHARE YOUR VERDICT</button><button className="verdict-share-copy" onClick={async () => { try { await navigator.clipboard.writeText(`${text}\n${url}`); } catch {} }}>COPY SHARE LINK</button></div></div>;
 }
 
 export default function VerdictVoting() {
