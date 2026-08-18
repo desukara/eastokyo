@@ -1,5 +1,5 @@
 /* EASTOKYO engagement polish.
-   Keep the new controls flat, editorial, and native to each section.
+   Refined as quiet editorial furniture: precise, restrained, section-aware.
    Footer social marks remain intentionally non-interactive until profile URLs are supplied. */
 
 /* Footer social placeholders: visible, branded, and deliberately unclickable. */
@@ -23,106 +23,158 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  box-shadow:
-    0 0 0 1px rgba(255, 233, 202, .18),
-    0 .35rem 1rem rgba(0, 0, 0, .2);
+  box-shadow: 0 0 0 1px rgba(255,233,202,.18), 0 .35rem 1rem rgba(0,0,0,.2);
 }
 
-/* Remove the glassy generic pill look. */
 .story-engagement-host {
   width: fit-content;
-  margin-top: 1rem;
+  margin-top: 1.05rem;
 }
 
+/* Quiet luxury: hairline frame, generous breathing room, no app-like pill or chunky shadow. */
 .story-engagement {
   --eng-bg: var(--et-paper, #f3eee4);
   --eng-fg: var(--et-ink, #101820);
-  --eng-shadow: var(--et-orange, #e57a34);
-  gap: .2rem !important;
-  min-height: 2.55rem !important;
-  padding: .22rem !important;
+  --eng-accent: var(--et-orange, #e57a34);
+  --heart-red: #a8141d;
+  position: relative;
+  gap: .08rem !important;
+  min-height: 2.45rem !important;
+  padding: .15rem .2rem !important;
   color: var(--eng-fg) !important;
-  background: var(--eng-bg) !important;
-  border: 2px solid var(--eng-fg) !important;
-  border-radius: .28rem !important;
-  box-shadow: .22rem .22rem 0 var(--eng-shadow) !important;
+  background: color-mix(in srgb, var(--eng-bg) 94%, transparent) !important;
+  border: 1px solid color-mix(in srgb, var(--eng-fg) 58%, transparent) !important;
+  border-radius: 999px !important;
+  box-shadow: none !important;
   backdrop-filter: none !important;
+  overflow: hidden;
+}
+
+.story-engagement::after {
+  content: "";
+  position: absolute;
+  left: .78rem;
+  right: .78rem;
+  bottom: 0;
+  height: 2px;
+  background: var(--eng-accent);
+  opacity: .9;
 }
 
 .story-heart,
 .story-share {
-  min-height: 2rem !important;
-  padding: .34rem .52rem !important;
-  color: inherit !important;
-  border-radius: .12rem;
+  min-height: 2.05rem !important;
+  padding: .34rem .66rem !important;
+  color: var(--eng-fg) !important;
+  border-radius: 999px !important;
+  transition: background-color .16s ease, transform .16s ease, opacity .16s ease !important;
 }
 
 .story-heart:hover,
 .story-share:hover {
-  background: color-mix(in srgb, var(--eng-fg) 9%, transparent) !important;
+  background: color-mix(in srgb, var(--eng-fg) 6%, transparent) !important;
+}
+
+.story-heart:active,
+.story-share:active {
+  transform: translateY(1px);
+}
+
+.story-heart svg,
+.story-share svg {
+  width: 1rem !important;
+  height: 1rem !important;
+}
+
+/* The number is typography, not part of the heart. It always follows the section/interface color. */
+.story-heart-count,
+.story-share span {
+  color: var(--eng-fg) !important;
+  font-family: var(--font-bienvivos-sans), sans-serif !important;
+  font-size: .61rem !important;
+  font-weight: 800 !important;
+  letter-spacing: .13em !important;
+}
+
+/* Only the heart glyph turns red. Use a darker editorial red rather than pink/social-app red. */
+.story-heart.is-liked {
+  color: var(--eng-fg) !important;
+}
+
+.story-heart.is-liked svg {
+  color: var(--heart-red) !important;
+}
+
+.story-heart:not(.is-liked) svg {
+  color: color-mix(in srgb, var(--eng-fg) 82%, transparent) !important;
 }
 
 .story-engagement-rule {
-  height: 1.3rem !important;
+  width: 1px !important;
+  height: .95rem !important;
+  margin: 0 .03rem !important;
   background: var(--eng-fg) !important;
-  opacity: .45 !important;
+  opacity: .28 !important;
 }
 
-.story-heart.is-liked {
-  color: #d71844 !important;
-}
-
-/* Section-specific EASTOKYO palette. */
+/* Section-specific palette: mostly neutral surfaces, with the section color used as a precise accent. */
 #bullfighting .story-engagement {
-  --eng-bg: var(--et-yellow, #f3c431);
+  --eng-bg: var(--et-paper, #f3eee4);
   --eng-fg: var(--et-ink, #101820);
-  --eng-shadow: var(--et-orange, #e57a34);
+  --eng-accent: var(--et-yellow, #f3c431);
 }
 
 #exhibition .story-engagement {
-  --eng-bg: var(--et-yellow, #f3c431);
+  --eng-bg: var(--et-paper, #f3eee4);
   --eng-fg: var(--et-ink, #101820);
-  --eng-shadow: var(--et-orange, #e57a34);
+  --eng-accent: var(--et-cobalt, #214f78);
 }
 
 #cubism .story-engagement {
-  --eng-bg: var(--et-orange, #e57a34);
+  --eng-bg: var(--et-paper, #f3eee4);
   --eng-fg: var(--et-ink, #101820);
-  --eng-shadow: var(--et-sky, #79b7d7);
+  --eng-accent: var(--et-orange, #e57a34);
 }
 
 #asagaya .story-engagement {
   --eng-bg: var(--et-green, #1f6b4f);
   --eng-fg: var(--et-paper, #f3eee4);
-  --eng-shadow: var(--et-cobalt, #214f78);
+  --eng-accent: var(--et-yellow, #f3c431);
 }
 
 #picasso-index .story-engagement {
-  --eng-bg: var(--et-orange, #e57a34);
+  --eng-bg: var(--et-paper, #f3eee4);
   --eng-fg: var(--et-ink, #101820);
-  --eng-shadow: var(--et-yellow, #f3c431);
+  --eng-accent: var(--et-cobalt, #214f78);
 }
 
-/* Image-share controls inherit the section instead of using a generic black badge. */
+/* Image sharing stays compact and graphic, without altering artwork geometry. */
+.image-share-button {
+  min-height: 2rem !important;
+  padding: .42rem .58rem !important;
+  border: 1px solid currentColor !important;
+  border-radius: 999px !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  font-family: var(--font-bienvivos-sans), sans-serif !important;
+}
+
+.image-share-button span {
+  font-size: .57rem !important;
+  font-weight: 800 !important;
+  letter-spacing: .14em !important;
+}
+
 #bullfighting .image-share-button,
 #exhibition .image-share-button {
-  background: var(--et-yellow, #f3c431) !important;
+  background: var(--et-paper, #f3eee4) !important;
   color: var(--et-ink, #101820) !important;
-  border-color: var(--et-ink, #101820) !important;
 }
 
 #cubism .image-share-button,
 #picasso-index .image-share-button {
-  background: var(--et-orange, #e57a34) !important;
+  background: var(--et-paper, #f3eee4) !important;
   color: var(--et-ink, #101820) !important;
-  border-color: var(--et-ink, #101820) !important;
-}
-
-.image-share-button {
-  border-width: 2px !important;
-  border-radius: .25rem !important;
-  box-shadow: .18rem .18rem 0 rgba(16, 24, 32, .65) !important;
-  backdrop-filter: none !important;
 }
 
 @media (max-width: 560px) {
@@ -133,6 +185,11 @@
   }
 
   .story-engagement {
-    min-height: 2.4rem !important;
+    min-height: 2.35rem !important;
+  }
+
+  .story-heart,
+  .story-share {
+    padding-inline: .55rem !important;
   }
 }
