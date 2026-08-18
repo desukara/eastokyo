@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Montserrat } from "next/font/google";
 import EastokyoMotion from "./eastokyo/EastokyoMotion";
-import HomepageEngagement from "./eastokyo/HomepageEngagement";
+import VerdictVoting from "./eastokyo/VerdictVoting";
 import EngagementLockdown from "./eastokyo/EngagementLockdown";
 import "./globals.css";
 import "./styles/header.css";
@@ -18,6 +18,7 @@ import "./styles/site-audit.css";
 import "./styles/masculine-palette.css";
 import "./styles/social-icons.css";
 import "./styles/homepage-engagement.css";
+import "./styles/verdict-voting.css";
 import "./styles/magazine-home.css";
 import "./styles/magazine-qa.css";
 import "./styles/magazine-mobile-repair.css";
@@ -76,23 +77,10 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
   title: { default: "EASTOKYO — Independent Art Magazine", template: "%s | EASTOKYO" },
   description: "EASTOKYO is an independent art magazine based in Tokyo, covering exhibitions, galleries, fairs, festivals, books, archives, photography, installations and ideas from around the world.",
-  openGraph: {
-    title: "EASTOKYO — Independent Art Magazine",
-    description: "An independent art magazine based in Tokyo, looking outward.",
-    url: "/",
-    siteName: "EASTOKYO",
-    locale: "en_US",
-    type: "website",
-    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "EASTOKYO — Independent Art Magazine" }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "EASTOKYO — Independent Art Magazine",
-    description: "An independent art magazine based in Tokyo, looking outward.",
-    images: ["/opengraph-image"],
-  },
+  openGraph: { title: "EASTOKYO — Independent Art Magazine", description: "An independent art magazine based in Tokyo, looking outward.", url: "/", siteName: "EASTOKYO", locale: "en_US", type: "website", images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "EASTOKYO — Independent Art Magazine" }] },
+  twitter: { card: "summary_large_image", title: "EASTOKYO — Independent Art Magazine", description: "An independent art magazine based in Tokyo, looking outward.", images: ["/opengraph-image"] },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en"><body className={`${sans.variable} ${display.variable}`}><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "Organization", name: "EASTOKYO", url: "https://www.eastokyo.com", description: "Independent art magazine based in Tokyo, covering art from around the world." }) }} /><EastokyoMotion /><HomepageEngagement /><EngagementLockdown />{children}</body></html>;
+  return <html lang="en"><body className={`${sans.variable} ${display.variable}`}><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "Organization", name: "EASTOKYO", url: "https://www.eastokyo.com", description: "Independent art magazine based in Tokyo, covering art from around the world." }) }} /><EastokyoMotion /><VerdictVoting /><EngagementLockdown />{children}</body></html>;
 }
