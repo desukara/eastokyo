@@ -78,7 +78,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Invalid heart request" }, { status: 400 });
   }
 
-  const story = body.story;
+  const story = body.story as StoryId;
   const visitorId = body.visitorId.slice(0, 120);
 
   if (!hasRedis()) {
