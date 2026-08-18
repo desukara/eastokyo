@@ -28,7 +28,9 @@ export const homepageStories: Record<StoryId, HomepageStory> = {
     description: "Picasso and the arena he never really left — EASTOKYO, Issue No. 1.",
     anchor: "latest",
     ctaSelector: "#latest .story-cta",
-    imageScopes: ["#latest", "#bullfighting"],
+    // Keep the cover itself visually pristine. The story control shares the hero;
+    // only the lower bullfighting editorial images receive image-level sharing.
+    imageScopes: ["#bullfighting"],
     shareImage: "/images/editorial/picasso-bullfight-01-desktop.png",
     baseHearts: 1284,
   },
@@ -61,7 +63,9 @@ export const homepageStories: Record<StoryId, HomepageStory> = {
     description: "Asagaya Tanabata: paper creatures, lanterns, color, and a Tokyo street fully alive.",
     anchor: "asagaya",
     ctaSelector: "#asagaya .story-cta",
-    imageScopes: ["#asagaya"],
+    // The Asagaya grid has tightly art-directed flex/grid geometry. Keep image
+    // sharing detached from those figures until it can be mounted without DOM mutation.
+    imageScopes: [],
     shareImage: "/images/editorial/la-ciudad-despierta-desktop.png",
     baseHearts: 1187,
   },
