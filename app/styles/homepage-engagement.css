@@ -1,0 +1,410 @@
+/* EASTOKYO homepage engagement system.
+   Hearts belong to stories. Share buttons may belong to individual editorial images. */
+
+.story-engagement-host {
+  display: block;
+  width: fit-content;
+  margin-top: 1rem;
+}
+
+.story-engagement {
+  display: inline-flex;
+  align-items: center;
+  gap: .72rem;
+  min-height: 2.5rem;
+  padding: .38rem .5rem;
+  border: 1px solid color-mix(in srgb, currentColor 24%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--paper, #fff5e7) 88%, transparent);
+  box-shadow: 0 .35rem 1.1rem rgba(24, 9, 19, .08);
+  color: currentColor;
+  backdrop-filter: blur(12px);
+}
+
+.story-heart,
+.story-share,
+.image-share-button,
+.share-sheet button {
+  font: inherit;
+}
+
+.story-heart,
+.story-share {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .38rem;
+  min-height: 2rem;
+  padding: .2rem .45rem;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.story-heart svg,
+.story-share svg,
+.image-share-button svg {
+  width: 1.15rem;
+  height: 1.15rem;
+  flex: 0 0 auto;
+}
+
+.story-heart-count,
+.story-share span {
+  font-size: .68rem;
+  font-weight: 850;
+  letter-spacing: .08em;
+  line-height: 1;
+}
+
+.story-share span {
+  letter-spacing: .12em;
+}
+
+.story-heart.is-liked {
+  color: #d71844;
+}
+
+.story-heart:disabled {
+  opacity: .72;
+  cursor: wait;
+}
+
+.story-engagement-rule {
+  width: 1px;
+  height: 1.15rem;
+  background: currentColor;
+  opacity: .22;
+}
+
+.story-heart:focus-visible,
+.story-share:focus-visible,
+.image-share-button:focus-visible,
+.share-sheet button:focus-visible,
+.share-sheet a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+.eastokyo-shareable-image {
+  position: relative !important;
+}
+
+.image-share-host {
+  position: absolute;
+  z-index: 8;
+  top: .8rem;
+  right: .8rem;
+  pointer-events: none;
+}
+
+.image-share-button {
+  display: inline-flex;
+  align-items: center;
+  gap: .38rem;
+  min-height: 2.35rem;
+  padding: .52rem .68rem;
+  border: 1px solid rgba(255, 255, 255, .48);
+  border-radius: 999px;
+  background: rgba(24, 9, 19, .78);
+  box-shadow: 0 .4rem 1.2rem rgba(0, 0, 0, .18);
+  color: #fffaf3;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: auto;
+  transform: translateY(-.25rem);
+  transition: opacity 160ms ease, transform 160ms ease, background 160ms ease;
+  backdrop-filter: blur(10px);
+}
+
+.image-share-button span {
+  font-size: .62rem;
+  font-weight: 850;
+  letter-spacing: .12em;
+}
+
+.eastokyo-shareable-image:hover .image-share-button,
+.image-share-button:focus-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.image-share-button:hover {
+  background: rgba(24, 9, 19, .94);
+}
+
+.share-sheet-backdrop {
+  position: fixed;
+  z-index: 2000;
+  inset: 0;
+  display: grid;
+  place-items: end center;
+  padding: 1rem;
+  background: rgba(16, 7, 13, .52);
+  backdrop-filter: blur(8px);
+}
+
+.share-sheet {
+  width: min(100%, 35rem);
+  max-height: min(88vh, 48rem);
+  overflow-y: auto;
+  padding: 1.25rem;
+  border: 1px solid rgba(24, 9, 19, .16);
+  border-radius: 1.25rem;
+  background: #fff5e7;
+  box-shadow: 0 1.6rem 4rem rgba(0, 0, 0, .28);
+  color: #180913;
+  animation: eastokyo-share-sheet-in 180ms ease-out both;
+}
+
+.share-sheet-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(24, 9, 19, .18);
+}
+
+.share-sheet-head p,
+.share-sheet-image-note,
+.share-sheet-foot {
+  margin: 0;
+  font-size: .63rem;
+  font-weight: 850;
+  letter-spacing: .14em;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.share-sheet-head h2 {
+  margin: .3rem 0 0;
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(2rem, 8vw, 3.7rem);
+  font-weight: 700;
+  letter-spacing: -.055em;
+  line-height: .86;
+}
+
+.share-sheet-close {
+  display: grid;
+  flex: 0 0 2.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  place-items: center;
+  padding: 0;
+  border: 1px solid rgba(24, 9, 19, .2);
+  border-radius: 50%;
+  background: transparent;
+  color: inherit;
+  font-size: 1.45rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.share-sheet-story {
+  margin: 1rem 0 .3rem;
+  font-family: var(--font-display), Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.05;
+}
+
+.share-sheet-image-note {
+  margin: 0 0 1rem;
+  opacity: .62;
+}
+
+.share-sheet-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: .7rem;
+  margin-top: 1.15rem;
+}
+
+.share-destination {
+  display: flex;
+  min-height: 6.6rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: .65rem;
+  padding: .8rem .45rem;
+  border: 1px solid rgba(24, 9, 19, .14);
+  border-radius: .95rem;
+  background: rgba(255, 250, 243, .72);
+  color: #180913;
+  cursor: pointer;
+  transition: transform 150ms ease, box-shadow 150ms ease, background 150ms ease;
+}
+
+.share-destination:hover {
+  background: #fffaf3;
+  box-shadow: 0 .5rem 1.4rem rgba(24, 9, 19, .09);
+  transform: translateY(-2px);
+}
+
+.share-destination > span:last-child {
+  font-size: .66rem;
+  font-weight: 850;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+}
+
+.share-destination-icon {
+  display: grid;
+  width: 2.7rem;
+  height: 2.7rem;
+  place-items: center;
+  border-radius: 50%;
+  background: #180913;
+  color: #fff;
+  font-size: .9rem;
+  font-weight: 850;
+}
+
+.is-facebook .share-destination-icon { background: #1877f2; }
+.is-pinterest .share-destination-icon { background: #e60023; }
+.is-x .share-destination-icon { background: #101820; }
+.is-copy .share-destination-icon,
+.is-email .share-destination-icon,
+.is-more .share-destination-icon { background: #671b3a; }
+
+.engagement-brand-letter {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.75rem;
+  font-weight: 900;
+  line-height: 1;
+  transform: translateY(.12rem);
+}
+
+.engagement-brand-letter--x {
+  font-size: 1.25rem;
+  transform: none;
+}
+
+.engagement-brand-letter--p {
+  font-family: Georgia, serif;
+  font-size: 1.35rem;
+  font-style: italic;
+  transform: none;
+}
+
+.share-sheet-foot {
+  margin: 1.1rem 0 0;
+  padding-top: .9rem;
+  border-top: 1px solid rgba(24, 9, 19, .18);
+  opacity: .58;
+}
+
+.share-landing {
+  display: grid;
+  min-height: 100vh;
+  place-content: center;
+  gap: .8rem;
+  padding: 2rem;
+  background: #fff5e7;
+  color: #180913;
+  text-align: center;
+}
+
+.share-landing p {
+  margin: 0;
+  font-size: .7rem;
+  font-weight: 850;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.share-landing h1 {
+  max-width: 15ch;
+  margin: 0 auto;
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(2.8rem, 10vw, 6rem);
+  letter-spacing: -.06em;
+  line-height: .86;
+}
+
+.share-landing a {
+  width: fit-content;
+  margin: .8rem auto 0;
+  padding-bottom: .25rem;
+  border-bottom: 2px solid currentColor;
+  font-size: .7rem;
+  font-weight: 850;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+@keyframes eastokyo-share-sheet-in {
+  from { opacity: 0; transform: translateY(1.25rem) scale(.985); }
+}
+
+@media (min-width: 700px) {
+  .share-sheet-backdrop {
+    place-items: center;
+  }
+}
+
+@media (hover: none), (max-width: 899px) {
+  .image-share-button {
+    opacity: .92;
+    transform: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .story-engagement-host {
+    margin-top: .85rem;
+  }
+
+  .story-engagement {
+    gap: .5rem;
+    min-height: 2.35rem;
+    padding: .3rem .42rem;
+  }
+
+  .story-heart,
+  .story-share {
+    min-height: 2rem;
+    padding-inline: .38rem;
+  }
+
+  .image-share-host {
+    top: .6rem;
+    right: .6rem;
+  }
+
+  .image-share-button {
+    min-height: 2.15rem;
+    padding: .44rem .55rem;
+  }
+
+  .image-share-button span {
+    display: none;
+  }
+
+  .share-sheet {
+    padding: 1.05rem;
+    border-radius: 1.1rem;
+  }
+
+  .share-sheet-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: .55rem;
+  }
+
+  .share-destination {
+    min-height: 5.8rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .image-share-button,
+  .share-destination,
+  .share-sheet {
+    animation: none;
+    transition: none;
+  }
+}
