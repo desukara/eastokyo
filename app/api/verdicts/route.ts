@@ -5,8 +5,8 @@ import { homepageStories, type StoryId } from "../../eastokyo/engagement-data";
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-export const VERDICTS = ["nailed", "hate-like", "what-happened", "one-job", "brush-down"] as const;
-export type VerdictId = (typeof VERDICTS)[number];
+const VERDICTS = ["nailed", "hate-like", "what-happened", "one-job", "brush-down"] as const;
+type VerdictId = (typeof VERDICTS)[number];
 
 type Counts = Record<VerdictId, number>;
 
