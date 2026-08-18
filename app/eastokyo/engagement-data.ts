@@ -21,6 +21,11 @@ export type HomepageStory = {
  * displayed hearts = baseHearts + automatic visitor hearts
  *
  * Launch baseline: every story starts at 0.
+ *
+ * IMAGE ENGAGEMENT
+ * ----------------
+ * Homepage images remain clean: no image-level like/share controls are mounted.
+ * Engagement belongs to the story-level controls only.
  */
 export const homepageStories: Record<StoryId, HomepageStory> = {
   cover: {
@@ -41,7 +46,7 @@ export const homepageStories: Record<StoryId, HomepageStory> = {
     description: "Paul Smith moves the walls around, and Picasso wakes back up in Tokyo.",
     anchor: "exhibition",
     ctaSelector: "#exhibition .story-cta",
-    imageScopes: ["#exhibition"],
+    imageScopes: [],
     shareImage: "/images/editorial/picasso-paul-smith-desktop.png",
     baseHearts: 0,
   },
@@ -52,7 +57,7 @@ export const homepageStories: Record<StoryId, HomepageStory> = {
     description: "Picasso, Braque, and the moment one obedient view of the world cracked open.",
     anchor: "cubism",
     ctaSelector: "#cubism .story-cta",
-    imageScopes: ["#cubism", "#cubism-works"],
+    imageScopes: [],
     shareImage: "/images/editorial/picasso-portrait-desktop.png",
     baseHearts: 0,
   },
@@ -74,7 +79,7 @@ export const homepageStories: Record<StoryId, HomepageStory> = {
     description: "Faces, ceramics, stripes, bicycle parts — Picasso's restless index, EASTOKYO No. 1.",
     anchor: "picasso-index",
     ctaSelector: "#picasso-index .story-cta",
-    imageScopes: ["#picasso-index"],
+    imageScopes: [],
     shareImage: "/images/editorial/picasso-index-hero-desktop.png",
     baseHearts: 0,
   },
