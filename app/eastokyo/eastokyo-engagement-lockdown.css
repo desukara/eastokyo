@@ -1,0 +1,33 @@
+/* PRE-LAUNCH ENGAGEMENT LOCKDOWN
+   Keep the approved visual treatment visible while preventing any interaction. */
+
+.story-engagement-host,
+.story-engagement,
+.story-heart,
+.story-share,
+.image-share-host,
+.image-share-button {
+  pointer-events: none !important;
+  cursor: default !important;
+  user-select: none !important;
+}
+
+.story-heart:disabled,
+.story-share:disabled,
+.image-share-button:disabled {
+  opacity: 1 !important;
+  cursor: default !important;
+}
+
+.story-heart:hover,
+.story-share:hover,
+.story-heart:active,
+.story-share:active {
+  background: transparent !important;
+  transform: none !important;
+}
+
+.image-share-button:hover,
+.image-share-button:active {
+  transform: none !important;
+}
