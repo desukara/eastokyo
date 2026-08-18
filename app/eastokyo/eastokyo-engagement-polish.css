@@ -1,0 +1,138 @@
+/* EASTOKYO engagement polish.
+   Keep the new controls flat, editorial, and native to each section.
+   Footer social marks remain intentionally non-interactive until profile URLs are supplied. */
+
+/* Footer social placeholders: visible, branded, and deliberately unclickable. */
+.social-placeholder,
+.social-placeholder * {
+  pointer-events: none !important;
+  cursor: default !important;
+  user-select: none !important;
+}
+
+/* Facebook joins Instagram, TikTok, Pinterest and X using the reserved slot. */
+.social-placeholder::before {
+  content: "" !important;
+  display: block !important;
+  flex: 0 0 2.55rem;
+  width: 2.55rem;
+  height: 2.55rem;
+  overflow: hidden;
+  border-radius: 50%;
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0OCA0OCI+CjxjaXJjbGUgY3g9IjI0IiBjeT0iMjQiIHI9IjIyIiBmaWxsPSIjMTg3N0YyIi8+CjxwYXRoIGQ9Ik0yNi44IDM4VjI1LjRoNC4yNWwuNjQtNC45NEgyNi44VjE3LjNjMC0xLjQzLjQtMi40IDIuNDUtMi40aDIuNjJ2LTQuNDJjLS40NS0uMDYtMi0uMi0zLjgtLjItMy43NiAwLTYuMzQgMi4zLTYuMzQgNi41NnYzLjY2aC00LjI2djQuOTRoNC4yNlYzOGg1LjA3eiIgZmlsbD0iI2ZmZiIvPgo8L3N2Zz4=");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  box-shadow:
+    0 0 0 1px rgba(255, 233, 202, .18),
+    0 .35rem 1rem rgba(0, 0, 0, .2);
+}
+
+/* Remove the glassy generic pill look. */
+.story-engagement-host {
+  width: fit-content;
+  margin-top: 1rem;
+}
+
+.story-engagement {
+  --eng-bg: var(--et-paper, #f3eee4);
+  --eng-fg: var(--et-ink, #101820);
+  --eng-shadow: var(--et-orange, #e57a34);
+  gap: .2rem !important;
+  min-height: 2.55rem !important;
+  padding: .22rem !important;
+  color: var(--eng-fg) !important;
+  background: var(--eng-bg) !important;
+  border: 2px solid var(--eng-fg) !important;
+  border-radius: .28rem !important;
+  box-shadow: .22rem .22rem 0 var(--eng-shadow) !important;
+  backdrop-filter: none !important;
+}
+
+.story-heart,
+.story-share {
+  min-height: 2rem !important;
+  padding: .34rem .52rem !important;
+  color: inherit !important;
+  border-radius: .12rem;
+}
+
+.story-heart:hover,
+.story-share:hover {
+  background: color-mix(in srgb, var(--eng-fg) 9%, transparent) !important;
+}
+
+.story-engagement-rule {
+  height: 1.3rem !important;
+  background: var(--eng-fg) !important;
+  opacity: .45 !important;
+}
+
+.story-heart.is-liked {
+  color: #d71844 !important;
+}
+
+/* Section-specific EASTOKYO palette. */
+#bullfighting .story-engagement {
+  --eng-bg: var(--et-yellow, #f3c431);
+  --eng-fg: var(--et-ink, #101820);
+  --eng-shadow: var(--et-orange, #e57a34);
+}
+
+#exhibition .story-engagement {
+  --eng-bg: var(--et-yellow, #f3c431);
+  --eng-fg: var(--et-ink, #101820);
+  --eng-shadow: var(--et-orange, #e57a34);
+}
+
+#cubism .story-engagement {
+  --eng-bg: var(--et-orange, #e57a34);
+  --eng-fg: var(--et-ink, #101820);
+  --eng-shadow: var(--et-sky, #79b7d7);
+}
+
+#asagaya .story-engagement {
+  --eng-bg: var(--et-green, #1f6b4f);
+  --eng-fg: var(--et-paper, #f3eee4);
+  --eng-shadow: var(--et-cobalt, #214f78);
+}
+
+#picasso-index .story-engagement {
+  --eng-bg: var(--et-orange, #e57a34);
+  --eng-fg: var(--et-ink, #101820);
+  --eng-shadow: var(--et-yellow, #f3c431);
+}
+
+/* Image-share controls inherit the section instead of using a generic black badge. */
+#bullfighting .image-share-button,
+#exhibition .image-share-button {
+  background: var(--et-yellow, #f3c431) !important;
+  color: var(--et-ink, #101820) !important;
+  border-color: var(--et-ink, #101820) !important;
+}
+
+#cubism .image-share-button,
+#picasso-index .image-share-button {
+  background: var(--et-orange, #e57a34) !important;
+  color: var(--et-ink, #101820) !important;
+  border-color: var(--et-ink, #101820) !important;
+}
+
+.image-share-button {
+  border-width: 2px !important;
+  border-radius: .25rem !important;
+  box-shadow: .18rem .18rem 0 rgba(16, 24, 32, .65) !important;
+  backdrop-filter: none !important;
+}
+
+@media (max-width: 560px) {
+  .social-placeholder::before {
+    flex-basis: 2.3rem;
+    width: 2.3rem;
+    height: 2.3rem;
+  }
+
+  .story-engagement {
+    min-height: 2.4rem !important;
+  }
+}
