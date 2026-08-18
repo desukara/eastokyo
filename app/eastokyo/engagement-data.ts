@@ -27,9 +27,9 @@ export const homepageStories: Record<StoryId, HomepageStory> = {
     title: "He Kept Walking Back In.",
     description: "Picasso and the arena he never really left — EASTOKYO, Issue No. 1.",
     anchor: "latest",
-    ctaSelector: "#latest .story-cta",
-    // Keep the cover itself visually pristine. The story control shares the hero;
-    // only the lower bullfighting editorial images receive image-level sharing.
+    // Keep the hero completely clean: mount the cover story engagement after the
+    // lower bullfighting copy instead of beside the opening cover text.
+    ctaSelector: "#bullfighting .mag-feature-copy p:last-child",
     imageScopes: ["#bullfighting"],
     shareImage: "/images/editorial/picasso-bullfight-01-desktop.png",
     baseHearts: 1284,
