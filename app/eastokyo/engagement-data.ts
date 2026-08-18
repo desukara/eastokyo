@@ -19,6 +19,8 @@ export type HomepageStory = {
  * Real visitor reactions are stored separately and are added on top of this value.
  *
  * displayed hearts = baseHearts + automatic visitor hearts
+ *
+ * Launch baseline: every story starts at 0.
  */
 export const homepageStories: Record<StoryId, HomepageStory> = {
   cover: {
@@ -26,13 +28,11 @@ export const homepageStories: Record<StoryId, HomepageStory> = {
     shareSlug: "arena",
     title: "He Kept Walking Back In.",
     description: "Picasso and the arena he never really left — EASTOKYO, Issue No. 1.",
-    anchor: "latest",
-    // Keep the hero completely clean: mount the cover story engagement after the
-    // lower bullfighting copy instead of beside the opening cover text.
-    ctaSelector: "#bullfighting .mag-feature-copy p:last-child",
+    anchor: "bullfighting",
+    ctaSelector: "#bullfighting .mag-feature-copy",
     imageScopes: ["#bullfighting"],
     shareImage: "/images/editorial/picasso-bullfight-01-desktop.png",
-    baseHearts: 1284,
+    baseHearts: 0,
   },
   exhibition: {
     id: "exhibition",
@@ -43,7 +43,7 @@ export const homepageStories: Record<StoryId, HomepageStory> = {
     ctaSelector: "#exhibition .story-cta",
     imageScopes: ["#exhibition"],
     shareImage: "/images/editorial/picasso-paul-smith-desktop.png",
-    baseHearts: 742,
+    baseHearts: 0,
   },
   ideas: {
     id: "ideas",
@@ -54,7 +54,7 @@ export const homepageStories: Record<StoryId, HomepageStory> = {
     ctaSelector: "#cubism .story-cta",
     imageScopes: ["#cubism", "#cubism-works"],
     shareImage: "/images/editorial/picasso-portrait-desktop.png",
-    baseHearts: 963,
+    baseHearts: 0,
   },
   tokyo: {
     id: "tokyo",
@@ -63,11 +63,9 @@ export const homepageStories: Record<StoryId, HomepageStory> = {
     description: "Asagaya Tanabata: paper creatures, lanterns, color, and a Tokyo street fully alive.",
     anchor: "asagaya",
     ctaSelector: "#asagaya .story-cta",
-    // The Asagaya grid has tightly art-directed flex/grid geometry. Keep image
-    // sharing detached from those figures until it can be mounted without DOM mutation.
     imageScopes: [],
     shareImage: "/images/editorial/la-ciudad-despierta-desktop.png",
-    baseHearts: 1187,
+    baseHearts: 0,
   },
   index: {
     id: "index",
@@ -78,7 +76,7 @@ export const homepageStories: Record<StoryId, HomepageStory> = {
     ctaSelector: "#picasso-index .story-cta",
     imageScopes: ["#picasso-index"],
     shareImage: "/images/editorial/picasso-index-hero-desktop.png",
-    baseHearts: 678,
+    baseHearts: 0,
   },
 };
 
