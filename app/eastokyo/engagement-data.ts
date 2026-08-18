@@ -30,7 +30,7 @@ export const homepageStories: Record<StoryId, HomepageStory> = {
     description: "Picasso and the arena he never really left — EASTOKYO, Issue No. 1.",
     anchor: "bullfighting",
     ctaSelector: "#bullfighting .mag-feature-copy",
-    imageScopes: ["#bullfighting"],
+    imageScopes: [],
     shareImage: "/images/editorial/picasso-bullfight-01-desktop.png",
     baseHearts: 0,
   },
