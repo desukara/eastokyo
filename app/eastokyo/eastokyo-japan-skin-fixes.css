@@ -1,0 +1,5 @@
+/* Japan skin corrective: preserve the original barcode stripe construction. */
+.mag-page .mag-cover-barcode{
+  background-color:transparent!important;
+  opacity:.75!important;
+}
