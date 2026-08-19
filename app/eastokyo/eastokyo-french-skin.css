@@ -1,0 +1,116 @@
+/* EASTOKYO — French skin only. No layout, content, image source, or ordering changes. */
+:root{
+  --fr-ink:#11100f;
+  --fr-paper:#f3eadb;
+  --fr-paper-2:#fffaf1;
+  --fr-blue:#244f86;
+  --fr-blue-deep:#142f54;
+  --fr-red:#b53a35;
+  --fr-burgundy:#6f1f2a;
+  --fr-butter:#e8d77f;
+  --fr-pink:#d7a8aa;
+  --fr-green:#425a47;
+  --fr-silver:#b8b4ad;
+}
+
+/* Overall publication surface: printed, not fiesta. */
+body{background:var(--fr-paper)!important;color:var(--fr-ink)!important}
+.mag-page{background:var(--fr-paper)!important;color:var(--fr-ink)!important}
+.mag-page::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.055;mix-blend-mode:multiply;background-image:repeating-linear-gradient(0deg,rgba(0,0,0,.22) 0,rgba(0,0,0,.22) 1px,transparent 1px,transparent 3px)}
+
+/* Header: French cultural-institution / magazine masthead energy. */
+.mag-header{background:var(--fr-paper-2)!important;color:var(--fr-ink)!important;border-color:var(--fr-ink)!important;box-shadow:0 1px 0 var(--fr-ink),0 4px 0 var(--fr-red)!important}
+.mag-header-rail{background:var(--fr-blue)!important;color:var(--fr-paper-2)!important;border-color:var(--fr-ink)!important}
+.mag-header-rail p{letter-spacing:.13em!important;font-weight:700!important}
+.mag-nav{background:var(--fr-paper-2)!important;color:var(--fr-ink)!important;border-color:var(--fr-ink)!important}
+.mag-nav a{color:var(--fr-ink)!important;text-decoration-thickness:1px!important;text-underline-offset:.3em}
+.mag-nav a:hover,.mag-nav a[aria-current="page"]{color:var(--fr-red)!important}
+.mag-mobile-bar,.mag-mobile-menu{background:var(--fr-paper-2)!important;color:var(--fr-ink)!important}
+.mag-menu-button span,.mag-mobile-menu-close{color:var(--fr-ink)!important}
+.mag-mobile-menu nav a{border-color:var(--fr-ink)!important}
+.mag-mobile-menu nav a span{color:var(--fr-red)!important}
+
+/* Cover: same composition, new print register + Paris poster tension. */
+.mag-cover{background:var(--fr-blue-deep)!important;color:var(--fr-paper-2)!important}
+.mag-cover-shade{background:linear-gradient(90deg,rgba(9,14,22,.82),rgba(9,14,22,.24) 58%,rgba(181,58,53,.15))!important}
+.mag-cover-topline{color:var(--fr-paper-2)!important;border-color:rgba(255,250,241,.6)!important}
+.mag-cover-masthead{color:var(--fr-paper-2)!important;text-shadow:-3px 0 0 var(--fr-red),3px 0 0 rgba(36,79,134,.9)!important;letter-spacing:-.065em!important}
+.mag-cover-story .mag-kicker,.mag-cover-line small,.mag-cover-vertical{color:var(--fr-butter)!important}
+.mag-cover-story h1{color:var(--fr-paper-2)!important;text-shadow:2px 2px 0 var(--fr-red)!important}
+.mag-cover-story p{color:var(--fr-paper-2)!important}
+.mag-cover-line{border-color:rgba(255,250,241,.42)!important}
+.mag-cover-line p{color:var(--fr-paper-2)!important}
+.mag-cover-barcode{filter:grayscale(1) contrast(1.35)!important}
+
+/* Global editorial system: French poster/catalogue palette. */
+.mag-section{background:var(--fr-paper)!important;color:var(--fr-ink)!important}
+.mag-rule-heading{border-color:var(--fr-ink)!important;background:var(--fr-paper-2)!important}
+.mag-rule-heading h2{color:var(--fr-ink)!important;letter-spacing:.12em!important}
+.mag-kicker{color:var(--fr-red)!important;letter-spacing:.14em!important;font-weight:800!important}
+.mag-deck{color:var(--fr-ink)!important}
+.mag-credit{background:var(--fr-paper-2)!important;color:var(--fr-ink)!important;border-top:1px solid var(--fr-ink)!important;letter-spacing:.1em!important}
+
+/* Contents: catalogue / cinéma programme, still same grid. */
+.mag-contents{background:var(--fr-paper)!important}
+.mag-contents-title h2{color:var(--fr-blue-deep)!important;text-shadow:2px 2px 0 var(--fr-butter)!important}
+.mag-contents-entry{border-color:var(--fr-ink)!important}
+.mag-contents-entry small{color:var(--fr-red)!important}
+.mag-contents-entry h3{color:var(--fr-ink)!important}
+.mag-contents-entry a:hover h3{color:var(--fr-blue)!important}
+.mag-contents-image{box-shadow:10px 10px 0 var(--fr-red)!important;outline:1px solid var(--fr-ink)!important}
+
+/* Bullfight: Cahiers / art-book severity. */
+.mag-feature{background:var(--fr-paper-2)!important;color:var(--fr-ink)!important}
+.mag-feature-heading h2{color:var(--fr-burgundy)!important}
+.mag-feature-image-primary{outline:1px solid var(--fr-ink)!important;box-shadow:-10px 10px 0 var(--fr-blue)!important}
+.mag-feature-image-detail{outline:1px solid var(--fr-ink)!important;box-shadow:8px 8px 0 var(--fr-butter)!important}
+.mag-feature-pullquote{background:var(--fr-burgundy)!important;color:var(--fr-paper-2)!important;border-color:var(--fr-ink)!important;box-shadow:8px 8px 0 var(--fr-ink)!important}
+.mag-feature-pullquote span{color:var(--fr-butter)!important}
+
+/* Exhibition: Beaubourg / poster-print color collision. */
+.picasso-feature,.mag-front{background:var(--fr-paper)!important}
+.picasso-feature-title h3{color:var(--fr-blue)!important;text-shadow:2px 2px 0 var(--fr-pink)!important}
+.picasso-feature figure{outline:1px solid var(--fr-ink)!important}
+.picasso-feature figure:nth-of-type(3n+1){box-shadow:8px 8px 0 var(--fr-red)!important}
+.picasso-feature figure:nth-of-type(3n+2){box-shadow:8px 8px 0 var(--fr-blue)!important}
+.picasso-feature figure:nth-of-type(3n){box-shadow:8px 8px 0 var(--fr-butter)!important}
+.picasso-feature-copy,.picasso-feature-note{color:var(--fr-ink)!important}
+
+/* Cubism: left-bank art-school print energy, not Latin heat. */
+.mag-cubism,.cubism-section{background:var(--fr-blue)!important;color:var(--fr-paper-2)!important}
+.mag-cubism h2,.cubism-section h2{color:var(--fr-paper-2)!important;text-shadow:-2px 0 0 var(--fr-red)!important}
+.cubism-slot-box{background:var(--fr-paper-2)!important;color:var(--fr-ink)!important;border-color:var(--fr-ink)!important;box-shadow:6px 6px 0 var(--fr-red)!important}
+.cubism-slot figcaption{color:var(--fr-paper-2)!important}
+
+/* Tokyo/Asagaya: keep the joy, switch from piñata to French poster color. */
+.mag-asagaya,.asagaya-section{background:var(--fr-butter)!important;color:var(--fr-ink)!important}
+.mag-asagaya h2,.asagaya-section h2{color:var(--fr-blue-deep)!important;text-shadow:2px 2px 0 var(--fr-red)!important}
+.mag-asagaya figure,.asagaya-section figure{outline:1px solid var(--fr-ink)!important}
+.mag-asagaya figcaption,.asagaya-section figcaption{background:var(--fr-paper-2)!important;color:var(--fr-ink)!important;border-top:1px solid var(--fr-ink)!important}
+.mag-asagaya figure:nth-of-type(odd),.asagaya-section figure:nth-of-type(odd){box-shadow:8px 8px 0 var(--fr-blue)!important}
+.mag-asagaya figure:nth-of-type(even),.asagaya-section figure:nth-of-type(even){box-shadow:8px 8px 0 var(--fr-red)!important}
+
+/* Index: archival catalogue with industrial French modernism. */
+.mag-index,.picasso-index{background:var(--fr-paper-2)!important;color:var(--fr-ink)!important}
+.mag-index h2,.picasso-index h2{color:var(--fr-burgundy)!important}
+.mag-index article,.picasso-index article{border-color:var(--fr-ink)!important;background:var(--fr-paper)!important}
+.mag-index article small,.picasso-index article small{color:var(--fr-blue)!important}
+
+/* CTAs: little printed tickets, not app buttons. */
+.story-cta{background:var(--fr-paper-2)!important;color:var(--fr-ink)!important;border:1px solid var(--fr-ink)!important;box-shadow:4px 4px 0 var(--fr-red)!important;border-radius:0!important}
+.story-cta:hover{background:var(--fr-blue)!important;color:var(--fr-paper-2)!important;box-shadow:4px 4px 0 var(--fr-butter)!important}
+.story-cta__status{color:var(--fr-red)!important}
+.story-cta:hover .story-cta__status{color:var(--fr-butter)!important}
+
+/* Footer: sober French masthead ending with a flash of print color. */
+.mag-footer{background:var(--fr-ink)!important;color:var(--fr-paper-2)!important;border-top:8px solid var(--fr-red)!important}
+.mag-footer a{color:var(--fr-paper-2)!important}
+.mag-footer a:hover{color:var(--fr-butter)!important}
+.mag-footer .mag-kicker{color:var(--fr-pink)!important}
+
+/* Images retain their exact source/crop/layout; only reproduction character changes subtly. */
+.mag-media img,.picasso-picture img{filter:saturate(.92) contrast(1.035)!important;transition:filter .28s ease!important}
+.mag-media:hover img,.picasso-picture:hover img{filter:saturate(1.06) contrast(1.02)!important}
+
+/* Replace the old saffron/terracotta feeling wherever legacy vars leak through. */
+.mag-page{--accent-red:var(--fr-red);--accent-blue:var(--fr-blue);--accent-yellow:var(--fr-butter);--ink:var(--fr-ink);--paper:var(--fr-paper)}
