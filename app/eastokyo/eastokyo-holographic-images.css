@@ -1,94 +1,133 @@
-/* Preview treatment: holographic foil over homepage photography without altering source images. */
+/* Preview treatment: stronger holographic/lenticular finish on artwork only. Photography stays untouched. */
 
-.mag-page .mag-media,
-.mag-page .picasso-picture,
-.mag-page .mag-index-picture,
+.mag-page .mag-cover,
+.mag-page .mag-feature-image-primary,
+.mag-page .mag-feature-image-detail,
+.mag-page .picasso-shot-4,
 .mag-page .mag-mini-cover {
   position: relative;
   isolation: isolate;
   overflow: hidden;
 }
 
-.mag-page .mag-media::after,
-.mag-page .picasso-picture::after,
-.mag-page .mag-index-picture::after,
+.mag-page .mag-cover::after,
+.mag-page .mag-feature-image-primary::after,
+.mag-page .mag-feature-image-detail::after,
+.mag-page .picasso-shot-4::after,
 .mag-page .mag-mini-cover::after {
   content: "";
   position: absolute;
-  inset: -18%;
-  z-index: 4;
+  inset: -22%;
+  z-index: 5;
   pointer-events: none;
-  opacity: 0.34;
+  opacity: 0.62;
   mix-blend-mode: screen;
   background:
-    linear-gradient(112deg,
-      transparent 8%,
-      rgba(120, 210, 255, 0.15) 24%,
-      rgba(210, 255, 235, 0.25) 38%,
-      rgba(255, 232, 165, 0.20) 49%,
-      rgba(184, 170, 255, 0.22) 62%,
-      rgba(110, 215, 255, 0.16) 76%,
-      transparent 92%),
-    repeating-linear-gradient(128deg,
-      transparent 0 11%,
-      rgba(255,255,255,0.10) 12% 13%,
-      transparent 14% 22%);
-  background-size: 180% 180%, 135% 135%;
-  transform: translate3d(-4%, -2%, 0) rotate(-2deg);
-  animation: eastokyo-holo-shift 8s ease-in-out infinite alternate;
+    linear-gradient(108deg,
+      transparent 4%,
+      rgba(70, 180, 255, 0.12) 16%,
+      rgba(130, 255, 225, 0.34) 29%,
+      rgba(255, 246, 175, 0.40) 40%,
+      rgba(255, 255, 255, 0.58) 48%,
+      rgba(155, 190, 255, 0.36) 56%,
+      rgba(172, 135, 255, 0.30) 68%,
+      rgba(95, 220, 255, 0.18) 80%,
+      transparent 94%),
+    repeating-linear-gradient(126deg,
+      transparent 0 7%,
+      rgba(255,255,255,0.16) 8% 8.7%,
+      transparent 9.5% 16%),
+    radial-gradient(ellipse at 28% 22%, rgba(255,255,255,0.34), transparent 24%);
+  background-size: 185% 185%, 145% 145%, 100% 100%;
+  transform: translate3d(-6%, -3%, 0) rotate(-2deg);
+  animation: eastokyo-painting-holo 6.5s ease-in-out infinite alternate;
 }
 
-.mag-page .mag-media::before,
-.mag-page .picasso-picture::before,
-.mag-page .mag-index-picture::before,
+.mag-page .mag-cover::before,
+.mag-page .mag-feature-image-primary::before,
+.mag-page .mag-feature-image-detail::before,
+.mag-page .picasso-shot-4::before,
 .mag-page .mag-mini-cover::before {
   content: "";
   position: absolute;
   inset: 0;
-  z-index: 3;
+  z-index: 4;
   pointer-events: none;
-  opacity: 0.22;
+  opacity: 0.45;
   mix-blend-mode: color-dodge;
   background:
-    radial-gradient(circle at 22% 18%, rgba(255,255,255,0.46), transparent 18%),
-    linear-gradient(145deg, transparent 22%, rgba(255,255,255,0.18) 42%, transparent 58%);
+    linear-gradient(132deg, transparent 18%, rgba(255,255,255,0.30) 36%, transparent 50%),
+    linear-gradient(72deg, transparent 38%, rgba(120,220,255,0.16) 49%, rgba(255,240,170,0.18) 54%, transparent 66%);
+  background-size: 160% 160%, 200% 200%;
+  animation: eastokyo-painting-glare 7.5s ease-in-out infinite alternate;
 }
 
-.mag-page .mag-media img,
-.mag-page .picasso-picture img,
-.mag-page .mag-index-picture img,
+.mag-page .mag-cover img,
+.mag-page .mag-feature-image-primary img,
+.mag-page .mag-feature-image-detail img,
+.mag-page .picasso-shot-4 img,
 .mag-page .mag-mini-cover img {
-  filter: saturate(1.06) contrast(1.03);
-  transition: filter 280ms ease, transform 450ms cubic-bezier(.2,.7,.2,1);
+  filter: saturate(1.18) contrast(1.08) brightness(1.025);
+  transform: translateZ(0);
+  transition: filter 260ms ease, transform 520ms cubic-bezier(.2,.7,.2,1);
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .mag-page .mag-media:hover::after,
-  .mag-page .picasso-picture:hover::after,
-  .mag-page .mag-index-picture:hover::after,
+  .mag-page .mag-feature-image-primary:hover::after,
+  .mag-page .mag-feature-image-detail:hover::after,
+  .mag-page .picasso-shot-4:hover::after,
   .mag-page .mag-mini-cover:hover::after {
-    opacity: 0.52;
-    animation-duration: 2.8s;
+    opacity: 0.82;
+    animation-duration: 2.4s;
   }
 
-  .mag-page .mag-media:hover img,
-  .mag-page .picasso-picture:hover img,
-  .mag-page .mag-index-picture:hover img,
+  .mag-page .mag-feature-image-primary:hover::before,
+  .mag-page .mag-feature-image-detail:hover::before,
+  .mag-page .picasso-shot-4:hover::before,
+  .mag-page .mag-mini-cover:hover::before {
+    opacity: 0.58;
+    animation-duration: 2.9s;
+  }
+
+  .mag-page .mag-feature-image-primary:hover img,
+  .mag-page .mag-feature-image-detail:hover img,
+  .mag-page .picasso-shot-4:hover img,
   .mag-page .mag-mini-cover:hover img {
-    filter: saturate(1.12) contrast(1.06) brightness(1.02);
+    filter: saturate(1.28) contrast(1.12) brightness(1.04);
+    transform: scale(1.012);
   }
 }
 
-@keyframes eastokyo-holo-shift {
-  0% { background-position: 0% 50%, 0% 0%; transform: translate3d(-4%, -2%, 0) rotate(-2deg); }
-  100% { background-position: 100% 50%, 100% 100%; transform: translate3d(4%, 2%, 0) rotate(2deg); }
+@keyframes eastokyo-painting-holo {
+  0% {
+    background-position: 0% 45%, 0% 0%, 28% 22%;
+    transform: translate3d(-6%, -3%, 0) rotate(-2deg);
+  }
+  50% {
+    background-position: 54% 52%, 48% 52%, 45% 40%;
+  }
+  100% {
+    background-position: 100% 55%, 100% 100%, 72% 68%;
+    transform: translate3d(6%, 3%, 0) rotate(2deg);
+  }
+}
+
+@keyframes eastokyo-painting-glare {
+  0% { background-position: 0% 30%, 100% 60%; }
+  100% { background-position: 100% 70%, 0% 40%; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .mag-page .mag-media::after,
-  .mag-page .picasso-picture::after,
-  .mag-page .mag-index-picture::after,
-  .mag-page .mag-mini-cover::after {
+  .mag-page .mag-cover::after,
+  .mag-page .mag-cover::before,
+  .mag-page .mag-feature-image-primary::after,
+  .mag-page .mag-feature-image-primary::before,
+  .mag-page .mag-feature-image-detail::after,
+  .mag-page .mag-feature-image-detail::before,
+  .mag-page .picasso-shot-4::after,
+  .mag-page .picasso-shot-4::before,
+  .mag-page .mag-mini-cover::after,
+  .mag-page .mag-mini-cover::before {
     animation: none;
   }
 }
