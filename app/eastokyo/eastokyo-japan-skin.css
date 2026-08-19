@@ -1,0 +1,179 @@
+/* EASTOKYO — JAPAN SKIN ONLY
+   Pure art-direction override. No layout, image, section, copy, or control changes. */
+
+.mag-page{
+  --jp-sumi:#0a0b0d;
+  --jp-paper:#f4efe4;
+  --jp-white:#fffdf8;
+  --jp-vermilion:#e53b2c;
+  --jp-indigo:#163a5f;
+  --jp-blue:#1e5aa8;
+  --jp-neon:#ff3f8f;
+  --jp-cyan:#38cfe3;
+  --jp-yellow:#ffd933;
+  --jp-green:#3f6e58;
+  --jp-silver:#c8c8c2;
+  --jp-rule:rgba(10,11,13,.78);
+  background:var(--jp-paper)!important;
+  color:var(--jp-sumi)!important;
+}
+
+/* GLOBAL PRINT / TOKYO GRAPHIC LANGUAGE */
+.mag-page .mag-kicker,
+.mag-page .mag-rule-heading h2,
+.mag-page small,
+.mag-page figcaption,
+.mag-page .story-cta,
+.mag-page .mag-nav,
+.mag-page .mag-header-rail,
+.mag-page .mag-footer-bottom{
+  font-family:var(--font-bienvivos-sans),Arial,sans-serif!important;
+  font-weight:900!important;
+  letter-spacing:.16em!important;
+  text-transform:uppercase!important;
+}
+.mag-page .mag-rule-heading::before,
+.mag-page .mag-rule-heading::after{height:2px!important;background:currentColor!important}
+.mag-page .mag-credit,
+.mag-page figcaption{border-radius:0!important;box-shadow:none!important}
+.mag-page .mag-media,
+.mag-page figure{border-radius:0!important}
+
+/* HEADER — transit-sign severity, black / white / vermilion */
+.mag-page .mag-header{background:var(--jp-sumi)!important;color:var(--jp-white)!important;border-bottom:4px solid var(--jp-vermilion)!important}
+.mag-page .mag-header-rail{background:var(--jp-vermilion)!important;color:var(--jp-white)!important;border-color:var(--jp-sumi)!important}
+.mag-page .mag-header-rail p{color:var(--jp-white)!important}
+.mag-page .mag-nav{background:var(--jp-sumi)!important;color:var(--jp-white)!important;border-color:#ffffff3d!important}
+.mag-page .mag-nav a{color:var(--jp-white)!important;border-bottom:2px solid transparent!important}
+.mag-page .mag-nav a:hover,.mag-page .mag-nav a:focus-visible{color:var(--jp-yellow)!important;border-bottom-color:var(--jp-yellow)!important}
+.mag-page .mag-nav>span{color:var(--jp-silver)!important}
+.mag-page .mag-mobile-bar{background:var(--jp-sumi)!important;color:var(--jp-white)!important;border-bottom:3px solid var(--jp-vermilion)!important}
+.mag-page .mag-mobile-logo{color:var(--jp-white)!important}
+.mag-page .mag-menu-button span{background:var(--jp-white)!important}
+.mag-page .mag-mobile-menu{background:var(--jp-indigo)!important;color:var(--jp-white)!important}
+.mag-page .mag-mobile-menu nav a{border-color:#ffffff4d!important;color:var(--jp-white)!important}
+.mag-page .mag-mobile-menu nav a span{color:var(--jp-yellow)!important}
+.mag-page .mag-mobile-menu-close{color:var(--jp-white)!important;border-color:var(--jp-white)!important;background:transparent!important}
+
+/* COVER — Tokyo night, vermilion + electric signage punctuation */
+.mag-page .mag-cover{background:var(--jp-sumi)!important;color:var(--jp-white)!important}
+.mag-page .mag-cover-shade{background:linear-gradient(90deg,rgba(5,6,8,.82) 0%,rgba(5,6,8,.28) 48%,rgba(5,6,8,.65) 100%),linear-gradient(0deg,rgba(229,59,44,.23),transparent 45%,rgba(22,58,95,.2))!important}
+.mag-page .mag-cover-topline{color:var(--jp-white)!important;border-color:#ffffff59!important}
+.mag-page .mag-cover-masthead{color:var(--jp-white)!important;text-shadow:5px 5px 0 var(--jp-vermilion),-2px -2px 0 var(--jp-blue)!important}
+.mag-page .mag-cover-story .mag-kicker{color:var(--jp-yellow)!important}
+.mag-page .mag-cover-story h1{color:var(--jp-white)!important;text-shadow:4px 4px 0 var(--jp-indigo)!important}
+.mag-page .mag-cover-story>p{color:var(--jp-white)!important}
+.mag-page .mag-cover-line{border-color:#ffffff59!important}
+.mag-page .mag-cover-line small{color:var(--jp-cyan)!important}
+.mag-page .mag-cover-line p{color:var(--jp-white)!important}
+.mag-page .mag-cover-vertical{color:var(--jp-white)!important;background:var(--jp-vermilion)!important}
+.mag-page .mag-cover-barcode{filter:none!important;opacity:.9!important;background-color:var(--jp-white)!important}
+
+/* CTA — same buttons, new skin only */
+.mag-page .story-cta{border-radius:0!important;border:2px solid var(--jp-sumi)!important;background:var(--jp-yellow)!important;color:var(--jp-sumi)!important;box-shadow:5px 5px 0 var(--jp-vermilion)!important}
+.mag-page .story-cta:hover,.mag-page .story-cta:focus-visible{background:var(--jp-cyan)!important;color:var(--jp-sumi)!important;border-color:var(--jp-sumi)!important;box-shadow:5px 5px 0 var(--jp-sumi)!important}
+.mag-page .story-cta__status{border-color:currentColor!important}
+
+/* CONTENTS — Japanese magazine / newsprint spread */
+.mag-page #contents{background:var(--jp-paper)!important;color:var(--jp-sumi)!important;border-top:8px solid var(--jp-sumi)!important}
+.mag-page #contents .mag-rule-heading{color:var(--jp-sumi)!important}
+.mag-page #contents .mag-kicker{color:var(--jp-vermilion)!important}
+.mag-page #contents .mag-contents-title h2{color:var(--jp-indigo)!important}
+.mag-page #contents .mag-contents-entry{border-color:var(--jp-rule)!important;background:transparent!important}
+.mag-page #contents .mag-contents-entry small{color:var(--jp-vermilion)!important}
+.mag-page #contents .mag-contents-entry h3{color:var(--jp-sumi)!important}
+.mag-page #contents .mag-contents-entry a:hover h3,.mag-page #contents .mag-contents-entry a:focus-visible h3{color:var(--jp-blue)!important}
+.mag-page #contents .mag-contents-image{outline:3px solid var(--jp-sumi)!important;outline-offset:-3px!important;box-shadow:10px 10px 0 var(--jp-yellow)!important}
+.mag-page #contents .mag-credit{background:var(--jp-sumi)!important;color:var(--jp-white)!important;border-top:3px solid var(--jp-vermilion)!important}
+.mag-page #contents .mag-contents-image::after{background:var(--jp-vermilion)!important;color:var(--jp-white)!important;border:2px solid var(--jp-sumi)!important}
+
+/* 01 ARENA — shrine vermilion / ink / paper */
+.mag-page .mag-feature[aria-labelledby="bullfighting-title"]{background:var(--jp-vermilion)!important;color:var(--jp-white)!important;border-top:12px solid var(--jp-sumi)!important;border-bottom:12px solid var(--jp-sumi)!important}
+.mag-page .mag-feature[aria-labelledby="bullfighting-title"] .mag-kicker{color:var(--jp-yellow)!important}
+.mag-page .mag-feature[aria-labelledby="bullfighting-title"] h2,
+.mag-page .mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-copy,
+.mag-page .mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-columns{color:var(--jp-white)!important}
+.mag-page .mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-image-primary,
+.mag-page .mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-image-detail{outline:3px solid var(--jp-sumi)!important;outline-offset:-3px!important;box-shadow:8px 8px 0 var(--jp-yellow)!important}
+.mag-page .mag-feature[aria-labelledby="bullfighting-title"] .mag-credit{background:var(--jp-sumi)!important;color:var(--jp-white)!important;border-top:3px solid var(--jp-yellow)!important}
+.mag-page .mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-pullquote{background:var(--jp-paper)!important;color:var(--jp-sumi)!important;border:3px solid var(--jp-sumi)!important;border-left:14px solid var(--jp-yellow)!important;box-shadow:10px 10px 0 var(--jp-indigo)!important}
+.mag-page .mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-pullquote span{color:var(--jp-vermilion)!important}
+
+/* 02 EXHIBITION — indigo gallery / neon Tokyo accent */
+.mag-page #exhibition.picasso-feature{background:var(--jp-indigo)!important;color:var(--jp-white)!important;border-top:10px solid var(--jp-cyan)!important}
+.mag-page #exhibition.picasso-feature::before{height:8px!important;background:repeating-linear-gradient(90deg,var(--jp-vermilion) 0 24px,var(--jp-white) 24px 48px,var(--jp-blue) 48px 72px,var(--jp-yellow) 72px 96px,var(--jp-neon) 96px 120px)!important}
+.mag-page #exhibition .mag-rule-heading{color:var(--jp-cyan)!important}
+.mag-page #exhibition .picasso-feature-title .mag-kicker{color:var(--jp-yellow)!important}
+.mag-page #exhibition .picasso-feature-title h3{color:var(--jp-white)!important}
+.mag-page #exhibition .picasso-feature-title .mag-deck{color:var(--jp-paper)!important}
+.mag-page #exhibition .picasso-feature-note{background:var(--jp-yellow)!important;color:var(--jp-sumi)!important;border:3px solid var(--jp-sumi)!important;box-shadow:8px 8px 0 var(--jp-neon)!important}
+.mag-page #exhibition .picasso-shot{outline:2px solid var(--jp-white)!important;outline-offset:-2px!important}
+.mag-page #exhibition .picasso-shot figcaption{background:var(--jp-sumi)!important;color:var(--jp-white)!important;border-top:2px solid var(--jp-cyan)!important}
+.mag-page #exhibition .picasso-shot-4 figcaption{background:var(--jp-neon)!important;color:var(--jp-sumi)!important}
+.mag-page #exhibition .picasso-feature-outro{border-color:var(--jp-cyan)!important}
+.mag-page #exhibition .picasso-meta{color:var(--jp-yellow)!important}
+.mag-page #exhibition .picasso-outro-wordbox{background:var(--jp-paper)!important;color:var(--jp-sumi)!important;border:3px solid var(--jp-sumi)!important;box-shadow:9px 9px 0 var(--jp-vermilion)!important}
+
+/* 03 CUBISM — black editorial laboratory with signal colors */
+.mag-page #cubism.cubism-intro{background:var(--jp-sumi)!important;color:var(--jp-paper)!important;border-bottom:10px solid var(--jp-blue)!important}
+.mag-page #cubism .cubism-intro-word{color:var(--jp-neon)!important}
+.mag-page #cubism .mag-kicker{color:var(--jp-yellow)!important}
+.mag-page #cubism .cubism-intro-copy h2{color:var(--jp-white)!important}
+.mag-page #cubism .cubism-intro-note{background:var(--jp-cyan)!important;color:var(--jp-sumi)!important;border:3px solid var(--jp-white)!important;box-shadow:8px 8px 0 var(--jp-neon)!important}
+.mag-page #cubism-works.cubism-spread{background:var(--jp-paper)!important;color:var(--jp-sumi)!important;border-bottom:10px solid var(--jp-sumi)!important}
+.mag-page #cubism-works .mag-kicker{color:var(--jp-vermilion)!important}
+.mag-page #cubism-works .cubism-spread-head{border-color:var(--jp-sumi)!important}
+.mag-page #cubism-works .cubism-spread-head h2{color:var(--jp-indigo)!important}
+.mag-page #cubism-works .cubism-spread-head>p{background:var(--jp-sumi)!important;color:var(--jp-white)!important;border:3px solid var(--jp-sumi)!important;box-shadow:8px 8px 0 var(--jp-yellow)!important}
+.mag-page #cubism-works .cubism-slot figcaption{background:var(--jp-blue)!important;color:var(--jp-white)!important;border-top:3px solid var(--jp-sumi)!important}
+.mag-page #cubism-works .cubism-slot:nth-child(2) figcaption{background:var(--jp-sumi)!important}
+.mag-page #cubism-works .cubism-slot:nth-child(3) figcaption{background:var(--jp-vermilion)!important}
+.mag-page #cubism-works .cubism-slot:nth-child(4) figcaption{background:var(--jp-yellow)!important;color:var(--jp-sumi)!important}
+.mag-page #cubism-works .cubism-spread-foot{border-color:var(--jp-sumi)!important}
+
+/* 04 TOKYO / ASAGAYA — matsuri energy without changing photography */
+.mag-page #asagaya.mag-photo{background:var(--jp-blue)!important;color:var(--jp-white)!important;border-top:10px solid var(--jp-yellow)!important;border-bottom:10px solid var(--jp-sumi)!important}
+.mag-page #asagaya .mag-kicker{color:var(--jp-yellow)!important}
+.mag-page #asagaya .mag-photo-head h2{color:var(--jp-white)!important;text-shadow:4px 4px 0 var(--jp-vermilion)!important}
+.mag-page #asagaya .mag-photo-head p:last-child{color:var(--jp-white)!important}
+.mag-page #asagaya .mag-photo-item{background:var(--jp-paper)!important;outline:3px solid var(--jp-sumi)!important;outline-offset:-3px!important;box-shadow:8px 8px 0 var(--jp-yellow)!important}
+.mag-page #asagaya .mag-photo-item figcaption{background:var(--jp-sumi)!important;color:var(--jp-white)!important;border-top:3px solid var(--jp-vermilion)!important}
+.mag-page #asagaya .mag-photo-item:nth-child(2n) figcaption{background:var(--jp-vermilion)!important;color:var(--jp-white)!important;border-top-color:var(--jp-sumi)!important}
+.mag-page #asagaya .mag-photo-item:nth-child(3n) figcaption{background:var(--jp-yellow)!important;color:var(--jp-sumi)!important;border-top-color:var(--jp-sumi)!important}
+
+/* 05 INDEX — Japanese museum catalogue / industrial blue */
+.mag-page #picasso-index{background:var(--jp-paper)!important;color:var(--jp-sumi)!important;border-top:12px solid var(--jp-sumi)!important;border-bottom:12px solid var(--jp-vermilion)!important}
+.mag-page #picasso-index .mag-kicker,.mag-page #picasso-index .mag-index-row small{color:var(--jp-vermilion)!important}
+.mag-page #picasso-index .mag-index-head h2,.mag-page #picasso-index .mag-index-row h3{color:var(--jp-indigo)!important}
+.mag-page #picasso-index .mag-index-head>p{background:var(--jp-yellow)!important;color:var(--jp-sumi)!important;border:3px solid var(--jp-sumi)!important;box-shadow:8px 8px 0 var(--jp-blue)!important}
+.mag-page #picasso-index .mag-index-row p{color:var(--jp-sumi)!important}
+.mag-page #picasso-index .mag-index-feature{outline:3px solid var(--jp-sumi)!important;outline-offset:-3px!important;box-shadow:10px 10px 0 var(--jp-vermilion)!important}
+.mag-page #picasso-index .mag-index-list{border-color:var(--jp-sumi)!important}
+.mag-page #picasso-index .mag-index-row{border-color:rgba(10,11,13,.36)!important}
+.mag-page #picasso-index .mag-index-row:hover{background:rgba(255,217,51,.24)!important}
+
+/* BACK COVER — Tokyo after dark */
+.mag-page #about.mag-back-cover{color:var(--jp-white)!important;background:linear-gradient(135deg,var(--jp-sumi) 0 42%,var(--jp-indigo) 42% 70%,var(--jp-vermilion) 70% 88%,var(--jp-neon) 88% 100%)!important;border-top:10px solid var(--jp-yellow)!important}
+.mag-page #about .mag-back-copy .mag-kicker{color:var(--jp-yellow)!important}
+.mag-page #about .mag-back-copy h2{color:var(--jp-white)!important;text-shadow:4px 4px 0 var(--jp-blue)!important}
+.mag-page #about .mag-back-date{background:var(--jp-yellow)!important;color:var(--jp-sumi)!important;border:3px solid var(--jp-sumi)!important;box-shadow:6px 6px 0 var(--jp-vermilion)!important}
+.mag-page #about .mag-mini-cover{border-color:var(--jp-white)!important;box-shadow:12px 12px 0 var(--jp-vermilion),22px 22px 0 var(--jp-blue)!important}
+
+/* FOOTER — black colophon */
+.mag-page .mag-footer{background:var(--jp-sumi)!important;color:var(--jp-white)!important;border-top:8px solid var(--jp-vermilion)!important}
+.mag-page .mag-footer .mag-kicker,.mag-page .mag-footer-bottom a{color:var(--jp-yellow)!important}
+.mag-page .mag-footer-top h2{color:var(--jp-white)!important}
+.mag-page .mag-footer-wordmark{color:var(--jp-white)!important;text-shadow:5px 5px 0 var(--jp-vermilion)!important}
+.mag-page .mag-footer-links,.mag-page .mag-footer-bottom{border-color:#ffffff3d!important}
+.mag-page .mag-footer a:hover,.mag-page .mag-footer a:focus-visible{color:var(--jp-cyan)!important}
+
+/* NO IMAGE GEOMETRY OVERRIDES IN THIS FILE. */
+
+@media(max-width:640px){
+  .mag-page .mag-cover-masthead{text-shadow:3px 3px 0 var(--jp-vermilion),-1px -1px 0 var(--jp-blue)!important}
+  .mag-page #contents .mag-contents-image,
+  .mag-page #asagaya .mag-photo-item,
+  .mag-page #picasso-index .mag-index-feature{box-shadow:6px 6px 0 var(--jp-yellow)!important}
+  .mag-page .mag-feature[aria-labelledby="bullfighting-title"]{border-top-width:8px!important;border-bottom-width:8px!important}
+  .mag-page #exhibition.picasso-feature::before{height:6px!important;background:repeating-linear-gradient(90deg,var(--jp-vermilion) 0 14px,var(--jp-white) 14px 28px,var(--jp-blue) 28px 42px,var(--jp-yellow) 42px 56px,var(--jp-neon) 56px 70px)!important}
+}
