@@ -1,0 +1,101 @@
+/* EASTOKYO — hard-edged editorial palette
+   Final visual override: graphite, indigo, oxide, steel and ochre.
+   Keeps layout, photography and component behavior intact. */
+
+.mag-page {
+  --jp-sumi: #090b0d;
+  --jp-paper: #eee9df;
+  --jp-white: #f7f4ed;
+  --jp-vermilion: #b44932;
+  --jp-indigo: #182d43;
+  --jp-blue: #294f75;
+  --jp-neon: #7f8d96;
+  --jp-cyan: #7896a7;
+  --jp-yellow: #c49a36;
+  --jp-green: #465e50;
+  --jp-silver: #aeb5b7;
+}
+
+/* Kill the candy-store treatment: fewer bright competing accents. */
+.mag-page #exhibition.picasso-feature::before {
+  background: repeating-linear-gradient(
+    90deg,
+    var(--jp-vermilion) 0 30px,
+    var(--jp-sumi) 30px 60px,
+    var(--jp-silver) 60px 90px,
+    var(--jp-yellow) 90px 120px
+  ) !important;
+}
+
+.mag-page #exhibition .picasso-feature-note,
+.mag-page #cubism .cubism-intro-note {
+  box-shadow: 7px 7px 0 var(--jp-sumi) !important;
+}
+
+.mag-page #exhibition .picasso-shot-4 figcaption {
+  background: var(--jp-silver) !important;
+  color: var(--jp-sumi) !important;
+}
+
+.mag-page #cubism .cubism-intro-word {
+  color: var(--jp-silver) !important;
+}
+
+/* Stronger editorial blocks, less decorative color stacking. */
+.mag-page .story-cta {
+  background: var(--jp-yellow) !important;
+  box-shadow: 5px 5px 0 var(--jp-sumi) !important;
+}
+
+.mag-page .story-cta:hover,
+.mag-page .story-cta:focus-visible {
+  background: var(--jp-silver) !important;
+  box-shadow: 5px 5px 0 var(--jp-vermilion) !important;
+}
+
+.mag-page #contents .mag-contents-image,
+.mag-page #asagaya .mag-photo-item,
+.mag-page #picasso-index .mag-index-feature {
+  box-shadow: 8px 8px 0 var(--jp-sumi) !important;
+}
+
+.mag-page .mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-image-primary,
+.mag-page .mag-feature[aria-labelledby="bullfighting-title"] .mag-feature-image-detail {
+  box-shadow: 7px 7px 0 var(--jp-sumi) !important;
+}
+
+.mag-page #about.mag-back-cover {
+  background: linear-gradient(
+    135deg,
+    var(--jp-sumi) 0 46%,
+    var(--jp-indigo) 46% 74%,
+    var(--jp-vermilion) 74% 90%,
+    #3e4b55 90% 100%
+  ) !important;
+}
+
+.mag-page #about .mag-mini-cover {
+  box-shadow: 12px 12px 0 var(--jp-vermilion), 20px 20px 0 var(--jp-sumi) !important;
+}
+
+.mag-page .mag-footer-wordmark {
+  text-shadow: 4px 4px 0 var(--jp-vermilion) !important;
+}
+
+@media (max-width: 640px) {
+  .mag-page #exhibition.picasso-feature::before {
+    background: repeating-linear-gradient(
+      90deg,
+      var(--jp-vermilion) 0 18px,
+      var(--jp-sumi) 18px 36px,
+      var(--jp-silver) 36px 54px,
+      var(--jp-yellow) 54px 72px
+    ) !important;
+  }
+
+  .mag-page #contents .mag-contents-image,
+  .mag-page #asagaya .mag-photo-item,
+  .mag-page #picasso-index .mag-index-feature {
+    box-shadow: 6px 6px 0 var(--jp-sumi) !important;
+  }
+}
