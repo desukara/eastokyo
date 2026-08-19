@@ -95,7 +95,7 @@ export default function EastokyoHome() {
   return <div className="mag-page" id="top">
     <a className="mag-skip-link" href="#contenido">Go to content</a>
     <header className="mag-header">
-      <div className="mag-header-rail"><p>ART, PASSION AND A LITTLE DISORDER. TOKYO.</p><p>FIRST ISSUE. NUMBER ONE. AQUÍ VAMOS. LET’S GO.</p><p>THE FIRST OF SEPTEMBER 2026. IT IS TIME TO MAKE SOME NOISE.</p></div>
+      <div className="mag-header-rail"><p>ART, PASSION AND A LITTLE DISORDER. TOKYO.</p><p>FIRST ISSUE. NUMBER ONE. AQUÍ VAMOS. LET’S GO.</p><p>SEPTEMBER 1, 2026. LET’S MAKE SOME NOISE.</p></div>
       <nav className="mag-nav" aria-label="Issue navigation"><div className="mag-nav-links">{navItems.map(i => <a key={i.label} href={i.href}>{i.label}</a>)}</div><span>ART FROM TOKYO, AND FROM ALL THE OTHER PLACES WHERE MY HEART DECIDES TO WANDER.</span></nav>
       <div className="mag-mobile-bar"><a className="mag-mobile-logo" href="#top" onClick={closeMenu}>EASTOKYO</a><button ref={menuButtonRef} type="button" className={`mag-menu-button ${menuOpen ? "is-open" : ""}`} aria-label={menuOpen ? "Close menu" : "Open menu"} aria-expanded={menuOpen} aria-controls="mag-mobile-menu" onClick={() => setMenuOpen(o => !o)}><span /><span /></button></div>
     </header>
