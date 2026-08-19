@@ -1,0 +1,94 @@
+/* Preview treatment: holographic foil over homepage photography without altering source images. */
+
+.mag-page .mag-media,
+.mag-page .picasso-picture,
+.mag-page .mag-index-picture,
+.mag-page .mag-mini-cover {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.mag-page .mag-media::after,
+.mag-page .picasso-picture::after,
+.mag-page .mag-index-picture::after,
+.mag-page .mag-mini-cover::after {
+  content: "";
+  position: absolute;
+  inset: -18%;
+  z-index: 4;
+  pointer-events: none;
+  opacity: 0.34;
+  mix-blend-mode: screen;
+  background:
+    linear-gradient(112deg,
+      transparent 8%,
+      rgba(120, 210, 255, 0.15) 24%,
+      rgba(210, 255, 235, 0.25) 38%,
+      rgba(255, 232, 165, 0.20) 49%,
+      rgba(184, 170, 255, 0.22) 62%,
+      rgba(110, 215, 255, 0.16) 76%,
+      transparent 92%),
+    repeating-linear-gradient(128deg,
+      transparent 0 11%,
+      rgba(255,255,255,0.10) 12% 13%,
+      transparent 14% 22%);
+  background-size: 180% 180%, 135% 135%;
+  transform: translate3d(-4%, -2%, 0) rotate(-2deg);
+  animation: eastokyo-holo-shift 8s ease-in-out infinite alternate;
+}
+
+.mag-page .mag-media::before,
+.mag-page .picasso-picture::before,
+.mag-page .mag-index-picture::before,
+.mag-page .mag-mini-cover::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0.22;
+  mix-blend-mode: color-dodge;
+  background:
+    radial-gradient(circle at 22% 18%, rgba(255,255,255,0.46), transparent 18%),
+    linear-gradient(145deg, transparent 22%, rgba(255,255,255,0.18) 42%, transparent 58%);
+}
+
+.mag-page .mag-media img,
+.mag-page .picasso-picture img,
+.mag-page .mag-index-picture img,
+.mag-page .mag-mini-cover img {
+  filter: saturate(1.06) contrast(1.03);
+  transition: filter 280ms ease, transform 450ms cubic-bezier(.2,.7,.2,1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .mag-page .mag-media:hover::after,
+  .mag-page .picasso-picture:hover::after,
+  .mag-page .mag-index-picture:hover::after,
+  .mag-page .mag-mini-cover:hover::after {
+    opacity: 0.52;
+    animation-duration: 2.8s;
+  }
+
+  .mag-page .mag-media:hover img,
+  .mag-page .picasso-picture:hover img,
+  .mag-page .mag-index-picture:hover img,
+  .mag-page .mag-mini-cover:hover img {
+    filter: saturate(1.12) contrast(1.06) brightness(1.02);
+  }
+}
+
+@keyframes eastokyo-holo-shift {
+  0% { background-position: 0% 50%, 0% 0%; transform: translate3d(-4%, -2%, 0) rotate(-2deg); }
+  100% { background-position: 100% 50%, 100% 100%; transform: translate3d(4%, 2%, 0) rotate(2deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mag-page .mag-media::after,
+  .mag-page .picasso-picture::after,
+  .mag-page .mag-index-picture::after,
+  .mag-page .mag-mini-cover::after {
+    animation: none;
+  }
+}
