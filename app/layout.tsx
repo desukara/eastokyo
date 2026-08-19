@@ -64,6 +64,7 @@ import "./eastokyo/eastokyo-active-nav.css";
 import "./eastokyo/eastokyo-engagement-polish.css";
 import "./eastokyo/eastokyo-engagement-lockdown.css";
 import "./eastokyo/eastokyo-japan-skin.css";
+import "./eastokyo/eastokyo-japan-skin-fixes.css";
 
 const sans = Montserrat({ variable: "--font-bienvivos-sans", subsets: ["latin"], display: "swap" });
 const display = Cormorant_Garamond({ variable: "--font-bienvivos-display", subsets: ["latin"], weight: ["400", "500", "600", "700"], style: ["normal", "italic"], display: "swap" });
