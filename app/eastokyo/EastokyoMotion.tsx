@@ -2,168 +2,45 @@
 
 import { useEffect } from "react";
 
-type DustParticle = {
-  x: number;
-  y: number;
-  vx: number;
-  vy: number;
-  size: number;
-  stretch: number;
-  life: number;
-  ttl: number;
-  alpha: number;
-  phase: number;
-  grit: boolean;
-};
-
 export default function EastokyoMotion() {
   useEffect(() => {
     const root = document.querySelector<HTMLElement>(".mag-page");
     if (!root) return;
 
     const coverMedia = document.querySelector<HTMLElement>("#latest .mag-cover-media");
-    const oldDust = coverMedia?.querySelector(".ek-bull-dust");
-    oldDust?.remove();
+    const existingCanvas = coverMedia?.querySelector(".ek-bull-dust-canvas");
+    const existingDust = coverMedia?.querySelector(".ek-bull-dust");
+    existingCanvas?.remove();
+    existingDust?.remove();
 
-    let dustCanvas: HTMLCanvasElement | null = null;
-    let dustRaf = 0;
-    let dustResize: (() => void) | null = null;
-
-    if (coverMedia && !coverMedia.querySelector(".ek-bull-dust-canvas")) {
-      dustCanvas = document.createElement("canvas");
-      dustCanvas.className = "ek-bull-dust-canvas";
-      dustCanvas.setAttribute("aria-hidden", "true");
-      Object.assign(dustCanvas.style, {
+    let theatre: HTMLDivElement | null = null;
+    if (coverMedia && !coverMedia.querySelector(".ek-theatre-light")) {
+      theatre = document.createElement("div");
+      theatre.className = "ek-theatre-light";
+      theatre.setAttribute("aria-hidden", "true");
+      Object.assign(theatre.style, {
         position: "absolute",
         inset: "0",
-        width: "100%",
-        height: "100%",
         zIndex: "2",
         pointerEvents: "none",
-        mixBlendMode: "screen",
+        background: [
+          "radial-gradient(ellipse 34% 48% at 29% 58%, rgba(255,231,188,.20) 0%, rgba(255,220,165,.09) 38%, rgba(0,0,0,0) 72%)",
+          "radial-gradient(ellipse 25% 44% at 64% 48%, rgba(255,229,184,.18) 0%, rgba(255,215,158,.07) 42%, rgba(0,0,0,0) 74%)",
+          "linear-gradient(to bottom, rgba(3,4,5,.72) 0%, rgba(3,4,5,.48) 17%, rgba(3,4,5,.16) 34%, rgba(0,0,0,0) 54%)",
+          "linear-gradient(to top, rgba(15,8,3,.20) 0%, rgba(0,0,0,0) 28%)",
+        ].join(","),
       });
-      coverMedia.appendChild(dustCanvas);
+      coverMedia.appendChild(theatre);
+    }
 
-      const canvas = dustCanvas;
-      const ctx = canvas.getContext("2d");
-      if (ctx) {
-        const particles: DustParticle[] = [];
-        let cssW = 1;
-        let cssH = 1;
-        let last = performance.now();
-        let spawnCarry = 0;
-
-        const resetParticle = (p: DustParticle, initial = false) => {
-          const grit = Math.random() < 0.28;
-          const source = Math.random();
-          const sourceX = source < 0.55
-            ? 0.11 + Math.random() * 0.22
-            : 0.31 + Math.random() * 0.22;
-
-          p.x = cssW * sourceX - (initial ? Math.random() * cssW * 0.18 : 0);
-          p.y = cssH * (0.79 + Math.random() * 0.105);
-          p.vx = cssW * (grit ? 0.42 + Math.random() * 0.46 : 0.17 + Math.random() * 0.32);
-          p.vy = -cssH * (grit ? 0.005 + Math.random() * 0.018 : 0.012 + Math.random() * 0.05);
-          p.size = grit ? 0.7 + Math.random() * 1.4 : cssW * (0.012 + Math.random() * 0.032);
-          p.stretch = grit ? 7 + Math.random() * 15 : 1.7 + Math.random() * 3.2;
-          p.ttl = grit ? 0.38 + Math.random() * 0.52 : 0.85 + Math.random() * 1.45;
-          p.life = initial ? Math.random() * p.ttl : 0;
-          p.alpha = grit ? 0.22 + Math.random() * 0.28 : 0.075 + Math.random() * 0.18;
-          p.phase = Math.random() * Math.PI * 2;
-          p.grit = grit;
-        };
-
-        const seed = () => {
-          particles.length = 0;
-          const count = Math.min(120, Math.max(72, Math.round(cssW * 0.19)));
-          for (let i = 0; i < count; i += 1) {
-            const p = {} as DustParticle;
-            resetParticle(p, true);
-            particles.push(p);
-          }
-        };
-
-        dustResize = () => {
-          const rect = coverMedia.getBoundingClientRect();
-          cssW = Math.max(1, rect.width);
-          cssH = Math.max(1, rect.height);
-          const dpr = Math.min(window.devicePixelRatio || 1, 2);
-          canvas.width = Math.round(cssW * dpr);
-          canvas.height = Math.round(cssH * dpr);
-          canvas.style.width = `${cssW}px`;
-          canvas.style.height = `${cssH}px`;
-          ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-          seed();
-        };
-
-        dustResize();
-
-        const drawDust = (now: number) => {
-          const dt = Math.min(0.035, Math.max(0.001, (now - last) / 1000));
-          last = now;
-          ctx.clearRect(0, 0, cssW, cssH);
-
-          spawnCarry += dt * 34;
-          while (spawnCarry >= 1) {
-            spawnCarry -= 1;
-            const dead = particles.find(p => p.life >= p.ttl);
-            if (dead) resetParticle(dead);
-          }
-
-          for (const p of particles) {
-            p.life += dt;
-            if (p.life >= p.ttl) {
-              resetParticle(p);
-              continue;
-            }
-
-            const age = p.life / p.ttl;
-            const gust = 1 + 0.42 * Math.sin(now * 0.0047 + p.phase);
-            p.x += p.vx * gust * dt;
-            p.y += (p.vy + Math.sin(now * 0.006 + p.phase) * cssH * 0.006) * dt;
-
-            if (p.x > cssW * 1.14 || p.y < cssH * 0.64) {
-              resetParticle(p);
-              continue;
-            }
-
-            const fadeIn = Math.min(1, age / 0.12);
-            const fadeOut = Math.min(1, (1 - age) / 0.28);
-            const alpha = p.alpha * fadeIn * fadeOut;
-
-            if (p.grit) {
-              ctx.save();
-              ctx.globalAlpha = alpha;
-              ctx.strokeStyle = "rgba(205,176,132,.9)";
-              ctx.lineWidth = p.size;
-              ctx.lineCap = "round";
-              ctx.beginPath();
-              ctx.moveTo(p.x, p.y);
-              ctx.lineTo(p.x - p.stretch, p.y + p.stretch * 0.06);
-              ctx.stroke();
-              ctx.restore();
-            } else {
-              ctx.save();
-              ctx.translate(p.x, p.y);
-              ctx.rotate(-0.055 + Math.sin(p.phase) * 0.035);
-              ctx.scale(p.stretch, 0.72 + Math.sin(p.phase * 1.7) * 0.12);
-              ctx.globalAlpha = alpha;
-              ctx.fillStyle = "rgba(210,181,139,.82)";
-              ctx.shadowColor = "rgba(229,207,170,.45)";
-              ctx.shadowBlur = Math.max(3, p.size * 0.42);
-              ctx.beginPath();
-              ctx.arc(0, 0, p.size, 0, Math.PI * 2);
-              ctx.fill();
-              ctx.restore();
-            }
-          }
-
-          dustRaf = requestAnimationFrame(drawDust);
-        };
-
-        dustRaf = requestAnimationFrame(drawDust);
-        window.addEventListener("resize", dustResize, { passive: true });
-      }
+    const coverImage = coverMedia?.querySelector<HTMLElement>("img");
+    if (coverImage) {
+      coverImage.style.transition = "transform 14s cubic-bezier(.18,.7,.22,1), filter 1.4s ease";
+      coverImage.style.transformOrigin = "42% 58%";
+      coverImage.style.filter = "brightness(1.04) contrast(1.04) saturate(.92)";
+      requestAnimationFrame(() => {
+        coverImage.style.transform = "scale(1.035) translate3d(-.45%, -.15%, 0)";
+      });
     }
 
     const navSections = [
@@ -181,7 +58,6 @@ export default function EastokyoMotion() {
 
     const navLinks = Array.from(document.querySelectorAll<HTMLAnchorElement>(".mag-nav-links a, .mag-mobile-menu nav a"));
     let activeHref = "";
-
     const setActiveNav = (href: string) => {
       if (!href || href === activeHref) return;
       activeHref = href;
@@ -192,36 +68,31 @@ export default function EastokyoMotion() {
         else link.removeAttribute("aria-current");
       });
     };
-
     const updateActiveNav = () => {
       const readingLine = window.innerHeight * 0.38;
       let current = navSections[0];
-
       navSections.forEach(item => {
         const rect = item.element.getBoundingClientRect();
         if (rect.top <= readingLine && rect.bottom > readingLine) current = item;
       });
-
       if (!current) {
         const passed = navSections.filter(item => item.element.getBoundingClientRect().top <= readingLine);
         current = passed[passed.length - 1] ?? navSections[0];
       }
-
       if (current) setActiveNav(current.href);
     };
 
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduced) {
       root.classList.add("ek-motion-reduced");
+      if (coverImage) coverImage.style.transform = "none";
       updateActiveNav();
       window.addEventListener("scroll", updateActiveNav, { passive: true });
       window.addEventListener("resize", updateActiveNav);
       return () => {
         window.removeEventListener("scroll", updateActiveNav);
         window.removeEventListener("resize", updateActiveNav);
-        if (dustRaf) cancelAnimationFrame(dustRaf);
-        if (dustResize) window.removeEventListener("resize", dustResize);
-        dustCanvas?.remove();
+        theatre?.remove();
       };
     }
 
@@ -253,17 +124,13 @@ export default function EastokyoMotion() {
     root.classList.add("ek-motion-ready");
     requestAnimationFrame(() => root.classList.add("ek-cover-live"));
 
-    const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (!entry.isIntersecting) return;
-          (entry.target as HTMLElement).classList.add("ek-in");
-          observer.unobserve(entry.target);
-        });
-      },
-      { rootMargin: "0px 0px -10% 0px", threshold: 0.12 },
-    );
-
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        (entry.target as HTMLElement).classList.add("ek-in");
+        observer.unobserve(entry.target);
+      });
+    }, { rootMargin: "0px 0px -10% 0px", threshold: 0.12 });
     targets.forEach(target => observer.observe(target));
 
     let raf = 0;
@@ -276,7 +143,6 @@ export default function EastokyoMotion() {
         cover.style.setProperty("--ek-cover-shift", `${progress * 3.2}%`);
         cover.style.setProperty("--ek-cover-copy-shift", `${progress * -10}px`);
       }
-
       const cubism = document.querySelector<HTMLElement>("#cubism");
       if (cubism) {
         const rect = cubism.getBoundingClientRect();
@@ -284,14 +150,9 @@ export default function EastokyoMotion() {
         const progress = Math.max(0, Math.min(1, (vh - rect.top) / (vh + rect.height)));
         cubism.style.setProperty("--ek-ideas-x", `${5 - progress * 9}vw`);
       }
-
       updateActiveNav();
     };
-
-    const onScroll = () => {
-      if (!raf) raf = requestAnimationFrame(updateScrollMotion);
-    };
-
+    const onScroll = () => { if (!raf) raf = requestAnimationFrame(updateScrollMotion); };
     updateScrollMotion();
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll);
@@ -301,9 +162,7 @@ export default function EastokyoMotion() {
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
       if (raf) cancelAnimationFrame(raf);
-      if (dustRaf) cancelAnimationFrame(dustRaf);
-      if (dustResize) window.removeEventListener("resize", dustResize);
-      dustCanvas?.remove();
+      theatre?.remove();
     };
   }, []);
 
