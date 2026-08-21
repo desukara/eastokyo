@@ -1,9 +1,32 @@
 /* EASTOKYO mobile cover final authority.
-   Mobile only: the bullfight photograph is the star.
-   Wordmark and cover headline stay in the open sky; controls and issue teasers begin after the photograph.
+   Mobile only: match the approved editorial reference.
+   Wordmark lives in the black mobile header; title occupies open sky; the bull and matador remain unobstructed.
    Desktop is untouched. */
 
 @media (max-width: 899px) {
+  /* Real EASTOKYO wordmark in the black mobile header. */
+  .mag-page .mag-mobile-logo {
+    display: block !important;
+    width: min(47vw, 15.5rem) !important;
+    height: 3.35rem !important;
+    flex: 0 0 auto !important;
+    color: transparent !important;
+    -webkit-text-fill-color: transparent !important;
+    font-size: 0 !important;
+    line-height: 0 !important;
+    text-indent: -9999px !important;
+    overflow: hidden !important;
+    background-image: url('/eastokyo-wordmark-white.png') !important;
+    background-repeat: no-repeat !important;
+    background-position: left center !important;
+    background-size: contain !important;
+  }
+
+  .mag-page .mag-mobile-logo::after {
+    display: none !important;
+    content: none !important;
+  }
+
   .mag-page #latest.mag-cover {
     position: relative !important;
     display: block !important;
@@ -13,7 +36,6 @@
     background: var(--et-ink, #121416) !important;
   }
 
-  /* Let the mobile artwork keep its real proportions instead of stretching to the copy height. */
   .mag-page #latest .mag-cover-media {
     position: relative !important;
     inset: auto !important;
@@ -23,8 +45,8 @@
     min-height: 0 !important;
     overflow: hidden !important;
     z-index: 0 !important;
-    border-bottom: 3px solid #f3e8d6 !important;
-    box-shadow: 0 4px 0 #bd4e30, 0 7px 0 #121416 !important;
+    border-bottom: 2px solid #f3e8d6 !important;
+    box-shadow: 0 5px 0 #bd4e30, 0 8px 0 #121416 !important;
   }
 
   .mag-page #latest .mag-cover-media img {
@@ -39,48 +61,24 @@
     object-position: center top !important;
   }
 
-  /* No dark sheet over the photograph on phones. */
   .mag-page #latest .mag-cover-shade {
     display: none !important;
   }
 
-  /* The editorial/control material lives after the photograph. */
   .mag-page #latest .mag-cover-grid {
     position: static !important;
     z-index: auto !important;
     display: block !important;
     width: 100% !important;
     min-height: 0 !important;
-    padding: 1rem 1rem 1.5rem !important;
+    padding: 1.6rem 1rem 1.5rem !important;
     background: var(--et-ink, #121416) !important;
   }
 
-  /* Keep the old topline off the artwork, but restore the EASTOKYO wordmark in the open sky. */
-  .mag-page #latest .mag-cover-topline {
-    display: none !important;
-  }
-
+  /* No duplicate masthead or old topline on the photograph. */
+  .mag-page #latest .mag-cover-topline,
   .mag-page #latest .mag-cover-masthead {
-    display: block !important;
-    position: absolute !important;
-    z-index: 4 !important;
-    top: 3.4% !important;
-    left: 50% !important;
-    width: min(48%, 13.5rem) !important;
-    aspect-ratio: 1536 / 650 !important;
-    margin: 0 !important;
-    transform: translateX(-50%) !important;
-    color: transparent !important;
-    -webkit-text-fill-color: transparent !important;
-    font-size: 0 !important;
-    line-height: 0 !important;
-    text-indent: -9999px !important;
-    overflow: hidden !important;
-    background-image: url('/eastokyo-wordmark-white.png') !important;
-    background-repeat: no-repeat !important;
-    background-position: center !important;
-    background-size: contain !important;
-    pointer-events: none !important;
+    display: none !important;
   }
 
   .mag-page #latest .mag-cover-story {
@@ -93,61 +91,62 @@
     overflow: visible !important;
   }
 
-  /* Headline stays entirely in the upper-left sky so the bull is unobstructed. */
+  /* Approved reference: title high in the empty sky, nowhere near the bull. */
   .mag-page #latest .mag-cover-story h1 {
     position: absolute !important;
     z-index: 3 !important;
-    top: 19.5% !important;
-    left: 1rem !important;
-    width: min(7.7ch, 48vw) !important;
+    top: 4.8% !important;
+    left: 1.55rem !important;
+    width: min(11.5ch, 72vw) !important;
     max-width: none !important;
     margin: 0 !important;
     color: #fff8ec !important;
-    font-size: clamp(2.05rem, 8.7vw, 3rem) !important;
-    line-height: .88 !important;
+    font-size: clamp(2.45rem, 9.5vw, 4rem) !important;
+    line-height: .94 !important;
     letter-spacing: -.025em !important;
     text-wrap: balance !important;
     overflow-wrap: normal !important;
     word-break: normal !important;
-    text-shadow: 0 .06em .08em rgba(0,0,0,.5) !important;
+    text-shadow: 0 .055em .08em rgba(0,0,0,.36) !important;
   }
 
   .mag-page #latest .mag-cover-description {
     display: none !important;
   }
 
-  /* Compact CTA, safely below the photograph. */
+  /* Approved reference: CTA overlaps only the empty ground at the photo's foot. */
   .mag-page #latest .story-cta {
-    position: static !important;
+    position: relative !important;
+    z-index: 5 !important;
     display: inline-flex !important;
     width: auto !important;
-    max-width: 100% !important;
-    margin: 0 0 1.2rem !important;
+    max-width: calc(100% - .5rem) !important;
+    margin: -5.35rem 0 2rem .35rem !important;
     min-height: 0 !important;
+    box-shadow: .24rem .24rem 0 #c85a32 !important;
   }
 
   .mag-page #latest .story-cta__action,
   .mag-page #latest .story-cta__status {
-    min-height: 2.25rem !important;
+    min-height: 3.3rem !important;
   }
 
   .mag-page #latest .story-cta__action {
     flex: 0 1 auto !important;
-    padding: .58rem .72rem .54rem !important;
+    padding: .9rem 1rem .82rem !important;
   }
 
   .mag-page #latest .story-cta__action::after {
-    font-size: clamp(.64rem, 2.75vw, .76rem) !important;
-    letter-spacing: .07em !important;
+    font-size: clamp(.72rem, 3vw, .86rem) !important;
+    letter-spacing: .075em !important;
   }
 
   .mag-page #latest .story-cta__status {
     flex: 0 0 auto !important;
-    padding: .58rem .55rem .54rem !important;
-    font-size: .48rem !important;
+    padding: .9rem .72rem .82rem !important;
+    font-size: .54rem !important;
   }
 
-  /* Featured issue teasers are editorial material beneath the image, not overlays. */
   .mag-page #latest .mag-cover-lines {
     position: static !important;
     display: grid !important;
@@ -161,7 +160,7 @@
   }
 
   .mag-page #latest .mag-cover-line {
-    padding: .9rem 0 !important;
+    padding: 1.05rem 0 !important;
     border-top: 1px solid rgba(255,248,236,.28) !important;
     background: transparent !important;
   }
@@ -171,7 +170,7 @@
   }
 
   .mag-page #latest .mag-cover-line small {
-    margin-bottom: .35rem !important;
+    margin-bottom: .38rem !important;
   }
 
   .mag-page #latest .mag-cover-line p,
