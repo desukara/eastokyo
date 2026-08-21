@@ -1,0 +1,51 @@
+/* Cover CTA refinement: editorial invitation, not ecommerce widget. */
+
+@media (max-width: 640px) {
+  .mag-page #latest .story-cta {
+    width: calc(100% - 3.75rem) !important;
+    max-width: 34rem !important;
+    min-height: 4.75rem !important;
+    margin: 1.25rem auto 0 !important;
+    padding: 0 1.15rem !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto !important;
+    align-items: center !important;
+    gap: .9rem !important;
+    box-sizing: border-box !important;
+    background: #f3ede2 !important;
+    border: 0 !important;
+    border-bottom: 3px solid #bd4b2d !important;
+    box-shadow: none !important;
+    transform: none !important;
+  }
+
+  .mag-page #latest .story-cta::before,
+  .mag-page #latest .story-cta::after {
+    display: none !important;
+    content: none !important;
+  }
+
+  .mag-page #latest .story-cta__action {
+    display: block !important;
+    min-width: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    text-align: center !important;
+    font-size: clamp(.98rem, 4vw, 1.12rem) !important;
+    line-height: 1.05 !important;
+    letter-spacing: .075em !important;
+    white-space: nowrap !important;
+  }
+
+  .mag-page #latest .story-cta__status {
+    display: block !important;
+    padding: 0 !important;
+    border: 0 !important;
+    text-align: right !important;
+    font-size: .72rem !important;
+    line-height: 1 !important;
+    letter-spacing: .14em !important;
+    opacity: .72 !important;
+    white-space: nowrap !important;
+  }
+}
