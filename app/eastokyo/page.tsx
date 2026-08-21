@@ -93,6 +93,7 @@ export default function EastokyoHome() {
   const closeMenu = () => setMenuOpen(false);
 
   return <div className="mag-page" id="top">
+    <style>{`@media (max-width: 899px) { .mag-page #latest .mag-cover-description { display: none !important; } }`}</style>
     <a className="mag-skip-link" href="#contenido">Go to content</a>
     <header className="mag-header">
       <div className="mag-header-rail"><p>ART, PASSION AND A LITTLE DISORDER. TOKYO.</p><p>FIRST ISSUE. NUMBER ONE. ALLEZ. LET’S GO.</p><p>SEPTEMBER 1, 2026. LET’S MAKE SOME NOISE.</p></div>
@@ -108,7 +109,7 @@ export default function EastokyoHome() {
       <section className="mag-cover" id="latest" aria-labelledby="cover-title">
         <picture className="mag-cover-media mag-media"><source media="(max-width: 640px)" srcSet="/images/editorial/picasso-bullfight-01-mobile.png" /><img src="/images/editorial/picasso-bullfight-01-desktop.png" alt="" fetchPriority="high" /></picture><div className="mag-cover-shade" aria-hidden="true" />
         <div className="mag-cover-grid"><div className="mag-cover-topline"><p>EASTOKYO. BEAUTY, NOISE AND GOOD TASTE.</p><p>PICASSO. TOKYO. EVERYONE WANTED HIM TO CALM DOWN. FORTUNATELY, HE HAD FAR TOO MANY THINGS TO SAY.</p></div><div className="mag-cover-masthead" aria-hidden="true">EASTOKYO</div>
-          <div className="mag-cover-story"><p className="mag-kicker">PICASSO AND THE ARENA HE NEVER REALLY LEFT.</p><h1 id="cover-title">HE KEPT WALKING BACK IN.</h1><p>There was something in the arena that gave Picasso exactly what every painter secretly looks for: real danger, color, and a crowd close enough that you can feel it breathing, watching you, challenging you to look away. Once that kind of electricity gets into your blood, mon ami, you do not simply walk away from it. You return. All his life, Picasso did exactly that, and I think I understand why.</p><StoryCta story="cover" /></div>
+          <div className="mag-cover-story"><h1 id="cover-title">PICASSO AND THE ARENA.</h1><p className="mag-cover-description">The arena gave Picasso what every painter secretly looks for: danger, color, and a crowd close enough to feel breathing. Once that electricity gets into your blood, mon ami, you return.</p><StoryCta story="cover" /></div>
           <div className="mag-cover-lines" aria-label="Featured stories in this issue"><article className="mag-cover-line"><div><small>EXHIBITION</small><p>PICASSO, LOOKED AT AGAIN.</p></div></article><article className="mag-cover-line"><div><small>IDEAS</small><p>THE MOMENT WHEN A SINGLE ANGLE WAS SIMPLY NO LONGER ENOUGH TO CONTAIN EVERYTHING HE HAD TO SAY.</p></div></article><article className="mag-cover-line"><div><small>TOKYO</small><p>THE CITY PUTS ON ITS COSTUME, AND IT DOES NOT APOLOGIZE FOR A SECOND.</p></div></article></div>
         </div><p className="mag-cover-vertical">TOKYO. NUMBER ONE. SEPTEMBER 2026.</p><div className="mag-cover-barcode" aria-hidden="true" />
       </section>
