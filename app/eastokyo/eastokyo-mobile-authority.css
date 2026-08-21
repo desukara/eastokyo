@@ -61,31 +61,34 @@
     line-height: 1.5 !important;
   }
   .mag-page #latest .story-cta {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin-top: 1.25rem !important;
+    width: fit-content !important;
+    max-width: 15rem !important;
+    margin-top: .7rem !important;
+    box-shadow: .18rem .18rem 0 var(--story-cta-shadow) !important;
+  }
+  .mag-page #latest .story-cta__action,
+  .mag-page #latest .story-cta__status {
+    min-height: 2.15rem !important;
   }
   .mag-page #latest .story-cta__action {
-    flex: 1 1 auto !important;
+    flex: 0 1 auto !important;
     min-width: 0 !important;
-    padding-left: .62rem !important;
-    padding-right: .62rem !important;
+    padding: .48rem .55rem .44rem !important;
     font-size: 0 !important;
     white-space: nowrap !important;
   }
   .mag-page #latest .story-cta__action::after {
     content: "COME INTO THE ARENA.";
     display: block;
-    font-size: clamp(.72rem, 3vw, .86rem) !important;
-    letter-spacing: .075em !important;
+    font-size: clamp(.62rem, 2.55vw, .72rem) !important;
+    letter-spacing: .06em !important;
     white-space: nowrap !important;
   }
   .mag-page #latest .story-cta__status {
     flex: 0 0 auto !important;
-    padding-left: .5rem !important;
-    padding-right: .5rem !important;
-    font-size: .5rem !important;
-    letter-spacing: .11em !important;
+    padding: .48rem .42rem .44rem !important;
+    font-size: .46rem !important;
+    letter-spacing: .1em !important;
   }
   .mag-page #latest .mag-cover-lines {
     margin-top: 1.8rem !important;
