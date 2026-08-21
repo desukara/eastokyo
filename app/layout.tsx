@@ -97,6 +97,22 @@ export const metadata: Metadata = {
   },
 };
 
+const mobileCoverAuthority = `
+@media (max-width:899px){
+.mag-page #latest.mag-cover{position:relative!important;display:block!important;height:auto!important;min-height:0!important;overflow:visible!important;background:#121416!important}
+.mag-page #latest .mag-cover-media{position:relative!important;inset:auto!important;display:block!important;width:100%!important;height:auto!important;min-height:0!important;overflow:hidden!important;z-index:0!important}
+.mag-page #latest .mag-cover-media img{position:static!important;inset:auto!important;display:block!important;width:100%!important;height:auto!important;max-width:100%!important;object-fit:contain!important;object-position:center top!important}
+.mag-page #latest .mag-cover-shade{display:none!important}
+.mag-page #latest .mag-cover-grid{position:static!important;display:block!important;width:100%!important;min-height:0!important;padding:1rem 1rem 1.5rem!important;background:#121416!important;transform:none!important}
+.mag-page #latest .mag-cover-topline,.mag-page #latest .mag-cover-masthead,.mag-page #latest .mag-cover-description,.mag-page #latest .mag-cover-vertical,.mag-page #latest .mag-cover-barcode{display:none!important}
+.mag-page #latest .mag-cover-story{position:static!important;width:100%!important;max-width:none!important;margin:0!important;padding:0!important;transform:none!important;overflow:visible!important}
+.mag-page #latest .mag-cover-story h1{position:absolute!important;z-index:4!important;top:42vw!important;left:1rem!important;width:8.2ch!important;max-width:62vw!important;margin:0!important;color:#fff8ec!important;font-size:clamp(2.3rem,10vw,3.35rem)!important;line-height:.9!important;letter-spacing:-.025em!important;text-shadow:0 .06em .1em rgba(0,0,0,.55)!important}
+.mag-page #latest .story-cta{position:static!important;display:inline-flex!important;width:auto!important;max-width:100%!important;margin:0 0 1rem!important;transform:none!important}
+.mag-page #latest .mag-cover-lines{position:static!important;display:grid!important;grid-template-columns:1fr!important;width:100%!important;max-width:none!important;margin:0!important;transform:none!important;background:transparent!important}
+.mag-page #latest .mag-cover-line{position:static!important;padding:.9rem 0!important;margin:0!important;border-top:1px solid rgba(255,248,236,.28)!important;background:transparent!important;transform:none!important}
+}
+`;
+
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en"><body className={`${sans.variable} ${display.variable}`}><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "Organization", name: "EASTOKYO", url: "https://www.eastokyo.com", description: "Independent art magazine based in Tokyo, covering art from around the world." }) }} /><EastokyoMotion /><HomepageEngagement /><EngagementLockdown />{children}</body></html>;
+  return <html lang="en"><body className={`${sans.variable} ${display.variable}`}><style dangerouslySetInnerHTML={{ __html: mobileCoverAuthority }} /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "Organization", name: "EASTOKYO", url: "https://www.eastokyo.com", description: "Independent art magazine based in Tokyo, covering art from around the world." }) }} /><EastokyoMotion /><HomepageEngagement /><EngagementLockdown />{children}</body></html>;
 }
