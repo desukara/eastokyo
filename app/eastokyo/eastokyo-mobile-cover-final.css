@@ -91,18 +91,21 @@
     overflow: visible !important;
   }
 
-  /* Approved reference: title high in the empty sky, nowhere near the bull. */
+  /* Surgical mobile fix: title anchored to the upper-left sky, completely clear of the bull. */
   .mag-page #latest .mag-cover-story h1 {
     position: absolute !important;
     z-index: 3 !important;
-    top: 4.8% !important;
+    top: 1.75rem !important;
     left: 1.55rem !important;
-    width: min(11.5ch, 72vw) !important;
-    max-width: none !important;
+    width: 58vw !important;
+    max-width: 24rem !important;
     margin: 0 !important;
+    transform: none !important;
+    inset-inline-end: auto !important;
+    bottom: auto !important;
     color: #fff8ec !important;
-    font-size: clamp(2.45rem, 9.5vw, 4rem) !important;
-    line-height: .94 !important;
+    font-size: clamp(2.1rem, 8vw, 3rem) !important;
+    line-height: .92 !important;
     letter-spacing: -.025em !important;
     text-wrap: balance !important;
     overflow-wrap: normal !important;
