@@ -1,0 +1,161 @@
+/* EASTOKYO mobile cover final authority.
+   Mobile only: the bullfight photograph is the star. Only the cover headline overlays it.
+   All controls and issue teasers begin after the photograph. Desktop is untouched. */
+
+@media (max-width: 899px) {
+  .mag-page #latest.mag-cover {
+    position: relative !important;
+    display: block !important;
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+    background: var(--et-ink, #121416) !important;
+  }
+
+  /* Let the mobile artwork keep its real proportions instead of stretching to the copy height. */
+  .mag-page #latest .mag-cover-media {
+    position: relative !important;
+    inset: auto !important;
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: hidden !important;
+    z-index: 0 !important;
+  }
+
+  .mag-page #latest .mag-cover-media img {
+    content: url('/images/editorial/picasso-bullfight-01-mobile.png') !important;
+    position: static !important;
+    inset: auto !important;
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    max-width: 100% !important;
+    object-fit: contain !important;
+    object-position: center top !important;
+  }
+
+  /* No dark sheet over the photograph on phones. */
+  .mag-page #latest .mag-cover-shade {
+    display: none !important;
+  }
+
+  /* The editorial/control material now lives after the photograph. */
+  .mag-page #latest .mag-cover-grid {
+    position: static !important;
+    z-index: auto !important;
+    display: block !important;
+    width: 100% !important;
+    min-height: 0 !important;
+    padding: 1rem 1rem 1.5rem !important;
+    background: var(--et-ink, #121416) !important;
+  }
+
+  /* On mobile, nothing except the cover headline sits on the artwork. */
+  .mag-page #latest .mag-cover-topline,
+  .mag-page #latest .mag-cover-masthead {
+    display: none !important;
+  }
+
+  .mag-page #latest .mag-cover-story {
+    position: static !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    transform: none !important;
+    overflow: visible !important;
+  }
+
+  .mag-page #latest .mag-cover-story h1 {
+    position: absolute !important;
+    z-index: 3 !important;
+    top: 31% !important;
+    left: 1rem !important;
+    width: min(8.2ch, 62vw) !important;
+    max-width: none !important;
+    margin: 0 !important;
+    color: #fff8ec !important;
+    font-size: clamp(2.45rem, 10.8vw, 3.55rem) !important;
+    line-height: .89 !important;
+    letter-spacing: -.025em !important;
+    text-wrap: balance !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+    text-shadow: 0 .06em .08em rgba(0,0,0,.5) !important;
+  }
+
+  .mag-page #latest .mag-cover-description {
+    display: none !important;
+  }
+
+  /* Compact CTA, now safely below the photograph. */
+  .mag-page #latest .story-cta {
+    position: static !important;
+    display: inline-flex !important;
+    width: auto !important;
+    max-width: 100% !important;
+    margin: 0 0 1.2rem !important;
+    min-height: 0 !important;
+  }
+
+  .mag-page #latest .story-cta__action,
+  .mag-page #latest .story-cta__status {
+    min-height: 2.25rem !important;
+  }
+
+  .mag-page #latest .story-cta__action {
+    flex: 0 1 auto !important;
+    padding: .58rem .72rem .54rem !important;
+  }
+
+  .mag-page #latest .story-cta__action::after {
+    font-size: clamp(.64rem, 2.75vw, .76rem) !important;
+    letter-spacing: .07em !important;
+  }
+
+  .mag-page #latest .story-cta__status {
+    flex: 0 0 auto !important;
+    padding: .58rem .55rem .54rem !important;
+    font-size: .48rem !important;
+  }
+
+  /* Featured issue teasers are now editorial material beneath the image, not overlays. */
+  .mag-page #latest .mag-cover-lines {
+    position: static !important;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    transform: none !important;
+    background: transparent !important;
+  }
+
+  .mag-page #latest .mag-cover-line {
+    padding: .9rem 0 !important;
+    border-top: 1px solid rgba(255,248,236,.28) !important;
+    background: transparent !important;
+  }
+
+  .mag-page #latest .mag-cover-line + .mag-cover-line {
+    margin-top: 0 !important;
+  }
+
+  .mag-page #latest .mag-cover-line small {
+    margin-bottom: .35rem !important;
+  }
+
+  .mag-page #latest .mag-cover-line p,
+  .mag-page #latest .mag-cover-line:nth-child(2) p::after {
+    font-size: clamp(1.08rem, 4.8vw, 1.42rem) !important;
+    line-height: 1.04 !important;
+  }
+
+  .mag-page #latest .mag-cover-vertical,
+  .mag-page #latest .mag-cover-barcode {
+    display: none !important;
+  }
+}
