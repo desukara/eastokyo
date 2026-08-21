@@ -25,6 +25,7 @@ export default function EastokyoMotion() {
         zIndex: "2",
         pointerEvents: "none",
         background: [
+          "radial-gradient(ellipse 24% 17% at 49% 55%, rgba(176,24,18,.38) 0%, rgba(146,18,14,.24) 32%, rgba(110,12,10,.10) 56%, rgba(0,0,0,0) 78%)",
           "radial-gradient(ellipse 31% 34% at 26% 70%, rgba(255,229,186,.14) 0%, rgba(255,218,165,.055) 40%, rgba(0,0,0,0) 74%)",
           "radial-gradient(ellipse 24% 39% at 65% 55%, rgba(255,229,184,.13) 0%, rgba(255,215,158,.05) 43%, rgba(0,0,0,0) 76%)",
           "linear-gradient(to bottom, rgba(3,4,5,.78) 0%, rgba(3,4,5,.54) 18%, rgba(3,4,5,.18) 36%, rgba(0,0,0,0) 55%)",
