@@ -45,6 +45,7 @@
     min-height: 0 !important;
     overflow: hidden !important;
     z-index: 0 !important;
+    isolation: isolate !important;
     border-bottom: 2px solid #f3e8d6 !important;
     box-shadow: 0 5px 0 #bd4e30, 0 8px 0 #121416 !important;
   }
@@ -59,6 +60,45 @@
     max-width: 100% !important;
     object-fit: contain !important;
     object-position: center top !important;
+    filter: brightness(1.18) contrast(.94) !important;
+  }
+
+  /* Bullring dust: two rolling clouds erupt upward from the arena floor. */
+  .mag-page #latest .mag-cover-media::before,
+  .mag-page #latest .mag-cover-media::after {
+    content: "" !important;
+    position: absolute !important;
+    left: -18% !important;
+    right: -18% !important;
+    bottom: -18% !important;
+    height: 58% !important;
+    z-index: 2 !important;
+    pointer-events: none !important;
+    mix-blend-mode: screen !important;
+    transform-origin: 50% 100% !important;
+    will-change: transform, opacity, filter !important;
+  }
+
+  .mag-page #latest .mag-cover-media::before {
+    background:
+      radial-gradient(ellipse at 18% 82%, rgba(218,198,164,.78) 0 8%, rgba(218,198,164,.40) 19%, transparent 46%),
+      radial-gradient(ellipse at 43% 76%, rgba(233,215,184,.70) 0 9%, rgba(218,198,164,.34) 22%, transparent 50%),
+      radial-gradient(ellipse at 69% 84%, rgba(214,193,157,.64) 0 8%, rgba(214,193,157,.28) 22%, transparent 48%),
+      radial-gradient(ellipse at 88% 72%, rgba(235,218,187,.54) 0 7%, rgba(218,198,164,.22) 20%, transparent 44%) !important;
+    filter: blur(9px) !important;
+    opacity: 0 !important;
+    animation: eastokyo-dust-blast 3.8s cubic-bezier(.18,.66,.22,1) .18s both !important;
+  }
+
+  .mag-page #latest .mag-cover-media::after {
+    background:
+      radial-gradient(ellipse at 10% 88%, rgba(237,219,186,.52) 0 7%, rgba(221,200,166,.24) 24%, transparent 50%),
+      radial-gradient(ellipse at 34% 80%, rgba(224,204,171,.58) 0 8%, rgba(224,204,171,.24) 25%, transparent 51%),
+      radial-gradient(ellipse at 62% 83%, rgba(236,216,183,.50) 0 7%, rgba(220,199,164,.22) 22%, transparent 48%),
+      radial-gradient(ellipse at 91% 86%, rgba(223,202,168,.48) 0 6%, rgba(223,202,168,.18) 20%, transparent 45%) !important;
+    filter: blur(14px) !important;
+    opacity: 0 !important;
+    animation: eastokyo-dust-roll 7.2s ease-out .75s both !important;
   }
 
   .mag-page #latest .mag-cover-shade {
@@ -185,5 +225,29 @@
   .mag-page #latest .mag-cover-vertical,
   .mag-page #latest .mag-cover-barcode {
     display: none !important;
+  }
+}
+
+@keyframes eastokyo-dust-blast {
+  0% { opacity: 0; transform: translate3d(-3%, 15%, 0) scale(.72, .45); filter: blur(5px); }
+  12% { opacity: .92; }
+  42% { opacity: .72; transform: translate3d(2%, -18%, 0) scale(1.05, .9); filter: blur(11px); }
+  72% { opacity: .38; transform: translate3d(-4%, -32%, 0) scale(1.22, 1.08); filter: blur(16px); }
+  100% { opacity: 0; transform: translate3d(5%, -45%, 0) scale(1.38, 1.22); filter: blur(21px); }
+}
+
+@keyframes eastokyo-dust-roll {
+  0% { opacity: 0; transform: translate3d(4%, 20%, 0) scale(.82, .52); }
+  16% { opacity: .58; }
+  52% { opacity: .42; transform: translate3d(-3%, -12%, 0) scale(1.1, .88); }
+  78% { opacity: .26; transform: translate3d(5%, -24%, 0) scale(1.24, 1.02); }
+  100% { opacity: 0; transform: translate3d(-2%, -36%, 0) scale(1.36, 1.16); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mag-page #latest .mag-cover-media::before,
+  .mag-page #latest .mag-cover-media::after {
+    animation: none !important;
+    opacity: 0 !important;
   }
 }
