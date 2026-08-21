@@ -7,6 +7,7 @@ export default function EastokyoMotion() {
     const root = document.querySelector<HTMLElement>(".mag-page");
     if (!root) return;
 
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const coverMedia = document.querySelector<HTMLElement>("#latest .mag-cover-media");
     const existingCanvas = coverMedia?.querySelector(".ek-bull-dust-canvas");
     const existingDust = coverMedia?.querySelector(".ek-bull-dust");
@@ -31,6 +32,67 @@ export default function EastokyoMotion() {
         ].join(","),
       });
       coverMedia.appendChild(theatre);
+    }
+
+    let smoke: HTMLDivElement | null = null;
+    if (coverMedia && !reduced && !coverMedia.querySelector(".ek-arena-smoke")) {
+      smoke = document.createElement("div");
+      smoke.className = "ek-arena-smoke";
+      smoke.setAttribute("aria-hidden", "true");
+      Object.assign(smoke.style, {
+        position: "absolute",
+        inset: "0",
+        overflow: "hidden",
+        zIndex: "2",
+        pointerEvents: "none",
+      });
+
+      const puffCount = 14;
+      for (let i = 0; i < puffCount; i += 1) {
+        const puff = document.createElement("span");
+        const width = 18 + Math.random() * 18;
+        const height = 14 + Math.random() * 13;
+        const left = -8 + Math.random() * 100;
+        const bottom = -12 + Math.random() * 10;
+        const blur = 10 + Math.random() * 13;
+        const duration = 5600 + Math.random() * 3200;
+        const drift = -55 + Math.random() * 110;
+        const rise = 150 + Math.random() * 95;
+        const scale = 1.75 + Math.random() * .75;
+        const peak = .24 + Math.random() * .18;
+
+        Object.assign(puff.style, {
+          position: "absolute",
+          left: `${left}%`,
+          bottom: `${bottom}%`,
+          width: `${width}%`,
+          height: `${height}%`,
+          borderRadius: "50%",
+          opacity: "0",
+          filter: `blur(${blur}px)`,
+          background: "radial-gradient(ellipse at center, rgba(52,46,40,.48) 0%, rgba(86,75,64,.33) 34%, rgba(128,109,90,.16) 58%, rgba(128,109,90,0) 78%)",
+          transformOrigin: "50% 70%",
+          willChange: "transform, opacity",
+        });
+
+        smoke.appendChild(puff);
+        const animation = puff.animate(
+          [
+            { transform: "translate3d(0, 22%, 0) scale(.9)", opacity: 0 },
+            { transform: `translate3d(${drift * .18}px, -18%, 0) scale(1.08)`, opacity: peak, offset: .16 },
+            { transform: `translate3d(${drift * .62}px, -${rise * .55}%, 0) scale(${1 + (scale - 1) * .55})`, opacity: peak * .72, offset: .58 },
+            { transform: `translate3d(${drift}px, -${rise}%, 0) scale(${scale})`, opacity: 0 },
+          ],
+          {
+            duration,
+            iterations: Infinity,
+            easing: "cubic-bezier(.24,.56,.28,1)",
+            delay: -Math.random() * duration,
+          },
+        );
+        animation.play();
+      }
+      coverMedia.appendChild(smoke);
     }
 
     const coverImage = coverMedia?.querySelector<HTMLElement>("img");
@@ -82,7 +144,6 @@ export default function EastokyoMotion() {
       if (current) setActiveNav(current.href);
     };
 
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduced) {
       root.classList.add("ek-motion-reduced");
       if (coverImage) coverImage.style.transform = "none";
@@ -93,6 +154,7 @@ export default function EastokyoMotion() {
         window.removeEventListener("scroll", updateActiveNav);
         window.removeEventListener("resize", updateActiveNav);
         theatre?.remove();
+        smoke?.remove();
       };
     }
 
@@ -163,6 +225,7 @@ export default function EastokyoMotion() {
       window.removeEventListener("resize", onScroll);
       if (raf) cancelAnimationFrame(raf);
       theatre?.remove();
+      smoke?.remove();
     };
   }, []);
 
