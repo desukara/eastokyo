@@ -1,6 +1,7 @@
 /* EASTOKYO mobile cover final authority.
-   Mobile only: the bullfight photograph is the star. Only the cover headline overlays it.
-   All controls and issue teasers begin after the photograph. Desktop is untouched. */
+   Mobile only: the bullfight photograph is the star.
+   Wordmark and cover headline stay in the open sky; controls and issue teasers begin after the photograph.
+   Desktop is untouched. */
 
 @media (max-width: 899px) {
   .mag-page #latest.mag-cover {
@@ -22,6 +23,8 @@
     min-height: 0 !important;
     overflow: hidden !important;
     z-index: 0 !important;
+    border-bottom: 3px solid #f3e8d6 !important;
+    box-shadow: 0 4px 0 #bd4e30, 0 7px 0 #121416 !important;
   }
 
   .mag-page #latest .mag-cover-media img {
@@ -41,7 +44,7 @@
     display: none !important;
   }
 
-  /* The editorial/control material now lives after the photograph. */
+  /* The editorial/control material lives after the photograph. */
   .mag-page #latest .mag-cover-grid {
     position: static !important;
     z-index: auto !important;
@@ -52,10 +55,32 @@
     background: var(--et-ink, #121416) !important;
   }
 
-  /* On mobile, nothing except the cover headline sits on the artwork. */
-  .mag-page #latest .mag-cover-topline,
-  .mag-page #latest .mag-cover-masthead {
+  /* Keep the old topline off the artwork, but restore the EASTOKYO wordmark in the open sky. */
+  .mag-page #latest .mag-cover-topline {
     display: none !important;
+  }
+
+  .mag-page #latest .mag-cover-masthead {
+    display: block !important;
+    position: absolute !important;
+    z-index: 4 !important;
+    top: 3.4% !important;
+    left: 50% !important;
+    width: min(48%, 13.5rem) !important;
+    aspect-ratio: 1536 / 650 !important;
+    margin: 0 !important;
+    transform: translateX(-50%) !important;
+    color: transparent !important;
+    -webkit-text-fill-color: transparent !important;
+    font-size: 0 !important;
+    line-height: 0 !important;
+    text-indent: -9999px !important;
+    overflow: hidden !important;
+    background-image: url('/eastokyo-wordmark-white.png') !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: contain !important;
+    pointer-events: none !important;
   }
 
   .mag-page #latest .mag-cover-story {
@@ -68,17 +93,18 @@
     overflow: visible !important;
   }
 
+  /* Headline stays entirely in the upper-left sky so the bull is unobstructed. */
   .mag-page #latest .mag-cover-story h1 {
     position: absolute !important;
     z-index: 3 !important;
-    top: 31% !important;
+    top: 19.5% !important;
     left: 1rem !important;
-    width: min(8.2ch, 62vw) !important;
+    width: min(7.7ch, 48vw) !important;
     max-width: none !important;
     margin: 0 !important;
     color: #fff8ec !important;
-    font-size: clamp(2.45rem, 10.8vw, 3.55rem) !important;
-    line-height: .89 !important;
+    font-size: clamp(2.05rem, 8.7vw, 3rem) !important;
+    line-height: .88 !important;
     letter-spacing: -.025em !important;
     text-wrap: balance !important;
     overflow-wrap: normal !important;
@@ -90,7 +116,7 @@
     display: none !important;
   }
 
-  /* Compact CTA, now safely below the photograph. */
+  /* Compact CTA, safely below the photograph. */
   .mag-page #latest .story-cta {
     position: static !important;
     display: inline-flex !important;
@@ -121,7 +147,7 @@
     font-size: .48rem !important;
   }
 
-  /* Featured issue teasers are now editorial material beneath the image, not overlays. */
+  /* Featured issue teasers are editorial material beneath the image, not overlays. */
   .mag-page #latest .mag-cover-lines {
     position: static !important;
     display: grid !important;
