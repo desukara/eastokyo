@@ -203,9 +203,12 @@
     padding: .9rem 1rem .82rem !important;
   }
 
-  .mag-page #latest .story-cta__action::after {
-    font-size: clamp(.72rem, 3vw, .86rem) !important;
-    letter-spacing: .075em !important;
+  .mag-page #latest .story-cta__action::before,
+  .mag-page #latest .story-cta__action::after,
+  .mag-page #latest .story-cta__status::before,
+  .mag-page #latest .story-cta__status::after {
+    content: none !important;
+    display: none !important;
   }
 
   .mag-page #latest .story-cta__status {
