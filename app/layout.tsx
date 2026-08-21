@@ -113,6 +113,13 @@ const mobileCoverAuthority = `
 .mag-page #latest .story-cta__status{display:block!important;padding:0!important;border:0!important;text-align:right!important;font-size:.72rem!important;line-height:1!important;letter-spacing:.14em!important;opacity:.72!important;white-space:nowrap!important}
 .mag-page #latest .mag-cover-lines{position:static!important;display:grid!important;grid-template-columns:1fr!important;width:100%!important;max-width:none!important;margin:0!important;transform:none!important;background:transparent!important}
 .mag-page #latest .mag-cover-line{position:static!important;padding:.9rem 0!important;margin:0!important;border-top:1px solid rgba(255,248,236,.28)!important;background:transparent!important;transform:none!important}
+.mag-page #contents.mag-contents{padding-top:2.5rem!important;padding-bottom:2.5rem!important}
+.mag-page #contents .mag-rule-heading{margin-bottom:1.25rem!important}
+.mag-page #contents .mag-contents-grid{display:block!important;width:100%!important;gap:0!important}
+.mag-page #contents .mag-contents-title{width:100%!important;max-width:none!important;margin:0!important;padding:0!important}
+.mag-page #contents .mag-contents-title h2{width:100%!important;max-width:none!important;margin:.65rem 0 1.25rem!important;font-size:clamp(2.85rem,10.8vw,4rem)!important;line-height:.88!important;letter-spacing:-.025em!important;text-wrap:balance!important}
+.mag-page #contents .mag-contents-image{width:100%!important;margin:0!important}
+.mag-page #contents .mag-contents-list{padding-top:1.25rem!important}
 }
 `;
 
