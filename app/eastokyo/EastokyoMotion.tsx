@@ -7,6 +7,15 @@ export default function EastokyoMotion() {
     const root = document.querySelector<HTMLElement>(".mag-page");
     if (!root) return;
 
+    const coverMedia = document.querySelector<HTMLElement>("#latest .mag-cover-media");
+    if (coverMedia && !coverMedia.querySelector(".ek-bull-dust")) {
+      const dust = document.createElement("div");
+      dust.className = "ek-bull-dust";
+      dust.setAttribute("aria-hidden", "true");
+      dust.innerHTML = '<span class="ek-bull-dust__blast"></span><span class="ek-bull-dust__roll"></span><span class="ek-bull-dust__wind"></span>';
+      coverMedia.appendChild(dust);
+    }
+
     const navSections = [
       { selector: "#latest", href: "#latest" },
       { selector: "#contents", href: "#contents" },
