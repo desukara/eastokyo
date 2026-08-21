@@ -14,12 +14,13 @@
   content: none !important;
 }
 
-/* Hero masthead: balanced against the cover photograph using the artwork's real proportions. */
+/* Hero masthead: keep the wordmark clear of the matador's face without changing the photograph. */
 .mag-page #latest .mag-cover-masthead {
-  width: min(40%, 31rem) !important;
+  width: min(36%, 28rem) !important;
   aspect-ratio: 1536 / 650 !important;
   justify-self: center !important;
   align-self: start !important;
+  transform: translateY(-1.25rem) !important;
   color: transparent !important;
   -webkit-text-fill-color: transparent !important;
   font-size: 0 !important;
@@ -48,9 +49,10 @@
 
 @media (max-width: 899px) {
   .mag-page #latest .mag-cover-masthead {
-    width: min(78%, 19rem) !important;
+    width: min(68%, 16.5rem) !important;
     aspect-ratio: 1536 / 650 !important;
-    margin-top: .7rem !important;
+    margin-top: .25rem !important;
+    transform: translateY(-.35rem) !important;
     background-position: center !important;
     background-size: contain !important;
   }
@@ -62,8 +64,8 @@
 
 @media (max-width: 420px) {
   .mag-page #latest .mag-cover-masthead {
-    width: 78% !important;
-    max-width: 17.5rem !important;
+    width: 68% !important;
+    max-width: 15.5rem !important;
   }
 
   .mag-page .mag-footer-wordmark {
