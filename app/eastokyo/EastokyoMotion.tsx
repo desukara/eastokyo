@@ -25,10 +25,10 @@ export default function EastokyoMotion() {
         zIndex: "2",
         pointerEvents: "none",
         background: [
-          "radial-gradient(ellipse 34% 48% at 29% 58%, rgba(255,231,188,.20) 0%, rgba(255,220,165,.09) 38%, rgba(0,0,0,0) 72%)",
-          "radial-gradient(ellipse 25% 44% at 64% 48%, rgba(255,229,184,.18) 0%, rgba(255,215,158,.07) 42%, rgba(0,0,0,0) 74%)",
-          "linear-gradient(to bottom, rgba(3,4,5,.72) 0%, rgba(3,4,5,.48) 17%, rgba(3,4,5,.16) 34%, rgba(0,0,0,0) 54%)",
-          "linear-gradient(to top, rgba(15,8,3,.20) 0%, rgba(0,0,0,0) 28%)",
+          "radial-gradient(ellipse 31% 34% at 26% 70%, rgba(255,229,186,.14) 0%, rgba(255,218,165,.055) 40%, rgba(0,0,0,0) 74%)",
+          "radial-gradient(ellipse 24% 39% at 65% 55%, rgba(255,229,184,.13) 0%, rgba(255,215,158,.05) 43%, rgba(0,0,0,0) 76%)",
+          "linear-gradient(to bottom, rgba(3,4,5,.78) 0%, rgba(3,4,5,.54) 18%, rgba(3,4,5,.18) 36%, rgba(0,0,0,0) 55%)",
+          "linear-gradient(to top, rgba(15,8,3,.16) 0%, rgba(0,0,0,0) 28%)",
         ].join(","),
       });
       coverMedia.appendChild(theatre);
@@ -99,7 +99,7 @@ export default function EastokyoMotion() {
     if (coverImage) {
       coverImage.style.transition = "transform 14s cubic-bezier(.18,.7,.22,1), filter 1.4s ease";
       coverImage.style.transformOrigin = "42% 58%";
-      coverImage.style.filter = "brightness(1.04) contrast(1.04) saturate(.92)";
+      coverImage.style.filter = "brightness(1.01) contrast(1.06) saturate(.90)";
       requestAnimationFrame(() => {
         coverImage.style.transform = "scale(1.035) translate3d(-.45%, -.15%, 0)";
       });
