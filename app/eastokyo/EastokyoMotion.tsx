@@ -2,18 +2,168 @@
 
 import { useEffect } from "react";
 
+type DustParticle = {
+  x: number;
+  y: number;
+  vx: number;
+  vy: number;
+  size: number;
+  stretch: number;
+  life: number;
+  ttl: number;
+  alpha: number;
+  phase: number;
+  grit: boolean;
+};
+
 export default function EastokyoMotion() {
   useEffect(() => {
     const root = document.querySelector<HTMLElement>(".mag-page");
     if (!root) return;
 
     const coverMedia = document.querySelector<HTMLElement>("#latest .mag-cover-media");
-    if (coverMedia && !coverMedia.querySelector(".ek-bull-dust")) {
-      const dust = document.createElement("div");
-      dust.className = "ek-bull-dust";
-      dust.setAttribute("aria-hidden", "true");
-      dust.innerHTML = '<span class="ek-bull-dust__blast"></span><span class="ek-bull-dust__roll"></span><span class="ek-bull-dust__wind"></span>';
-      coverMedia.appendChild(dust);
+    const oldDust = coverMedia?.querySelector(".ek-bull-dust");
+    oldDust?.remove();
+
+    let dustCanvas: HTMLCanvasElement | null = null;
+    let dustRaf = 0;
+    let dustResize: (() => void) | null = null;
+
+    if (coverMedia && !coverMedia.querySelector(".ek-bull-dust-canvas")) {
+      dustCanvas = document.createElement("canvas");
+      dustCanvas.className = "ek-bull-dust-canvas";
+      dustCanvas.setAttribute("aria-hidden", "true");
+      Object.assign(dustCanvas.style, {
+        position: "absolute",
+        inset: "0",
+        width: "100%",
+        height: "100%",
+        zIndex: "2",
+        pointerEvents: "none",
+        mixBlendMode: "screen",
+      });
+      coverMedia.appendChild(dustCanvas);
+
+      const canvas = dustCanvas;
+      const ctx = canvas.getContext("2d");
+      if (ctx) {
+        const particles: DustParticle[] = [];
+        let cssW = 1;
+        let cssH = 1;
+        let last = performance.now();
+        let spawnCarry = 0;
+
+        const resetParticle = (p: DustParticle, initial = false) => {
+          const grit = Math.random() < 0.28;
+          const source = Math.random();
+          const sourceX = source < 0.55
+            ? 0.11 + Math.random() * 0.22
+            : 0.31 + Math.random() * 0.22;
+
+          p.x = cssW * sourceX - (initial ? Math.random() * cssW * 0.18 : 0);
+          p.y = cssH * (0.79 + Math.random() * 0.105);
+          p.vx = cssW * (grit ? 0.42 + Math.random() * 0.46 : 0.17 + Math.random() * 0.32);
+          p.vy = -cssH * (grit ? 0.005 + Math.random() * 0.018 : 0.012 + Math.random() * 0.05);
+          p.size = grit ? 0.7 + Math.random() * 1.4 : cssW * (0.012 + Math.random() * 0.032);
+          p.stretch = grit ? 7 + Math.random() * 15 : 1.7 + Math.random() * 3.2;
+          p.ttl = grit ? 0.38 + Math.random() * 0.52 : 0.85 + Math.random() * 1.45;
+          p.life = initial ? Math.random() * p.ttl : 0;
+          p.alpha = grit ? 0.22 + Math.random() * 0.28 : 0.075 + Math.random() * 0.18;
+          p.phase = Math.random() * Math.PI * 2;
+          p.grit = grit;
+        };
+
+        const seed = () => {
+          particles.length = 0;
+          const count = Math.min(120, Math.max(72, Math.round(cssW * 0.19)));
+          for (let i = 0; i < count; i += 1) {
+            const p = {} as DustParticle;
+            resetParticle(p, true);
+            particles.push(p);
+          }
+        };
+
+        dustResize = () => {
+          const rect = coverMedia.getBoundingClientRect();
+          cssW = Math.max(1, rect.width);
+          cssH = Math.max(1, rect.height);
+          const dpr = Math.min(window.devicePixelRatio || 1, 2);
+          canvas.width = Math.round(cssW * dpr);
+          canvas.height = Math.round(cssH * dpr);
+          canvas.style.width = `${cssW}px`;
+          canvas.style.height = `${cssH}px`;
+          ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+          seed();
+        };
+
+        dustResize();
+
+        const drawDust = (now: number) => {
+          const dt = Math.min(0.035, Math.max(0.001, (now - last) / 1000));
+          last = now;
+          ctx.clearRect(0, 0, cssW, cssH);
+
+          spawnCarry += dt * 34;
+          while (spawnCarry >= 1) {
+            spawnCarry -= 1;
+            const dead = particles.find(p => p.life >= p.ttl);
+            if (dead) resetParticle(dead);
+          }
+
+          for (const p of particles) {
+            p.life += dt;
+            if (p.life >= p.ttl) {
+              resetParticle(p);
+              continue;
+            }
+
+            const age = p.life / p.ttl;
+            const gust = 1 + 0.42 * Math.sin(now * 0.0047 + p.phase);
+            p.x += p.vx * gust * dt;
+            p.y += (p.vy + Math.sin(now * 0.006 + p.phase) * cssH * 0.006) * dt;
+
+            if (p.x > cssW * 1.14 || p.y < cssH * 0.64) {
+              resetParticle(p);
+              continue;
+            }
+
+            const fadeIn = Math.min(1, age / 0.12);
+            const fadeOut = Math.min(1, (1 - age) / 0.28);
+            const alpha = p.alpha * fadeIn * fadeOut;
+
+            if (p.grit) {
+              ctx.save();
+              ctx.globalAlpha = alpha;
+              ctx.strokeStyle = "rgba(205,176,132,.9)";
+              ctx.lineWidth = p.size;
+              ctx.lineCap = "round";
+              ctx.beginPath();
+              ctx.moveTo(p.x, p.y);
+              ctx.lineTo(p.x - p.stretch, p.y + p.stretch * 0.06);
+              ctx.stroke();
+              ctx.restore();
+            } else {
+              ctx.save();
+              ctx.translate(p.x, p.y);
+              ctx.rotate(-0.055 + Math.sin(p.phase) * 0.035);
+              ctx.scale(p.stretch, 0.72 + Math.sin(p.phase * 1.7) * 0.12);
+              ctx.globalAlpha = alpha;
+              ctx.fillStyle = "rgba(210,181,139,.82)";
+              ctx.shadowColor = "rgba(229,207,170,.45)";
+              ctx.shadowBlur = Math.max(3, p.size * 0.42);
+              ctx.beginPath();
+              ctx.arc(0, 0, p.size, 0, Math.PI * 2);
+              ctx.fill();
+              ctx.restore();
+            }
+          }
+
+          dustRaf = requestAnimationFrame(drawDust);
+        };
+
+        dustRaf = requestAnimationFrame(drawDust);
+        window.addEventListener("resize", dustResize, { passive: true });
+      }
     }
 
     const navSections = [
@@ -69,6 +219,9 @@ export default function EastokyoMotion() {
       return () => {
         window.removeEventListener("scroll", updateActiveNav);
         window.removeEventListener("resize", updateActiveNav);
+        if (dustRaf) cancelAnimationFrame(dustRaf);
+        if (dustResize) window.removeEventListener("resize", dustResize);
+        dustCanvas?.remove();
       };
     }
 
@@ -148,6 +301,9 @@ export default function EastokyoMotion() {
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
       if (raf) cancelAnimationFrame(raf);
+      if (dustRaf) cancelAnimationFrame(dustRaf);
+      if (dustResize) window.removeEventListener("resize", dustResize);
+      dustCanvas?.remove();
     };
   }, []);
 
