@@ -1,6 +1,27 @@
 /* EASTOKYO mobile authority — phone art direction only.
    Desktop is approved and intentionally untouched. */
 @media (max-width: 899px) {
+  /* Kill desktop spread-height assumptions on phones. Sections should end with their content. */
+  .mag-page #bullfighting,
+  .mag-page #picasso-index {
+    height: auto !important;
+    min-height: 0 !important;
+  }
+  .mag-page #bullfighting {
+    padding-bottom: 2.25rem !important;
+  }
+  .mag-page #bullfighting .mag-feature-grid {
+    height: auto !important;
+    min-height: 0 !important;
+  }
+  .mag-page #picasso-index {
+    padding-bottom: 2.25rem !important;
+  }
+  .mag-page #picasso-index .mag-index-list,
+  .mag-page #picasso-index .mag-index-row:last-child {
+    margin-bottom: 0 !important;
+  }
+
   /* Editorial wrapping: preserve the approved copy, but compose it for a narrow measure. */
   .mag-page h1,
   .mag-page h2,
