@@ -1,6 +1,23 @@
 /* Mobile-only structural flow fix.
-   Do not use desktop grid geometry on phone-sized screens. */
+   Phone pages must stay content-driven and must never reserve space for hidden reveal items. */
 @media (max-width: 640px) {
+  /* Critical mobile fix: EastokyoMotion adds .ek-reveal to large editorial blocks.
+     On mobile those blocks can remain visually hidden while still occupying their full
+     layout height, which is the apparent red/blue "dead space" seen on production.
+     Keep the editorial motion on larger screens; phones render all content immediately. */
+  .mag-page .ek-reveal,
+  .mag-page.ek-motion-ready .ek-reveal,
+  .mag-page.ek-motion-ready .ek-reveal.ek-in {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    translate: none !important;
+    filter: none !important;
+    clip-path: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+
   .mag-page #contents,
   .mag-page #bullfighting,
   .mag-page #picasso-index {
@@ -79,6 +96,17 @@
   }
   .mag-page #bullfighting {
     padding-bottom: 1.5rem !important;
+  }
+
+  /* Exhibition: its gallery/outro blocks are also reveal targets. Never let a hidden
+     reveal target look like an empty cobalt panel on a phone. */
+  .mag-page #exhibition .picasso-feature-intro,
+  .mag-page #exhibition .picasso-gallery,
+  .mag-page #exhibition .picasso-gallery-secondary,
+  .mag-page #exhibition .picasso-shot,
+  .mag-page #exhibition .picasso-feature-outro {
+    min-height: 0 !important;
+    max-height: none !important;
   }
 
   /* Index: prevent desktop grid tracks/positioning from reserving a floor. */
