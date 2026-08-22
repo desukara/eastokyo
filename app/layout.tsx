@@ -98,15 +98,32 @@ export const metadata: Metadata = {
   },
 };
 
+const mobileCoverAuthority = `
+@media (max-width:899px){
+.mag-page #latest.mag-cover{position:relative!important;display:block!important;height:auto!important;min-height:0!important;overflow:visible!important;background:#121416!important}
+.mag-page #latest .mag-cover-media{position:relative!important;inset:auto!important;display:block!important;width:100%!important;height:auto!important;min-height:0!important;overflow:hidden!important;z-index:0!important}
+.mag-page #latest .mag-cover-media img{position:static!important;inset:auto!important;display:block!important;width:100%!important;height:auto!important;max-width:100%!important;object-fit:contain!important;object-position:center top!important}
+.mag-page #latest .mag-cover-shade{display:none!important}
+.mag-page #latest .mag-cover-grid{position:static!important;display:block!important;width:100%!important;min-height:0!important;padding:1rem 1rem 1.5rem!important;background:#121416!important;transform:none!important}
+.mag-page #latest .mag-cover-topline,.mag-page #latest .mag-cover-masthead,.mag-page #latest .mag-cover-description,.mag-page #latest .mag-cover-vertical,.mag-page #latest .mag-cover-barcode{display:none!important}
+.mag-page #latest .mag-cover-story{position:static!important;width:100%!important;max-width:none!important;margin:0!important;padding:0!important;transform:none!important;overflow:visible!important}
+.mag-page #latest .mag-cover-story h1{position:absolute!important;z-index:4!important;top:1.1rem!important;left:1.15rem!important;width:54vw!important;max-width:13.5rem!important;margin:0!important;transform:none!important;color:#fff8ec!important;font-size:clamp(1.9rem,8.2vw,2.65rem)!important;line-height:.92!important;letter-spacing:-.025em!important;text-shadow:0 .06em .1em rgba(0,0,0,.55)!important}
+.mag-page #latest .story-cta{display:none!important}
+.mag-page #latest .story-cta::before,.mag-page #latest .story-cta::after{display:none!important;content:none!important}
+.mag-page #latest .story-cta__action{display:block!important;min-width:0!important;padding:0!important;border:0!important;text-align:center!important;font-size:clamp(.98rem,4vw,1.12rem)!important;line-height:1.05!important;letter-spacing:.075em!important;white-space:nowrap!important}
+.mag-page #latest .story-cta__status{display:block!important;padding:0!important;border:0!important;text-align:right!important;font-size:.72rem!important;line-height:1!important;letter-spacing:.14em!important;opacity:.72!important;white-space:nowrap!important}
+.mag-page #latest .mag-cover-lines{position:static!important;display:grid!important;grid-template-columns:1fr!important;width:100%!important;max-width:none!important;margin:0!important;transform:none!important;background:transparent!important}
+.mag-page #latest .mag-cover-line{position:static!important;padding:.9rem 0!important;margin:0!important;border-top:1px solid rgba(255,248,236,.28)!important;background:transparent!important;transform:none!important}
+.mag-page #contents.mag-contents{padding-top:2.5rem!important;padding-bottom:2.5rem!important}
+.mag-page #contents .mag-rule-heading{margin-bottom:1.25rem!important}
+.mag-page #contents .mag-contents-grid{display:block!important;width:100%!important;gap:0!important}
+.mag-page #contents .mag-contents-title{width:100%!important;max-width:none!important;margin:0!important;padding:0!important}
+.mag-page #contents .mag-contents-title h2{width:100%!important;max-width:none!important;margin:.65rem 0 1.25rem!important;font-size:clamp(2.85rem,10.8vw,4rem)!important;line-height:.88!important;letter-spacing:-.025em!important;text-wrap:balance!important}
+.mag-page #contents .mag-contents-image{width:100%!important;margin:0!important}
+.mag-page #contents .mag-contents-list{padding-top:1.25rem!important}
+}
+`;
+
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return (
-    <html lang="en">
-      <body className={`${sans.variable} ${display.variable}`}>
-        {children}
-        <EastokyoMotion />
-        <HomepageEngagement />
-        <EngagementLockdown />
-      </body>
-    </html>
-  );
+  return <html lang="en"><body className={`${sans.variable} ${display.variable}`}><style dangerouslySetInnerHTML={{ __html: mobileCoverAuthority }} /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "Organization", name: "EASTOKYO", url: "https://www.eastokyo.com", description: "Independent art magazine based in Tokyo, covering art from around the world." }) }} /><EastokyoMotion /><HomepageEngagement /><EngagementLockdown />{children}</body></html>;
 }
