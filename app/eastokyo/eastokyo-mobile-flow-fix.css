@@ -1,0 +1,107 @@
+/* Mobile-only structural flow fix.
+   Do not use desktop grid geometry on phone-sized screens. */
+@media (max-width: 640px) {
+  .mag-page #contents,
+  .mag-page #bullfighting,
+  .mag-page #picasso-index {
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+  }
+
+  /* Contents: every block participates in normal document flow. */
+  .mag-page #contents .mag-contents-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    gap: 0 !important;
+  }
+  .mag-page #contents .mag-contents-title,
+  .mag-page #contents .mag-contents-image,
+  .mag-page #contents .mag-contents-list {
+    position: relative !important;
+    inset: auto !important;
+    transform: none !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+  }
+  .mag-page #contents .mag-contents-image {
+    height: 72vw !important;
+  }
+  .mag-page #contents .mag-contents-list {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+  .mag-page #contents {
+    padding-bottom: 1.5rem !important;
+  }
+
+  /* Bullfighting: replace all inherited spread/grid placement with a simple content stack. */
+  .mag-page #bullfighting .mag-feature-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    gap: 1.25rem !important;
+  }
+  .mag-page #bullfighting .mag-feature-grid > * {
+    position: relative !important;
+    inset: auto !important;
+    float: none !important;
+    transform: none !important;
+    grid-area: auto !important;
+    align-self: auto !important;
+    width: 100% !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    margin-bottom: 0 !important;
+  }
+  .mag-page #bullfighting .mag-feature-image-primary,
+  .mag-page #bullfighting .mag-feature-image-detail {
+    height: auto !important;
+    aspect-ratio: auto !important;
+  }
+  .mag-page #bullfighting .mag-feature-copy {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.35rem !important;
+    height: auto !important;
+  }
+  .mag-page #bullfighting .mag-feature-pullquote {
+    height: auto !important;
+  }
+  .mag-page #bullfighting {
+    padding-bottom: 1.5rem !important;
+  }
+
+  /* Index: prevent desktop grid tracks/positioning from reserving a floor. */
+  .mag-page #picasso-index .mag-index-head,
+  .mag-page #picasso-index .mag-index-list {
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+  }
+  .mag-page #picasso-index .mag-index-feature {
+    position: relative !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+  }
+  .mag-page #picasso-index .mag-index-list {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+  .mag-page #picasso-index .mag-index-row:last-child {
+    margin-bottom: 0 !important;
+  }
+  .mag-page #picasso-index {
+    padding-bottom: 1.5rem !important;
+  }
+}
