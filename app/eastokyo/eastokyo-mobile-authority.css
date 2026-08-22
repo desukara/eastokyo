@@ -1,7 +1,7 @@
 /* EASTOKYO mobile authority — phone art direction only.
    Desktop is approved and intentionally untouched. */
 @media (max-width: 899px) {
-  /* Kill desktop spread-height assumptions on phones. Sections should end with their content. */
+  /* Mobile sections must size from their real content, not inherited desktop tracks. */
   .mag-page #bullfighting,
   .mag-page #picasso-index {
     height: auto !important;
@@ -11,8 +11,24 @@
     padding-bottom: 2.25rem !important;
   }
   .mag-page #bullfighting .mag-feature-grid {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    grid-template-rows: none !important;
+    grid-auto-rows: auto !important;
+    align-content: start !important;
     height: auto !important;
     min-height: 0 !important;
+    gap: 1.25rem !important;
+  }
+  .mag-page #bullfighting .mag-feature-heading,
+  .mag-page #bullfighting .mag-feature-image-primary,
+  .mag-page #bullfighting .mag-feature-image-detail,
+  .mag-page #bullfighting .mag-feature-copy,
+  .mag-page #bullfighting .mag-feature-pullquote {
+    grid-column: 1 !important;
+    grid-row: auto !important;
+    min-height: 0 !important;
+    margin-bottom: 0 !important;
   }
   .mag-page #picasso-index {
     padding-bottom: 2.25rem !important;
@@ -68,9 +84,7 @@
     text-overflow: clip !important;
     text-wrap: balance !important;
   }
-  .mag-page #latest .mag-cover-masthead {
-    margin-top: .55rem !important;
-  }
+  .mag-page #latest .mag-cover-masthead { margin-top: .55rem !important; }
   .mag-page #latest .mag-cover-story .mag-kicker,
   .mag-page #latest .mag-cover-story h1 {
     overflow-wrap: normal !important;
@@ -88,9 +102,7 @@
     box-shadow: .18rem .18rem 0 var(--story-cta-shadow) !important;
   }
   .mag-page #latest .story-cta__action,
-  .mag-page #latest .story-cta__status {
-    min-height: 2.15rem !important;
-  }
+  .mag-page #latest .story-cta__status { min-height: 2.15rem !important; }
   .mag-page #latest .story-cta__action {
     flex: 0 1 auto !important;
     min-width: 0 !important;
@@ -111,27 +123,16 @@
     font-size: .46rem !important;
     letter-spacing: .1em !important;
   }
-  .mag-page #latest .mag-cover-lines {
-    margin-top: 1.8rem !important;
-  }
-  .mag-page #latest .mag-cover-line {
-    padding: 1.05rem 0 !important;
-  }
-  .mag-page #latest .mag-cover-line + .mag-cover-line {
-    margin-top: .85rem !important;
-  }
-  .mag-page #latest .mag-cover-line small {
-    display: block !important;
-    margin-bottom: .45rem !important;
-  }
+  .mag-page #latest .mag-cover-lines { margin-top: 1.8rem !important; }
+  .mag-page #latest .mag-cover-line { padding: 1.05rem 0 !important; }
+  .mag-page #latest .mag-cover-line + .mag-cover-line { margin-top: .85rem !important; }
+  .mag-page #latest .mag-cover-line small { display: block !important; margin-bottom: .45rem !important; }
   .mag-page #latest .mag-cover-line p {
     font-size: clamp(1.32rem, 5.7vw, 1.7rem) !important;
     line-height: 1.04 !important;
     text-wrap: balance !important;
   }
-  .mag-page #latest .mag-cover-line:nth-child(2) p {
-    font-size: 0 !important;
-  }
+  .mag-page #latest .mag-cover-line:nth-child(2) p { font-size: 0 !important; }
   .mag-page #latest .mag-cover-line:nth-child(2) p::after {
     content: "ONE ANGLE WASN'T ENOUGH.";
     display: block;
@@ -141,17 +142,24 @@
     letter-spacing: inherit;
   }
 
-  /* CONTENTS — one locator, then the headline. No duplicate-feeling kicker. */
+  /* CONTENTS — content-height on mobile; no desktop spread floor. */
   .mag-page #contents {
+    height: auto !important;
+    min-height: 0 !important;
     padding-top: 3.25rem !important;
-    padding-bottom: 3.5rem !important;
+    padding-bottom: 2.25rem !important;
   }
-  .mag-page #contents .mag-contents-title {
-    margin-bottom: 2rem !important;
+  .mag-page #contents .mag-contents-grid {
+    height: auto !important;
+    min-height: 0 !important;
+    align-content: start !important;
   }
-  .mag-page #contents .mag-contents-title .mag-kicker {
-    display: none !important;
+  .mag-page #contents .mag-contents-list,
+  .mag-page #contents .mag-contents-entry:last-child {
+    margin-bottom: 0 !important;
   }
+  .mag-page #contents .mag-contents-title { margin-bottom: 2rem !important; }
+  .mag-page #contents .mag-contents-title .mag-kicker { display: none !important; }
   .mag-page #contents .mag-contents-title h2 {
     max-width: 9ch !important;
     margin: 0 !important;
@@ -160,11 +168,9 @@
     letter-spacing: -.045em !important;
     text-wrap: balance !important;
   }
-  .mag-page #contents .mag-contents-image {
-    margin-top: 1.15rem !important;
-  }
+  .mag-page #contents .mag-contents-image { margin-top: 1.15rem !important; }
 
-  /* BULLFIGHT — preserve the contrast between deck and body, but make both readable at phone measure. */
+  /* BULLFIGHT */
   .mag-page #bullfighting .mag-deck {
     font-size: clamp(1.12rem, 4.5vw, 1.28rem) !important;
     line-height: 1.52 !important;
@@ -173,21 +179,16 @@
     font-size: clamp(.98rem, 3.9vw, 1.08rem) !important;
     line-height: 1.55 !important;
   }
-  .mag-page #bullfighting .mag-feature-copy {
-    gap: 1.35rem !important;
-  }
+  .mag-page #bullfighting .mag-feature-copy { gap: 1.35rem !important; }
   .mag-page #bullfighting .mag-feature-pullquote {
     margin-top: .35rem !important;
     padding: 1.25rem 1.2rem 1.3rem !important;
     font-size: clamp(1.55rem, 6.6vw, 2rem) !important;
     line-height: 1.05 !important;
   }
-  .mag-page #bullfighting .mag-feature-pullquote span {
-    margin-top: .9rem !important;
-    font-size: .66rem !important;
-  }
+  .mag-page #bullfighting .mag-feature-pullquote span { margin-top: .9rem !important; font-size: .66rem !important; }
 
-  /* EXHIBITION — retain current HTML captions and avoid accidental one-word endings. */
+  /* EXHIBITION */
   .mag-page #exhibition .picasso-shot figcaption span {
     max-width: 100% !important;
     overflow-wrap: normal !important;
@@ -198,11 +199,7 @@
     font-size: clamp(.58rem, 2.55vw, .68rem) !important;
     letter-spacing: .09em !important;
   }
-  .mag-page #exhibition .picasso-outro-wordbox {
-    max-width: 100% !important;
-    line-height: .96 !important;
-    text-wrap: balance !important;
-  }
+  .mag-page #exhibition .picasso-outro-wordbox { max-width: 100% !important; line-height: .96 !important; text-wrap: balance !important; }
   .mag-page #exhibition .picasso-outro-aside {
     display: block !important;
     margin-top: .8rem !important;
@@ -214,12 +211,9 @@
     white-space: nowrap !important;
   }
 
-  /* CUBISM — let the same approved prose breathe on a phone instead of forcing desktop rhythm. */
+  /* CUBISM */
   .mag-page #cubism .cubism-intro-copy h2,
-  .mag-page #cubism-works .cubism-spread-head h2 {
-    max-width: 100% !important;
-    text-wrap: balance !important;
-  }
+  .mag-page #cubism-works .cubism-spread-head h2 { max-width: 100% !important; text-wrap: balance !important; }
   .mag-page #cubism .cubism-intro-copy > p,
   .mag-page #cubism-works .cubism-spread-head > p {
     max-width: 100% !important;
@@ -228,10 +222,8 @@
     text-wrap: pretty !important;
   }
 
-  /* INDEX — no white matte/frame around the hero image; let it sit directly on the blue field. */
-  .mag-page #picasso-index .mag-index-head > div {
-    margin-bottom: 1.15rem !important;
-  }
+  /* INDEX */
+  .mag-page #picasso-index .mag-index-head > div { margin-bottom: 1.15rem !important; }
   .mag-page #picasso-index .mag-index-head > p {
     margin-bottom: 1.15rem !important;
     font-size: clamp(1.08rem, 4.3vw, 1.2rem) !important;
@@ -257,12 +249,8 @@
     outline: 0 !important;
     box-shadow: none !important;
   }
-  .mag-page #picasso-index .mag-index-list {
-    margin-top: 0 !important;
-  }
-  .mag-page #picasso-index .mag-index-row {
-    padding: 1.45rem 0 1.55rem !important;
-  }
+  .mag-page #picasso-index .mag-index-list { margin-top: 0 !important; }
+  .mag-page #picasso-index .mag-index-row { padding: 1.45rem 0 1.55rem !important; }
   .mag-page #picasso-index .mag-index-row h3 {
     margin-top: .35rem !important;
     font-size: clamp(1.7rem, 7.2vw, 2.2rem) !important;
