@@ -6,212 +6,26 @@ export const metadata: Metadata = {
   title: "The City Puts On Its Costume.",
   description: "Asagaya Tanabata, where an ordinary Tokyo shopping street decides to become something else for a few summer nights.",
   alternates: { canonical: "/the-city-puts-on-a-costume" },
-  robots: {
-    index: false,
-    follow: false,
-    googleBot: { index: false, follow: false },
-  },
+  robots: { index: false, follow: false, googleBot: { index: false, follow: false } },
 };
 
-const feature = (number: number) => {
-  const id = String(number).padStart(2, "0");
-  return {
-    desktop: `/images/editorial/asagaya-feature-${id}-desktop.jpg`,
-    mobile: `/images/editorial/asagaya-feature-${id}-mobile.jpg`,
-  };
-};
+const feature = (number: number) => { const id = String(number).padStart(2, "0"); return { desktop: `/images/editorial/asagaya-feature-${id}-desktop.jpg`, mobile: `/images/editorial/asagaya-feature-${id}-mobile.jpg` }; };
+function AsagayaPicture({ number, alt, className = "", eager = false }: { number:number; alt:string; className?:string; eager?:boolean }) { const image=feature(number); return <picture className={`${styles.storyPicture} ${className}`}><source media="(max-width: 700px)" srcSet={image.mobile}/><img src={image.desktop} alt={alt} loading={eager?"eager":"lazy"}/></picture>; }
 
-function AsagayaPicture({
-  number,
-  alt,
-  className = "",
-  eager = false,
-}: {
-  number: number;
-  alt: string;
-  className?: string;
-  eager?: boolean;
-}) {
-  const image = feature(number);
-  return (
-    <picture className={`${styles.storyPicture} ${className}`}>
-      <source media="(max-width: 700px)" srcSet={image.mobile} />
-      <img src={image.desktop} alt={alt} loading={eager ? "eager" : "lazy"} />
-    </picture>
-  );
-}
-
-export default function AsagayaStoryPage() {
-  return (
-    <main className={styles.page} id="top">
-      <header className={styles.folio}>
-        <Link className={styles.brand} href="/">EASTOKYO</Link>
-        <span className={styles.folioCenter}>TOKYO · ISSUE 01</span>
-        <span className={styles.folioRight}>SEPTEMBER 2026</span>
-      </header>
-
-      <section className={styles.hero}>
-        <picture className={styles.heroMedia}>
-          <source media="(max-width: 700px)" srcSet="/images/editorial/asagaya-hero-01-mobile.jpg" />
-          <img
-            className={styles.heroImage}
-            src="/images/editorial/asagaya-hero-01-desktop.jpg"
-            alt="Asagaya Pearl Center decorated for the Tanabata festival"
-            fetchPriority="high"
-          />
-        </picture>
-        <div className={styles.heroShade} aria-hidden="true" />
-        <div className={styles.heroType}>
-          <p className={styles.kicker}>TOKYO · ASAGAYA TANABATA</p>
-          <h1>THE CITY<br />PUTS ON ITS<br /><em>COSTUME.</em></h1>
-          <p className={styles.heroDeck}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
-        </div>
-        <span className={styles.issueMark} aria-hidden="true">04</span>
-      </section>
-
-      <section className={styles.intro}>
-        <div className={styles.meta}>
-          <span>EASTOKYO</span>
-          <span>TOKYO STORY 04</span>
-          <span>BY JAMES SIMMONS<br />(AKA JIMICHANGA)</span>
-        </div>
-        <div className={styles.introCopy}>
-          <p className={styles.drop}>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec ullamcorper nulla non metus auctor fringilla. Maecenas faucibus mollis interdum. Curabitur blandit tempus porttitor.</p>
-          <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod.</p>
-          <p>Cras mattis consectetur purus sit amet fermentum. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Sed posuere consectetur est at lobortis.</p>
-          <p>Donec sed odio dui. Vestibulum id ligula porta felis euismod semper.</p>
-        </div>
-      </section>
-
-      <section className={styles.openingDiptych} aria-label="Asagaya festival photographs">
-        <figure className={`${styles.photo} ${styles.openingLarge}`}>
-          <AsagayaPicture number={2} alt="Handmade Tanabata decorations suspended over Asagaya Pearl Center" />
-          <figcaption>02 · THE STREET STARTS LOOKING UP.</figcaption>
-        </figure>
-        <figure className={`${styles.photo} ${styles.openingSmall}`}>
-          <AsagayaPicture number={3} alt="Festival decoration hanging above the Asagaya shopping street" />
-          <figcaption>03 · NOTHING UP THERE IS TRYING TO BE SENSIBLE.</figcaption>
-        </figure>
-      </section>
-
-      <section className={styles.statement}>
-        <p>LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISCING ELIT. VIVAMUS SAGITTIS LACUS VEL AUGUE LAOREET.</p>
-        <span>CURABITUR BLANDIT TEMPUS PORTTITOR.</span>
-      </section>
-
-      <section className={styles.readingSection}>
-        <div className={styles.readingCopy}>
-          <p className={styles.sectionNo}>01</p>
-          <p className={styles.sectionLabel}>THE STREET LOOKS UP</p>
-          <h2>You notice the ceiling before anything else.</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed odio dui. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
-          <p>Maecenas sed diam eget risus varius blandit sit amet non magna. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vestibulum id ligula porta felis euismod semper. Donec ullamcorper nulla non metus auctor fringilla.</p>
-          <p>Nullam quis risus eget urna mollis ornare vel eu leo. Sed posuere consectetur est at lobortis. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
-          <p>Etiam porta sem malesuada magna mollis euismod. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Curabitur blandit tempus porttitor.</p>
-        </div>
-      </section>
-
-      <figure className={`${styles.photo} ${styles.fullBleedPhoto}`}>
-        <AsagayaPicture number={4} alt="Crowds walking beneath oversized handmade Tanabata decorations in Asagaya" />
-        <figcaption><span>04</span> THE CEILING BECOMES ANOTHER STREET.</figcaption>
-      </figure>
-
-      <section className={styles.readingSection}>
-        <div className={styles.readingCopy}>
-          <p className={styles.sectionNo}>02</p>
-          <p className={styles.sectionLabel}>A FESTIVAL MADE BY HAND</p>
-          <h2>Polish would ruin it.</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus mollis interdum. Nulla vitae elit libero, a pharetra augue. Aenean lacinia bibendum nulla sed consectetur.</p>
-          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec id elit non mi porta gravida at eget metus. Vestibulum id ligula porta felis euismod semper. Cras mattis consectetur purus sit amet fermentum.</p>
-          <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Sed posuere consectetur est at lobortis. Donec ullamcorper nulla non metus auctor fringilla. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
-          <p>Nullam id dolor id nibh ultricies vehicula ut id elit. Donec sed odio dui.</p>
-        </div>
-      </section>
-
-      <section className={styles.staggeredGallery} aria-label="Handmade Asagaya Tanabata decorations">
-        <figure className={`${styles.photo} ${styles.staggerA}`}>
-          <AsagayaPicture number={5} alt="Colorful handmade festival figure suspended in Asagaya" />
-          <figcaption>05 · MADE BY HAND. HUNG WITH CONFIDENCE.</figcaption>
-        </figure>
-        <figure className={`${styles.photo} ${styles.staggerB}`}>
-          <AsagayaPicture number={6} alt="Festival decorations and streamers filling the Asagaya arcade" />
-          <figcaption>06 · COLOR WITH ABSOLUTELY NO PRACTICAL PURPOSE.</figcaption>
-        </figure>
-        <figure className={`${styles.photo} ${styles.staggerC}`}>
-          <AsagayaPicture number={7} alt="Black and white cat decoration hanging over the shopping street" />
-          <figcaption>07 · SOMEBODY MADE A CAT. OF COURSE THEY DID.</figcaption>
-        </figure>
-      </section>
-
-      <section className={styles.blueSection}>
-        <div className={styles.blueTitle}>
-          <p className={styles.sectionNo}>03</p>
-          <p className={styles.sectionLabel}>THE USEFUL CITY DISAPPEARS</p>
-          <h2>For a little while, nobody is in a hurry to get through.</h2>
-        </div>
-        <div className={styles.blueColumns}>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere consectetur est at lobortis. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Donec ullamcorper nulla non metus auctor fringilla.</p>
-          <p>Nulla vitae elit libero, a pharetra augue. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Curabitur blandit tempus porttitor.</p>
-          <p>Maecenas faucibus mollis interdum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
-          <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Etiam porta sem malesuada magna mollis euismod.</p>
-        </div>
-      </section>
-
-      <section className={styles.streetSequence} aria-label="The Asagaya festival street">
-        <figure className={`${styles.photo} ${styles.streetWide}`}>
-          <AsagayaPicture number={8} alt="Festival crowd moving beneath decorations in Asagaya Pearl Center" />
-          <figcaption>08 · THE CROWD HAS ITS OWN WEATHER.</figcaption>
-        </figure>
-        <div className={styles.streetSide}>
-          <p className={styles.streetQuote}>LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISCING ELIT.</p>
-          <figure className={styles.photo}>
-            <AsagayaPicture number={9} alt="Tanabata decorations hanging above shoppers in Asagaya" />
-            <figcaption>09 · KEEP WALKING. KEEP LOOKING UP.</figcaption>
-          </figure>
-        </div>
-      </section>
-
-      <figure className={`${styles.photo} ${styles.cinemaPhoto}`}>
-        <AsagayaPicture number={10} alt="Long view down Asagaya Pearl Center with a giant lucky cat suspended overhead" />
-        <div className={styles.cinemaCaption}>
-          <span>10</span>
-          <p>LOREM IPSUM DOLOR SIT AMET.</p>
-        </div>
-      </figure>
-
-      <section className={styles.detailPair} aria-label="Asagaya festival details">
-        <figure className={styles.photo}>
-          <AsagayaPicture number={11} alt="Large hanging festival figures above lanterns and storefronts in Asagaya" />
-          <figcaption>11 · EVEN THE STOREFRONTS HAVE COMPANY.</figcaption>
-        </figure>
-        <figure className={styles.photo}>
-          <AsagayaPicture number={12} alt="Restaurant window with lanterns and metallic Tanabata streamers" />
-          <figcaption>12 · THE FESTIVAL GETS ALL THE WAY INTO THE WINDOWS.</figcaption>
-        </figure>
-      </section>
-
-      <section className={styles.outro}>
-        <div className={styles.outroCopy}>
-          <p className={styles.sectionNo}>04</p>
-          <p className={styles.sectionLabel}>WHAT THE STREET REMEMBERS</p>
-          <h2>Then everybody takes the costume down.</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum id ligula porta felis euismod semper. Curabitur blandit tempus porttitor. Donec sed odio dui.</p>
-          <p>Maecenas faucibus mollis interdum. Sed posuere consectetur est at lobortis. Aenean lacinia bibendum nulla sed consectetur. Nullam quis risus eget urna mollis ornare vel eu leo.</p>
-          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Cras mattis consectetur purus sit amet fermentum. Donec ullamcorper nulla non metus auctor fringilla.</p>
-          <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
-          <p>Etiam porta sem malesuada magna mollis euismod.</p>
-          <p className={styles.lastLine}>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
-        </div>
-      </section>
-
-      <footer className={styles.footer}>
-        <div>
-          <Link href="/">EASTOKYO</Link>
-          <p>NUMBER ONE · TOKYO · SEPTEMBER 2026</p>
-        </div>
-        <a href="#top">BACK TO TOP ↑</a>
-      </footer>
-    </main>
-  );
-}
+export default function AsagayaStoryPage(){return <main className={styles.page} id="top">
+<header className={styles.folio}><Link className={styles.brand} href="/">EASTOKYO</Link><span className={styles.folioCenter}>TOKYO · ISSUE 01</span><span className={styles.folioRight}>SEPTEMBER 2026</span></header>
+<section className={styles.hero}><picture className={styles.heroMedia}><source media="(max-width: 700px)" srcSet="/images/editorial/asagaya-hero-01-mobile.jpg"/><img className={styles.heroImage} src="/images/editorial/asagaya-hero-01-desktop.jpg" alt="Asagaya Pearl Center decorated for the Tanabata festival" fetchPriority="high"/></picture><div className={styles.heroShade} aria-hidden="true"/><div className={styles.heroType}><p className={styles.kicker}>TOKYO · ASAGAYA TANABATA</p><h1>THE CITY<br/>PUTS ON ITS<br/><em>COSTUME.</em></h1><p className={styles.heroDeck}>Once a year, this ordinary little shopping street in western Tokyo throws its arms open to the sky and fills the air above the shops with enormous handmade creatures — color, wishes, and beautiful things that have no practical reason to exist at all. And somehow, the whole neighborhood turns itself into the artwork.</p></div><span className={styles.issueMark} aria-hidden="true">04</span></section>
+<section className={styles.intro}><div className={styles.meta}><span>EASTOKYO</span><span>TOKYO STORY 04</span><span>BY JAMES SIMMONS<br/>(AKA JIMICHANGA)</span></div><div className={styles.introCopy}><p className={styles.drop}>There is a giant creature hanging over the pharmacy.</p><p>I don't know exactly what it is. And that turns out not to be a problem at all.</p><p>Keep walking through Asagaya Pearl Center and the ceiling stops behaving like a ceiling. Something enormous floats above a restaurant. Streamers fall between the storefronts. A cartoon face appears where architecture is supposed to be. Another creature hangs further down the arcade, and another, and another, until looking straight ahead starts to feel like you're missing the point.</p><p>Everybody is looking up.</p><p>This is the Asagaya Tanabata Festival, a summer tradition born right here in 1954, that grew up wrapped around the neighborhood's shopping streets, Pearl Center most of all. Tanabata itself is much older — the star festival built around Orihime and Hikoboshi, two lovers who became the stars Vega and Altair, torn apart by the Milky Way, and given, just once a year, the mercy of reuniting. People write their hopes on narrow strips of colored paper called tanzaku and hang them from bamboo.</p><p>Asagaya took that tradition and decided it needed monsters too.</p><p>The arcade fills with streamers and handmade papier-mâché figures, made by people around the neighborhood and shopping district. Animals. Characters. Faces. Things I am fairly certain no scientist has ever tried to classify.</p><p>For a few summer days, the neighborhood doesn't stop being itself.<br/>It just discovers that being itself was always holding more than anybody knew.</p></div></section>
+<section className={styles.openingDiptych} aria-label="Asagaya festival photographs"><figure className={`${styles.photo} ${styles.openingLarge}`}><AsagayaPicture number={2} alt="Handmade Tanabata decorations suspended over Asagaya Pearl Center"/><figcaption>02 · THE STREET STARTS LOOKING UP.</figcaption></figure><figure className={`${styles.photo} ${styles.openingSmall}`}><AsagayaPicture number={3} alt="Festival decoration hanging above the Asagaya shopping street"/><figcaption>03 · NOTHING UP THERE IS TRYING TO BE SENSIBLE.</figcaption></figure></section>
+<section className={styles.statement}><p>THE BUILDINGS DON'T DISAPPEAR.<br/>THEY BECOME THE CANVAS.</p></section>
+<section className={styles.readingSection}><div className={styles.readingCopy}><p className={styles.sectionNo}>01</p><p className={styles.sectionLabel}>THE STREET LOOKS UP</p><h2>You notice the ceiling before anything else.</h2><p>Cities spend so much of their energy telling you exactly where to look.</p><p>Traffic light. Train sign. Store entrance. Your phone. The crosswalk. The menu. The platform number. Exit B2.</p><p>Straight ahead. Always straight ahead.</p><p>And then Asagaya comes along and rearranges everything.</p><p>The decorations hang overhead, and that means meeting them asks something small of your body — you have to tilt your head back. Surrender, just a little.</p><p>And suddenly there are grown adults wandering around with their necks craned up at enormous paper creatures, like a school trip that just got let loose in the dinosaur hall.<br/>Good.</p><p>Grown-ups need ridiculous things too. We forget that.</p><p>We spend so much of our lives surrounded by things that have to justify themselves. Buildings shelter us. Signs instruct us. Roads carry us from here to there. Shops sell us the things we need. Everything has a job to do.</p><p>And then somebody hangs a gigantic handmade animal over a shopping street.</p><p>What does it do?<br/>Nothing.<br/>Thank God — nothing.</p><p>It exists because somebody thought the world would be better with it in it.</p><p>And the scale matters here. Nobody said, let's make a tasteful little paper animal and tuck it quietly by the entrance.<br/>No.<br/>Make it enormous.<br/>Hang it over everybody's heads.<br/>Add another.<br/>More color. More streamers.<br/>Keep going until the whole street has been swept up into it.</p><p>That kind of excess feels important in a city like Tokyo, a city outsiders love to squeeze into two clichés that don't even talk to each other: the gray corporate machine on one side, the immaculate Japanese restraint on the other. Concrete and salarymen, or pale wood and one perfect bowl sitting alone in an empty room.</p><p>Asagaya has another idea entirely.<br/><strong>More can be more.</strong></p><p>And the beauty comes from the collision. These aren't fantasy objects floating in some perfect made-up world. There's still a drugstore right underneath them. Restaurants. Signs. Fluorescent lights. Ordinary shops selling ordinary things to ordinary people.</p><p>The festival doesn't hide the everyday city.<br/>It uses it.</p></div></section>
+<figure className={`${styles.photo} ${styles.fullBleedPhoto}`}><AsagayaPicture number={4} alt="Crowds walking beneath oversized handmade Tanabata decorations in Asagaya"/><figcaption><span>04</span> THE CEILING BECOMES ANOTHER STREET.</figcaption></figure>
+<section className={styles.readingSection}><div className={styles.readingCopy}><p className={styles.sectionNo}>02</p><p className={styles.sectionLabel}>A FESTIVAL MADE BY HAND</p><h2>Polish would ruin this.</h2><p>Look closer and the spell only gets stronger.</p><p>You can feel the hands that made it.</p><p>These are not anonymous decorations shipped from some giant factory and craned into place overnight. These handmade figures — <strong>haribote</strong> — have long been one of the defining features of Asagaya Tanabata, built right here in this shopping district by people from the neighborhood and hung through the arcade.</p><p>Which means somebody had the idea first.</p><p>And then somebody had to figure out how to actually build it.</p><p>Cutting. Shaping. Gluing. Painting. Hanging it up. Fixing the one part that absolutely refused to stay where it belonged.</p><p>And eventually, this ridiculous thing that lived only inside one person's imagination gets a body.</p><p>That's the part that stays with me.</p><p>This festival isn't just people receiving somebody else's dream.</p><p>The people here make it, together.</p><p>One shop makes something. Somebody else makes another. Even the children get to put their hands in it — <strong>for the 70th festival in 2026, Asagaya Library held a workshop where kids helped decorate an original little haribote to hang in the shopping street.</strong></p><p>No single piece is the festival.</p><p>But put them all together — hand by hand — and something larger appears.</p><p>Asagaya itself becomes the artist.</p><p>Not because everyone agrees on what beautiful looks like. Of course they don't. And thank goodness for that too.</p><p>The agreement underneath it all is simpler than that:<br/><strong>We're doing this together.</strong></p><p>And then comes the part that gets me every time.</p><p>After all that work, they take it down.</p><p>The creature disappears. The streamers come down. The arcade goes back to just being an arcade.</p><p>Which might sound like a waste, until you understand that the disappearing is exactly what keeps the whole thing alive.</p><p>A monument can outlive the people who built it. The next generation can inherit it without lifting a finger.</p><p>But a festival that disappears makes a demand of you:<br/><strong>You want it again? Then make it again.</strong></p><p>New hands. New characters. New jokes. New mistakes. New children growing old enough to finally contribute something of their own.</p><p>Maybe some traditions live on because we preserve them behind glass.</p><p>And maybe others live on because we love them enough to keep playing with them, year after year.</p></div></section>
+<section className={styles.staggeredGallery} aria-label="Handmade Asagaya Tanabata decorations"><figure className={`${styles.photo} ${styles.staggerA}`}><AsagayaPicture number={5} alt="Colorful handmade festival figure suspended in Asagaya"/><figcaption>05 · MADE BY HAND. HUNG WITH CONFIDENCE.</figcaption></figure><figure className={`${styles.photo} ${styles.staggerB}`}><AsagayaPicture number={6} alt="Festival decorations and streamers filling the Asagaya arcade"/><figcaption>06 · COLOR WITH ABSOLUTELY NO PRACTICAL PURPOSE.</figcaption></figure><figure className={`${styles.photo} ${styles.staggerC}`}><AsagayaPicture number={7} alt="Black and white cat decoration hanging over the shopping street"/><figcaption>07 · SOMEBODY MADE A CAT. OF COURSE THEY DID.</figcaption></figure></section>
+<section className={styles.blueSection}><div className={styles.blueTitle}><p className={styles.sectionNo}>03</p><p className={styles.sectionLabel}>THE USEFUL CITY DISAPPEARS</p><h2>For a little while, nobody is in a hurry to get anywhere.</h2></div><div className={styles.blueColumns}><p>The decorations change the moment the people arrive. A giant creature photographed alone, empty street, nobody around — that's just an object.</p><p>Put five hundred people underneath it, and suddenly you understand what it's for. Someone stops. Someone points up, calling to a friend. A kid stares, mouth open. Somebody nearly walks into somebody else because they can't stop photographing the ceiling. A woman passes underneath, carrying her groceries home like it's any other Tuesday. And every second, the whole composition changes.</p><p>That's the moment the street itself starts behaving like a living artwork. The architecture gives you the canvas. The decorations bring the impossible. The crowd brings the movement. Chance handles everything else.</p><p>Nobody planned for that woman in exactly the right shirt to walk underneath exactly the right creature at exactly the right second. It just happens. Then it's gone.</p><p>That's what makes photographing this festival interesting to me. I'm not trying to bottle up what it felt like to be there. I couldn't if I tried. The photograph makes something new out of it.</p><p>Someone made the decoration with their own hands. The neighborhood lifted it into the street. Hundreds of strangers walked beneath it, not even knowing they were part of something. And chance arranged one unrepeatable picture for half a second. Then I put a rectangle around it.</p><p>Another small artwork, made from something that was already made.</p><p>And somewhere inside all this enormous public spectacle is something almost impossibly small. A strip of paper.</p><p>Tanabata's tanzaku carry one person's private hope — written down, hung up beside a thousand others just like it.</p><p>And that's the change of scale that gets me. Giant creatures overhead. Color everywhere you look. Crowds filling every inch of the arcade. And tucked inside all of it: one person, one piece of paper, one wish.</p><p>There are things we get to build with our own hands. And there are things we can only ever wish for. A festival, somehow, makes room for both.</p></div></section>
+<section className={styles.streetSequence} aria-label="The Asagaya festival street"><figure className={`${styles.photo} ${styles.streetWide}`}><AsagayaPicture number={8} alt="Festival crowd moving beneath decorations in Asagaya Pearl Center"/><figcaption>08 · THE CROWD HAS ITS OWN WEATHER.</figcaption></figure><div className={styles.streetSide}><p className={styles.streetQuote}>NOBODY DESIGNED THE WHOLE PICTURE.<br/>EVERYBODY HELPED MAKE IT.</p><figure className={styles.photo}><AsagayaPicture number={9} alt="Tanabata decorations hanging above shoppers in Asagaya"/><figcaption>09 · KEEP WALKING. KEEP LOOKING UP.</figcaption></figure></div></section>
+<figure className={`${styles.photo} ${styles.cinemaPhoto}`}><AsagayaPicture number={10} alt="Long view down Asagaya Pearl Center with a giant lucky cat suspended overhead"/><div className={styles.cinemaCaption}><span>10</span><p>FOR A FEW DAYS, SOMEBODY'S IMAGINATION HAS MASS.</p></div></figure>
+<section className={styles.detailPair} aria-label="Asagaya festival details"><figure className={styles.photo}><AsagayaPicture number={11} alt="Large hanging festival figures above lanterns and storefronts in Asagaya"/><figcaption>11 · EVEN THE STOREFRONTS HAVE COMPANY.</figcaption></figure><figure className={styles.photo}><AsagayaPicture number={12} alt="Restaurant window with lanterns and metallic Tanabata streamers"/><figcaption>12 · THE FESTIVAL GETS ALL THE WAY INTO THE WINDOWS.</figcaption></figure></section>
+<section className={styles.outro}><div className={styles.outroCopy}><p className={styles.sectionNo}>04</p><p className={styles.sectionLabel}>WHAT THE STREET REMEMBERS</p><h2>And then everybody takes the costume off.</h2><p>Asagaya goes back to being ordinary again.</p><p>Which isn't the sad ending it sounds like.</p><p>The shops are still there. The beams are still there. The same ceiling hangs over the same arcade. People go right back to buying dinner and toothpaste and whatever else they needed before somebody hung a giant creature over their heads.</p><p>Physically, almost nothing has changed.</p><p>But something has been proven.</p><p>For a few days, everybody in this neighborhood saw that this place could be something else.</p><p>And that is different from just imagining it might be possible.</p><p>They built the possibility.</p><p>Paper, glue, paint, sweat, shops, architecture, crowds, time.</p><p>An idea stepped out of someone's imagination and into the world, and it grew large enough for thousands of strangers to walk right underneath it.</p><p>And every one of them walked away with a different Asagaya.</p><p>One kid will remember the creature that scared them half to death. Somebody else remembers the one that made them laugh until their stomach hurt. Somebody remembers exactly what they wrote on their tanzaku. A shopkeeper remembers the nights spent building the thing in the first place. And I remember the particular arrangements of strangers and light and color that I happened to catch, right before they vanished.</p><p>There was one festival.<br/>And thousands of different versions of it walked home.</p><p>Maybe that's enough.</p><p>We put so much pressure on things to last forever. Buildings. Paintings. Photographs. Careers. Our names. We use permanence like proof that something mattered.</p><p>But Asagaya spends weeks on things whose disappearing was the plan all along.</p><p>The value was never waiting at the end.</p><p>It was in the making of it.<br/>It was in the hanging of it.<br/>It was in watching a stranger encounter it for the very first time.</p><p>It was in a grown adult stopping cold in the middle of an ordinary shopping street because — for reasons that are wonderfully impossible to explain — there was a gigantic handmade cat floating right over their head.</p><p>And next year, if people want that world back, they will have to make it again.</p><p>I think that's what stays with me longest.</p><p>Cities can feel finished. Buildings especially. Concrete has a way of announcing itself like a fact. This is the street. This is the ceiling. This is what this place is for. Walk through it. Buy something. Catch your train.</p><p>But some of those facts are really just agreements we've made without noticing.</p><p>And for a few days every summer in Asagaya, people agree to something different.</p><p>A beam can hold a creature.<br/>A storefront can become a stage.<br/>A shopping arcade can become a gallery, without ever once stopping being a shopping arcade.<br/>A grown adult can look up again.<br/>A ridiculous thing can matter more than anything sensible.<br/>An old tradition can stay alive precisely by refusing to stay exactly the same.<br/>And an ordinary street can become extraordinary without waiting for anybody important to arrive and give it permission.</p><p>Someone just has to imagine the thing.</p><p>And then comes the harder part.</p><p>Somebody has to make it.</p><p className={styles.lastLine}>THE EXTRAORDINARY ISN'T SOMEWHERE ELSE.<br/>SOMETIMES SOMEBODY JUST HAS TO MAKE IT.</p></div></section>
+<footer className={styles.footer}><div><Link href="/">EASTOKYO</Link><p>NUMBER ONE · TOKYO · SEPTEMBER 2026</p></div><a href="#top">BACK TO TOP ↑</a></footer>
+</main>;}
