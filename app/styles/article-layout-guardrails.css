@@ -177,7 +177,8 @@ body:not(:has(.mag-page)) main [class*="standfirst"]{
   body:not(:has(.mag-page)) main [class*="climax"],
   body:not(:has(.mag-page)) main [class*="openingDiptych"],
   body:not(:has(.mag-page)) main [class*="staggeredGallery"],
-  body:not(:has(.mag-page)) main [class*="detailPair"]{
+  body:not(:has(.mag-page)) main [class*="detailPair"],
+  body:not(:has(.mag-page)) main [class*="bullfightPair"]{
     max-width:calc(100vw - 3rem)!important;
     margin-left:auto!important;
     margin-right:auto!important;
@@ -263,6 +264,28 @@ body:not(:has(.mag-page)) main [class*="standfirst"]{
     max-width:calc(100vw - 2rem)!important;
     margin-left:auto!important;
     margin-right:auto!important;
+  }
+
+  /* Arena: the two-up corrida pair becomes too cramped on phones. Preserve both images but give each a full editorial beat. */
+  body:not(:has(.mag-page)) main [class*="bullfightPair"]{
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:stretch!important;
+    gap:2rem!important;
+    width:auto!important;
+    max-width:none!important;
+    margin-left:1rem!important;
+    margin-right:1rem!important;
+    padding-top:.5rem!important;
+    padding-bottom:1rem!important;
+  }
+  body:not(:has(.mag-page)) main [class*="bullfightPair"] figure{
+    width:100%!important;
+  }
+  body:not(:has(.mag-page)) main [class*="bullfightPair"] figcaption{
+    font-size:.52rem!important;
+    line-height:1.45!important;
+    letter-spacing:.09em!important;
   }
 }
 
