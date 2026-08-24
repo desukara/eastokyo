@@ -4,18 +4,18 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import styles from "./bullfight-slideshow.module.css";
 
 const artworkMeta = [
-  { title: "Alaceando a un toro", year: "1957", detail: "Sugar-lift aquatint" },
-  { title: "Citando al toro con el rejón", year: "1957", detail: "Sugar-lift aquatint" },
-  { title: "El torero sale en hombros de los aficionados", year: "1957", detail: "Sugar-lift aquatint" },
-  { title: "El arrastre", year: "1957", detail: "Sugar-lift aquatint" },
-  { title: "Muerte del toro", year: "1957", detail: "Sugar-lift aquatint" },
-  { title: "La Tauromaquia", year: "1957", detail: "From La Tauromaquia" },
-  { title: "Suerte de varas", year: "1957", detail: "Sugar-lift aquatint" },
-  { title: "Salto con la garrocha", year: "1957", detail: "Sugar-lift aquatint" },
-  { title: "La Tauromaquia o arte de torear", year: "1959", detail: "Illustrated book / publication" },
-  { title: "Suerte llamada de don Tancredo", year: "1957", detail: "Sugar-lift aquatint" },
-  { title: "A los toros", year: "1957", detail: "Sugar-lift aquatint" },
-  { title: "Toros en el campo", year: "1957", detail: "Sugar-lift aquatint" },
+  { title: "Alaceando a un toro", year: "1957", detail: "Aquatinte au sucre" },
+  { title: "Citando al toro con el rejón", year: "1957", detail: "Aquatinte au sucre" },
+  { title: "El torero sale en hombros de los aficionados", year: "1957", detail: "Aquatinte au sucre" },
+  { title: "El arrastre", year: "1957", detail: "Aquatinte au sucre" },
+  { title: "Muerte del toro", year: "1957", detail: "Aquatinte au sucre" },
+  { title: "La Tauromaquia", year: "1957", detail: "Tiré de La Tauromaquia" },
+  { title: "Suerte de varas", year: "1957", detail: "Aquatinte au sucre" },
+  { title: "Salto con la garrocha", year: "1957", detail: "Aquatinte au sucre" },
+  { title: "La Tauromaquia o arte de torear", year: "1959", detail: "Livre illustré / publication" },
+  { title: "Suerte llamada de don Tancredo", year: "1957", detail: "Aquatinte au sucre" },
+  { title: "A los toros", year: "1957", detail: "Aquatinte au sucre" },
+  { title: "Toros en el campo", year: "1957", detail: "Aquatinte au sucre" },
 ];
 
 const slides = artworkMeta.map((artwork, index) => {
@@ -122,13 +122,13 @@ export default function BullfightSlideshow() {
   const slide = slides[active];
 
   return (
-    <section className={styles.gallery} aria-label="Picasso La Tauromaquia works">
+    <section className={styles.gallery} aria-label="Œuvres de Picasso pour La Tauromaquia">
       <div className={styles.headingRow}>
         <div className={styles.headingCopy}>
           <p className={styles.collectionLabel}>PICASSO · LA TAUROMAQUIA</p>
-          <p className={styles.eyebrow}>EDITION PUBLISHED IN BARCELONA · 1959</p>
+          <p className={styles.eyebrow}>ÉDITION PUBLIÉE À BARCELONE · 1959</p>
         </div>
-        <p className={styles.hint}>ARROWS · KEYS · SWIPE</p>
+        <p className={styles.hint}>FLÈCHES · TOUCHES · BALAYER</p>
       </div>
 
       <div
@@ -139,7 +139,7 @@ export default function BullfightSlideshow() {
         onTouchEnd={handleTouchEnd}
       >
         <div className={styles.stage}>
-          <button className={`${styles.arrow} ${styles.arrowLeft}`} type="button" onClick={previous} aria-label="Previous artwork">
+          <button className={`${styles.arrow} ${styles.arrowLeft}`} type="button" onClick={previous} aria-label="Œuvre précédente">
             <span aria-hidden="true">←</span>
           </button>
 
@@ -157,14 +157,14 @@ export default function BullfightSlideshow() {
             ))}
           </div>
 
-          <button className={`${styles.arrow} ${styles.arrowRight}`} type="button" onClick={next} aria-label="Next artwork">
+          <button className={`${styles.arrow} ${styles.arrowRight}`} type="button" onClick={next} aria-label="Œuvre suivante">
             <span aria-hidden="true">→</span>
           </button>
 
           <div className={styles.mobileControls}>
-            <button type="button" onClick={previous} aria-label="Previous artwork">← PREVIOUS</button>
+            <button type="button" onClick={previous} aria-label="Œuvre précédente">← PRÉCÉDENTE</button>
             <span className={styles.mobileCount} aria-live="polite">{slide.number} / {slides.length}</span>
-            <button type="button" onClick={next} aria-label="Next artwork">NEXT →</button>
+            <button type="button" onClick={next} aria-label="Œuvre suivante">SUIVANTE →</button>
           </div>
         </div>
 
