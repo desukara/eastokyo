@@ -1,0 +1,136 @@
+/* EASTOKYO standalone article layout guardrails
+   Final cascade layer for article pages only. Homepage (.mag-page) is intentionally excluded. */
+
+/* Structural safety */
+body:not(:has(.mag-page)) main{
+  max-width:100%;
+  overflow-x:clip;
+}
+body:not(:has(.mag-page)) main *,
+body:not(:has(.mag-page)) main *::before,
+body:not(:has(.mag-page)) main *::after{
+  box-sizing:border-box;
+}
+body:not(:has(.mag-page)) main img,
+body:not(:has(.mag-page)) main picture,
+body:not(:has(.mag-page)) main figure{
+  max-width:100%;
+}
+body:not(:has(.mag-page)) main img{
+  height:auto;
+}
+
+/* Editorial type hierarchy: keep display type dramatic without allowing isolated billboard-sized section heads. */
+body:not(:has(.mag-page)) main section h2{
+  max-width:18ch;
+  font-size:clamp(2.75rem,4.5vw,5.25rem)!important;
+  line-height:.92!important;
+  overflow-wrap:normal;
+  word-break:normal;
+  text-wrap:balance;
+}
+body:not(:has(.mag-page)) main section h3{
+  max-width:24ch;
+  font-size:clamp(1.9rem,3vw,3.5rem)!important;
+  line-height:1!important;
+  text-wrap:balance;
+}
+
+/* Pull quotes can be larger than headings, but still need a ceiling. */
+body:not(:has(.mag-page)) main blockquote{
+  max-width:100%;
+}
+body:not(:has(.mag-page)) main blockquote p{
+  max-width:14ch;
+  font-size:clamp(3rem,6.4vw,7rem)!important;
+  line-height:.86!important;
+  text-wrap:balance;
+}
+
+/* Prevent accidental lateral drift from transforms on editorial text containers.
+   Images may still use deliberate transforms in page modules. */
+body:not(:has(.mag-page)) main section h2,
+body:not(:has(.mag-page)) main section h3,
+body:not(:has(.mag-page)) main section blockquote{
+  translate:none!important;
+}
+
+/* Long-form prose should never become an ultra-wide desktop measure. */
+body:not(:has(.mag-page)) main section p{
+  overflow-wrap:break-word;
+}
+
+/* Captions remain visually attached to their own figure. */
+body:not(:has(.mag-page)) main figure figcaption{
+  max-width:100%;
+}
+
+@media (min-width:1100px){
+  body:not(:has(.mag-page)) main section h2{
+    font-size:clamp(3rem,4.15vw,4.85rem)!important;
+  }
+  body:not(:has(.mag-page)) main section h3{
+    font-size:clamp(2rem,2.8vw,3.25rem)!important;
+  }
+}
+
+@media (min-width:701px) and (max-width:1099px){
+  body:not(:has(.mag-page)) main section h2{
+    max-width:16ch;
+    font-size:clamp(2.75rem,5.7vw,4.5rem)!important;
+  }
+  body:not(:has(.mag-page)) main section h3{
+    font-size:clamp(1.9rem,4vw,3rem)!important;
+  }
+  body:not(:has(.mag-page)) main blockquote p{
+    font-size:clamp(3rem,8vw,5.8rem)!important;
+  }
+}
+
+@media (max-width:700px){
+  body:not(:has(.mag-page)) main{
+    overflow-x:hidden;
+  }
+  body:not(:has(.mag-page)) main section h2{
+    width:auto!important;
+    max-width:100%!important;
+    margin-left:0!important;
+    margin-right:0!important;
+    font-size:clamp(2.25rem,10vw,3.35rem)!important;
+    line-height:.96!important;
+    text-align:left;
+  }
+  body:not(:has(.mag-page)) main section h3{
+    width:auto!important;
+    max-width:100%!important;
+    margin-left:0!important;
+    margin-right:0!important;
+    font-size:clamp(1.8rem,8vw,2.7rem)!important;
+    line-height:1!important;
+  }
+  body:not(:has(.mag-page)) main blockquote{
+    max-width:100%!important;
+    margin-left:0!important;
+    margin-right:0!important;
+  }
+  body:not(:has(.mag-page)) main blockquote p{
+    max-width:11ch;
+    font-size:clamp(2.65rem,12.5vw,4.4rem)!important;
+    line-height:.88!important;
+  }
+  body:not(:has(.mag-page)) main figure{
+    transform:none;
+  }
+  body:not(:has(.mag-page)) main figure img{
+    max-width:100%;
+  }
+}
+
+@media (max-width:420px){
+  body:not(:has(.mag-page)) main section h2{
+    font-size:clamp(2.1rem,10.5vw,2.95rem)!important;
+  }
+  body:not(:has(.mag-page)) main blockquote p{
+    font-size:clamp(2.45rem,12vw,3.7rem)!important;
+  }
+}
