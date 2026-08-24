@@ -12,7 +12,7 @@ const compat = new FlatCompat({
 const eslintConfig = [
   ...compat.extends("next/core-web-vitals", "next/typescript"),
   {
-    files: ["app/eastokyo/page.tsx", "app/the-city-puts-on-a-costume/page.tsx"],
+    files: ["app/eastokyo/page.tsx", "app/the-city-puts-on-a-costume/page.tsx", "app/nothing-is-just-what-it-is/page.tsx"],
     rules: {
       "react/no-unescaped-entities": "off",
     },
