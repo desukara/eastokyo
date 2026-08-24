@@ -2,307 +2,71 @@
    Final cascade layer for article pages only. Homepage (.mag-page) is intentionally excluded. */
 
 /* Structural safety */
-body:not(:has(.mag-page)) main{
-  max-width:100%;
-  overflow-x:clip;
-}
-body:not(:has(.mag-page)) main *,
-body:not(:has(.mag-page)) main *::before,
-body:not(:has(.mag-page)) main *::after{
-  box-sizing:border-box;
-}
-body:not(:has(.mag-page)) main img,
-body:not(:has(.mag-page)) main picture,
-body:not(:has(.mag-page)) main figure{
-  max-width:100%;
-}
-body:not(:has(.mag-page)) main img{
-  height:auto;
-}
-body:not(:has(.mag-page)) main figure{
-  break-inside:avoid;
-}
+body:not(:has(.mag-page)) main{max-width:100%;overflow-x:clip}
+body:not(:has(.mag-page)) main *,body:not(:has(.mag-page)) main *::before,body:not(:has(.mag-page)) main *::after{box-sizing:border-box}
+body:not(:has(.mag-page)) main img,body:not(:has(.mag-page)) main picture,body:not(:has(.mag-page)) main figure{max-width:100%}
+body:not(:has(.mag-page)) main img{height:auto}
+body:not(:has(.mag-page)) main figure{break-inside:avoid}
 
-/* Hero hierarchy: large enough to feel editorial, never large enough to swallow the viewport. */
-body:not(:has(.mag-page)) main section:first-of-type h1{
-  max-width:11ch;
-  font-size:clamp(4.2rem,8.2vw,8.25rem)!important;
-  line-height:.8!important;
-  text-wrap:balance;
-}
+/* Hero hierarchy */
+body:not(:has(.mag-page)) main section:first-of-type h1{max-width:11ch;font-size:clamp(4.2rem,8.2vw,8.25rem)!important;line-height:.8!important;text-wrap:balance}
+body:not(:has(.mag-page)) main section h2{max-width:18ch;font-size:clamp(2.75rem,4.5vw,5.25rem)!important;line-height:.92!important;overflow-wrap:normal;word-break:normal;text-wrap:balance}
+body:not(:has(.mag-page)) main section h3{max-width:24ch;font-size:clamp(1.9rem,3vw,3.5rem)!important;line-height:1!important;text-wrap:balance}
+body:not(:has(.mag-page)) main section h1,body:not(:has(.mag-page)) main section h2,body:not(:has(.mag-page)) main section h3{left:auto!important;right:auto!important;inset-inline:auto!important;translate:none!important;transform:none!important}
+body:not(:has(.mag-page)) main [class*="harlequinLead"],body:not(:has(.mag-page)) main [class*="blueHead"],body:not(:has(.mag-page)) main [class*="quietHead"]{margin-left:0!important;margin-right:auto!important}
 
-/* Editorial type hierarchy: keep display type dramatic without allowing isolated billboard-sized section heads. */
-body:not(:has(.mag-page)) main section h2{
-  max-width:18ch;
-  font-size:clamp(2.75rem,4.5vw,5.25rem)!important;
-  line-height:.92!important;
-  overflow-wrap:normal;
-  word-break:normal;
-  text-wrap:balance;
-}
-body:not(:has(.mag-page)) main section h3{
-  max-width:24ch;
-  font-size:clamp(1.9rem,3vw,3.5rem)!important;
-  line-height:1!important;
-  text-wrap:balance;
-}
+/* Display devices */
+body:not(:has(.mag-page)) main blockquote{max-width:100%}
+body:not(:has(.mag-page)) main blockquote p{max-width:14ch;font-size:clamp(3rem,6.4vw,7rem)!important;line-height:.86!important;text-wrap:balance}
+body:not(:has(.mag-page)) main section blockquote{translate:none!important}
+body:not(:has(.mag-page)) main section p{overflow-wrap:break-word}
+body:not(:has(.mag-page)) main [class*="movementStack"],body:not(:has(.mag-page)) main [class*="worlds"],body:not(:has(.mag-page)) main [class*="sideQuote"],body:not(:has(.mag-page)) main [class*="pullQuote"] p,body:not(:has(.mag-page)) main [class*="closingLead"],body:not(:has(.mag-page)) main [class*="standfirst"]{max-width:18ch;text-wrap:balance}
 
-/* Headings must be positioned by their editorial containers, never by hidden offsets. */
-body:not(:has(.mag-page)) main section h1,
-body:not(:has(.mag-page)) main section h2,
-body:not(:has(.mag-page)) main section h3{
-  left:auto!important;
-  right:auto!important;
-  inset-inline:auto!important;
-  translate:none!important;
-  transform:none!important;
-}
-
-/* Fresh Eyes second-pass containers once carried 8–12% left offsets. The text itself was fixed,
-   but the parent boxes could still drift. Keep those editorial heads on the shared reading spine. */
-body:not(:has(.mag-page)) main [class*="harlequinLead"],
-body:not(:has(.mag-page)) main [class*="blueHead"],
-body:not(:has(.mag-page)) main [class*="quietHead"]{
-  margin-left:0!important;
-  margin-right:auto!important;
-}
-
-/* Pull quotes can be larger than headings, but still need a ceiling. */
-body:not(:has(.mag-page)) main blockquote{
-  max-width:100%;
-}
-body:not(:has(.mag-page)) main blockquote p{
-  max-width:14ch;
-  font-size:clamp(3rem,6.4vw,7rem)!important;
-  line-height:.86!important;
-  text-wrap:balance;
-}
-
-/* Prevent accidental lateral drift from transforms on editorial text containers.
-   Images may still use deliberate transforms at desktop sizes in page modules. */
-body:not(:has(.mag-page)) main section blockquote{
-  translate:none!important;
-}
-
-/* Long-form prose should never become an ultra-wide desktop measure. */
-body:not(:has(.mag-page)) main section p{
-  overflow-wrap:break-word;
-}
-
-/* Captions remain visually attached to their own figure. */
-body:not(:has(.mag-page)) main figure figcaption{
-  max-width:100%;
-}
-
-/* Named editorial display devices are allowed to be dramatic, but not billboard-sized. */
-body:not(:has(.mag-page)) main [class*="movementStack"],
-body:not(:has(.mag-page)) main [class*="worlds"],
-body:not(:has(.mag-page)) main [class*="sideQuote"],
-body:not(:has(.mag-page)) main [class*="pullQuote"] p,
-body:not(:has(.mag-page)) main [class*="closingLead"],
-body:not(:has(.mag-page)) main [class*="standfirst"]{
-  max-width:18ch;
-  text-wrap:balance;
-}
+/* Caption system: captions should read as part of the image, not as stray body copy. */
+body:not(:has(.mag-page)) main figure figcaption{max-width:100%;margin-bottom:0;overflow-wrap:break-word;text-wrap:pretty}
+body:not(:has(.mag-page)) main figure+figure{margin-top:0}
 
 @media (min-width:1100px){
-  body:not(:has(.mag-page)) main section:first-of-type h1{
-    font-size:clamp(4.5rem,7.7vw,8rem)!important;
-  }
-  body:not(:has(.mag-page)) main section h2{
-    font-size:clamp(3rem,4.15vw,4.85rem)!important;
-  }
-  body:not(:has(.mag-page)) main section h3{
-    font-size:clamp(2rem,2.8vw,3.25rem)!important;
-  }
-  body:not(:has(.mag-page)) main [class*="movementStack"],
-  body:not(:has(.mag-page)) main [class*="worlds"],
-  body:not(:has(.mag-page)) main [class*="sideQuote"],
-  body:not(:has(.mag-page)) main [class*="pullQuote"] p{
-    font-size:clamp(3.4rem,5.5vw,6.4rem)!important;
-    line-height:.88!important;
-  }
-
-  /* Negative right margins looked intentional in isolated comps but read as edge collisions in production. */
-  body:not(:has(.mag-page)) main [class*="harlequinFigure"],
-  body:not(:has(.mag-page)) main [class*="blueFigure"],
-  body:not(:has(.mag-page)) main [class*="thresholdFigure"]{
-    margin-right:0!important;
-    max-width:100%!important;
-  }
+body:not(:has(.mag-page)) main section:first-of-type h1{font-size:clamp(4.5rem,7.7vw,8rem)!important}
+body:not(:has(.mag-page)) main section h2{font-size:clamp(3rem,4.15vw,4.85rem)!important}
+body:not(:has(.mag-page)) main section h3{font-size:clamp(2rem,2.8vw,3.25rem)!important}
+body:not(:has(.mag-page)) main [class*="movementStack"],body:not(:has(.mag-page)) main [class*="worlds"],body:not(:has(.mag-page)) main [class*="sideQuote"],body:not(:has(.mag-page)) main [class*="pullQuote"] p{font-size:clamp(3.4rem,5.5vw,6.4rem)!important;line-height:.88!important}
+body:not(:has(.mag-page)) main [class*="harlequinFigure"],body:not(:has(.mag-page)) main [class*="blueFigure"],body:not(:has(.mag-page)) main [class*="thresholdFigure"]{margin-right:0!important;max-width:100%!important}
 }
 
 @media (min-width:701px) and (max-width:1099px){
-  body:not(:has(.mag-page)) main section:first-of-type h1{
-    max-width:10ch;
-    font-size:clamp(3.9rem,8.6vw,6.6rem)!important;
-  }
-  body:not(:has(.mag-page)) main section h2{
-    max-width:16ch;
-    margin-left:0!important;
-    margin-right:auto!important;
-    font-size:clamp(2.75rem,5.7vw,4.5rem)!important;
-    text-align:left!important;
-  }
-  body:not(:has(.mag-page)) main section h3{
-    margin-left:0!important;
-    margin-right:auto!important;
-    font-size:clamp(1.9rem,4vw,3rem)!important;
-    text-align:left!important;
-  }
-  body:not(:has(.mag-page)) main blockquote p{
-    font-size:clamp(3rem,8vw,5.8rem)!important;
-  }
-  body:not(:has(.mag-page)) main [class*="movementStack"],
-  body:not(:has(.mag-page)) main [class*="worlds"],
-  body:not(:has(.mag-page)) main [class*="sideQuote"],
-  body:not(:has(.mag-page)) main [class*="pullQuote"] p{
-    max-width:16ch!important;
-    font-size:clamp(3rem,7vw,5.2rem)!important;
-    line-height:.9!important;
-  }
-
-  /* Mid-size layouts are where decorative translations and sticky media most often create stranded whitespace. */
-  body:not(:has(.mag-page)) main figure{
-    transform:none!important;
-    translate:none!important;
-  }
-  body:not(:has(.mag-page)) main [class*="closingFigure"]{
-    position:static!important;
-    top:auto!important;
-  }
-  body:not(:has(.mag-page)) main [class*="viewerFigure"],
-  body:not(:has(.mag-page)) main [class*="galleryFigure"],
-  body:not(:has(.mag-page)) main [class*="thresholdFigure"],
-  body:not(:has(.mag-page)) main [class*="climax"],
-  body:not(:has(.mag-page)) main [class*="openingDiptych"],
-  body:not(:has(.mag-page)) main [class*="staggeredGallery"],
-  body:not(:has(.mag-page)) main [class*="detailPair"],
-  body:not(:has(.mag-page)) main [class*="bullfightPair"]{
-    max-width:calc(100vw - 3rem)!important;
-    margin-left:auto!important;
-    margin-right:auto!important;
-  }
+body:not(:has(.mag-page)) main section:first-of-type h1{max-width:10ch;font-size:clamp(3.9rem,8.6vw,6.6rem)!important}
+body:not(:has(.mag-page)) main section h2{max-width:16ch;margin-left:0!important;margin-right:auto!important;font-size:clamp(2.75rem,5.7vw,4.5rem)!important;text-align:left!important}
+body:not(:has(.mag-page)) main section h3{margin-left:0!important;margin-right:auto!important;font-size:clamp(1.9rem,4vw,3rem)!important;text-align:left!important}
+body:not(:has(.mag-page)) main blockquote p{font-size:clamp(3rem,8vw,5.8rem)!important}
+body:not(:has(.mag-page)) main [class*="movementStack"],body:not(:has(.mag-page)) main [class*="worlds"],body:not(:has(.mag-page)) main [class*="sideQuote"],body:not(:has(.mag-page)) main [class*="pullQuote"] p{max-width:16ch!important;font-size:clamp(3rem,7vw,5.2rem)!important;line-height:.9!important}
+body:not(:has(.mag-page)) main figure{transform:none!important;translate:none!important}
+body:not(:has(.mag-page)) main [class*="closingFigure"]{position:static!important;top:auto!important}
+body:not(:has(.mag-page)) main [class*="viewerFigure"],body:not(:has(.mag-page)) main [class*="galleryFigure"],body:not(:has(.mag-page)) main [class*="thresholdFigure"],body:not(:has(.mag-page)) main [class*="climax"],body:not(:has(.mag-page)) main [class*="openingDiptych"],body:not(:has(.mag-page)) main [class*="staggeredGallery"],body:not(:has(.mag-page)) main [class*="detailPair"],body:not(:has(.mag-page)) main [class*="bullfightPair"]{max-width:calc(100vw - 3rem)!important;margin-left:auto!important;margin-right:auto!important}
+body:not(:has(.mag-page)) main figure figcaption{line-height:1.45}
 }
 
 @media (max-width:700px){
-  body:not(:has(.mag-page)) main{
-    overflow-x:hidden;
-  }
-  body:not(:has(.mag-page)) main section:first-of-type h1{
-    width:auto!important;
-    max-width:9ch!important;
-    margin-left:0!important;
-    margin-right:0!important;
-    font-size:clamp(3rem,14vw,4.8rem)!important;
-    line-height:.82!important;
-  }
-  body:not(:has(.mag-page)) main section h2{
-    width:auto!important;
-    max-width:100%!important;
-    margin-left:0!important;
-    margin-right:0!important;
-    font-size:clamp(2.25rem,10vw,3.35rem)!important;
-    line-height:.96!important;
-    text-align:left!important;
-  }
-  body:not(:has(.mag-page)) main section h3{
-    width:auto!important;
-    max-width:100%!important;
-    margin-left:0!important;
-    margin-right:0!important;
-    font-size:clamp(1.8rem,8vw,2.7rem)!important;
-    line-height:1!important;
-    text-align:left!important;
-  }
-  body:not(:has(.mag-page)) main blockquote{
-    max-width:100%!important;
-    margin-left:0!important;
-    margin-right:0!important;
-  }
-  body:not(:has(.mag-page)) main blockquote p{
-    max-width:11ch;
-    font-size:clamp(2.65rem,12.5vw,4.4rem)!important;
-    line-height:.88!important;
-  }
-  body:not(:has(.mag-page)) main [class*="movementStack"],
-  body:not(:has(.mag-page)) main [class*="worlds"],
-  body:not(:has(.mag-page)) main [class*="sideQuote"],
-  body:not(:has(.mag-page)) main [class*="pullQuote"] p,
-  body:not(:has(.mag-page)) main [class*="closingLead"],
-  body:not(:has(.mag-page)) main [class*="standfirst"]{
-    width:auto!important;
-    max-width:100%!important;
-    margin-left:0!important;
-    margin-right:0!important;
-    font-size:clamp(2.35rem,10.8vw,3.8rem)!important;
-    line-height:.94!important;
-    text-align:left!important;
-  }
-  body:not(:has(.mag-page)) main figure{
-    transform:none!important;
-    translate:none!important;
-  }
-  body:not(:has(.mag-page)) main [class*="closingFigure"]{
-    position:static!important;
-    top:auto!important;
-  }
-  body:not(:has(.mag-page)) main figure img{
-    max-width:100%;
-  }
-
-  /* Normal article media should retain a real page gutter on phones. Explicit full-bleed heroes remain untouched. */
-  body:not(:has(.mag-page)) main [class*="viewerFigure"],
-  body:not(:has(.mag-page)) main [class*="galleryFigure"],
-  body:not(:has(.mag-page)) main [class*="thresholdFigure"],
-  body:not(:has(.mag-page)) main [class*="climax"],
-  body:not(:has(.mag-page)) main [class*="openingDiptych"],
-  body:not(:has(.mag-page)) main [class*="staggeredGallery"],
-  body:not(:has(.mag-page)) main [class*="detailPair"],
-  body:not(:has(.mag-page)) main [class*="studyFigure"],
-  body:not(:has(.mag-page)) main [class*="entryFigure"]{
-    max-width:calc(100vw - 2rem)!important;
-    margin-left:auto!important;
-    margin-right:auto!important;
-  }
-
-  /* Arena: the two-up corrida pair becomes too cramped on phones. Preserve both images but give each a full editorial beat. */
-  body:not(:has(.mag-page)) main [class*="bullfightPair"]{
-    display:flex!important;
-    flex-direction:column!important;
-    align-items:stretch!important;
-    gap:2rem!important;
-    width:auto!important;
-    max-width:none!important;
-    margin-left:1rem!important;
-    margin-right:1rem!important;
-    padding-top:.5rem!important;
-    padding-bottom:1rem!important;
-  }
-  body:not(:has(.mag-page)) main [class*="bullfightPair"] figure{
-    width:100%!important;
-  }
-  body:not(:has(.mag-page)) main [class*="bullfightPair"] figcaption{
-    font-size:.52rem!important;
-    line-height:1.45!important;
-    letter-spacing:.09em!important;
-  }
+body:not(:has(.mag-page)) main{overflow-x:hidden}
+body:not(:has(.mag-page)) main section:first-of-type h1{width:auto!important;max-width:9ch!important;margin-left:0!important;margin-right:0!important;font-size:clamp(3rem,14vw,4.8rem)!important;line-height:.82!important}
+body:not(:has(.mag-page)) main section h2{width:auto!important;max-width:100%!important;margin-left:0!important;margin-right:0!important;font-size:clamp(2.25rem,10vw,3.35rem)!important;line-height:.96!important;text-align:left!important}
+body:not(:has(.mag-page)) main section h3{width:auto!important;max-width:100%!important;margin-left:0!important;margin-right:0!important;font-size:clamp(1.8rem,8vw,2.7rem)!important;line-height:1!important;text-align:left!important}
+body:not(:has(.mag-page)) main blockquote{max-width:100%!important;margin-left:0!important;margin-right:0!important}
+body:not(:has(.mag-page)) main blockquote p{max-width:11ch;font-size:clamp(2.65rem,12.5vw,4.4rem)!important;line-height:.88!important}
+body:not(:has(.mag-page)) main [class*="movementStack"],body:not(:has(.mag-page)) main [class*="worlds"],body:not(:has(.mag-page)) main [class*="sideQuote"],body:not(:has(.mag-page)) main [class*="pullQuote"] p,body:not(:has(.mag-page)) main [class*="closingLead"],body:not(:has(.mag-page)) main [class*="standfirst"]{width:auto!important;max-width:100%!important;margin-left:0!important;margin-right:0!important;font-size:clamp(2.35rem,10.8vw,3.8rem)!important;line-height:.94!important;text-align:left!important}
+body:not(:has(.mag-page)) main figure{transform:none!important;translate:none!important}
+body:not(:has(.mag-page)) main [class*="closingFigure"]{position:static!important;top:auto!important}
+body:not(:has(.mag-page)) main figure img{max-width:100%}
+body:not(:has(.mag-page)) main figure figcaption{margin-top:.5rem;padding-top:.45rem;font-size:max(.5rem,8px);line-height:1.45;letter-spacing:.085em}
+body:not(:has(.mag-page)) main [class*="viewerFigure"],body:not(:has(.mag-page)) main [class*="galleryFigure"],body:not(:has(.mag-page)) main [class*="thresholdFigure"],body:not(:has(.mag-page)) main [class*="climax"],body:not(:has(.mag-page)) main [class*="openingDiptych"],body:not(:has(.mag-page)) main [class*="staggeredGallery"],body:not(:has(.mag-page)) main [class*="detailPair"],body:not(:has(.mag-page)) main [class*="studyFigure"],body:not(:has(.mag-page)) main [class*="entryFigure"]{max-width:calc(100vw - 2rem)!important;margin-left:auto!important;margin-right:auto!important}
+body:not(:has(.mag-page)) main [class*="bullfightPair"]{display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:2rem!important;width:auto!important;max-width:none!important;margin-left:1rem!important;margin-right:1rem!important;padding-top:.5rem!important;padding-bottom:1rem!important}
+body:not(:has(.mag-page)) main [class*="bullfightPair"] figure{width:100%!important}
+body:not(:has(.mag-page)) main [class*="bullfightPair"] figcaption{font-size:.52rem!important;line-height:1.45!important;letter-spacing:.09em!important}
 }
 
 @media (max-width:420px){
-  body:not(:has(.mag-page)) main section:first-of-type h1{
-    font-size:clamp(2.8rem,13.5vw,4.1rem)!important;
-  }
-  body:not(:has(.mag-page)) main section h2{
-    font-size:clamp(2.1rem,10.5vw,2.95rem)!important;
-  }
-  body:not(:has(.mag-page)) main blockquote p{
-    font-size:clamp(2.45rem,12vw,3.7rem)!important;
-  }
-  body:not(:has(.mag-page)) main [class*="movementStack"],
-  body:not(:has(.mag-page)) main [class*="worlds"],
-  body:not(:has(.mag-page)) main [class*="sideQuote"],
-  body:not(:has(.mag-page)) main [class*="pullQuote"] p{
-    font-size:clamp(2.25rem,10.8vw,3.4rem)!important;
-  }
+body:not(:has(.mag-page)) main section:first-of-type h1{font-size:clamp(2.8rem,13.5vw,4.1rem)!important}
+body:not(:has(.mag-page)) main section h2{font-size:clamp(2.1rem,10.5vw,2.95rem)!important}
+body:not(:has(.mag-page)) main blockquote p{font-size:clamp(2.45rem,12vw,3.7rem)!important}
+body:not(:has(.mag-page)) main [class*="movementStack"],body:not(:has(.mag-page)) main [class*="worlds"],body:not(:has(.mag-page)) main [class*="sideQuote"],body:not(:has(.mag-page)) main [class*="pullQuote"] p{font-size:clamp(2.25rem,10.8vw,3.4rem)!important}
 }
