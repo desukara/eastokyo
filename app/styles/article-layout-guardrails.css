@@ -19,6 +19,9 @@ body:not(:has(.mag-page)) main figure{
 body:not(:has(.mag-page)) main img{
   height:auto;
 }
+body:not(:has(.mag-page)) main figure{
+  break-inside:avoid;
+}
 
 /* Hero hierarchy: large enough to feel editorial, never large enough to swallow the viewport. */
 body:not(:has(.mag-page)) main section:first-of-type h1{
@@ -53,6 +56,15 @@ body:not(:has(.mag-page)) main section h3{
   inset-inline:auto!important;
   translate:none!important;
   transform:none!important;
+}
+
+/* Fresh Eyes second-pass containers once carried 8–12% left offsets. The text itself was fixed,
+   but the parent boxes could still drift. Keep those editorial heads on the shared reading spine. */
+body:not(:has(.mag-page)) main [class*="harlequinLead"],
+body:not(:has(.mag-page)) main [class*="blueHead"],
+body:not(:has(.mag-page)) main [class*="quietHead"]{
+  margin-left:0!important;
+  margin-right:auto!important;
 }
 
 /* Pull quotes can be larger than headings, but still need a ceiling. */
@@ -110,6 +122,14 @@ body:not(:has(.mag-page)) main [class*="standfirst"]{
     font-size:clamp(3.4rem,5.5vw,6.4rem)!important;
     line-height:.88!important;
   }
+
+  /* Negative right margins looked intentional in isolated comps but read as edge collisions in production. */
+  body:not(:has(.mag-page)) main [class*="harlequinFigure"],
+  body:not(:has(.mag-page)) main [class*="blueFigure"],
+  body:not(:has(.mag-page)) main [class*="thresholdFigure"]{
+    margin-right:0!important;
+    max-width:100%!important;
+  }
 }
 
 @media (min-width:701px) and (max-width:1099px){
@@ -141,10 +161,26 @@ body:not(:has(.mag-page)) main [class*="standfirst"]{
     font-size:clamp(3rem,7vw,5.2rem)!important;
     line-height:.9!important;
   }
-  /* Mid-size layouts are where decorative translations most often create stranded whitespace. */
+
+  /* Mid-size layouts are where decorative translations and sticky media most often create stranded whitespace. */
   body:not(:has(.mag-page)) main figure{
     transform:none!important;
     translate:none!important;
+  }
+  body:not(:has(.mag-page)) main [class*="closingFigure"]{
+    position:static!important;
+    top:auto!important;
+  }
+  body:not(:has(.mag-page)) main [class*="viewerFigure"],
+  body:not(:has(.mag-page)) main [class*="galleryFigure"],
+  body:not(:has(.mag-page)) main [class*="thresholdFigure"],
+  body:not(:has(.mag-page)) main [class*="climax"],
+  body:not(:has(.mag-page)) main [class*="openingDiptych"],
+  body:not(:has(.mag-page)) main [class*="staggeredGallery"],
+  body:not(:has(.mag-page)) main [class*="detailPair"]{
+    max-width:calc(100vw - 3rem)!important;
+    margin-left:auto!important;
+    margin-right:auto!important;
   }
 }
 
@@ -206,8 +242,27 @@ body:not(:has(.mag-page)) main [class*="standfirst"]{
     transform:none!important;
     translate:none!important;
   }
+  body:not(:has(.mag-page)) main [class*="closingFigure"]{
+    position:static!important;
+    top:auto!important;
+  }
   body:not(:has(.mag-page)) main figure img{
     max-width:100%;
+  }
+
+  /* Normal article media should retain a real page gutter on phones. Explicit full-bleed heroes remain untouched. */
+  body:not(:has(.mag-page)) main [class*="viewerFigure"],
+  body:not(:has(.mag-page)) main [class*="galleryFigure"],
+  body:not(:has(.mag-page)) main [class*="thresholdFigure"],
+  body:not(:has(.mag-page)) main [class*="climax"],
+  body:not(:has(.mag-page)) main [class*="openingDiptych"],
+  body:not(:has(.mag-page)) main [class*="staggeredGallery"],
+  body:not(:has(.mag-page)) main [class*="detailPair"],
+  body:not(:has(.mag-page)) main [class*="studyFigure"],
+  body:not(:has(.mag-page)) main [class*="entryFigure"]{
+    max-width:calc(100vw - 2rem)!important;
+    margin-left:auto!important;
+    margin-right:auto!important;
   }
 }
 
