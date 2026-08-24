@@ -44,6 +44,17 @@ body:not(:has(.mag-page)) main section h3{
   text-wrap:balance;
 }
 
+/* Headings must be positioned by their editorial containers, never by hidden offsets. */
+body:not(:has(.mag-page)) main section h1,
+body:not(:has(.mag-page)) main section h2,
+body:not(:has(.mag-page)) main section h3{
+  left:auto!important;
+  right:auto!important;
+  inset-inline:auto!important;
+  translate:none!important;
+  transform:none!important;
+}
+
 /* Pull quotes can be larger than headings, but still need a ceiling. */
 body:not(:has(.mag-page)) main blockquote{
   max-width:100%;
@@ -56,9 +67,7 @@ body:not(:has(.mag-page)) main blockquote p{
 }
 
 /* Prevent accidental lateral drift from transforms on editorial text containers.
-   Images may still use deliberate transforms in page modules. */
-body:not(:has(.mag-page)) main section h2,
-body:not(:has(.mag-page)) main section h3,
+   Images may still use deliberate transforms at desktop sizes in page modules. */
 body:not(:has(.mag-page)) main section blockquote{
   translate:none!important;
 }
@@ -92,13 +101,24 @@ body:not(:has(.mag-page)) main figure figcaption{
   }
   body:not(:has(.mag-page)) main section h2{
     max-width:16ch;
+    margin-left:0!important;
+    margin-right:auto!important;
     font-size:clamp(2.75rem,5.7vw,4.5rem)!important;
+    text-align:left!important;
   }
   body:not(:has(.mag-page)) main section h3{
+    margin-left:0!important;
+    margin-right:auto!important;
     font-size:clamp(1.9rem,4vw,3rem)!important;
+    text-align:left!important;
   }
   body:not(:has(.mag-page)) main blockquote p{
     font-size:clamp(3rem,8vw,5.8rem)!important;
+  }
+  /* Mid-size layouts are where decorative translations most often create stranded whitespace. */
+  body:not(:has(.mag-page)) main figure{
+    transform:none!important;
+    translate:none!important;
   }
 }
 
@@ -121,7 +141,7 @@ body:not(:has(.mag-page)) main figure figcaption{
     margin-right:0!important;
     font-size:clamp(2.25rem,10vw,3.35rem)!important;
     line-height:.96!important;
-    text-align:left;
+    text-align:left!important;
   }
   body:not(:has(.mag-page)) main section h3{
     width:auto!important;
@@ -130,6 +150,7 @@ body:not(:has(.mag-page)) main figure figcaption{
     margin-right:0!important;
     font-size:clamp(1.8rem,8vw,2.7rem)!important;
     line-height:1!important;
+    text-align:left!important;
   }
   body:not(:has(.mag-page)) main blockquote{
     max-width:100%!important;
@@ -142,7 +163,8 @@ body:not(:has(.mag-page)) main figure figcaption{
     line-height:.88!important;
   }
   body:not(:has(.mag-page)) main figure{
-    transform:none;
+    transform:none!important;
+    translate:none!important;
   }
   body:not(:has(.mag-page)) main figure img{
     max-width:100%;
