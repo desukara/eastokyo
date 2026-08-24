@@ -82,6 +82,17 @@ body:not(:has(.mag-page)) main figure figcaption{
   max-width:100%;
 }
 
+/* Named editorial display devices are allowed to be dramatic, but not billboard-sized. */
+body:not(:has(.mag-page)) main [class*="movementStack"],
+body:not(:has(.mag-page)) main [class*="worlds"],
+body:not(:has(.mag-page)) main [class*="sideQuote"],
+body:not(:has(.mag-page)) main [class*="pullQuote"] p,
+body:not(:has(.mag-page)) main [class*="closingLead"],
+body:not(:has(.mag-page)) main [class*="standfirst"]{
+  max-width:18ch;
+  text-wrap:balance;
+}
+
 @media (min-width:1100px){
   body:not(:has(.mag-page)) main section:first-of-type h1{
     font-size:clamp(4.5rem,7.7vw,8rem)!important;
@@ -91,6 +102,13 @@ body:not(:has(.mag-page)) main figure figcaption{
   }
   body:not(:has(.mag-page)) main section h3{
     font-size:clamp(2rem,2.8vw,3.25rem)!important;
+  }
+  body:not(:has(.mag-page)) main [class*="movementStack"],
+  body:not(:has(.mag-page)) main [class*="worlds"],
+  body:not(:has(.mag-page)) main [class*="sideQuote"],
+  body:not(:has(.mag-page)) main [class*="pullQuote"] p{
+    font-size:clamp(3.4rem,5.5vw,6.4rem)!important;
+    line-height:.88!important;
   }
 }
 
@@ -114,6 +132,14 @@ body:not(:has(.mag-page)) main figure figcaption{
   }
   body:not(:has(.mag-page)) main blockquote p{
     font-size:clamp(3rem,8vw,5.8rem)!important;
+  }
+  body:not(:has(.mag-page)) main [class*="movementStack"],
+  body:not(:has(.mag-page)) main [class*="worlds"],
+  body:not(:has(.mag-page)) main [class*="sideQuote"],
+  body:not(:has(.mag-page)) main [class*="pullQuote"] p{
+    max-width:16ch!important;
+    font-size:clamp(3rem,7vw,5.2rem)!important;
+    line-height:.9!important;
   }
   /* Mid-size layouts are where decorative translations most often create stranded whitespace. */
   body:not(:has(.mag-page)) main figure{
@@ -162,6 +188,20 @@ body:not(:has(.mag-page)) main figure figcaption{
     font-size:clamp(2.65rem,12.5vw,4.4rem)!important;
     line-height:.88!important;
   }
+  body:not(:has(.mag-page)) main [class*="movementStack"],
+  body:not(:has(.mag-page)) main [class*="worlds"],
+  body:not(:has(.mag-page)) main [class*="sideQuote"],
+  body:not(:has(.mag-page)) main [class*="pullQuote"] p,
+  body:not(:has(.mag-page)) main [class*="closingLead"],
+  body:not(:has(.mag-page)) main [class*="standfirst"]{
+    width:auto!important;
+    max-width:100%!important;
+    margin-left:0!important;
+    margin-right:0!important;
+    font-size:clamp(2.35rem,10.8vw,3.8rem)!important;
+    line-height:.94!important;
+    text-align:left!important;
+  }
   body:not(:has(.mag-page)) main figure{
     transform:none!important;
     translate:none!important;
@@ -180,5 +220,11 @@ body:not(:has(.mag-page)) main figure figcaption{
   }
   body:not(:has(.mag-page)) main blockquote p{
     font-size:clamp(2.45rem,12vw,3.7rem)!important;
+  }
+  body:not(:has(.mag-page)) main [class*="movementStack"],
+  body:not(:has(.mag-page)) main [class*="worlds"],
+  body:not(:has(.mag-page)) main [class*="sideQuote"],
+  body:not(:has(.mag-page)) main [class*="pullQuote"] p{
+    font-size:clamp(2.25rem,10.8vw,3.4rem)!important;
   }
 }
