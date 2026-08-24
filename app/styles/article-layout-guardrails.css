@@ -22,7 +22,7 @@ body:not(:has(.mag-page)) main section blockquote{translate:none!important}
 body:not(:has(.mag-page)) main section p{overflow-wrap:break-word}
 body:not(:has(.mag-page)) main [class*="movementStack"],body:not(:has(.mag-page)) main [class*="worlds"],body:not(:has(.mag-page)) main [class*="sideQuote"],body:not(:has(.mag-page)) main [class*="pullQuote"] p,body:not(:has(.mag-page)) main [class*="closingLead"],body:not(:has(.mag-page)) main [class*="standfirst"]{max-width:18ch;text-wrap:balance}
 
-/* Caption system: captions should read as part of the image, not as stray body copy. */
+/* Caption system */
 body:not(:has(.mag-page)) main figure figcaption{max-width:100%;margin-bottom:0;overflow-wrap:break-word;text-wrap:pretty}
 body:not(:has(.mag-page)) main figure+figure{margin-top:0}
 
@@ -59,6 +59,8 @@ body:not(:has(.mag-page)) main [class*="closingFigure"]{position:static!importan
 body:not(:has(.mag-page)) main figure img{max-width:100%}
 body:not(:has(.mag-page)) main figure figcaption{margin-top:.5rem;padding-top:.45rem;font-size:max(.5rem,8px);line-height:1.45;letter-spacing:.085em}
 body:not(:has(.mag-page)) main [class*="viewerFigure"],body:not(:has(.mag-page)) main [class*="galleryFigure"],body:not(:has(.mag-page)) main [class*="thresholdFigure"],body:not(:has(.mag-page)) main [class*="climax"],body:not(:has(.mag-page)) main [class*="openingDiptych"],body:not(:has(.mag-page)) main [class*="staggeredGallery"],body:not(:has(.mag-page)) main [class*="detailPair"],body:not(:has(.mag-page)) main [class*="studyFigure"],body:not(:has(.mag-page)) main [class*="entryFigure"]{max-width:calc(100vw - 2rem)!important;margin-left:auto!important;margin-right:auto!important}
+/* Cubism climax: mobile should not retain the desktop art-direction inset. */
+body:not(:has(.mag-page)) main [class*="climax"]{padding-left:0!important;padding-right:0!important}
 body:not(:has(.mag-page)) main [class*="bullfightPair"]{display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:2rem!important;width:auto!important;max-width:none!important;margin-left:1rem!important;margin-right:1rem!important;padding-top:.5rem!important;padding-bottom:1rem!important}
 body:not(:has(.mag-page)) main [class*="bullfightPair"] figure{width:100%!important}
 body:not(:has(.mag-page)) main [class*="bullfightPair"] figcaption{font-size:.52rem!important;line-height:1.45!important;letter-spacing:.09em!important}
