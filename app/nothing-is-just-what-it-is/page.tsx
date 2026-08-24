@@ -10,74 +10,39 @@ export const metadata: Metadata = {
 };
 
 const entries = [
-  {
-    number: "01", section: "OBJECT", title: "A BICYCLE BECOMES A BULL.", image: "object",
-    alt: "Picasso’s Bull’s Head, assembled from a bicycle seat and handlebars, casting a long shadow on the gallery wall.",
-    copy: [
-      "Two bicycle parts wander into Picasso’s studio. A seat, a pair of handlebars, nothing especially mysterious. Then he turns them toward each other and suddenly the object is gone. What is standing there instead has horns.",
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere consectetur est at lobortis. Maecenas faucibus mollis interdum. Donec sed odio dui. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.",
-      "Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Cras mattis consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue."
-    ],
-  },
-  {
-    number: "02", section: "PORTRAIT", title: "SYMMETRY WAS NEVER THE POINT.", image: "portrait",
-    alt: "A fragmented painted portrait with angular facial planes, bold outlines, and a sculptural headdress.",
-    copy: [
-      "Picasso does not repair the face and return it to us politely. He pushes it around until a second expression starts showing through the first. The portrait stops asking whether it looks correct and starts asking whether it feels true.",
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lacinia bibendum nulla sed consectetur. Curabitur blandit tempus porttitor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.",
-      "Donec ullamcorper nulla non metus auctor fringilla. Morbi leo risus, porta ac consectetur ac, vestibulum at eros."
-    ],
-  },
-  {
-    number: "03", section: "STRIPES", title: "PAUL SMITH LEAVES HIS MARK.", image: "stripes",
-    alt: "A striped textile installation suspended overhead in layered waves of light and shadow.",
-    copy: [
-      "A stripe can be decoration, or it can become a rhythm that changes the whole room. In the Tokyo exhibition, Paul Smith lets color and pattern do more than sit behind the work. The walls begin answering back.",
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porta sem malesuada magna mollis euismod. Nullam quis risus eget urna mollis ornare vel eu leo. Sed posuere consectetur est at lobortis.",
-      "Maecenas sed diam eget risus varius blandit sit amet non magna. Donec id elit non mi porta gravida at eget metus."
-    ],
-  },
-  {
-    number: "04", section: "CERAMICS", title: "PICASSO NEVER CLEANED HIS PLATE.", image: "ceramics",
-    alt: "A gallery wall of ceramic plates, with painted faces and motifs appearing among rows of white plates.",
-    copy: [
-      "A plate is supposed to hold dinner. Picasso gives it a face. A jug becomes a body. Clay becomes another place to draw, scratch, paint, bend, and start trouble. He treats the table like one more studio because, for him, it was.",
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum id ligula porta felis euismod semper. Donec ullamcorper nulla non metus auctor fringilla. Cras justo odio, dapibus ac facilisis in, egestas eget quam.",
-      "Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nulla vitae elit libero, a pharetra augue."
-    ],
-  },
+  { number: "01", section: "OBJECT", title: "A BICYCLE BECOMES A BULL.", image: "object", alt: "Picasso’s Bull’s Head, assembled from a bicycle seat and handlebars, casting a long shadow on the gallery wall.", copy: [
+    "Two bicycle parts, just sitting there. A seat. A pair of handlebars. Nothing mysterious about either one on its own — you'd walk right past both of them in a junk pile without a second glance. Then he turns them to face each other. And there it is. A bull.",
+    "That's the whole trick, and it's exactly why it still stops people in their tracks a hundred years later. The seat never stops being a seat. The handlebars never stop being handlebars. He doesn't disguise them or sand down their old identities until they disappear — you see both things at once, flickering back and forth. Bicycle. Bull. Bicycle. Bull. Your mind gets caught happily bouncing between the two, and honestly, it doesn't want to stop, kind of like when you learn what a word actually means and then hear it everywhere for a month.",
+    "What gets me is how little he actually did. Two objects, turned toward each other, no glue, no paint, no clever backstory required. And yet suddenly this ordinary junk-drawer object is holding more than it held five seconds earlier. Or maybe I've got that backwards. Maybe the possibility was there all along, curled up in the shape of the seat, waiting patiently in the spread of the handlebars, and he just happened to be the first one to notice it lying around.",
+    "And once someone shows you a thing like that, you can't unsee it. You start walking around the world looking a little closer at ordinary objects, trusting your first read on them just a bit less than you used to. Which, depending on your relationship with your own junk drawer, is either a gift or a real inconvenience."
+  ]},
+  { number: "02", section: "PORTRAIT", title: "SYMMETRY WAS NEVER THE POINT.", image: "portrait", alt: "A fragmented painted portrait with angular facial planes, bold outlines, and a sculptural headdress.", copy: [
+    "Faces are supposed to behave themselves. Two eyes, roughly level. A nose in the middle. A mouth underneath, right where thousands of years of biology insist it belongs, no exceptions, no notes. Picasso was not exactly taking attendance on any of that.",
+    "An eye drifts. A nose stretches out like it's trying to get a better look at something across the room. The whole face splinters into planes and angles that have no business being anywhere near each other. And somehow — this is the part that gets me every time — the person underneath doesn't vanish. They're still there. Still unmistakably themselves, even with a nose doing something a nose has genuinely never done before.",
+    "How much can a face change and still be the same face? Turns out, quite a lot. We like to think of identity as something breakable, like if enough gets rearranged on the outside, the person underneath must have slipped out the back door somewhere along the way. But that's not really how it works, even outside a painting. Age changes us. Grief changes us. Falling in love changes us, and so does falling out of it, usually less gracefully than we'd like. We can look back at photographs of ourselves twenty years gone and barely recognize the haircut, let alone the face, and still feel — somewhere under the ribs — yes, that's me. That was always me, questionable fashion choices and all.",
+    "Picasso just pushes that stretch further and faster than ordinary life ever bothers to. And the portrait holds anyway. Maybe being yourself was never about keeping every feature locked exactly in place. Maybe there's more room in it than we give it credit for."
+  ]},
+  { number: "03", section: "STRIPES", title: "PAUL SMITH LEAVES HIS MARK.", image: "stripes", alt: "A striped textile installation suspended overhead in layered waves of light and shadow.", copy: [
+    "Then comes a different kind of transformation entirely — one where nobody lays a hand on the Picasso itself. Paul Smith changes the room around it instead. Color. Pattern. Stripes running everywhere like they're late for something. The artwork sits exactly where it always sat, not one brushstroke different, and yet it's suddenly living inside a whole new conversation it never signed up for.",
+    "And that changes everything you notice. A color inside the canvas wakes up because the wall beside it is speaking the same language. A shape starts answering another shape clean across the room. Something quiet becomes something you genuinely can't look away from. Nothing about the painting changed. And everything about it changed. Both at once, no contradiction, take it up with the wall.",
+    "That's context, doing what context always does. We like to believe value lives permanently inside a thing — useful here, useless there, beautiful, ugly, important, forgettable, as if the object carries a fixed price tag welded to it forever like it came from a factory that way. But take that same object and move it. Change the room, the light, the company it's keeping, the story that walks in alongside it, and watch how fast our judgment swings around.",
+    "A bicycle seat on a bicycle is useful. The same seat left in a gutter is junk nobody wants to touch. Put it under a set of handlebars in the right hands, and suddenly people are flying across oceans just to stand in front of it, taking photos, buying the postcard. The material didn't get smarter overnight. We just changed our minds about what mattered."
+  ]},
+  { number: "04", section: "CERAMICS", title: "PICASSO NEVER CLEANED HIS PLATE.", image: "ceramics", alt: "A gallery wall of ceramic plates, with painted faces and motifs appearing among rows of white plates.", copy: [
+    "A plate already knows its job. Dinner goes here. Simple, settled, done, nothing more to discuss. Then he gives it a face. A jug grows a body. Clay stops being something to eat off of and becomes something to scratch into, paint over, twist, distort, argue with at three in the morning. An object built purely to be useful gets handed a whole other life it never applied for.",
+    "And I don't think his point was ever that the plate was secretly never a plate. Of course it was a plate. That's exactly what makes it fun. The plate just wasn't the end of the sentence, and it turns out a lot of things aren't.",
+    "Which starts to sound a lot like the man himself. Painter, obviously — one of the most famous people who ever picked up a brush, full stop, case closed. And even that turns out to be too small a box for him to sit in comfortably. Sculpture. Ceramics. Printmaking. Collage. Whatever material happened to catch his eye and hand him a new problem worth solving that particular week.",
+    "There's something almost rebellious in refusing to let your own success lock the door behind you. You get good at one thing. People notice. They reward you for it, again and again, until the applause starts sounding less like a compliment and more like an instruction: stay right here, don't move, we like you exactly like this. He kept wandering off anyway, ceramics in hand, completely unbothered.",
+    "Maybe that's its own kind of freedom — not running from who you are, just refusing to let it become a cage with a nice view. Yes, that's me. And no, that's not all I'll ever be."
+  ]},
 ];
 
-function Picture({ name, alt, eager = false }: { name: string; alt: string; eager?: boolean }) {
-  return <picture className={styles.picture}><source media="(max-width: 780px)" srcSet={`/images/editorial/index-${name}-mobile.jpg`} /><img src={`/images/editorial/index-${name}-desktop.jpg`} alt={alt} loading={eager ? "eager" : "lazy"} fetchPriority={eager ? "high" : undefined} decoding="async" /></picture>;
-}
+function Picture({ name, alt, eager = false }: { name: string; alt: string; eager?: boolean }) { return <picture className={styles.picture}><source media="(max-width: 780px)" srcSet={`/images/editorial/index-${name}-mobile.jpg`} /><img src={`/images/editorial/index-${name}-desktop.jpg`} alt={alt} loading={eager ? "eager" : "lazy"} fetchPriority={eager ? "high" : undefined} decoding="async" /></picture>; }
 
-export default function PicassoIndexStoryPage() {
-  return <main className={styles.page} id="top">
-    <header className={styles.folio}><Link className={styles.brand} href="/">EASTOKYO</Link><span className={styles.folioCenter}>INDEX · ISSUE 01</span><span className={styles.folioRight}>TOKYO · SEPTEMBER 2026</span></header>
-
-    <section className={styles.hero} aria-labelledby="index-title">
-      <Picture name="hero" alt="" eager />
-      <div className={styles.heroShade} aria-hidden="true" />
-      <div className={styles.heroNumber} aria-hidden="true">05</div>
-      <div className={styles.heroCopy}><p className={styles.kicker}>PICASSO INDEX · START ANYWHERE</p><h1 id="index-title">NOTHING IS EVER<br />JUST WHAT IT<br /><em>SEEMS.</em></h1><p className={styles.deck}>Start with one thing. End somewhere else. That was half the fun.</p></div>
-      <div className={styles.heroNote}><span>OBJECT</span><span>PORTRAIT</span><span>STRIPES</span><span>CERAMICS</span></div>
-    </section>
-
-    <section className={styles.intro}><p className={styles.introLabel}>THE INDEX</p><div className={styles.introCopy}><p>Picasso could begin almost anywhere. A bicycle seat. A face. A plate. A room painted in stripes. The interesting part was never the starting point. It was what happened after he stopped accepting the first answer.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur blandit tempus porttitor. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p><p>This is not a chronology and it is not a list of greatest hits. Think of it as four doors into the same restless habit: looking at something ordinary long enough for it to become something else.</p></div></section>
-
-    <section className={styles.entries} aria-label="Picasso index entries">
-      {entries.map((entry) => <article className={styles.entry} key={entry.number}>
-        <div className={styles.entryNumber} aria-hidden="true">{entry.number}</div>
-        <div className={styles.entryMeta}><p>{entry.section}</p><span>EASTOKYO · INDEX 05</span></div>
-        <div className={styles.entryBody}><h2>{entry.title}</h2><div className={styles.entryText}>{entry.copy.map((p,i)=><p key={i}>{p}</p>)}</div></div>
-        <figure className={styles.entryFigure}><Picture name={entry.image} alt={entry.alt} /><figcaption>{entry.number} · {entry.section} / PICASSO INDEX</figcaption></figure>
-      </article>)}
-    </section>
-
-    <section className={styles.closing}>
-      <figure className={styles.closingFigure}><Picture name="closing" alt="A museum visitor pauses in front of a gallery wall filled with ceramic plates." /><figcaption>05 · LOOK AGAIN.</figcaption></figure>
-      <div className={styles.closingText}><div className={styles.closingRule}>PICASSO · REALITY, REARRANGED</div><p className={styles.closingLead}>The point was never to make the world harder to recognize.</p><p className={styles.closingCopy}>It was to keep looking after recognition had already done its job. One angle was never enough. One material was never enough. One answer was definitely never enough.</p><p className={styles.closingCopy}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Maecenas faucibus mollis interdum.</p><Link className={styles.backLink} href="/">EASTOKYO · ISSUE 01</Link></div>
-    </section>
-  </main>;
-}
+export default function PicassoIndexStoryPage() { return <main className={styles.page} id="top">
+<header className={styles.folio}><Link className={styles.brand} href="/">EASTOKYO</Link><span className={styles.folioCenter}>INDEX · ISSUE 01</span><span className={styles.folioRight}>TOKYO · SEPTEMBER 2026</span></header>
+<section className={styles.hero} aria-labelledby="index-title"><Picture name="hero" alt="" eager /><div className={styles.heroShade} aria-hidden="true"/><div className={styles.heroNumber} aria-hidden="true">05</div><div className={styles.heroCopy}><p className={styles.kicker}>PICASSO INDEX · START ANYWHERE</p><h1 id="index-title">NOTHING IS EVER<br/>JUST WHAT IT<br/><em>SEEMS.</em></h1><p className={styles.deck}>Start with one thing. End up somewhere else entirely. That was always half the fun.</p></div><div className={styles.heroNote}><span>OBJECT</span><span>PORTRAIT</span><span>STRIPES</span><span>CERAMICS</span></div></section>
+<section className={styles.intro}><p className={styles.introLabel}>THE INDEX</p><div className={styles.introCopy}><p>Picasso could start almost anywhere. A bicycle seat. A face. A dinner plate. A room dressed head to toe in stripes. It didn't much matter what the thing actually was — what mattered was what happened after he stopped believing the first answer was the last word on the subject. Because that first answer was usually fine. Perfectly fine. That's a bicycle seat, sure. That's a plate, of course. That's a face, obviously, what else would it be. But Picasso had this habit — a beautiful, slightly stubborn habit — of staying with something a little too long, long enough for a second question to sneak up behind him and tap him on the shoulder.</p><p><strong>What else could this be?</strong></p><p>This isn't a history lesson, and it definitely isn't a greatest-hits reel. Think of it as four doors into the same mischief: the refusal to believe that knowing what a thing is means you're finished understanding what it could become.</p></div></section>
+<section className={styles.entries} aria-label="Picasso index entries">{entries.map((entry)=><article className={styles.entry} key={entry.number}><div className={styles.entryNumber} aria-hidden="true">{entry.number}</div><div className={styles.entryMeta}><p>{entry.section}</p><span>EASTOKYO · INDEX 05</span></div><div className={styles.entryBody}><h2>{entry.title}</h2><div className={styles.entryText}>{entry.copy.map((p,i)=><p key={i}>{p}</p>)}</div></div><figure className={styles.entryFigure}><Picture name={entry.image} alt={entry.alt}/><figcaption>{entry.number} · {entry.section} / PICASSO INDEX</figcaption></figure></article>)}</section>
+<section className={styles.closing}><figure className={styles.closingFigure}><Picture name="closing" alt="A museum visitor pauses in front of a gallery wall filled with ceramic plates."/><figcaption>05 · LOOK AGAIN.</figcaption></figure><div className={styles.closingText}><div className={styles.closingRule}>PICASSO · REALITY, REARRANGED</div><p className={styles.closingLead}>The point was never to make the world harder to recognize.</p><p className={styles.closingCopy}>Recognition matters — we need names, categories, some shorthand to move through the day without stopping to interrogate every object we walk past. That's a chair. That's rubbish. That's beautiful. That's a person with nothing left to give me right now. Fine. Fair enough. The danger was never in making that first judgment. It's in deciding the judgment is finished the second you make it.</p><p className={styles.closingCopy}>Because sometimes what looks useless is just standing in the wrong room. Sometimes the accident beats the plan by a mile. Sometimes a silly little idea hangs around long enough, refusing to leave, until it quietly becomes a great one. Sometimes the person you wrote off wasn't empty at all — your category for them was just too small to hold what was actually there.</p><p className={styles.closingCopy}>That's what stays with me, out of all of it. He never asked us to pretend reality wasn't real. The bicycle seat is still a bicycle seat. The plate is still a plate. The face is still a face. He just wouldn't let reality settle down too fast, wouldn't let it get comfortable and stop trying.</p><p className={styles.closingCopy}>And maybe that's the little grin hiding in all of it. It keeps asking the same question, over and over, patient as anything:<br/><strong>Yes, fine. That's what it is. What else?</strong></p><p className={styles.closingLead}>BEFORE YOU THROW IT AWAY, LOOK AGAIN.</p><p className={styles.closingCopy}><em>NOTHING IS EVER QUITE WHAT IT SEEMS TO BE.</em></p><Link className={styles.backLink} href="/">EASTOKYO · ISSUE 01</Link></div></section>
+</main>; }
