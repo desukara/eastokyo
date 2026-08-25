@@ -3,38 +3,35 @@
    Purpose: restore designed editorial spines without allowing arbitrary drift. */
 
 @media (max-width:1099px){
-  /* Fresh Eyes: its desktop art direction uses large percentage offsets that become
-     accidental on tablet/mobile. Re-center the section containers, not the text itself. */
+  /* Fresh Eyes: desktop art direction uses large percentage offsets that become
+     accidental on tablet/mobile. Re-center containers rather than flattening type. */
   body:not(:has(.mag-page)) main [class*="harlequinLead"],
   body:not(:has(.mag-page)) main [class*="blueHead"],
   body:not(:has(.mag-page)) main [class*="quietHead"]{
-    width:min(100%, 56rem)!important;
+    width:min(100%,56rem)!important;
     margin-left:auto!important;
     margin-right:auto!important;
-    padding-left:clamp(1rem,3vw,2rem)!important;
-    padding-right:clamp(1rem,3vw,2rem)!important;
+    padding-left:clamp(1.25rem,3vw,2rem)!important;
+    padding-right:clamp(1.25rem,3vw,2rem)!important;
   }
 
+  body:not(:has(.mag-page)) main [class*="openingA"],
+  body:not(:has(.mag-page)) main [class*="openingB"],
+  body:not(:has(.mag-page)) main [class*="openingC"],
   body:not(:has(.mag-page)) main [class*="harlequinLead"] [class*="prose"],
   body:not(:has(.mag-page)) main [class*="quietHead"] [class*="prose"],
-  body:not(:has(.mag-page)) main [class*="blueText"]{
-    width:min(100%, 48rem)!important;
-    margin-left:auto!important;
-    margin-right:auto!important;
-  }
-
-  /* Secondary prose rails should feel composed, not pinned to arbitrary percentages. */
+  body:not(:has(.mag-page)) main [class*="blueText"],
   body:not(:has(.mag-page)) main [class*="harlequinRest"],
   body:not(:has(.mag-page)) main [class*="finalMain"],
   body:not(:has(.mag-page)) main [class*="finalRail"],
   body:not(:has(.mag-page)) main [class*="quietMiddle"] > [class*="prose"]{
-    width:min(100%, 48rem)!important;
+    width:min(100%,48rem)!important;
     margin-left:auto!important;
     margin-right:auto!important;
   }
 
-  /* Display stacks can retain their internal rhythm, but explanatory copy should
-     return to the reading spine instead of beginning halfway across the viewport. */
+  /* Display stacks may keep their internal rhythm, but explanatory copy belongs
+     back on the reading spine rather than beginning halfway across the viewport. */
   body:not(:has(.mag-page)) main [class*="movementStack"] p:last-child{
     max-width:34ch!important;
     margin-left:auto!important;
@@ -43,42 +40,45 @@
 }
 
 @media (max-width:700px){
-  /* Establish a reliable phone gutter for article text containers while leaving
-     intentional full-bleed media alone. */
+  /* A deliberate phone gutter: generous enough to feel editorial, not edge-hugging. */
   body:not(:has(.mag-page)) main [class*="harlequinLead"],
   body:not(:has(.mag-page)) main [class*="blueHead"],
   body:not(:has(.mag-page)) main [class*="quietHead"],
+  body:not(:has(.mag-page)) main [class*="openingA"],
+  body:not(:has(.mag-page)) main [class*="openingB"],
+  body:not(:has(.mag-page)) main [class*="openingC"],
   body:not(:has(.mag-page)) main [class*="harlequinRest"],
   body:not(:has(.mag-page)) main [class*="blueText"],
   body:not(:has(.mag-page)) main [class*="finalMain"],
-  body:not(:has(.mag-page)) main [class*="finalRail"]{
+  body:not(:has(.mag-page)) main [class*="finalRail"],
+  body:not(:has(.mag-page)) main [class*="quietMiddle"] > [class*="prose"]{
     width:auto!important;
     max-width:none!important;
-    margin-left:1rem!important;
-    margin-right:1rem!important;
+    margin-left:clamp(1.25rem,5vw,1.75rem)!important;
+    margin-right:clamp(1.25rem,5vw,1.75rem)!important;
     padding-left:0!important;
     padding-right:0!important;
   }
 
-  /* Headings inherit each module's text alignment; only the containing spine is repaired. */
+  /* Preserve module-defined alignment, but do not allow heading boxes to inherit
+     leftover desktop offsets or transforms. */
   body:not(:has(.mag-page)) main [class*="harlequinLead"] h2,
   body:not(:has(.mag-page)) main [class*="blueHead"] h2,
   body:not(:has(.mag-page)) main [class*="quietHead"] h2{
+    width:auto!important;
     margin-left:0!important;
     margin-right:0!important;
+    transform:none!important;
+    translate:none!important;
   }
 
+  body:not(:has(.mag-page)) main [class*="movementStack"]{
+    padding-left:clamp(1.25rem,5vw,1.75rem)!important;
+    padding-right:clamp(1.25rem,5vw,1.75rem)!important;
+  }
   body:not(:has(.mag-page)) main [class*="movementStack"] p:nth-child(even),
   body:not(:has(.mag-page)) main [class*="movementStack"] p:last-child{
     margin-left:0!important;
     margin-right:0!important;
-  }
-
-  /* Keep long-form text from bouncing between left and right rails on phones. */
-  body:not(:has(.mag-page)) main [class*="quietMiddle"] > [class*="prose"]{
-    width:auto!important;
-    max-width:none!important;
-    margin-left:1rem!important;
-    margin-right:1rem!important;
   }
 }
