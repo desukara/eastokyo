@@ -73,3 +73,45 @@ body:not(:has(.mag-page)) main section h2{font-size:clamp(2.1rem,10.5vw,2.95rem)
 body:not(:has(.mag-page)) main blockquote p{font-size:clamp(2.45rem,12vw,3.7rem)!important}
 body:not(:has(.mag-page)) main [class*="movementStack"],body:not(:has(.mag-page)) main [class*="worlds"],body:not(:has(.mag-page)) main [class*="sideQuote"],body:not(:has(.mag-page)) main [class*="pullQuote"] p{font-size:clamp(2.25rem,10.8vw,3.4rem)!important}
 }
+
+/* Shared site chrome now uses .mag-page for its own visual skin. Restore article
+   guardrails only above the mobile breakpoint when that chrome is present.
+   The phone cascade remains exactly as authored above. */
+@media (min-width:701px){
+body:has(.mag-site-chrome):not(:has(.mag-page:not(.mag-site-chrome))) main{max-width:100%;overflow-x:clip}
+body:has(.mag-site-chrome):not(:has(.mag-page:not(.mag-site-chrome))) main *,body:has(.mag-site-chrome):not(:has(.mag-page:not(.mag-site-chrome))) main *::before,body:has(.mag-site-chrome):not(:has(.mag-page:not(.mag-site-chrome))) main *::after{box-sizing:border-box}
+body:has(.mag-site-chrome):not(:has(.mag-page:not(.mag-site-chrome))) main img,body:has(.mag-site-chrome):not(:has(.mag-page:not(.mag-site-chrome))) main picture,body:has(.mag-site-chrome):not(:has(.mag-page:not(.mag-site-chrome))) main figure{max-width:100%}
+body:has(.mag-site-chrome):not(:has(.mag-page:not(.mag-site-chrome))) main img{height:auto}
+body:has(.mag-site-chrome):not(:has(.mag-page:not(.mag-site-chrome))) main figure{break-inside:avoid}
+body:has(.mag-site-chrome):not(:has(.mag-page:not(.mag-site-chrome))) main section:first-of-type h1{max-width:11ch;font-size:clamp(4.2rem,8.2vw,8.25rem)!important;line-height:.8!important;text-wrap:balance}
+body:has(.mag-site-chrome):not(:has(.mag-page:not(.mag-site-chrome))) main section h2{max-width:18ch;font-size:clamp(2.75rem,4.5vw,5.25rem)!important;line-height:.92!important;overflow-wrap:normal;word-break:normal;text-wrap:balance}
+body:has(.mag-site-chrome):not(:has(.mag-page:not(.mag-site-chrome))) main section h3{max-width:24ch;font-size:clamp(1.9rem,3vw,3.5rem)!important;line-height:1!important;text-wrap:balance}
+body:has(.mag-site-chrome):not(:has(.mag-page:not(.mag-site-chrome))) main section h1,body:has(.mag-site-chrome):not(:has(.mag-page:not(.mag-site-chrome))) main section h2,body:has(.mag-site-chrome):not(:has(.mag-page:not(.mag-site-chrome))) main section h3{left:auto!important;right:auto!important;inset-inline:auto!important;translate:none!important;transform:none!important}
+body:has(.mag-site-chrome):not(:has(.mag-page:not(.mag-site-chrome))) main blockquote{max-width:100%}
+body:has(.mag-site-chrome):not(:has(.mag-page:not(.mag-site-chrome))) main blockquote p{max-width:14ch;font-size:clamp(3rem,6.4vw,7rem)!important;line-height:.86!important;text-wrap:balance}
+body:has(.mag-site-chrome):not(:has(.mag-page:not(.mag-site-chrome))) main section blockquote{translate:none!important}
+body:has(.mag-site-chrome):not(:has(.mag-page:not(.mag-site-chrome))) main section p{overflow-wrap:break-word}
+body:has(.mag-site-chrome):not(:has(.mag-page:not(.mag-site-chrome))) main [class*="movementStack"],body:has(.mag-site-chrome):not(:has(.mag-page:not(.mag-site-chrome))) main [class*="worlds"],body:has(.mag-site-chrome):not(:has(.mag-page:not(.mag-site-chrome))) main [class*="sideQuote"],body:has(.mag-site-chrome):not(:has(.mag-page:not(.mag-site-chrome))) main [class*="pullQuote"] p,body:has(.mag-site-chrome):not(:has(.mag-page:not(.mag-site-chrome))) main [class*="closingLead"],body:has(.mag-site-chrome):not(:has(.mag-page:not(.mag-site-chrome))) main [class*="standfirst"]{max-width:18ch;text-wrap:balance}
+body:has(.mag-site-chrome):not(:has(.mag-page:not(.mag-site-chrome))) main figure figcaption{max-width:100%;margin-bottom:0;overflow-wrap:break-word;text-wrap:pretty}
+body:has(.mag-site-chrome):not(:has(.mag-page:not(.mag-site-chrome))) main figure+figure{margin-top:0}
+}
+
+@media (min-width:1100px){
+body:has(.mag-site-chrome):not(:has(.mag-page:not(.mag-site-chrome))) main section:first-of-type h1{font-size:clamp(4.5rem,7.7vw,8rem)!important}
+body:has(.mag-site-chrome):not(:has(.mag-page:not(.mag-site-chrome))) main section h2{font-size:clamp(3rem,4.15vw,4.85rem)!important}
+body:has(.mag-site-chrome):not(:has(.mag-page:not(.mag-site-chrome))) main section h3{font-size:clamp(2rem,2.8vw,3.25rem)!important}
+body:has(.mag-site-chrome):not(:has(.mag-page:not(.mag-site-chrome))) main [class*="movementStack"],body:has(.mag-site-chrome):not(:has(.mag-page:not(.mag-site-chrome))) main [class*="worlds"],body:has(.mag-site-chrome):not(:has(.mag-page:not(.mag-site-chrome))) main [class*="sideQuote"],body:has(.mag-site-chrome):not(:has(.mag-page:not(.mag-site-chrome))) main [class*="pullQuote"] p{font-size:clamp(3.4rem,5.5vw,6.4rem)!important;line-height:.88!important}
+body:has(.mag-site-chrome):not(:has(.mag-page:not(.mag-site-chrome))) main [class*="harlequinFigure"],body:has(.mag-site-chrome):not(:has(.mag-page:not(.mag-site-chrome))) main [class*="blueFigure"],body:has(.mag-site-chrome):not(:has(.mag-page:not(.mag-site-chrome))) main [class*="thresholdFigure"]{margin-right:0!important;max-width:100%!important}
+}
+
+@media (min-width:701px) and (max-width:1099px){
+body:has(.mag-site-chrome):not(:has(.mag-page:not(.mag-site-chrome))) main section:first-of-type h1{max-width:10ch;font-size:clamp(3.9rem,8.6vw,6.6rem)!important}
+body:has(.mag-site-chrome):not(:has(.mag-page:not(.mag-site-chrome))) main section h2{max-width:16ch;font-size:clamp(2.75rem,5.7vw,4.5rem)!important}
+body:has(.mag-site-chrome):not(:has(.mag-page:not(.mag-site-chrome))) main section h3{font-size:clamp(1.9rem,4vw,3rem)!important}
+body:has(.mag-site-chrome):not(:has(.mag-page:not(.mag-site-chrome))) main blockquote p{font-size:clamp(3rem,8vw,5.8rem)!important}
+body:has(.mag-site-chrome):not(:has(.mag-page:not(.mag-site-chrome))) main [class*="movementStack"],body:has(.mag-site-chrome):not(:has(.mag-page:not(.mag-site-chrome))) main [class*="worlds"],body:has(.mag-site-chrome):not(:has(.mag-page:not(.mag-site-chrome))) main [class*="sideQuote"],body:has(.mag-site-chrome):not(:has(.mag-page:not(.mag-site-chrome))) main [class*="pullQuote"] p{max-width:16ch!important;font-size:clamp(3rem,7vw,5.2rem)!important;line-height:.9!important}
+body:has(.mag-site-chrome):not(:has(.mag-page:not(.mag-site-chrome))) main figure{transform:none!important;translate:none!important}
+body:has(.mag-site-chrome):not(:has(.mag-page:not(.mag-site-chrome))) main [class*="closingFigure"]{position:static!important;top:auto!important}
+body:has(.mag-site-chrome):not(:has(.mag-page:not(.mag-site-chrome))) main [class*="viewerFigure"],body:has(.mag-site-chrome):not(:has(.mag-page:not(.mag-site-chrome))) main [class*="galleryFigure"],body:has(.mag-site-chrome):not(:has(.mag-page:not(.mag-site-chrome))) main [class*="thresholdFigure"],body:has(.mag-site-chrome):not(:has(.mag-page:not(.mag-site-chrome))) main [class*="climax"],body:has(.mag-site-chrome):not(:has(.mag-page:not(.mag-site-chrome))) main [class*="openingDiptych"],body:has(.mag-site-chrome):not(:has(.mag-page:not(.mag-site-chrome))) main [class*="staggeredGallery"],body:has(.mag-site-chrome):not(:has(.mag-page:not(.mag-site-chrome))) main [class*="detailPair"],body:has(.mag-site-chrome):not(:has(.mag-page:not(.mag-site-chrome))) main [class*="bullfightPair"]{max-width:calc(100vw - 3rem)!important;margin-left:auto!important;margin-right:auto!important}
+body:has(.mag-site-chrome):not(:has(.mag-page:not(.mag-site-chrome))) main figure figcaption{line-height:1.45}
+}
