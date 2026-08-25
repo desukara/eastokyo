@@ -224,6 +224,31 @@
   letter-spacing: 0.2em;
 }
 
+@media (min-width: 701px) {
+  .gallery {
+    padding-top: clamp(2rem, 4vh, 3.25rem);
+    padding-bottom: clamp(2rem, 4vh, 3.25rem);
+  }
+
+  .headingRow {
+    margin-bottom: clamp(0.7rem, 1.5vh, 1rem);
+  }
+
+  .artworkFrame {
+    height: clamp(360px, calc(100svh - 250px), 680px);
+    min-height: 0;
+  }
+
+  .captionRow {
+    margin-top: clamp(0.55rem, 1.2vh, 0.85rem);
+    gap: 0.45rem;
+  }
+
+  .artworkMeta {
+    gap: 0.32rem;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .artwork,
   .arrow {
