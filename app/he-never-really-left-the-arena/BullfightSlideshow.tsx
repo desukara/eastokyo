@@ -120,6 +120,7 @@ export default function BullfightSlideshow() {
   };
 
   const slide = slides[active];
+  const activeNumber = String(active + 1).padStart(2, "0");
 
   return (
     <section className={styles.gallery} aria-label="Œuvres de Picasso pour La Tauromaquia">
@@ -163,7 +164,7 @@ export default function BullfightSlideshow() {
 
           <div className={styles.mobileControls}>
             <button type="button" onClick={previous} aria-label="Œuvre précédente">← PRÉCÉDENTE</button>
-            <span className={styles.mobileCount} aria-live="polite">{slide.number} / {slides.length}</span>
+            <span className={styles.mobileCount} aria-live="polite">{activeNumber} / {slides.length}</span>
             <button type="button" onClick={next} aria-label="Œuvre suivante">SUIVANTE →</button>
           </div>
         </div>
@@ -178,7 +179,7 @@ export default function BullfightSlideshow() {
             <span className={styles.artworkTitle}>{slide.title}</span>
             <span className={styles.artworkDetails}>PABLO PICASSO · {slide.year} · {slide.detail}</span>
           </div>
-          <span className={styles.counter}>{slide.number} / {slides.length}</span>
+          <span className={styles.counter}>{activeNumber} / {slides.length}</span>
         </div>
       </div>
     </section>
