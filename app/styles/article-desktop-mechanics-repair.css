@@ -1,0 +1,60 @@
+/* EASTOKYO desktop article mechanics repair
+   Article pages only; homepage (.mag-page) explicitly excluded. */
+
+@media (min-width:1100px){
+  /* Arena slideshow: fit the entire gallery composition inside common desktop/laptop viewports. */
+  body:not(:has(.mag-page)) main [class*="gallery"]{
+    padding-top:clamp(2.5rem,5vh,4.5rem)!important;
+    padding-bottom:clamp(2.75rem,5vh,4.75rem)!important;
+  }
+  body:not(:has(.mag-page)) main [class*="headingRow"],
+  body:not(:has(.mag-page)) main [class*="viewer"]{
+    max-width:1180px!important;
+  }
+  body:not(:has(.mag-page)) main [class*="stage"]{
+    grid-template-columns:3.5rem minmax(0,1fr) 3.5rem!important;
+    gap:clamp(.65rem,1.2vw,1rem)!important;
+  }
+  body:not(:has(.mag-page)) main [class*="artworkFrame"]{
+    height:clamp(320px,calc(100svh - 310px),620px)!important;
+    min-height:0!important;
+    overflow:hidden!important;
+  }
+  body:not(:has(.mag-page)) main [class*="artwork"]{
+    object-fit:contain!important;
+    object-position:center center!important;
+  }
+  body:not(:has(.mag-page)) main [class*="captionRow"]{
+    margin-top:.85rem!important;
+    gap:.5rem!important;
+  }
+
+  /* Fresh Eyes: restore an intentional editorial inset instead of the old hard-left emergency anchor. */
+  body:not(:has(.mag-page)) main [class*="harlequinLead"],
+  body:not(:has(.mag-page)) main [class*="blueHead"],
+  body:not(:has(.mag-page)) main [class*="quietHead"]{
+    width:min(940px,80%)!important;
+    margin-left:clamp(2rem,5.5vw,5rem)!important;
+    margin-right:auto!important;
+  }
+  body:not(:has(.mag-page)) main [class*="harlequinLead"] [class*="prose"],
+  body:not(:has(.mag-page)) main [class*="quietHead"] [class*="prose"]{
+    margin-left:clamp(1.5rem,4vw,3.5rem)!important;
+  }
+
+  /* Keep major article headings off the physical viewport edge when a module uses an over-wide rail. */
+  body:not(:has(.mag-page)) main section h2,
+  body:not(:has(.mag-page)) main section h3{
+    scroll-margin-left:2rem;
+  }
+}
+
+@media (min-width:1100px) and (max-height:760px){
+  body:not(:has(.mag-page)) main [class*="gallery"]{
+    padding-top:2.25rem!important;
+    padding-bottom:2.5rem!important;
+  }
+  body:not(:has(.mag-page)) main [class*="artworkFrame"]{
+    height:clamp(300px,calc(100svh - 270px),520px)!important;
+  }
+}
