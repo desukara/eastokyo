@@ -115,18 +115,23 @@
   height: min(74vh, 840px);
   min-height: 520px;
   overflow: hidden;
-  border: 0;
+  box-sizing: border-box;
+  padding: clamp(0.5rem, 1vw, 0.85rem);
+  border: 1px solid rgba(239, 220, 187, 0.76);
   border-radius: 0;
-  background: transparent;
-  box-shadow: none;
+  background: #eee4d3;
+  box-shadow:
+    0 22px 46px rgba(0, 0, 0, 0.24),
+    inset 0 0 0 1px rgba(255, 250, 239, 0.72),
+    inset 0 0 0 4px rgba(121, 75, 43, 0.08);
 }
 
 .artwork {
   position: absolute;
-  inset: 0;
+  inset: clamp(0.5rem, 1vw, 0.85rem);
   display: block;
-  width: 100%;
-  height: 100%;
+  width: calc(100% - clamp(1rem, 2vw, 1.7rem));
+  height: calc(100% - clamp(1rem, 2vw, 1.7rem));
   object-fit: contain;
   opacity: 0;
   transition: opacity 280ms ease;
@@ -135,7 +140,7 @@
   will-change: opacity;
   backface-visibility: hidden;
   transform: translateZ(0);
-  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.2));
+  filter: drop-shadow(0 12px 18px rgba(0, 0, 0, 0.16));
 }
 
 .artworkVisible {
@@ -301,17 +306,22 @@
     width: 100%;
     height: calc(66svh - 4.35rem);
     min-height: 360px;
-    border: 0;
+    padding: 0.45rem;
+    border: 1px solid rgba(239, 220, 187, 0.72);
     border-radius: 0;
-    background: transparent;
-    box-shadow: none;
+    background: #eee4d3;
+    box-shadow:
+      0 14px 26px rgba(0, 0, 0, 0.2),
+      inset 0 0 0 1px rgba(255, 250, 239, 0.68),
+      inset 0 0 0 3px rgba(121, 75, 43, 0.07);
   }
 
   .artwork {
-    width: 100%;
-    height: 100%;
+    inset: 0.45rem;
+    width: calc(100% - 0.9rem);
+    height: calc(100% - 0.9rem);
     object-fit: contain;
-    filter: drop-shadow(0 14px 22px rgba(0, 0, 0, 0.18));
+    filter: drop-shadow(0 8px 13px rgba(0, 0, 0, 0.14));
   }
 
   .arrow {
