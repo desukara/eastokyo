@@ -1,6 +1,17 @@
 /* EASTOKYO desktop article mechanics repair
    Article pages only; homepage (.mag-page) explicitly excluded. */
 
+/* The Arena slideshow predates the later article guardrails and depends on its
+   slide images filling the slideshow frame. Reassert that contract here so the
+   generic `main img { height:auto }` safety rule cannot distort/crop the viewer. */
+body:not(:has(.mag-page)) main [class*="artworkFrame"] > img[class*="artwork"]{
+  width:100%!important;
+  height:100%!important;
+  max-width:none!important;
+  object-fit:contain!important;
+  object-position:center center!important;
+}
+
 @media (min-width:1100px){
   /* Fresh Eyes: restore an intentional editorial inset instead of the old hard-left emergency anchor. */
   body:not(:has(.mag-page)) main [class*="harlequinLead"],
