@@ -126,7 +126,7 @@ export default function ShareRailPreview() {
         <a className={styles.cell} href={links.facebook} target="_blank" rel="noreferrer" aria-label="Partager sur Facebook" title="Facebook"><Icon name="facebook"/></a>
         <a className={styles.cell} href={links.x} target="_blank" rel="noreferrer" aria-label="Partager sur X" title="X"><Icon name="x"/></a>
         <a className={styles.cell} href={links.bluesky} target="_blank" rel="noreferrer" aria-label="Partager sur Bluesky" title="Bluesky"><Icon name="bluesky"/></a>
-        <button className={styles.cell} type="button" onClick={() => copy(url)} aria-label="Copier le lien EASTOKYO" title="Copier le lien"><Icon name="copy"/></button>
+        <button className={`${styles.cell} ${styles.copy}`} type="button" onClick={() => copy(url)} aria-label="Copier le lien EASTOKYO" title="Copier le lien"><Icon name="copy"/></button>
       </div>
     );
   };
