@@ -1,9 +1,8 @@
 import { SiteFooter, SiteHeader } from "../eastokyo/SiteChrome";
-import SharePrototype from "./SharePrototype";
+import ShareRailPreview from "./ShareRailPreview";
 import "./festival-force.css";
 import "./festival-cleanup.css";
-import "./share-preview-polish.css";
 
 export default function StoryLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <div className="asagayaFestivalShell"><SharePrototype /><SiteHeader />{children}<SiteFooter /></div>;
+  return <div className="asagayaFestivalShell"><ShareRailPreview /><SiteHeader />{children}<SiteFooter /></div>;
 }
