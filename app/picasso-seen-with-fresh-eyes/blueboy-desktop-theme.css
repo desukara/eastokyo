@@ -293,6 +293,125 @@
     border-top-color: rgba(247,240,226,.2);
   }
 
+  /* FINAL AUTHORITY PASS — beat legacy chrome and make first/last pixels belong to this story. */
+  #site-chrome-top.mag-site-chrome,
+  #site-chrome-top .mag-header,
+  #site-chrome-top .mag-header-rail,
+  #site-chrome-top .mag-nav {
+    border-color: rgba(244,236,217,.22) !important;
+  }
+
+  #site-chrome-top .mag-header-rail {
+    min-height: 1.85rem !important;
+    padding-top: .22rem !important;
+    padding-bottom: .22rem !important;
+    background: linear-gradient(90deg,#1d5aa0 0%,#174b88 58%,#123d71 100%) !important;
+    color: #f7f0e2 !important;
+  }
+
+  #site-chrome-top .mag-header-rail p,
+  #site-chrome-top .mag-header-rail p:last-child {
+    color: #f7f0e2 !important;
+  }
+
+  #site-chrome-top .mag-header-rail p:nth-child(2) {
+    color: #efc62d !important;
+  }
+
+  #site-chrome-top .mag-nav {
+    min-height: 2.65rem !important;
+    background: #0f3159 !important;
+    color: #f7f0e2 !important;
+    border-bottom: 0 !important;
+  }
+
+  #site-chrome-top .mag-nav a,
+  #site-chrome-top .mag-nav span {
+    color: #f7f0e2 !important;
+    padding-top: .78rem !important;
+    padding-bottom: .72rem !important;
+  }
+
+  #site-chrome-top .mag-nav span { color: #a9cce8 !important; }
+  #site-chrome-top .mag-nav a::after { background: #efc62d !important; }
+
+  /* One strong article masthead band, not another timid strip. */
+  main#top [class*="folio"] {
+    min-height: 4.35rem !important;
+    padding-top: .72rem !important;
+    padding-bottom: .72rem !important;
+    background: linear-gradient(90deg,#174b88 0%,#1b5598 52%,#123c6e 100%) !important;
+    border-top: 0 !important;
+    border-bottom: 0 !important;
+  }
+
+  main#top [class*="brand"] {
+    width: clamp(12rem,18vw,18rem) !important;
+    height: clamp(2.5rem,3.8vw,3.45rem) !important;
+    background-image: url('/eastokyo-wordmark-white.png') !important;
+    background-repeat: no-repeat !important;
+    background-position: left center !important;
+    background-size: contain !important;
+  }
+
+  /* Let the finale occupy the page, not look like a blue card dropped into it. */
+  main#top [class*="ending"] {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: clamp(4.2rem,6vw,6.5rem) max(4rem,calc((100vw - 1180px)/2)) clamp(4.5rem,6.5vw,7rem) !important;
+    background:
+      radial-gradient(circle at 18% 26%,rgba(80,148,210,.24),transparent 31%),
+      linear-gradient(135deg,#174f8c 0%,#10365f 56%,#0b294a 100%) !important;
+    box-shadow: none !important;
+    clip-path: none !important;
+    border: 0 !important;
+  }
+
+  /* Closing line needs an editorial inset, not edge-hugging alignment. */
+  main#top [class*="ending"] h2 {
+    padding-left: clamp(1.1rem,2.2vw,2.4rem) !important;
+    max-width: 10.5ch;
+  }
+
+  main#top [class*="ending"] h2::after {
+    margin-left: 0 !important;
+  }
+
+  /* Remove the pale article-afterthought strip before the actual site footer. */
+  main#top [class*="footer"] {
+    margin: 0 !important;
+    padding-top: 1.2rem !important;
+    padding-bottom: 1.35rem !important;
+    background: #0b294a !important;
+    color: #f7f0e2 !important;
+    box-shadow: none !important;
+    clip-path: none !important;
+    border-top: 1px solid rgba(247,240,226,.16) !important;
+  }
+
+  /* The shared EASTOKYO footer is part of the finale on this route. */
+  .mag-site-chrome:not(#site-chrome-top),
+  .mag-site-chrome:not(#site-chrome-top) .mag-footer {
+    background: #0b294a !important;
+    color: #f7f0e2 !important;
+  }
+
+  .mag-site-chrome:not(#site-chrome-top) .mag-footer {
+    border-top: 0 !important;
+  }
+
+  .mag-site-chrome:not(#site-chrome-top) .mag-footer-top,
+  .mag-site-chrome:not(#site-chrome-top) .mag-footer-links,
+  .mag-site-chrome:not(#site-chrome-top) .mag-footer-bottom {
+    border-color: rgba(247,240,226,.18) !important;
+  }
+
+  .mag-site-chrome:not(#site-chrome-top) .mag-footer-wordmark {
+    background-image: url('/eastokyo-wordmark-white.png') !important;
+    filter: none !important;
+  }
+
   @keyframes blueboyLight {
     from { background-position: 100% 0; }
     to { background-position: 0 0; }
