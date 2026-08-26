@@ -7,7 +7,22 @@ export const metadata: Metadata = {
   title: "Rien n’est jamais tout à fait ce qu’on croit.",
   description: "Picasso, objets, portraits, rayures, céramiques, et le plaisir de partir d’un truc pour finir ailleurs.",
   alternates: { canonical: "/nothing-is-just-what-it-is" },
-  robots: { index: false, follow: false, googleBot: { index: false, follow: false } },
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
+  openGraph: {
+    title: "Rien n’est jamais tout à fait ce qu’on croit.",
+    description: "Picasso, objets, portraits, rayures, céramiques, et le plaisir de partir d’un truc pour finir ailleurs.",
+    url: "/nothing-is-just-what-it-is",
+    siteName: "EASTOKYO",
+    locale: "fr_FR",
+    type: "article",
+    images: [{ url: "/images/editorial/index-hero-desktop.jpg", alt: "Rien n’est jamais tout à fait ce qu’on croit." }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Rien n’est jamais tout à fait ce qu’on croit.",
+    description: "Picasso, objets, portraits, rayures, céramiques, et le plaisir de partir d’un truc pour finir ailleurs.",
+    images: ["/images/editorial/index-hero-desktop.jpg"],
+  },
 };
 
 const entries = [

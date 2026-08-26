@@ -7,7 +7,22 @@ export const metadata: Metadata = {
   title: "Picasso, sous un autre regard",
   description: "Picasso vu par Paul Smith au National Art Center, Tokyo.",
   alternates: { canonical: "/picasso-seen-with-fresh-eyes" },
-  robots: { index: false, follow: false, googleBot: { index: false, follow: false } },
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
+  openGraph: {
+    title: "Picasso, sous un autre regard",
+    description: "Picasso vu par Paul Smith au National Art Center, Tokyo.",
+    url: "/picasso-seen-with-fresh-eyes",
+    siteName: "EASTOKYO",
+    locale: "fr_FR",
+    type: "article",
+    images: [{ url: "/images/editorial/picasso-man-in-blue-hero-desktop.png", alt: "Picasso, sous un autre regard" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Picasso, sous un autre regard",
+    description: "Picasso vu par Paul Smith au National Art Center, Tokyo.",
+    images: ["/images/editorial/picasso-man-in-blue-hero-desktop.png"],
+  },
 };
 
 const credit = "PICASSO, THROUGH THE EYES OF PAUL SMITH · THE NATIONAL ART CENTER, TOKYO · PHOTOGRAPHIE : JIMICHANGA";

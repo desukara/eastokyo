@@ -3,7 +3,27 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import styles from "./page.module.css";
 
-export const metadata: Metadata={title:"La ville se déguise.",description:"Le Tanabata d'Asagaya, quand une rue commerçante ordinaire de Tokyo décide de devenir autre chose pendant quelques nuits d'été.",alternates:{canonical:"/the-city-puts-on-a-costume"},robots:{index:false,follow:false,googleBot:{index:false,follow:false}}};
+export const metadata: Metadata = {
+  title: "La ville se déguise.",
+  description: "Le Tanabata d'Asagaya, quand une rue commerçante ordinaire de Tokyo décide de devenir autre chose pendant quelques nuits d'été.",
+  alternates: { canonical: "/the-city-puts-on-a-costume" },
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
+  openGraph: {
+    title: "La ville se déguise.",
+    description: "Le Tanabata d'Asagaya, quand une rue commerçante ordinaire de Tokyo décide de devenir autre chose pendant quelques nuits d'été.",
+    url: "/the-city-puts-on-a-costume",
+    siteName: "EASTOKYO",
+    locale: "fr_FR",
+    type: "article",
+    images: [{ url: "/images/editorial/asagaya-hero-01-desktop.jpg", alt: "La ville se déguise." }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "La ville se déguise.",
+    description: "Le Tanabata d'Asagaya, quand une rue commerçante ordinaire de Tokyo décide de devenir autre chose pendant quelques nuits d'été.",
+    images: ["/images/editorial/asagaya-hero-01-desktop.jpg"],
+  },
+};
 const feature=(number:number)=>{const id=String(number).padStart(2,"0");return{desktop:`/images/editorial/asagaya-feature-${id}-desktop.jpg`,mobile:`/images/editorial/asagaya-feature-${id}-mobile.jpg`}};
 function AsagayaPicture({number,alt,className="",eager=false}:{number:number;alt:string;className?:string;eager?:boolean}){const image=feature(number);return <picture className={`${styles.storyPicture} ${className}`}><source media="(max-width: 700px)" srcSet={image.mobile}/><img src={image.desktop} alt={alt} loading={eager?"eager":"lazy"}/></picture>}
 

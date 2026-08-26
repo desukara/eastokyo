@@ -4,10 +4,25 @@ import Link from "next/link";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: "Quand un seul angle ne suffisait plus. | EASTOKYO",
+  title: "Quand un seul angle ne suffisait plus.",
   description: "Picasso, Braque, le cubisme et le moment où un seul point de vue fixe ne suffisait plus.",
   alternates: { canonical: "/when-one-point-of-view-wasnt-enough" },
-  robots: { index: false, follow: false, googleBot: { index: false, follow: false } },
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
+  openGraph: {
+    title: "Quand un seul angle ne suffisait plus.",
+    description: "Picasso, Braque, le cubisme et le moment où un seul point de vue fixe ne suffisait plus.",
+    url: "/when-one-point-of-view-wasnt-enough",
+    siteName: "EASTOKYO",
+    locale: "fr_FR",
+    type: "article",
+    images: [{ url: "/images/editorial/cubism-orange-portrait-hero-desktop.png", alt: "Quand un seul angle ne suffisait plus." }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Quand un seul angle ne suffisait plus.",
+    description: "Picasso, Braque, le cubisme et le moment où un seul point de vue fixe ne suffisait plus.",
+    images: ["/images/editorial/cubism-orange-portrait-hero-desktop.png"],
+  },
 };
 
 const Picture = ({ desktop, mobile, alt, priority = false }: { desktop: string; mobile: string; alt: string; priority?: boolean }) => <picture><source media="(max-width: 760px)" srcSet={mobile}/><img src={desktop} alt={alt} fetchPriority={priority ? "high" : undefined} loading={priority ? "eager" : "lazy"}/></picture>;

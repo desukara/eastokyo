@@ -10,10 +10,21 @@ export const metadata: Metadata = {
   title: "Il est toujours retourné dans l'arène.",
   description: "Picasso et l'arène qu'il n'a jamais vraiment quittée.",
   alternates: { canonical: "/he-never-really-left-the-arena" },
-  robots: {
-    index: false,
-    follow: false,
-    googleBot: { index: false, follow: false },
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
+  openGraph: {
+    title: "Il est toujours retourné dans l'arène.",
+    description: "Picasso et l'arène qu'il n'a jamais vraiment quittée.",
+    url: "/he-never-really-left-the-arena",
+    siteName: "EASTOKYO",
+    locale: "fr_FR",
+    type: "article",
+    images: [{ url: "/images/editorial/picasso-bullfight-01-desktop.png", alt: "Il est toujours retourné dans l'arène." }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Il est toujours retourné dans l'arène.",
+    description: "Picasso et l'arène qu'il n'a jamais vraiment quittée.",
+    images: ["/images/editorial/picasso-bullfight-01-desktop.png"],
   },
 };
 
