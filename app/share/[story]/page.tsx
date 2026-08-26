@@ -77,7 +77,10 @@ export async function generateMetadata({ params, searchParams }: PageProps): Pro
   const destination = safeDestination(query.destination, `/#${story.anchor}`);
   const section = safeSection(query.section);
   const caption = safeCaption(query.caption, story.title);
-  const sharePath = buildSharePath(story.shareSlug, image, destination, section, caption);
+  const hasCustomShare = Boolean(first(query.image) || first(query.destination) || first(query.section) || first(query.caption));
+  const sharePath = hasCustomShare
+    ? buildSharePath(story.shareSlug, image, destination, section, caption)
+    : `/share/${story.shareSlug}`;
 
   return {
     title: caption,
