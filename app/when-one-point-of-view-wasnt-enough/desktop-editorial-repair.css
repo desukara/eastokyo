@@ -1,6 +1,49 @@
 /* Desktop/tablet editorial repair for the cubism article.
    Intentionally isolated from mobile. */
 @media (min-width: 761px) {
+  /* PARIS CUBISM — first identity layer. */
+  main#top [class*="heroNumber"] {
+    display: none !important;
+  }
+
+  main#top > header[class*="folio"] {
+    width: 100% !important;
+    padding: 13px clamp(36px, 4vw, 64px) 14px !important;
+    background: #123f34 !important;
+    border-bottom: 1px solid rgba(206, 177, 111, .7) !important;
+    color: rgba(245, 239, 222, .82) !important;
+  }
+
+  main#top > header[class*="folio"] [class*="brand"] {
+    display: block !important;
+    width: clamp(150px, 14vw, 220px) !important;
+    height: 34px !important;
+    overflow: hidden !important;
+    text-indent: -9999px !important;
+    background: url('/eastokyo-wordmark-white.png') left center / contain no-repeat !important;
+  }
+
+  main#top > header[class*="folio"] [class*="folioCenter"],
+  main#top > header[class*="folio"] [class*="folioRight"] {
+    color: rgba(245, 239, 222, .82) !important;
+  }
+
+  .mag-newsletter {
+    background: #176148 !important;
+    background-image: linear-gradient(135deg, rgba(255,255,255,.035), rgba(0,0,0,.08)) !important;
+    color: #f6f0df !important;
+    border: 1px solid rgba(205, 170, 93, .72) !important;
+    box-shadow: none !important;
+  }
+
+  .mag-newsletter p {
+    color: #d9bd78 !important;
+  }
+
+  .mag-newsletter strong {
+    color: #fff8e9 !important;
+  }
+
   main#top > section:first-of-type {
     width: min(1320px, calc(100vw - 72px));
     grid-template-columns: minmax(0, 1.14fr) minmax(390px, .86fr);
