@@ -19,6 +19,7 @@ function Caption({ children, creditText = credit }: { children: React.ReactNode;
 
 export default function ExhibitionStoryPage() {
   return <main id="top" className={styles.page}>
+    <style>{`@media (min-width:1081px){.${styles.heroMedia}{height:auto!important;aspect-ratio:4/3!important;max-height:none!important;box-shadow:none!important;background:#10233e!important;align-self:center}.${styles.heroMedia} img{object-fit:cover!important;object-position:center 62%!important;transform:scale(1.03);transform-origin:center 62%}.${styles.heroNumber}{display:none!important}.${styles.heroMeta}{top:1rem!important;right:1rem!important}}`}</style>
     <header className={styles.folio}><Link href="/" className={styles.brand}>EASTOKYO</Link><span className={styles.folioCenter}>TOKYO · REGARD VERS L’EXTÉRIEUR</span><span className={styles.folioRight}>NUMÉRO 01 · EXPOSITION 02</span></header>
 
     <section className={styles.hero} aria-labelledby="story-title">
