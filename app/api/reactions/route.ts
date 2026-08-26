@@ -14,6 +14,7 @@ export const dynamic = 'force-dynamic';
 const redisUrl = process.env.UPSTASH_REDIS_REST_URL;
 const redisToken = process.env.UPSTASH_REDIS_REST_TOKEN;
 const namespace = process.env.VERCEL_ENV === 'production' ? 'prod' : 'preview';
+const version = 'v2';
 
 function hasRedis() {
   return Boolean(redisUrl && redisToken);
@@ -42,10 +43,10 @@ async function redisCommand<T = unknown>(command: Array<string | number>) {
 }
 
 function countKey(target: ReactionTarget, reaction: ReactionType) {
-  return `eastokyo:reactions:v1:${namespace}:${target}:${reaction}:count`;
+  return `eastokyo:reactions:${version}:${namespace}:${target}:${reaction}:count`;
 }
 function votersKey(target: ReactionTarget, reaction: ReactionType) {
-  return `eastokyo:reactions:v1:${namespace}:${target}:${reaction}:voters`;
+  return `eastokyo:reactions:${version}:${namespace}:${target}:${reaction}:voters`;
 }
 function clientFingerprint(request: NextRequest) {
   const forwarded = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim();
@@ -53,23 +54,33 @@ function clientFingerprint(request: NextRequest) {
   return createHash('sha256').update(ip).digest('hex').slice(0, 24);
 }
 
+function responseState(target: ReactionTarget, automatic: Record<ReactionType, number>, active: ReactionType | null) {
+  return Object.fromEntries(reactionTypes.map((reaction) => [reaction, {
+    count: Math.max(0, reactionBaseCounts[target][reaction] + automatic[reaction]),
+    active: active === reaction,
+  }])) as Record<ReactionType, { count: number; active: boolean }>;
+}
+
 export async function GET(request: NextRequest) {
   const target = request.nextUrl.searchParams.get('target');
   const visitorId = (request.nextUrl.searchParams.get('visitorId') || '').slice(0, 120);
   if (!isTarget(target)) return NextResponse.json({ error: 'Unknown reaction target' }, { status: 400 });
 
-  const fallback = Object.fromEntries(reactionTypes.map((r) => [r, { count: Math.max(0, reactionBaseCounts[target][r]), active: false }])) as Record<ReactionType, { count: number; active: boolean }>;
+  const fallback = responseState(target, { like: 0, love: 0, wow: 0 }, null);
   if (!hasRedis()) return NextResponse.json({ reactions: fallback, persistent: false });
 
   try {
-    const reactions = {} as Record<ReactionType, { count: number; active: boolean }>;
+    const automatic = { like: 0, love: 0, wow: 0 } as Record<ReactionType, number>;
+    let active: ReactionType | null = null;
     for (const reaction of reactionTypes) {
       const rawCount = await redisCommand<string | number | null>(['GET', countKey(target, reaction)]);
-      const active = visitorId ? Number(await redisCommand<number>(['SISMEMBER', votersKey(target, reaction), visitorId])) === 1 : false;
-      const automatic = Number(rawCount || 0);
-      reactions[reaction] = { count: Math.max(0, reactionBaseCounts[target][reaction] + automatic), active };
+      automatic[reaction] = Number(rawCount || 0);
+      if (visitorId && !active) {
+        const member = Number(await redisCommand<number>(['SISMEMBER', votersKey(target, reaction), visitorId]));
+        if (member === 1) active = reaction;
+      }
     }
-    return NextResponse.json({ reactions, persistent: true });
+    return NextResponse.json({ reactions: responseState(target, automatic, active), persistent: true });
   } catch (error) {
     console.error('Reaction read failed', error);
     return NextResponse.json({ reactions: fallback, persistent: false });
@@ -85,35 +96,77 @@ export async function POST(request: NextRequest) {
   const target = body.target as ReactionTarget;
   const reaction = body.reaction as ReactionType;
   const visitorId = body.visitorId.slice(0, 120);
-  const base = reactionBaseCounts[target][reaction];
-  if (!hasRedis()) return NextResponse.json({ count: Math.max(0, base + (body.action === 'add' ? 1 : 0)), active: body.action === 'add', persistent: false });
 
-  const rateKey = `eastokyo:reactions:v1:${namespace}:rate:${clientFingerprint(request)}`;
-  const addScript = `
-    local hits = redis.call('INCR', KEYS[3])
-    if hits == 1 then redis.call('EXPIRE', KEYS[3], 3600) end
-    if hits > 120 then return -1 end
-    local added = redis.call('SADD', KEYS[2], ARGV[1])
-    local current = tonumber(redis.call('GET', KEYS[1]) or '0')
-    if added == 1 then current = redis.call('INCR', KEYS[1]) end
-    return current
-  `;
-  const removeScript = `
-    local hits = redis.call('INCR', KEYS[3])
-    if hits == 1 then redis.call('EXPIRE', KEYS[3], 3600) end
-    if hits > 120 then return -1 end
-    local removed = redis.call('SREM', KEYS[2], ARGV[1])
-    local current = tonumber(redis.call('GET', KEYS[1]) or '0')
-    if removed == 1 and current > 0 then current = redis.call('DECR', KEYS[1]) end
-    return current
+  if (!hasRedis()) {
+    const automatic = { like: 0, love: 0, wow: 0 } as Record<ReactionType, number>;
+    if (body.action === 'add') automatic[reaction] = 1;
+    return NextResponse.json({ reactions: responseState(target, automatic, body.action === 'add' ? reaction : null), persistent: false });
+  }
+
+  const rateKey = `eastokyo:reactions:${version}:${namespace}:rate:${clientFingerprint(request)}`;
+  const script = `
+    local hits = redis.call('INCR', KEYS[7])
+    if hits == 1 then redis.call('EXPIRE', KEYS[7], 3600) end
+    if hits > 120 then return {-1, -1, -1} end
+
+    local selected = tonumber(ARGV[2])
+    local action = ARGV[3]
+
+    for i = 1, 3 do
+      local countKey = KEYS[(i - 1) * 2 + 1]
+      local votersKey = KEYS[(i - 1) * 2 + 2]
+      local isMember = redis.call('SISMEMBER', votersKey, ARGV[1])
+
+      if action == 'add' then
+        if i == selected then
+          if isMember == 0 then
+            redis.call('SADD', votersKey, ARGV[1])
+            redis.call('INCR', countKey)
+          end
+        elseif isMember == 1 then
+          redis.call('SREM', votersKey, ARGV[1])
+          local current = tonumber(redis.call('GET', countKey) or '0')
+          if current > 0 then redis.call('DECR', countKey) end
+        end
+      elseif i == selected and isMember == 1 then
+        redis.call('SREM', votersKey, ARGV[1])
+        local current = tonumber(redis.call('GET', countKey) or '0')
+        if current > 0 then redis.call('DECR', countKey) end
+      end
+    end
+
+    return {
+      tonumber(redis.call('GET', KEYS[1]) or '0'),
+      tonumber(redis.call('GET', KEYS[3]) or '0'),
+      tonumber(redis.call('GET', KEYS[5]) or '0')
+    }
   `;
 
   try {
-    const result = await redisCommand<number>(['EVAL', body.action === 'add' ? addScript : removeScript, 3, countKey(target, reaction), votersKey(target, reaction), rateKey, visitorId]);
-    if (Number(result) === -1) return NextResponse.json({ error: 'Too many reaction changes' }, { status: 429 });
-    return NextResponse.json({ count: Math.max(0, base + Number(result || 0)), active: body.action === 'add', persistent: true });
+    const selectedIndex = reactionTypes.indexOf(reaction) + 1;
+    const result = await redisCommand<number[]>([
+      'EVAL', script, 7,
+      countKey(target, 'like'), votersKey(target, 'like'),
+      countKey(target, 'love'), votersKey(target, 'love'),
+      countKey(target, 'wow'), votersKey(target, 'wow'),
+      rateKey,
+      visitorId, selectedIndex, body.action,
+    ]);
+    if (result?.[0] === -1) return NextResponse.json({ error: 'Too many reaction changes' }, { status: 429 });
+
+    const automatic = {
+      like: Number(result?.[0] || 0),
+      love: Number(result?.[1] || 0),
+      wow: Number(result?.[2] || 0),
+    } as Record<ReactionType, number>;
+    return NextResponse.json({
+      reactions: responseState(target, automatic, body.action === 'add' ? reaction : null),
+      persistent: true,
+    });
   } catch (error) {
     console.error('Reaction update failed', error);
-    return NextResponse.json({ count: Math.max(0, base + (body.action === 'add' ? 1 : 0)), active: body.action === 'add', persistent: false });
+    const automatic = { like: 0, love: 0, wow: 0 } as Record<ReactionType, number>;
+    if (body.action === 'add') automatic[reaction] = 1;
+    return NextResponse.json({ reactions: responseState(target, automatic, body.action === 'add' ? reaction : null), persistent: false });
   }
 }
