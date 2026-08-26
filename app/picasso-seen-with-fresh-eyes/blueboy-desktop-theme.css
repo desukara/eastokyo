@@ -3,6 +3,45 @@
    or mobile overrides. It adds atmosphere, framing, color rhythm and restrained motion. */
 
 @media (min-width: 781px) {
+  /* Route-specific site chrome: Blue Boy starts before the article does. */
+  #site-chrome-top.mag-site-chrome {
+    --mag-ink: #123864;
+    --mag-paper: #dceaf6;
+    --mag-blue: #1b4f91;
+    --mag-red: #1b4f91;
+    --mag-ochre: #f0c62b;
+    background: #dceaf6;
+  }
+
+  #site-chrome-top .mag-header {
+    color: #f8f2e6;
+    background: #123864;
+  }
+
+  #site-chrome-top .mag-header-rail {
+    color: #f8f2e6;
+    background: #1b4f91;
+    border-bottom-color: rgba(248,242,230,.25);
+  }
+
+  #site-chrome-top .mag-header-rail p:nth-child(2) {
+    color: #f0c62b;
+  }
+
+  #site-chrome-top .mag-nav {
+    color: #123864;
+    background: rgba(220,234,246,.96);
+    border-bottom-color: #1b4f91;
+  }
+
+  #site-chrome-top .mag-nav a::after {
+    background: #1b4f91;
+  }
+
+  #site-chrome-top .mag-nav span {
+    color: #1b4f91;
+  }
+
   main#top {
     --paper: #dfeaf4;
     --blue: #164b86;
@@ -18,6 +57,15 @@
     background:
       radial-gradient(circle at 12% 8%, rgba(255,255,255,.42), transparent 30%),
       linear-gradient(180deg, #e4eef7 0%, #d9e8f4 46%, #e6eff6 100%);
+  }
+
+  /* The article's own wordmark/folio now belongs to the same Blue Boy family. */
+  main#top [class*="folio"] {
+    border-bottom-color: rgba(19,56,100,.35);
+  }
+
+  main#top [class*="brand"] {
+    color: var(--blueboy-cobalt);
   }
 
   /* Each major chapter becomes a room in the same exhibition. */
@@ -45,8 +93,10 @@
     clip-path: inset(0 -100vmax);
   }
 
-  /* Keep the existing dark-blue act, but give it a painted depth rather than a flat fill. */
+  /* Keep the existing dark-blue act, but give it painted depth rather than a flat fill. */
   main#top [class*="blueAct"] {
+    position: relative;
+    isolation: isolate;
     background:
       radial-gradient(circle at 78% 18%, rgba(74,145,207,.28), transparent 34%),
       radial-gradient(circle at 18% 82%, rgba(8,30,61,.34), transparent 38%),
@@ -54,34 +104,57 @@
     box-shadow: inset 0 1px 0 rgba(255,255,255,.12), inset 0 -1px 0 rgba(4,22,45,.4);
   }
 
-  /* Gallery framing: cobalt outer frame, cream inner mat, soft museum shadow.
-     Outline and shadow do not alter image dimensions or crop. */
-  main#top figure picture,
-  main#top figure > img {
+  /* Gallery frames: layered, lighter and more physical than a heavy CSS outline.
+     They sit outside the picture box, so image size and crop remain unchanged. */
+  main#top figure picture {
     position: relative;
-    outline: 5px solid var(--blueboy-cobalt);
-    outline-offset: 5px;
-    box-shadow:
-      0 0 0 7px var(--blueboy-cream),
-      0 0 0 10px rgba(19,56,100,.28),
-      12px 16px 28px rgba(25,55,88,.16);
-    transition: transform .45s cubic-bezier(.2,.7,.2,1), box-shadow .45s ease;
+    z-index: 0;
+    isolation: isolate;
+    filter: drop-shadow(10px 14px 16px rgba(18,56,100,.15));
+    transition: transform .45s cubic-bezier(.2,.7,.2,1), filter .45s ease;
   }
 
-  /* The banner painting is already art-directed; don't box it in like the gallery works. */
-  main#top [class*="heroMedia"] picture,
-  main#top [class*="heroMedia"] img {
-    outline: 0;
-    box-shadow: none;
+  main#top figure picture::before,
+  main#top figure picture::after {
+    content: "";
+    position: absolute;
+    pointer-events: none;
   }
 
-  main#top figure:hover picture,
-  main#top figure:hover > img {
-    transform: translateY(-2px);
+  main#top figure picture::before {
+    inset: -11px;
+    z-index: -2;
+    background: var(--blueboy-cobalt);
     box-shadow:
-      0 0 0 7px var(--blueboy-cream),
-      0 0 0 10px rgba(19,56,100,.36),
-      15px 20px 34px rgba(25,55,88,.2);
+      0 0 0 1px rgba(11,43,83,.45),
+      5px 6px 0 rgba(19,56,100,.16);
+  }
+
+  main#top figure picture::after {
+    inset: -5px;
+    z-index: -1;
+    background: var(--blueboy-cream);
+    box-shadow: inset 0 0 0 1px rgba(19,56,100,.18);
+  }
+
+  main#top figure picture img {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* The banner painting is already art-directed; it remains frameless and immersive. */
+  main#top [class*="heroMedia"] picture {
+    filter: none;
+  }
+
+  main#top [class*="heroMedia"] picture::before,
+  main#top [class*="heroMedia"] picture::after {
+    display: none;
+  }
+
+  main#top figure:hover picture {
+    transform: translateY(-3px);
+    filter: drop-shadow(13px 18px 20px rgba(18,56,100,.2));
   }
 
   /* Captions become little gallery plaques instead of generic rules. */
@@ -128,11 +201,6 @@
     animation: blueboyLight 18s ease-in-out infinite alternate;
   }
 
-  main#top [class*="blueAct"] {
-    position: relative;
-    isolation: isolate;
-  }
-
   main#top [class*="blueAct"] > * {
     position: relative;
     z-index: 1;
@@ -145,9 +213,7 @@
 
   @media (prefers-reduced-motion: reduce) {
     main#top [class*="blueAct"]::before { animation: none; }
-    main#top figure picture,
-    main#top figure > img { transition: none; }
-    main#top figure:hover picture,
-    main#top figure:hover > img { transform: none; }
+    main#top figure picture { transition: none; }
+    main#top figure:hover picture { transform: none; }
   }
 }
