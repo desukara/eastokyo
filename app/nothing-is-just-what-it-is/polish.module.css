@@ -1,0 +1,103 @@
+.page{
+  --paper:#f4f0e6 !important;
+  --ink:#14233d !important;
+  --muted:#6f7077 !important;
+  --line:rgba(20,35,61,.20) !important;
+  --accent:#c85d6f !important;
+  --soft:#e9e7e0 !important;
+  background-color:#f4f0e6 !important;
+  background-image:radial-gradient(circle at 18% 12%,rgba(255,255,255,.72),transparent 30%),linear-gradient(rgba(255,255,255,.16),rgba(255,255,255,.16));
+}
+
+.page > header{
+  background:#14233d;
+  color:#f7f0df;
+  border-bottom-color:#c85d6f !important;
+  padding-left:1.25rem !important;
+  padding-right:1.25rem !important;
+}
+
+.page > header > a:first-child{
+  display:block;
+  width:clamp(190px,18vw,290px);
+  height:42px;
+  overflow:hidden;
+  text-indent:-9999px;
+  background:url('/eastokyo-wordmark-white.png') left center/contain no-repeat;
+}
+
+.page > section:first-of-type{
+  box-shadow:0 18px 42px rgba(20,35,61,.12);
+  outline:1px solid rgba(20,35,61,.10);
+}
+
+.page > section:first-of-type h1 em{
+  color:#d87382 !important;
+}
+
+.page > section:nth-of-type(2){
+  border-bottom:1px solid rgba(20,35,61,.13);
+}
+
+.page > section:nth-of-type(3) article{
+  position:relative;
+}
+
+.page > section:nth-of-type(3) article::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  width:72px;
+  height:3px;
+  background:#c85d6f;
+}
+
+.page > section:nth-of-type(3) article:nth-child(2){
+  background:#e8e5df !important;
+  box-shadow:inset 0 0 0 1px rgba(20,35,61,.06);
+}
+
+.page > section:nth-of-type(3) article:nth-child(3){
+  background:linear-gradient(180deg,rgba(20,35,61,.035),rgba(20,35,61,0) 46%);
+}
+
+.page > section:nth-of-type(3) article figure img,
+.page > section:last-of-type figure img{
+  box-shadow:0 14px 30px rgba(20,35,61,.10);
+}
+
+.page > section:nth-of-type(3) figcaption,
+.page > section:last-of-type figcaption{
+  color:#626a76 !important;
+}
+
+.page > section:nth-of-type(3) article h2{
+  color:#14233d;
+}
+
+.page > section:nth-of-type(3) article:nth-child(3) h2{
+  color:#c85d6f !important;
+}
+
+.page > section:last-of-type{
+  border-top:1px solid rgba(20,35,61,.18);
+}
+
+.page > section:last-of-type > div:first-of-type{
+  border-top-color:#c85d6f !important;
+}
+
+@media (max-width:780px){
+  .page > header{
+    padding-left:.75rem !important;
+    padding-right:.75rem !important;
+  }
+  .page > header > a:first-child{
+    width:150px;
+    height:34px;
+  }
+  .page > section:nth-of-type(3) article::before{
+    width:48px;
+  }
+}
