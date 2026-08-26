@@ -80,7 +80,7 @@ export async function generateMetadata({ params, searchParams }: PageProps): Pro
   const sharePath = buildSharePath(story.shareSlug, image, destination, section, caption);
 
   return {
-    title: `${caption} | EASTOKYO`,
+    title: caption,
     description: story.description,
     alternates: { canonical: destination },
     robots: { index: false, follow: true },
