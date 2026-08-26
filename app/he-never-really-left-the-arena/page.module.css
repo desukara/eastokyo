@@ -39,3 +39,81 @@
   .finalStoryBeat{padding-top:clamp(3.8rem,5.8vw,5.7rem);padding-bottom:clamp(3.4rem,5vw,4.8rem)}
   .endMark{padding-bottom:clamp(2.3rem,3.6vw,3.6rem)}
 }
+
+/* BULL RING HEAT — desktop-only color grading. Red behaves like danger, not wallpaper. */
+@media (min-width:901px){
+  .page{
+    --arena-bone:#f1eadc;
+    --arena-paper:#f6f0e6;
+    --arena-ink:#171313;
+    --arena-blood:#6f1715;
+    --arena-burgundy:#4b0d0d;
+    --arena-red:#b3261e;
+    --arena-hot:#e02a18;
+    --arena-brass:#b88943;
+    background:var(--arena-paper);
+    color:var(--arena-ink)
+  }
+
+  .intro,.body,.finalAct{background:linear-gradient(180deg,var(--arena-paper),var(--arena-bone))}
+  .meta,.bodyLabel{color:var(--arena-blood)}
+  .deck{color:#2b2020}
+
+  .storyBeatLabel{color:var(--arena-blood)}
+  .storyBeatLabel::before{background:linear-gradient(90deg,var(--arena-brass),var(--arena-red))}
+  .imageCredit{color:rgba(82,31,27,.72)}
+
+  .visualSequence{
+    background:
+      linear-gradient(180deg,rgba(179,38,30,0) 0 40%,rgba(111,23,21,.025) 63%,rgba(111,23,21,.055) 100%),
+      var(--arena-paper)
+  }
+
+  .pullQuote{
+    border-color:rgba(111,23,21,.34);
+    background:linear-gradient(90deg,rgba(111,23,21,.025),rgba(184,137,67,.035),rgba(111,23,21,.02))
+  }
+  .pullQuoteMark{color:var(--arena-hot);text-shadow:0 0 28px rgba(224,42,24,.12)}
+  .pullQuoteCredit{color:var(--arena-blood)}
+
+  .bullfightPair{position:relative}
+  .bullfightPair::before{
+    content:"";
+    position:absolute;
+    inset:8% -3% -4%;
+    z-index:-1;
+    background:radial-gradient(circle at 38% 55%,rgba(179,38,30,.075),transparent 64%);
+    pointer-events:none
+  }
+
+  .slideshowBridge .storyBeatLabel{color:#7d1a16}
+  .slideshowBridge .storyBeatLabel::before{background:linear-gradient(90deg,var(--arena-brass),#ca2b1d)}
+
+  .bullHeadFigure{
+    position:relative;
+    background:
+      radial-gradient(circle at 53% 52%,#ef3a1f 0%,#d92918 38%,#ad1b16 74%,#7a1212 100%)
+  }
+  .bullHeadFigure::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    background:radial-gradient(circle at 50% 48%,rgba(255,191,97,.12),transparent 34%,rgba(48,0,0,.09) 80%)
+  }
+  .bullHeadCredit{
+    background:#861512;
+    color:rgba(255,239,213,.82);
+    border-top:1px solid rgba(184,137,67,.42)
+  }
+
+  .finalStoryBeat .storyBeatLabel{color:#8c1d18}
+  .finalStoryBeat .storyBeatLabel::before{background:var(--arena-brass)}
+  .finalStoryBeat .storyBeatCopy strong,
+  .finalStoryBeat .storyBeatCopy b{color:var(--arena-red)}
+
+  .endMark{
+    color:var(--arena-blood);
+    border-color:rgba(111,23,21,.3)
+  }
+}
