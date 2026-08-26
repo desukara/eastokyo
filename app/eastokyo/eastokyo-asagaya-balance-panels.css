@@ -188,4 +188,154 @@
   .mag-page #asagaya+.mag-index{
     margin-top:0!important;
   }
+
+  /* ---------------------------------------------------------
+     ASAGAYA MATSURI ART DIRECTION
+     Non-religious festival language only: paper craft, arcade,
+     streamers, summer color, night indigo, vermilion and gold.
+     --------------------------------------------------------- */
+  .mag-page #asagaya{
+    --asagaya-indigo:#16264f;
+    --asagaya-indigo-deep:#0d1835;
+    --asagaya-vermilion:#d84a32;
+    --asagaya-gold:#e7b94b;
+    --asagaya-washi:#f4efdf;
+    --asagaya-turquoise:#2aa9a4;
+    --asagaya-pink:#e47ca1;
+    --asagaya-green:#5f9b6d;
+    color:#171a1f!important;
+    background:
+      linear-gradient(180deg,rgba(255,255,255,.18),rgba(255,255,255,0) 12rem),
+      var(--asagaya-washi)!important;
+    border-top:10px solid var(--asagaya-vermilion)!important;
+    border-bottom:10px solid var(--asagaya-indigo)!important;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.7)!important;
+    overflow:hidden!important;
+  }
+
+  /* Festival streamer rhythm: graphic, secular, intentionally abstract. */
+  .mag-page #asagaya::before{
+    content:""!important;
+    position:absolute!important;
+    inset:0 0 auto 0!important;
+    height:18px!important;
+    z-index:1!important;
+    pointer-events:none!important;
+    background:repeating-linear-gradient(90deg,
+      var(--asagaya-indigo) 0 44px,
+      var(--asagaya-gold) 44px 70px,
+      var(--asagaya-vermilion) 70px 112px,
+      var(--asagaya-turquoise) 112px 145px,
+      var(--asagaya-pink) 145px 176px)!important;
+  }
+
+  .mag-page #asagaya .mag-photo-head{
+    position:relative!important;
+    z-index:2!important;
+    padding:clamp(1.8rem,2.6vw,2.7rem) clamp(1.6rem,2.6vw,2.8rem) clamp(2.1rem,3vw,3.1rem)!important;
+    background:var(--asagaya-indigo)!important;
+    color:var(--asagaya-washi)!important;
+    border-left:12px solid var(--asagaya-vermilion)!important;
+    border-bottom:4px solid var(--asagaya-gold)!important;
+    box-shadow:16px 18px 0 rgba(216,74,50,.13)!important;
+  }
+
+  .mag-page #asagaya .mag-photo-head>.mag-kicker{
+    color:var(--asagaya-gold)!important;
+    font-weight:900!important;
+  }
+
+  .mag-page #asagaya .mag-photo-head>h2{
+    color:var(--asagaya-washi)!important;
+    text-shadow:2px 2px 0 rgba(216,74,50,.34)!important;
+  }
+
+  .mag-page #asagaya .mag-photo-head>p:not(.mag-kicker){
+    color:#fff8e9!important;
+    border-top-color:var(--asagaya-turquoise)!important;
+  }
+
+  /* The photo wall should feel like decorations hanging through the arcade,
+     not a polite corporate grid. Geometry stays readable, but the edges live. */
+  .mag-page #asagaya .mag-photo-grid{
+    position:relative!important;
+    z-index:2!important;
+    padding:clamp(1.2rem,1.8vw,1.8rem)!important;
+    background:
+      linear-gradient(90deg,rgba(22,38,79,.045) 1px,transparent 1px),
+      linear-gradient(rgba(22,38,79,.045) 1px,transparent 1px),
+      #fbf7e9!important;
+    background-size:28px 28px!important;
+    border:1px solid rgba(22,38,79,.18)!important;
+  }
+
+  .mag-page #asagaya .mag-photo-item{
+    filter:saturate(1.07) contrast(1.015)!important;
+    transition:transform .45s cubic-bezier(.2,.75,.2,1),box-shadow .45s ease,filter .45s ease!important;
+  }
+  .mag-page #asagaya .mag-photo-item:nth-child(odd){transform:rotate(-.45deg)!important;}
+  .mag-page #asagaya .mag-photo-item:nth-child(even){transform:rotate(.42deg)!important;}
+  .mag-page #asagaya .mag-photo-item:hover{
+    transform:translateY(-7px) rotate(0deg)!important;
+    filter:saturate(1.14) contrast(1.025)!important;
+    box-shadow:0 18px 34px rgba(13,24,53,.18)!important;
+    z-index:10!important;
+  }
+
+  .mag-page #asagaya .mag-photo-item figcaption,
+  .mag-page #asagaya .mag-photo-item:nth-child(n) figcaption{
+    color:var(--asagaya-washi)!important;
+    background:var(--asagaya-indigo-deep)!important;
+    border-top:3px solid var(--asagaya-gold)!important;
+  }
+  .mag-page #asagaya .mag-photo-item:nth-child(2n) figcaption{background:#9f2f25!important;}
+  .mag-page #asagaya .mag-photo-item:nth-child(3n) figcaption{background:#177f7b!important;}
+  .mag-page #asagaya .mag-photo-item figcaption span:first-child{color:var(--asagaya-gold)!important;font-weight:900!important;}
+  .mag-page #asagaya .mag-photo-item figcaption span:last-child{color:#fff9ed!important;}
+
+  .mag-page #asagaya .mag-photo-item:first-child::after{
+    color:var(--asagaya-washi)!important;
+    background:var(--asagaya-vermilion)!important;
+    border-left:8px solid var(--asagaya-gold)!important;
+    box-shadow:12px 12px 0 rgba(22,38,79,.16)!important;
+  }
+  .mag-page #asagaya .mag-photo-item:first-child::before{
+    color:#10182d!important;
+    background:var(--asagaya-gold)!important;
+    border-top-color:var(--asagaya-turquoise)!important;
+  }
+
+  /* Real EASTOKYO wordmark: give it masthead authority anywhere this section
+     inherits the folio treatment. Falls back safely if a page variant differs. */
+  .mag-page #asagaya [class*="brand"],
+  .mag-page #asagaya [class*="wordmark"]{
+    min-width:clamp(230px,20vw,360px)!important;
+  }
+  .mag-page #asagaya [class*="brand"]{
+    color:transparent!important;
+    text-indent:-9999px!important;
+    overflow:hidden!important;
+    background:url('/eastokyo-wordmark-white.png') left center/contain no-repeat!important;
+  }
+
+  /* Controlled paper movement — enough life to feel like summer air,
+     never cartoon bounce. */
+  @media (prefers-reduced-motion:no-preference){
+    .mag-page #asagaya .mag-photo-head{animation:asagaya-arrive .7s cubic-bezier(.2,.75,.2,1) both;}
+    .mag-page #asagaya .mag-photo-item:nth-child(2n){animation:asagaya-paper-a 6.8s ease-in-out infinite alternate;}
+    .mag-page #asagaya .mag-photo-item:nth-child(3n){animation:asagaya-paper-b 7.6s ease-in-out infinite alternate;}
+  }
+
+  @keyframes asagaya-arrive{
+    from{opacity:0;transform:translateY(16px)}
+    to{opacity:1;transform:translateY(0)}
+  }
+  @keyframes asagaya-paper-a{
+    from{translate:0 0}
+    to{translate:0 -3px}
+  }
+  @keyframes asagaya-paper-b{
+    from{translate:0 0}
+    to{translate:2px -2px}
+  }
 }
