@@ -4,19 +4,19 @@ import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import styles from './ShareRailPreview.module.css';
 
-type Section = { id: string; number: number; image: string; caption: string };
+type Section = { id: string; number: number; endNumber: number; image: string; caption: string };
 type Mounts = { top: HTMLElement | null; bottom: HTMLElement | null; sections: Record<string, HTMLElement> };
 
 const STORY_URL = 'https://www.eastokyo.com/the-city-puts-on-a-costume';
 const STORY_TEXT = 'Le Tanabata d’Asagaya — EASTOKYO';
 
 const SECTIONS: Section[] = [
-  { id: 'asagaya-look-up', number: 2, image: '/images/editorial/asagaya-feature-02-desktop.jpg', caption: 'LA RUE SE MET À REGARDER EN L’AIR.' },
-  { id: 'asagaya-second-street', number: 4, image: '/images/editorial/asagaya-feature-04-desktop.jpg', caption: 'LE PLAFOND DEVIENT UNE DEUXIÈME RUE.' },
-  { id: 'asagaya-handmade', number: 5, image: '/images/editorial/asagaya-feature-05-desktop.jpg', caption: 'UN FESTIVAL FAIT MAIN.' },
-  { id: 'asagaya-crowd', number: 8, image: '/images/editorial/asagaya-feature-08-desktop.jpg', caption: 'LA FOULE FABRIQUE SA PROPRE MÉTÉO.' },
-  { id: 'asagaya-imagination', number: 10, image: '/images/editorial/asagaya-feature-10-desktop.jpg', caption: 'PENDANT QUELQUES JOURS, L’IMAGINATION DE QUELQU’UN PREND DU VOLUME.' },
-  { id: 'asagaya-details', number: 11, image: '/images/editorial/asagaya-feature-11-desktop.jpg', caption: 'LE FESTIVAL S’INVITE JUSQUE DANS LES DEVANTURES.' },
+  { id: 'asagaya-look-up', number: 2, endNumber: 3, image: '/images/editorial/asagaya-feature-02-desktop.jpg', caption: 'LA RUE SE MET À REGARDER EN L’AIR.' },
+  { id: 'asagaya-second-street', number: 4, endNumber: 4, image: '/images/editorial/asagaya-feature-04-desktop.jpg', caption: 'LE PLAFOND DEVIENT UNE DEUXIÈME RUE.' },
+  { id: 'asagaya-handmade', number: 5, endNumber: 7, image: '/images/editorial/asagaya-feature-05-desktop.jpg', caption: 'UN FESTIVAL FAIT MAIN.' },
+  { id: 'asagaya-crowd', number: 8, endNumber: 9, image: '/images/editorial/asagaya-feature-08-desktop.jpg', caption: 'LA FOULE FABRIQUE SA PROPRE MÉTÉO.' },
+  { id: 'asagaya-imagination', number: 10, endNumber: 10, image: '/images/editorial/asagaya-feature-10-desktop.jpg', caption: 'PENDANT QUELQUES JOURS, L’IMAGINATION DE QUELQU’UN PREND DU VOLUME.' },
+  { id: 'asagaya-details', number: 11, endNumber: 12, image: '/images/editorial/asagaya-feature-11-desktop.jpg', caption: 'LE FESTIVAL S’INVITE JUSQUE DANS LES DEVANTURES.' },
 ];
 
 function sectionUrl(section: Section) {
@@ -58,26 +58,42 @@ export default function ShareRailPreview() {
   useEffect(() => {
     const main = document.querySelector('.asagayaFestivalShell main#top');
     if (!main) return;
-    const meta = Array.from(main.querySelectorAll('div')).find((el) => {
-      const text = el.textContent || '';
-      return text.includes('TOKYO STORY 04') && text.includes('JAMES SIMMONS') && el.children.length <= 5;
-    }) as HTMLElement | undefined;
-    const byline = meta?.querySelector('span:last-child') as HTMLElement | null;
+
     const footer = main.querySelector('footer');
-    const top = byline ? document.createElement('span') : null;
+    const firstShareFigure = main.querySelector('img[src$="asagaya-feature-02-desktop.jpg"]')?.closest('figure') as HTMLElement | null;
+    const firstShareSection = firstShareFigure?.closest('section') as HTMLElement | null;
+    const top = firstShareSection?.parentElement ? document.createElement('div') : null;
     const bottom = footer ? document.createElement('div') : null;
     const sectionMounts: Record<string, HTMLElement> = {};
-    if (top && byline) byline.appendChild(top);
+
+    if (top && firstShareSection?.parentElement) {
+      top.className = styles.topMount;
+      firstShareSection.parentElement.insertBefore(top, firstShareSection);
+    }
     if (bottom && footer?.parentElement) footer.parentElement.insertBefore(bottom, footer);
+
     SECTIONS.forEach((section) => {
-      const selector = `img[src$="asagaya-feature-${String(section.number).padStart(2, '0')}-desktop.jpg"]`;
-      const figure = main.querySelector(selector)?.closest('figure') as HTMLElement | null;
-      if (!figure) return;
+      const firstSelector = `img[src$="asagaya-feature-${String(section.number).padStart(2, '0')}-desktop.jpg"]`;
+      const firstFigure = main.querySelector(firstSelector)?.closest('figure') as HTMLElement | null;
+      if (!firstFigure) return;
+
       const mount = document.createElement('div');
       mount.dataset.eastokyoShareRail = section.id;
-      figure.appendChild(mount);
+
+      if (section.endNumber !== section.number) {
+        const group = firstFigure.closest('section') as HTMLElement | null;
+        if (group) {
+          mount.className = styles.groupMount;
+          group.appendChild(mount);
+        } else {
+          firstFigure.appendChild(mount);
+        }
+      } else {
+        firstFigure.appendChild(mount);
+      }
       sectionMounts[section.id] = mount;
     });
+
     setMounts({ top, bottom, sections: sectionMounts });
     return () => { top?.remove(); bottom?.remove(); Object.values(sectionMounts).forEach((el) => el.remove()); };
   }, []);
