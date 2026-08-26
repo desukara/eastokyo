@@ -1,0 +1,433 @@
+/* EASTOKYO — Asagaya Tanabata / desktop festival art direction
+   Route-scoped. No religious iconography. The visual language comes from
+   handmade paper craft, shopping-arcade density, summer color, hanging forms,
+   street rhythm and the shift from daylight into indigo night. */
+
+@media (min-width: 901px) {
+  .asagayaFestivalShell {
+    --matsuri-indigo: #172755;
+    --matsuri-night: #0d1732;
+    --matsuri-red: #d84a35;
+    --matsuri-red-deep: #a82d25;
+    --matsuri-gold: #edbd45;
+    --matsuri-washi: #f4ecda;
+    --matsuri-washi-light: #faf6e9;
+    --matsuri-turquoise: #2ca6a2;
+    --matsuri-pink: #dd759f;
+    --matsuri-leaf: #789b63;
+    --matsuri-ink: #171820;
+    background: var(--matsuri-washi);
+    color: var(--matsuri-ink);
+  }
+
+  /* ----- SITE ENTRANCE: FESTIVAL GATE, NOT GENERIC MAGAZINE CHROME ----- */
+  .asagayaFestivalShell .mag-header {
+    background: var(--matsuri-indigo) !important;
+    color: var(--matsuri-washi) !important;
+    border-bottom: 4px solid var(--matsuri-red) !important;
+    box-shadow: inset 0 -1px 0 rgba(237,189,69,.55) !important;
+  }
+
+  .asagayaFestivalShell .mag-header-rail {
+    background: var(--matsuri-red) !important;
+    color: #fff7e8 !important;
+    border-bottom: 1px solid rgba(255,255,255,.15) !important;
+  }
+
+  .asagayaFestivalShell .mag-header-rail p:nth-child(2) {
+    color: var(--matsuri-gold) !important;
+  }
+
+  .asagayaFestivalShell .mag-nav {
+    background: var(--matsuri-night) !important;
+    color: #fff8ea !important;
+  }
+
+  .asagayaFestivalShell .mag-nav a,
+  .asagayaFestivalShell .mag-nav span {
+    color: #fff8ea !important;
+  }
+
+  /* ----- ARTICLE PAPER ----- */
+  .asagayaFestivalShell main#top {
+    position: relative;
+    background:
+      linear-gradient(180deg, rgba(255,255,255,.32), transparent 12rem),
+      var(--matsuri-washi) !important;
+    color: var(--matsuri-ink) !important;
+  }
+
+  /* abstract hanging-paper rhythm across the article, deliberately secular */
+  .asagayaFestivalShell main#top::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 13px;
+    z-index: 20;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+      90deg,
+      var(--matsuri-indigo) 0 52px,
+      var(--matsuri-gold) 52px 79px,
+      var(--matsuri-red) 79px 128px,
+      var(--matsuri-turquoise) 128px 162px,
+      var(--matsuri-pink) 162px 197px,
+      var(--matsuri-leaf) 197px 232px
+    );
+  }
+
+  /* ----- ARTICLE FOLIO / REAL WORDMARK ----- */
+  .asagayaFestivalShell main#top > header:first-child {
+    min-height: 92px !important;
+    width: min(1320px, calc(100vw - 64px)) !important;
+    padding-top: 23px !important;
+    padding-bottom: 15px !important;
+    color: var(--matsuri-indigo) !important;
+    border-bottom: 1px solid rgba(23,39,85,.28) !important;
+  }
+
+  .asagayaFestivalShell main#top > header:first-child a:first-child {
+    display: block !important;
+    width: clamp(260px, 22vw, 390px) !important;
+    height: 55px !important;
+    color: transparent !important;
+    overflow: hidden !important;
+    text-indent: -9999px !important;
+    background: url('/eastokyo-wordmark-blue.png') left center / contain no-repeat !important;
+  }
+
+  /* fallback if blue asset is absent: keep the real white mark on indigo */
+  @supports not (background: url('/eastokyo-wordmark-blue.png')) {
+    .asagayaFestivalShell main#top > header:first-child a:first-child {
+      background-image: url('/eastokyo-wordmark-white.png') !important;
+      background-color: var(--matsuri-indigo) !important;
+    }
+  }
+
+  /* ----- HERO: CEREMONIAL ARRIVAL ----- */
+  .asagayaFestivalShell main#top > section:nth-of-type(1) {
+    width: min(1320px, calc(100vw - 64px)) !important;
+    margin-top: 28px !important;
+    border: 0 !important;
+    outline: 6px solid var(--matsuri-indigo);
+    box-shadow:
+      14px 14px 0 var(--matsuri-red),
+      24px 24px 0 rgba(237,189,69,.95) !important;
+  }
+
+  .asagayaFestivalShell main#top > section:nth-of-type(1)::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 22%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(180deg, rgba(237,189,69,.1), rgba(216,74,53,.08));
+    clip-path: polygon(38% 0,100% 0,100% 100%,0 100%);
+  }
+
+  .asagayaFestivalShell main#top > section:nth-of-type(1) h1 {
+    text-shadow: 0 2px 18px rgba(0,0,0,.42) !important;
+  }
+
+  .asagayaFestivalShell main#top > section:nth-of-type(1) h1 em {
+    color: var(--matsuri-gold) !important;
+    text-shadow: 3px 3px 0 var(--matsuri-red-deep) !important;
+  }
+
+  .asagayaFestivalShell main#top > section:nth-of-type(1) [class*="kicker"] {
+    display: inline-block;
+    padding: 8px 11px 7px !important;
+    background: var(--matsuri-red) !important;
+    color: #fff8eb !important;
+  }
+
+  .asagayaFestivalShell main#top > section:nth-of-type(1) [class*="issueMark"] {
+    color: rgba(255,255,255,.12) !important;
+  }
+
+  /* ----- INTRO: WASHI READING ROOM WITH ONE LOUD EDGE ----- */
+  .asagayaFestivalShell main#top > section:nth-of-type(2) {
+    position: relative;
+    width: min(1160px, calc(100vw - 88px)) !important;
+    margin-top: 80px !important;
+    margin-bottom: 70px !important;
+    padding: 62px 58px 66px !important;
+    background: var(--matsuri-washi-light) !important;
+    border-left: 10px solid var(--matsuri-turquoise) !important;
+    border-right: 2px solid rgba(23,39,85,.12) !important;
+    box-shadow: 18px 18px 0 rgba(23,39,85,.06) !important;
+  }
+
+  .asagayaFestivalShell main#top > section:nth-of-type(2)::before {
+    content: "";
+    position: absolute;
+    top: -22px;
+    left: 52px;
+    width: 112px;
+    height: 44px;
+    background: var(--matsuri-gold);
+    opacity: .9;
+    transform: rotate(-2deg);
+  }
+
+  .asagayaFestivalShell main#top > section:nth-of-type(2) [class*="drop"] {
+    color: var(--matsuri-indigo) !important;
+  }
+
+  /* ----- IMAGE TREATMENTS: HAND-MOUNTED, NOT MATCHING FRAMES ----- */
+  .asagayaFestivalShell main#top figure {
+    position: relative;
+  }
+
+  .asagayaFestivalShell main#top figure img {
+    filter: saturate(1.08) contrast(1.015);
+  }
+
+  .asagayaFestivalShell main#top > section:nth-of-type(3) figure:first-child {
+    transform: rotate(-.45deg);
+    box-shadow: -12px 14px 0 var(--matsuri-indigo) !important;
+  }
+
+  .asagayaFestivalShell main#top > section:nth-of-type(3) figure:last-child {
+    transform: translateY(26px) rotate(.65deg);
+    box-shadow: 12px 14px 0 var(--matsuri-gold) !important;
+  }
+
+  .asagayaFestivalShell main#top figcaption {
+    color: var(--matsuri-indigo) !important;
+    border-top-color: rgba(23,39,85,.3) !important;
+  }
+
+  /* ----- FIRST SHOUT: FESTIVAL RED ----- */
+  .asagayaFestivalShell main#top > section:nth-of-type(4) {
+    position: relative;
+    margin-top: 42px;
+    background: var(--matsuri-red) !important;
+    color: #fff8ea !important;
+    border-top: 8px solid var(--matsuri-gold) !important;
+    border-bottom: 8px solid var(--matsuri-indigo) !important;
+  }
+
+  .asagayaFestivalShell main#top > section:nth-of-type(4)::before,
+  .asagayaFestivalShell main#top > section:nth-of-type(4)::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 68px;
+    background: repeating-linear-gradient(180deg, transparent 0 18px, rgba(255,255,255,.16) 18px 24px);
+  }
+  .asagayaFestivalShell main#top > section:nth-of-type(4)::before { left: 22px; }
+  .asagayaFestivalShell main#top > section:nth-of-type(4)::after { right: 22px; }
+
+  /* ----- READING SECTIONS: ALTERNATE QUIET / ACTIVE PLANES ----- */
+  .asagayaFestivalShell main#top > section:nth-of-type(5),
+  .asagayaFestivalShell main#top > section:nth-of-type(7),
+  .asagayaFestivalShell main#top > section:nth-of-type(10) {
+    background: var(--matsuri-washi) !important;
+  }
+
+  .asagayaFestivalShell main#top > section:nth-of-type(5) [class*="sectionNo"],
+  .asagayaFestivalShell main#top > section:nth-of-type(7) [class*="sectionNo"],
+  .asagayaFestivalShell main#top > section:nth-of-type(10) [class*="sectionNo"] {
+    color: var(--matsuri-red) !important;
+  }
+
+  .asagayaFestivalShell main#top > section:nth-of-type(5) h2,
+  .asagayaFestivalShell main#top > section:nth-of-type(7) h2,
+  .asagayaFestivalShell main#top > section:nth-of-type(10) h2 {
+    color: var(--matsuri-indigo) !important;
+  }
+
+  /* full-width image gets a single 'paper tab', not a frame */
+  .asagayaFestivalShell main#top > figure {
+    padding: 14px 14px 0 !important;
+    background: #fffaf0 !important;
+    box-shadow: 16px 18px 0 rgba(44,166,162,.32) !important;
+  }
+
+  .asagayaFestivalShell main#top > figure::before {
+    content: "";
+    position: absolute;
+    top: -13px;
+    right: 7%;
+    width: 120px;
+    height: 32px;
+    background: var(--matsuri-pink);
+    opacity: .8;
+    transform: rotate(2.2deg);
+    z-index: 3;
+  }
+
+  /* ----- STAGGERED GALLERY: CONTROLLED ABUNDANCE ----- */
+  .asagayaFestivalShell main#top > section:nth-of-type(8) {
+    position: relative;
+    padding-top: 54px !important;
+    padding-bottom: 92px !important;
+  }
+
+  .asagayaFestivalShell main#top > section:nth-of-type(8)::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 10px;
+    height: 2px;
+    background: var(--matsuri-indigo);
+    box-shadow: 0 9px 0 var(--matsuri-gold);
+  }
+
+  .asagayaFestivalShell main#top > section:nth-of-type(8) figure:nth-child(1) {
+    transform: rotate(-1.15deg);
+    box-shadow: -11px 13px 0 var(--matsuri-red) !important;
+  }
+  .asagayaFestivalShell main#top > section:nth-of-type(8) figure:nth-child(2) {
+    transform: translateY(30px) rotate(.6deg);
+    box-shadow: 10px 13px 0 var(--matsuri-turquoise) !important;
+  }
+  .asagayaFestivalShell main#top > section:nth-of-type(8) figure:nth-child(3) {
+    transform: translateY(62px) rotate(-.35deg);
+    box-shadow: 12px 13px 0 var(--matsuri-gold) !important;
+  }
+
+  /* ----- THE STREET BECOMES NIGHT: INDIGO PEAK ----- */
+  .asagayaFestivalShell main#top > section:nth-of-type(9) {
+    position: relative;
+    background:
+      radial-gradient(circle at 18% 16%, rgba(44,166,162,.2), transparent 28%),
+      radial-gradient(circle at 82% 75%, rgba(216,74,53,.18), transparent 31%),
+      var(--matsuri-indigo) !important;
+    color: #fff8eb !important;
+    border-top: 9px solid var(--matsuri-red) !important;
+    border-bottom: 9px solid var(--matsuri-gold) !important;
+  }
+
+  .asagayaFestivalShell main#top > section:nth-of-type(9) h2 {
+    color: #fff8eb !important;
+  }
+  .asagayaFestivalShell main#top > section:nth-of-type(9) [class*="sectionNo"],
+  .asagayaFestivalShell main#top > section:nth-of-type(9) [class*="sectionLabel"] {
+    color: var(--matsuri-gold) !important;
+  }
+
+  /* ----- STREET SEQUENCE / CINEMA: PROCESSION RHYTHM ----- */
+  .asagayaFestivalShell main#top > section:nth-of-type(10) + section,
+  .asagayaFestivalShell main#top [class*="streetSequence"] {
+    position: relative;
+  }
+
+  .asagayaFestivalShell main#top [class*="streetQuote"] {
+    border-top-color: var(--matsuri-red) !important;
+    color: var(--matsuri-indigo) !important;
+  }
+
+  .asagayaFestivalShell main#top [class*="cinemaPhoto"] {
+    background: var(--matsuri-washi-light);
+    padding: 16px 16px 0;
+    box-shadow: -14px 16px 0 var(--matsuri-indigo);
+  }
+
+  .asagayaFestivalShell main#top [class*="cinemaCaption"] span {
+    color: var(--matsuri-red) !important;
+  }
+
+  /* ----- FINAL PARAGRAPHS: FESTIVAL EXHALES ----- */
+  .asagayaFestivalShell main#top [class*="outro"] {
+    background: #eee5d0 !important;
+    border-top: 1px solid rgba(23,39,85,.2) !important;
+  }
+  .asagayaFestivalShell main#top [class*="outro"] h2 {
+    color: var(--matsuri-indigo) !important;
+  }
+  .asagayaFestivalShell main#top [class*="lastLine"] {
+    border-top-color: var(--matsuri-red) !important;
+    color: var(--matsuri-red-deep) !important;
+  }
+
+  /* ----- ARTICLE LOCAL FOOTER ----- */
+  .asagayaFestivalShell main#top > footer {
+    color: var(--matsuri-indigo) !important;
+    border-top-color: rgba(23,39,85,.28) !important;
+  }
+
+  /* ----- SITE FOOTER: THE FESTIVAL BECOMES NIGHT ----- */
+  .asagayaFestivalShell .mag-footer {
+    position: relative;
+    background:
+      linear-gradient(180deg, rgba(216,74,53,.12), transparent 160px),
+      var(--matsuri-night) !important;
+    color: #fff7e8 !important;
+    border-top: 10px solid var(--matsuri-red) !important;
+  }
+
+  .asagayaFestivalShell .mag-footer::before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    left: 0;
+    right: 0;
+    height: 10px;
+    background: repeating-linear-gradient(90deg, var(--matsuri-gold) 0 36px, var(--matsuri-turquoise) 36px 72px, var(--matsuri-pink) 72px 108px, var(--matsuri-red) 108px 144px);
+  }
+
+  .asagayaFestivalShell .mag-footer h2,
+  .asagayaFestivalShell .mag-footer a,
+  .asagayaFestivalShell .mag-footer p {
+    color: #fff7e8 !important;
+  }
+
+  .asagayaFestivalShell .mag-newsletter {
+    background: var(--matsuri-red) !important;
+    color: #fff7e8 !important;
+    border: 1px solid var(--matsuri-gold) !important;
+    box-shadow: 10px 10px 0 rgba(237,189,69,.15) !important;
+  }
+
+  .asagayaFestivalShell .mag-newsletter p {
+    color: var(--matsuri-gold) !important;
+  }
+
+  .asagayaFestivalShell .mag-footer-wordmark {
+    display: block !important;
+    width: clamp(330px, 35vw, 620px) !important;
+    min-height: 110px !important;
+    color: transparent !important;
+    text-indent: -9999px !important;
+    overflow: hidden !important;
+    background: url('/eastokyo-wordmark-white.png') left center / contain no-repeat !important;
+  }
+
+  /* ----- MOTION: PAPER IN SUMMER AIR, NEVER UI BOUNCE ----- */
+  @media (prefers-reduced-motion: no-preference) {
+    .asagayaFestivalShell main#top > section:nth-of-type(3) figure,
+    .asagayaFestivalShell main#top > section:nth-of-type(8) figure {
+      transition: transform .55s cubic-bezier(.2,.7,.2,1), box-shadow .55s ease, filter .55s ease;
+    }
+
+    .asagayaFestivalShell main#top > section:nth-of-type(3) figure:hover,
+    .asagayaFestivalShell main#top > section:nth-of-type(8) figure:hover {
+      transform: translateY(-8px) rotate(0deg) !important;
+      filter: saturate(1.14) contrast(1.02);
+      z-index: 7;
+    }
+
+    .asagayaFestivalShell main#top > section:nth-of-type(8) figure:nth-child(2) {
+      animation: matsuriPaperA 7.6s ease-in-out infinite alternate;
+    }
+    .asagayaFestivalShell main#top > section:nth-of-type(8) figure:nth-child(3) {
+      animation: matsuriPaperB 8.8s ease-in-out infinite alternate;
+    }
+  }
+
+  @keyframes matsuriPaperA {
+    from { translate: 0 0; }
+    to { translate: 0 -4px; }
+  }
+  @keyframes matsuriPaperB {
+    from { translate: 0 0; }
+    to { translate: 2px -5px; }
+  }
+}
