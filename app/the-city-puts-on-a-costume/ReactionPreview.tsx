@@ -1,12 +1,12 @@
 'use client';
 
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import styles from './ReactionPreview.module.css';
-import { reactionTargets, reactionTypes, type ReactionTarget, type ReactionType } from './reaction-data';
+import { reactionTargets, type ReactionTarget, type ReactionType } from './reaction-data';
 
 type ReactionState = Record<ReactionType, { count: number; active: boolean }>;
-type MountMap = Record<ReactionTarget, HTMLElement | null>;
+type Host = { target: ReactionTarget; element: HTMLSpanElement; key: string };
 
 const emptyState = (): ReactionState => ({
   like: { count: 0, active: false },
@@ -24,49 +24,66 @@ function ensureVisitorId() {
   return value;
 }
 
+function ReactionIcon({ type }: { type: ReactionType }) {
+  if (type === 'like') return <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.4 10.1 11.7 4c.5-.9 1.7-.9 2.1-.1.4.7.3 1.8.1 2.6l-.7 2.5h5.2c1.1 0 2 .9 2 2 0 .2 0 .4-.1.6l-1.7 6.3c-.3 1.1-1.3 1.9-2.4 1.9H8.4V10.1Z"/><path d="M4.1 10.1h4.3v9.7H4.1V10.1Z"/></svg>;
+  if (type === 'love') return <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.4 4.7 13.5C1.8 10.8 3.1 5.8 7 5.1c2-.4 3.8.5 5 2 1.2-1.5 3-2.4 5-2 3.9.7 5.2 5.7 2.3 8.4L12 20.4Z"/></svg>;
+  return <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="8.7" cy="9" r="1.15"/><circle cx="15.3" cy="9" r="1.15"/><ellipse cx="12" cy="15.1" rx="2.35" ry="3.05"/></svg>;
+}
+
 export default function ReactionPreview() {
-  const [mounts, setMounts] = useState<MountMap>(() => Object.fromEntries(reactionTargets.map((t) => [t, null])) as MountMap);
+  const [hosts, setHosts] = useState<Host[]>([]);
   const [states, setStates] = useState<Record<ReactionTarget, ReactionState>>(() => Object.fromEntries(reactionTargets.map((t) => [t, emptyState()])) as Record<ReactionTarget, ReactionState>);
   const [visitorId, setVisitorId] = useState('');
   const [busy, setBusy] = useState<string | null>(null);
 
   useEffect(() => {
     setVisitorId(ensureVisitorId());
+    let cancelled = false;
+    let tries = 0;
+    let timer = 0;
 
-    const main = document.querySelector('.asagayaFestivalShell main#top');
-    if (!main) return;
+    const attach = () => {
+      if (cancelled) return;
+      const main = document.querySelector('.asagayaFestivalShell main#top');
+      if (!main) { timer = window.setTimeout(attach, 80); return; }
 
-    const map = Object.fromEntries(reactionTargets.map((t) => [t, null])) as MountMap;
-    reactionTargets.filter((t) => t !== 'article').forEach((target) => {
-      map[target] = main.querySelector(`[data-eastokyo-share-rail="${target}"]`) as HTMLElement | null;
-    });
+      const found: Host[] = [];
+      main.querySelectorAll<HTMLElement>('[data-eastokyo-share-rail]').forEach((mount) => {
+        const target = mount.dataset.eastokyoShareRail as ReactionTarget | undefined;
+        const rail = mount.querySelector<HTMLElement>('[aria-label="Partager cette section"]');
+        if (!target || !rail || rail.querySelector('[data-eastokyo-reactions]')) return;
+        const host = document.createElement('span');
+        host.dataset.eastokyoReactions = target;
+        host.style.display = 'contents';
+        rail.appendChild(host);
+        found.push({ target, element: host, key: target });
+      });
 
-    const firstFigure = main.querySelector('img[src$="asagaya-feature-02-desktop.jpg"]')?.closest('figure') as HTMLElement | null;
-    const firstSection = firstFigure?.closest('section') as HTMLElement | null;
-    const topMount = firstSection?.previousElementSibling as HTMLElement | null;
-    const footer = main.querySelector('footer');
-    const bottomMount = footer?.previousElementSibling as HTMLElement | null;
+      main.querySelectorAll<HTMLElement>('[aria-label="Partager cet article"]').forEach((rail, index) => {
+        if (rail.querySelector('[data-eastokyo-reactions]')) return;
+        const host = document.createElement('span');
+        host.dataset.eastokyoReactions = 'article';
+        host.style.display = 'contents';
+        rail.appendChild(host);
+        found.push({ target: 'article', element: host, key: `article-${index}` });
+      });
 
-    if (topMount) {
-      topMount.classList.add('eastokyoEngagementMount');
-      map.article = topMount;
-    }
-    if (bottomMount) bottomMount.classList.add('eastokyoEngagementMount');
-    Object.values(map).forEach((mount) => mount?.classList.add('eastokyoEngagementMount'));
+      if (found.length) setHosts((current) => [...current, ...found]);
+      tries += 1;
+      if (tries < 20 && document.querySelectorAll('[data-eastokyo-reactions]').length < 8) timer = window.setTimeout(attach, 100);
+    };
 
-    setMounts(map);
-
+    timer = window.setTimeout(attach, 0);
     return () => {
-      topMount?.classList.remove('eastokyoEngagementMount');
-      bottomMount?.classList.remove('eastokyoEngagementMount');
-      Object.values(map).forEach((mount) => mount?.classList.remove('eastokyoEngagementMount'));
+      cancelled = true;
+      window.clearTimeout(timer);
+      document.querySelectorAll('[data-eastokyo-reactions]').forEach((el) => el.remove());
     };
   }, []);
 
   useEffect(() => {
     if (!visitorId) return;
     let cancelled = false;
-
     Promise.all(reactionTargets.map(async (target) => {
       const response = await fetch(`/api/reactions?target=${encodeURIComponent(target)}&visitorId=${encodeURIComponent(visitorId)}`, { cache: 'no-store' });
       if (!response.ok) return null;
@@ -80,16 +97,8 @@ export default function ReactionPreview() {
         return next;
       });
     }).catch(() => {});
-
     return () => { cancelled = true; };
   }, [visitorId]);
-
-  const bottomMount = useMemo(() => {
-    if (typeof document === 'undefined') return null;
-    const main = document.querySelector('.asagayaFestivalShell main#top');
-    const footer = main?.querySelector('footer');
-    return footer?.previousElementSibling as HTMLElement | null;
-  }, [mounts]);
 
   const toggle = async (target: ReactionTarget, reaction: ReactionType) => {
     if (!visitorId) return;
@@ -97,68 +106,29 @@ export default function ReactionPreview() {
     const action = current.active ? 'remove' : 'add';
     const key = `${target}:${reaction}`;
     setBusy(key);
-
-    setStates((all) => ({
-      ...all,
-      [target]: {
-        ...all[target],
-        [reaction]: { count: Math.max(0, current.count + (current.active ? -1 : 1)), active: !current.active },
-      },
-    }));
-
+    setStates((all) => ({ ...all, [target]: { ...all[target], [reaction]: { count: Math.max(0, current.count + (current.active ? -1 : 1)), active: !current.active } } }));
     try {
-      const response = await fetch('/api/reactions', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ target, reaction, visitorId, action }),
-      });
+      const response = await fetch('/api/reactions', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ target, reaction, visitorId, action }) });
       if (!response.ok) throw new Error('Reaction update failed');
       const data = await response.json() as { count: number; active: boolean };
-      setStates((all) => ({
-        ...all,
-        [target]: { ...all[target], [reaction]: { count: data.count, active: data.active } },
-      }));
+      setStates((all) => ({ ...all, [target]: { ...all[target], [reaction]: { count: data.count, active: data.active } } }));
     } catch {
-      setStates((all) => ({
-        ...all,
-        [target]: { ...all[target], [reaction]: current },
-      }));
-    } finally {
-      setBusy(null);
-    }
+      setStates((all) => ({ ...all, [target]: { ...all[target], [reaction]: current } }));
+    } finally { setBusy(null); }
   };
 
-  const Cluster = ({ target }: { target: ReactionTarget }) => {
-    const state = states[target];
-    const items: Array<{ type: ReactionType; icon: string; label: string; className: string }> = [
-      { type: 'like', icon: '👍', label: 'Like', className: styles.like },
-      { type: 'love', icon: '♥', label: 'Love', className: styles.love },
-      { type: 'wow', icon: '😮', label: 'Wow', className: styles.wow },
-    ];
-
-    return <div className={styles.cluster} aria-label="Réactions">
-      {items.map((item) => {
-        const value = state[item.type];
-        const isBusy = busy === `${target}:${item.type}`;
-        return <button
-          key={item.type}
-          type="button"
-          className={`${styles.reaction} ${item.className} ${value.active ? styles.active : ''} ${isBusy ? styles.loading : ''}`}
-          onClick={() => toggle(target, item.type)}
-          aria-pressed={value.active}
-          aria-label={`${item.label} — ${value.count}`}
-          title={item.label}
-        >
-          <span className={styles.icon} aria-hidden="true">{item.icon}</span>
-          <span className={styles.count}>{value.count}</span>
+  const Cluster = ({ target }: { target: ReactionTarget }) => (
+    <span className={styles.cluster} aria-label="Réactions">
+      {(['like','love','wow'] as ReactionType[]).map((type) => {
+        const value = states[target][type];
+        const isBusy = busy === `${target}:${type}`;
+        const label = type === 'like' ? 'Like' : type === 'love' ? 'Love' : 'Wow';
+        return <button key={type} type="button" className={`${styles.reaction} ${styles[type]} ${value.active ? styles.active : ''} ${isBusy ? styles.loading : ''}`} onClick={() => toggle(target, type)} aria-pressed={value.active} aria-label={`${label} — ${value.count}`} title={label}>
+          <span className={styles.icon}><ReactionIcon type={type}/></span><span className={styles.count}>{value.count}</span>
         </button>;
       })}
-    </div>;
-  };
+    </span>
+  );
 
-  return <>
-    {mounts.article && createPortal(<Cluster target="article" />, mounts.article)}
-    {reactionTargets.filter((t) => t !== 'article').map((target) => mounts[target] ? createPortal(<Cluster target={target} />, mounts[target]!, `reaction-${target}`) : null)}
-    {bottomMount && createPortal(<Cluster target="article" />, bottomMount)}
-  </>;
+  return <>{hosts.map((host) => createPortal(<Cluster target={host.target}/>, host.element, host.key))}</>;
 }
