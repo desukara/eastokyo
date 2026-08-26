@@ -1,0 +1,113 @@
+@media (min-width: 1081px) {
+  main#top > section[aria-labelledby="story-title"] {
+    position: relative !important;
+    display: block !important;
+    width: 100% !important;
+    min-height: clamp(600px, 74vh, 820px) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    isolation: isolate;
+    background: #173d70 !important;
+    color: #fff !important;
+  }
+
+  main#top > section[aria-labelledby="story-title"]::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(90deg, rgba(10, 30, 58, .32) 0%, rgba(10, 30, 58, .12) 38%, rgba(10, 30, 58, 0) 62%);
+  }
+
+  main#top > section[aria-labelledby="story-title"] > div:first-child {
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    aspect-ratio: auto !important;
+    overflow: hidden !important;
+    background: #173d70 !important;
+    box-shadow: none !important;
+  }
+
+  main#top > section[aria-labelledby="story-title"] > div:first-child picture,
+  main#top > section[aria-labelledby="story-title"] > div:first-child img {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  main#top > section[aria-labelledby="story-title"] > div:first-child img {
+    position: absolute !important;
+    inset: 0 !important;
+    object-fit: cover !important;
+    object-position: center 61% !important;
+    transform: translateX(16%) scale(1.08) !important;
+    transform-origin: center 61% !important;
+  }
+
+  main#top > section[aria-labelledby="story-title"] > div:first-child > span {
+    display: none !important;
+  }
+
+  main#top > section[aria-labelledby="story-title"] > div:first-child > div {
+    position: absolute !important;
+    top: clamp(1.8rem, 3vw, 3rem) !important;
+    right: max(3rem, calc((100vw - 1240px) / 2)) !important;
+    z-index: 4 !important;
+    color: rgba(255,255,255,.88) !important;
+    text-align: right !important;
+  }
+
+  main#top > section[aria-labelledby="story-title"] > div:last-child {
+    position: relative !important;
+    z-index: 3 !important;
+    width: min(610px, 43vw) !important;
+    margin-left: max(3rem, calc((100vw - 1240px) / 2)) !important;
+    padding: clamp(4.5rem, 7vh, 6.5rem) 0 clamp(4rem, 6vh, 5.5rem) !important;
+    min-width: 0 !important;
+    align-self: auto !important;
+  }
+
+  main#top > section[aria-labelledby="story-title"] > div:last-child > p:first-child {
+    margin: 0 0 1.15rem !important;
+    color: #f0c719 !important;
+    font-size: .68rem !important;
+    letter-spacing: .17em !important;
+  }
+
+  main#top > section[aria-labelledby="story-title"] h1#story-title {
+    max-width: 7.2ch !important;
+    margin: 0 !important;
+    color: #fff !important;
+    font-size: clamp(5.4rem, 7.4vw, 8.8rem) !important;
+    line-height: .76 !important;
+    letter-spacing: -.06em !important;
+    overflow: visible !important;
+  }
+
+  main#top > section[aria-labelledby="story-title"] h1#story-title em {
+    color: #f3efe6 !important;
+  }
+
+  main#top > section[aria-labelledby="story-title"] h1#story-title + p {
+    max-width: 20ch !important;
+    margin: 1.65rem 0 0 !important;
+    color: #fff !important;
+    font-size: clamp(1.45rem, 1.85vw, 2rem) !important;
+    line-height: 1.03 !important;
+  }
+
+  main#top > section[aria-labelledby="story-title"] h1#story-title + p + p {
+    max-width: 34rem !important;
+    margin: 1.55rem 0 0 !important;
+    padding-top: .85rem !important;
+    border-top: 1px solid rgba(255,255,255,.42) !important;
+    color: rgba(255,255,255,.92) !important;
+  }
+}
