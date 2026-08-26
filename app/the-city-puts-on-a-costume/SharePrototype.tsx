@@ -33,6 +33,7 @@ export default function SharePrototype() {
       const text = el.textContent || '';
       return text.includes('TOKYO STORY 04') && text.includes('JAMES SIMMONS') && el.children.length <= 5;
     }) as HTMLElement | undefined;
+    const byline = meta?.querySelector('span:last-child') as HTMLElement | null;
 
     const imageCaption = main
       .querySelector('img[src$="asagaya-feature-04-desktop.jpg"]')
@@ -41,11 +42,11 @@ export default function SharePrototype() {
 
     const footer = main.querySelector('footer');
 
-    const topMount = meta ? document.createElement('span') : null;
+    const topMount = byline ? document.createElement('span') : null;
     const imageMount = imageCaption ? document.createElement('span') : null;
     const bottomMount = footer ? document.createElement('div') : null;
 
-    if (topMount && meta) meta.appendChild(topMount);
+    if (topMount && byline) byline.appendChild(topMount);
     if (imageMount && imageCaption) imageCaption.appendChild(imageMount);
     if (bottomMount && footer?.parentElement) footer.parentElement.insertBefore(bottomMount, footer);
 
