@@ -101,24 +101,46 @@ export default function ReactionPreview() {
   }, [visitorId]);
 
   const toggle = async (target: ReactionTarget, reaction: ReactionType) => {
-    if (!visitorId) return;
-    const current = states[target][reaction];
-    const action = current.active ? 'remove' : 'add';
+    if (!visitorId || busy) return;
+
+    const before = states[target];
+    const selected = before[reaction];
+    const action = selected.active ? 'remove' : 'add';
     const key = `${target}:${reaction}`;
     setBusy(key);
-    setStates((all) => ({ ...all, [target]: { ...all[target], [reaction]: { count: Math.max(0, current.count + (current.active ? -1 : 1)), active: !current.active } } }));
+
+    const optimistic = Object.fromEntries((['like', 'love', 'wow'] as ReactionType[]).map((type) => {
+      const value = before[type];
+      if (action === 'remove') {
+        return [type, type === reaction ? { count: Math.max(0, value.count - 1), active: false } : { ...value, active: false }];
+      }
+      if (type === reaction) {
+        return [type, { count: value.count + (value.active ? 0 : 1), active: true }];
+      }
+      return [type, { count: Math.max(0, value.count - (value.active ? 1 : 0)), active: false }];
+    })) as ReactionState;
+
+    setStates((all) => ({ ...all, [target]: optimistic }));
+
     try {
-      const response = await fetch('/api/reactions', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ target, reaction, visitorId, action }) });
+      const response = await fetch('/api/reactions', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ target, reaction, visitorId, action }),
+      });
       if (!response.ok) throw new Error('Reaction update failed');
-      const data = await response.json() as { count: number; active: boolean };
-      setStates((all) => ({ ...all, [target]: { ...all[target], [reaction]: { count: data.count, active: data.active } } }));
+      const data = await response.json() as { reactions?: ReactionState };
+      if (!data.reactions) throw new Error('Reaction response missing');
+      setStates((all) => ({ ...all, [target]: data.reactions! }));
     } catch {
-      setStates((all) => ({ ...all, [target]: { ...all[target], [reaction]: current } }));
-    } finally { setBusy(null); }
+      setStates((all) => ({ ...all, [target]: before }));
+    } finally {
+      setBusy(null);
+    }
   };
 
   const Cluster = ({ target }: { target: ReactionTarget }) => (
-    <span className={styles.cluster} aria-label="Réactions">
+    <span className={styles.cluster} aria-label="Réactions — choisissez une seule réaction">
       {(['like','love','wow'] as ReactionType[]).map((type) => {
         const value = states[target][type];
         const isBusy = busy === `${target}:${type}`;
