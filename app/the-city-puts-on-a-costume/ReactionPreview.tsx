@@ -54,7 +54,6 @@ export default function ReactionPreview() {
         if (!target || !rail || rail.querySelector('[data-eastokyo-reactions]')) return;
         const host = document.createElement('span');
         host.dataset.eastokyoReactions = target;
-        host.style.display = 'contents';
         rail.appendChild(host);
         found.push({ target, element: host, key: target });
       });
@@ -63,7 +62,6 @@ export default function ReactionPreview() {
         if (rail.querySelector('[data-eastokyo-reactions]')) return;
         const host = document.createElement('span');
         host.dataset.eastokyoReactions = 'article';
-        host.style.display = 'contents';
         rail.appendChild(host);
         found.push({ target: 'article', element: host, key: `article-${index}` });
       });
