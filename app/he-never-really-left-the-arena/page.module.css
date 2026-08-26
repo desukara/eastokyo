@@ -13,3 +13,29 @@
   .storyBeatRight{margin-left:auto}
   .pullQuote{margin-left:auto;margin-right:auto}
 }
+
+/* Desktop art-direction refinement: rhythm, not redesign. */
+@media (min-width:901px){
+  .bodyCopy{line-height:1.58}
+  .storyBeatCopy{line-height:1.57}
+  .bodyCopy p+p,.storyBeatCopy p+p{margin-top:1.52em}
+
+  .imageCredit{color:rgba(17,17,17,.68);letter-spacing:.135em}
+  .storyBeatLabel{color:#4b1a18}
+
+  .visualSequence{gap:clamp(3.55rem,5.25vw,5.75rem)}
+  .hallwayFigure{margin-bottom:clamp(.4rem,1vw,1rem)}
+  .viewerFigure{margin-bottom:0}
+  .pullQuote{margin-top:.35rem;margin-bottom:.7rem}
+  .galleryFigure{margin-top:0}
+
+  .slideshowBridge{
+    margin-top:clamp(-1.35rem,-1.4vw,-.65rem);
+    padding-top:.2rem;
+    padding-bottom:.8rem;
+  }
+
+  .bullHeadCredit{padding-top:.62rem;padding-bottom:.7rem}
+  .finalStoryBeat{padding-top:clamp(3.8rem,5.8vw,5.7rem);padding-bottom:clamp(3.4rem,5vw,4.8rem)}
+  .endMark{padding-bottom:clamp(2.3rem,3.6vw,3.6rem)}
+}
