@@ -2,19 +2,28 @@
 
 import { useEffect } from "react";
 
-export default function ShareLanding({ anchor, title }: { anchor: string; title: string }) {
+export default function ShareLanding({
+  destination,
+  section,
+  title,
+}: {
+  destination: string;
+  section?: string;
+  title: string;
+}) {
+  const href = `${destination}${section ? `#${section}` : ""}`;
+
   useEffect(() => {
-    const destination = `/#${anchor}`;
-    const timer = window.setTimeout(() => window.location.replace(destination), 80);
+    const timer = window.setTimeout(() => window.location.replace(href), 80);
     return () => window.clearTimeout(timer);
-  }, [anchor]);
+  }, [href]);
 
   return (
     <main className="share-landing">
       <p>EASTOKYO</p>
       <h1>{title}</h1>
       <p>Taking you to the story.</p>
-      <a href={`/#${anchor}`}>Open story</a>
+      <a href={href}>Open story</a>
     </main>
   );
 }
