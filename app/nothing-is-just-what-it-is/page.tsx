@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import styles from "./page.module.css";
+import polish from "./polish.module.css";
 
 export const metadata: Metadata = {
   title: "Rien n’est jamais tout à fait ce qu’on croit.",
@@ -39,7 +40,7 @@ const entries = [
 
 function Picture({ name, alt, eager = false }: { name: string; alt: string; eager?: boolean }) { return <picture className={styles.picture}><source media="(max-width: 780px)" srcSet={`/images/editorial/index-${name}-mobile.jpg`} /><img src={`/images/editorial/index-${name}-desktop.jpg`} alt={alt} loading={eager ? "eager" : "lazy"} fetchPriority={eager ? "high" : undefined} decoding="async" /></picture>; }
 
-export default function PicassoIndexStoryPage() { return <main className={styles.page} id="top">
+export default function PicassoIndexStoryPage() { return <main className={`${styles.page} ${polish.page}`} id="top">
 <header className={styles.folio}><Link className={styles.brand} href="/">EASTOKYO</Link><span className={styles.folioCenter}>INDEX · NUMÉRO 01</span><span className={styles.folioRight}>TOKYO · SEPTEMBRE 2026</span></header>
 <section className={styles.hero} aria-labelledby="index-title"><Picture name="hero" alt="" eager /><div className={styles.heroShade} aria-hidden="true"/><div className={styles.heroNumber} aria-hidden="true">05</div><div className={styles.heroCopy}><p className={styles.kicker}>INDEX PICASSO · COMMENCEZ N’IMPORTE OÙ</p><h1 id="index-title">RIEN N’EST JAMAIS<br/>TOUT À FAIT CE<br/><em>QU’ON CROIT.</em></h1><p className={styles.deck}>On part d’un truc et on finit ailleurs. C’était déjà la moitié du plaisir.</p></div><div className={styles.heroNote}><span>OBJET</span><span>PORTRAIT</span><span>RAYURES</span><span>CÉRAMIQUES</span></div></section>
 <section className={styles.intro}><p className={styles.introLabel}>L’INDEX</p><div className={styles.introCopy}><p>Picasso pouvait partir de n’importe quoi. Une selle de vélo. Un visage. Une assiette. Une pièce couverte de rayures du sol au plafond. Ce que c’était au départ, franchement, ça comptait pas tant que ça. Ce qui comptait c’est ce qui se passait une fois qu’il arrêtait de croire que la première réponse devait être la bonne. Parce qu’elle était bien, cette première réponse. Carrément juste, même. Oui c’est une selle de vélo. Oui c’est une assiette. C’est un visage, qu’est-ce que ça pourrait être d’autre. Sauf que Picasso avait cette manie, un peu belle et un peu têtue, de rester planté devant les choses juste assez longtemps pour qu’une deuxième question lui tape sur l’épaule.</p><p><strong>Et si c’était autre chose ?</strong></p><p>C’est pas un cours d’histoire de l’art, encore moins un défilé des grands classiques. Disons plutôt quatre portes d’entrée vers le même genre de malice : ce refus de croire qu’avoir compris ce qu’est une chose veut dire qu’on a fini de découvrir ce qu’elle peut devenir.</p></div></section>
