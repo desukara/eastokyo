@@ -3,63 +3,66 @@
    Preserve the editorial architecture; refine scale, caption placement, and the publication handoff. */
 
 @media (min-width: 901px) {
-  /* Hero: still monumental, but let the matador and bull breathe. */
+  /* Hero: clearly smaller now — still monumental, but no longer swallowing the photograph. */
   .arena-story-theme main#top > section:first-of-type h1 {
-    max-width: 10.8ch !important;
-    font-size: clamp(4.2rem, 8.45vw, 8.4rem) !important;
-    line-height: .78 !important;
-    letter-spacing: -.052em !important;
+    max-width: 11.5ch !important;
+    font-size: clamp(3.6rem, 6.75vw, 6.8rem) !important;
+    line-height: .82 !important;
+    letter-spacing: -.045em !important;
   }
 
-  /* The bull-object credit becomes a centered museum caption, not a competing stripe. */
+  /* The bull-object credit is a centered museum caption. */
   .arena-story-theme main#top figure:has(img[alt*="Tête de taureau"]) figcaption {
     box-sizing: border-box !important;
     width: 100% !important;
     padding: .72rem clamp(3rem, 8vw, 8rem) .78rem !important;
     text-align: center !important;
-    color: rgba(246, 240, 230, .86) !important;
-    background: #5a1716 !important;
+    color: rgba(246, 240, 230, .9) !important;
+    background: #541512 !important;
     letter-spacing: .13em !important;
     position: relative !important;
     z-index: 4 !important;
   }
 
-  /* Give the numbered chapter after the bull a clean runway below the caption. */
+  /* The 05 ghost numeral was colliding with the centered bull caption: remove it here only. */
   .arena-story-theme main#top figure:has(img[alt*="Tête de taureau"]) + section {
     position: relative !important;
     isolation: isolate !important;
   }
 
   .arena-story-theme main#top figure:has(img[alt*="Tête de taureau"]) + section [aria-hidden="true"] {
-    top: 1.4rem !important;
-    opacity: .045 !important;
-    z-index: 0 !important;
+    display: none !important;
   }
 
-  /* Chapter labels should read dried blood, not washed-out pink. */
+  /* Chapter labels read dried blood, not washed-out pink. */
   .arena-story-theme main#top section p[class*="storyBeatLabel"] {
-    color: #6f1715 !important;
+    color: #761b17 !important;
   }
 
-  /* Footer: publication voice returns, but without the unrelated burgundy signup-card look. */
+  /* Publication footer: dark field, one hot-red blade. */
   .arena-story-theme .mag-footer {
-    border-top: 5px solid #d72b1f !important;
+    border-top: 5px solid #df3023 !important;
     background: #111824 !important;
   }
 
-  .arena-story-theme .mag-newsletter {
-    background: #172130 !important;
-    color: #f1eadc !important;
-    border: 1px solid rgba(184, 137, 67, .55) !important;
+  /* Newsletter: unequivocally red — not burgundy, purple, or wine. */
+  .arena-story-theme .mag-newsletter,
+  .arena-story-theme .mag-footer .mag-newsletter {
+    background: #b92d22 !important;
+    background-image: none !important;
+    color: #fff6e8 !important;
+    border: 1px solid rgba(255, 236, 207, .55) !important;
     box-shadow: none !important;
   }
 
-  .arena-story-theme .mag-newsletter p {
-    color: #c7a565 !important;
+  .arena-story-theme .mag-newsletter p,
+  .arena-story-theme .mag-footer .mag-newsletter p {
+    color: #ffd9a0 !important;
   }
 
-  .arena-story-theme .mag-newsletter strong {
-    color: #f1eadc !important;
+  .arena-story-theme .mag-newsletter strong,
+  .arena-story-theme .mag-footer .mag-newsletter strong {
+    color: #fff6e8 !important;
   }
 
   /* Socials recede into the colophon; brand color can return on interaction. */
@@ -79,7 +82,7 @@
   .arena-story-theme .social-placeholder span:hover {
     filter: none !important;
     opacity: 1 !important;
-    border-color: rgba(215, 43, 31, .72) !important;
+    border-color: rgba(223, 48, 35, .75) !important;
   }
 
   .arena-story-theme .mag-footer-links,
