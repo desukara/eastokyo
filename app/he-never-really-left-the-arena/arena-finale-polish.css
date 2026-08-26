@@ -24,13 +24,8 @@
     z-index: 4 !important;
   }
 
-  /* The 05 ghost numeral was colliding with the centered bull caption: remove it here only. */
-  .arena-story-theme main#top figure:has(img[alt*="Tête de taureau"]) + section {
-    position: relative !important;
-    isolation: isolate !important;
-  }
-
-  .arena-story-theme main#top figure:has(img[alt*="Tête de taureau"]) + section [aria-hidden="true"] {
+  /* Remove the final chapter numeral above LE TAUREAU RESTE. */
+  .arena-story-theme main#top section[class*="finalStoryBeat"] > [aria-hidden="true"] {
     display: none !important;
   }
 
