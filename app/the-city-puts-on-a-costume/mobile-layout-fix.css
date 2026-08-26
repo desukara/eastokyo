@@ -3,10 +3,24 @@
    Desktop, artwork, color, and engagement styling remain untouched. */
 
 @media (max-width: 700px) {
+  html:has(.asagayaFestivalShell),
+  body:has(.asagayaFestivalShell) {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+  }
+
+  .asagayaFestivalShell,
+  .asagayaFestivalShell *,
+  .asagayaFestivalShell *::before,
+  .asagayaFestivalShell *::after {
+    box-sizing: border-box;
+  }
+
   .asagayaFestivalShell,
   .asagayaFestivalShell main#top {
     width: 100% !important;
-    max-width: 100vw !important;
+    max-width: 100% !important;
     overflow-x: clip !important;
   }
 
