@@ -73,7 +73,24 @@
   background:#c85d6f;
 }
 
-/* 01–04 are the entries; 05 is the closing image. */
+/* Two unmistakable numbering systems:
+   Roman numerals = article chapters. Arabic 01–05 = photographs. */
+.page > section:nth-of-type(3) article > div:first-child{
+  font-size:0 !important;
+}
+.page > section:nth-of-type(3) article > div:first-child::after{
+  display:block;
+  font-family:var(--font-bienvivos-display),serif;
+  font-size:clamp(3.7rem,5vw,5.4rem);
+  line-height:.76;
+  letter-spacing:-.065em;
+  color:#c85d6f;
+}
+.page > section:nth-of-type(3) article:nth-child(1) > div:first-child::after{content:"I";}
+.page > section:nth-of-type(3) article:nth-child(2) > div:first-child::after{content:"II";}
+.page > section:nth-of-type(3) article:nth-child(3) > div:first-child::after{content:"III";}
+.page > section:nth-of-type(3) article:nth-child(4) > div:first-child::after{content:"IV";}
+
 .page > section:nth-of-type(3) article > div:nth-child(2) span{
   font-size:0 !important;
   line-height:1.4 !important;
@@ -149,10 +166,12 @@
   .page > section:nth-of-type(3) article::before{
     width:48px;
   }
+  .page > section:nth-of-type(3) article > div:first-child::after{
+    font-size:3.25rem;
+  }
   .page > section:nth-of-type(3) article > div:nth-child(2) span::after{
     font-size:.56rem;
   }
-  /* Prevent the grey portrait panel from visually extending into section 03. */
   .page > section:nth-of-type(3) article:nth-child(2){
     background:#e8e5df !important;
     padding-bottom:2rem !important;
