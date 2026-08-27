@@ -1,0 +1,97 @@
+/* Asagaya editorial balance pass — visual simplification only.
+   Keeps photography, palette, typography system, shareability and mobile geometry intact. */
+
+/* Remove redundant article-local chrome; global EASTOKYO chrome already frames the story. */
+.asagayaFestivalShell main#top > header[class*="folio"],
+.asagayaFestivalShell main#top > footer[class*="footer"] {
+  display: none !important;
+}
+
+/* Let the hero become the clean first editorial statement. */
+.asagayaFestivalShell main#top [class*="hero"] {
+  margin-top: 0 !important;
+}
+
+/* Keep the red manifesto, but stop it competing with the hero as a second cover. */
+.asagayaFestivalShell main#top [class*="statement"] {
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+.asagayaFestivalShell main#top [class*="statement"] p {
+  max-width: 860px;
+  font-size: clamp(34px, 4vw, 58px);
+}
+
+/* Quiet the repetitive section furniture while retaining the editorial hierarchy. */
+.asagayaFestivalShell main#top [class*="sectionNo"] {
+  font-size: 40px;
+}
+.asagayaFestivalShell main#top [class*="sectionLabel"] {
+  letter-spacing: .13em;
+}
+.asagayaFestivalShell main#top [class*="readingCopy"] h2,
+.asagayaFestivalShell main#top [class*="outroCopy"] h2 {
+  margin-bottom: 22px;
+}
+
+/* Give the long closing essay a little more air without changing its copy or measure. */
+.asagayaFestivalShell main#top [class*="outro"] {
+  padding-top: 68px;
+  padding-bottom: 72px;
+}
+.asagayaFestivalShell main#top [class*="outroCopy"] > p:not([class*="sectionNo"]):not([class*="sectionLabel"]):not([class*="lastLine"]) {
+  margin-bottom: 1.28em;
+}
+.asagayaFestivalShell main#top [class*="lastLine"] {
+  margin-top: 30px !important;
+}
+
+/* The repeated share rails should support the art, not read as black banners. */
+.asagayaFestivalShell [class*="groupMount"] [class*="rail"] {
+  margin-top: 8px;
+  transform: scale(.94);
+  transform-origin: left top;
+}
+.asagayaFestivalShell [class*="groupMount"] [class*="cell"],
+.asagayaFestivalShell [class*="groupMount"] [class*="reaction"] {
+  height: 36px;
+}
+
+/* The whole-article bottom share is redundant once every section and the article top are shareable. */
+.asagayaFestivalShell [class*="bottom"] {
+  display: none !important;
+}
+
+@media (max-width: 900px) {
+  .asagayaFestivalShell main#top [class*="statement"] {
+    padding-top: 42px;
+    padding-bottom: 42px;
+  }
+  .asagayaFestivalShell main#top [class*="statement"] p {
+    font-size: clamp(32px, 7vw, 48px);
+  }
+  .asagayaFestivalShell [class*="groupMount"] [class*="rail"] {
+    transform: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .asagayaFestivalShell main#top [class*="statement"] {
+    padding: 36px 18px;
+  }
+  .asagayaFestivalShell main#top [class*="statement"] p {
+    font-size: clamp(29px, 8.8vw, 39px);
+  }
+  .asagayaFestivalShell main#top [class*="sectionNo"] {
+    font-size: 34px;
+  }
+  .asagayaFestivalShell main#top [class*="readingSection"],
+  .asagayaFestivalShell main#top [class*="outro"] {
+    padding-top: 48px;
+    padding-bottom: 52px;
+  }
+  .asagayaFestivalShell [class*="groupMount"] [class*="cell"],
+  .asagayaFestivalShell [class*="groupMount"] [class*="reaction"] {
+    height: 38px;
+  }
+}
