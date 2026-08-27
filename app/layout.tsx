@@ -116,5 +116,5 @@ const mobileCoverAuthority = `
 `;
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="fr"><body className={`${sans.variable} ${display.variable}`}><style dangerouslySetInnerHTML={{ __html: mobileCoverAuthority }} /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "Organization", name: "EASTOKYO", url: "https://www.eastokyo.com", description: "Independent art magazine based in Tokyo, covering art from around the world." }) }} /><EastokyoMotion /><HomepageEngagement /><EngagementTapFeedback />{children}</body></html>;
+  return <html lang="fr-FR"><body className={`${sans.variable} ${display.variable}`}><style dangerouslySetInnerHTML={{ __html: mobileCoverAuthority }} /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "Organization", name: "EASTOKYO", url: "https://www.eastokyo.com", description: "Independent art magazine based in Tokyo, covering art from around the world." }) }} /><EastokyoMotion /><HomepageEngagement /><EngagementTapFeedback />{children}</body></html>;
 }
