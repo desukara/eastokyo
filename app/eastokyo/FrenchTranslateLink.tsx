@@ -12,7 +12,7 @@ export default function FrenchTranslateLink() {
       href={translateUrl}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Read this article in English with Google Translate"
+      aria-label="Read this article in English"
       style={{
         position: "fixed",
         right: "14px",
@@ -20,26 +20,25 @@ export default function FrenchTranslateLink() {
         zIndex: 2147483000,
         display: "inline-flex",
         alignItems: "center",
-        gap: "8px",
-        padding: "10px 13px",
-        border: "1px solid rgba(255,255,255,.24)",
+        justifyContent: "center",
+        minWidth: "82px",
+        padding: "10px 14px",
+        border: "1px solid rgba(255,255,255,.18)",
         borderRadius: "999px",
-        background: "rgba(18,20,22,.94)",
+        background: "rgba(18,20,22,.92)",
         color: "#fff",
         fontFamily: "Arial, Helvetica, sans-serif",
         fontSize: "11px",
         fontWeight: 700,
         lineHeight: 1,
-        letterSpacing: ".08em",
+        letterSpacing: ".12em",
         textDecoration: "none",
-        boxShadow: "0 5px 18px rgba(0,0,0,.24)",
+        boxShadow: "0 4px 16px rgba(0,0,0,.2)",
         backdropFilter: "blur(8px)",
         WebkitBackdropFilter: "blur(8px)",
       }}
     >
-      <span>ENGLISH</span>
-      <span aria-hidden="true" style={{ opacity: .45 }}>·</span>
-      <span style={{ fontWeight: 600, opacity: .78, letterSpacing: ".02em" }}>GOOGLE TRANSLATE</span>
+      ENGLISH
     </a>
   );
 }
