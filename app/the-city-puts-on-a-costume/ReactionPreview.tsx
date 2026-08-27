@@ -9,6 +9,9 @@ type ReactionState = Record<ReactionType, { count: number; active: boolean }>;
 type Host = { target: ReactionTarget; element: HTMLSpanElement; key: string };
 type ReactionMap = Record<ReactionTarget, ReactionState>;
 
+const reactionTypes: ReactionType[] = ['like', 'love', 'wow'];
+const LOCAL_KEY = 'eastokyo-reaction-fallback-v1';
+
 const emptyState = (): ReactionState => ({
   like: { count: 0, active: false },
   love: { count: 0, active: false },
@@ -25,6 +28,22 @@ function ensureVisitorId() {
   return value;
 }
 
+function readLocalFallback(): Partial<ReactionMap> {
+  try {
+    return JSON.parse(window.localStorage.getItem(LOCAL_KEY) || '{}') as Partial<ReactionMap>;
+  } catch {
+    return {};
+  }
+}
+
+function writeLocalFallback(target: ReactionTarget, state: ReactionState) {
+  try {
+    const current = readLocalFallback();
+    current[target] = state;
+    window.localStorage.setItem(LOCAL_KEY, JSON.stringify(current));
+  } catch {}
+}
+
 function ReactionIcon({ type }: { type: ReactionType }) {
   if (type === 'like') return <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.4 10.1 11.7 4c.5-.9 1.7-.9 2.1-.1.4.7.3 1.8.1 2.6l-.7 2.5h5.2c1.1 0 2 .9 2 2 0 .2 0 .4-.1.6l-1.7 6.3c-.3 1.1-1.3 1.9-2.4 1.9H8.4V10.1Z"/><path d="M4.1 10.1h4.3v9.7H4.1V10.1Z"/></svg>;
   if (type === 'love') return <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.4 4.7 13.5C1.8 10.8 3.1 5.8 7 5.1c2-.4 3.8.5 5 2 1.2-1.5 3-2.4 5-2 3.9.7 5.2 5.7 2.3 8.4L12 20.4Z"/></svg>;
@@ -36,6 +55,7 @@ export default function ReactionPreview() {
   const [states, setStates] = useState<ReactionMap>(() => Object.fromEntries(reactionTargets.map((t) => [t, emptyState()])) as ReactionMap);
   const [visitorId, setVisitorId] = useState('');
   const [busyTargets, setBusyTargets] = useState<Set<ReactionTarget>>(() => new Set());
+  const [serverPersistent, setServerPersistent] = useState(true);
 
   useEffect(() => {
     setVisitorId(ensureVisitorId());
@@ -49,17 +69,6 @@ export default function ReactionPreview() {
       if (!main) { timer = window.setTimeout(attach, 80); return; }
 
       const found: Host[] = [];
-      main.querySelectorAll<HTMLElement>('[data-eastokyo-share-rail]').forEach((mount) => {
-        const target = mount.dataset.eastokyoShareRail as ReactionTarget | undefined;
-        const rail = mount.querySelector<HTMLElement>('[aria-label="Partager cette section"]');
-        if (!target || !rail || rail.querySelector('[data-eastokyo-reactions]')) return;
-        const host = document.createElement('span');
-        host.dataset.eastokyoReactions = target;
-        host.className = styles.host;
-        rail.appendChild(host);
-        found.push({ target, element: host, key: target });
-      });
-
       main.querySelectorAll<HTMLElement>('[aria-label="Partager cet article"]').forEach((rail, index) => {
         if (rail.querySelector('[data-eastokyo-reactions]')) return;
         const host = document.createElement('span');
@@ -71,7 +80,7 @@ export default function ReactionPreview() {
 
       if (found.length) setHosts((current) => [...current, ...found]);
       tries += 1;
-      if (tries < 20 && document.querySelectorAll('[data-eastokyo-reactions]').length < 8) timer = window.setTimeout(attach, 100);
+      if (tries < 20 && !document.querySelector('[data-eastokyo-reactions="article"]')) timer = window.setTimeout(attach, 100);
     };
 
     timer = window.setTimeout(attach, 0);
@@ -88,13 +97,25 @@ export default function ReactionPreview() {
     fetch(`/api/reactions?target=all&visitorId=${encodeURIComponent(visitorId)}`, { cache: 'no-store' })
       .then(async (response) => {
         if (!response.ok) return null;
-        return response.json() as Promise<{ reactionsByTarget?: Partial<ReactionMap> }>;
+        return response.json() as Promise<{ reactionsByTarget?: Partial<ReactionMap>; persistent?: boolean }>;
       })
       .then((data) => {
         if (cancelled || !data?.reactionsByTarget) return;
-        setStates((current) => ({ ...current, ...data.reactionsByTarget }));
+        const persistent = data.persistent !== false;
+        setServerPersistent(persistent);
+        if (persistent) {
+          setStates((current) => ({ ...current, ...data.reactionsByTarget }));
+          return;
+        }
+        const local = readLocalFallback();
+        setStates((current) => ({ ...current, ...data.reactionsByTarget, ...local }));
       })
-      .catch(() => {});
+      .catch(() => {
+        if (cancelled) return;
+        setServerPersistent(false);
+        const local = readLocalFallback();
+        setStates((current) => ({ ...current, ...local }));
+      });
     return () => { cancelled = true; };
   }, [visitorId]);
 
@@ -106,18 +127,17 @@ export default function ReactionPreview() {
     const action = selected.active ? 'remove' : 'add';
     setBusyTargets((current) => new Set(current).add(target));
 
-    const optimistic = Object.fromEntries((['like', 'love', 'wow'] as ReactionType[]).map((type) => {
+    const optimistic = Object.fromEntries(reactionTypes.map((type) => {
       const value = before[type];
       if (action === 'remove') {
         return [type, type === reaction ? { count: Math.max(0, value.count - 1), active: false } : { ...value, active: false }];
       }
-      if (type === reaction) {
-        return [type, { count: value.count + (value.active ? 0 : 1), active: true }];
-      }
+      if (type === reaction) return [type, { count: value.count + (value.active ? 0 : 1), active: true }];
       return [type, { count: Math.max(0, value.count - (value.active ? 1 : 0)), active: false }];
     })) as ReactionState;
 
     setStates((all) => ({ ...all, [target]: optimistic }));
+    if (!serverPersistent) writeLocalFallback(target, optimistic);
 
     try {
       const response = await fetch('/api/reactions', {
@@ -126,11 +146,21 @@ export default function ReactionPreview() {
         body: JSON.stringify({ target, reaction, visitorId, action }),
       });
       if (!response.ok) throw new Error('Reaction update failed');
-      const data = await response.json() as { reactions?: ReactionState };
+      const data = await response.json() as { reactions?: ReactionState; persistent?: boolean };
       if (!data.reactions) throw new Error('Reaction response missing');
-      setStates((all) => ({ ...all, [target]: data.reactions! }));
+
+      if (data.persistent === false) {
+        setServerPersistent(false);
+        writeLocalFallback(target, optimistic);
+        setStates((all) => ({ ...all, [target]: optimistic }));
+      } else {
+        setServerPersistent(true);
+        setStates((all) => ({ ...all, [target]: data.reactions! }));
+      }
     } catch {
-      setStates((all) => ({ ...all, [target]: before }));
+      setServerPersistent(false);
+      writeLocalFallback(target, optimistic);
+      setStates((all) => ({ ...all, [target]: optimistic }));
     } finally {
       setBusyTargets((current) => {
         const next = new Set(current);
@@ -144,7 +174,7 @@ export default function ReactionPreview() {
     const targetBusy = busyTargets.has(target);
     return (
       <span className={styles.cluster} aria-label="Réactions — choisissez une seule réaction" aria-busy={targetBusy}>
-        {(['like','love','wow'] as ReactionType[]).map((type) => {
+        {reactionTypes.map((type) => {
           const value = states[target][type];
           const label = type === 'like' ? 'Like' : type === 'love' ? 'Love' : 'Wow';
           return <button key={type} type="button" className={`${styles.reaction} ${styles[type]} ${value.active ? styles.active : ''} ${targetBusy ? styles.loading : ''}`} onClick={() => toggle(target, type)} disabled={targetBusy} aria-pressed={value.active} aria-label={`${label} — ${value.count}`} title={label}>
