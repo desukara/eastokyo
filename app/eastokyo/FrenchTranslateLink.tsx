@@ -14,22 +14,23 @@ export default function FrenchTranslateLink() {
       rel="noopener noreferrer"
       aria-label="Read this article in English"
       style={{
-        position: "absolute",
-        top: "74px",
-        right: "clamp(16px,3vw,44px)",
-        zIndex: 50,
-        color: "inherit",
+        position: "fixed",
+        top: "72px",
+        right: "14px",
+        zIndex: 2147483000,
+        display: "inline-block",
+        color: "#171717",
+        background: "rgba(247,242,232,.94)",
+        border: "1px solid rgba(23,23,23,.22)",
+        padding: "7px 9px 6px",
         fontFamily: "Arial, Helvetica, sans-serif",
-        fontSize: "10px",
+        fontSize: "9px",
         fontWeight: 700,
         lineHeight: 1,
-        letterSpacing: ".16em",
+        letterSpacing: ".15em",
         textDecoration: "none",
         textTransform: "uppercase",
-        opacity: .72,
-        background: "transparent",
-        border: 0,
-        padding: "8px 0"
+        boxShadow: "0 1px 4px rgba(0,0,0,.08)"
       }}
     >
       ENGLISH
