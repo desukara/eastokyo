@@ -9,7 +9,8 @@ main#top > section:nth-of-type(5) [class*="sectionKicker"],
 main#top > section:nth-of-type(6) [class*="sectionKicker"],
 main#top > section:nth-of-type(7) [class*="sectionKicker"] { font-size: 0 !important; }
 
-main#top > section:nth-of-type(2) [class*="introLabel"]::after { content: "I · LA PREMIÈRE FISSURE"; }
+/* The intro is an opening beat, not chapter I. Chapters then run I–IV once each. */
+main#top > section:nth-of-type(2) [class*="introLabel"]::after { content: "LA PREMIÈRE FISSURE"; }
 main#top > section:nth-of-type(3) [class*="beatNo"]::after { content: "I"; }
 main#top > section:nth-of-type(5) [class*="sectionKicker"]::after { content: "II · L'IMAGE CHANGE LES RÈGLES"; }
 main#top > section:nth-of-type(6) [class*="sectionKicker"]::after { content: "III · L'ŒIL CONTINUE DE BOUGER"; }
@@ -49,7 +50,7 @@ main#top > section:nth-of-type(3) [class*="beatNo"]::after {
   }
 }
 
-/* Mobile: consistent centered editorial frame instead of a collection of different offsets. */
+/* Mobile: one centered editorial frame instead of competing offsets. */
 @media (max-width: 760px) {
   main#top > section:not(:nth-of-type(4)) {
     margin-left: auto !important;
@@ -75,7 +76,6 @@ main#top > section:nth-of-type(3) [class*="beatNo"]::after {
   main#top [class*="smallFigure"] { width: min(78%, 500px) !important; }
   main#top [class*="studyFigure"] { width: min(82%, 520px) !important; }
 
-  main#top [class*="firstCopy"],
   main#top [class*="readingBlock"],
   main#top [class*="afterClimax"],
   main#top [class*="studyCopy"],
@@ -84,6 +84,39 @@ main#top > section:nth-of-type(3) [class*="beatNo"]::after {
     margin-left: auto !important;
     margin-right: auto !important;
   }
+
+  /* Chapter I: number and heading sit together; body copy then uses the full centered reading width. */
+  main#top > section:nth-of-type(3) [class*="firstCopy"] {
+    width: calc(100vw - 48px) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    display: grid !important;
+    grid-template-columns: 64px minmax(0, 1fr) !important;
+    column-gap: 18px !important;
+    align-items: start !important;
+  }
+  main#top > section:nth-of-type(3) [class*="firstCopy"] > [class*="prose"] {
+    display: contents !important;
+  }
+  main#top > section:nth-of-type(3) [class*="firstCopy"] > [class*="prose"] > p {
+    grid-column: 1 / -1 !important;
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  main#top > section:nth-of-type(3) [class*="firstCopy"] > [class*="prose"] > p:first-child {
+    grid-column: 2 !important;
+    align-self: center !important;
+    margin-top: 0 !important;
+    margin-bottom: 26px !important;
+  }
+  main#top > section:nth-of-type(3) [class*="beatNo"] {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    align-self: start !important;
+    padding-top: 1px !important;
+  }
+
   main#top [class*="fractureInner"] {
     width: calc(100vw - 48px) !important;
     margin-left: auto !important;
