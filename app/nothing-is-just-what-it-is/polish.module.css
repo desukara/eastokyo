@@ -5,16 +5,18 @@
   --line:rgba(20,35,61,.20) !important;
   --accent:#c85d6f !important;
   --soft:#e9e7e0 !important;
-  background-color:#f4f0e6 !important;
-  background-image:radial-gradient(circle at 18% 12%,rgba(255,255,255,.72),transparent 30%),linear-gradient(rgba(255,255,255,.16),rgba(255,255,255,.16));
+  background:#f4f0e6 !important;
 }
 
+/* Folio/header: full-bleed across the viewport, with only inner content padded. */
 .page > header{
+  width:100% !important;
+  max-width:none !important;
+  margin:0 !important;
+  padding:.65rem 1.25rem .72rem !important;
   background:#14233d;
   color:#f7f0df;
   border-bottom-color:#c85d6f !important;
-  padding-left:1.25rem !important;
-  padding-right:1.25rem !important;
 }
 
 .page > header > a:first-child{
@@ -26,7 +28,7 @@
   background:url('/eastokyo-wordmark-white.png') left center/contain no-repeat;
 }
 
-/* Hero is the cover image: it should bleed to the viewport, not read as a card. */
+/* Hero stays exactly as approved: full-bleed and unchanged in composition. */
 .page > section:first-of-type{
   width:100% !important;
   max-width:none !important;
@@ -36,7 +38,6 @@
   outline:0 !important;
 }
 
-/* Keep the cover headline monumental while giving the striped installation room to breathe. */
 .page > section:first-of-type h1{
   max-width:9.8ch !important;
   font-size:clamp(3.8rem,min(5.9vw,8.1vh),6.8rem) !important;
@@ -50,10 +51,16 @@
 
 .page > section:nth-of-type(2){
   border-bottom:1px solid rgba(20,35,61,.13);
+  background:#f4f0e6 !important;
+}
+
+.page > section:nth-of-type(3){
+  background:#f4f0e6 !important;
 }
 
 .page > section:nth-of-type(3) article{
   position:relative;
+  background:#f4f0e6 !important;
 }
 
 .page > section:nth-of-type(3) article::before{
@@ -66,8 +73,7 @@
   background:#c85d6f;
 }
 
-/* Numbering logic: 01–04 are the entries, 05 is the closing image.
-   Remove the unrelated repeated INDEX 05 label so the sequence reads naturally. */
+/* 01–04 are the entries; 05 is the closing image. */
 .page > section:nth-of-type(3) article > div:nth-child(2) span{
   font-size:0 !important;
   line-height:1.4 !important;
@@ -80,13 +86,16 @@
   text-transform:uppercase;
 }
 
+/* Section 02 keeps a deliberate grey panel, but only for its actual content. */
 .page > section:nth-of-type(3) article:nth-child(2){
   background:#e8e5df !important;
   box-shadow:inset 0 0 0 1px rgba(20,35,61,.06);
 }
 
+/* Section 03 begins cleanly: no inherited/fading tint. */
 .page > section:nth-of-type(3) article:nth-child(3){
-  background:linear-gradient(180deg,rgba(20,35,61,.035),rgba(20,35,61,0) 46%);
+  background:#f4f0e6 !important;
+  background-image:none !important;
 }
 
 .page > section:nth-of-type(3) article figure img,
@@ -109,6 +118,7 @@
 
 .page > section:last-of-type{
   border-top:1px solid rgba(20,35,61,.18);
+  background:#f4f0e6 !important;
 }
 
 .page > section:last-of-type > div:first-of-type{
@@ -117,8 +127,10 @@
 
 @media (max-width:780px){
   .page > header{
-    padding-left:.75rem !important;
-    padding-right:.75rem !important;
+    width:100% !important;
+    max-width:none !important;
+    margin:0 !important;
+    padding:.55rem .75rem .6rem !important;
   }
   .page > header > a:first-child{
     width:150px;
@@ -139,5 +151,15 @@
   }
   .page > section:nth-of-type(3) article > div:nth-child(2) span::after{
     font-size:.56rem;
+  }
+  /* Prevent the grey portrait panel from visually extending into section 03. */
+  .page > section:nth-of-type(3) article:nth-child(2){
+    background:#e8e5df !important;
+    padding-bottom:2rem !important;
+  }
+  .page > section:nth-of-type(3) article:nth-child(3){
+    margin-top:0 !important;
+    background:#f4f0e6 !important;
+    background-image:none !important;
   }
 }
