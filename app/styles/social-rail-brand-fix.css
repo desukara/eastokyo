@@ -24,3 +24,9 @@
 :is(button,a)[title="Pinterest"] > svg {
   opacity:0!important;
 }
+
+button[data-eastokyo-pressed="true"] {
+  transform:scale(.94)!important;
+  filter:brightness(1.18)!important;
+  transition:none!important;
+}
