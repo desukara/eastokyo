@@ -1,6 +1,8 @@
 import { SiteFooter, SiteHeader } from "../eastokyo/SiteChrome";
+import CubismEngagement from "./CubismEngagement";
 import "./desktop-editorial-repair.css";
+import "./editorial-polish.css";
 
 export default function StoryLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <><SiteHeader />{children}<SiteFooter /></>;
+  return <><SiteHeader />{children}<CubismEngagement /><SiteFooter /></>;
 }
