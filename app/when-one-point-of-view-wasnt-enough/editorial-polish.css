@@ -1,0 +1,104 @@
+/* Final editorial alignment + numbering pass for the Cubism article. */
+
+/* Chapter numbering is a separate system from artwork numbering. */
+main#top [class*="heroNumber"] { display: none !important; }
+
+main#top > section:nth-of-type(2) [class*="introLabel"],
+main#top > section:nth-of-type(3) [class*="beatNo"],
+main#top > section:nth-of-type(5) [class*="sectionKicker"],
+main#top > section:nth-of-type(6) [class*="sectionKicker"],
+main#top > section:nth-of-type(7) [class*="sectionKicker"] { font-size: 0 !important; }
+
+main#top > section:nth-of-type(2) [class*="introLabel"]::after { content: "I · LA PREMIÈRE FISSURE"; }
+main#top > section:nth-of-type(3) [class*="beatNo"]::after { content: "I"; }
+main#top > section:nth-of-type(5) [class*="sectionKicker"]::after { content: "II · L'IMAGE CHANGE LES RÈGLES"; }
+main#top > section:nth-of-type(6) [class*="sectionKicker"]::after { content: "III · L'ŒIL CONTINUE DE BOUGER"; }
+main#top > section:nth-of-type(7) [class*="sectionKicker"]::after { content: "IV · TOUJOURS HUMAIN"; }
+
+main#top > section:nth-of-type(2) [class*="introLabel"]::after,
+main#top > section:nth-of-type(5) [class*="sectionKicker"]::after,
+main#top > section:nth-of-type(6) [class*="sectionKicker"]::after,
+main#top > section:nth-of-type(7) [class*="sectionKicker"]::after {
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: .15em;
+}
+main#top > section:nth-of-type(3) [class*="beatNo"]::after {
+  font-family: var(--font-bienvivos-display), serif;
+  font-size: 42px;
+  line-height: 1;
+}
+
+/* Desktop: large artwork stays large, but is centered with real breathing room. */
+@media (min-width: 761px) {
+  main#top > section:nth-of-type(5) [class*="climax"] {
+    width: min(1120px, calc(100vw - 112px)) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    transform: none !important;
+  }
+  main#top > section:nth-of-type(5) [class*="climax"] img { object-position: center center !important; }
+  main#top > section:nth-of-type(3) figure,
+  main#top > section:nth-of-type(6) figure,
+  main#top > section:nth-of-type(7) figure {
+    justify-self: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
+
+/* Mobile: consistent centered editorial frame instead of a collection of different offsets. */
+@media (max-width: 760px) {
+  main#top > section:not(:nth-of-type(4)) {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  main#top [class*="heroImage"],
+  main#top [class*="mainFigure"],
+  main#top [class*="smallFigure"],
+  main#top [class*="climax"],
+  main#top [class*="studyFigure"],
+  main#top [class*="finalFigure"] {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  main#top [class*="mainFigure"],
+  main#top [class*="climax"],
+  main#top [class*="finalFigure"] {
+    width: calc(100vw - 40px) !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    align-self: center !important;
+  }
+  main#top [class*="smallFigure"] { width: min(78%, 500px) !important; }
+  main#top [class*="studyFigure"] { width: min(82%, 520px) !important; }
+
+  main#top [class*="firstCopy"],
+  main#top [class*="readingBlock"],
+  main#top [class*="afterClimax"],
+  main#top [class*="studyCopy"],
+  main#top [class*="finalCopy"] {
+    width: calc(100vw - 48px) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  main#top [class*="fractureInner"] {
+    width: calc(100vw - 48px) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  main#top [class*="fractureCopy"] blockquote {
+    max-width: 12ch !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    font-size: clamp(33px, 9.7vw, 43px) !important;
+  }
+  main#top [class*="darkProse"] {
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  main#top > section:nth-of-type(3) [class*="beatNo"]::after { font-size: 32px; }
+}
