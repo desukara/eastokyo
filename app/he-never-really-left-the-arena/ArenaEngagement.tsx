@@ -88,7 +88,7 @@ export default function ArenaEngagement() {
   useEffect(() => {
     if (!visitorId) return;
     Promise.all(MOMENTS.map(async ({ id }) => {
-      const response = await fetch(`/api/reactions?target=${id}&visitorId=${encodeURIComponent(visitorId)}`, { cache: 'no-store' });
+      const response = await fetch(`/api/arena-reactions?target=${id}&visitorId=${encodeURIComponent(visitorId)}`, { cache: 'no-store' });
       if (!response.ok) return null;
       const data = await response.json() as { reactions?: ReactionState };
       return data.reactions ? [id, data.reactions] as const : null;
@@ -113,7 +113,7 @@ export default function ArenaEngagement() {
     const action = before[reaction].active ? 'remove' : 'add';
     setBusy((current) => new Set(current).add(target));
     try {
-      const response = await fetch('/api/reactions', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ target, reaction, visitorId, action }) });
+      const response = await fetch('/api/arena-reactions', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ target, reaction, visitorId, action }) });
       if (!response.ok) throw new Error('failed');
       const data = await response.json() as { reactions?: ReactionState };
       if (data.reactions) setStates((current) => ({ ...current, [target]: data.reactions! }));
