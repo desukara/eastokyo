@@ -34,6 +34,22 @@
   margin-bottom: 22px;
 }
 
+/* Keep photo numbering in one clean numeric sequence. Article sections use Roman numerals. */
+.asagayaFestivalShell main#top [class*="sectionNo"] {
+  color: transparent !important;
+  position: relative;
+}
+.asagayaFestivalShell main#top [class*="sectionNo"]::after {
+  position: absolute;
+  inset: 0;
+  color: var(--red);
+  font: inherit;
+}
+.asagayaFestivalShell main#top section:nth-of-type(5) [class*="sectionNo"]::after { content: "I"; }
+.asagayaFestivalShell main#top section:nth-of-type(7) [class*="sectionNo"]::after { content: "II"; }
+.asagayaFestivalShell main#top [class*="blueTitle"] [class*="sectionNo"]::after { content: "III"; color: #f1d24e; }
+.asagayaFestivalShell main#top [class*="outroCopy"] [class*="sectionNo"]::after { content: "IV"; }
+
 /* Give the long closing essay a little more air without changing its copy or measure. */
 .asagayaFestivalShell main#top [class*="outro"] {
   padding-top: 68px;
