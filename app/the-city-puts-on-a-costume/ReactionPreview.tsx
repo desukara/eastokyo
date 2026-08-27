@@ -7,6 +7,7 @@ import { reactionTargets, type ReactionTarget, type ReactionType } from './react
 
 type ReactionState = Record<ReactionType, { count: number; active: boolean }>;
 type Host = { target: ReactionTarget; element: HTMLSpanElement; key: string };
+type ReactionMap = Record<ReactionTarget, ReactionState>;
 
 const emptyState = (): ReactionState => ({
   like: { count: 0, active: false },
@@ -32,9 +33,9 @@ function ReactionIcon({ type }: { type: ReactionType }) {
 
 export default function ReactionPreview() {
   const [hosts, setHosts] = useState<Host[]>([]);
-  const [states, setStates] = useState<Record<ReactionTarget, ReactionState>>(() => Object.fromEntries(reactionTargets.map((t) => [t, emptyState()])) as Record<ReactionTarget, ReactionState>);
+  const [states, setStates] = useState<ReactionMap>(() => Object.fromEntries(reactionTargets.map((t) => [t, emptyState()])) as ReactionMap);
   const [visitorId, setVisitorId] = useState('');
-  const [busy, setBusy] = useState<string | null>(null);
+  const [busyTargets, setBusyTargets] = useState<Set<ReactionTarget>>(() => new Set());
 
   useEffect(() => {
     setVisitorId(ensureVisitorId());
@@ -84,30 +85,26 @@ export default function ReactionPreview() {
   useEffect(() => {
     if (!visitorId) return;
     let cancelled = false;
-    Promise.all(reactionTargets.map(async (target) => {
-      const response = await fetch(`/api/reactions?target=${encodeURIComponent(target)}&visitorId=${encodeURIComponent(visitorId)}`, { cache: 'no-store' });
-      if (!response.ok) return null;
-      const data = await response.json() as { reactions?: ReactionState };
-      return data.reactions ? [target, data.reactions] as const : null;
-    })).then((entries) => {
-      if (cancelled) return;
-      setStates((current) => {
-        const next = { ...current };
-        entries.forEach((entry) => { if (entry) next[entry[0]] = entry[1]; });
-        return next;
-      });
-    }).catch(() => {});
+    fetch(`/api/reactions?target=all&visitorId=${encodeURIComponent(visitorId)}`, { cache: 'no-store' })
+      .then(async (response) => {
+        if (!response.ok) return null;
+        return response.json() as Promise<{ reactionsByTarget?: Partial<ReactionMap> }>;
+      })
+      .then((data) => {
+        if (cancelled || !data?.reactionsByTarget) return;
+        setStates((current) => ({ ...current, ...data.reactionsByTarget }));
+      })
+      .catch(() => {});
     return () => { cancelled = true; };
   }, [visitorId]);
 
   const toggle = async (target: ReactionTarget, reaction: ReactionType) => {
-    if (!visitorId || busy) return;
+    if (!visitorId || busyTargets.has(target)) return;
 
     const before = states[target];
     const selected = before[reaction];
     const action = selected.active ? 'remove' : 'add';
-    const key = `${target}:${reaction}`;
-    setBusy(key);
+    setBusyTargets((current) => new Set(current).add(target));
 
     const optimistic = Object.fromEntries((['like', 'love', 'wow'] as ReactionType[]).map((type) => {
       const value = before[type];
@@ -135,22 +132,28 @@ export default function ReactionPreview() {
     } catch {
       setStates((all) => ({ ...all, [target]: before }));
     } finally {
-      setBusy(null);
+      setBusyTargets((current) => {
+        const next = new Set(current);
+        next.delete(target);
+        return next;
+      });
     }
   };
 
-  const Cluster = ({ target }: { target: ReactionTarget }) => (
-    <span className={styles.cluster} aria-label="Réactions — choisissez une seule réaction">
-      {(['like','love','wow'] as ReactionType[]).map((type) => {
-        const value = states[target][type];
-        const isBusy = busy === `${target}:${type}`;
-        const label = type === 'like' ? 'Like' : type === 'love' ? 'Love' : 'Wow';
-        return <button key={type} type="button" className={`${styles.reaction} ${styles[type]} ${value.active ? styles.active : ''} ${isBusy ? styles.loading : ''}`} onClick={() => toggle(target, type)} aria-pressed={value.active} aria-label={`${label} — ${value.count}`} title={label}>
-          <span className={styles.icon}><ReactionIcon type={type}/></span><span className={styles.count}>{value.count}</span>
-        </button>;
-      })}
-    </span>
-  );
+  const Cluster = ({ target }: { target: ReactionTarget }) => {
+    const targetBusy = busyTargets.has(target);
+    return (
+      <span className={styles.cluster} aria-label="Réactions — choisissez une seule réaction" aria-busy={targetBusy}>
+        {(['like','love','wow'] as ReactionType[]).map((type) => {
+          const value = states[target][type];
+          const label = type === 'like' ? 'Like' : type === 'love' ? 'Love' : 'Wow';
+          return <button key={type} type="button" className={`${styles.reaction} ${styles[type]} ${value.active ? styles.active : ''} ${targetBusy ? styles.loading : ''}`} onClick={() => toggle(target, type)} disabled={targetBusy} aria-pressed={value.active} aria-label={`${label} — ${value.count}`} title={label}>
+            <span className={styles.icon}><ReactionIcon type={type}/></span><span className={styles.count}>{value.count}</span>
+          </button>;
+        })}
+      </span>
+    );
+  };
 
   return <>{hosts.map((host) => createPortal(<Cluster target={host.target}/>, host.element, host.key))}</>;
 }
