@@ -8,6 +8,18 @@ const securityHeaders = [
   { key: "Strict-Transport-Security", value: "max-age=31536000; includeSubDomains" },
 ];
 
+const frenchArticleHeaders = [
+  { key: "Content-Language", value: "fr-FR" },
+];
+
+const frenchArticleRoutes = [
+  "/he-never-really-left-the-arena",
+  "/picasso-seen-with-fresh-eyes",
+  "/when-one-point-of-view-wasnt-enough",
+  "/the-city-puts-on-a-costume",
+  "/nothing-is-just-what-it-is",
+];
+
 const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
@@ -23,6 +35,10 @@ const nextConfig: NextConfig = {
         source: "/(.*)",
         headers: securityHeaders,
       },
+      ...frenchArticleRoutes.map((source) => ({
+        source,
+        headers: frenchArticleHeaders,
+      })),
     ];
   },
 };
