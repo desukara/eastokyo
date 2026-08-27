@@ -5,6 +5,7 @@ import MobileViewportGuard from "./MobileViewportGuard";
 import "./festival-force.css";
 import "./festival-cleanup.css";
 import "./mobile-layout-fix.css";
+import "./editorial-balance.css";
 
 export default function StoryLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return <div className="asagayaFestivalShell"><MobileViewportGuard /><ShareRailPreview /><ReactionPreview /><SiteHeader />{children}<SiteFooter /></div>;
