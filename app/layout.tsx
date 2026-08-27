@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Montserrat } from "next/font/google";
 import EastokyoMotion from "./eastokyo/EastokyoMotion";
 import HomepageEngagement from "./eastokyo/HomepageEngagement";
+import EngagementTapFeedback from "./eastokyo/EngagementTapFeedback";
 import "./globals.css";
 import "./styles/header.css";
 import "./styles/features.css";
@@ -16,6 +17,7 @@ import "./styles/launch-hard-reset.css";
 import "./styles/site-audit.css";
 import "./styles/masculine-palette.css";
 import "./styles/social-icons.css";
+import "./styles/social-rail-brand-fix.css";
 import "./styles/homepage-engagement.css";
 import "./styles/magazine-home.css";
 import "./styles/magazine-qa.css";
@@ -114,5 +116,5 @@ const mobileCoverAuthority = `
 `;
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="fr"><body className={`${sans.variable} ${display.variable}`}><style dangerouslySetInnerHTML={{ __html: mobileCoverAuthority }} /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "Organization", name: "EASTOKYO", url: "https://www.eastokyo.com", description: "Independent art magazine based in Tokyo, covering art from around the world." }) }} /><EastokyoMotion /><HomepageEngagement />{children}</body></html>;
+  return <html lang="fr"><body className={`${sans.variable} ${display.variable}`}><style dangerouslySetInnerHTML={{ __html: mobileCoverAuthority }} /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "Organization", name: "EASTOKYO", url: "https://www.eastokyo.com", description: "Independent art magazine based in Tokyo, covering art from around the world." }) }} /><EastokyoMotion /><HomepageEngagement /><EngagementTapFeedback />{children}</body></html>;
 }
