@@ -61,13 +61,9 @@ function responseState(target: ReactionTarget, automatic: Record<ReactionType, n
   }])) as Record<ReactionType, { count: number; active: boolean }>;
 }
 
-export async function GET(request: NextRequest) {
-  const target = request.nextUrl.searchParams.get('target');
-  const visitorId = (request.nextUrl.searchParams.get('visitorId') || '').slice(0, 120);
-  if (!isTarget(target)) return NextResponse.json({ error: 'Unknown reaction target' }, { status: 400 });
-
+async function readTargetState(target: ReactionTarget, visitorId: string) {
   const fallback = responseState(target, { like: 0, love: 0, wow: 0 }, null);
-  if (!hasRedis()) return NextResponse.json({ reactions: fallback, persistent: false });
+  if (!hasRedis()) return { reactions: fallback, persistent: false };
 
   try {
     const automatic = { like: 0, love: 0, wow: 0 } as Record<ReactionType, number>;
@@ -80,11 +76,31 @@ export async function GET(request: NextRequest) {
         if (member === 1) active = reaction;
       }
     }
-    return NextResponse.json({ reactions: responseState(target, automatic, active), persistent: true });
+    return { reactions: responseState(target, automatic, active), persistent: true };
   } catch (error) {
-    console.error('Reaction read failed', error);
-    return NextResponse.json({ reactions: fallback, persistent: false });
+    console.error(`Reaction read failed for ${target}`, error);
+    return { reactions: fallback, persistent: false };
   }
+}
+
+export async function GET(request: NextRequest) {
+  const target = request.nextUrl.searchParams.get('target');
+  const visitorId = (request.nextUrl.searchParams.get('visitorId') || '').slice(0, 120);
+
+  if (target === 'all') {
+    const entries = await Promise.all(reactionTargets.map(async (reactionTarget) => {
+      const state = await readTargetState(reactionTarget, visitorId);
+      return [reactionTarget, state] as const;
+    }));
+    return NextResponse.json({
+      reactionsByTarget: Object.fromEntries(entries.map(([reactionTarget, state]) => [reactionTarget, state.reactions])),
+      persistent: entries.every(([, state]) => state.persistent),
+    });
+  }
+
+  if (!isTarget(target)) return NextResponse.json({ error: 'Unknown reaction target' }, { status: 400 });
+  const state = await readTargetState(target, visitorId);
+  return NextResponse.json(state);
 }
 
 export async function POST(request: NextRequest) {
