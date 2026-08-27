@@ -5,5 +5,5 @@ import "./editorial-polish.css";
 import "./targeted-layout-repair.css";
 
 export default function StoryLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <div lang="fr-FR"><SiteHeader />{children}<CubismEngagement /><SiteFooter /></div>;
+  return <><SiteHeader />{children}<CubismEngagement /><SiteFooter /></>;
 }
