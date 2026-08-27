@@ -5,10 +5,10 @@ import "./blueboy-desktop-theme.css";
 import "./editorial-fixes.css";
 
 export default function StoryLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <>
+  return <div lang="fr-FR">
     <SiteHeader />
     {children}
     <PicassoEngagement />
     <SiteFooter />
-  </>;
+  </div>;
 }
