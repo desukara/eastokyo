@@ -38,12 +38,17 @@ export default function MobileViewportGuard() {
       marginRight: element.style.marginRight,
     }));
 
+    const touchAction = 'pan-y pinch-zoom';
     html.style.overflowX = 'hidden';
     html.style.overscrollBehaviorX = 'none';
-    html.style.touchAction = 'pan-y';
+    html.style.touchAction = touchAction;
     body.style.overflowX = 'hidden';
     body.style.overscrollBehaviorX = 'none';
-    body.style.touchAction = 'pan-y';
+    body.style.touchAction = touchAction;
+
+    const keepXLocked = () => {
+      if (window.scrollX !== 0) window.scrollTo(0, window.scrollY);
+    };
 
     const applyViewportGeometry = () => {
       const viewportWidth = Math.round(window.visualViewport?.width ?? window.innerWidth);
@@ -53,7 +58,7 @@ export default function MobileViewportGuard() {
       shell.style.width = exactWidth;
       shell.style.maxWidth = exactWidth;
       shell.style.minWidth = '0';
-      shell.style.touchAction = 'pan-y';
+      shell.style.touchAction = touchAction;
 
       routeBlocks.forEach((element) => {
         element.style.width = exactWidth;
@@ -63,18 +68,18 @@ export default function MobileViewportGuard() {
         element.style.marginRight = '0';
       });
 
-      if (window.scrollX !== 0) window.scrollTo(0, window.scrollY);
+      keepXLocked();
     };
 
     applyViewportGeometry();
     window.addEventListener('resize', applyViewportGeometry, { passive: true });
     window.visualViewport?.addEventListener('resize', applyViewportGeometry, { passive: true });
-    window.addEventListener('scroll', applyViewportGeometry, { passive: true });
+    window.addEventListener('scroll', keepXLocked, { passive: true });
 
     return () => {
       window.removeEventListener('resize', applyViewportGeometry);
       window.visualViewport?.removeEventListener('resize', applyViewportGeometry);
-      window.removeEventListener('scroll', applyViewportGeometry);
+      window.removeEventListener('scroll', keepXLocked);
       html.style.overflowX = previous.htmlOverflowX;
       html.style.overscrollBehaviorX = previous.htmlOverscrollX;
       html.style.touchAction = previous.htmlTouchAction;
