@@ -1,18 +1,20 @@
 /* Desktop-only refinement for the blue photo sequence.
    Mobile/tablet layouts below 901px are intentionally untouched. */
 @media (min-width: 901px) {
-  .asagayaFestivalShell main#top [class*="blueSection"] [class*="photo"] figcaption {
+  /* Section 09 lives in streetSequence, not inside blueSection in the DOM. */
+  .asagayaFestivalShell main#top [class*="streetSequence"] [class*="photo"] figcaption,
+  .asagayaFestivalShell main#top [class*="streetSequence"] [class*="streetSide"] figure figcaption {
     color: #f7f1e7 !important;
     border-top-color: rgba(247, 241, 231, .34) !important;
   }
 
-  .asagayaFestivalShell main#top [class*="blueSection"] [class*="streetSequence"] {
+  .asagayaFestivalShell main#top [class*="streetSequence"] {
     align-items: center !important;
     padding-top: 52px !important;
     padding-bottom: 52px !important;
   }
 
-  .asagayaFestivalShell main#top [class*="blueSection"] [class*="streetSide"] {
+  .asagayaFestivalShell main#top [class*="streetSequence"] [class*="streetSide"] {
     align-self: center !important;
     justify-content: center !important;
   }
