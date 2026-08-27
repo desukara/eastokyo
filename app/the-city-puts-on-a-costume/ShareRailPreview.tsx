@@ -4,27 +4,25 @@ import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import styles from './ShareRailPreview.module.css';
 
-type Section = { id: string; number: number; endNumber: number; image: string; caption: string };
-type Mounts = { top: HTMLElement | null; sections: Record<string, HTMLElement> };
+type Moment = { id: 'article' | 'asagaya-handmade' | 'asagaya-crowd'; image?: string; caption: string; anchorImage?: number; placement: 'before' | 'after-group' };
+type Mounts = Record<string, HTMLElement>;
 
 const STORY_URL = 'https://www.eastokyo.com/the-city-puts-on-a-costume';
 const STORY_TEXT = 'Le Tanabata d’Asagaya — EASTOKYO';
 
-const SECTIONS: Section[] = [
-  { id: 'asagaya-look-up', number: 2, endNumber: 3, image: '/images/editorial/asagaya-feature-02-desktop.jpg', caption: 'LA RUE SE MET À REGARDER EN L’AIR.' },
-  { id: 'asagaya-second-street', number: 4, endNumber: 4, image: '/images/editorial/asagaya-feature-04-desktop.jpg', caption: 'LE PLAFOND DEVIENT UNE DEUXIÈME RUE.' },
-  { id: 'asagaya-handmade', number: 5, endNumber: 7, image: '/images/editorial/asagaya-feature-05-desktop.jpg', caption: 'UN FESTIVAL FAIT MAIN.' },
-  { id: 'asagaya-crowd', number: 8, endNumber: 9, image: '/images/editorial/asagaya-feature-08-desktop.jpg', caption: 'LA FOULE FABRIQUE SA PROPRE MÉTÉO.' },
-  { id: 'asagaya-imagination', number: 10, endNumber: 10, image: '/images/editorial/asagaya-feature-10-desktop.jpg', caption: 'PENDANT QUELQUES JOURS, L’IMAGINATION DE QUELQU’UN PREND DU VOLUME.' },
-  { id: 'asagaya-details', number: 11, endNumber: 12, image: '/images/editorial/asagaya-feature-11-desktop.jpg', caption: 'LE FESTIVAL S’INVITE JUSQUE DANS LES DEVANTURES.' },
+const MOMENTS: Moment[] = [
+  { id: 'article', caption: STORY_TEXT, anchorImage: 2, placement: 'before' },
+  { id: 'asagaya-handmade', image: '/images/editorial/asagaya-feature-05-desktop.jpg', caption: 'UN FESTIVAL FAIT MAIN — EASTOKYO', anchorImage: 5, placement: 'after-group' },
+  { id: 'asagaya-crowd', image: '/images/editorial/asagaya-feature-08-desktop.jpg', caption: 'LA VILLE UTILE S’EFFACE — EASTOKYO', anchorImage: 8, placement: 'after-group' },
 ];
 
-function sectionUrl(section: Section) {
+function shareUrl(moment: Moment) {
+  if (moment.id === 'article') return STORY_URL;
   const params = new URLSearchParams({
-    image: section.image,
+    image: moment.image || '/images/editorial/asagaya-hero-01-desktop.jpg',
     destination: '/the-city-puts-on-a-costume',
-    section: section.id,
-    caption: `${String(section.number).padStart(2, '0')} · ${section.caption}`,
+    section: moment.id,
+    caption: moment.caption,
   });
   return `https://www.eastokyo.com/share/asagaya-tanabata?${params.toString()}`;
 }
@@ -33,6 +31,7 @@ function directLinks(url: string, text: string) {
   const u = encodeURIComponent(url);
   const t = encodeURIComponent(text);
   return {
+    pinterest: `https://www.pinterest.com/pin/create/button/?url=${u}&description=${t}`,
     x: `https://twitter.com/intent/tweet?text=${t}&url=${u}`,
     facebook: `https://www.facebook.com/sharer/sharer.php?u=${u}`,
     bluesky: `https://bsky.app/intent/compose?text=${encodeURIComponent(`${text} ${url}`)}`,
@@ -51,36 +50,36 @@ function Icon({ name }: { name: 'share' | 'instagram' | 'tiktok' | 'pinterest' |
 }
 
 export default function ShareRailPreview() {
-  const [mounts, setMounts] = useState<Mounts>({ top: null, sections: {} });
+  const [mounts, setMounts] = useState<Mounts>({});
   const [status, setStatus] = useState('');
 
   useEffect(() => {
     const main = document.querySelector('.asagayaFestivalShell main#top');
     if (!main) return;
+    const created: Mounts = {};
 
-    const firstShareFigure = main.querySelector('img[src$="asagaya-feature-02-desktop.jpg"]')?.closest('figure') as HTMLElement | null;
-    const firstShareSection = firstShareFigure?.closest('section') as HTMLElement | null;
-    const top = firstShareSection?.parentElement ? document.createElement('div') : null;
-    const sectionMounts: Record<string, HTMLElement> = {};
-
-    if (top && firstShareSection?.parentElement) {
-      top.className = styles.topMount;
-      firstShareSection.parentElement.insertBefore(top, firstShareSection);
-    }
-
-    SECTIONS.forEach((section) => {
-      const firstSelector = `img[src$="asagaya-feature-${String(section.number).padStart(2, '0')}-desktop.jpg"]`;
-      const firstFigure = main.querySelector(firstSelector)?.closest('figure') as HTMLElement | null;
-      if (!firstFigure) return;
+    MOMENTS.forEach((moment) => {
+      const selector = `img[src$="asagaya-feature-${String(moment.anchorImage).padStart(2, '0')}-desktop.jpg"]`;
+      const figure = main.querySelector(selector)?.closest('figure') as HTMLElement | null;
+      if (!figure) return;
       const mount = document.createElement('div');
-      mount.dataset.eastokyoSectionShare = section.id;
-      const group = section.endNumber !== section.number ? firstFigure.closest('section') as HTMLElement | null : null;
-      (group || firstFigure).appendChild(mount);
-      sectionMounts[section.id] = mount;
+      mount.className = styles.momentMount;
+      if (moment.id !== 'article') mount.dataset.eastokyoShareRail = moment.id;
+
+      if (moment.placement === 'before') {
+        const group = figure.closest('section') as HTMLElement | null;
+        const anchor = group || figure;
+        anchor.parentElement?.insertBefore(mount, anchor);
+      } else {
+        const group = figure.closest('section') as HTMLElement | null;
+        const anchor = group || figure;
+        anchor.parentElement?.insertBefore(mount, anchor.nextSibling);
+      }
+      created[moment.id] = mount;
     });
 
-    setMounts({ top, sections: sectionMounts });
-    return () => { top?.remove(); Object.values(sectionMounts).forEach((el) => el.remove()); };
+    setMounts(created);
+    return () => Object.values(created).forEach((el) => el.remove());
   }, []);
 
   const nativeShare = async (url: string, text: string) => {
@@ -97,28 +96,25 @@ export default function ShareRailPreview() {
     catch { setStatus('COPIE IMPOSSIBLE'); }
   };
 
-  const ArticleRail = () => {
-    const links = directLinks(STORY_URL, STORY_TEXT);
+  const Rail = ({ moment }: { moment: Moment }) => {
+    const url = shareUrl(moment);
+    const text = moment.caption;
+    const links = directLinks(url, text);
+    const article = moment.id === 'article';
+    const label = article ? 'PARTAGER L’ARTICLE' : 'PARTAGER CETTE PARTIE';
     return (
-      <div className={styles.rail} aria-label="Partager cet article">
-        <button className={`${styles.cell} ${styles.lead}`} type="button" onClick={() => nativeShare(STORY_URL, STORY_TEXT)} aria-label="Partager l’article" title="Partager l’article"><Icon name="share"/><span className={styles.leadText}>PARTAGER L’ARTICLE</span></button>
-        <button className={styles.cell} type="button" onClick={() => nativeShare(STORY_URL, STORY_TEXT)} aria-label="Partager vers Instagram via votre appareil" title="Instagram"><Icon name="instagram"/></button>
-        <button className={styles.cell} type="button" onClick={() => nativeShare(STORY_URL, STORY_TEXT)} aria-label="Partager vers TikTok via votre appareil" title="TikTok"><Icon name="tiktok"/></button>
-        <button className={styles.cell} type="button" onClick={() => nativeShare(STORY_URL, STORY_TEXT)} aria-label="Partager vers Pinterest via votre appareil" title="Pinterest"><Icon name="pinterest"/></button>
+      <div className={styles.rail} aria-label={article ? 'Partager cet article' : 'Partager cette section'}>
+        <button className={`${styles.cell} ${styles.lead}`} type="button" onClick={() => nativeShare(url, text)} aria-label={label} title={label}><Icon name="share"/><span className={styles.leadText}>{label}</span></button>
+        <button className={styles.cell} type="button" onClick={() => nativeShare(url, text)} aria-label="Partager vers Instagram via votre appareil" title="Instagram"><Icon name="instagram"/></button>
+        <button className={styles.cell} type="button" onClick={() => nativeShare(url, text)} aria-label="Partager vers TikTok via votre appareil" title="TikTok"><Icon name="tiktok"/></button>
+        <a className={styles.cell} href={links.pinterest} target="_blank" rel="noreferrer" aria-label="Partager sur Pinterest" title="Pinterest"><Icon name="pinterest"/></a>
         <a className={styles.cell} href={links.facebook} target="_blank" rel="noreferrer" aria-label="Partager sur Facebook" title="Facebook"><Icon name="facebook"/></a>
         <a className={styles.cell} href={links.x} target="_blank" rel="noreferrer" aria-label="Partager sur X" title="X"><Icon name="x"/></a>
         <a className={styles.cell} href={links.bluesky} target="_blank" rel="noreferrer" aria-label="Partager sur Bluesky" title="Bluesky"><Icon name="bluesky"/></a>
-        <button className={`${styles.cell} ${styles.copy}`} type="button" onClick={() => copy(STORY_URL)} aria-label="Copier le lien EASTOKYO" title="Copier le lien"><Icon name="copy"/></button>
+        <button className={`${styles.cell} ${styles.copy}`} type="button" onClick={() => copy(url)} aria-label="Copier le lien EASTOKYO" title="Copier le lien"><Icon name="copy"/></button>
       </div>
     );
   };
 
-  const SectionShare = ({ section }: { section: Section }) => {
-    const url = sectionUrl(section);
-    const text = `${String(section.number).padStart(2, '0')} · ${section.caption} — EASTOKYO`;
-    const range = section.endNumber === section.number ? String(section.number).padStart(2, '0') : `${String(section.number).padStart(2, '0')}–${String(section.endNumber).padStart(2, '0')}`;
-    return <button className={styles.sectionShare} type="button" onClick={() => nativeShare(url, text)} aria-label={`Partager les images ${range}`} title={`Partager ${range}`}><Icon name="share"/><span>SHARE {range}</span></button>;
-  };
-
-  return <>{mounts.top && createPortal(<ArticleRail />, mounts.top)}{SECTIONS.map((section) => mounts.sections[section.id] ? createPortal(<SectionShare section={section} />, mounts.sections[section.id], section.id) : null)}{status && <div className={styles.toast} role="status">{status}</div>}</>;
+  return <>{MOMENTS.map((moment) => mounts[moment.id] ? createPortal(<Rail moment={moment}/>, mounts[moment.id], moment.id) : null)}{status && <div className={styles.toast} role="status">{status}</div>}</>;
 }
