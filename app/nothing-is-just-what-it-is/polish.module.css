@@ -26,9 +26,22 @@
   background:url('/eastokyo-wordmark-white.png') left center/contain no-repeat;
 }
 
+/* Hero is the cover image: it should bleed to the viewport, not read as a card. */
 .page > section:first-of-type{
-  box-shadow:0 18px 42px rgba(20,35,61,.12);
-  outline:1px solid rgba(20,35,61,.10);
+  width:100% !important;
+  max-width:none !important;
+  margin-left:0 !important;
+  margin-right:0 !important;
+  box-shadow:none !important;
+  outline:0 !important;
+}
+
+/* Keep the cover headline monumental while giving the striped installation room to breathe. */
+.page > section:first-of-type h1{
+  max-width:9.8ch !important;
+  font-size:clamp(3.8rem,min(5.9vw,8.1vh),6.8rem) !important;
+  line-height:.84 !important;
+  letter-spacing:-.05em !important;
 }
 
 .page > section:first-of-type h1 em{
@@ -51,6 +64,20 @@
   width:72px;
   height:3px;
   background:#c85d6f;
+}
+
+/* Numbering logic: 01–04 are the entries, 05 is the closing image.
+   Remove the unrelated repeated INDEX 05 label so the sequence reads naturally. */
+.page > section:nth-of-type(3) article > div:nth-child(2) span{
+  font-size:0 !important;
+  line-height:1.4 !important;
+}
+.page > section:nth-of-type(3) article > div:nth-child(2) span::after{
+  content:"EASTOKYO · INDEX PICASSO";
+  font-size:.63rem;
+  font-weight:750;
+  letter-spacing:.11em;
+  text-transform:uppercase;
 }
 
 .page > section:nth-of-type(3) article:nth-child(2){
@@ -97,7 +124,20 @@
     width:150px;
     height:34px;
   }
+  .page > section:first-of-type{
+    width:100% !important;
+    margin:0 !important;
+  }
+  .page > section:first-of-type h1{
+    max-width:9.6ch !important;
+    font-size:clamp(2.65rem,10.8vw,3.85rem) !important;
+    line-height:.86 !important;
+    letter-spacing:-.045em !important;
+  }
   .page > section:nth-of-type(3) article::before{
     width:48px;
+  }
+  .page > section:nth-of-type(3) article > div:nth-child(2) span::after{
+    font-size:.56rem;
   }
 }
