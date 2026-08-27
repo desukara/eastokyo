@@ -1,14 +1,21 @@
 /* EASTOKYO — HE NEVER REALLY LEFT THE ARENA
-   Desktop-only final art-direction polish.
-   Preserve the editorial architecture; refine scale, caption placement, and the publication handoff. */
+   Final responsive art-direction polish.
+   Preserve image scale and the 12-image bull sequence; refine only the agreed typography, pair layout, gallery alignment and social presentation. */
 
 @media (min-width: 901px) {
-  /* Hero: clearly smaller now — still monumental, but no longer swallowing the photograph. */
+  /* Hero: still monumental, but gives the photograph more authority. */
   .arena-story-theme main#top > section:first-of-type h1 {
-    max-width: 11.5ch !important;
-    font-size: clamp(3.6rem, 6.75vw, 6.8rem) !important;
-    line-height: .82 !important;
-    letter-spacing: -.045em !important;
+    max-width: 12ch !important;
+    font-size: clamp(3.35rem, 5.9vw, 6rem) !important;
+    line-height: .84 !important;
+    letter-spacing: -.04em !important;
+  }
+
+  /* Five-viewer gallery photograph: keep its size, center its existing width. */
+  .arena-story-theme main#top figure:has(img[alt*="Des visiteurs regardent un ensemble"]),
+  .arena-story-theme main#top figure[class*="galleryFigure"] {
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
 
   /* The bull-object credit is a centered museum caption. */
@@ -24,23 +31,19 @@
     z-index: 4 !important;
   }
 
-  /* Remove the final chapter numeral above LE TAUREAU RESTE. */
   .arena-story-theme main#top section[class*="finalStoryBeat"] > [aria-hidden="true"] {
     display: none !important;
   }
 
-  /* Chapter labels read dried blood, not washed-out pink. */
   .arena-story-theme main#top section p[class*="storyBeatLabel"] {
     color: #761b17 !important;
   }
 
-  /* Publication footer: dark field, one hot-red blade. */
   .arena-story-theme .mag-footer {
     border-top: 5px solid #df3023 !important;
     background: #111824 !important;
   }
 
-  /* Newsletter: unequivocally red — not burgundy, purple, or wine. */
   .arena-story-theme .mag-newsletter,
   .arena-story-theme .mag-footer .mag-newsletter {
     background: #b92d22 !important;
@@ -60,28 +63,52 @@
     color: #fff6e8 !important;
   }
 
-  /* Socials recede into the colophon; brand color can return on interaction. */
+  /* Social icons should read as active platform marks, never disabled controls. */
   .arena-story-theme .social-placeholder {
     gap: .72rem !important;
   }
 
-  .arena-story-theme .social-placeholder span {
-    background: rgba(241, 234, 220, .07) !important;
-    color: rgba(241, 234, 220, .82) !important;
-    border: 1px solid rgba(184, 137, 67, .32) !important;
-    filter: grayscale(1) saturate(.25) !important;
-    opacity: .82 !important;
-    transition: opacity .2s ease, filter .2s ease, border-color .2s ease !important;
-  }
-
-  .arena-story-theme .social-placeholder span:hover {
+  .arena-story-theme .social-placeholder span,
+  .arena-story-theme .social-placeholder a {
     filter: none !important;
     opacity: 1 !important;
-    border-color: rgba(223, 48, 35, .75) !important;
   }
 
   .arena-story-theme .mag-footer-links,
   .arena-story-theme .mag-footer-bottom {
     border-color: rgba(241, 234, 220, .18) !important;
+  }
+}
+
+@media (max-width: 700px) {
+  /* Mobile hero: editorial scale without covering the showpiece photograph. */
+  .arena-story-theme main#top > section:first-of-type h1 {
+    max-width: 11.5ch !important;
+    font-size: clamp(3rem, 14.5vw, 4.8rem) !important;
+    line-height: .82 !important;
+    letter-spacing: -.045em !important;
+  }
+
+  /* Mobile pull quote: keep the drama, remove the one-word-per-line tower. */
+  .arena-story-theme main#top aside[class*="pullQuote"] p {
+    max-width: 13ch !important;
+    font-size: clamp(2.45rem, 10.5vw, 3.9rem) !important;
+    line-height: .9 !important;
+  }
+
+  /* The two featured bull paintings become full-width showpieces on mobile only. */
+  .arena-story-theme main#top div[class*="bullfightPair"] {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+
+  .arena-story-theme main#top div[class*="bullfightPair"] figure {
+    width: 100% !important;
+  }
+
+  .arena-story-theme main#top div[class*="bullfightPair"] img {
+    width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
   }
 }
