@@ -1,0 +1,12 @@
+/* Picasso story editorial cleanup: remove decorative numbering that competes with the article sequence. */
+[class*="heroNumber"] { display: none !important; }
+[class*="beatNo"] { display: none !important; }
+[class*="folioCenter"] { display: none !important; }
+
+/* Keep the folio simple and legible after removing the redundant centre badge. */
+[class*="folio"] { grid-template-columns: 1fr auto !important; }
+[class*="folioRight"] { justify-self: end !important; }
+
+@media (max-width: 760px) {
+  [class*="folio"] { grid-template-columns: 1fr auto !important; }
+}
