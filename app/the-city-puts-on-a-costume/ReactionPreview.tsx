@@ -12,28 +12,18 @@ type ReactionMap = Record<ReactionTarget, ReactionState>;
 const reactionTypes: ReactionType[] = ['like', 'love', 'wow'];
 const LOCAL_KEY = 'eastokyo-reaction-fallback-v1';
 
-const emptyState = (): ReactionState => ({
-  like: { count: 0, active: false },
-  love: { count: 0, active: false },
-  wow: { count: 0, active: false },
-});
+const emptyState = (): ReactionState => ({ like: { count: 0, active: false }, love: { count: 0, active: false }, wow: { count: 0, active: false } });
 
 function ensureVisitorId() {
   const key = 'eastokyo-reaction-visitor-v1';
   let value = window.localStorage.getItem(key);
-  if (!value) {
-    value = crypto.randomUUID();
-    window.localStorage.setItem(key, value);
-  }
+  if (!value) { value = crypto.randomUUID(); window.localStorage.setItem(key, value); }
   return value;
 }
 
 function readLocalFallback(): Partial<ReactionMap> {
-  try {
-    return JSON.parse(window.localStorage.getItem(LOCAL_KEY) || '{}') as Partial<ReactionMap>;
-  } catch {
-    return {};
-  }
+  try { return JSON.parse(window.localStorage.getItem(LOCAL_KEY) || '{}') as Partial<ReactionMap>; }
+  catch { return {}; }
 }
 
 function writeLocalFallback(target: ReactionTarget, state: ReactionState) {
@@ -69,6 +59,17 @@ export default function ReactionPreview() {
       if (!main) { timer = window.setTimeout(attach, 80); return; }
 
       const found: Host[] = [];
+      main.querySelectorAll<HTMLElement>('[data-eastokyo-share-rail]').forEach((mount) => {
+        const target = mount.dataset.eastokyoShareRail as ReactionTarget | undefined;
+        const rail = mount.querySelector<HTMLElement>('[aria-label="Partager cette section"]');
+        if (!target || !rail || rail.querySelector('[data-eastokyo-reactions]')) return;
+        const host = document.createElement('span');
+        host.dataset.eastokyoReactions = target;
+        host.className = styles.host;
+        rail.appendChild(host);
+        found.push({ target, element: host, key: target });
+      });
+
       main.querySelectorAll<HTMLElement>('[aria-label="Partager cet article"]').forEach((rail, index) => {
         if (rail.querySelector('[data-eastokyo-reactions]')) return;
         const host = document.createElement('span');
@@ -80,7 +81,7 @@ export default function ReactionPreview() {
 
       if (found.length) setHosts((current) => [...current, ...found]);
       tries += 1;
-      if (tries < 20 && !document.querySelector('[data-eastokyo-reactions="article"]')) timer = window.setTimeout(attach, 100);
+      if (tries < 24 && document.querySelectorAll('[data-eastokyo-reactions]').length < 3) timer = window.setTimeout(attach, 100);
     };
 
     timer = window.setTimeout(attach, 0);
@@ -113,15 +114,13 @@ export default function ReactionPreview() {
       .catch(() => {
         if (cancelled) return;
         setServerPersistent(false);
-        const local = readLocalFallback();
-        setStates((current) => ({ ...current, ...local }));
+        setStates((current) => ({ ...current, ...readLocalFallback() }));
       });
     return () => { cancelled = true; };
   }, [visitorId]);
 
   const toggle = async (target: ReactionTarget, reaction: ReactionType) => {
     if (!visitorId || busyTargets.has(target)) return;
-
     const before = states[target];
     const selected = before[reaction];
     const action = selected.active ? 'remove' : 'add';
@@ -129,9 +128,7 @@ export default function ReactionPreview() {
 
     const optimistic = Object.fromEntries(reactionTypes.map((type) => {
       const value = before[type];
-      if (action === 'remove') {
-        return [type, type === reaction ? { count: Math.max(0, value.count - 1), active: false } : { ...value, active: false }];
-      }
+      if (action === 'remove') return [type, type === reaction ? { count: Math.max(0, value.count - 1), active: false } : { ...value, active: false }];
       if (type === reaction) return [type, { count: value.count + (value.active ? 0 : 1), active: true }];
       return [type, { count: Math.max(0, value.count - (value.active ? 1 : 0)), active: false }];
     })) as ReactionState;
@@ -148,7 +145,6 @@ export default function ReactionPreview() {
       if (!response.ok) throw new Error('Reaction update failed');
       const data = await response.json() as { reactions?: ReactionState; persistent?: boolean };
       if (!data.reactions) throw new Error('Reaction response missing');
-
       if (data.persistent === false) {
         setServerPersistent(false);
         writeLocalFallback(target, optimistic);
@@ -162,27 +158,21 @@ export default function ReactionPreview() {
       writeLocalFallback(target, optimistic);
       setStates((all) => ({ ...all, [target]: optimistic }));
     } finally {
-      setBusyTargets((current) => {
-        const next = new Set(current);
-        next.delete(target);
-        return next;
-      });
+      setBusyTargets((current) => { const next = new Set(current); next.delete(target); return next; });
     }
   };
 
   const Cluster = ({ target }: { target: ReactionTarget }) => {
     const targetBusy = busyTargets.has(target);
-    return (
-      <span className={styles.cluster} aria-label="Réactions — choisissez une seule réaction" aria-busy={targetBusy}>
-        {reactionTypes.map((type) => {
-          const value = states[target][type];
-          const label = type === 'like' ? 'Like' : type === 'love' ? 'Love' : 'Wow';
-          return <button key={type} type="button" className={`${styles.reaction} ${styles[type]} ${value.active ? styles.active : ''} ${targetBusy ? styles.loading : ''}`} onClick={() => toggle(target, type)} disabled={targetBusy} aria-pressed={value.active} aria-label={`${label} — ${value.count}`} title={label}>
-            <span className={styles.icon}><ReactionIcon type={type}/></span><span className={styles.count}>{value.count}</span>
-          </button>;
-        })}
-      </span>
-    );
+    return <span className={styles.cluster} aria-label="Réactions — choisissez une seule réaction" aria-busy={targetBusy}>
+      {reactionTypes.map((type) => {
+        const value = states[target][type];
+        const label = type === 'like' ? 'Like' : type === 'love' ? 'Love' : 'Wow';
+        return <button key={type} type="button" className={`${styles.reaction} ${styles[type]} ${value.active ? styles.active : ''} ${targetBusy ? styles.loading : ''}`} onClick={() => toggle(target, type)} disabled={targetBusy} aria-pressed={value.active} aria-label={`${label} — ${value.count}`} title={label}>
+          <span className={styles.icon}><ReactionIcon type={type}/></span><span className={styles.count}>{value.count}</span>
+        </button>;
+      })}
+    </span>;
   };
 
   return <>{hosts.map((host) => createPortal(<Cluster target={host.target}/>, host.element, host.key))}</>;
