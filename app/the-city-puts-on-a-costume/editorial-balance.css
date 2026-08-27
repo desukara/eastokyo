@@ -46,7 +46,7 @@
   font: inherit;
 }
 .asagayaFestivalShell main#top section:nth-of-type(5) [class*="sectionNo"]::after { content: "I"; }
-.asagayaFestivalShell main#top section:nth-of-type(7) [class*="sectionNo"]::after { content: "II"; }
+.asagayaFestivalShell main#top section:nth-of-type(6) [class*="sectionNo"]::after { content: "II"; }
 .asagayaFestivalShell main#top [class*="blueTitle"] [class*="sectionNo"]::after { content: "III"; color: #f1d24e; }
 .asagayaFestivalShell main#top [class*="outroCopy"] [class*="sectionNo"]::after { content: "IV"; }
 
