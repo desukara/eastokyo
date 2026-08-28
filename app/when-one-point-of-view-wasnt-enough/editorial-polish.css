@@ -10,11 +10,11 @@ main#top > section:nth-of-type(6) [class*="sectionKicker"],
 main#top > section:nth-of-type(7) [class*="sectionKicker"] { font-size: 0 !important; }
 
 /* The intro is an opening beat, not chapter I. Chapters then run I–IV once each. */
-main#top > section:nth-of-type(2) [class*="introLabel"]::after { content: "LA PREMIÈRE FISSURE"; }
+main#top > section:nth-of-type(2) [class*="introLabel"]::after { content: "THE FIRST CRACK"; }
 main#top > section:nth-of-type(3) [class*="beatNo"]::after { content: "I"; }
-main#top > section:nth-of-type(5) [class*="sectionKicker"]::after { content: "II · L'IMAGE CHANGE LES RÈGLES"; }
-main#top > section:nth-of-type(6) [class*="sectionKicker"]::after { content: "III · L'ŒIL CONTINUE DE BOUGER"; }
-main#top > section:nth-of-type(7) [class*="sectionKicker"]::after { content: "IV · TOUJOURS HUMAIN"; }
+main#top > section:nth-of-type(5) [class*="sectionKicker"]::after { content: "II · CUBISM CHANGES THE GAME"; }
+main#top > section:nth-of-type(6) [class*="sectionKicker"]::after { content: "III · THE EYE KEEPS MOVING"; }
+main#top > section:nth-of-type(7) [class*="sectionKicker"]::after { content: "IV · STILL HUMAN"; }
 
 main#top > section:nth-of-type(2) [class*="introLabel"]::after,
 main#top > section:nth-of-type(5) [class*="sectionKicker"]::after,
