@@ -6,6 +6,40 @@ main#top {
   overflow-x: clip;
 }
 
+/* Desktop flow: keep the light editorial rooms on one continuous field.
+   Strong changes remain intentional only for the Blue Act and ending. */
+@media (min-width: 1081px) {
+  main#top {
+    --blueboy-flow: #cfe2f1;
+    background: var(--blueboy-flow) !important;
+  }
+
+  main#top [class*="intro"],
+  main#top [class*="bodyBeat"],
+  main#top [class*="quiet"],
+  main#top [class*="featureOne"],
+  main#top [class*="harlequin"] {
+    background: var(--blueboy-flow) !important;
+    box-shadow: 0 0 0 100vmax var(--blueboy-flow) !important;
+    clip-path: inset(0 -100vmax);
+  }
+
+  /* Remove hairline seams created by adjacent full-bleed section paints. */
+  main#top [class*="intro"],
+  main#top [class*="bodyBeat"],
+  main#top [class*="quiet"],
+  main#top [class*="featureOne"],
+  main#top [class*="harlequin"] {
+    border-top-color: transparent !important;
+    border-bottom-color: transparent !important;
+  }
+
+  /* Keep the theatrical dark act distinct, but make its edges deliberate. */
+  main#top [class*="blueAct"] {
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.08), inset 0 -1px 0 rgba(3,20,39,.38) !important;
+  }
+}
+
 /* Mobile captions were falling below a comfortable reading size. */
 @media (max-width: 760px) {
   main#top [class*="captionLead"] {
