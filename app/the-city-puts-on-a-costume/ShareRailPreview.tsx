@@ -8,34 +8,23 @@ type Moment = { id: 'article' | 'asagaya-handmade' | 'asagaya-crowd'; image?: st
 type Mounts = Record<string, HTMLElement>;
 
 const STORY_URL = 'https://www.eastokyo.com/the-city-puts-on-a-costume';
-const STORY_TEXT = 'Le Tanabata d’Asagaya — EASTOKYO';
+const STORY_TEXT = 'Asagaya Tanabata — EASTOKYO';
 
 const MOMENTS: Moment[] = [
   { id: 'article', caption: STORY_TEXT, anchorImage: 2, placement: 'before' },
-  { id: 'asagaya-handmade', image: '/images/editorial/asagaya-feature-05-desktop.jpg', caption: 'UN FESTIVAL FAIT MAIN — EASTOKYO', anchorImage: 5, placement: 'after-group' },
-  { id: 'asagaya-crowd', image: '/images/editorial/asagaya-feature-08-desktop.jpg', caption: 'LA VILLE UTILE S’EFFACE — EASTOKYO', anchorImage: 8, placement: 'after-group' },
+  { id: 'asagaya-handmade', image: '/images/editorial/asagaya-feature-05-desktop.jpg', caption: 'A FESTIVAL MADE BY HAND — EASTOKYO', anchorImage: 5, placement: 'after-group' },
+  { id: 'asagaya-crowd', image: '/images/editorial/asagaya-feature-08-desktop.jpg', caption: 'THE USEFUL CITY STEPS ASIDE — EASTOKYO', anchorImage: 8, placement: 'after-group' },
 ];
 
 function shareUrl(moment: Moment) {
   if (moment.id === 'article') return STORY_URL;
-  const params = new URLSearchParams({
-    image: moment.image || '/images/editorial/asagaya-hero-01-desktop.jpg',
-    destination: '/the-city-puts-on-a-costume',
-    section: moment.id,
-    caption: moment.caption,
-  });
+  const params = new URLSearchParams({ image: moment.image || '/images/editorial/asagaya-hero-01-desktop.jpg', destination: '/the-city-puts-on-a-costume', section: moment.id, caption: moment.caption });
   return `https://www.eastokyo.com/share/asagaya-tanabata?${params.toString()}`;
 }
 
 function directLinks(url: string, text: string) {
-  const u = encodeURIComponent(url);
-  const t = encodeURIComponent(text);
-  return {
-    pinterest: `https://www.pinterest.com/pin/create/button/?url=${u}&description=${t}`,
-    x: `https://twitter.com/intent/tweet?text=${t}&url=${u}`,
-    facebook: `https://www.facebook.com/sharer/sharer.php?u=${u}`,
-    bluesky: `https://bsky.app/intent/compose?text=${encodeURIComponent(`${text} ${url}`)}`,
-  };
+  const u = encodeURIComponent(url); const t = encodeURIComponent(text);
+  return { pinterest: `https://www.pinterest.com/pin/create/button/?url=${u}&description=${t}`, x: `https://twitter.com/intent/tweet?text=${t}&url=${u}`, facebook: `https://www.facebook.com/sharer/sharer.php?u=${u}`, bluesky: `https://bsky.app/intent/compose?text=${encodeURIComponent(`${text} ${url}`)}` };
 }
 
 function Icon({ name }: { name: 'share' | 'instagram' | 'tiktok' | 'pinterest' | 'facebook' | 'x' | 'bluesky' | 'copy' }) {
@@ -50,71 +39,10 @@ function Icon({ name }: { name: 'share' | 'instagram' | 'tiktok' | 'pinterest' |
 }
 
 export default function ShareRailPreview() {
-  const [mounts, setMounts] = useState<Mounts>({});
-  const [status, setStatus] = useState('');
-
-  useEffect(() => {
-    const main = document.querySelector('.asagayaFestivalShell main#top');
-    if (!main) return;
-    const created: Mounts = {};
-
-    MOMENTS.forEach((moment) => {
-      const selector = `img[src$="asagaya-feature-${String(moment.anchorImage).padStart(2, '0')}-desktop.jpg"]`;
-      const figure = main.querySelector(selector)?.closest('figure') as HTMLElement | null;
-      if (!figure) return;
-      const mount = document.createElement('div');
-      mount.className = styles.momentMount;
-      if (moment.id !== 'article') mount.dataset.eastokyoShareRail = moment.id;
-
-      if (moment.placement === 'before') {
-        const group = figure.closest('section') as HTMLElement | null;
-        const anchor = group || figure;
-        anchor.parentElement?.insertBefore(mount, anchor);
-      } else {
-        const group = figure.closest('section') as HTMLElement | null;
-        const anchor = group || figure;
-        anchor.parentElement?.insertBefore(mount, anchor.nextSibling);
-      }
-      created[moment.id] = mount;
-    });
-
-    setMounts(created);
-    return () => Object.values(created).forEach((el) => el.remove());
-  }, []);
-
-  const nativeShare = async (url: string, text: string) => {
-    try {
-      if (navigator.share) await navigator.share({ title: 'EASTOKYO', text, url });
-      else { await navigator.clipboard.writeText(url); setStatus('LIEN COPIÉ'); window.setTimeout(() => setStatus(''), 1600); }
-    } catch (error) {
-      if ((error as DOMException)?.name !== 'AbortError') setStatus('PARTAGE NON TERMINÉ');
-    }
-  };
-
-  const copy = async (url: string) => {
-    try { await navigator.clipboard.writeText(url); setStatus('LIEN COPIÉ'); window.setTimeout(() => setStatus(''), 1600); }
-    catch { setStatus('COPIE IMPOSSIBLE'); }
-  };
-
-  const Rail = ({ moment }: { moment: Moment }) => {
-    const url = shareUrl(moment);
-    const text = moment.caption;
-    const links = directLinks(url, text);
-    const article = moment.id === 'article';
-    const label = article ? 'PARTAGER L’ARTICLE' : 'PARTAGER CETTE PARTIE';
-    return (
-      <div className={styles.rail} aria-label={article ? 'Partager cet article' : 'Partager cette section'}>
-        <button className={`${styles.cell} ${styles.lead}`} type="button" onClick={() => nativeShare(url, text)} aria-label={label} title={label}><Icon name="share"/><span className={styles.leadText}>{label}</span></button>
-        <button className={styles.cell} type="button" onClick={() => nativeShare(url, text)} aria-label="Partager vers Instagram via votre appareil" title="Instagram"><Icon name="instagram"/></button>
-        <button className={styles.cell} type="button" onClick={() => nativeShare(url, text)} aria-label="Partager vers TikTok via votre appareil" title="TikTok"><Icon name="tiktok"/></button>
-        <a className={styles.cell} href={links.pinterest} target="_blank" rel="noreferrer" aria-label="Partager sur Pinterest" title="Pinterest"><Icon name="pinterest"/></a>
-        <a className={styles.cell} href={links.facebook} target="_blank" rel="noreferrer" aria-label="Partager sur Facebook" title="Facebook"><Icon name="facebook"/></a>
-        <a className={styles.cell} href={links.x} target="_blank" rel="noreferrer" aria-label="Partager sur X" title="X"><Icon name="x"/></a>
-        <a className={styles.cell} href={links.bluesky} target="_blank" rel="noreferrer" aria-label="Partager sur Bluesky" title="Bluesky"><Icon name="bluesky"/></a>
-        <button className={`${styles.cell} ${styles.copy}`} type="button" onClick={() => copy(url)} aria-label="Copier le lien EASTOKYO" title="Copier le lien"><Icon name="copy"/></button>
-      </div>
-    );
-  };
-
-  return <>{MOMENTS.map((moment) => mounts[moment.id] ? createPortal(<Rail moment={moment}/>, mounts[moment.id], moment.id) : null)}{status && <div className={styles.toast} role="status">{status}</div>}</>;
+  const [mounts, setMounts] = useState<Mounts>({}); const [status, setStatus] = useState('');
+  useEffect(() => { const main=document.querySelector('.asagayaFestivalShell main#top'); if(!main)return; const created:Mounts={}; MOMENTS.forEach((moment)=>{const selector=`img[src$="asagaya-feature-${String(moment.anchorImage).padStart(2,'0')}-desktop.jpg"]`;const figure=main.querySelector(selector)?.closest('figure') as HTMLElement|null;if(!figure)return;const mount=document.createElement('div');mount.className=styles.momentMount;if(moment.id!=='article')mount.dataset.eastokyoShareRail=moment.id;if(moment.placement==='before'){const group=figure.closest('section') as HTMLElement|null;const anchor=group||figure;anchor.parentElement?.insertBefore(mount,anchor);}else{const group=figure.closest('section') as HTMLElement|null;const anchor=group||figure;anchor.parentElement?.insertBefore(mount,anchor.nextSibling);}created[moment.id]=mount;});setMounts(created);return()=>Object.values(created).forEach((el)=>el.remove());},[]);
+  const nativeShare=async(url:string,text:string)=>{try{if(navigator.share)await navigator.share({title:'EASTOKYO',text,url});else{await navigator.clipboard.writeText(url);setStatus('LINK COPIED');window.setTimeout(()=>setStatus(''),1600);}}catch(error){if((error as DOMException)?.name!=='AbortError')setStatus('SHARE NOT COMPLETED');}};
+  const copy=async(url:string)=>{try{await navigator.clipboard.writeText(url);setStatus('LINK COPIED');window.setTimeout(()=>setStatus(''),1600);}catch{setStatus('COULD NOT COPY');}};
+  const Rail=({moment}:{moment:Moment})=>{const url=shareUrl(moment);const text=moment.caption;const links=directLinks(url,text);const article=moment.id==='article';const label=article?'SHARE ARTICLE':'SHARE THIS SECTION';return <div className={styles.rail} aria-label={article?'Share this article':'Share this section'}><button className={`${styles.cell} ${styles.lead}`} type="button" onClick={()=>nativeShare(url,text)} aria-label={label} title={label}><Icon name="share"/><span className={styles.leadText}>{label}</span></button><button className={styles.cell} type="button" onClick={()=>nativeShare(url,text)} aria-label="Share to Instagram using your device" title="Instagram"><Icon name="instagram"/></button><button className={styles.cell} type="button" onClick={()=>nativeShare(url,text)} aria-label="Share to TikTok using your device" title="TikTok"><Icon name="tiktok"/></button><a className={styles.cell} href={links.pinterest} target="_blank" rel="noreferrer" aria-label="Share on Pinterest" title="Pinterest"><Icon name="pinterest"/></a><a className={styles.cell} href={links.facebook} target="_blank" rel="noreferrer" aria-label="Share on Facebook" title="Facebook"><Icon name="facebook"/></a><a className={styles.cell} href={links.x} target="_blank" rel="noreferrer" aria-label="Share on X" title="X"><Icon name="x"/></a><a className={styles.cell} href={links.bluesky} target="_blank" rel="noreferrer" aria-label="Share on Bluesky" title="Bluesky"><Icon name="bluesky"/></a><button className={`${styles.cell} ${styles.copy}`} type="button" onClick={()=>copy(url)} aria-label="Copy EASTOKYO link" title="Copy link"><Icon name="copy"/></button></div>;};
+  return <>{MOMENTS.map((moment)=>mounts[moment.id]?createPortal(<Rail moment={moment}/>,mounts[moment.id],moment.id):null)}{status&&<div className={styles.toast} role="status">{status}</div>}</>;
 }
