@@ -1,0 +1,123 @@
+/* EASTOKYO — Picasso Index audit fixes.
+   Final responsive layer for tablet, phone landscape and readable captions. */
+
+.indexStoryShell,
+.indexStoryShell main#top {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+/* Captions should remain editorial, but never drop to ~8px on phones. */
+@media (max-width: 780px) {
+  .indexStoryShell main#top figcaption {
+    font-size: .6rem !important;
+    line-height: 1.5 !important;
+    letter-spacing: .09em !important;
+  }
+}
+
+/* Small portrait tablets were inheriting the dense 4-column desktop index. */
+@media (min-width: 781px) and (max-width: 900px) {
+  .indexStoryShell main#top [class*="entries"] {
+    width: calc(100vw - 3rem) !important;
+  }
+
+  .indexStoryShell main#top [class*="entry"] {
+    display: grid !important;
+    grid-template-columns: 4.5rem minmax(0, 1fr) !important;
+    gap: 1rem 1.25rem !important;
+    width: auto !important;
+    margin-left: 0 !important;
+    padding: 3.2rem 0 3.5rem !important;
+    align-items: start !important;
+  }
+
+  .indexStoryShell main#top [class*="entryNumber"] {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+  }
+
+  .indexStoryShell main#top [class*="entryMeta"] {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    align-self: center !important;
+  }
+
+  .indexStoryShell main#top [class*="entryBody"] {
+    grid-column: 1 / -1 !important;
+    grid-row: auto !important;
+    width: min(720px, 100%) !important;
+    max-width: none !important;
+    margin: .8rem auto 0 !important;
+    padding-top: 0 !important;
+    justify-self: center !important;
+  }
+
+  .indexStoryShell main#top [class*="entryFigure"] {
+    grid-column: 1 / -1 !important;
+    grid-row: auto !important;
+    width: min(760px, 100%) !important;
+    max-width: none !important;
+    margin: 1.4rem auto 0 !important;
+    transform: none !important;
+    justify-self: center !important;
+  }
+
+  .indexStoryShell main#top [class*="entryText"] {
+    columns: 1 !important;
+  }
+
+  .indexStoryShell main#top [class*="entry"] h2 {
+    max-width: 13ch !important;
+    font-size: clamp(2.8rem, 7vw, 4.3rem) !important;
+    line-height: .94 !important;
+  }
+
+  .indexStoryShell main#top [class*="closing"] {
+    grid-template-columns: 1fr !important;
+    width: calc(100vw - 4rem) !important;
+  }
+
+  .indexStoryShell main#top [class*="closingFigure"],
+  .indexStoryShell main#top [class*="closingText"] {
+    width: min(760px, 100%) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
+
+/* Wide, short phones cross the 780px breakpoint but do not have tablet height. */
+@media (orientation: landscape) and (max-height: 520px) and (max-width: 950px) {
+  .indexStoryShell main#top [class*="hero"] {
+    width: 100% !important;
+    height: 100svh !important;
+    min-height: 0 !important;
+    aspect-ratio: auto !important;
+  }
+
+  .indexStoryShell main#top [class*="heroCopy"] {
+    left: 1.5rem !important;
+    top: 1rem !important;
+    bottom: 1rem !important;
+    width: min(62vw, 590px) !important;
+  }
+
+  .indexStoryShell main#top [class*="hero"] h1 {
+    max-width: 9ch !important;
+    font-size: clamp(2.8rem, 8.4vw, 4.8rem) !important;
+    line-height: .82 !important;
+  }
+
+  .indexStoryShell main#top [class*="deck"] {
+    max-width: 28rem !important;
+    margin-top: .65rem !important;
+    font-size: .98rem !important;
+    line-height: 1.2 !important;
+  }
+
+  .indexStoryShell main#top [class*="heroNote"] {
+    right: 1.4rem !important;
+    bottom: 1.2rem !important;
+    width: 115px !important;
+  }
+}
