@@ -8,6 +8,7 @@ import "./festival-cleanup.css";
 import "./mobile-layout-fix.css";
 import "./editorial-balance.css";
 import "./desktop-blue-section-fix.css";
+import "./audit-fixes.css";
 
 export default function StoryLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return <div className="asagayaFestivalShell"><MobileViewportGuard /><ShareRailPreview /><ReactionPreview /><SiteHeader /><FrenchTranslateLink />{children}<SiteFooter /></div>;
