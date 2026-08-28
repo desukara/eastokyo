@@ -73,34 +73,13 @@
   background:#c85d6f;
 }
 
-/* Two unmistakable numbering systems:
-   Roman numerals = article chapters. Arabic 01–05 = photographs. */
+/* Keep the visible chapter numbers supplied by the page: 01, 02, 03, 04. */
 .page > section:nth-of-type(3) article > div:first-child{
-  font-size:0 !important;
-}
-.page > section:nth-of-type(3) article > div:first-child::after{
-  display:block;
-  font-family:var(--font-bienvivos-display),serif;
-  font-size:clamp(3.7rem,5vw,5.4rem);
-  line-height:.76;
-  letter-spacing:-.065em;
   color:#c85d6f;
 }
-.page > section:nth-of-type(3) article:nth-child(1) > div:first-child::after{content:"I";}
-.page > section:nth-of-type(3) article:nth-child(2) > div:first-child::after{content:"II";}
-.page > section:nth-of-type(3) article:nth-child(3) > div:first-child::after{content:"III";}
-.page > section:nth-of-type(3) article:nth-child(4) > div:first-child::after{content:"IV";}
 
 .page > section:nth-of-type(3) article > div:nth-child(2) span{
-  font-size:0 !important;
   line-height:1.4 !important;
-}
-.page > section:nth-of-type(3) article > div:nth-child(2) span::after{
-  content:"EASTOKYO · INDEX PICASSO";
-  font-size:.63rem;
-  font-weight:750;
-  letter-spacing:.11em;
-  text-transform:uppercase;
 }
 
 /* Section 02 keeps a deliberate grey panel, but only for its actual content. */
@@ -165,12 +144,6 @@
   }
   .page > section:nth-of-type(3) article::before{
     width:48px;
-  }
-  .page > section:nth-of-type(3) article > div:first-child::after{
-    font-size:3.25rem;
-  }
-  .page > section:nth-of-type(3) article > div:nth-child(2) span::after{
-    font-size:.56rem;
   }
   .page > section:nth-of-type(3) article:nth-child(2){
     background:#e8e5df !important;
