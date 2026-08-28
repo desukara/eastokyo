@@ -7,23 +7,23 @@ import signature from "./signature.module.css";
 import heroPolish from "./hero-polish.module.css";
 
 export const metadata: Metadata = {
-  title: "Il est toujours retourné dans l'arène.",
-  description: "Picasso et l'arène qu'il n'a jamais vraiment quittée.",
+  title: "He Always Returned to the Arena.",
+  description: "Picasso spent his life going back to the arena. It was never about the bull, but why certain things just won't let us go.",
   alternates: { canonical: "/he-never-really-left-the-arena" },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
   openGraph: {
-    title: "Il est toujours retourné dans l'arène.",
-    description: "Picasso et l'arène qu'il n'a jamais vraiment quittée.",
+    title: "He Always Returned to the Arena.",
+    description: "Picasso spent his life going back to the arena. It was never about the bull, but why certain things just won't let us go.",
     url: "/he-never-really-left-the-arena",
     siteName: "EASTOKYO",
-    locale: "fr_FR",
+    locale: "en_GB",
     type: "article",
-    images: [{ url: "/images/editorial/picasso-bullfight-01-desktop.png", alt: "Il est toujours retourné dans l'arène." }],
+    images: [{ url: "/images/editorial/picasso-bullfight-01-desktop.png", alt: "He Always Returned to the Arena." }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Il est toujours retourné dans l'arène.",
-    description: "Picasso et l'arène qu'il n'a jamais vraiment quittée.",
+    title: "He Always Returned to the Arena.",
+    description: "Picasso spent his life going back to the arena. It was never about the bull, but why certain things just won't let us go.",
     images: ["/images/editorial/picasso-bullfight-01-desktop.png"],
   },
 };
@@ -36,107 +36,107 @@ export default function CoverStoryPage() {
       <section className={styles.hero}>
         <picture>
           <source media="(max-width: 640px)" srcSet="/images/editorial/picasso-bullfight-01-mobile.png" />
-          <img className={styles.heroImage} src="/images/editorial/picasso-bullfight-01-desktop.png" alt="Œuvre de Picasso autour de la corrida" />
+          <img className={styles.heroImage} src="/images/editorial/picasso-bullfight-01-desktop.png" alt="Work by Picasso about bullfighting" />
         </picture>
         <div className={`${styles.heroShade} ${heroPolish.shade}`} aria-hidden="true" />
         <div className={styles.heroCopy}>
-          <h1 className={`${styles.title} ${heroPolish.title}`}>IL EST TOUJOURS RETOURNÉ DANS L&apos;ARÈNE.</h1>
+          <h1 className={`${styles.title} ${heroPolish.title}`}>HE ALWAYS RETURNED TO THE ARENA.</h1>
         </div>
       </section>
 
       <section className={styles.intro}>
-        <div className={styles.meta}>EASTOKYO<br />GRAND FORMAT<br />NUMÉRO 01<br /><br />PAR JAMES SIMMONS (ALIAS JIMICHANGA)</div>
-        <p className={styles.deck}>Picasso a passé sa vie à retourner dans cette arène. Peut-être que la vraie question n&apos;a jamais été le taureau, mais pourquoi certaines choses refusent de nous lâcher.</p>
+        <div className={styles.meta}>EASTOKYO<br />LONG FORM<br />ISSUE 01<br /><br />BY JAMES SIMMONS (ALIAS JIMICHANGA)</div>
+        <p className={styles.deck}>Picasso spent his life going back to the arena. It was never about the bull, but why certain things just won&apos;t let us go.</p>
       </section>
 
       <section className={styles.body}>
-        <p className={styles.bodyLabel}>L&apos;HISTOIRE</p>
+        <p className={styles.bodyLabel}>THE STORY</p>
         <div className={styles.bodyCopy}>
-          <p>Vous croyez connaître Picasso ? Il faut qu&apos;on parle de la corrida, de la façon dont ce type a chamboulé les règles de la réalité à travers ce drame brut, presque primitif. Il y a un truc dans une arène : la chaleur qui monte du sable, la foule penchée en avant comme si elle n&apos;avait plus qu&apos;un seul cœur. Ça vous attrape et ça ne vous lâche plus, et Picasso le savait mieux que quiconque.</p>
-          <p>Il était encore gamin à Málaga quand l&apos;obsession a démarré, l&apos;odeur de l&apos;arène, les couleurs des capes qui continuaient à danser derrière ses yeux une fois la nuit tombée. Il ne l&apos;a jamais vraiment lâchée. Pendant soixante ans elle revient dans ses dessins, ses peintures, ses céramiques. Les taureaux et les toreros entrent et sortent de son œuvre comme s&apos;ils avaient leurs propres clés. Le Museu Picasso de Barcelone parle lui-même de la tauromachie comme d&apos;une des grandes obsessions de sa carrière — perso je trouve même que le mot est un peu faible.</p>
-          <p>Mais bon, j&apos;exagère peut-être. Il était nostalgique de l&apos;Espagne, tout simplement ? Disons que l&apos;Espagne ne l&apos;a jamais vraiment quittée. Sauf que ça n&apos;explique pas cinquante ou soixante ans à revenir dans la même arène, surtout venant d&apos;un mec qui passait son temps à retourner tout le reste de la peinture dans tous les sens. On parle du gars qui a massacré la perspective traditionnelle avant de la plier comme une serviette sale, qui a fait entrer la sculpture dans la peinture, qui regardait une selle de vélo et y voyait une tête de taureau. Un type avec cette faim, cette imagination incapable de tenir en place, avait de quoi s&apos;ennuyer ailleurs largement.</p>
-          <p>Et le taureau revenait. Toujours. Lourd, noir, la tête basse, prêt à charger. Il entraînait avec lui le cheval, le torero, la foule, et cette seconde interminable où tout le monde retient son souffle avant que la corne frappe. Picasso se réinventait sans arrêt, et l&apos;arène avec lui.</p>
+          <p>Oh, you think you know Picasso? We need to talk about bullfighting and the way this guy turned the rules of reality upside down through this raw, almost primitive drama. There&apos;s something about an arena: the heat rising off the sand, a crowd leaning forward as if it had only one heart left between them. It grabs you and doesn&apos;t let go, and Picasso knew that better than anyone.</p>
+          <p>He was still a kid in Málaga when the obsession started. The smell of the arena with all the colours of the capes dancing behind his eyes once the sun went down. He just couldn’t let it go. For sixty years it keeps coming back in his artwork. The bulls and the bullfighters move in and out of his work as if they had their own set of keys. The Museu Picasso in Barcelona itself calls bullfighting one of the great obsessions of his career. Personally, I even find the word “obsession” a little weak.</p>
+          <p>Then again, maybe I&apos;m exaggerating. Was he simply nostalgic for Spain? Let&apos;s say Spain never really left him. Except that doesn&apos;t explain fifty or sixty years of returning to the same arena, not from a man who spent his time turning everything else in painting every which way. This is the guy who slaughtered traditional perspective and folded it up like a dirty napkin. He brought sculpture into painting then looked at a bicycle seat and saw a bull&apos;s head. A man with that hunger, that wild imagination incapable of behaving, had more than enough other places to get bored.</p>
+          <p>And the bull came back. Faithfully. It brought with it the horse, the bullfighter, the crowd, and that endless second when everyone holds their breath before the horn strikes. Picasso kept right on reinventing himself, and the arena too.</p>
         </div>
       </section>
 
-      <section className={styles.visualSequence} aria-label="Exposition Picasso et la corrida">
+      <section className={styles.visualSequence} aria-label="Picasso and bullfighting exhibition">
         <figure className={`${styles.visualFigure} ${styles.hallwayFigure}`}>
-          <picture><source media="(max-width: 640px)" srcSet="/images/editorial/picasso-red-room-mobile.png" /><img src="/images/editorial/picasso-red-room-desktop.png" alt="Couloir rouge d'exposition présentant des œuvres de Picasso" /></picture>
-          <figcaption className={styles.imageCredit}>VUE DE L&apos;EXPOSITION · PHOTOGRAPHIE : JIMICHANGA.</figcaption>
+          <picture><source media="(max-width: 640px)" srcSet="/images/editorial/picasso-red-room-mobile.png" /><img src="/images/editorial/picasso-red-room-desktop.png" alt="Red exhibition corridor presenting works by Picasso" /></picture>
+          <figcaption className={styles.imageCredit}>VIEW OF THE EXHIBITION · PHOTOGRAPHY: JIMICHANGA.</figcaption>
         </figure>
 
         <EditorialReveal>
           <section className={`${styles.storyBeat} ${styles.storyBeatRight} ${signature.numbered}`}>
             <span className={signature.sectionNumber} aria-hidden="true">01</span>
-            <p className={styles.storyBeatLabel}>REGARDEZ DE PLUS PRÈS</p>
+            <p className={styles.storyBeatLabel}>LOOK CLOSER</p>
             <div className={styles.storyBeatCopy}>
-              <p>La corrida donne tout à un peintre : la soie, l&apos;or qui accroche la lumière, cette bête énorme et sombre qui traverse une arène blanche de soleil pendant qu&apos;un homme essaie surtout de ne pas se pisser dessus avec une demi-tonne de taureau furieux qui lui fonce dessus. Mais si on regarde d&apos;un peu plus près, un truc devient évident : à un moment il faut arrêter de regarder l&apos;arène et commencer à regarder les gens qui la regardent. Une tête qui s&apos;incline légèrement. Toute une tribune qui se penche en avant exactement à la même seconde.</p>
-              <p>Une corrida a toujours eu besoin d&apos;un public. Tout se joue dans ce petit cercle de sable, mais une bonne partie du vrai drame se passe ailleurs, dans tous ces yeux qui l&apos;entourent. Picasso regarde l&apos;arène, la foule regarde le taureau, et lui prend tout ça et en fait quelque chose qui, des décennies plus tard, peut encore arrêter net un inconnu devant une toile. Et nous voilà à notre tour en train de regarder cet inconnu.</p>
-              <p>Il y a une petite arène cachée dans presque tous les coins de nos vies : au boulot, en amour, autour de la table familiale. Parfois on prend un risque précisément parce que les autres regardent, et parfois on fuit ce même risque pour la même raison. Ce petit mouvement dans la poitrine, une moitié de vous qui veut tous les regards de la pièce, l&apos;autre qui donnerait n&apos;importe quoi pour disparaître dans la foule.</p>
+              <p>Bullfighting gives a painter everything: the silk, bright gold catching the light, that enormous dark beast crossing an arena’s white sand with the hot sun while a man is mostly trying not to piss his pants with half a ton of furious bull charging at full speed ahead. But look a little closer and something happens: You have to stop watching the arena and start watching the people watching it. A head tilting slightly or an entire crowd of spectators leaning forward at exactly the same second. Without an audience there’s no show.</p>
+              <p>A bullfight has always needed an audience. Everything plays out in that small circle of sand, but the best part of the real drama happens somewhere else, in all the people’s eyes surrounding it. Picasso watches the arena, the crowd watches the bull, and he takes all of it and turns it into something that, several decades later, can still stop a stranger cold in front of a canvas. And here we are, in turn, watching that stranger.</p>
+              <p>There&apos;s a little arena hidden in almost every corner of our lives: at work, in love, around the family table. Sometimes we take a risk precisely because other people are watching, and sometimes we run from that same risk for the very same reason. That little movement in the chest. Half of you wanting every eye in the room, the other half willing to give anything to vanish into the crowd.</p>
             </div>
           </section>
         </EditorialReveal>
 
         <figure className={`${styles.visualFigure} ${styles.viewerFigure}`}>
-          <picture><source media="(max-width: 640px)" srcSet="/images/editorial/picasso-bull-viewer-mobile.png" /><img src="/images/editorial/picasso-bull-viewer-desktop.png" alt="Un visiteur regarde de près des œuvres de corrida de Picasso" /></picture>
-          <figcaption className={styles.imageCredit}>REGARDEZ DE PLUS PRÈS · PHOTOGRAPHIE : JIMICHANGA.</figcaption>
+          <picture><source media="(max-width: 640px)" srcSet="/images/editorial/picasso-bull-viewer-mobile.png" /><img src="/images/editorial/picasso-bull-viewer-desktop.png" alt="A visitor looks closely at Picasso's bullfighting works" /></picture>
+          <figcaption className={styles.imageCredit}>LOOK CLOSER · PHOTOGRAPHY: JIMICHANGA.</figcaption>
         </figure>
 
         <EditorialReveal delay="short">
           <section className={`${styles.storyBeat} ${signature.numbered}`}>
             <span className={signature.sectionNumber} aria-hidden="true">02</span>
-            <p className={styles.storyBeatLabel}>L&apos;ARÈNE</p>
+            <p className={styles.storyBeatLabel}>THE ARENA</p>
             <div className={styles.storyBeatCopy}>
-              <p>Dans les années 1930 l&apos;arène qu&apos;il portait en lui devient plus sombre, plus mystérieuse. Le 19 septembre 1933, à Boisgeloup, il peint <em>Corrida : la mort du torero</em>. Une huile sur bois toute petite, trente et un centimètres sur quarante, assez pour tenir entre vos deux mains et pourtant chargée de quelque chose d&apos;énorme. Treize jours plus tôt il avait déjà peint <em>Corrida : la mort de la femme torero</em>. La mort était entrée dans l&apos;arène et elle n&apos;avait aucune intention d&apos;en ressortir discrètement.</p>
-              <p>Un an plus tard il y retourne. <em>La Corrida</em> de 1934 fait partie de cette série intense peinte à Boisgeloup, toutes tournant autour de cette rencontre violente entre le taureau, le cheval et l&apos;homme. Le musée Thyssen y voit une sorte de parabole de l&apos;amour et de la mort. D&apos;accord, cette lecture aide, elle ouvre quelque chose. Mais n&apos;en faites pas le dernier mot, parce que l&apos;arène ne se laisse pas enfermer aussi facilement.</p>
-              <p>Le torero a d&apos;abord l&apos;air de ne rien craindre, menton levé, cape qui claque dans la lumière, et puis d&apos;un coup il paraît beaucoup moins sûr de lui. Le taureau reste puissant même en marchant droit vers une mort décidée bien avant qu&apos;il pose un sabot dans l&apos;arène. Muscles, poussière et sang sous le même soleil. Le cheval fait partie de toute cette cérémonie et peut devenir, l&apos;instant d&apos;après, une de ses victimes. Le pouvoir change de camp devant tout le monde, et l&apos;arène rappelle à chacun que sous les costumes, la fierté, le cérémonial, il ne reste finalement que de la chair mortelle, du souffle, un cœur qui bat. Rien de plus. Tôt ou tard, chaque vie rencontre un taureau qui refuse de se laisser contrôler, une corne qui arrive à pleine vitesse au moment précis où vous étiez sûr d&apos;avoir enfin tout compris.</p>
+              <p>Rewind to the 1930s, the arena he carried inside him got darker and more mysterious. On September 19, 1933, at Boisgeloup, he paints <em>Bullfight: The Death of the Bullfighter</em>. A tiny oil on wood, thirty-one centimetres by forty, small enough to fit between two hands and yet loaded with something enormous. Thirteen days earlier he had already painted <em>Bullfight: The Death of the Woman Bullfighter</em>. Death had entered the arena and had no intention of leaving it quietly.</p>
+              <p>A year later he goes back. <em>The Bullfight</em> of 1934 belongs to this intense series painted at Boisgeloup, all circling this violent encounter between the bull, the horse and the man. The Thyssen museum reads it as a kind of parable of love and death. Fine, good to know, it opens something up. But don&apos;t let it be the last word, because the arena doesn&apos;t let itself get boxed in that easily.</p>
+              <p>At first the bullfighter marches in like a Marine after boot camp graduation, chin raised high, cape flapping in the wind, and then suddenly he looks scared as hell. Yet the bull never so much as blinks even while walking straight toward a brutal death decided long before it ever set a hoof in the arena. Muscle, dust and blood under the same relentless sun. Let’s not forget the horse. He’s part of the whole ceremony and can easily become, at any moment, one of its victims. Power switches sides in front of everyone’s eyes, and the arena reminds everyone that beneath the ornate costumes, under all of that pompous pride and festive ceremony, the only thing left in the end is mortal flesh, frail breath, a beating heart. That’s it. Sooner or later, every life meets a bull that refuses to be controlled, a horn charging at full speed at the exact moment you were sure you&apos;d finally understood everything. How quaint.</p>
             </div>
           </section>
         </EditorialReveal>
 
         <EditorialReveal delay="medium">
-          <aside className={styles.pullQuote} aria-label="Ligne éditoriale EASTOKYO">
+          <aside className={styles.pullQuote} aria-label="EASTOKYO editorial line">
             <span className={styles.pullQuoteMark}>“</span>
-            <p>L&apos;ARÈNE, C&apos;EST DU DRAME SANS AUCUN ENDROIT OÙ DÉTOURNER LE REGARD.</p>
-            <span className={styles.pullQuoteCredit}>EASTOKYO · GRAND FORMAT 01</span>
+            <p>THE ARENA IS DRAMA WITH NOWHERE AT ALL TO LOOK AWAY.</p>
+            <span className={styles.pullQuoteCredit}>EASTOKYO · LONG FORM 01</span>
           </aside>
         </EditorialReveal>
 
         <div className={styles.bullfightPair}>
           <figure className={styles.visualFigure}>
-            <picture><source media="(max-width: 640px)" srcSet="/images/editorial/bullfight-feature-mobile.png" /><img src="/images/editorial/bullfight-feature-desktop.png" alt="Corrida, Pablo Picasso, 1934" /></picture>
-            <figcaption className={styles.imageCredit}>CORRIDA · PABLO PICASSO · 1934</figcaption>
+            <picture><source media="(max-width: 640px)" srcSet="/images/editorial/bullfight-feature-mobile.png" /><img src="/images/editorial/bullfight-feature-desktop.png" alt="Bullfight, Pablo Picasso, 1934" /></picture>
+            <figcaption className={styles.imageCredit}>BULLFIGHT · PABLO PICASSO · 1934</figcaption>
           </figure>
           <figure className={styles.visualFigure}>
-            <picture><source media="(max-width: 640px)" srcSet="/images/editorial/bullfight-detail-mobile.png" /><img src="/images/editorial/bullfight-detail-desktop.png" alt="Corrida : la mort du torero, Pablo Picasso, 1933" /></picture>
-            <figcaption className={styles.imageCredit}>CORRIDA : LA MORT DU TORERO · PABLO PICASSO · 1933</figcaption>
+            <picture><source media="(max-width: 640px)" srcSet="/images/editorial/bullfight-detail-mobile.png" /><img src="/images/editorial/bullfight-detail-desktop.png" alt="Bullfight: The Death of the Bullfighter, Pablo Picasso, 1933" /></picture>
+            <figcaption className={styles.imageCredit}>BULLFIGHT: THE DEATH OF THE BULLFIGHTER · PABLO PICASSO · 1933</figcaption>
           </figure>
         </div>
 
         <EditorialReveal>
           <section className={`${styles.storyBeat} ${styles.storyBeatRight} ${signature.numbered}`}>
             <span className={signature.sectionNumber} aria-hidden="true">03</span>
-            <p className={styles.storyBeatLabel}>CE QUI RESTE</p>
+            <p className={styles.storyBeatLabel}>WHAT REMAINS</p>
             <div className={styles.storyBeatCopy}>
-              <p>Autre chose se joue dans ces peintures des années trente : le taureau, le cheval, cette présence constante de quelqu&apos;un qui regarde. Tout ça faisait déjà partie du langage visuel de Picasso bien avant <em>Guernica</em>. Le Thyssen place ces corridas de 1933 à 1935 directement sur le chemin qui mène au tableau de 1937, notamment dans ces affrontements brutaux entre le taureau et le cheval. Ça ne veut pas dire que le taureau a un sens simple qu&apos;on pourrait graver dans le marbre, et ça veut encore moins dire qu&apos;on peut lire <em>Guernica</em> comme une corrida un peu plus sophistiquée. Il s&apos;est passé autre chose : Picasso est revenu tellement souvent vers les mêmes taureaux qu&apos;à force ils sont devenus trop lourds pour rester enfermés dans leur sujet d&apos;origine.</p>
-              <p>C&apos;est peut-être ça qu&apos;une obsession finit par donner à un artiste. Pas une réponse. Un langage, une manière de parler qui gagne en profondeur à force de s&apos;en servir. Et c&apos;est peut-être vrai en dehors de l&apos;art aussi. On passe des années à se convaincre que toute sa vie change simplement parce que le décor bouge autour de soi, on essaie des versions de soi comme des manteaux devant un miroir, et puis un matin banal, le café encore chaud sur la table, les vieilles questions remontent. Est-ce que je suis à la hauteur ? Qui j&apos;essaie encore d&apos;impressionner après toutes ces années ? Cette arène complètement dingue qu&apos;on appelle la vie ne consiste peut-être pas à distancer ces questions. Il s&apos;agit plutôt de vivre comme on a décidé de vivre, peu importe qui est dans les gradins.</p>
+              <p>Something else is playing out in these paintings from the thirties: the crazy bull and the horse, this constant feeling of someone watching. All of it was already part of Picasso&apos;s visual language way before <em>Guernica</em>. The Thyssen places these bullfights from 1933 to 1935 directly on the path leading to the 1937 painting, particularly in these brutal confrontations between bull and horse. That doesn&apos;t mean the bull has one tidy little meaning that could be carved into marble, and it means even less that <em>Guernica</em> can be read as a slightly more sophisticated bullfight. Something else happened: Picasso went back to the same bulls so often that eventually they grew too heavy to stay locked inside their original subject.</p>
+              <p>Maybe that&apos;s what an obsession eventually gives an artist when he’s never really looking for an answer. He discovers a language, one that gets deeper when it’s used over and over. And maybe that&apos;s true outside of art too. We can spend years convincing ourselves our whole life is changing because the scenery changes around us. We try on versions of ourselves like coats in front of a mirror. Then one ordinary morning, with coffee still hot on the table, some old questions rise back up. Am I really good enough? Who am I trying so hard to impress after all these years? This loco arena we call life isn’t about outrunning those questions. It&apos;s more about living the way we want to live, no matter who the spectators are at the moment.</p>
             </div>
           </section>
         </EditorialReveal>
 
         <figure className={`${styles.visualFigure} ${styles.galleryFigure}`}>
-          <picture><source media="(max-width: 640px)" srcSet="/images/editorial/picasso-bull-gallery-mobile.png" /><img src="/images/editorial/picasso-bull-gallery-desktop.png" alt="Des visiteurs regardent un ensemble d'œuvres de corrida de Picasso" /></picture>
-          <figcaption className={styles.imageCredit}>LA SALLE NOUS REGARDE · PHOTOGRAPHIE : JIMICHANGA.</figcaption>
+          <picture><source media="(max-width: 640px)" srcSet="/images/editorial/picasso-bull-gallery-mobile.png" /><img src="/images/editorial/picasso-bull-gallery-desktop.png" alt="Visitors look at a group of Picasso's bullfighting works" /></picture>
+          <figcaption className={styles.imageCredit}>THE ROOM IS WATCHING US · PHOTOGRAPHY: JIMICHANGA.</figcaption>
         </figure>
 
         <EditorialReveal delay="short">
           <section className={`${styles.storyBeat} ${styles.slideshowBridge} ${signature.numbered}`}>
             <span className={signature.sectionNumber} aria-hidden="true">04</span>
-            <p className={styles.storyBeatLabel}>ENCORE ET ENCORE</p>
+            <p className={styles.storyBeatLabel}>AGAIN AND AGAIN</p>
             <div className={styles.storyBeatCopy}>
-              <p>Ce retour est presque théâtral, et rend impossible de réduire toute cette histoire à un vieux souvenir d&apos;enfance. En 1927, l&apos;éditeur Gustau Gili Roig lui demande d&apos;illustrer l&apos;ancien traité de tauromachie de José Delgado, <em>La Tauromaquia</em>. Le projet disparaît ensuite pendant des années, comme les bonnes idées savent parfois le faire. Puis en janvier 1956, Gustau Gili Esteve et Anna Maria Torra viennent voir leur ami Pablo et ressortent l&apos;histoire du tiroir. En mai, Picasso réalise vingt-six aquatintes au sucre, et l&apos;édition paraît finalement à Barcelone en 1959.</p>
-              <p>Picasso a soixante-quinze ans et continue à foutre le bordel dans le monde de l&apos;art. C&apos;est quand même difficile à encaisser. Après le cubisme, la guerre, une célébrité dont la plupart des artistes n&apos;oseraient même pas rêver, après des décennies à se réinventer sans arrêt, le voilà qui entre à nouveau dans l&apos;arène. Rien que pour ça, respect. Il avait sûrement mille autres choses à faire. Mais quelque chose dans la corrida était encore vivant pour lui, et il n&apos;en avait pas fini avec elle.</p>
-              <p>Le Museu Picasso explique que ses images de tauromachie démontent le spectacle morceau par morceau, le taureau, les aficionados penchés au-dessus de la barrera, tout en gardant entremêlés la puissance, le désir et la mort. Sur une image le torero est porté sur les épaules d&apos;une foule qui rugit, les bras levés, toute la plaza qui devient folle. Sur une autre on traîne le taureau mort sur le sable pendant que le vacarme retombe et laisse place à quelque chose de beaucoup plus grave, presque un hommage à l&apos;animal, comme la foule d&apos;un amphithéâtre romain aurait pu saluer un gladiateur tombé. Le triomphe et la mortalité côte à côte, parce que l&apos;arène distribue à chacun un rôle qui, pendant quelques minutes, paraît solide. Vainqueur, vaincu, puissant, terrifié — jusqu&apos;au moment de vérité, quand le destin décide qu&apos;il se fout complètement du casting.</p>
+              <p>This return is almost ridiculous, which makes it impossible to reduce the whole story to an old childhood memory. In 1927, the publisher Gustau Gili Roig asks him to illustrate José Delgado&apos;s old treatise on bullfighting, <em>La Tauromaquia</em>. The project then disappears for years, the way good ideas usually know how to do. Then in January 1956, Gustau Gili Esteve and Anna Maria Torra come to see their old friend Pablo and pull the story back out of the dusty drawer. In May, Picasso produces twenty-six sugar aquatints, and the edition is finally published in Barcelona in 1959.</p>
+              <p>Picasso is seventy-five years old and still fucking shit up in the art world. That&apos;s pretty hard to take in. After Cubism, the war, a level of fame most artists couldn&apos;t dare dream of, after decades of constantly reinventing himself, there he is walking right back into the arena again. For that alone, respect. He surely had a thousand other things to do with all that fame and fortune. But something in bullfighting kept calling him, and he wasn&apos;t blocking the number.</p>
+              <p>The Museu Picasso explains that his bullfighting images take the spectacle apart piece by piece. The bull, the aficionados leaning over the barrera. All while keeping power, desire and death intertwined. Damn. In one image the bullfighter is carried on the shoulders of a roaring crowd, arms raised, the whole plaza going ballistic. In another, the mortally wounded bull is dragged across the hot sand. Then the yelling and cheering of the crazy crowd dies down and gives way to something way more solemn, almost a tribute to the bull as a fallen comrade, the way a crowd in a Roman amphitheatre might have saluted a defeated gladiator. Triumph and mortality side by side, because the arena hands everyone a role that, for a hot minute, seems eternal. Senior Victor, Miss Defeated, Captain Powerful, Madam Terrified. At least until the moment of truth, when fate decides it doesn&apos;t give a damn about the casting.</p>
             </div>
           </section>
         </EditorialReveal>
@@ -146,26 +146,26 @@ export default function CoverStoryPage() {
 
       <section className={styles.finalAct}>
         <figure className={`${styles.visualFigure} ${styles.bullHeadFigure}`}>
-          <picture><source media="(max-width: 640px)" srcSet="/images/editorial/picasso-bull-head-mobile.png" /><img src="/images/editorial/picasso-bull-head-desktop.png" alt="Tête de taureau, Pablo Picasso, 1942" /></picture>
-          <figcaption className={`${styles.imageCredit} ${styles.bullHeadCredit}`}>TÊTE DE TAUREAU · PABLO PICASSO · 1942 · SELLE ET GUIDON DE VÉLO</figcaption>
+          <picture><source media="(max-width: 640px)" srcSet="/images/editorial/picasso-bull-head-mobile.png" /><img src="/images/editorial/picasso-bull-head-desktop.png" alt="Bull's Head, Pablo Picasso, 1942" /></picture>
+          <figcaption className={`${styles.imageCredit} ${styles.bullHeadCredit}`}>BULL&apos;S HEAD · PABLO PICASSO · 1942 · BICYCLE SEAT AND HANDLEBARS</figcaption>
         </figure>
 
         <EditorialReveal>
           <section className={`${styles.storyBeat} ${styles.finalStoryBeat} ${signature.numbered}`}>
             <span className={signature.sectionNumber} aria-hidden="true">05</span>
-            <p className={styles.storyBeatLabel}>LE TAUREAU RESTE</p>
+            <p className={styles.storyBeatLabel}>THE BULL REMAINS</p>
             <div className={styles.storyBeatCopy}>
-              <p>Enlevez tout le reste : le spectacle, la cérémonie, même une bonne partie de la rage du taureau. Quelque chose apparaît enfin dans le sable. C&apos;est peut-être là qu&apos;il faut laisser Picasso — il n&apos;existe aucune explication propre et définitive de ce que son taureau veut vraiment dire, il a trop changé pour ça. La peur ? Peut-être. La force, la violence, le désir sexuel ? Pourquoi pas. La vie, la mort, Picasso lui-même, tout ça fondu dans la même silhouette noire sans qu&apos;aucune réponse suffise vraiment. Le sens change selon l&apos;endroit où vous êtes quand vous relevez les yeux vers lui.</p>
-              <p>La vraie question que Picasso nous laisse peut-être au milieu du sable, c&apos;est : c&apos;est quoi, votre taureau à vous ? Ce truc dont vous n&apos;arrivez pas à vous débarrasser. Une peur autour de laquelle vous tournez depuis des années au lieu de lui faire face. Une personne ou un endroit auquel vous avez laissé beaucoup trop de pouvoir. La découverte pas franchement agréable que votre temps ici s&apos;arrêtera plus tôt que vous aimez le croire.</p>
-              <p>Il y a aussi l&apos;arène elle-même. Cet endroit où quelque chose de réel est en jeu et où, enfin, on vous voit. Vous pouvez vous planter, et quelqu&apos;un pourrait bien être là pour assister au spectacle. Alors pourquoi ne pas jouer la sécurité, passer une vie entière dans les gradins, sûrement moins dangereuse ? Sauf qu&apos;être en sécurité et être vivant, ça n&apos;a jamais été la même chose. Être vraiment vivant, c&apos;est parfois entrer dans une arène sans savoir comment ça va finir, aimer quelqu&apos;un sans garantie, poursuivre ce qu&apos;on veut bien avant d&apos;avoir la moindre preuve que ça va marcher.</p>
-              <p>Picasso est retourné dans cette arène décennie après décennie, bien après l&apos;âge où personne ne lui aurait reproché de rester tranquillement chez lui à jouer aux dominos. Pas de petite morale emballée avec un joli nœud ici. Juste un vieux monsieur qui s&apos;appelait Pablo Picasso, qui n&apos;a jamais vraiment arrêté de choisir l&apos;arène plutôt que le dernier rang. Et une question toute simple qu&apos;il nous laisse en partant.</p>
-              <p><strong>VOUS, VOUS ÊTES OÙ ?</strong></p>
+              <p>Take away everything else and what do you have? The brief spectacle and the hilarious ceremony, even a good glimpse of the bull&apos;s rage. Maybe this is where we should leave Picasso: there&apos;s no neat, definitive account of what his bull really means. It changed too much for that. Fear? Maybe. Strength and violence, desire? Why not? Life and death, even Picasso himself, all melted into the same black silhouette without any single correct answer ever explaining it. The meaning changes depending on where you&apos;re standing and what you’re looking at in the arena.</p>
+              <p>The real question Picasso leaves us with, in the middle of all the chaos, is: what’s your bull? Is it someone you can&apos;t manage to shake? Something you&apos;ve been circling for years instead of facing? The not exactly pleasant discovery that your time in the arena will run out sooner than you&apos;d prefer?</p>
+              <p>The arena is real. That place where something important is happening and where, finally, you’re seen. You can screw it all up, and someone will always be there to watch it happen. So why not play it safe, spend a whole life in the stands, so much safer? Except being safe and being alive have never been the same thing. Being truly alive means stepping into the arena without even knowing how it ends. Loving someone without a guarantee or chasing what you truly want long before you have the slightest proof it will turn out as planned.</p>
+              <p>Picasso went back to that arena decade after decade, far past the age when nobody would have blamed him for staying at the casa playing dominoes. There’s no delightful moral of the story wrapped up in a bow here. Just an old man named Pablo Picasso, who never really stopped choosing the arena over the back row. And one very simple question he leaves us as he goes.</p>
+              <p><strong>WILL YOU STAND IN YOUR ARENA?</strong></p>
             </div>
           </section>
         </EditorialReveal>
       </section>
 
-      <div className={styles.endMark} aria-label="Fin du grand format"><span>FIN</span><span>EASTOKYO Nº01</span></div>
+      <div className={styles.endMark} aria-label="End of the long form"><span>END</span><span>EASTOKYO Nº01</span></div>
       <ArticleFooter />
     </main>
   );
