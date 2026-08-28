@@ -1,0 +1,102 @@
+/* EASTOKYO — Asagaya audit fixes.
+   Stable class-based corrections for the current article structure. */
+
+.asagayaFestivalShell,
+.asagayaFestivalShell main#top {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+/* Mobile captions need to remain editorial, not microscopic. */
+@media (max-width: 700px) {
+  .asagayaFestivalShell main#top [class*="photo"] figcaption {
+    font-size: .6rem !important;
+    line-height: 1.5 !important;
+    letter-spacing: .09em !important;
+  }
+}
+
+/* Wide, short phones otherwise inherit the tablet layout. */
+@media (orientation: landscape) and (max-height: 520px) and (max-width: 950px) {
+  .asagayaFestivalShell main#top [class*="hero"] {
+    width: 100% !important;
+    min-height: 100svh;
+    aspect-ratio: auto !important;
+    margin-top: 0 !important;
+  }
+
+  .asagayaFestivalShell main#top [class*="heroType"] {
+    left: 24px !important;
+    right: auto !important;
+    bottom: 20px !important;
+    max-width: min(58vw, 520px) !important;
+  }
+
+  .asagayaFestivalShell main#top [class*="hero"] h1 {
+    font-size: clamp(2.8rem, 9vw, 4.8rem) !important;
+    line-height: .82 !important;
+  }
+
+  .asagayaFestivalShell main#top [class*="heroDeck"] {
+    max-width: 48rem !important;
+    margin-top: 10px !important;
+    font-size: .78rem !important;
+    line-height: 1.35 !important;
+  }
+
+  .asagayaFestivalShell main#top [class*="intro"] {
+    padding-top: 48px !important;
+  }
+}
+
+/* Desktop festival art direction: target semantic CSS-module class names rather
+   than DOM positions, so inserting/removing a section cannot repaint another. */
+@media (min-width: 901px) {
+  .asagayaFestivalShell main#top [class*="hero"] {
+    width: min(1320px, calc(100vw - 64px)) !important;
+    margin-top: 0 !important;
+    border: 0 !important;
+    outline: 6px solid var(--matsuri-indigo);
+    box-shadow: 14px 14px 0 var(--matsuri-red), 24px 24px 0 rgba(237,189,69,.95) !important;
+  }
+
+  .asagayaFestivalShell main#top [class*="intro"] {
+    background: var(--matsuri-washi-light) !important;
+  }
+
+  .asagayaFestivalShell main#top [class*="statement"] {
+    background: var(--matsuri-red) !important;
+    color: #fff8ea !important;
+  }
+
+  .asagayaFestivalShell main#top [class*="readingSection"],
+  .asagayaFestivalShell main#top [class*="outro"] {
+    background: var(--matsuri-washi) !important;
+  }
+
+  .asagayaFestivalShell main#top [class*="readingSection"] h2,
+  .asagayaFestivalShell main#top [class*="outro"] h2 {
+    color: var(--matsuri-indigo) !important;
+  }
+
+  .asagayaFestivalShell main#top [class*="staggeredGallery"] {
+    position: relative;
+  }
+
+  .asagayaFestivalShell main#top [class*="blueSection"] {
+    position: relative;
+    background: radial-gradient(circle at 18% 16%, rgba(44,166,162,.2), transparent 28%), radial-gradient(circle at 82% 75%, rgba(216,74,53,.18), transparent 31%), var(--matsuri-indigo) !important;
+    color: #fff8eb !important;
+    border-top: 9px solid var(--matsuri-red) !important;
+    border-bottom: 9px solid var(--matsuri-gold) !important;
+  }
+
+  .asagayaFestivalShell main#top [class*="blueSection"] h2 {
+    color: #fff8eb !important;
+  }
+
+  .asagayaFestivalShell main#top [class*="blueSection"] [class*="sectionNo"],
+  .asagayaFestivalShell main#top [class*="blueSection"] [class*="sectionLabel"] {
+    color: var(--matsuri-gold) !important;
+  }
+}
