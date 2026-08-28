@@ -1,0 +1,62 @@
+.page {
+  overflow-x: clip;
+}
+
+/* Keep captions editorial, but readable on phones. */
+@media (max-width: 700px) {
+  .page figcaption {
+    font-size: .6rem;
+    line-height: 1.55;
+    letter-spacing: .09em;
+  }
+}
+
+/* The two Picasso works become too cramped on genuinely narrow phones. */
+@media (max-width: 520px) {
+  .page .bullfightPair {
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: 1.8rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* 701–780px was technically fitting, but the editorial columns were too tight. */
+@media (min-width: 701px) and (max-width: 780px) {
+  .page .intro,
+  .page .body,
+  .page .storyBeat {
+    grid-template-columns: 1fr;
+  }
+
+  .page .intro,
+  .page .body {
+    gap: 2rem;
+  }
+
+  .page .storyBeat {
+    width: calc(100vw - 4rem);
+    margin-left: auto;
+    margin-right: auto;
+    gap: 1.35rem;
+  }
+}
+
+/* Wide phones in landscape can cross the desktop width breakpoint while remaining very short. */
+@media (orientation: landscape) and (max-height: 520px) {
+  .page .hero,
+  .page .heroCopy {
+    min-height: 100svh;
+  }
+
+  .page .heroCopy {
+    padding: 1.25rem clamp(1.25rem, 5vw, 3rem) 1.5rem;
+  }
+
+  .page .title {
+    max-width: 9ch;
+    font-size: clamp(3.15rem, 9vw, 5.8rem);
+    line-height: .78;
+  }
+}
