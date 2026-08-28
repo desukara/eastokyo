@@ -1,0 +1,165 @@
+/* Responsive hardening for Picasso, Viewed With Fresh Eyes.
+   Loaded last so it resolves breakpoint and short-viewport edge cases without
+   disturbing the established desktop art direction. */
+
+main#top {
+  overflow-x: clip;
+}
+
+/* Mobile captions were falling below a comfortable reading size. */
+@media (max-width: 760px) {
+  main#top [class*="captionLead"] {
+    font-size: .62rem;
+    line-height: 1.5;
+    letter-spacing: .09em;
+  }
+
+  main#top [class*="credit"] {
+    font-size: .55rem;
+    line-height: 1.55;
+    letter-spacing: .09em;
+  }
+}
+
+/* Small portrait tablets need more room for the headline than the original
+   two-column hero allowed. Stack the hero before it becomes cramped. */
+@media (min-width: 761px) and (max-width: 850px) {
+  main#top > section[aria-labelledby="story-title"] {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+    width: 100% !important;
+    margin-top: .75rem !important;
+  }
+
+  main#top > section[aria-labelledby="story-title"] > div:first-child {
+    width: 100% !important;
+    height: clamp(430px, 58svh, 620px) !important;
+    min-height: 0 !important;
+    aspect-ratio: auto !important;
+  }
+
+  main#top > section[aria-labelledby="story-title"] > div:first-child img {
+    object-fit: cover !important;
+    object-position: center 30% !important;
+  }
+
+  main#top > section[aria-labelledby="story-title"] > div:last-child {
+    width: min(680px, calc(100vw - 4rem)) !important;
+    margin: 0 auto !important;
+    padding: 2.4rem 0 3rem !important;
+  }
+
+  main#top > section[aria-labelledby="story-title"] h1#story-title {
+    max-width: 8ch !important;
+    font-size: clamp(4.4rem, 11vw, 6.3rem) !important;
+    line-height: .79 !important;
+  }
+}
+
+/* The Blue Boy theme originally began at 781px while layout switched at
+   761px. Bridge that 20px zone so tablets do not briefly fall back to the
+   generic paper/red visual system. */
+@media (min-width: 761px) and (max-width: 780px) {
+  #site-chrome-top.mag-site-chrome {
+    --mag-ink: #0f3159;
+    --mag-paper: #c9def0;
+    --mag-blue: #1b4f91;
+    --mag-red: #1b4f91;
+    --mag-ochre: #efc62d;
+    background: #c9def0;
+  }
+
+  #site-chrome-top .mag-header,
+  #site-chrome-top .mag-nav {
+    color: #f7f0e2;
+    background: #0f3159;
+  }
+
+  #site-chrome-top .mag-header-rail {
+    color: #f7f0e2;
+    background: linear-gradient(90deg, #1d5aa0 0%, #174b88 58%, #123d71 100%);
+  }
+
+  main#top {
+    --paper: #d4e6f3;
+    --blue: #164b86;
+    --red: #c84f3f;
+    --yellow: #efc62c;
+    --blueboy-sky: #cfe2f1;
+    --blueboy-wash: #d9e9f4;
+    --blueboy-indigo: #10365f;
+    background: linear-gradient(180deg, #d7e7f3 0%, #cfe2f1 48%, #dbe9f3 100%);
+  }
+
+  main#top [class*="folio"] {
+    color: #f7f0e2;
+    background: linear-gradient(90deg, #174c89 0%, #1b5598 52%, #123c6e 100%);
+    border-bottom-color: rgba(247,240,226,.28);
+  }
+
+  main#top [class*="intro"],
+  main#top [class*="bodyBeat"],
+  main#top [class*="quiet"] {
+    background: var(--blueboy-sky);
+  }
+
+  main#top [class*="featureOne"],
+  main#top [class*="harlequin"] {
+    background: var(--blueboy-wash);
+  }
+
+  main#top [class*="harlequinLead"] h2,
+  main#top [class*="quietHead"] h2 {
+    color: var(--blueboy-indigo);
+  }
+}
+
+/* Wide phones in landscape cross the width breakpoint but are still very
+   short. Keep the hero compact and prevent the title from dominating the
+   entire viewport. */
+@media (orientation: landscape) and (max-height: 520px) and (max-width: 950px) {
+  main#top > section[aria-labelledby="story-title"] {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1.05fr) minmax(280px, .95fr) !important;
+    align-items: center !important;
+    gap: clamp(1.25rem, 3vw, 2.25rem) !important;
+    width: calc(100vw - 2rem) !important;
+    min-height: 0 !important;
+    margin: .6rem auto 0 !important;
+  }
+
+  main#top > section[aria-labelledby="story-title"] > div:first-child {
+    width: 100% !important;
+    height: min(72svh, 380px) !important;
+    min-height: 0 !important;
+    aspect-ratio: auto !important;
+  }
+
+  main#top > section[aria-labelledby="story-title"] > div:first-child img {
+    object-fit: cover !important;
+    object-position: center 30% !important;
+  }
+
+  main#top > section[aria-labelledby="story-title"] > div:last-child {
+    width: auto !important;
+    margin: 0 !important;
+    padding: 1rem 0 1.2rem !important;
+  }
+
+  main#top > section[aria-labelledby="story-title"] h1#story-title {
+    max-width: 8ch !important;
+    font-size: clamp(3.15rem, 8vw, 4.8rem) !important;
+    line-height: .78 !important;
+  }
+
+  main#top > section[aria-labelledby="story-title"] h1#story-title + p {
+    margin-top: .8rem !important;
+    font-size: clamp(1.08rem, 2.7vw, 1.35rem) !important;
+  }
+
+  main#top > section[aria-labelledby="story-title"] h1#story-title + p + p {
+    margin-top: .8rem !important;
+    padding-top: .6rem !important;
+  }
+}
