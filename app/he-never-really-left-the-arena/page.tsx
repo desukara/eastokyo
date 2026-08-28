@@ -3,6 +3,7 @@ import BullfightSlideshow from "./BullfightSlideshow";
 import { ArticleFooter, ArticleHeader } from "./ArticleChrome";
 import EditorialReveal from "./EditorialReveal";
 import styles from "./page.module.css";
+import responsive from "./responsive-fixes.module.css";
 import signature from "./signature.module.css";
 import heroPolish from "./hero-polish.module.css";
 
@@ -30,26 +31,26 @@ export const metadata: Metadata = {
 
 export default function CoverStoryPage() {
   return (
-    <main className={styles.page} id="top">
+    <main className={`${styles.page} ${responsive.page}`} id="top">
       <ArticleHeader />
 
-      <section className={styles.hero}>
+      <section className={`${styles.hero} ${responsive.hero}`}>
         <picture>
-          <source media="(max-width: 640px)" srcSet="/images/editorial/picasso-bullfight-01-mobile.png" />
+          <source media="(max-width: 700px)" srcSet="/images/editorial/picasso-bullfight-01-mobile.png" />
           <img className={styles.heroImage} src="/images/editorial/picasso-bullfight-01-desktop.png" alt="Work by Picasso about bullfighting" />
         </picture>
         <div className={`${styles.heroShade} ${heroPolish.shade}`} aria-hidden="true" />
-        <div className={styles.heroCopy}>
-          <h1 className={`${styles.title} ${heroPolish.title}`}>HE ALWAYS RETURNED TO THE ARENA.</h1>
+        <div className={`${styles.heroCopy} ${responsive.heroCopy}`}>
+          <h1 className={`${styles.title} ${heroPolish.title} ${responsive.title}`}>HE ALWAYS RETURNED TO THE ARENA.</h1>
         </div>
       </section>
 
-      <section className={styles.intro}>
+      <section className={`${styles.intro} ${responsive.intro}`}>
         <div className={styles.meta}>EASTOKYO<br />LONG FORM<br />ISSUE 01<br /><br />BY JAMES SIMMONS (ALIAS JIMICHANGA)</div>
         <p className={styles.deck}>Picasso spent his life going back to the arena. It was never about the bull, but why certain things just won&apos;t let us go.</p>
       </section>
 
-      <section className={styles.body}>
+      <section className={`${styles.body} ${responsive.body}`}>
         <p className={styles.bodyLabel}>THE STORY</p>
         <div className={styles.bodyCopy}>
           <p>Oh, you think you know Picasso? We need to talk about bullfighting and the way this guy turned the rules of reality upside down through this raw, almost primitive drama. There&apos;s something about an arena: the heat rising off the sand, a crowd leaning forward as if it had only one heart left between them. It grabs you and doesn&apos;t let go, and Picasso knew that better than anyone.</p>
@@ -61,12 +62,12 @@ export default function CoverStoryPage() {
 
       <section className={styles.visualSequence} aria-label="Picasso and bullfighting exhibition">
         <figure className={`${styles.visualFigure} ${styles.hallwayFigure}`}>
-          <picture><source media="(max-width: 640px)" srcSet="/images/editorial/picasso-red-room-mobile.png" /><img src="/images/editorial/picasso-red-room-desktop.png" alt="Red exhibition corridor presenting works by Picasso" /></picture>
+          <picture><source media="(max-width: 700px)" srcSet="/images/editorial/picasso-red-room-mobile.png" /><img src="/images/editorial/picasso-red-room-desktop.png" alt="Red exhibition corridor presenting works by Picasso" /></picture>
           <figcaption className={styles.imageCredit}>VIEW OF THE EXHIBITION · PHOTOGRAPHY: JIMICHANGA.</figcaption>
         </figure>
 
         <EditorialReveal>
-          <section className={`${styles.storyBeat} ${styles.storyBeatRight} ${signature.numbered}`}>
+          <section className={`${styles.storyBeat} ${styles.storyBeatRight} ${responsive.storyBeat} ${signature.numbered}`}>
             <span className={signature.sectionNumber} aria-hidden="true">01</span>
             <p className={styles.storyBeatLabel}>LOOK CLOSER</p>
             <div className={styles.storyBeatCopy}>
@@ -78,12 +79,12 @@ export default function CoverStoryPage() {
         </EditorialReveal>
 
         <figure className={`${styles.visualFigure} ${styles.viewerFigure}`}>
-          <picture><source media="(max-width: 640px)" srcSet="/images/editorial/picasso-bull-viewer-mobile.png" /><img src="/images/editorial/picasso-bull-viewer-desktop.png" alt="A visitor looks closely at Picasso's bullfighting works" /></picture>
+          <picture><source media="(max-width: 700px)" srcSet="/images/editorial/picasso-bull-viewer-mobile.png" /><img src="/images/editorial/picasso-bull-viewer-desktop.png" alt="A visitor looks closely at Picasso's bullfighting works" /></picture>
           <figcaption className={styles.imageCredit}>LOOK CLOSER · PHOTOGRAPHY: JIMICHANGA.</figcaption>
         </figure>
 
         <EditorialReveal delay="short">
-          <section className={`${styles.storyBeat} ${signature.numbered}`}>
+          <section className={`${styles.storyBeat} ${responsive.storyBeat} ${signature.numbered}`}>
             <span className={signature.sectionNumber} aria-hidden="true">02</span>
             <p className={styles.storyBeatLabel}>THE ARENA</p>
             <div className={styles.storyBeatCopy}>
@@ -102,19 +103,19 @@ export default function CoverStoryPage() {
           </aside>
         </EditorialReveal>
 
-        <div className={styles.bullfightPair}>
+        <div className={`${styles.bullfightPair} ${responsive.bullfightPair}`}>
           <figure className={styles.visualFigure}>
-            <picture><source media="(max-width: 640px)" srcSet="/images/editorial/bullfight-feature-mobile.png" /><img src="/images/editorial/bullfight-feature-desktop.png" alt="Bullfight, Pablo Picasso, 1934" /></picture>
+            <picture><source media="(max-width: 700px)" srcSet="/images/editorial/bullfight-feature-mobile.png" /><img src="/images/editorial/bullfight-feature-desktop.png" alt="Bullfight, Pablo Picasso, 1934" /></picture>
             <figcaption className={styles.imageCredit}>BULLFIGHT · PABLO PICASSO · 1934</figcaption>
           </figure>
           <figure className={styles.visualFigure}>
-            <picture><source media="(max-width: 640px)" srcSet="/images/editorial/bullfight-detail-mobile.png" /><img src="/images/editorial/bullfight-detail-desktop.png" alt="Bullfight: The Death of the Bullfighter, Pablo Picasso, 1933" /></picture>
+            <picture><source media="(max-width: 700px)" srcSet="/images/editorial/bullfight-detail-mobile.png" /><img src="/images/editorial/bullfight-detail-desktop.png" alt="Bullfight: The Death of the Bullfighter, Pablo Picasso, 1933" /></picture>
             <figcaption className={styles.imageCredit}>BULLFIGHT: THE DEATH OF THE BULLFIGHTER · PABLO PICASSO · 1933</figcaption>
           </figure>
         </div>
 
         <EditorialReveal>
-          <section className={`${styles.storyBeat} ${styles.storyBeatRight} ${signature.numbered}`}>
+          <section className={`${styles.storyBeat} ${styles.storyBeatRight} ${responsive.storyBeat} ${signature.numbered}`}>
             <span className={signature.sectionNumber} aria-hidden="true">03</span>
             <p className={styles.storyBeatLabel}>WHAT REMAINS</p>
             <div className={styles.storyBeatCopy}>
@@ -125,12 +126,12 @@ export default function CoverStoryPage() {
         </EditorialReveal>
 
         <figure className={`${styles.visualFigure} ${styles.galleryFigure}`}>
-          <picture><source media="(max-width: 640px)" srcSet="/images/editorial/picasso-bull-gallery-mobile.png" /><img src="/images/editorial/picasso-bull-gallery-desktop.png" alt="Visitors look at a group of Picasso's bullfighting works" /></picture>
+          <picture><source media="(max-width: 700px)" srcSet="/images/editorial/picasso-bull-gallery-mobile.png" /><img src="/images/editorial/picasso-bull-gallery-desktop.png" alt="Visitors look at a group of Picasso's bullfighting works" /></picture>
           <figcaption className={styles.imageCredit}>THE ROOM IS WATCHING US · PHOTOGRAPHY: JIMICHANGA.</figcaption>
         </figure>
 
         <EditorialReveal delay="short">
-          <section className={`${styles.storyBeat} ${styles.slideshowBridge} ${signature.numbered}`}>
+          <section className={`${styles.storyBeat} ${styles.slideshowBridge} ${responsive.storyBeat} ${signature.numbered}`}>
             <span className={signature.sectionNumber} aria-hidden="true">04</span>
             <p className={styles.storyBeatLabel}>AGAIN AND AGAIN</p>
             <div className={styles.storyBeatCopy}>
@@ -146,12 +147,12 @@ export default function CoverStoryPage() {
 
       <section className={styles.finalAct}>
         <figure className={`${styles.visualFigure} ${styles.bullHeadFigure}`}>
-          <picture><source media="(max-width: 640px)" srcSet="/images/editorial/picasso-bull-head-mobile.png" /><img src="/images/editorial/picasso-bull-head-desktop.png" alt="Bull's Head, Pablo Picasso, 1942" /></picture>
+          <picture><source media="(max-width: 700px)" srcSet="/images/editorial/picasso-bull-head-mobile.png" /><img src="/images/editorial/picasso-bull-head-desktop.png" alt="Bull's Head, Pablo Picasso, 1942" /></picture>
           <figcaption className={`${styles.imageCredit} ${styles.bullHeadCredit}`}>BULL&apos;S HEAD · PABLO PICASSO · 1942 · BICYCLE SEAT AND HANDLEBARS</figcaption>
         </figure>
 
         <EditorialReveal>
-          <section className={`${styles.storyBeat} ${styles.finalStoryBeat} ${signature.numbered}`}>
+          <section className={`${styles.storyBeat} ${styles.finalStoryBeat} ${responsive.storyBeat} ${signature.numbered}`}>
             <span className={signature.sectionNumber} aria-hidden="true">05</span>
             <p className={styles.storyBeatLabel}>THE BULL REMAINS</p>
             <div className={styles.storyBeatCopy}>
