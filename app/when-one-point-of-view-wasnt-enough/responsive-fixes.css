@@ -1,0 +1,156 @@
+/* Cubism responsive hardening and closing-hierarchy repair.
+   Loaded last so it can resolve legacy overrides without changing the article's visual identity. */
+
+main#top {
+  overflow-x: clip;
+}
+
+/* Closing statement: the h2 is the headline; the paragraph is metadata. */
+main#top > section:nth-of-type(8) h2 {
+  margin: 0;
+  max-width: 780px;
+  font-family: var(--font-bienvivos-display), serif;
+  font-size: clamp(44px, 4.8vw, 68px) !important;
+  line-height: .96;
+  letter-spacing: -.035em;
+  font-weight: 550;
+  color: inherit;
+}
+
+main#top > section:nth-of-type(8) > p {
+  margin: 20px 0 0 !important;
+  max-width: none !important;
+  font-family: var(--font-bienvivos-sans), sans-serif !important;
+  font-size: 10px !important;
+  line-height: 1.6 !important;
+  letter-spacing: .11em !important;
+  color: inherit !important;
+}
+
+main#top > section:nth-of-type(8) [class*="endBrand"],
+main#top > section:nth-of-type(8) [class*="backTop"] {
+  font-size: 10px;
+  letter-spacing: .1em;
+}
+
+/* Small portrait tablets: the desktop museum treatment is too dense here.
+   Stack the hero and let the headline breathe before the mobile breakpoint. */
+@media (min-width: 761px) and (max-width: 850px) {
+  main#top > section:first-of-type {
+    width: calc(100vw - 48px) !important;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+    padding: 24px 24px 30px !important;
+  }
+
+  main#top > section:first-of-type [class*="heroImage"] {
+    width: 100% !important;
+    max-width: 680px !important;
+    margin: 0 auto !important;
+  }
+
+  main#top > section:first-of-type [class*="heroCopy"] {
+    width: min(680px, 100%) !important;
+    max-width: none !important;
+    margin: 0 auto !important;
+  }
+
+  main#top > section:first-of-type h1 {
+    max-width: 8ch !important;
+    font-size: clamp(54px, 9vw, 72px) !important;
+  }
+
+  main#top > section:first-of-type [class*="deck"] {
+    max-width: 24ch !important;
+  }
+
+  main#top > section:nth-of-type(2) {
+    grid-template-columns: 92px minmax(0, 1fr) !important;
+  }
+
+  main#top > section:nth-of-type(2) [class*="introAside"] {
+    grid-column: 2 !important;
+    justify-self: start !important;
+  }
+
+  main#top > section:nth-of-type(3),
+  main#top > section:nth-of-type(6),
+  main#top > section:nth-of-type(7) {
+    grid-template-columns: 1fr !important;
+  }
+
+  main#top > section:nth-of-type(3) figure,
+  main#top > section:nth-of-type(6) figure,
+  main#top > section:nth-of-type(7) figure {
+    width: min(680px, 100%) !important;
+    margin-top: 12px !important;
+    transform: none !important;
+  }
+}
+
+/* Wide phones in landscape can cross the tablet breakpoint while remaining
+   only ~350–500px tall. Keep the hero compact and avoid desktop-height density. */
+@media (orientation: landscape) and (max-height: 520px) and (max-width: 950px) {
+  main#top > section:first-of-type {
+    width: calc(100vw - 32px) !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1.05fr) minmax(300px, .95fr) !important;
+    gap: clamp(20px, 3vw, 34px) !important;
+    margin-top: 14px !important;
+    padding: 18px 20px !important;
+    align-items: center !important;
+  }
+
+  main#top > section:first-of-type [class*="heroImage"] {
+    max-height: 76svh !important;
+    overflow: hidden !important;
+  }
+
+  main#top > section:first-of-type [class*="heroImage"] img {
+    max-height: 76svh !important;
+    width: 100% !important;
+    object-fit: contain !important;
+  }
+
+  main#top > section:first-of-type [class*="heroCopy"] {
+    width: auto !important;
+    max-width: none !important;
+  }
+
+  main#top > section:first-of-type h1 {
+    margin: 10px 0 14px !important;
+    max-width: 8ch !important;
+    font-size: clamp(42px, 6.8vw, 62px) !important;
+    line-height: .84 !important;
+  }
+
+  main#top > section:first-of-type [class*="deck"] {
+    max-width: 24ch !important;
+    font-size: clamp(18px, 2.4vw, 22px) !important;
+  }
+
+  main#top > section:first-of-type [class*="byline"] {
+    margin-top: 14px !important;
+    padding-top: 8px !important;
+  }
+}
+
+@media (max-width: 760px) {
+  main#top > section:nth-of-type(8) h2 {
+    font-size: clamp(38px, 11vw, 52px) !important;
+    line-height: .98 !important;
+  }
+
+  main#top > section:nth-of-type(8) > p {
+    margin-top: 18px !important;
+    font-size: 9px !important;
+    line-height: 1.55 !important;
+  }
+
+  main#top figcaption {
+    font-size: 9px !important;
+    line-height: 1.5 !important;
+    letter-spacing: .09em !important;
+  }
+}
