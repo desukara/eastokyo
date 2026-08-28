@@ -7,6 +7,11 @@
   overflow-x: clip;
 }
 
+/* Musubimaru is a proper name in running copy, not an editorial callout. */
+.asagayaFestivalShell main#top [class*="introCopy"] strong {
+  font-weight: inherit !important;
+}
+
 /* Mobile captions need to remain editorial, not microscopic. */
 @media (max-width: 700px) {
   .asagayaFestivalShell main#top [class*="photo"] figcaption {
@@ -52,16 +57,43 @@
 /* Desktop festival art direction: target semantic CSS-module class names rather
    than DOM positions, so inserting/removing a section cannot repaint another. */
 @media (min-width: 901px) {
+  /* One outer frame. The older layered treatment crossed through the image. */
   .asagayaFestivalShell main#top [class*="hero"] {
     width: min(1320px, calc(100vw - 64px)) !important;
     margin-top: 0 !important;
     border: 0 !important;
-    outline: 6px solid var(--matsuri-indigo);
-    box-shadow: 14px 14px 0 var(--matsuri-red), 24px 24px 0 rgba(237,189,69,.95) !important;
+    outline: 5px solid var(--matsuri-indigo) !important;
+    box-shadow: 10px 10px 0 var(--matsuri-red), 17px 17px 0 rgba(237,189,69,.92) !important;
+  }
+
+  .asagayaFestivalShell main#top [class*="hero"]::before,
+  .asagayaFestivalShell main#top [class*="hero"]::after {
+    display: none !important;
+    content: none !important;
+  }
+
+  .asagayaFestivalShell main#top [class*="heroType"]::before,
+  .asagayaFestivalShell main#top [class*="heroType"]::after,
+  .asagayaFestivalShell main#top [class*="heroDeck"]::before,
+  .asagayaFestivalShell main#top [class*="heroDeck"]::after {
+    display: none !important;
+    content: none !important;
+  }
+
+  .asagayaFestivalShell main#top [class*="heroType"],
+  .asagayaFestivalShell main#top [class*="heroDeck"] {
+    border-color: transparent !important;
+    outline: 0 !important;
+    box-shadow: none !important;
   }
 
   .asagayaFestivalShell main#top [class*="intro"] {
     background: var(--matsuri-washi-light) !important;
+  }
+
+  .asagayaFestivalShell main#top [class*="introCopy"],
+  .asagayaFestivalShell main#top [class*="readingCopy"] {
+    max-width: 900px !important;
   }
 
   .asagayaFestivalShell main#top [class*="statement"] {
