@@ -1,10 +1,20 @@
 /* EASTOKYO — Picasso Index audit fixes.
-   Final responsive layer for tablet, phone landscape and readable captions. */
+   Final responsive layer for sequence, tablet, phone landscape and captions. */
 
 .indexStoryShell,
 .indexStoryShell main#top {
   max-width: 100%;
   overflow-x: clip;
+}
+
+/* Keep one numbering system throughout the story: 01, 02, 03, 04, then 05. */
+.indexStoryShell main#top [class*="entryNumber"] {
+  font-size: clamp(3.7rem, 5vw, 5.4rem) !important;
+}
+
+.indexStoryShell main#top [class*="entryNumber"]::after {
+  display: none !important;
+  content: none !important;
 }
 
 /* Captions should remain editorial, but never drop to ~8px on phones. */
@@ -14,15 +24,27 @@
     line-height: 1.5 !important;
     letter-spacing: .09em !important;
   }
+
+  .indexStoryShell main#top [class*="entryNumber"] {
+    font-size: 3.25rem !important;
+  }
+
+  /* Portrait should read as an image in the story, not swallow the viewport. */
+  .indexStoryShell main#top article[class*="entry"]:nth-child(2) [class*="entryFigure"] {
+    width: min(520px, 100%) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
 }
 
-/* Small portrait tablets were inheriting the dense 4-column desktop index. */
+/* Small portrait tablets were inheriting the dense 4-column desktop index.
+   IMPORTANT: only the ARTICLE gets the grid reset; nested entry* elements do not. */
 @media (min-width: 781px) and (max-width: 900px) {
   .indexStoryShell main#top [class*="entries"] {
     width: calc(100vw - 3rem) !important;
   }
 
-  .indexStoryShell main#top [class*="entry"] {
+  .indexStoryShell main#top article[class*="entry"] {
     display: grid !important;
     grid-template-columns: 4.5rem minmax(0, 1fr) !important;
     gap: 1rem 1.25rem !important;
@@ -32,43 +54,49 @@
     align-items: start !important;
   }
 
-  .indexStoryShell main#top [class*="entryNumber"] {
+  .indexStoryShell main#top article[class*="entry"] > [class*="entryNumber"] {
     grid-column: 1 !important;
     grid-row: 1 !important;
   }
 
-  .indexStoryShell main#top [class*="entryMeta"] {
+  .indexStoryShell main#top article[class*="entry"] > [class*="entryMeta"] {
     grid-column: 2 !important;
     grid-row: 1 !important;
     align-self: center !important;
   }
 
-  .indexStoryShell main#top [class*="entryBody"] {
+  .indexStoryShell main#top article[class*="entry"] > [class*="entryBody"] {
     grid-column: 1 / -1 !important;
-    grid-row: auto !important;
-    width: min(720px, 100%) !important;
+    grid-row: 2 !important;
+    width: min(700px, 100%) !important;
     max-width: none !important;
     margin: .8rem auto 0 !important;
     padding-top: 0 !important;
     justify-self: center !important;
   }
 
-  .indexStoryShell main#top [class*="entryFigure"] {
+  .indexStoryShell main#top article[class*="entry"] > [class*="entryFigure"] {
     grid-column: 1 / -1 !important;
-    grid-row: auto !important;
-    width: min(760px, 100%) !important;
+    grid-row: 3 !important;
+    width: min(700px, 100%) !important;
     max-width: none !important;
     margin: 1.4rem auto 0 !important;
     transform: none !important;
     justify-self: center !important;
   }
 
-  .indexStoryShell main#top [class*="entryText"] {
+  .indexStoryShell main#top article[class*="entry"]:nth-child(2) > [class*="entryFigure"] {
+    width: min(520px, 86%) !important;
+  }
+
+  .indexStoryShell main#top article[class*="entry"] [class*="entryText"] {
     columns: 1 !important;
   }
 
-  .indexStoryShell main#top [class*="entry"] h2 {
+  .indexStoryShell main#top article[class*="entry"] h2 {
     max-width: 13ch !important;
+    margin-left: 0 !important;
+    margin-right: auto !important;
     font-size: clamp(2.8rem, 7vw, 4.3rem) !important;
     line-height: .94 !important;
   }
@@ -86,9 +114,29 @@
   }
 }
 
+/* Desktop portrait entry: keep the portrait contained and its heading aligned
+   with its copy rather than visually drifting into the image column. */
+@media (min-width: 901px) {
+  .indexStoryShell main#top article[class*="entry"]:nth-child(2) > [class*="entryFigure"] {
+    width: min(440px, 100%) !important;
+    justify-self: center !important;
+  }
+
+  .indexStoryShell main#top article[class*="entry"]:nth-child(2) > [class*="entryBody"] {
+    width: min(500px, 100%) !important;
+    justify-self: start !important;
+    padding-left: clamp(.5rem, 1.2vw, 1.2rem) !important;
+  }
+
+  .indexStoryShell main#top article[class*="entry"]:nth-child(2) h2 {
+    margin-left: 0 !important;
+    text-align: left !important;
+  }
+}
+
 /* Wide, short phones cross the 780px breakpoint but do not have tablet height. */
 @media (orientation: landscape) and (max-height: 520px) and (max-width: 950px) {
-  .indexStoryShell main#top [class*="hero"] {
+  .indexStoryShell main#top section[class*="hero"] {
     width: 100% !important;
     height: 100svh !important;
     min-height: 0 !important;
@@ -102,7 +150,7 @@
     width: min(62vw, 590px) !important;
   }
 
-  .indexStoryShell main#top [class*="hero"] h1 {
+  .indexStoryShell main#top section[class*="hero"] h1 {
     max-width: 9ch !important;
     font-size: clamp(2.8rem, 8.4vw, 4.8rem) !important;
     line-height: .82 !important;
