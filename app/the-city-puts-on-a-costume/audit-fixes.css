@@ -7,6 +7,11 @@
   overflow-x: clip;
 }
 
+/* The oversized 04 was clipped by the hero edge and read as broken UI. */
+.asagayaFestivalShell main#top [class*="issueMark"] {
+  display: none !important;
+}
+
 /* Musubimaru is a proper name in running copy, not an editorial callout. */
 .asagayaFestivalShell main#top [class*="introCopy"] strong {
   font-weight: inherit !important;
