@@ -1,0 +1,182 @@
+/* Canonical EASTOKYO site shell.
+   This file intentionally owns only the shared header/footer chrome.
+   Article layouts and editorial content remain untouched. */
+
+.mag-site-chrome {
+  width: 100%;
+  min-width: 0;
+}
+
+.mag-site-chrome .mag-header,
+.mag-site-chrome .mag-footer {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 899px) {
+  /* One mobile header identity everywhere. */
+  .mag-site-chrome .mag-header-rail,
+  .mag-site-chrome .mag-nav {
+    display: none !important;
+  }
+
+  .mag-site-chrome .mag-mobile-bar {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    min-height: 3.8rem !important;
+    padding: .7rem 1rem !important;
+    color: var(--mag-ink, #101820) !important;
+    background: var(--mag-paper, #f3eee4) !important;
+    border-bottom: 1px solid currentColor !important;
+    box-sizing: border-box !important;
+  }
+
+  .mag-site-chrome .mag-mobile-logo {
+    display: inline-block !important;
+    width: auto !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    color: var(--mag-ink, #101820) !important;
+    -webkit-text-fill-color: currentColor !important;
+    background: none !important;
+    font-family: var(--font-bienvivos-sans), Arial, sans-serif !important;
+    font-size: clamp(1.35rem, 6vw, 1.75rem) !important;
+    font-weight: 900 !important;
+    line-height: .9 !important;
+    letter-spacing: -.06em !important;
+    text-indent: 0 !important;
+    text-shadow: none !important;
+    white-space: nowrap !important;
+    overflow: visible !important;
+  }
+
+  .mag-site-chrome .mag-mobile-logo::before,
+  .mag-site-chrome .mag-mobile-logo::after {
+    display: none !important;
+    content: none !important;
+  }
+
+  .mag-site-chrome .mag-menu-button {
+    flex: 0 0 auto !important;
+    margin: 0 !important;
+  }
+
+  /* Footer: one deliberate vertical hierarchy instead of several competing stacks. */
+  .mag-site-chrome .mag-footer {
+    padding: 3.25rem 1rem 1.2rem !important;
+    overflow: hidden !important;
+  }
+
+  .mag-site-chrome .mag-footer-top {
+    display: block !important;
+    padding-bottom: 2rem !important;
+  }
+
+  .mag-site-chrome .mag-footer-top .mag-kicker {
+    margin: 0 0 .55rem !important;
+    font-size: .58rem !important;
+    letter-spacing: .13em !important;
+  }
+
+  .mag-site-chrome .mag-footer-top h2 {
+    max-width: none !important;
+    margin: 0 !important;
+    font-size: clamp(3.25rem, 15vw, 5rem) !important;
+    line-height: .84 !important;
+  }
+
+  .mag-site-chrome .mag-newsletter {
+    margin-top: 2rem !important;
+    padding: 1.25rem 0 !important;
+  }
+
+  .mag-site-chrome .mag-newsletter p {
+    font-size: .61rem !important;
+    line-height: 1.45 !important;
+  }
+
+  .mag-site-chrome .mag-newsletter strong {
+    margin-top: .65rem !important;
+    font-size: clamp(1.35rem, 6.4vw, 1.8rem) !important;
+    line-height: 1.05 !important;
+  }
+
+  .mag-site-chrome .mag-footer-links {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 1.4rem !important;
+    padding: 1.5rem 0 !important;
+  }
+
+  .mag-site-chrome .mag-footer-links nav,
+  .mag-site-chrome .social-placeholder {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    gap: .7rem 1rem !important;
+  }
+
+  .mag-site-chrome .social-placeholder {
+    justify-content: flex-start !important;
+  }
+
+  .mag-site-chrome .social-placeholder span {
+    white-space: nowrap !important;
+  }
+
+  /* One large closing wordmark. */
+  .mag-site-chrome .mag-footer-wordmark {
+    display: block !important;
+    width: 100% !important;
+    height: clamp(3.8rem, 18vw, 5.5rem) !important;
+    margin: 2rem 0 1.5rem !important;
+    padding: 0 !important;
+    background-position: center !important;
+    background-size: min(78%, 22rem) auto !important;
+    background-repeat: no-repeat !important;
+    font-size: 0 !important;
+    line-height: 0 !important;
+    text-indent: -9999px !important;
+    overflow: hidden !important;
+  }
+
+  .mag-site-chrome .mag-footer-bottom {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: .7rem !important;
+    padding-top: 1.1rem !important;
+  }
+
+  .mag-site-chrome .mag-footer-bottom p,
+  .mag-site-chrome .mag-footer-bottom a {
+    width: 100% !important;
+    margin: 0 !important;
+    text-align: left !important;
+    font-size: .58rem !important;
+    line-height: 1.45 !important;
+  }
+
+  /* The closing wordmark already carries the brand. Avoid another slogan directly beneath it on phones. */
+  .mag-site-chrome .mag-footer-bottom p:nth-child(2) {
+    display: none !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .mag-site-chrome .mag-footer {
+    padding-right: .9rem !important;
+    padding-left: .9rem !important;
+  }
+
+  .mag-site-chrome .mag-footer-links nav,
+  .mag-site-chrome .social-placeholder {
+    gap: .6rem .8rem !important;
+  }
+
+  .mag-site-chrome .mag-footer-wordmark {
+    background-size: min(84%, 20rem) auto !important;
+  }
+}
