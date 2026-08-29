@@ -1,22 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
-
-const navItems = [
-  { label: "COVER", href: "#latest" },
-  { label: "CONTENTS", href: "#contents" },
-  { label: "EXHIBITION", href: "#exhibition" },
-  { label: "IDEAS", href: "#cubism" },
-  { label: "TOKYO", href: "#asagaya" },
-  { label: "INDEX", href: "#picasso-index" },
-];
-
-const footerItems = [
-  { label: "ABOUT", href: "#about" },
-  { label: "CONTENTS", href: "#contents" },
-  { label: "TOP OF PAGE", href: "#top" },
-];
+import { SiteFooter, SiteHeader } from "./SiteChrome";
 
 const contents = [
   { href: "#bullfighting", section: "1. COVER ARTICLE", title: "HE NEVER REALLY LEFT THE ARENA.", copy: "Picasso returned to that arena again and again, because it never stopped giving him something new to feel and to paint." },
@@ -75,36 +60,10 @@ function StoryCta({ story }: { story: StoryKey }) {
 }
 
 export default function EastokyoHome() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const menuButtonRef = useRef<HTMLButtonElement>(null);
-  const menuCloseRef = useRef<HTMLButtonElement>(null);
-  useEffect(() => {
-    if (!menuOpen) return;
-    const previousOverflow = document.body.style.overflow;
-    const menuButton = menuButtonRef.current;
-    const main = document.querySelector<HTMLElement>("main");
-    const footer = document.querySelector<HTMLElement>("footer");
-    document.body.style.overflow = "hidden";
-    main?.setAttribute("inert", ""); footer?.setAttribute("inert", ""); menuCloseRef.current?.focus();
-    const handleKeyDown = (event: KeyboardEvent) => { if (event.key === "Escape") setMenuOpen(false); };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => { document.body.style.overflow = previousOverflow; main?.removeAttribute("inert"); footer?.removeAttribute("inert"); window.removeEventListener("keydown", handleKeyDown); menuButton?.focus(); };
-  }, [menuOpen]);
-  const closeMenu = () => setMenuOpen(false);
-
   return <div className="mag-page" id="top">
     <style>{`@media (max-width: 899px) { .mag-page #latest .mag-cover-description { display: none !important; } }`}</style>
     <a className="mag-skip-link" href="#contenido">Go to content</a>
-    <header className="mag-header">
-      <div className="mag-header-rail"><p>ART, PASSION AND A LITTLE DISORDER. TOKYO.</p><p>FIRST ISSUE. NUMBER ONE. ALLEZ. LET’S GO.</p><p>SEPTEMBER 1, 2026. LET’S MAKE SOME NOISE.</p></div>
-      <nav className="mag-nav" aria-label="Issue navigation"><div className="mag-nav-links">{navItems.map(i => <a key={i.label} href={i.href}>{i.label}</a>)}</div><span>ART FROM TOKYO, AND FROM ALL THE OTHER PLACES WHERE MY HEART DECIDES TO WANDER.</span></nav>
-      <div className="mag-mobile-bar"><a className="mag-mobile-logo" href="#top" onClick={closeMenu}>EASTOKYO</a><button ref={menuButtonRef} type="button" className={`mag-menu-button ${menuOpen ? "is-open" : ""}`} aria-label={menuOpen ? "Close menu" : "Open menu"} aria-expanded={menuOpen} aria-controls="mag-mobile-menu" onClick={() => setMenuOpen(o => !o)}><span /><span /></button></div>
-    </header>
-    <div id="mag-mobile-menu" className={`mag-mobile-menu ${menuOpen ? "is-open" : ""}`} role="dialog" aria-modal="true" aria-label="Issue menu" aria-hidden={!menuOpen}>
-      <button ref={menuCloseRef} type="button" className="mag-mobile-menu-close" onClick={closeMenu} tabIndex={menuOpen ? 0 : -1}>CLOSE <span aria-hidden="true">×</span></button>
-      <nav aria-label="Mobile issue navigation">{navItems.map((i, n) => <a key={i.label} href={i.href} onClick={closeMenu} tabIndex={menuOpen ? 0 : -1}><span>0{n + 1}</span>{i.label}</a>)}</nav>
-      <p>EASTOKYO. NUMBER ONE. BORN IN TOKYO. RAISED WITH FIRE IN THE BELLY.</p>
-    </div>
+    <SiteHeader />
     <main id="contenido">
       <section className="mag-cover" id="latest" aria-labelledby="cover-title">
         <picture className="mag-cover-media mag-media"><source media="(max-width: 640px)" srcSet="/images/editorial/picasso-bullfight-01-mobile.png" /><img src="/images/editorial/picasso-bullfight-01-desktop.png" alt="" fetchPriority="high" /></picture><div className="mag-cover-shade" aria-hidden="true" />
@@ -122,6 +81,6 @@ export default function EastokyoHome() {
       <section className="mag-section mag-index" id="picasso-index" aria-labelledby="show-title"><div className="mag-index-head"><div><p className="mag-kicker">INDEX. PICASSO. START WHEREVER YOU WANT.</p><h2 id="show-title">NOTHING IS JUST WHAT IT IS.</h2><StoryCta story="index" /></div><p>Faces taken apart and then rebuilt. Ceramics charged with the same nervous energy as his paintings. Bicycle parts that, suddenly, look less like machinery than sculpture. Picasso had the gift of making the ordinary seem freshly invented, and that is exactly why we keep coming back to his work.</p></div><figure className="mag-index-feature mag-media"><picture className="mag-index-picture"><source media="(max-width: 640px)" srcSet="/images/editorial/picasso-index-hero-mobile.png" /><img src="/images/editorial/picasso-index-hero-desktop.png" alt="Picasso exhibition view in Tokyo" loading="lazy" /></picture></figure><div className="mag-index-list">{indexStories.map(s => <article className="mag-index-row" key={s.section}><div><small>{s.section}</small><h3>{s.title}</h3></div><p>{s.copy}</p></article>)}</div></section>
       <section className="mag-back-cover" id="about" aria-labelledby="about-title"><div className="mag-back-inner"><div className="mag-mini-cover" aria-label="Preview of EASTOKYO inaugural issue"><EditorialImage src="/images/editorial/picasso-bullfight-01-desktop.png" alt="" sizes="(max-width: 640px) 70vw, 20rem" /><strong>EASTOKYO</strong><h3>HE NEVER REALLY LEFT THE ARENA.</h3><p>NUMBER ONE. TOKYO. SEPTEMBER 2026.</p></div><div className="mag-back-copy"><p className="mag-kicker">EASTOKYO. NUMBER ONE.</p><h2 id="about-title">TOKYO ART. EYES OPEN.</h2><p>EASTOKYO is an independent art magazine for those who need art to truly have a pulse, not something chosen to match the sofa, but something you can almost feel moving when you hold the pages in your hands.</p><span className="mag-back-date">NUMBER ONE. WE ARE ONLY JUST GETTING STARTED, AND WE ARE NOT GOING TO SLOW DOWN FOR ANYONE.</span></div></div></section>
     </main>
-    <footer className="mag-footer"><div className="mag-footer-top"><div><p className="mag-kicker">EASTOKYO. NUMBER ONE.</p><h2>LOOK TWICE.</h2></div><div className="mag-newsletter"><p>THE EASTOKYO LETTER. DO NOT MISS THE NEXT ONE.</p><strong>NOT YET. BUT SOON. PATIENCE, MON AMI.</strong></div></div><div className="mag-footer-links"><nav aria-label="Footer navigation">{footerItems.map(i => <a key={i.label} href={i.href}>{i.label}</a>)}</nav><div className="social-placeholder" aria-label="Social media coming soon"><span>INSTAGRAM</span><span>TIKTOK</span><span>PINTEREST</span></div></div><a className="mag-footer-wordmark" href="#top" aria-label="Back to top">EASTOKYO</a><div className="mag-footer-bottom"><p>© 2026 EASTOKYO. TOKYO, JAPAN.</p><p>BORN IN TOKYO. RAISED WITH FIRE IN THE BELLY.</p><a href="#top">ONE LAST LOOK, RIGHT AT THE TOP.</a></div></footer>
+    <SiteFooter />
   </div>;
 }
