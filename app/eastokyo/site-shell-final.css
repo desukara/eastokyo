@@ -240,9 +240,9 @@
     line-height: 1.35 !important;
   }
 
-  /* The closing wordmark already carries the brand. Avoid another slogan directly beneath it on phones. */
+  .mag-site-chrome .mag-footer-bottom p:first-child,
   .mag-site-chrome .mag-footer-bottom p:nth-child(2) {
-    display: none !important;
+    display: block !important;
   }
 }
 
