@@ -14,10 +14,30 @@
 }
 
 @media (max-width: 899px) {
-  /* One mobile header identity everywhere. */
+  /* Mobile is a real magazine masthead, not a reduced desktop nav. */
   .mag-site-chrome .mag-header-rail,
   .mag-site-chrome .mag-nav {
     display: none !important;
+  }
+
+  .mag-site-chrome .mag-header {
+    position: relative !important;
+    background: var(--mag-paper, #f3eee4) !important;
+    border-top: 4px solid var(--mag-red, #b84a32) !important;
+    border-bottom: 0 !important;
+  }
+
+  .mag-site-chrome .mag-header::after {
+    content: "" !important;
+    display: block !important;
+    width: 100% !important;
+    height: 6px !important;
+    background:
+      linear-gradient(to bottom,
+        var(--mag-ink, #101820) 0 1px,
+        transparent 1px 3px,
+        var(--mag-red, #b84a32) 3px 6px) !important;
+    pointer-events: none !important;
   }
 
   .mag-site-chrome .mag-mobile-bar {
@@ -25,11 +45,11 @@
     align-items: center !important;
     justify-content: space-between !important;
     width: 100% !important;
-    min-height: 3.8rem !important;
-    padding: .7rem 1rem !important;
+    min-height: 4.7rem !important;
+    padding: .78rem 1rem .72rem !important;
     color: var(--mag-ink, #101820) !important;
     background: var(--mag-paper, #f3eee4) !important;
-    border-bottom: 1px solid currentColor !important;
+    border: 0 !important;
     box-sizing: border-box !important;
   }
 
@@ -43,10 +63,10 @@
     -webkit-text-fill-color: currentColor !important;
     background: none !important;
     font-family: var(--font-bienvivos-sans), Arial, sans-serif !important;
-    font-size: clamp(1.35rem, 6vw, 1.75rem) !important;
+    font-size: clamp(1.4rem, 6.4vw, 1.9rem) !important;
     font-weight: 900 !important;
-    line-height: .9 !important;
-    letter-spacing: -.06em !important;
+    line-height: .88 !important;
+    letter-spacing: -.065em !important;
     text-indent: 0 !important;
     text-shadow: none !important;
     white-space: nowrap !important;
@@ -61,54 +81,70 @@
 
   .mag-site-chrome .mag-menu-button {
     flex: 0 0 auto !important;
+    width: 3.15rem !important;
+    height: 3.15rem !important;
     margin: 0 !important;
+    border-width: 1px !important;
+    box-shadow: none !important;
   }
 
-  /* Footer: one deliberate vertical hierarchy instead of several competing stacks. */
+  /* Footer: recompose the desktop idea for a narrow editorial canvas. */
   .mag-site-chrome .mag-footer {
-    padding: 3.25rem 1rem 1.2rem !important;
+    padding: 2.35rem 1rem .95rem !important;
     overflow: hidden !important;
   }
 
   .mag-site-chrome .mag-footer-top {
-    display: block !important;
-    padding-bottom: 2rem !important;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 1.15rem !important;
+    padding: 0 0 1.35rem !important;
+    border-bottom: 1px solid rgba(247, 241, 231, .28) !important;
   }
 
   .mag-site-chrome .mag-footer-top .mag-kicker {
-    margin: 0 0 .55rem !important;
-    font-size: .58rem !important;
-    letter-spacing: .13em !important;
+    margin: 0 0 .42rem !important;
+    font-size: .56rem !important;
+    line-height: 1.2 !important;
+    letter-spacing: .14em !important;
   }
 
   .mag-site-chrome .mag-footer-top h2 {
-    max-width: none !important;
+    max-width: 8ch !important;
     margin: 0 !important;
-    font-size: clamp(3.25rem, 15vw, 5rem) !important;
-    line-height: .84 !important;
+    font-size: clamp(2.8rem, 12.8vw, 4.2rem) !important;
+    line-height: .82 !important;
+    letter-spacing: -.035em !important;
   }
 
   .mag-site-chrome .mag-newsletter {
-    margin-top: 2rem !important;
-    padding: 1.25rem 0 !important;
+    width: 100% !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: .95rem 1rem 1rem !important;
+    box-sizing: border-box !important;
   }
 
   .mag-site-chrome .mag-newsletter p {
-    font-size: .61rem !important;
-    line-height: 1.45 !important;
+    margin: 0 !important;
+    font-size: .57rem !important;
+    line-height: 1.35 !important;
+    letter-spacing: .12em !important;
   }
 
   .mag-site-chrome .mag-newsletter strong {
-    margin-top: .65rem !important;
-    font-size: clamp(1.35rem, 6.4vw, 1.8rem) !important;
-    line-height: 1.05 !important;
+    display: block !important;
+    margin-top: .52rem !important;
+    font-size: clamp(1.05rem, 5.1vw, 1.45rem) !important;
+    line-height: 1.03 !important;
   }
 
   .mag-site-chrome .mag-footer-links {
     display: grid !important;
     grid-template-columns: 1fr !important;
-    gap: 1.4rem !important;
-    padding: 1.5rem 0 !important;
+    gap: .95rem !important;
+    padding: 1.15rem 0 !important;
+    border-bottom: 1px solid rgba(247, 241, 231, .28) !important;
   }
 
   .mag-site-chrome .mag-footer-links nav,
@@ -116,7 +152,14 @@
     display: flex !important;
     flex-wrap: wrap !important;
     align-items: center !important;
-    gap: .7rem 1rem !important;
+    gap: .58rem .9rem !important;
+    margin: 0 !important;
+  }
+
+  .mag-site-chrome .mag-footer-links nav a {
+    font-size: .67rem !important;
+    line-height: 1.15 !important;
+    letter-spacing: .11em !important;
   }
 
   .mag-site-chrome .social-placeholder {
@@ -127,15 +170,15 @@
     white-space: nowrap !important;
   }
 
-  /* One large closing wordmark. */
+  /* A sign-off, not another full-screen section. */
   .mag-site-chrome .mag-footer-wordmark {
     display: block !important;
     width: 100% !important;
-    height: clamp(3.8rem, 18vw, 5.5rem) !important;
-    margin: 2rem 0 1.5rem !important;
+    height: clamp(3rem, 14vw, 4.4rem) !important;
+    margin: 1.05rem 0 .85rem !important;
     padding: 0 !important;
     background-position: center !important;
-    background-size: min(78%, 22rem) auto !important;
+    background-size: min(68%, 19rem) auto !important;
     background-repeat: no-repeat !important;
     font-size: 0 !important;
     line-height: 0 !important;
@@ -146,8 +189,9 @@
   .mag-site-chrome .mag-footer-bottom {
     display: grid !important;
     grid-template-columns: 1fr !important;
-    gap: .7rem !important;
-    padding-top: 1.1rem !important;
+    gap: .42rem !important;
+    padding-top: .75rem !important;
+    border-top: 1px solid rgba(247, 241, 231, .22) !important;
   }
 
   .mag-site-chrome .mag-footer-bottom p,
@@ -155,8 +199,8 @@
     width: 100% !important;
     margin: 0 !important;
     text-align: left !important;
-    font-size: .58rem !important;
-    line-height: 1.45 !important;
+    font-size: .52rem !important;
+    line-height: 1.35 !important;
   }
 
   /* The closing wordmark already carries the brand. Avoid another slogan directly beneath it on phones. */
@@ -166,17 +210,36 @@
 }
 
 @media (max-width: 420px) {
+  .mag-site-chrome .mag-mobile-bar {
+    min-height: 4.35rem !important;
+    padding-right: .85rem !important;
+    padding-left: .85rem !important;
+  }
+
+  .mag-site-chrome .mag-menu-button {
+    width: 2.9rem !important;
+    height: 2.9rem !important;
+  }
+
   .mag-site-chrome .mag-footer {
-    padding-right: .9rem !important;
-    padding-left: .9rem !important;
+    padding: 2rem .85rem .85rem !important;
+  }
+
+  .mag-site-chrome .mag-footer-top h2 {
+    font-size: clamp(2.65rem, 12.2vw, 3.55rem) !important;
+  }
+
+  .mag-site-chrome .mag-newsletter {
+    padding: .85rem .9rem .9rem !important;
   }
 
   .mag-site-chrome .mag-footer-links nav,
   .mag-site-chrome .social-placeholder {
-    gap: .6rem .8rem !important;
+    gap: .52rem .72rem !important;
   }
 
   .mag-site-chrome .mag-footer-wordmark {
-    background-size: min(84%, 20rem) auto !important;
+    height: clamp(2.8rem, 13vw, 3.8rem) !important;
+    background-size: min(72%, 17rem) auto !important;
   }
 }
