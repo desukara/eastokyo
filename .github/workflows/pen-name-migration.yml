@@ -1,0 +1,72 @@
+name: One-off Arthur Delacroix credit migration
+
+on:
+  push:
+    paths:
+      - '.github/workflows/pen-name-migration.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  migrate:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Replace author and photographer credits
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          roots = [Path('app'), Path('public')]
+          text_exts = {'.ts', '.tsx', '.js', '.jsx', '.css', '.md', '.html', '.json', '.txt', '.xml'}
+          replacements = [
+              ('JAMES SIMMONS (ALIAS JIMICHANGA)', 'ARTHUR DELACROIX'),
+              ('JAMES SIMMONS (AKA JIMICHANGA)', 'ARTHUR DELACROIX'),
+              ('James Simmons (Alias Jimichanga)', 'Arthur Delacroix'),
+              ('James Simmons (Aka Jimichanga)', 'Arthur Delacroix'),
+              ('JAMES SIMMONS', 'ARTHUR DELACROIX'),
+              ('James Simmons', 'Arthur Delacroix'),
+              ('JIMICHANGA', 'ARTHUR DELACROIX'),
+              ('Jimichanga', 'Arthur Delacroix'),
+          ]
+
+          changed = []
+          for root in roots:
+              if not root.exists():
+                  continue
+              for path in root.rglob('*'):
+                  if not path.is_file() or path.suffix.lower() not in text_exts:
+                      continue
+                  try:
+                      original = path.read_text(encoding='utf-8')
+                  except UnicodeDecodeError:
+                      continue
+                  updated = original
+                  for old, new in replacements:
+                      updated = updated.replace(old, new)
+                  if updated != original:
+                      path.write_text(updated, encoding='utf-8')
+                      changed.append(str(path))
+
+          print('Changed files:')
+          for path in changed:
+              print(path)
+          if not changed:
+              raise SystemExit('No matching EASTOKYO author/photographer credits were found.')
+          PY
+
+      - name: Remove one-off workflow
+        run: rm .github/workflows/pen-name-migration.yml
+
+      - name: Commit migration
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add app public .github/workflows/pen-name-migration.yml
+          git commit -m "Use Arthur Delacroix across EASTOKYO credits"
+          git push
