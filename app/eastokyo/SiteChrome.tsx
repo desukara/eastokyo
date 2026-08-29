@@ -256,6 +256,49 @@ export function SiteFooter() {
             line-height: 1.25 !important;
             letter-spacing: .11em !important;
           }
+          @media (min-width:700px) {
+            .mag-page.mag-site-chrome .mag-footer .mag-newsletter.mag-newsletter-classified {
+              padding: .9rem 1.05rem .85rem !important;
+            }
+            .mag-page.mag-site-chrome .mag-footer .mag-newsletter.mag-newsletter-classified::before {
+              top: .82rem !important;
+              right: 1.05rem !important;
+            }
+            .mag-page.mag-site-chrome .mag-footer .mag-newsletter.mag-newsletter-classified::after {
+              right: 1.05rem !important;
+              bottom: .82rem !important;
+            }
+            .mag-page.mag-site-chrome .mag-footer .mag-newsletter.mag-newsletter-classified .mag-newsletter-label {
+              margin-bottom: .55rem !important;
+            }
+            .mag-page.mag-site-chrome .mag-footer .mag-newsletter.mag-newsletter-classified > strong {
+              max-width: 20ch !important;
+              font-size: clamp(1.55rem, 2.5vw, 2.35rem) !important;
+              line-height: .84 !important;
+            }
+            .mag-page.mag-site-chrome .mag-footer .mag-newsletter.mag-newsletter-classified .mag-newsletter-form {
+              margin-top: .75rem !important;
+              padding-top: .45rem !important;
+            }
+            .mag-page.mag-site-chrome .mag-footer .mag-newsletter.mag-newsletter-classified .mag-newsletter-form label {
+              margin-bottom: .28rem !important;
+            }
+            .mag-page.mag-site-chrome .mag-footer .mag-newsletter.mag-newsletter-classified .mag-newsletter-line {
+              grid-template-columns: minmax(0, 1fr) minmax(10.5rem, 31%) !important;
+              gap: 0 !important;
+            }
+            .mag-page.mag-site-chrome .mag-footer .mag-newsletter.mag-newsletter-classified .mag-newsletter-line input {
+              height: 2.75rem !important;
+            }
+            .mag-page.mag-site-chrome .mag-footer .mag-newsletter.mag-newsletter-classified .mag-newsletter-line button {
+              min-height: 2.75rem !important;
+              border-left: 1px solid rgba(243, 238, 228, .7) !important;
+              border-top: 0 !important;
+            }
+            .mag-page.mag-site-chrome .mag-footer .mag-newsletter.mag-newsletter-classified .mag-newsletter-form small {
+              margin-top: .45rem !important;
+            }
+          }
           @media (max-width:899px){
           .mag-page.mag-site-chrome .mag-footer .mag-footer-bottom{
             display:grid!important;
