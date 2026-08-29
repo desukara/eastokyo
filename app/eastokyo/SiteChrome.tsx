@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import "./site-shell-final.css";
 
@@ -20,6 +21,8 @@ const footerItems = [
 ];
 
 export function SiteHeader() {
+  const pathname = usePathname();
+  const isHomepage = pathname === "/";
   const [menuOpen, setMenuOpen] = useState(false);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const menuCloseRef = useRef<HTMLButtonElement>(null);
@@ -63,7 +66,54 @@ export function SiteHeader() {
   const closeMenu = () => setMenuOpen(false);
 
   return (
-    <div className="mag-page mag-site-chrome" id="site-chrome-top">
+    <div className={`mag-page mag-site-chrome ${isHomepage ? "is-homepage" : "is-inner-page"}`} id="site-chrome-top">
+      <style>{`
+        .mag-site-chrome .mag-desktop-wordmark { display: none !important; }
+        @media (min-width:900px) {
+          .mag-site-chrome.is-inner-page .mag-nav { position: relative !important; padding-left: 11.5rem !important; }
+          .mag-site-chrome.is-inner-page .mag-desktop-wordmark {
+            display: flex !important;
+            position: absolute !important;
+            left: 1.2rem !important;
+            top: 50% !important;
+            width: 8.8rem !important;
+            height: 2rem !important;
+            align-items: center !important;
+            transform: translateY(-50%) !important;
+            z-index: 2 !important;
+          }
+          .mag-site-chrome.is-inner-page .mag-desktop-wordmark img {
+            display: block !important;
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: contain !important;
+            object-position: left center !important;
+          }
+        }
+        @media (max-width:899px) {
+          .mag-site-chrome .mag-mobile-logo {
+            display: block !important;
+            width: clamp(10.5rem, 43vw, 13rem) !important;
+            height: 2.65rem !important;
+            flex: 0 0 auto !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            background: none !important;
+            font-size: 0 !important;
+            line-height: 0 !important;
+            text-indent: 0 !important;
+            overflow: visible !important;
+          }
+          .mag-site-chrome .mag-mobile-logo img {
+            display: block !important;
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: contain !important;
+            object-position: left center !important;
+            filter: brightness(0) !important;
+          }
+        }
+      `}</style>
       <header className="mag-header">
         <div className="mag-header-rail">
           <p>ART, PASSION AND A LITTLE DISORDER. TOKYO.</p>
@@ -71,13 +121,14 @@ export function SiteHeader() {
           <p>SEPTEMBER 1, 2026. LET’S MAKE SOME NOISE.</p>
         </div>
         <nav className="mag-nav" aria-label="Issue navigation">
+          <Link className="mag-desktop-wordmark" href="/" aria-label="EASTOKYO home"><img src="/eastokyo-wordmark-white.png" alt="" /></Link>
           <div className="mag-nav-links">
             {navItems.map((item) => <Link key={item.label} href={item.href}>{item.label}</Link>)}
           </div>
           <span>ART FROM TOKYO, AND FROM ALL THE OTHER PLACES WHERE MY HEART DECIDES TO WANDER.</span>
         </nav>
         <div className="mag-mobile-bar">
-          <Link className="mag-mobile-logo" href="/" onClick={closeMenu}>EASTOKYO</Link>
+          <Link className="mag-mobile-logo" href="/" onClick={closeMenu} aria-label="EASTOKYO home"><img src="/eastokyo-wordmark-white.png" alt="" /></Link>
           <button ref={menuButtonRef} type="button" className={`mag-menu-button ${menuOpen ? "is-open" : ""}`} aria-label={menuOpen ? "Close menu" : "Open menu"} aria-expanded={menuOpen} aria-controls="mag-site-mobile-menu" onClick={() => setMenuOpen((open) => !open)}>
             <span /><span />
           </button>
