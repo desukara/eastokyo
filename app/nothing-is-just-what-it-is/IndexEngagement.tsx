@@ -18,6 +18,7 @@ const MOMENTS: Moment[] = [
   { id: 'index-ceramics', article: 4, text: 'PICASSO NEVER FINISHED HIS PLATE — EASTOKYO' },
 ];
 const empty = (): State => ({ like:{count:0,active:false}, love:{count:0,active:false}, wow:{count:0,active:false} });
+const optimistic=(before:State,type:ReactionType,action:'add'|'remove'):State=>Object.fromEntries(TYPES.map(t=>{const v=before[t];if(action==='remove')return[t,t===type?{count:Math.max(0,v.count-1),active:false}:v];if(t===type)return[t,{count:v.count+(v.active?0:1),active:true}];return[t,{count:Math.max(0,v.count-(v.active?1:0)),active:false}]})) as State;
 
 function visitor() {
   const key='eastokyo-reaction-visitor-v1';
@@ -61,7 +62,7 @@ export default function IndexEngagement(){
 
   useEffect(()=>{if(!vid)return;MOMENTS.forEach(async m=>{try{const r=await fetch(`/api/reactions?target=${m.id}&visitorId=${encodeURIComponent(vid)}`,{cache:'no-store'});if(!r.ok)return;const d=await r.json() as {reactions?:State};if(d.reactions)setStates(s=>({...s,[m.id]:d.reactions!}));}catch{}});},[vid]);
 
-  const toggle=async(target:Target,type:ReactionType)=>{if(!vid||busy.has(target))return;const action=states[target][type].active?'remove':'add';setBusy(s=>new Set(s).add(target));try{const r=await fetch('/api/reactions',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({target,reaction:type,visitorId:vid,action})});if(r.ok){const d=await r.json() as {reactions?:State};if(d.reactions)setStates(s=>({...s,[target]:d.reactions!}));}}finally{setBusy(s=>{const n=new Set(s);n.delete(target);return n;});}};
+  const toggle=async(target:Target,type:ReactionType)=>{if(!vid||busy.has(target))return;const before=states[target];const action=before[type].active?'remove':'add';const next=optimistic(before,type,action);setStates(s=>({...s,[target]:next}));setBusy(s=>new Set(s).add(target));try{const r=await fetch('/api/reactions',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({target,reaction:type,visitorId:vid,action})});if(!r.ok)throw new Error('failed');const d=await r.json() as {reactions?:State};if(d.reactions)setStates(s=>({...s,[target]:d.reactions!}));}catch{setStates(s=>({...s,[target]:next}));}finally{setBusy(s=>{const n=new Set(s);n.delete(target);return n;});}};
   const share=async(text:string)=>{if(navigator.share)await navigator.share({title:'EASTOKYO',text,url:URL});else await navigator.clipboard.writeText(URL);};
 
   const Rail=({m}:{m:Moment})=>{const l=links(m.text);return <div className={shareStyles.rail} aria-label="Share this section">
