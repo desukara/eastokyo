@@ -46,7 +46,7 @@ export default function CoverStoryPage() {
       </section>
 
       <section className={`${styles.intro} ${responsive.intro}`}>
-        <div className={styles.meta}>EASTOKYO<br />LONG FORM<br />ISSUE 01<br /><br />WORDS & PHOTOGRAPHY: THÉO DELACROIX</div>
+        <div className={styles.meta}>EASTOKYO<br />LONG FORM<br />ISSUE 01<br /><br />WORDS & PHOTOGRAPHY: JAMES SIMMONS</div>
         <p className={styles.deck}>Picasso spent his life going back to the arena. It was never about the bull, but why certain things just won&apos;t let us go.</p>
       </section>
 
@@ -63,7 +63,7 @@ export default function CoverStoryPage() {
       <section className={styles.visualSequence} aria-label="Picasso and bullfighting exhibition">
         <figure className={`${styles.visualFigure} ${styles.hallwayFigure}`}>
           <picture><source media="(max-width: 700px)" srcSet="/images/editorial/picasso-red-room-mobile.png" /><img src="/images/editorial/picasso-red-room-desktop.png" alt="Red exhibition corridor presenting works by Picasso" /></picture>
-          <figcaption className={styles.imageCredit}>VIEW OF THE EXHIBITION · PHOTOGRAPHY: THÉO DELACROIX.</figcaption>
+          <figcaption className={styles.imageCredit}>VIEW OF THE EXHIBITION · PHOTOGRAPHY: JAMES SIMMONS.</figcaption>
         </figure>
 
         <EditorialReveal>
@@ -80,7 +80,7 @@ export default function CoverStoryPage() {
 
         <figure className={`${styles.visualFigure} ${styles.viewerFigure}`}>
           <picture><source media="(max-width: 700px)" srcSet="/images/editorial/picasso-bull-viewer-mobile.png" /><img src="/images/editorial/picasso-bull-viewer-desktop.png" alt="A visitor looks closely at Picasso's bullfighting works" /></picture>
-          <figcaption className={styles.imageCredit}>LOOK CLOSER · PHOTOGRAPHY: THÉO DELACROIX.</figcaption>
+          <figcaption className={styles.imageCredit}>LOOK CLOSER · PHOTOGRAPHY: JAMES SIMMONS.</figcaption>
         </figure>
 
         <EditorialReveal delay="short">
@@ -127,7 +127,7 @@ export default function CoverStoryPage() {
 
         <figure className={`${styles.visualFigure} ${styles.galleryFigure}`}>
           <picture><source media="(max-width: 700px)" srcSet="/images/editorial/picasso-bull-gallery-mobile.png" /><img src="/images/editorial/picasso-bull-gallery-desktop.png" alt="Visitors look at a group of Picasso's bullfighting works" /></picture>
-          <figcaption className={styles.imageCredit}>THE ROOM IS WATCHING US · PHOTOGRAPHY: THÉO DELACROIX.</figcaption>
+          <figcaption className={styles.imageCredit}>THE ROOM IS WATCHING US · PHOTOGRAPHY: JAMES SIMMONS.</figcaption>
         </figure>
 
         <EditorialReveal delay="short">

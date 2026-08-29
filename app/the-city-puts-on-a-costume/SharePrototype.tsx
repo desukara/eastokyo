@@ -120,7 +120,7 @@ export default function SharePrototype() {
 
     const meta = Array.from(main.querySelectorAll('div')).find((el) => {
       const text = el.textContent || '';
-      return text.includes('TOKYO STORY 04') && text.includes('THÉO DELACROIX') && el.children.length <= 5;
+      return text.includes('TOKYO STORY 04') && text.includes('JAMES SIMMONS') && el.children.length <= 5;
     }) as HTMLElement | undefined;
     const byline = meta?.querySelector('span:last-child') as HTMLElement | null;
     const footer = main.querySelector('footer');
