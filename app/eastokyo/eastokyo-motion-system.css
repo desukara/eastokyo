@@ -461,3 +461,21 @@ main#top > section:first-of-type h1 {
     transform: none !important;
   }
 }
+
+/* Restore the first arena exhibition photograph to its original static presentation. */
+main#top > section[class*="visualSequence"] {
+  animation: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+main#top figure[class*="hallwayFigure"],
+main#top figure[class*="hallwayFigure"] img,
+main#top figure[class*="hallwayFigure"] figcaption {
+  animation: none !important;
+  clip-path: none !important;
+  filter: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}
