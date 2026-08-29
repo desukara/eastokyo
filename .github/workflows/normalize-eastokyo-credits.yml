@@ -1,0 +1,63 @@
+name: Normalize EASTOKYO credits
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  normalize-credits:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Replace pen-name credits
+        shell: python
+        run: |
+          from pathlib import Path
+          import re
+
+          root = Path('app')
+          replacements = (
+              'THÉO DELACROIX',
+              'THEO DELACROIX',
+              'ARTHUR DELACROIX',
+          )
+
+          for path in root.rglob('*'):
+              if not path.is_file() or path.suffix.lower() not in {'.ts', '.tsx', '.js', '.jsx', '.css', '.md', '.mdx'}:
+                  continue
+              text = path.read_text(encoding='utf-8')
+              updated = text
+              for name in replacements:
+                  updated = updated.replace(name, 'JAMES SIMMONS')
+
+              if path.as_posix() == 'app/eastokyo/SiteChrome.tsx':
+                  updated = re.sub(
+                      r'<p className="mag-creator-credit"><span>FOUNDER &amp; EDITOR: JAMES SIMMONS</span><br /><span>WORDS &amp; PHOTOGRAPHY BY JAMES SIMMONS\.</span></p>',
+                      '<p className="mag-creator-credit">FOUNDER &amp; EDITOR: JAMES SIMMONS</p>',
+                      updated,
+                  )
+
+              if updated != text:
+                  path.write_text(updated, encoding='utf-8')
+
+          temporary_cleanup = Path('app/template.tsx')
+          if temporary_cleanup.exists():
+              temporary_cleanup.unlink()
+
+      - name: Commit normalized credits
+        run: |
+          if git diff --quiet; then
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add app
+          git commit -m "Normalize all EASTOKYO credits to James Simmons"
+          git push
