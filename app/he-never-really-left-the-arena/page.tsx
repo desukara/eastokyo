@@ -46,7 +46,7 @@ export default function CoverStoryPage() {
       </section>
 
       <section className={`${styles.intro} ${responsive.intro}`}>
-        <div className={styles.meta}>EASTOKYO<br />LONG FORM<br />ISSUE 01<br /><br />BY ARTHUR DELACROIX</div>
+        <div className={styles.meta}>EASTOKYO<br />LONG FORM<br />ISSUE 01<br /><br />WORDS & PHOTOGRAPHY: ARTHUR DELACROIX</div>
         <p className={styles.deck}>Picasso spent his life going back to the arena. It was never about the bull, but why certain things just won&apos;t let us go.</p>
       </section>
 
