@@ -90,7 +90,7 @@ export function SiteHeader() {
             <Link key={item.label} href={item.href} onClick={closeMenu} tabIndex={menuOpen ? 0 : -1}><span>0{index + 1}</span>{item.label}</Link>
           ))}
         </nav>
-        <p>EASTOKYO. NUMBER ONE. BORN IN TOKYO. RAISED WITH FIRE IN THE BELLY.</p>
+        <p>EASTOKYO. NUMBER ONE. FROM TOKYO. WITH BAD MANNERS.</p>
       </div>
     </div>
   );
@@ -109,7 +109,7 @@ export function SiteFooter() {
           <div className="social-placeholder" aria-label="EASTOKYO social media"><span>INSTAGRAM</span><span>TIKTOK</span><span>PINTEREST</span></div>
         </div>
         <Link className="mag-footer-wordmark" href="/" aria-label="EASTOKYO home">EASTOKYO</Link>
-        <div className="mag-footer-bottom"><p>© 2026 EASTOKYO. TOKYO, JAPAN.</p><p>BORN IN TOKYO. RAISED WITH FIRE IN THE BELLY.</p><a href="#top">ONE LAST LOOK, RIGHT AT THE TOP.</a></div>
+        <div className="mag-footer-bottom"><p>© 2026 EASTOKYO. TOKYO, JAPAN.</p><p>FROM TOKYO. WITH BAD MANNERS.</p><a href="#top">ONE LAST LOOK, RIGHT AT THE TOP.</a></div>
       </footer>
     </div>
   );
