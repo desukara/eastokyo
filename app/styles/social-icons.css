@@ -12,6 +12,7 @@
 }
 
 .social-placeholder span,
+.social-placeholder::before,
 .social-placeholder::after {
   display: block;
   flex: 0 0 2.55rem;
@@ -33,6 +34,11 @@
   transition: none;
 }
 
+.social-placeholder::before {
+  content: "";
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Ccircle cx='24' cy='24' r='22' fill='%231876F2'/%3E%3Cpath d='M27.2 16.2h3.4v-5.1c-.6-.1-2.6-.3-5-.3-4.9 0-8.2 3-8.2 8.5V24h-5.5v5.7h5.5V44c1.1.2 2.2.3 3.4.3 1.2 0 2.4-.1 3.5-.3V29.7h5.1l.8-5.7h-5.9v-4.1c0-1.7.5-3.7 2.9-3.7z' fill='white'/%3E%3C/svg%3E");
+}
+
 .social-placeholder span:nth-child(1) {
   background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0OCA0OCI+PGRlZnM+PHJhZGlhbEdyYWRpZW50IGlkPSJnIiBjeD0iMjUlIiBjeT0iMTAwJSIgcj0iMTIwJSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjRkZENjAwIi8+PHN0b3Agb2Zmc2V0PSIuMzgiIHN0b3AtY29sb3I9IiNGRjdBMDAiLz48c3RvcCBvZmZzZXQ9Ii42OCIgc3RvcC1jb2xvcj0iI0ZGMDE2OSIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI0QzMDBDNSIvPjwvcmFkaWFsR3JhZGllbnQ+PC9kZWZzPjxjaXJjbGUgY3g9IjI0IiBjeT0iMjQiIHI9IjIyIiBmaWxsPSJ1cmwoI2cpIi8+PHJlY3QgeD0iMTQuMiIgeT0iMTQuMiIgd2lkdGg9IjE5LjYiIGhlaWdodD0iMTkuNiIgcng9IjYuNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIuNiIvPjxjaXJjbGUgY3g9IjI0IiBjeT0iMjQiIHI9IjQuOCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIuNiIvPjxjaXJjbGUgY3g9IjMwLjIiIGN5PSIxNy44IiByPSIxLjQ1IiBmaWxsPSIjZmZmIi8+PC9zdmc+");
 }
@@ -48,10 +54,6 @@
 
 .social-placeholder span:nth-child(4) {
   background-image: url("https://bsky.social/about/brand-assets/logos/bluesky_media_kit_logo_4.png");
-}
-
-.social-placeholder::before {
-  content: none;
 }
 
 .social-placeholder::after {
@@ -71,6 +73,7 @@
   }
 
   .social-placeholder span,
+  .social-placeholder::before,
   .social-placeholder::after {
     flex-basis: 2.3rem;
     width: 2.3rem;
