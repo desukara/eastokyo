@@ -109,6 +109,51 @@ export function SiteFooter() {
           <div className="social-placeholder" aria-label="EASTOKYO social media"><span>INSTAGRAM</span><span>TIKTOK</span><span>PINTEREST</span><span>BLUESKY</span></div>
         </div>
         <Link className="mag-footer-wordmark" href="/" aria-label="EASTOKYO home">EASTOKYO</Link>
+        <style>{`@media (max-width:899px){
+          .mag-page.mag-site-chrome .mag-footer .mag-footer-bottom{
+            display:grid!important;
+            position:static!important;
+            visibility:visible!important;
+            opacity:1!important;
+            width:100%!important;
+            height:auto!important;
+            min-height:0!important;
+            max-height:none!important;
+            overflow:visible!important;
+            grid-template-columns:1fr!important;
+            gap:.42rem!important;
+            margin:0!important;
+            padding:.75rem 0 0!important;
+            border-top:1px solid rgba(247,241,231,.22)!important;
+            color:var(--mag-cream,#e7dac5)!important;
+            transform:none!important;
+            clip:auto!important;
+            clip-path:none!important;
+          }
+          .mag-page.mag-site-chrome .mag-footer .mag-footer-bottom>p{
+            display:block!important;
+            position:static!important;
+            visibility:visible!important;
+            opacity:1!important;
+            width:100%!important;
+            height:auto!important;
+            max-height:none!important;
+            overflow:visible!important;
+            margin:0!important;
+            color:var(--mag-cream,#e7dac5)!important;
+            -webkit-text-fill-color:currentColor!important;
+            font-size:.52rem!important;
+            line-height:1.35!important;
+            text-align:left!important;
+            text-indent:0!important;
+            transform:none!important;
+          }
+          .mag-page.mag-site-chrome .mag-footer .mag-footer-bottom>p::before,
+          .mag-page.mag-site-chrome .mag-footer .mag-footer-bottom>p::after{
+            display:none!important;
+            content:none!important;
+          }
+        }`}</style>
         <div className="mag-footer-bottom"><p>© 2026 EASTOKYO. TOKYO, JAPAN.</p><p>FROM TOKYO. WITH BAD MANNERS.</p><a href="#top">ONE LAST LOOK, RIGHT AT THE TOP.</a></div>
       </footer>
     </div>
