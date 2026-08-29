@@ -293,3 +293,98 @@
     transition: none !important;
   }
 }
+
+/* Article pages: restrained magazine motion without touching article layout. */
+@keyframes ek-article-hero-settle {
+  from { opacity: .86; transform: scale(1.035); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes ek-article-title-settle {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes ek-article-section-enter {
+  from { opacity: .12; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes ek-article-figure-enter {
+  from { clip-path: inset(7% 0 0 0); }
+  to { clip-path: inset(0 0 0 0); }
+}
+
+main#top > section:first-of-type picture img {
+  transform-origin: center center;
+  animation: ek-article-hero-settle 1400ms cubic-bezier(.16, 1, .3, 1) both;
+}
+
+main#top > section:first-of-type h1 {
+  animation: ek-article-title-settle 900ms 140ms cubic-bezier(.16, 1, .3, 1) both;
+}
+
+@supports (animation-timeline: view()) {
+  main#top > section:not(:first-of-type) {
+    animation-name: ek-article-section-enter;
+    animation-duration: 1ms;
+    animation-fill-mode: both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 26%;
+  }
+
+  main#top figure {
+    animation-name: ek-article-figure-enter;
+    animation-duration: 1ms;
+    animation-fill-mode: both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 22%;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  main#top figure img {
+    transition: transform 520ms cubic-bezier(.16, 1, .3, 1), filter 520ms ease;
+  }
+
+  main#top figure:hover img {
+    transform: scale(1.012);
+  }
+
+  main#top figure figcaption {
+    transition: transform 260ms cubic-bezier(.16, 1, .3, 1), opacity 260ms ease;
+  }
+
+  main#top figure:hover figcaption {
+    transform: translateY(-2px);
+  }
+}
+
+@media (max-width: 899px) {
+  @keyframes ek-article-section-enter-mobile {
+    from { opacity: .2; transform: translateY(14px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @supports (animation-timeline: view()) {
+    main#top > section:not(:first-of-type) {
+      animation-name: ek-article-section-enter-mobile;
+      animation-range: entry 0% cover 18%;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  main#top > section,
+  main#top > section:first-of-type picture img,
+  main#top > section:first-of-type h1,
+  main#top figure,
+  main#top figure img,
+  main#top figure figcaption {
+    animation: none !important;
+    clip-path: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
