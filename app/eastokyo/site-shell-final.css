@@ -280,3 +280,242 @@
     background-size: min(72%, 17rem) auto !important;
   }
 }
+
+/* Newsletter: one EASTOKYO object across every breakpoint. */
+.mag-page.mag-site-chrome .mag-footer .mag-newsletter.mag-newsletter-classified {
+  position: relative !important;
+  isolation: isolate !important;
+  overflow: hidden !important;
+  min-height: 0 !important;
+  padding: clamp(1.15rem, 2.2vw, 1.75rem) !important;
+  color: #f3eee4 !important;
+  background:
+    linear-gradient(115deg, rgba(210, 163, 58, .06), transparent 42%),
+    #4a171d !important;
+  border: 1px solid rgba(243, 238, 228, .72) !important;
+  border-radius: 0 !important;
+  outline: 1px solid #b74f2f !important;
+  outline-offset: -6px !important;
+  box-shadow: none !important;
+}
+
+.mag-page.mag-site-chrome .mag-footer .mag-newsletter.mag-newsletter-classified::before {
+  position: absolute !important;
+  top: 1rem !important;
+  right: 1rem !important;
+  z-index: 2 !important;
+  content: "LETTER NO. 01 / TOKYO 2026" !important;
+  color: rgba(243, 238, 228, .76) !important;
+  font: 850 .48rem/1 var(--font-bienvivos-sans), Arial, sans-serif !important;
+  letter-spacing: .13em !important;
+  text-transform: uppercase !important;
+  white-space: nowrap !important;
+}
+
+.mag-page.mag-site-chrome .mag-footer .mag-newsletter.mag-newsletter-classified::after {
+  position: absolute !important;
+  right: 1rem !important;
+  bottom: 1rem !important;
+  width: .42rem !important;
+  height: .42rem !important;
+  content: "" !important;
+  border: 1px solid #d2a33a !important;
+  border-radius: 50% !important;
+  box-shadow: 0 0 0 3px #4a171d, 0 0 0 4px rgba(243, 238, 228, .45) !important;
+}
+
+.mag-page.mag-site-chrome .mag-footer .mag-newsletter.mag-newsletter-classified .mag-newsletter-label {
+  max-width: 55% !important;
+  margin: 0 0 .9rem !important;
+  color: #f3eee4 !important;
+  font: 900 .58rem/1 var(--font-bienvivos-sans), Arial, sans-serif !important;
+  letter-spacing: .17em !important;
+  text-transform: uppercase !important;
+}
+
+.mag-page.mag-site-chrome .mag-footer .mag-newsletter.mag-newsletter-classified > strong {
+  display: block !important;
+  max-width: 13ch !important;
+  margin: 0 !important;
+  color: #d2a33a !important;
+  font-family: var(--font-bienvivos-display), Georgia, serif !important;
+  font-size: clamp(2rem, 4.2vw, 4.35rem) !important;
+  font-style: italic !important;
+  font-weight: 600 !important;
+  line-height: .82 !important;
+  letter-spacing: -.055em !important;
+  text-wrap: balance !important;
+}
+
+.mag-page.mag-site-chrome .mag-footer .mag-newsletter.mag-newsletter-classified .mag-newsletter-form {
+  display: block !important;
+  margin: clamp(1.35rem, 2.4vw, 2.25rem) 0 0 !important;
+  padding: .8rem 0 0 !important;
+  border-top: 1px solid rgba(243, 238, 228, .48) !important;
+}
+
+.mag-page.mag-site-chrome .mag-footer .mag-newsletter.mag-newsletter-classified .mag-newsletter-form label {
+  display: block !important;
+  margin: 0 0 .45rem !important;
+  color: rgba(243, 238, 228, .82) !important;
+  font: 900 .52rem/1 var(--font-bienvivos-sans), Arial, sans-serif !important;
+  letter-spacing: .17em !important;
+  text-transform: uppercase !important;
+}
+
+.mag-page.mag-site-chrome .mag-footer .mag-newsletter.mag-newsletter-classified .mag-newsletter-line {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(12rem, 31%) !important;
+  align-items: stretch !important;
+  gap: 0 !important;
+  border-top: 1px solid rgba(243, 238, 228, .26) !important;
+  border-bottom: 1px solid rgba(243, 238, 228, .62) !important;
+}
+
+.mag-page.mag-site-chrome .mag-footer .mag-newsletter.mag-newsletter-classified .mag-newsletter-line input {
+  width: 100% !important;
+  min-width: 0 !important;
+  height: 3.5rem !important;
+  padding: .3rem .8rem .2rem 0 !important;
+  box-sizing: border-box !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  outline: 0 !important;
+  background: transparent !important;
+  color: #f3eee4 !important;
+  -webkit-text-fill-color: currentColor !important;
+  font: 850 clamp(.78rem, 1.05vw, .95rem)/1 var(--font-bienvivos-sans), Arial, sans-serif !important;
+  letter-spacing: .055em !important;
+}
+
+.mag-page.mag-site-chrome .mag-footer .mag-newsletter.mag-newsletter-classified .mag-newsletter-line input::placeholder {
+  color: rgba(243, 238, 228, .48) !important;
+  opacity: 1 !important;
+}
+
+.mag-page.mag-site-chrome .mag-footer .mag-newsletter.mag-newsletter-classified .mag-newsletter-line input:focus {
+  border: 0 !important;
+  box-shadow: inset 0 -3px 0 #d2a33a !important;
+}
+
+.mag-page.mag-site-chrome .mag-footer .mag-newsletter.mag-newsletter-classified .mag-newsletter-line button {
+  min-height: 3.5rem !important;
+  padding: .7rem 1rem !important;
+  border: 0 !important;
+  border-left: 1px solid rgba(243, 238, 228, .7) !important;
+  border-radius: 0 !important;
+  background: #245b85 !important;
+  color: #f3eee4 !important;
+  box-shadow: none !important;
+  font: 900 .59rem/1.1 var(--font-bienvivos-sans), Arial, sans-serif !important;
+  letter-spacing: .105em !important;
+  text-align: left !important;
+  text-transform: uppercase !important;
+  cursor: pointer !important;
+  transition: background .18s ease, color .18s ease !important;
+}
+
+.mag-page.mag-site-chrome .mag-footer .mag-newsletter.mag-newsletter-classified .mag-newsletter-line button::after {
+  content: "  →" !important;
+}
+
+.mag-page.mag-site-chrome .mag-footer .mag-newsletter.mag-newsletter-classified .mag-newsletter-line button:hover,
+.mag-page.mag-site-chrome .mag-footer .mag-newsletter.mag-newsletter-classified .mag-newsletter-line button:focus-visible {
+  background: #d2a33a !important;
+  color: #101820 !important;
+  outline: none !important;
+}
+
+.mag-page.mag-site-chrome .mag-footer .mag-newsletter.mag-newsletter-classified .mag-newsletter-line button:active {
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.mag-page.mag-site-chrome .mag-footer .mag-newsletter.mag-newsletter-classified .mag-newsletter-form small {
+  display: block !important;
+  max-width: calc(100% - 2rem) !important;
+  margin: .7rem 0 0 !important;
+  color: rgba(243, 238, 228, .62) !important;
+  font: 800 .46rem/1.25 var(--font-bienvivos-sans), Arial, sans-serif !important;
+  letter-spacing: .12em !important;
+  text-transform: uppercase !important;
+}
+
+@media (max-width: 899px) {
+  .mag-page.mag-site-chrome .mag-footer .mag-newsletter.mag-newsletter-classified {
+    padding: 1.15rem 1.05rem 1.05rem !important;
+    outline-offset: -5px !important;
+  }
+
+  .mag-page.mag-site-chrome .mag-footer .mag-newsletter.mag-newsletter-classified::before {
+    top: 1.05rem !important;
+    right: 1.05rem !important;
+    font-size: .42rem !important;
+    letter-spacing: .1em !important;
+  }
+
+  .mag-page.mag-site-chrome .mag-footer .mag-newsletter.mag-newsletter-classified::after {
+    right: 1.05rem !important;
+    bottom: 1rem !important;
+  }
+
+  .mag-page.mag-site-chrome .mag-footer .mag-newsletter.mag-newsletter-classified .mag-newsletter-label {
+    max-width: 48% !important;
+    margin-bottom: 1.15rem !important;
+    font-size: .51rem !important;
+  }
+
+  .mag-page.mag-site-chrome .mag-footer .mag-newsletter.mag-newsletter-classified > strong {
+    max-width: 11.5ch !important;
+    margin: 0 !important;
+    font-size: clamp(2.1rem, 10.3vw, 3.2rem) !important;
+    line-height: .8 !important;
+  }
+
+  .mag-page.mag-site-chrome .mag-footer .mag-newsletter.mag-newsletter-classified .mag-newsletter-form {
+    margin-top: 1.3rem !important;
+    padding-top: .68rem !important;
+  }
+
+  .mag-page.mag-site-chrome .mag-footer .mag-newsletter.mag-newsletter-classified .mag-newsletter-line {
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+  }
+
+  .mag-page.mag-site-chrome .mag-footer .mag-newsletter.mag-newsletter-classified .mag-newsletter-line input {
+    height: 3.05rem !important;
+    padding-right: .35rem !important;
+  }
+
+  .mag-page.mag-site-chrome .mag-footer .mag-newsletter.mag-newsletter-classified .mag-newsletter-line button {
+    min-height: 2.85rem !important;
+    width: 100% !important;
+    border-left: 0 !important;
+    border-top: 1px solid rgba(243, 238, 228, .7) !important;
+    text-align: left !important;
+  }
+
+  .mag-page.mag-site-chrome .mag-footer .mag-newsletter.mag-newsletter-classified .mag-newsletter-form small {
+    max-width: calc(100% - 1.3rem) !important;
+    margin-top: .58rem !important;
+    font-size: .43rem !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .mag-page.mag-site-chrome .mag-footer .mag-newsletter.mag-newsletter-classified {
+    padding: 1rem .95rem .95rem !important;
+  }
+
+  .mag-page.mag-site-chrome .mag-footer .mag-newsletter.mag-newsletter-classified::before {
+    top: .92rem !important;
+    right: .95rem !important;
+    max-width: 43% !important;
+    white-space: normal !important;
+    text-align: right !important;
+  }
+
+  .mag-page.mag-site-chrome .mag-footer .mag-newsletter.mag-newsletter-classified > strong {
+    font-size: clamp(1.95rem, 10.8vw, 2.65rem) !important;
+  }
+}
