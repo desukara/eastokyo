@@ -13,6 +13,43 @@
   box-sizing: border-box;
 }
 
+.mag-site-chrome .social-placeholder .social-bluesky {
+  display: inline-flex;
+  align-items: center;
+  gap: .42em;
+}
+
+.mag-site-chrome .social-placeholder .social-bluesky::before {
+  display: none !important;
+  content: none !important;
+}
+
+.mag-site-chrome .social-placeholder .social-bluesky-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.65em;
+  height: 1.65em;
+  flex: 0 0 1.65em;
+  padding: 0 !important;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+.mag-site-chrome .social-placeholder .social-bluesky-icon::before,
+.mag-site-chrome .social-placeholder .social-bluesky-icon::after {
+  display: none !important;
+  content: none !important;
+}
+
+.mag-site-chrome .social-placeholder .social-bluesky-icon svg {
+  display: block;
+  width: .92em;
+  height: .92em;
+  fill: currentColor;
+}
+
 @media (max-width: 899px) {
   /* Mobile is a real magazine masthead, not a reduced desktop nav. */
   .mag-site-chrome .mag-header-rail,
