@@ -1,0 +1,39 @@
+name: Creator credit James Simmons
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  update-credit:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Change creator credit only
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('app/eastokyo/SiteChrome.tsx')
+          s = p.read_text()
+          old = 'EASTOKYO · CREATED BY THÉO DELACROIX · WORDS &amp; PHOTOGRAPHY BY THÉO DELACROIX.'
+          new = 'EASTOKYO · CREATED BY JAMES SIMMONS · WORDS &amp; PHOTOGRAPHY BY THÉO DELACROIX.'
+          if old not in s:
+              raise SystemExit('Expected creator credit not found')
+          s = s.replace(old, new, 1)
+          p.write_text(s)
+          PY
+      - name: Remove one-off workflow
+        run: rm .github/workflows/creator-credit-james-simmons.yml
+      - name: Commit change
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add app/eastokyo/SiteChrome.tsx .github/workflows/creator-credit-james-simmons.yml
+          git commit -m 'Credit James Simmons as EASTOKYO creator'
+          git push
