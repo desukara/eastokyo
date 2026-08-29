@@ -519,3 +519,22 @@
     font-size: clamp(1.95rem, 10.8vw, 2.65rem) !important;
   }
 }
+
+/* EASTOKYO creator signature */
+.mag-site-chrome .mag-creator-credit {
+  margin: 1rem 0 .25rem !important;
+  color: rgba(247, 241, 231, .82) !important;
+  font-size: .58rem !important;
+  font-weight: 800 !important;
+  line-height: 1.35 !important;
+  letter-spacing: .12em !important;
+  text-transform: uppercase !important;
+}
+@media (max-width: 899px) {
+  .mag-site-chrome .mag-creator-credit {
+    margin: .8rem 0 .15rem !important;
+    font-size: .5rem !important;
+    line-height: 1.4 !important;
+    letter-spacing: .1em !important;
+  }
+}
