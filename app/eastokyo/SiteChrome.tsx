@@ -153,14 +153,110 @@ export function SiteFooter() {
       <footer className="mag-footer">
         <div className="mag-footer-top">
           <div><p className="mag-kicker">EASTOKYO. NUMBER ONE.</p><h2>LOOK TWICE.</h2></div>
-          <div className="mag-newsletter"><p>THE EASTOKYO LETTER. DO NOT MISS THE NEXT ONE.</p><strong>NOT YET. BUT SOON. PATIENCE, MON AMI.</strong></div>
+          <div className="mag-newsletter mag-newsletter-classified">
+            <p className="mag-newsletter-label">THE EASTOKYO LETTER.</p>
+            <strong>ART. TOKYO. EXHIBITIONS. PEOPLE MAKING TROUBLE.</strong>
+            <form className="mag-newsletter-form" onSubmit={(event) => event.preventDefault()}>
+              <label htmlFor="eastokyo-newsletter-email">YOUR EMAIL:</label>
+              <div className="mag-newsletter-line">
+                <input id="eastokyo-newsletter-email" name="email" type="email" inputMode="email" autoComplete="email" placeholder="YOU@EXAMPLE.COM" aria-label="Email address" />
+                <button type="submit">PUT MY NAME ON THE LIST.</button>
+              </div>
+              <small>OCCASIONAL. NO NONSENSE. UNSUBSCRIBE WHENEVER YOU LIKE.</small>
+            </form>
+          </div>
         </div>
         <div className="mag-footer-links">
           <nav aria-label="Footer navigation">{footerItems.map((item) => item.href.startsWith("/#") ? <Link key={item.label} href={item.href}>{item.label}</Link> : <a key={item.label} href={item.href}>{item.label}</a>)}</nav>
           <div className="social-placeholder" aria-label="EASTOKYO social media"><span>INSTAGRAM</span><span>TIKTOK</span><span>PINTEREST</span><span>BLUESKY</span></div>
         </div>
         <Link className="mag-footer-wordmark" href="/" aria-label="EASTOKYO home">EASTOKYO</Link>
-        <style>{`@media (max-width:899px){
+        <style>{`
+          .mag-site-chrome .mag-newsletter-classified {
+            border: 2px solid var(--mag-ink, #101820) !important;
+            border-radius: 0 !important;
+            box-shadow: 5px 5px 0 var(--mag-ink, #101820) !important;
+          }
+          .mag-site-chrome .mag-newsletter-classified .mag-newsletter-label {
+            margin: 0 0 .55rem !important;
+            font-size: .66rem !important;
+            font-weight: 900 !important;
+            line-height: 1.1 !important;
+            letter-spacing: .16em !important;
+          }
+          .mag-site-chrome .mag-newsletter-classified > strong {
+            display: block !important;
+            max-width: 24ch !important;
+            margin: 0 0 1rem !important;
+            font-size: clamp(1.25rem, 2.2vw, 2rem) !important;
+            line-height: .95 !important;
+            letter-spacing: -.025em !important;
+          }
+          .mag-site-chrome .mag-newsletter-form {
+            display: block !important;
+            margin: 0 !important;
+          }
+          .mag-site-chrome .mag-newsletter-form label {
+            display: block !important;
+            margin: 0 0 .35rem !important;
+            font-size: .62rem !important;
+            font-weight: 900 !important;
+            line-height: 1 !important;
+            letter-spacing: .14em !important;
+          }
+          .mag-site-chrome .mag-newsletter-line {
+            display: grid !important;
+            grid-template-columns: minmax(0, 1fr) auto !important;
+            align-items: stretch !important;
+            gap: .7rem !important;
+          }
+          .mag-site-chrome .mag-newsletter-line input {
+            min-width: 0 !important;
+            height: 2.75rem !important;
+            padding: .2rem .1rem !important;
+            border: 0 !important;
+            border-bottom: 3px solid var(--mag-ink, #101820) !important;
+            border-radius: 0 !important;
+            outline: none !important;
+            background: transparent !important;
+            color: var(--mag-ink, #101820) !important;
+            -webkit-text-fill-color: currentColor !important;
+            font: 800 .86rem/1 var(--font-bienvivos-sans), Arial, sans-serif !important;
+            letter-spacing: .04em !important;
+          }
+          .mag-site-chrome .mag-newsletter-line input::placeholder {
+            color: rgba(16, 24, 32, .55) !important;
+            opacity: 1 !important;
+          }
+          .mag-site-chrome .mag-newsletter-line input:focus {
+            border-bottom-width: 5px !important;
+          }
+          .mag-site-chrome .mag-newsletter-line button {
+            min-height: 2.75rem !important;
+            padding: .6rem .8rem !important;
+            border: 2px solid var(--mag-ink, #101820) !important;
+            border-radius: 0 !important;
+            background: var(--mag-paper, #f3eee4) !important;
+            color: var(--mag-ink, #101820) !important;
+            box-shadow: 3px 3px 0 var(--mag-ink, #101820) !important;
+            font: 900 .62rem/1.05 var(--font-bienvivos-sans), Arial, sans-serif !important;
+            letter-spacing: .09em !important;
+            text-transform: uppercase !important;
+            cursor: pointer !important;
+          }
+          .mag-site-chrome .mag-newsletter-line button:active {
+            transform: translate(2px, 2px) !important;
+            box-shadow: 1px 1px 0 var(--mag-ink, #101820) !important;
+          }
+          .mag-site-chrome .mag-newsletter-form small {
+            display: block !important;
+            margin-top: .75rem !important;
+            font-size: .52rem !important;
+            font-weight: 800 !important;
+            line-height: 1.25 !important;
+            letter-spacing: .11em !important;
+          }
+          @media (max-width:899px){
           .mag-page.mag-site-chrome .mag-footer .mag-footer-bottom{
             display:grid!important;
             position:static!important;
@@ -203,6 +299,23 @@ export function SiteFooter() {
           .mag-page.mag-site-chrome .mag-footer .mag-footer-bottom>p::after{
             display:none!important;
             content:none!important;
+          }
+          .mag-site-chrome .mag-newsletter-classified {
+            padding: 1rem !important;
+            box-shadow: 4px 4px 0 var(--mag-ink, #101820) !important;
+          }
+          .mag-site-chrome .mag-newsletter-classified > strong {
+            max-width: 18ch !important;
+            font-size: clamp(1.25rem, 6vw, 1.65rem) !important;
+          }
+          .mag-site-chrome .mag-newsletter-line {
+            grid-template-columns: 1fr !important;
+            gap: .8rem !important;
+          }
+          .mag-site-chrome .mag-newsletter-line input,
+          .mag-site-chrome .mag-newsletter-line button {
+            width: 100% !important;
+            box-sizing: border-box !important;
           }
         }`}</style>
         <div className="mag-footer-bottom"><p>© 2026 EASTOKYO. TOKYO, JAPAN.</p><p>FROM TOKYO. WITH BAD MANNERS.</p><a href="#top">ONE LAST LOOK, RIGHT AT THE TOP.</a></div>
