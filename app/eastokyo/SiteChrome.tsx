@@ -170,7 +170,7 @@ export function SiteFooter() {
           <nav aria-label="Footer navigation">{footerItems.map((item) => item.href.startsWith("/#") ? <Link key={item.label} href={item.href}>{item.label}</Link> : <a key={item.label} href={item.href}>{item.label}</a>)}</nav>
           <div className="social-placeholder" aria-label="EASTOKYO social media"><span>INSTAGRAM</span><span>TIKTOK</span><span>PINTEREST</span><span>BLUESKY</span></div>
         </div>
-        <p className="mag-creator-credit">EASTOKYO · CREATED BY JAMES SIMMONS · WORDS &amp; PHOTOGRAPHY BY THÉO DELACROIX.</p>
+        <p className="mag-creator-credit"><span>FOUNDER &amp; EDITOR: JAMES SIMMONS</span><br /><span>WORDS &amp; PHOTOGRAPHY BY THÉO DELACROIX.</span></p>
         <Link className="mag-footer-wordmark" href="/" aria-label="EASTOKYO home">EASTOKYO</Link>
         <style>{`
           .mag-site-chrome .mag-newsletter-classified {
