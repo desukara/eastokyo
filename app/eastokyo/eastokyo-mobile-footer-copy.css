@@ -1,13 +1,17 @@
 /* Mobile footer copy only. Desktop remains unchanged. */
 @media (max-width: 899px) {
-  .mag-page .mag-footer-bottom > p:first-child {
-    font-size: 0 !important;
+  .mag-page .mag-footer-bottom > p:first-child,
+  .mag-page .mag-footer-bottom > p:nth-child(2) {
+    display: block !important;
+    width: 100% !important;
+    margin: 0 !important;
+    text-align: left !important;
+    font-size: .52rem !important;
+    line-height: 1.35 !important;
   }
 
   .mag-page .mag-footer-bottom > p:first-child::after {
-    content: "© 2026 EASTOKYO.";
-    font-size: clamp(.62rem, 2.7vw, .72rem) !important;
-    line-height: 1.35 !important;
-    letter-spacing: .08em !important;
+    display: none !important;
+    content: none !important;
   }
 }
