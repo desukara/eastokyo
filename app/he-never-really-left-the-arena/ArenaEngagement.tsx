@@ -20,6 +20,15 @@ const MOMENTS: Moment[] = [
 
 const emptyState = (): ReactionState => ({ like: { count: 0, active: false }, love: { count: 0, active: false }, wow: { count: 0, active: false } });
 
+function optimisticState(before: ReactionState, reaction: ReactionType, action: 'add' | 'remove'): ReactionState {
+  return Object.fromEntries(TYPES.map((type) => {
+    const value = before[type];
+    if (action === 'remove') return [type, type === reaction ? { count: Math.max(0, value.count - 1), active: false } : value];
+    if (type === reaction) return [type, { count: value.count + (value.active ? 0 : 1), active: true }];
+    return [type, { count: Math.max(0, value.count - (value.active ? 1 : 0)), active: false }];
+  })) as ReactionState;
+}
+
 function ensureVisitorId() {
   const key = 'eastokyo-reaction-visitor-v1';
   let value = window.localStorage.getItem(key);
@@ -111,12 +120,16 @@ export default function ArenaEngagement() {
     if (!visitorId || busy.has(target)) return;
     const before = states[target];
     const action = before[reaction].active ? 'remove' : 'add';
+    const optimistic = optimisticState(before, reaction, action);
+    setStates((current) => ({ ...current, [target]: optimistic }));
     setBusy((current) => new Set(current).add(target));
     try {
       const response = await fetch('/api/arena-reactions', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ target, reaction, visitorId, action }) });
       if (!response.ok) throw new Error('failed');
       const data = await response.json() as { reactions?: ReactionState };
       if (data.reactions) setStates((current) => ({ ...current, [target]: data.reactions! }));
+    } catch {
+      setStates((current) => ({ ...current, [target]: optimistic }));
     } finally {
       setBusy((current) => { const next = new Set(current); next.delete(target); return next; });
     }
