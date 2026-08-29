@@ -121,6 +121,27 @@
   border-top-color:#c85d6f !important;
 }
 
+/* Desktop safeguard: keep the 05 · LOOK AGAIN closing photograph fully present. */
+@media (min-width:781px){
+  .page > section:last-of-type{
+    animation:none !important;
+    opacity:1 !important;
+    transform:none !important;
+  }
+  .page > section:last-of-type figure,
+  .page > section:last-of-type picture,
+  .page > section:last-of-type figure img,
+  .page > section:last-of-type figcaption{
+    display:block !important;
+    visibility:visible !important;
+    animation:none !important;
+    clip-path:none !important;
+    filter:none !important;
+    opacity:1 !important;
+    transform:none !important;
+  }
+}
+
 @media (max-width:780px){
   .page > header{
     width:100% !important;
