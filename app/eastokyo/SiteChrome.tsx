@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import "./site-shell-final.css";
 
 const navItems = [
   { label: "COVER", href: "/#latest" },
