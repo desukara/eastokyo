@@ -1,0 +1,34 @@
+/* EASTOKYO launch stabilization.
+   Article media must never depend on scroll animation state to exist visually. */
+main#top figure,
+main#top figure picture,
+main#top figure img {
+  visibility: visible;
+}
+
+/* Shared footer parity: desktop must expose the same social row and closing link as mobile. */
+@media (min-width: 900px) {
+  .mag-page.mag-site-chrome .mag-footer .mag-footer-links {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  .mag-page.mag-site-chrome .mag-footer .social-placeholder {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  .mag-page.mag-site-chrome .mag-footer .mag-footer-bottom {
+    display: grid !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  .mag-page.mag-site-chrome .mag-footer .mag-footer-bottom > a {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+}
