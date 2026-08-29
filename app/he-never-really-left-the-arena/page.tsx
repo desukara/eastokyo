@@ -8,22 +8,22 @@ import signature from "./signature.module.css";
 import heroPolish from "./hero-polish.module.css";
 
 export const metadata: Metadata = {
-  title: "He Always Returned to the Arena.",
+  title: "He Never Really Left the Arena.",
   description: "Picasso spent his life going back to the arena. It was never about the bull, but why certain things just won't let us go.",
   alternates: { canonical: "/he-never-really-left-the-arena" },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
   openGraph: {
-    title: "He Always Returned to the Arena.",
+    title: "He Never Really Left the Arena.",
     description: "Picasso spent his life going back to the arena. It was never about the bull, but why certain things just won't let us go.",
     url: "/he-never-really-left-the-arena",
     siteName: "EASTOKYO",
     locale: "en_GB",
     type: "article",
-    images: [{ url: "/images/editorial/picasso-bullfight-01-desktop.png", alt: "He Always Returned to the Arena." }],
+    images: [{ url: "/images/editorial/picasso-bullfight-01-desktop.png", alt: "He Never Really Left the Arena." }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "He Always Returned to the Arena.",
+    title: "He Never Really Left the Arena.",
     description: "Picasso spent his life going back to the arena. It was never about the bull, but why certain things just won't let us go.",
     images: ["/images/editorial/picasso-bullfight-01-desktop.png"],
   },
