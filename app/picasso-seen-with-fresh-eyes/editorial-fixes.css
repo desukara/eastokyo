@@ -7,6 +7,70 @@
 [class*="folio"] { grid-template-columns: 1fr auto !important; }
 [class*="folioRight"] { justify-self: end !important; }
 
+/* The Blue Boy theme uses broad substring selectors for intro/ending blocks.
+   Neutralize those effects on nested elements so copy is not masked by giant
+   background/clip layers and the ending meta does not become a second card. */
+main#top [class*="intro"] [class*="intro"],
+main#top [class*="ending"] [class*="ending"] {
+  background: transparent !important;
+  box-shadow: none !important;
+  clip-path: none !important;
+}
+
+/* Keep the intro statement coherent instead of letting the last words appear
+   like an accidental standalone headline. */
+main#top [class*="standfirst"] {
+  position: relative !important;
+  z-index: 2 !important;
+  max-width: 18ch !important;
+  font-size: clamp(2rem, 3vw, 3.35rem) !important;
+  line-height: 1.02 !important;
+  overflow: visible !important;
+}
+
+main#top [class*="introLabel"],
+main#top [class*="introNote"] {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+/* Visible share rail language on this English article. */
+main#top [class*="leadText"] {
+  font-size: 0 !important;
+}
+main#top [class*="leadText"]::after {
+  content: "SHARE THIS ARTICLE";
+  font-size: .64rem;
+  line-height: 1;
+  letter-spacing: .08em;
+}
+
+/* Tighten the curtain-call composition: one ending, not a second floating card. */
+main#top [class*="endingMeta"] {
+  width: min(260px, 28vw) !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  height: auto !important;
+  margin: 0 0 .3rem !important;
+  padding: 0 !important;
+  align-self: flex-end !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  clip-path: none !important;
+  text-align: right !important;
+  line-height: 1.45 !important;
+}
+
 @media (max-width: 760px) {
   [class*="folio"] { grid-template-columns: 1fr auto !important; }
+
+  main#top [class*="standfirst"] {
+    max-width: none !important;
+    font-size: clamp(1.9rem, 9vw, 2.8rem) !important;
+  }
+
+  main#top [class*="endingMeta"] {
+    width: 100% !important;
+    text-align: left !important;
+  }
 }
