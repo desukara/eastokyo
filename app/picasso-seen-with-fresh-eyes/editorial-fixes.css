@@ -61,6 +61,37 @@ main#top [class*="endingMeta"] {
   line-height: 1.45 !important;
 }
 
+/* Restore the threshold-gallery photograph. The global article motion pass was
+   clipping this actual image out while leaving its caption behind. */
+main#top figure:has(img[src*="picasso-threshold-gallery"]) {
+  display: block !important;
+  visibility: visible !important;
+  animation: none !important;
+  clip-path: none !important;
+  filter: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+main#top figure:has(img[src*="picasso-threshold-gallery"]) picture,
+main#top figure:has(img[src*="picasso-threshold-gallery"]) img,
+main#top figure:has(img[src*="picasso-threshold-gallery"]) figcaption {
+  display: block !important;
+  visibility: visible !important;
+  animation: none !important;
+  clip-path: none !important;
+  filter: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+main#top figure:has(img[src*="picasso-threshold-gallery"]) picture,
+main#top figure:has(img[src*="picasso-threshold-gallery"]) img {
+  width: 100% !important;
+  height: auto !important;
+  max-height: none !important;
+}
+
 @media (max-width: 760px) {
   [class*="folio"] { grid-template-columns: 1fr auto !important; }
 
