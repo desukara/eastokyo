@@ -4,12 +4,12 @@ import Link from "next/link";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: "Picasso, Viewed With Fresh Eyes.",
+  title: "Picasso Seen With Fresh Eyes.",
   description: "Paul Smith changes the stage, and suddenly Picasso wakes up.",
   alternates: { canonical: "/picasso-seen-with-fresh-eyes" },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
   openGraph: {
-    title: "Picasso, Viewed With Fresh Eyes.",
+    title: "Picasso Seen With Fresh Eyes.",
     description: "Paul Smith changes the stage, and suddenly Picasso wakes up.",
     url: "/picasso-seen-with-fresh-eyes",
     siteName: "EASTOKYO",
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Picasso, Viewed With Fresh Eyes.",
+    title: "Picasso Seen With Fresh Eyes.",
     description: "Paul Smith changes the stage, and suddenly Picasso wakes up.",
     images: ["/images/editorial/picasso-man-in-blue-hero-desktop.png"],
   },
