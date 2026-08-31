@@ -6,12 +6,12 @@ import { useEffect, useRef, useState } from "react";
 import "./site-shell-final.css";
 
 const navItems = [
-  { label: "COVER", href: "/#latest" },
+  { label: "COVER", href: "/he-never-really-left-the-arena" },
   { label: "CONTENTS", href: "/#contents" },
-  { label: "EXHIBITION", href: "/#exhibition" },
-  { label: "IDEAS", href: "/#cubism" },
-  { label: "TOKYO", href: "/#asagaya" },
-  { label: "INDEX", href: "/#picasso-index" },
+  { label: "EXHIBITION", href: "/picasso-seen-with-fresh-eyes" },
+  { label: "IDEAS", href: "/when-one-point-of-view-wasnt-enough" },
+  { label: "TOKYO", href: "/the-city-puts-on-a-costume" },
+  { label: "INDEX", href: "/nothing-is-just-what-it-is" },
 ];
 
 const footerItems = [
