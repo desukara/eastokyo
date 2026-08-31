@@ -98,8 +98,8 @@
 }
 
 @media (max-width: 899px) {
-  .mag-page .story-cta,
-  .mag-page #latest .story-cta {
+  body .mag-page .story-cta,
+  body .mag-page #latest .story-cta {
     display: inline-grid !important;
     width: auto !important;
     max-width: min(100%, 29rem) !important;
@@ -107,16 +107,18 @@
     box-shadow: .22rem .22rem 0 var(--story-cta-accent) !important;
   }
 
-  .mag-page .story-cta__action,
-  .mag-page .story-cta__status,
-  .mag-page #latest .story-cta__action,
-  .mag-page #latest .story-cta__status {
+  body .mag-page .story-cta__action,
+  body .mag-page .story-cta__status,
+  body .mag-page #latest .story-cta__action,
+  body .mag-page #latest .story-cta__status {
+    display: flex !important;
     min-height: 3rem !important;
   }
 
-  .mag-page .story-cta__action,
-  .mag-page #latest .story-cta__action {
+  body .mag-page .story-cta__action,
+  body .mag-page #latest .story-cta__action {
     padding: .74rem .82rem .7rem !important;
+    border: 0 !important;
     font-size: clamp(.68rem, 2.7vw, .78rem) !important;
     line-height: 1.12 !important;
     letter-spacing: .085em !important;
@@ -124,15 +126,16 @@
     white-space: normal !important;
   }
 
-  .mag-page .story-cta__action::after,
-  .mag-page #latest .story-cta__action::after {
+  body .mag-page .story-cta__action::after,
+  body .mag-page #latest .story-cta__action::after {
     display: none !important;
     content: none !important;
   }
 
-  .mag-page .story-cta__status,
-  .mag-page #latest .story-cta__status {
+  body .mag-page .story-cta__status,
+  body .mag-page #latest .story-cta__status {
     padding: .74rem .72rem .7rem !important;
+    border-left: 1px solid rgba(247, 241, 231, .35) !important;
     font-size: .52rem !important;
     line-height: 1 !important;
     letter-spacing: .14em !important;
@@ -141,21 +144,21 @@
 }
 
 @media (max-width: 480px) {
-  .mag-page .story-cta,
-  .mag-page #latest .story-cta {
+  body .mag-page .story-cta,
+  body .mag-page #latest .story-cta {
     width: 100% !important;
     max-width: 100% !important;
   }
 
-  .mag-page .story-cta__action,
-  .mag-page #latest .story-cta__action {
+  body .mag-page .story-cta__action,
+  body .mag-page #latest .story-cta__action {
     padding-left: .75rem !important;
     padding-right: .7rem !important;
     font-size: clamp(.66rem, 3.1vw, .75rem) !important;
   }
 
-  .mag-page .story-cta__status,
-  .mag-page #latest .story-cta__status {
+  body .mag-page .story-cta__status,
+  body .mag-page #latest .story-cta__status {
     padding-left: .62rem !important;
     padding-right: .62rem !important;
     font-size: .5rem !important;
