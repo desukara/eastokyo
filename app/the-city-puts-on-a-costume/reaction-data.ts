@@ -1,5 +1,5 @@
 export type ReactionType = 'like' | 'love' | 'wow';
-export type ReactionTarget = 'article' | 'asagaya-look-up' | 'asagaya-second-street' | 'asagaya-handmade' | 'asagaya-crowd' | 'asagaya-imagination' | 'asagaya-details' | 'arena-article' | 'arena-drama' | 'arena-return' | 'index-object' | 'index-rayures' | 'index-ceramics';
+export type ReactionTarget = 'article' | 'asagaya-look-up' | 'asagaya-second-street' | 'asagaya-handmade' | 'asagaya-crowd' | 'asagaya-imagination' | 'asagaya-details' | 'arena-article' | 'arena-drama' | 'arena-return' | 'index-object' | 'index-rayures' | 'index-ceramics' | 'homepage-cover' | 'homepage-exhibition' | 'homepage-ideas' | 'homepage-tokyo' | 'homepage-index';
 
 export const reactionTargets: ReactionTarget[] = [
   'article',
@@ -15,6 +15,11 @@ export const reactionTargets: ReactionTarget[] = [
   'index-object',
   'index-rayures',
   'index-ceramics',
+  'homepage-cover',
+  'homepage-exhibition',
+  'homepage-ideas',
+  'homepage-tokyo',
+  'homepage-index',
 ];
 
 export const reactionTypes: ReactionType[] = ['like', 'love', 'wow'];
@@ -33,4 +38,9 @@ export const reactionBaseCounts: Record<ReactionTarget, Record<ReactionType, num
   'index-object': { like: 0, love: 0, wow: 0 },
   'index-rayures': { like: 0, love: 0, wow: 0 },
   'index-ceramics': { like: 0, love: 0, wow: 0 },
+  'homepage-cover': { like: 0, love: 0, wow: 0 },
+  'homepage-exhibition': { like: 0, love: 0, wow: 0 },
+  'homepage-ideas': { like: 0, love: 0, wow: 0 },
+  'homepage-tokyo': { like: 0, love: 0, wow: 0 },
+  'homepage-index': { like: 0, love: 0, wow: 0 },
 };
