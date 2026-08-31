@@ -13,7 +13,7 @@ export default function StoryLayout({ children }: Readonly<{ children: React.Rea
     {children}
     <style>{`
       @media (max-width: 899px) {
-        main#top > header:first-child {
+        main#top > header {
           display: none !important;
         }
       }
