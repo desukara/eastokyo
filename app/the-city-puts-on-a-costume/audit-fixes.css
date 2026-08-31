@@ -17,6 +17,14 @@
   font-weight: inherit !important;
 }
 
+/* The street quote sits on the light paper field. Keep its ink explicit so
+   route/global color inheritance cannot wash it out on desktop or mobile. */
+.asagayaFestivalShell main#top [class*="streetQuote"] {
+  color: #11110f !important;
+  -webkit-text-fill-color: #11110f !important;
+  opacity: 1 !important;
+}
+
 /* Mobile captions need to remain editorial, not microscopic. */
 @media (max-width: 700px) {
   .asagayaFestivalShell main#top [class*="photo"] figcaption {
