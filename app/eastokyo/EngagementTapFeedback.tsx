@@ -7,6 +7,7 @@ const newsletterSelector = 'form.mag-newsletter-form';
 const newsletterEndpoint = 'https://formspree.io/f/xqpkeeov';
 const facebookUrl = 'https://www.facebook.com/Eastokyo/';
 const instagramUrl = 'https://www.instagram.com/eastokyo.magazine/';
+const pinterestUrl = 'https://jp.pinterest.com/eastokyo/';
 
 export default function EngagementTapFeedback() {
   useEffect(() => {
@@ -40,7 +41,8 @@ export default function EngagementTapFeedback() {
         pointer-events: none !important;
       }
       .social-placeholder .eastokyo-social-facebook,
-      .social-placeholder .eastokyo-social-instagram {
+      .social-placeholder .eastokyo-social-instagram,
+      .social-placeholder .eastokyo-social-pinterest {
         display: block !important;
         position: relative !important;
         z-index: 20 !important;
@@ -68,8 +70,12 @@ export default function EngagementTapFeedback() {
       .social-placeholder .eastokyo-social-instagram {
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3CradialGradient id='g' cx='25%25' cy='100%25' r='120%25'%3E%3Cstop offset='0' stop-color='%23FFD600'/%3E%3Cstop offset='.38' stop-color='%23FF7A00'/%3E%3Cstop offset='.68' stop-color='%23FF0169'/%3E%3Cstop offset='1' stop-color='%23D300C5'/%3E%3C/radialGradient%3E%3C/defs%3E%3Ccircle cx='24' cy='24' r='22' fill='url(%23g)'/%3E%3Crect x='14.2' y='14.2' width='19.6' height='19.6' rx='6.4' fill='none' stroke='white' stroke-width='2.6'/%3E%3Ccircle cx='24' cy='24' r='4.8' fill='none' stroke='white' stroke-width='2.6'/%3E%3Ccircle cx='30.2' cy='17.8' r='1.45' fill='white'/%3E%3C/svg%3E") !important;
       }
+      .social-placeholder .eastokyo-social-pinterest {
+        background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0OCA0OCI+PGNpcmNsZSBjeD0iMjQiIGN5PSIyNCIgcj0iMjIiIGZpbGw9IiNmZmYiLz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg2LjQgNi40KSBzY2FsZSgxLjQ2NjcpIj48cGF0aCBkPSJNMTIuMDE3IDBDNS4zOTYgMCAuMDI5IDUuMzY3LjAyOSAxMS45ODdjMCA1LjA3OSAzLjE1OCA5LjQyNCA3LjYxOCAxMS4xNzQtLjEwNS0uOTQ5LS4xOTktMi40MDMuMDQxLTMuNDM5LjIxOS0uOTM3IDEuNDA3LTUuOTY1IDEuNDA3LTUuOTY1cy0uMzU5LS43Mi0uMzU5LTEuNzgzYzAtMS42NjguOTY4LTIuOTE1IDIuMTczLTIuOTE1IDEuMDI0IDAgMS41MTguNzY5IDEuNTE4IDEuNjkgMCAxLjAyOS0uNjU1IDIuNTY4LS45OTQgMy45OTUtLjI4MyAxLjE5NC41OTkgMi4xNjkgMS43NzcgMi4xNjkgMi4xMzMgMCAzLjc3Mi0yLjI0OSAzLjc3Mi01LjQ5NSAwLTIuODc0LTIuMDY2LTQuODgzLTUuMDE4LTQuODgzLTMuNDE4IDAtNS40MjQgMi41NjMtNS40MjQgNS4yMTUgMCAxLjAzMy4zOTggMi4xNC44OTUgMi43NDQuMDk5LjEyLjExMi4yMjUuMDg1LjM0Ny0uMDkzLjM4LS4yOTMgMS4xOTQtLjMzMyAxLjM2LS4wNTMuMjI1LS4xNzIuMjcxLS40MDIuMTY1LTEuNDk1LS42OTUtMi40My0yLjg3OC0yLjQzLTQuNjMgMC0zLjc3MSAyLjczOS03LjI1NiA3LjktNy4yNTYgNC4xNDcgMCA3LjM3MyAyLjk1NiA3LjM3MyA2LjkxIDAgNC4xMjItMi41OTggNy40NDEtNi4xOTQgNy40NDEtMS4yMSAwLTIuMzQ3LS42MjktMi43MzctMS4zNzhsLS43NDQgMi44MzVjLS4yNjkgMS4wMzQtLjk5NSAyLjMyNy0xLjQ4IDMuMTE4IDEuMTE0LjM0NCAyLjI5NC41MyAzLjUxNS41MyA2LjYyNCAwIDExLjk5LTUuMzY3IDExLjk5LTExLjk4N0MyNC4wMDcgNS4zNjcgMTguNjQxLjAwMSAxMi4wMTcuMDAxeiIgZmlsbD0iI0U2MDAyMyIvPjwvZz48L3N2Zz4=") !important;
+      }
       .social-placeholder .eastokyo-social-facebook:focus-visible,
-      .social-placeholder .eastokyo-social-instagram:focus-visible {
+      .social-placeholder .eastokyo-social-instagram:focus-visible,
+      .social-placeholder .eastokyo-social-pinterest:focus-visible {
         outline: 3px solid #fff !important;
         outline-offset: 3px !important;
       }
@@ -101,6 +107,20 @@ export default function EngagementTapFeedback() {
         instagram.textContent = 'INSTAGRAM';
         if (instagramPlaceholder) instagramPlaceholder.replaceWith(instagram);
         else rail.appendChild(instagram);
+      }
+
+      const pinterestPlaceholder = Array.from(rail.querySelectorAll('span')).find((span) => span.textContent?.trim() === 'PINTEREST');
+      if (!rail.querySelector('.eastokyo-social-pinterest')) {
+        const pinterest = document.createElement('a');
+        pinterest.className = 'eastokyo-social-pinterest';
+        pinterest.href = pinterestUrl;
+        pinterest.target = '_blank';
+        pinterest.rel = 'noopener noreferrer';
+        pinterest.setAttribute('aria-label', 'EASTOKYO on Pinterest');
+        pinterest.title = 'EASTOKYO on Pinterest';
+        pinterest.textContent = 'PINTEREST';
+        if (pinterestPlaceholder) pinterestPlaceholder.replaceWith(pinterest);
+        else rail.appendChild(pinterest);
       }
     });
 
