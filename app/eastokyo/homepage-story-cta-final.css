@@ -1,0 +1,163 @@
+/* EASTOKYO homepage story CTA — single authoritative launch treatment. */
+.mag-page .story-cta {
+  --story-cta-accent: #d35b36;
+  display: inline-grid !important;
+  grid-template-columns: minmax(0, 1fr) auto !important;
+  align-items: stretch !important;
+  width: auto !important;
+  max-width: min(100%, 34rem) !important;
+  min-height: 0 !important;
+  margin-top: 1.15rem !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+  color: #f7f1e7 !important;
+  background: #121416 !important;
+  border: 1px solid rgba(247, 241, 231, .42) !important;
+  border-left: 4px solid var(--story-cta-accent) !important;
+  box-shadow: .28rem .28rem 0 var(--story-cta-accent) !important;
+  transform: none !important;
+  text-decoration: none !important;
+  font-family: var(--font-bienvivos-sans), Arial, sans-serif !important;
+  font-weight: 900 !important;
+  text-transform: uppercase !important;
+  transition: background-color .18s ease, color .18s ease, border-color .18s ease, box-shadow .18s ease, transform .18s ease !important;
+}
+
+.mag-page .story-cta::before,
+.mag-page .story-cta::after {
+  display: none !important;
+  content: none !important;
+}
+
+.mag-page .story-cta__action,
+.mag-page .story-cta__status {
+  display: flex !important;
+  align-items: center !important;
+  min-height: 3.25rem !important;
+  margin: 0 !important;
+  box-sizing: border-box !important;
+  background: transparent !important;
+  color: inherit !important;
+}
+
+.mag-page .story-cta__action {
+  min-width: 0 !important;
+  padding: .82rem 1rem .78rem !important;
+  border: 0 !important;
+  font-size: clamp(.72rem, .85vw, .86rem) !important;
+  line-height: 1.12 !important;
+  letter-spacing: .095em !important;
+  text-align: left !important;
+  white-space: normal !important;
+}
+
+.mag-page .story-cta__status {
+  flex: 0 0 auto !important;
+  padding: .82rem .88rem .78rem !important;
+  border: 0 !important;
+  border-left: 1px solid rgba(247, 241, 231, .35) !important;
+  font-size: .58rem !important;
+  line-height: 1 !important;
+  letter-spacing: .16em !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+  opacity: .9 !important;
+}
+
+.mag-page .story-cta--cover { --story-cta-accent: #d35b36; }
+.mag-page .story-cta--exhibition { --story-cta-accent: #e4bd45; }
+.mag-page .story-cta--ideas { --story-cta-accent: #d35b36; }
+.mag-page .story-cta--tokyo { --story-cta-accent: #2f6a55; }
+.mag-page .story-cta--index { --story-cta-accent: #d35b36; }
+
+@media (hover: hover) and (pointer: fine) {
+  .mag-page .story-cta.is-live:hover {
+    color: #121416 !important;
+    background: #f3ede2 !important;
+    border-color: #f3ede2 !important;
+    box-shadow: .4rem .4rem 0 var(--story-cta-accent) !important;
+    transform: translate(-2px, -2px) !important;
+  }
+
+  .mag-page .story-cta.is-live:hover .story-cta__status {
+    border-left-color: rgba(18, 20, 22, .28) !important;
+  }
+}
+
+.mag-page .story-cta.is-live:focus-visible {
+  color: #121416 !important;
+  background: #f3ede2 !important;
+  border-color: #f3ede2 !important;
+  outline: 3px solid var(--story-cta-accent) !important;
+  outline-offset: 4px !important;
+}
+
+.mag-page .story-cta.is-live:focus-visible .story-cta__status {
+  border-left-color: rgba(18, 20, 22, .28) !important;
+}
+
+@media (max-width: 899px) {
+  .mag-page .story-cta,
+  .mag-page #latest .story-cta {
+    display: inline-grid !important;
+    width: auto !important;
+    max-width: min(100%, 29rem) !important;
+    margin-top: 1rem !important;
+    box-shadow: .22rem .22rem 0 var(--story-cta-accent) !important;
+  }
+
+  .mag-page .story-cta__action,
+  .mag-page .story-cta__status,
+  .mag-page #latest .story-cta__action,
+  .mag-page #latest .story-cta__status {
+    min-height: 3rem !important;
+  }
+
+  .mag-page .story-cta__action,
+  .mag-page #latest .story-cta__action {
+    padding: .74rem .82rem .7rem !important;
+    font-size: clamp(.68rem, 2.7vw, .78rem) !important;
+    line-height: 1.12 !important;
+    letter-spacing: .085em !important;
+    text-align: left !important;
+    white-space: normal !important;
+  }
+
+  .mag-page .story-cta__action::after,
+  .mag-page #latest .story-cta__action::after {
+    display: none !important;
+    content: none !important;
+  }
+
+  .mag-page .story-cta__status,
+  .mag-page #latest .story-cta__status {
+    padding: .74rem .72rem .7rem !important;
+    font-size: .52rem !important;
+    line-height: 1 !important;
+    letter-spacing: .14em !important;
+    text-align: center !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .mag-page .story-cta,
+  .mag-page #latest .story-cta {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .mag-page .story-cta__action,
+  .mag-page #latest .story-cta__action {
+    padding-left: .75rem !important;
+    padding-right: .7rem !important;
+    font-size: clamp(.66rem, 3.1vw, .75rem) !important;
+  }
+
+  .mag-page .story-cta__status,
+  .mag-page #latest .story-cta__status {
+    padding-left: .62rem !important;
+    padding-right: .62rem !important;
+    font-size: .5rem !important;
+  }
+}
