@@ -4,11 +4,11 @@ import Image from "next/image";
 import { SiteFooter, SiteHeader } from "./SiteChrome";
 
 const contents = [
-  { href: "#bullfighting", section: "1. COVER ARTICLE", title: "HE NEVER REALLY LEFT THE ARENA.", copy: "Picasso returned to that arena again and again, because it never stopped giving him something new to feel and to paint." },
-  { href: "#exhibition", section: "2. EXHIBITION", title: "PICASSO SEEN WITH FRESH EYES.", copy: "Paul Smith changes the room, and suddenly Picasso wakes up in it." },
-  { href: "#cubism", section: "3. IDEAS", title: "A SINGLE POINT OF VIEW WOULD NEVER HAVE BEEN ENOUGH.", copy: "Picasso and Braque decided that an image was not obliged to remain well-behaved and still. Neither were they. Bien sûr." },
-  { href: "#asagaya", section: "4. TOKYO", title: "THE CITY PUTS ON ITS COSTUME.", copy: "Paper creatures float above people’s heads, and the whole street tips into celebration without warning." },
-  { href: "#picasso-index", section: "5. INDEX", title: "NOTHING IS JUST WHAT IT IS.", copy: "Faces reworked until they told the truth. Ceramics turned into another canvas. Bicycle parts transformed into something entirely different once they had passed through his hands. Picasso was simply incapable of leaving a good idea alone. Dieu merci." },
+  { href: "/he-never-really-left-the-arena", section: "1. COVER ARTICLE", title: "HE NEVER REALLY LEFT THE ARENA.", copy: "Picasso returned to that arena again and again, because it never stopped giving him something new to feel and to paint." },
+  { href: "/picasso-seen-with-fresh-eyes", section: "2. EXHIBITION", title: "PICASSO SEEN WITH FRESH EYES.", copy: "Paul Smith changes the room, and suddenly Picasso wakes up in it." },
+  { href: "/when-one-point-of-view-wasnt-enough", section: "3. IDEAS", title: "A SINGLE POINT OF VIEW WOULD NEVER HAVE BEEN ENOUGH.", copy: "Picasso and Braque decided that an image was not obliged to remain well-behaved and still. Neither were they. Bien sûr." },
+  { href: "/the-city-puts-on-a-costume", section: "4. TOKYO", title: "THE CITY PUTS ON ITS COSTUME.", copy: "Paper creatures float above people’s heads, and the whole street tips into celebration without warning." },
+  { href: "/nothing-is-just-what-it-is", section: "5. INDEX", title: "NOTHING IS JUST WHAT IT IS.", copy: "Faces reworked until they told the truth. Ceramics turned into another canvas. Bicycle parts transformed into something entirely different once they had passed through his hands. Picasso was simply incapable of leaving a good idea alone. Dieu merci." },
 ];
 
 type StoryKey = "cover" | "exhibition" | "ideas" | "tokyo" | "index";
