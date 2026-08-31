@@ -82,6 +82,10 @@ export const viewport: Viewport = { themeColor: "#214F78" };
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.eastokyo.com"),
   manifest: "/manifest.webmanifest",
+  icons: {
+    icon: [{ url: "/eastokyo-eye-icon-master-1024.png", type: "image/png", sizes: "1024x1024" }],
+    apple: [{ url: "/eastokyo-eye-icon-master-1024.png", type: "image/png", sizes: "1024x1024" }],
+  },
   appleWebApp: { capable: true, title: "EASTOKYO", statusBarStyle: "black-translucent" },
   alternates: { canonical: "/" },
   title: { default: "EASTOKYO — Independent Art Magazine", template: "%s | EASTOKYO" },
