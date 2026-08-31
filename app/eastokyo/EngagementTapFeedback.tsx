@@ -10,6 +10,7 @@ const instagramUrl = 'https://www.instagram.com/eastokyo.magazine/';
 const tiktokUrl = 'https://www.tiktok.com/@eastokyo.magazine';
 const pinterestUrl = 'https://jp.pinterest.com/eastokyo/';
 const blueskyUrl = 'https://bsky.app/profile/eastokyo.bsky.social';
+const xUrl = 'https://x.com/BIENVIVOS';
 
 const facebookMark = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Ccircle cx='24' cy='24' r='22' fill='%231876F2'/%3E%3Cpath d='M27.2 16.2h3.4v-5.1c-.6-.1-2.6-.3-5-.3-4.9 0-8.2 3-8.2 8.5V24h-5.5v5.7h5.5V44c1.1.2 2.2.3 3.4.3 1.2 0 2.4-.1 3.5-.3V29.7h5.1l.8-5.7h-5.9v-4.1c0-1.7.5-3.7 2.9-3.7z' fill='white'/%3E%3C/svg%3E")`;
 const instagramMark = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cdefs%3E%3CradialGradient id='g' cx='25%25' cy='100%25' r='120%25'%3E%3Cstop offset='0' stop-color='%23FFD600'/%3E%3Cstop offset='.38' stop-color='%23FF7A00'/%3E%3Cstop offset='.68' stop-color='%23FF0169'/%3E%3Cstop offset='1' stop-color='%23D300C5'/%3E%3C/radialGradient%3E%3C/defs%3E%3Ccircle cx='24' cy='24' r='22' fill='url(%23g)'/%3E%3Crect x='14.2' y='14.2' width='19.6' height='19.6' rx='6.4' fill='none' stroke='white' stroke-width='2.6'/%3E%3Ccircle cx='24' cy='24' r='4.8' fill='none' stroke='white' stroke-width='2.6'/%3E%3Ccircle cx='30.2' cy='17.8' r='1.45' fill='white'/%3E%3C/svg%3E")`;
@@ -85,7 +86,7 @@ export default function EngagementTapFeedback() {
         makeItem('eastokyo-social-tiktok', 'TikTok', tiktokUrl),
         makeItem('eastokyo-social-pinterest', 'Pinterest', pinterestUrl),
         makeItem('eastokyo-social-bluesky', 'Bluesky', blueskyUrl),
-        makeItem('eastokyo-social-x', 'X'),
+        makeItem('eastokyo-social-x', 'X', xUrl),
       );
     });
 
