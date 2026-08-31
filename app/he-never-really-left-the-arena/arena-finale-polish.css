@@ -79,15 +79,15 @@
     border-color: rgba(241, 234, 220, .18) !important;
   }
 
-  /* Keep exposed Arena engagement moments on the Arena paper field instead of a raw page strip. */
-  .arena-story-theme main#top > div[class*="momentMount"] {
+  /* Keep every Arena engagement moment on the dark EASTOKYO surface. */
+  .arena-story-theme main#top div[class*="momentMount"] {
     box-sizing: border-box !important;
     margin-top: 0 !important;
     margin-bottom: 0 !important;
     padding-top: 24px !important;
     padding-bottom: 34px !important;
-    background: var(--arena-paper, #f6f0e6) !important;
-    box-shadow: 0 0 0 100vmax var(--arena-paper, #f6f0e6) !important;
+    background: #111824 !important;
+    box-shadow: 0 0 0 100vmax #111824 !important;
     clip-path: inset(0 -100vmax) !important;
   }
 }
