@@ -82,3 +82,12 @@
     padding: 0 8px !important;
   }
 }
+
+/* Homepage-only desktop repair: keep the approved dark rail surface across the full engagement mount. */
+@media (min-width: 701px) {
+  .homepage-engagement-mount .homepage-story-rail {
+    box-sizing: border-box !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
