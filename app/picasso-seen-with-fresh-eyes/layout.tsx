@@ -11,6 +11,13 @@ export default function StoryLayout({ children }: Readonly<{ children: React.Rea
     <SiteHeader />
     <FrenchTranslateLink />
     {children}
+    <style>{`
+      @media (max-width: 899px) {
+        main#top > header:first-child {
+          display: none !important;
+        }
+      }
+    `}</style>
     <PicassoEngagement />
     <SiteFooter />
   </>;
