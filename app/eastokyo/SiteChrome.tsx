@@ -3,6 +3,7 @@
 
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+import HardNavigationGuard from "./HardNavigationGuard";
 import "./site-shell-final.css";
 
 const navItems = [
@@ -67,6 +68,7 @@ export function SiteHeader() {
 
   return (
     <div className={`mag-page mag-site-chrome ${isHomepage ? "is-homepage" : "is-inner-page"}`} id="site-chrome-top">
+      <HardNavigationGuard />
       <style>{`
         .mag-site-chrome .mag-desktop-wordmark { display: none !important; }
         @media (max-width:899px) {
