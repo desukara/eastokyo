@@ -1,4 +1,5 @@
 "use client";
+/* eslint-disable @next/next/no-html-link-for-pages */
 
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
