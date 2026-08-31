@@ -84,15 +84,13 @@ export default function HomepageEngagement() {
     if (!isHomepage) return;
     setVisitorId(ensureVisitorId());
     const created: Mounts = {};
-    const mobile = window.matchMedia('(max-width: 700px)').matches;
     MOMENTS.forEach((moment) => {
       const section = document.querySelector<HTMLElement>(moment.section);
       if (!section?.parentElement) return;
       const mount = document.createElement('div');
       mount.className = `${shareStyles.momentMount} homepage-engagement-mount`;
       mount.dataset.homepageEngagement = moment.id;
-      if (mobile) section.appendChild(mount);
-      else section.parentElement.insertBefore(mount, section.nextSibling);
+      section.appendChild(mount);
       created[moment.id] = mount;
     });
     setMounts(created);
