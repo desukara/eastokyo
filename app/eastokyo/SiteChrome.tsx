@@ -171,8 +171,33 @@ export function SiteFooter() {
           <div className="social-placeholder" aria-label="EASTOKYO social media"><span>INSTAGRAM</span><span>TIKTOK</span><span>PINTEREST</span><span>BLUESKY</span></div>
         </div>
         <p className="mag-creator-credit">FOUNDER &amp; EDITOR: JAMES SIMMONS</p>
+        <p className="mag-editorial-contact">EDITORIAL CONTACT: <a href="mailto:editor@eastokyo.com">editor@eastokyo.com</a></p>
         <Link className="mag-footer-wordmark" href="/" aria-label="EASTOKYO home">EASTOKYO</Link>
         <style>{`
+          .mag-site-chrome .mag-editorial-contact {
+            display: block !important;
+            max-width: 100% !important;
+            margin: 0 0 .35rem !important;
+            color: rgba(247, 241, 231, .82) !important;
+            font-size: .58rem !important;
+            font-weight: 800 !important;
+            line-height: 1.35 !important;
+            letter-spacing: .12em !important;
+            text-transform: uppercase !important;
+          }
+          .mag-site-chrome .mag-editorial-contact a {
+            color: inherit !important;
+            -webkit-text-fill-color: currentColor !important;
+            text-decoration: none !important;
+            border-bottom: 1px solid rgba(247, 241, 231, .48) !important;
+            overflow-wrap: anywhere !important;
+          }
+          .mag-site-chrome .mag-editorial-contact a:hover,
+          .mag-site-chrome .mag-editorial-contact a:focus-visible {
+            color: #fff !important;
+            border-bottom-color: currentColor !important;
+            outline: none !important;
+          }
           .mag-site-chrome .mag-newsletter-classified {
             border: 2px solid var(--mag-ink, #101820) !important;
             border-radius: 0 !important;
@@ -301,6 +326,12 @@ export function SiteFooter() {
             }
           }
           @media (max-width:899px){
+          .mag-site-chrome .mag-editorial-contact {
+            margin: 0 0 .25rem !important;
+            font-size: .5rem !important;
+            line-height: 1.4 !important;
+            letter-spacing: .1em !important;
+          }
           .mag-page.mag-site-chrome .mag-footer .mag-footer-bottom{
             display:grid!important;
             position:static!important;
