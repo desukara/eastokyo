@@ -43,9 +43,99 @@ main#top figure img {
     opacity: 1 !important;
   }
 
-  /* Asagaya desktop uses a decorative duplicate CTA beneath the first image.
-     Keep its launch status synchronized with the published story. */
+  /* ASAGAYA CTA REPAIR
+     The visible desktop CTA used to be a non-interactive ::before decoration.
+     Keep the visual slot, but use the real published anchor already rendered in
+     .mag-photo-head so the whole control actually opens the Asagaya article. */
+  .mag-page #asagaya .mag-photo-item:first-child {
+    anchor-name: --asagaya-first-photo;
+  }
+
   .mag-page #asagaya .mag-photo-item:first-child::before {
-    content: "COME SEE ASAGAYA.  READ NOW" !important;
+    display: none !important;
+    content: none !important;
+  }
+
+  .mag-page #asagaya .mag-photo-head > .story-cta.story-cta--tokyo.is-live {
+    --story-cta-accent: #e7b94b;
+    display: inline-grid !important;
+    grid-template-columns: minmax(0, 1fr) auto !important;
+    position: absolute !important;
+    position-anchor: --asagaya-first-photo;
+    top: calc(anchor(bottom) + clamp(1.15rem, 1.65vw, 1.55rem)) !important;
+    left: anchor(left) !important;
+    z-index: 20 !important;
+    width: min(21rem, calc(100vw - 5rem)) !important;
+    max-width: 21rem !important;
+    min-height: 3.7rem !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+    color: #f4efdf !important;
+    background: #16264f !important;
+    border: 1px solid rgba(244, 239, 223, .42) !important;
+    border-left: 6px solid #e7b94b !important;
+    box-shadow: .34rem .34rem 0 #d84a32 !important;
+    text-decoration: none !important;
+    transform: none !important;
+    cursor: pointer !important;
+  }
+
+  .mag-page #asagaya .mag-photo-head > .story-cta.story-cta--tokyo.is-live .story-cta__action,
+  .mag-page #asagaya .mag-photo-head > .story-cta.story-cta--tokyo.is-live .story-cta__status {
+    display: flex !important;
+    align-items: center !important;
+    min-height: 3.7rem !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    color: inherit !important;
+    background: transparent !important;
+  }
+
+  .mag-page #asagaya .mag-photo-head > .story-cta.story-cta--tokyo.is-live .story-cta__action {
+    min-width: 0 !important;
+    padding: .82rem 1rem .78rem !important;
+    border: 0 !important;
+    font-size: clamp(.72rem, .8vw, .84rem) !important;
+    line-height: 1.08 !important;
+    letter-spacing: .095em !important;
+    white-space: normal !important;
+  }
+
+  .mag-page #asagaya .mag-photo-head > .story-cta.story-cta--tokyo.is-live .story-cta__status {
+    flex: 0 0 auto !important;
+    padding: .82rem .85rem .78rem !important;
+    border: 0 !important;
+    border-left: 1px solid rgba(244, 239, 223, .32) !important;
+    font-size: 0 !important;
+    white-space: nowrap !important;
+  }
+
+  .mag-page #asagaya .mag-photo-head > .story-cta.story-cta--tokyo.is-live .story-cta__status::after {
+    content: "READ NOW" !important;
+    font-size: .56rem !important;
+    line-height: 1 !important;
+    letter-spacing: .16em !important;
+  }
+
+  .mag-page #asagaya .mag-photo-head > .story-cta.story-cta--tokyo.is-live:hover,
+  .mag-page #asagaya .mag-photo-head > .story-cta.story-cta--tokyo.is-live:focus-visible {
+    color: #10182d !important;
+    background: #f4efdf !important;
+    border-color: #f4efdf !important;
+    border-left-color: #e7b94b !important;
+    box-shadow: .46rem .46rem 0 #d84a32 !important;
+    transform: translate(-2px, -2px) !important;
+  }
+
+  .mag-page #asagaya .mag-photo-head > .story-cta.story-cta--tokyo.is-live:hover .story-cta__status,
+  .mag-page #asagaya .mag-photo-head > .story-cta.story-cta--tokyo.is-live:focus-visible .story-cta__status {
+    border-left-color: rgba(16, 24, 45, .28) !important;
+  }
+
+  .mag-page #asagaya .mag-photo-head > .story-cta.story-cta--tokyo.is-live:focus-visible {
+    outline: 3px solid #e7b94b !important;
+    outline-offset: 4px !important;
   }
 }
