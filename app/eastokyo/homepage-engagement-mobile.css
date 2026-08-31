@@ -13,6 +13,16 @@
     overflow: visible !important;
   }
 
+  #bullfighting .homepage-engagement-mount[data-homepage-engagement="homepage-cover"] {
+    margin-top: 6px !important;
+  }
+
+  #bullfighting .mag-feature-grid,
+  #bullfighting .mag-feature-copy {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
   .homepage-story-rail {
     box-sizing: border-box !important;
     display: flex !important;
