@@ -163,7 +163,7 @@ export default function HomepageEngagement() {
     const direct = links(moment.url, moment.caption);
     const targetBusy = busy.has(moment.id);
     return <div className={shareStyles.rail} aria-label={`Share ${moment.title}`}>
-      <button className={`${shareStyles.cell} ${shareStyles.lead}`} type="button" onClick={() => nativeShare(moment)} aria-label={`Share ${moment.title}`}><Icon name="share"/><span className={shareStyles.leadText}>SHARE THIS STORY</span></button>
+      <button className={`${shareStyles.cell} ${shareStyles.lead}`} style={{ background: '#b82a1e', color: '#fff' }} type="button" onClick={() => nativeShare(moment)} aria-label={`Share ${moment.title}`}><Icon name="share"/><span className={shareStyles.leadText}>SHARE THIS STORY</span></button>
       <button className={shareStyles.cell} type="button" onClick={() => nativeShare(moment)} aria-label="Share to Instagram using your device"><Icon name="instagram"/></button>
       <button className={shareStyles.cell} type="button" onClick={() => nativeShare(moment)} aria-label="Share to TikTok using your device"><Icon name="tiktok"/></button>
       <a className={shareStyles.cell} href={direct.pinterest} target="_blank" rel="noreferrer" aria-label="Share on Pinterest"><Icon name="pinterest"/></a>
