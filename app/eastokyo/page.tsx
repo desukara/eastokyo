@@ -15,11 +15,11 @@ type StoryKey = "cover" | "exhibition" | "ideas" | "tokyo" | "index";
 type StoryLink = { href: string; label: string; tone: StoryKey; published: boolean };
 
 const storyLinks: Record<StoryKey, StoryLink> = {
-  cover: { href: "/he-never-really-left-the-arena", label: "COME INTO THE ARENA WITH ME.", tone: "cover", published: false },
-  exhibition: { href: "/picasso-seen-with-fresh-eyes", label: "READ THE REVIEW.", tone: "exhibition", published: false },
-  ideas: { href: "/when-one-point-of-view-wasnt-enough", label: "SEE HOW EVERYTHING BREAKS APART.", tone: "ideas", published: false },
-  tokyo: { href: "/the-city-puts-on-a-costume", label: "COME SEE ASAGAYA.", tone: "tokyo", published: false },
-  index: { href: "/nothing-is-just-what-it-is", label: "START WHEREVER YOU WANT.", tone: "index", published: false },
+  cover: { href: "/he-never-really-left-the-arena", label: "COME INTO THE ARENA WITH ME.", tone: "cover", published: true },
+  exhibition: { href: "/picasso-seen-with-fresh-eyes", label: "READ THE REVIEW.", tone: "exhibition", published: true },
+  ideas: { href: "/when-one-point-of-view-wasnt-enough", label: "SEE HOW EVERYTHING BREAKS APART.", tone: "ideas", published: true },
+  tokyo: { href: "/the-city-puts-on-a-costume", label: "COME SEE ASAGAYA.", tone: "tokyo", published: true },
+  index: { href: "/nothing-is-just-what-it-is", label: "START WHEREVER YOU WANT.", tone: "index", published: true },
 };
 
 const indexStories = [
