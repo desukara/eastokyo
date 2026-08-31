@@ -69,27 +69,6 @@ export function SiteHeader() {
     <div className={`mag-page mag-site-chrome ${isHomepage ? "is-homepage" : "is-inner-page"}`} id="site-chrome-top">
       <style>{`
         .mag-site-chrome .mag-desktop-wordmark { display: none !important; }
-        @media (min-width:900px) {
-          .mag-site-chrome.is-inner-page .mag-nav { position: relative !important; padding-left: 11.5rem !important; }
-          .mag-site-chrome.is-inner-page .mag-desktop-wordmark {
-            display: flex !important;
-            position: absolute !important;
-            left: 1.2rem !important;
-            top: 50% !important;
-            width: 8.8rem !important;
-            height: 2rem !important;
-            align-items: center !important;
-            transform: translateY(-50%) !important;
-            z-index: 2 !important;
-          }
-          .mag-site-chrome.is-inner-page .mag-desktop-wordmark img {
-            display: block !important;
-            width: 100% !important;
-            height: 100% !important;
-            object-fit: contain !important;
-            object-position: left center !important;
-          }
-        }
         @media (max-width:899px) {
           .mag-site-chrome .mag-mobile-logo {
             display: block !important;
