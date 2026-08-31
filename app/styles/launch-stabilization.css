@@ -43,14 +43,8 @@ main#top figure img {
     opacity: 1 !important;
   }
 
-  /* ASAGAYA CTA REPAIR
-     The visible desktop CTA used to be a non-interactive ::before decoration.
-     Keep the visual slot, but use the real published anchor already rendered in
-     .mag-photo-head so the whole control actually opens the Asagaya article. */
-  .mag-page #asagaya .mag-photo-item:first-child {
-    anchor-name: --asagaya-first-photo;
-  }
-
+  /* ASAGAYA CTA: use the real published anchor already rendered in the heading.
+     No pseudo-button and no anchor-positioning API. */
   .mag-page #asagaya .mag-photo-item:first-child::before {
     display: none !important;
     content: none !important;
@@ -59,16 +53,18 @@ main#top figure img {
   .mag-page #asagaya .mag-photo-head > .story-cta.story-cta--tokyo.is-live {
     --story-cta-accent: #e7b94b;
     display: inline-grid !important;
+    grid-column: 2 !important;
+    grid-row: 3 !important;
     grid-template-columns: minmax(0, 1fr) auto !important;
-    position: absolute !important;
-    position-anchor: --asagaya-first-photo;
-    top: calc(anchor(bottom) + clamp(1.15rem, 1.65vw, 1.55rem)) !important;
-    left: anchor(left) !important;
-    z-index: 20 !important;
-    width: min(21rem, calc(100vw - 5rem)) !important;
+    position: relative !important;
+    inset: auto !important;
+    justify-self: start !important;
+    align-self: start !important;
+    z-index: 5 !important;
+    width: min(100%, 21rem) !important;
     max-width: 21rem !important;
     min-height: 3.7rem !important;
-    margin: 0 !important;
+    margin: .2rem 0 0 !important;
     padding: 0 !important;
     overflow: hidden !important;
     box-sizing: border-box !important;
