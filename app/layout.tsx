@@ -69,6 +69,7 @@ import "./eastokyo/eastokyo-japan-skin.css";
 import "./eastokyo/eastokyo-japan-skin-fixes.css";
 import "./eastokyo/eastokyo-hard-edged-palette.css";
 import "./eastokyo/eastokyo-mobile-cover-final.css";
+import "./eastokyo/homepage-engagement-mobile.css";
 import "./styles/article-layout-guardrails.css";
 import "./styles/article-placement-repair.css";
 import "./styles/article-desktop-mechanics-repair.css";
