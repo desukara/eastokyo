@@ -30,35 +30,45 @@ export default function EngagementTapFeedback() {
     const socialStyle = document.createElement('style');
     socialStyle.dataset.eastokyoSocialLinks = 'true';
     socialStyle.textContent = `
-      .social-placeholder::before { display: none !important; }
+      .social-placeholder {
+        pointer-events: auto !important;
+      }
+      .social-placeholder::before {
+        display: none !important;
+        content: none !important;
+        pointer-events: none !important;
+      }
       .social-placeholder .eastokyo-social-facebook {
-        display: block;
-        flex: 0 0 2.55rem;
-        width: 2.55rem;
-        height: 2.55rem;
-        overflow: hidden;
-        border-radius: 50%;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: 100% 100%;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Ccircle cx='24' cy='24' r='22' fill='%231876F2'/%3E%3Cpath d='M27.2 16.2h3.4v-5.1c-.6-.1-2.6-.3-5-.3-4.9 0-8.2 3-8.2 8.5V24h-5.5v5.7h5.5V44c1.1.2 2.2.3 3.4.3 1.2 0 2.4-.1 3.5-.3V29.7h5.1l.8-5.7h-5.9v-4.1c0-1.7.5-3.7 2.9-3.7z' fill='white'/%3E%3C/svg%3E");
-        box-shadow: 0 0 0 1px rgba(255, 233, 202, .18), 0 .35rem 1rem rgba(0, 0, 0, .2);
-        color: transparent;
-        font-size: 0;
-        line-height: 0;
-        text-indent: -9999px;
-        cursor: pointer;
-        pointer-events: auto;
+        display: block !important;
+        position: relative !important;
+        z-index: 20 !important;
+        flex: 0 0 2.55rem !important;
+        width: 2.55rem !important;
+        height: 2.55rem !important;
+        overflow: hidden !important;
+        border-radius: 50% !important;
+        background-position: center !important;
+        background-repeat: no-repeat !important;
+        background-size: 100% 100% !important;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Ccircle cx='24' cy='24' r='22' fill='%231876F2'/%3E%3Cpath d='M27.2 16.2h3.4v-5.1c-.6-.1-2.6-.3-5-.3-4.9 0-8.2 3-8.2 8.5V24h-5.5v5.7h5.5V44c1.1.2 2.2.3 3.4.3 1.2 0 2.4-.1 3.5-.3V29.7h5.1l.8-5.7h-5.9v-4.1c0-1.7.5-3.7 2.9-3.7z' fill='white'/%3E%3C/svg%3E") !important;
+        box-shadow: 0 0 0 1px rgba(255, 233, 202, .18), 0 .35rem 1rem rgba(0, 0, 0, .2) !important;
+        color: transparent !important;
+        font-size: 0 !important;
+        line-height: 0 !important;
+        text-indent: -9999px !important;
+        cursor: pointer !important;
+        pointer-events: auto !important;
+        touch-action: manipulation !important;
+        user-select: none !important;
       }
       .social-placeholder .eastokyo-social-facebook:focus-visible {
-        outline: 3px solid currentColor;
-        outline-offset: 3px;
+        outline: 3px solid #fff !important;
+        outline-offset: 3px !important;
       }
     `;
     document.head.appendChild(socialStyle);
 
     socialRails.forEach((rail) => {
-      rail.style.pointerEvents = 'auto';
       if (rail.querySelector('.eastokyo-social-facebook')) return;
       const facebook = document.createElement('a');
       facebook.className = 'eastokyo-social-facebook';
