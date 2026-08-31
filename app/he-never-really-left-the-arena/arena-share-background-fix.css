@@ -1,0 +1,29 @@
+/* Arena desktop share-rail background repair.
+   The rail itself keeps its designed dark control surface; only the accidental
+   full-width/background layers around it are neutralized so each mount shows
+   the article section directly underneath. */
+@media (min-width: 701px) {
+  .arena-story-theme main#top > div[class*="momentMount"],
+  .arena-story-theme main#top section > div[class*="momentMount"],
+  .arena-story-theme main#top div[class*="visualSequence"] > div[class*="momentMount"] {
+    background: transparent !important;
+    background-image: none !important;
+    box-shadow: none !important;
+    clip-path: none !important;
+    filter: none !important;
+    isolation: auto !important;
+  }
+
+  .arena-story-theme main#top div[class*="momentMount"]::before,
+  .arena-story-theme main#top div[class*="momentMount"]::after {
+    display: none !important;
+    content: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  /* Never let a rail wrapper paint a second color field behind the controls. */
+  .arena-story-theme main#top div[class*="momentMount"] > div[class*="rail"] {
+    margin-top: 12px !important;
+  }
+}
