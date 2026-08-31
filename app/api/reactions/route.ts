@@ -28,6 +28,12 @@ function isReaction(value: string | null): value is ReactionType {
   return Boolean(value && reactionTypes.includes(value as ReactionType));
 }
 
+function jsonNoStore(body: unknown, init?: ResponseInit) {
+  const response = NextResponse.json(body, init);
+  response.headers.set('Cache-Control', 'private, no-store, max-age=0');
+  return response;
+}
+
 async function redisCommand<T = unknown>(command: Array<string | number>) {
   if (!redisUrl || !redisToken) throw new Error('Redis is not configured');
   const response = await fetch(redisUrl, {
@@ -92,31 +98,38 @@ export async function GET(request: NextRequest) {
       const state = await readTargetState(reactionTarget, visitorId);
       return [reactionTarget, state] as const;
     }));
-    return NextResponse.json({
+    return jsonNoStore({
       reactionsByTarget: Object.fromEntries(entries.map(([reactionTarget, state]) => [reactionTarget, state.reactions])),
       persistent: entries.every(([, state]) => state.persistent),
     });
   }
 
-  if (!isTarget(target)) return NextResponse.json({ error: 'Unknown reaction target' }, { status: 400 });
+  if (!isTarget(target)) return jsonNoStore({ error: 'Unknown reaction target' }, { status: 400 });
   const state = await readTargetState(target, visitorId);
-  return NextResponse.json(state);
+  return jsonNoStore(state);
 }
 
 export async function POST(request: NextRequest) {
-  const body = (await request.json().catch(() => null)) as { target?: string; reaction?: string; visitorId?: string; action?: 'add' | 'remove' } | null;
-  if (!body || !isTarget(body.target || null) || !isReaction(body.reaction || null) || !body.visitorId || !body.action) {
-    return NextResponse.json({ error: 'Invalid reaction request' }, { status: 400 });
+  const body = (await request.json().catch(() => null)) as { target?: string; reaction?: string; visitorId?: string; action?: string } | null;
+  if (
+    !body ||
+    !isTarget(body.target || null) ||
+    !isReaction(body.reaction || null) ||
+    !body.visitorId ||
+    (body.action !== 'add' && body.action !== 'remove')
+  ) {
+    return jsonNoStore({ error: 'Invalid reaction request' }, { status: 400 });
   }
 
   const target = body.target as ReactionTarget;
   const reaction = body.reaction as ReactionType;
+  const action = body.action;
   const visitorId = body.visitorId.slice(0, 120);
 
   if (!hasRedis()) {
     const automatic = { like: 0, love: 0, wow: 0 } as Record<ReactionType, number>;
-    if (body.action === 'add') automatic[reaction] = 1;
-    return NextResponse.json({ reactions: responseState(target, automatic, body.action === 'add' ? reaction : null), persistent: false });
+    if (action === 'add') automatic[reaction] = 1;
+    return jsonNoStore({ reactions: responseState(target, automatic, action === 'add' ? reaction : null), persistent: false });
   }
 
   const rateKey = `eastokyo:reactions:${version}:${namespace}:rate:${clientFingerprint(request)}`;
@@ -166,23 +179,23 @@ export async function POST(request: NextRequest) {
       countKey(target, 'love'), votersKey(target, 'love'),
       countKey(target, 'wow'), votersKey(target, 'wow'),
       rateKey,
-      visitorId, selectedIndex, body.action,
+      visitorId, selectedIndex, action,
     ]);
-    if (result?.[0] === -1) return NextResponse.json({ error: 'Too many reaction changes' }, { status: 429 });
+    if (result?.[0] === -1) return jsonNoStore({ error: 'Too many reaction changes' }, { status: 429 });
 
     const automatic = {
       like: Number(result?.[0] || 0),
       love: Number(result?.[1] || 0),
       wow: Number(result?.[2] || 0),
     } as Record<ReactionType, number>;
-    return NextResponse.json({
-      reactions: responseState(target, automatic, body.action === 'add' ? reaction : null),
+    return jsonNoStore({
+      reactions: responseState(target, automatic, action === 'add' ? reaction : null),
       persistent: true,
     });
   } catch (error) {
     console.error('Reaction update failed', error);
     const automatic = { like: 0, love: 0, wow: 0 } as Record<ReactionType, number>;
-    if (body.action === 'add') automatic[reaction] = 1;
-    return NextResponse.json({ reactions: responseState(target, automatic, body.action === 'add' ? reaction : null), persistent: false });
+    if (action === 'add') automatic[reaction] = 1;
+    return jsonNoStore({ reactions: responseState(target, automatic, action === 'add' ? reaction : null), persistent: false });
   }
 }
