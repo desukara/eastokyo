@@ -17,16 +17,24 @@
   font-weight: inherit !important;
 }
 
-/* The street quote sits on the dark festival-blue field. Keep the lettering
-   explicitly warm white on desktop and mobile. */
-.asagayaFestivalShell main#top [class*="streetQuote"] {
-  color: #fff8eb !important;
-  -webkit-text-fill-color: #fff8eb !important;
-  opacity: 1 !important;
+/* Desktop festival treatment can place this quote on a dark field. Keep that
+   warm-white treatment desktop-only; mobile uses the article's pale paper. */
+@media (min-width: 901px) {
+  .asagayaFestivalShell main#top [class*="streetQuote"] {
+    color: #fff8eb !important;
+    -webkit-text-fill-color: #fff8eb !important;
+    opacity: 1 !important;
+  }
 }
 
 /* Mobile captions need to remain editorial, not microscopic. */
 @media (max-width: 700px) {
+  .asagayaFestivalShell main#top [class*="streetQuote"] {
+    color: #172755 !important;
+    -webkit-text-fill-color: #172755 !important;
+    opacity: 1 !important;
+  }
+
   .asagayaFestivalShell main#top [class*="photo"] figcaption {
     font-size: .6rem !important;
     line-height: 1.5 !important;
