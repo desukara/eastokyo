@@ -6,6 +6,17 @@ main#top figure img {
   visibility: visible;
 }
 
+/* Mobile launch lock: one masthead only, and no homepage hero CTA. */
+@media (max-width: 899px) {
+  .mag-page #latest .story-cta {
+    display: none !important;
+  }
+
+  main#top > header:first-child {
+    display: none !important;
+  }
+}
+
 /* Shared footer parity: desktop must expose the same social row and closing link as mobile. */
 @media (min-width: 900px) {
   .mag-page.mag-site-chrome .mag-footer .mag-footer-links {
