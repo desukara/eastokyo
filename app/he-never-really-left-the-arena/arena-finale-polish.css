@@ -112,12 +112,3 @@
     object-fit: contain !important;
   }
 }
-
-/* Arena-only desktop engagement repair: keep the approved dark rail surface across its full mount. */
-@media (min-width: 701px) {
-  .arena-story-theme main#top > div[class*="momentMount"] > div[class*="rail"] {
-    box-sizing: border-box !important;
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-}
