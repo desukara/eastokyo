@@ -113,6 +113,20 @@
   margin-top:1.35rem;
 }
 
+/* Launch-day desktop safeguard: published CTAs must never display a stale prelaunch status. */
+@media(min-width:900px){
+  .mag-page .story-cta.is-live .story-cta__status{
+    font-size:0!important;
+  }
+
+  .mag-page .story-cta.is-live .story-cta__status::after{
+    content:"READ NOW"!important;
+    font-size:.58rem!important;
+    letter-spacing:.14em!important;
+    white-space:nowrap!important;
+  }
+}
+
 @media(max-width:640px){
   .mag-page .story-cta{
     width:100%;
