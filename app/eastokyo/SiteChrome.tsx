@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import "./site-shell-final.css";
@@ -100,14 +99,14 @@ export function SiteHeader() {
           <p>SEPTEMBER 1, 2026. LET’S MAKE SOME NOISE.</p>
         </div>
         <nav className="mag-nav" aria-label="Issue navigation">
-          <Link className="mag-desktop-wordmark" href="/" aria-label="EASTOKYO home"><img src="/eastokyo-wordmark-white.png" alt="" /></Link>
+          <a className="mag-desktop-wordmark" href="/" aria-label="EASTOKYO home"><img src="/eastokyo-wordmark-white.png" alt="" /></a>
           <div className="mag-nav-links">
-            {navItems.map((item) => <Link key={item.label} href={item.href}>{item.label}</Link>)}
+            {navItems.map((item) => <a key={item.label} href={item.href}>{item.label}</a>)}
           </div>
           <span>ART FROM TOKYO, AND FROM ALL THE OTHER PLACES WHERE MY HEART DECIDES TO WANDER.</span>
         </nav>
         <div className="mag-mobile-bar">
-          <Link className="mag-mobile-logo" href="/" onClick={closeMenu} aria-label="EASTOKYO home"><img src="/eastokyo-wordmark-white.png" alt="" /></Link>
+          <a className="mag-mobile-logo" href="/" onClick={closeMenu} aria-label="EASTOKYO home"><img src="/eastokyo-wordmark-white.png" alt="" /></a>
           <button ref={menuButtonRef} type="button" className={`mag-menu-button ${menuOpen ? "is-open" : ""}`} aria-label={menuOpen ? "Close menu" : "Open menu"} aria-expanded={menuOpen} aria-controls="mag-site-mobile-menu" onClick={() => setMenuOpen((open) => !open)}>
             <span /><span />
           </button>
@@ -117,7 +116,7 @@ export function SiteHeader() {
         <button ref={menuCloseRef} type="button" className="mag-mobile-menu-close" onClick={closeMenu} tabIndex={menuOpen ? 0 : -1}>CLOSE <span aria-hidden="true">×</span></button>
         <nav aria-label="Mobile issue navigation">
           {navItems.map((item, index) => (
-            <Link key={item.label} href={item.href} onClick={closeMenu} tabIndex={menuOpen ? 0 : -1}><span>0{index + 1}</span>{item.label}</Link>
+            <a key={item.label} href={item.href} onClick={closeMenu} tabIndex={menuOpen ? 0 : -1}><span>0{index + 1}</span>{item.label}</a>
           ))}
         </nav>
         <p>EASTOKYO. NUMBER ONE. FROM TOKYO. WITH BAD MANNERS.</p>
@@ -146,12 +145,12 @@ export function SiteFooter() {
           </div>
         </div>
         <div className="mag-footer-links">
-          <nav aria-label="Footer navigation">{footerItems.map((item) => item.href.startsWith("/#") ? <Link key={item.label} href={item.href}>{item.label}</Link> : <a key={item.label} href={item.href}>{item.label}</a>)}</nav>
+          <nav aria-label="Footer navigation">{footerItems.map((item) => <a key={item.label} href={item.href}>{item.label}</a>)}</nav>
           <div className="social-placeholder" aria-label="EASTOKYO social media"><span>INSTAGRAM</span><span>TIKTOK</span><span>PINTEREST</span><span>BLUESKY</span></div>
         </div>
         <p className="mag-creator-credit">FOUNDER &amp; EDITOR: JAMES SIMMONS</p>
         <p className="mag-editorial-contact">EDITORIAL CONTACT: <a href="mailto:editor@eastokyo.com">editor@eastokyo.com</a></p>
-        <Link className="mag-footer-wordmark" href="/" aria-label="EASTOKYO home">EASTOKYO</Link>
+        <a className="mag-footer-wordmark" href="/" aria-label="EASTOKYO home">EASTOKYO</a>
         <style>{`
           .mag-site-chrome .mag-editorial-contact {
             display: block !important;
