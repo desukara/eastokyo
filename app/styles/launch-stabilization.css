@@ -42,4 +42,10 @@ main#top figure img {
     visibility: visible !important;
     opacity: 1 !important;
   }
+
+  /* Asagaya desktop uses a decorative duplicate CTA beneath the first image.
+     Keep its launch status synchronized with the published story. */
+  .mag-page #asagaya .mag-photo-item:first-child::before {
+    content: "COME SEE ASAGAYA.  READ NOW" !important;
+  }
 }
