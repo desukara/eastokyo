@@ -17,11 +17,11 @@
   font-weight: inherit !important;
 }
 
-/* The street quote sits on the light paper field. Keep its ink explicit so
-   route/global color inheritance cannot wash it out on desktop or mobile. */
+/* The street quote sits on the dark festival-blue field. Keep the lettering
+   explicitly warm white on desktop and mobile. */
 .asagayaFestivalShell main#top [class*="streetQuote"] {
-  color: #11110f !important;
-  -webkit-text-fill-color: #11110f !important;
+  color: #fff8eb !important;
+  -webkit-text-fill-color: #fff8eb !important;
   opacity: 1 !important;
 }
 
