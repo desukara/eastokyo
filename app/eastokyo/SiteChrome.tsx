@@ -74,8 +74,8 @@ export function SiteHeader() {
         @media (max-width:899px) {
           .mag-site-chrome .mag-mobile-logo {
             display: block !important;
-            width: clamp(10.5rem, 43vw, 13rem) !important;
-            height: 2.65rem !important;
+            width: clamp(12.5rem, 50vw, 15.5rem) !important;
+            height: 3.1rem !important;
             flex: 0 0 auto !important;
             margin: 0 !important;
             padding: 0 !important;
