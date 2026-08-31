@@ -84,12 +84,15 @@ export default function HomepageEngagement() {
     if (!isHomepage) return;
     setVisitorId(ensureVisitorId());
     const created: Mounts = {};
+    const mobile = window.matchMedia('(max-width: 700px)').matches;
     MOMENTS.forEach((moment) => {
       const section = document.querySelector<HTMLElement>(moment.section);
       if (!section?.parentElement) return;
       const mount = document.createElement('div');
-      mount.className = shareStyles.momentMount;
-      section.parentElement.insertBefore(mount, section.nextSibling);
+      mount.className = `${shareStyles.momentMount} homepage-engagement-mount`;
+      mount.dataset.homepageEngagement = moment.id;
+      if (mobile) section.appendChild(mount);
+      else section.parentElement.insertBefore(mount, section.nextSibling);
       created[moment.id] = mount;
     });
     setMounts(created);
@@ -162,7 +165,7 @@ export default function HomepageEngagement() {
   const Rail = ({ moment }: { moment: Moment }) => {
     const direct = links(moment.url, moment.caption);
     const targetBusy = busy.has(moment.id);
-    return <div className={shareStyles.rail} aria-label={`Share ${moment.title}`}>
+    return <div className={`${shareStyles.rail} homepage-story-rail`} aria-label={`Share ${moment.title}`}>
       <button className={`${shareStyles.cell} ${shareStyles.lead}`} style={{ background: '#b82a1e', color: '#fff' }} type="button" onClick={() => nativeShare(moment)} aria-label={`Share ${moment.title}`}><Icon name="share"/><span className={shareStyles.leadText}>SHARE THIS STORY</span></button>
       <button className={shareStyles.cell} type="button" onClick={() => nativeShare(moment)} aria-label="Share to Instagram using your device"><Icon name="instagram"/></button>
       <button className={shareStyles.cell} type="button" onClick={() => nativeShare(moment)} aria-label="Share to TikTok using your device"><Icon name="tiktok"/></button>
