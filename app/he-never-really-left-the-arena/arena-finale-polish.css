@@ -123,4 +123,25 @@
     height: auto !important;
     object-fit: contain !important;
   }
+
+  /* The final engagement mount is inserted by ArenaEngagement immediately
+     before finalAct. Paint that actual mount — including its full viewport
+     bleed — with the slideshow's terminal burgundy so the article paper can
+     never show around the rail. This is route- and mobile-scoped. */
+  .arena-story-theme main#top div[class*="momentMount"]:has(+ section[class*="finalAct"]) {
+    box-sizing: border-box !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 2rem 1.25rem 2.5rem !important;
+    background: #150202 !important;
+    box-shadow: 0 0 0 100vmax #150202 !important;
+    clip-path: inset(0 -100vmax) !important;
+  }
+
+  .arena-story-theme main#top div[class*="momentMount"]:has(+ section[class*="finalAct"]) > div[class*="rail"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+  }
 }
