@@ -13,9 +13,14 @@
   display: none !important;
 }
 
-/* English-only generated interface copy. */
+/* The homepage cover needs neither a generated issue prompt nor a second CTA. */
 .mag-cover::after {
-  content: "OPEN THE ISSUE ↓" !important;
+  display: none !important;
+  content: none !important;
+}
+
+.mag-page #latest .story-cta--cover {
+  display: none !important;
 }
 
 .mag-front-card span::after {
@@ -32,10 +37,4 @@
 
 .picasso-feature-outro p::before {
   content: "LOOK AGAIN" !important;
-}
-
-@media (max-width: 640px) {
-  .mag-cover::after {
-    content: "OPEN ↓" !important;
-  }
 }
