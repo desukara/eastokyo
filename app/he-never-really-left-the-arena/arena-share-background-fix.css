@@ -20,6 +20,19 @@
     margin-top: 12px !important;
   }
 
+  /* These two mounts already have the correct background color on their box.
+     Their shared component adds transparent top/bottom margins, which exposes
+     the page background as white strips. Move that spacing inside the colored
+     box as padding so the visual spacing stays the same without the white slices. */
+  .arena-story-theme main#top section[class*="body"] + div[class*="momentMount"],
+  .arena-story-theme main#top > div[class*="momentMount"]:has(+ section[class*="finalAct"]) {
+    box-sizing: border-box !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding-top: 24px !important;
+    padding-bottom: 34px !important;
+  }
+
   /* Arena photo 1: this mount follows the body section. The body grades down
      to --arena-bone, so continue that exact end colour behind the share rail. */
   .arena-story-theme main#top section[class*="body"] + div[class*="momentMount"] {
@@ -36,5 +49,13 @@
     background-image: none !important;
     box-shadow: 0 0 0 100vmax #120101 !important;
     clip-path: inset(0 -100vmax) !important;
+  }
+}
+
+@media (min-width: 701px) and (max-width: 1024px) {
+  .arena-story-theme main#top section[class*="body"] + div[class*="momentMount"],
+  .arena-story-theme main#top > div[class*="momentMount"]:has(+ section[class*="finalAct"]) {
+    padding-top: 22px !important;
+    padding-bottom: 30px !important;
   }
 }
