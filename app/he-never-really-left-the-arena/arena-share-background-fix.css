@@ -17,7 +17,11 @@
   }
 
   .arena-story-theme main#top div[class*="momentMount"] > div[class*="rail"] {
+    width: fit-content !important;
+    max-width: 100% !important;
     margin-top: 12px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
 
   /* These two mounts already have the correct background color on their box.
@@ -53,15 +57,6 @@
     outline: 0 !important;
     box-shadow: none !important;
     clip-path: none !important;
-  }
-
-  /* Center only the final Arena share control inside its dark field. */
-  .arena-story-theme main#top > div[class*="momentMount"]:has(+ section[class*="finalAct"]) > div[class*="rail"] {
-    display: flex !important;
-    width: fit-content !important;
-    max-width: 100% !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
   }
 
   /* Nothing decorative belongs at the slideshow/share junction. */
