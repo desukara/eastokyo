@@ -17,8 +17,7 @@
   font-weight: inherit !important;
 }
 
-/* The street quote sits on the dark festival-blue field. Keep the lettering
-   explicitly warm white on desktop and mobile. */
+/* The street quote sits on the dark festival-blue field on desktop. */
 .asagayaFestivalShell main#top [class*="streetQuote"] {
   color: #fff8eb !important;
   -webkit-text-fill-color: #fff8eb !important;
@@ -31,6 +30,13 @@
     font-size: .6rem !important;
     line-height: 1.5 !important;
     letter-spacing: .09em !important;
+  }
+
+  /* On mobile the quote is moved onto the light paper field, so use dark ink. */
+  .asagayaFestivalShell main#top [class*="streetQuote"] {
+    color: #11110f !important;
+    -webkit-text-fill-color: #11110f !important;
+    opacity: 1 !important;
   }
 }
 
