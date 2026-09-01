@@ -1,12 +1,9 @@
 /* Arena share-rail background repair.
-   Keep the control rail dark; let every surrounding engagement mount use the
-   article's actual background instead of painting a separate colour field. */
+   Keep the control rail dark, but make the surrounding field belong visually
+   to the section immediately above it. */
 @media (min-width: 701px) {
   .arena-story-theme main#top div[class*="momentMount"] {
-    background: transparent !important;
     background-image: none !important;
-    box-shadow: none !important;
-    clip-path: none !important;
     filter: none !important;
     isolation: auto !important;
   }
@@ -23,12 +20,21 @@
     margin-top: 12px !important;
   }
 
-  /* The final mount is also transparent. Do not invent a burgundy bridge;
-     the surrounding article/slideshow sections already own their backgrounds. */
+  /* Arena photo 1: this mount follows the body section. The body grades down
+     to --arena-bone, so continue that exact end colour behind the share rail. */
+  .arena-story-theme main#top section[class*="body"] + div[class*="momentMount"] {
+    background: var(--arena-bone, #f1eadc) !important;
+    box-shadow: 0 0 0 100vmax var(--arena-bone, #f1eadc) !important;
+    clip-path: inset(0 -100vmax) !important;
+  }
+
+  /* Arena photo 2: the final share rail sits immediately after the dark
+     slideshow. Continue the slideshow's bottom colour so no burgundy third
+     band appears between the slideshow and the red final section. */
   .arena-story-theme main#top > div[class*="momentMount"]:has(+ section[class*="finalAct"]) {
-    background: transparent !important;
+    background: #120101 !important;
     background-image: none !important;
-    box-shadow: none !important;
-    clip-path: none !important;
+    box-shadow: 0 0 0 100vmax #120101 !important;
+    clip-path: inset(0 -100vmax) !important;
   }
 }
