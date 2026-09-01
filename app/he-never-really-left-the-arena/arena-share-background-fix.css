@@ -1,11 +1,8 @@
-/* Arena desktop share-rail background repair.
-   The rail itself keeps its designed dark control surface; only the accidental
-   full-width/background layers around it are neutralized so each mount shows
-   the article section directly underneath. */
+/* Arena share-rail background repair.
+   Keep the control rail dark; make every surrounding engagement mount belong
+   to the article section it sits in instead of painting an unrelated field. */
 @media (min-width: 701px) {
-  .arena-story-theme main#top > div[class*="momentMount"],
-  .arena-story-theme main#top section > div[class*="momentMount"],
-  .arena-story-theme main#top div[class*="visualSequence"] > div[class*="momentMount"] {
+  .arena-story-theme main#top div[class*="momentMount"] {
     background: transparent !important;
     background-image: none !important;
     box-shadow: none !important;
@@ -22,8 +19,23 @@
     box-shadow: none !important;
   }
 
-  /* Never let a rail wrapper paint a second color field behind the controls. */
   .arena-story-theme main#top div[class*="momentMount"] > div[class*="rail"] {
     margin-top: 12px !important;
+  }
+
+  /* The final engagement moment is the bridge out of the burgundy slideshow.
+     Continue that Arena burgundy behind this one rail instead of exposing the
+     pale article paper or the old blue-black field. */
+  .arena-story-theme main#top > div[class*="momentMount"]:has(+ section[class*="finalAct"]) {
+    box-sizing: border-box !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 24px max(7.2vw, calc((100vw - 1260px) / 2)) 34px !important;
+    background: #4b0d0d !important;
+  }
+
+  .arena-story-theme main#top > div[class*="momentMount"]:has(+ section[class*="finalAct"]) > div[class*="rail"] {
+    margin-top: 0 !important;
   }
 }
