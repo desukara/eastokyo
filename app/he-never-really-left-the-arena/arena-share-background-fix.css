@@ -41,14 +41,18 @@
     clip-path: inset(0 -100vmax) !important;
   }
 
-  /* Arena photo 2: the final share rail sits immediately after the dark
-     slideshow. Continue the slideshow's bottom colour with a hard boundary
-     into the red final section: no fade, blend, or extra divider treatment. */
+  /* Arena photo 2: make the final share field itself full-width instead of
+     faking full width with a clipped 100vmax shadow. That clipped shadow can
+     render a horizontal seam at the top edge of the mount. */
   .arena-story-theme main#top > div[class*="momentMount"]:has(+ section[class*="finalAct"]) {
+    width: 100% !important;
+    max-width: none !important;
     background: #120101 !important;
     background-image: none !important;
-    box-shadow: 0 0 0 100vmax #120101 !important;
-    clip-path: inset(0 -100vmax) !important;
+    border: 0 !important;
+    outline: 0 !important;
+    box-shadow: none !important;
+    clip-path: none !important;
   }
 
   /* Center only the final Arena share control inside its dark field. */
@@ -60,12 +64,18 @@
     margin-right: auto !important;
   }
 
-  /* The desktop slideshow carried an inset bottom rule into this junction.
-     It reads as a broken decorative divider above the share rail, so remove
-     that bottom rule while leaving the slideshow's top treatment intact. */
+  /* Nothing decorative belongs at the slideshow/share junction. */
   .arena-story-theme main#top section[class*="bullfight-slideshow_gallery"],
   .arena-story-theme main#top section[class*="gallery"]:has(+ div[class*="momentMount"]) {
-    box-shadow: inset 0 1px 0 rgba(190, 141, 73, .24) !important;
+    border-bottom: 0 !important;
+    outline: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .arena-story-theme main#top section[class*="bullfight-slideshow_gallery"]::after,
+  .arena-story-theme main#top section[class*="gallery"]:has(+ div[class*="momentMount"])::after {
+    display: none !important;
+    content: none !important;
   }
 }
 
