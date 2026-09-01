@@ -16,7 +16,11 @@
     box-shadow: none !important;
   }
 
+  /* The shared rail is inline-flex, so auto side margins do not center it.
+     Make only the Arena desktop rails block-level flex containers, preserve
+     their intrinsic width, then center them inside their existing mounts. */
   .arena-story-theme main#top div[class*="momentMount"] > div[class*="rail"] {
+    display: flex !important;
     width: fit-content !important;
     max-width: 100% !important;
     margin-top: 12px !important;
