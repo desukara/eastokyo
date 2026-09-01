@@ -73,6 +73,30 @@
     transform: none !important;
   }
 
+  /* Mobile reading order: quote belongs above photo 08, not between 08 and 09. */
+  .asagayaFestivalShell main#top [class*="streetSequence"] {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .asagayaFestivalShell main#top [class*="streetSide"] {
+    display: contents !important;
+  }
+
+  .asagayaFestivalShell main#top [class*="streetQuote"] {
+    order: -1 !important;
+    width: 100% !important;
+    margin: 0 0 24px !important;
+  }
+
+  .asagayaFestivalShell main#top [class*="streetWide"] {
+    order: 0 !important;
+  }
+
+  .asagayaFestivalShell main#top [class*="streetSide"] > figure {
+    order: 1 !important;
+  }
+
   .asagayaFestivalShell main#top img,
   .asagayaFestivalShell main#top picture,
   .asagayaFestivalShell main#top figure {
