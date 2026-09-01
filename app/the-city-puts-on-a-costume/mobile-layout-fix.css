@@ -87,6 +87,8 @@
     order: -1 !important;
     width: 100% !important;
     margin: 0 0 24px !important;
+    color: #11110f !important;
+    opacity: 1 !important;
   }
 
   .asagayaFestivalShell main#top [class*="streetWide"] {
