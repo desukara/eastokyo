@@ -8,6 +8,12 @@ type Target = 'picasso-opening' | 'picasso-colour' | 'picasso-rhythm' | 'picasso
 
 const targets: Target[] = ['picasso-opening', 'picasso-colour', 'picasso-rhythm', 'picasso-finale'];
 const reactions: ReactionType[] = ['like', 'love', 'wow'];
+const reconstructedBaseline: Record<Target, Record<ReactionType, number>> = {
+  'picasso-opening': { like: 10, love: 7, wow: 4 },
+  'picasso-colour': { like: 7, love: 5, wow: 3 },
+  'picasso-rhythm': { like: 6, love: 4, wow: 4 },
+  'picasso-finale': { like: 8, love: 6, wow: 3 },
+};
 const redisUrl = process.env.UPSTASH_REDIS_REST_URL;
 const redisToken = process.env.UPSTASH_REDIS_REST_TOKEN;
 const namespace = process.env.VERCEL_ENV === 'production' ? 'prod' : 'preview';
@@ -36,7 +42,7 @@ async function state(target: Target, visitorId: string) {
   for (const reaction of reactions) {
     const raw = await redis<string | number | null>(['GET', countKey(target, reaction)]);
     const member = visitorId ? Number(await redis<number>(['SISMEMBER', votersKey(target, reaction), visitorId])) === 1 : false;
-    result[reaction] = { count: Number(raw || 0), active: member };
+    result[reaction] = { count: reconstructedBaseline[target][reaction] + Number(raw || 0), active: member };
   }
   return result;
 }
