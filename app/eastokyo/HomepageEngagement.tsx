@@ -55,7 +55,7 @@ function links(url: string, text: string) {
 }
 
 function Icon({ name }: { name: 'share' | 'instagram' | 'tiktok' | 'pinterest' | 'facebook' | 'x' | 'bluesky' | 'copy' }) {
-  if (name === 'share') return <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.2 12.1 16 4.3M10.4 4.3H16v5.6M14.8 12.7v4.7a2.3 2.3 0 0 1-2.3 2.3H6.6a2.3 2.3 0 0 1-2.3-2.3v-5.9a2.3 2.3 0 0 1 2.3-2.3h4.7"/></svg>;
+  if (name === 'share') return <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.2 12.1 16 4.3M10.4 4.3H16v5.6M14.8 12.7v4.7a2.3 2.3 0 0 1-2.3 2.3H6.6a2.3 2.3 0 0 1 2.3-2.3h4.7"/></svg>;
   if (name === 'instagram') return <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5"/><circle cx="12" cy="12" r="4.1"/><circle cx="17.5" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg>;
   if (name === 'tiktok') return <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.3 3.2v10.5a4.7 4.7 0 1 1-4-4.6v3a1.8 1.8 0 1 0 1.1 1.7V3.2h2.9Zm0 0c.7 2.5 2.2 4 4.7 4.6v3.1c-1.8-.2-3.4-.9-4.7-2"/></svg>;
   if (name === 'pinterest') return <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2a8.8 8.8 0 0 0-3.2 17l1.3-5.4c-.3-.7-.5-1.7-.5-2.5 0-2.3 1.3-4 3-4 1.4 0 2.1 1 2.1 2.3 0 1.4-.9 3.5-1.4 5.4-.4 1.6.8 2.9 2.4 2.9 2.9 0 4.8-3.7 4.8-8 0-3.3-2.7-6.1-7.5-6.1-5.5 0-8.9 4.1-8.9 8.7 0 1.6.5 2.8 1.3 3.7.4.4.4.6.3 1.1l-.4 1.6c-.1.5-.5.7-1 .5-2.6-1.1-3.8-4-3.8-7.3C.5 8 4.8 3.2 12 3.2Z"/></svg>;
@@ -83,6 +83,16 @@ export default function HomepageEngagement() {
   useEffect(() => {
     if (!isHomepage) return;
     setVisitorId(ensureVisitorId());
+
+    const asagayaHead = document.querySelector<HTMLElement>('#asagaya .mag-photo-head');
+    const asagayaFirst = document.querySelector<HTMLElement>('#asagaya .mag-photo-grid .mag-photo-item:first-child');
+    const asagayaCta = asagayaHead?.querySelector<HTMLAnchorElement>('.story-cta--tokyo.is-live') ?? null;
+    const asagayaOriginalNext = asagayaCta?.nextSibling ?? null;
+    if (window.matchMedia('(min-width: 900px)').matches && asagayaCta && asagayaFirst) {
+      asagayaCta.classList.add('asagaya-relocated-cta');
+      asagayaFirst.appendChild(asagayaCta);
+    }
+
     const created: Mounts = {};
     MOMENTS.forEach((moment) => {
       const section = document.querySelector<HTMLElement>(moment.section);
@@ -94,7 +104,13 @@ export default function HomepageEngagement() {
       created[moment.id] = mount;
     });
     setMounts(created);
-    return () => Object.values(created).forEach((element) => element?.remove());
+    return () => {
+      Object.values(created).forEach((element) => element?.remove());
+      if (asagayaCta && asagayaHead) {
+        asagayaCta.classList.remove('asagaya-relocated-cta');
+        asagayaHead.insertBefore(asagayaCta, asagayaOriginalNext);
+      }
+    };
   }, [isHomepage]);
 
   useEffect(() => {
