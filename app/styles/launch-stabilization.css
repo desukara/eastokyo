@@ -115,6 +115,12 @@ main#top figure img {
     white-space: nowrap !important;
   }
 
+  .mag-page #asagaya .mag-photo-item:first-child > .asagaya-relocated-cta .story-cta__status::before,
+  .mag-page #asagaya .mag-photo-item:first-child > .asagaya-relocated-cta .story-cta__status::after {
+    display: none !important;
+    content: none !important;
+  }
+
   .mag-page #asagaya .mag-photo-item:first-child > .asagaya-relocated-cta:hover,
   .mag-page #asagaya .mag-photo-item:first-child > .asagaya-relocated-cta:focus-visible {
     color: #f4efdf !important;
