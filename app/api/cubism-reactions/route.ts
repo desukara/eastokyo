@@ -9,9 +9,9 @@ type Target = 'cubism-opening' | 'cubism-construction' | 'cubism-finale';
 const targets: Target[] = ['cubism-opening', 'cubism-construction', 'cubism-finale'];
 const reactions: ReactionType[] = ['like', 'love', 'wow'];
 const reconstructedBaseline: Record<Target, Record<ReactionType, number>> = {
-  'cubism-opening': { like: 43, love: 23, wow: 17 },
-  'cubism-construction': { like: 29, love: 18, wow: 19 },
-  'cubism-finale': { like: 28, love: 20, wow: 11 },
+  'cubism-opening': { like: 46, love: 25, wow: 18 },
+  'cubism-construction': { like: 31, love: 19, wow: 20 },
+  'cubism-finale': { like: 30, love: 21, wow: 12 },
 };
 const redisUrl = process.env.UPSTASH_REDIS_REST_URL;
 const redisToken = process.env.UPSTASH_REDIS_REST_TOKEN;
