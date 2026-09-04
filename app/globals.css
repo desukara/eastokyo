@@ -196,6 +196,6 @@ main section[id] { scroll-margin-top: 4rem; }
 
 /* TEMPORARY: hide all EASTOKYO footer social icons on every device.
    Remove this rule when the social accounts are ready to be shown again. */
-.social-placeholder {
+.mag-page.mag-site-chrome .mag-footer .mag-footer-links .social-placeholder {
   display: none !important;
 }
