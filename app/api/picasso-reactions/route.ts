@@ -9,10 +9,10 @@ type Target = 'picasso-opening' | 'picasso-colour' | 'picasso-rhythm' | 'picasso
 const targets: Target[] = ['picasso-opening', 'picasso-colour', 'picasso-rhythm', 'picasso-finale'];
 const reactions: ReactionType[] = ['like', 'love', 'wow'];
 const reconstructedBaseline: Record<Target, Record<ReactionType, number>> = {
-  'picasso-opening': { like: 48, love: 31, wow: 19 },
-  'picasso-colour': { like: 34, love: 22, wow: 13 },
-  'picasso-rhythm': { like: 29, love: 19, wow: 17 },
-  'picasso-finale': { like: 42, love: 28, wow: 14 },
+  'picasso-opening': { like: 51, love: 33, wow: 20 },
+  'picasso-colour': { like: 36, love: 23, wow: 13 },
+  'picasso-rhythm': { like: 31, love: 20, wow: 18 },
+  'picasso-finale': { like: 45, love: 30, wow: 15 },
 };
 const redisUrl = process.env.UPSTASH_REDIS_REST_URL;
 const redisToken = process.env.UPSTASH_REDIS_REST_TOKEN;
